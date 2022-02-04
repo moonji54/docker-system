@@ -1,0 +1,101 @@
+/* #General body
+================================================== */
+@mixin ts-body($small : false) {
+
+  @include media("<tablet") {
+
+  }
+
+  a {
+    border-bottom  : 1px solid currentColor;
+    color          : currentColor;
+    font-size      : inherit;
+    padding-bottom : 3px;
+    word-wrap      : break-word;
+  }
+
+  @if ($small) {
+
+    @include media("<tablet") {
+
+    }
+  }
+}
+
+/* #Headings
+================================================== */
+@mixin ts-heading-1 {
+
+  @include media("<tablet") {
+
+  }
+}
+
+@mixin ts-heading-2 {
+
+  @include media("<tablet") {
+
+  }
+}
+
+@mixin ts-heading-3 {
+
+  @include media("<tablet") {
+
+  }
+}
+
+@mixin ts-heading-4 {
+
+  @include media("<tablet") {
+
+  }
+}
+
+@mixin ts-heading-5 {
+
+  @include media("<tablet") {
+
+  }
+}
+
+@mixin ts-heading-6 {
+
+  @include media("<tablet") {
+
+  }
+}
+
+@mixin ts-subtitle($small : false) {
+
+  @include media("<tablet") {
+
+  }
+}
+
+/* Buttons
+================================================== */
+@mixin ts-button($small : false) {
+
+  @include media("<tablet") {
+
+  }
+}
+
+/* Labels
+================================================== */
+@mixin ts-label {
+
+  @include media("<tablet") {
+
+  }
+}
+
+/* Miscellaneous
+================================================== */
+@mixin ts-pullquote {
+
+  @include media("<tablet") {
+
+  }
+}

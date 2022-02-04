@@ -1,0 +1,12 @@
+uuid: babf4df2-ce01-4ac3-bccb-01f9f2b3f51a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: MrPd_zu5C522bMTO3Am7D7Lb1mE9jC0mpDxntzZ6NJ4
+id: user
+label: User
+tags:
+  canonical_url: '[user:url]'
+  description: '[site:name]'
+  title: '[user:display-name] | [site:name]'

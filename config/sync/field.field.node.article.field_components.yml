@@ -1,0 +1,43 @@
+uuid: c672a597-b588-4b3c-9a37-8252c69b4c70
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_components
+    - node.type.article
+    - paragraphs.paragraphs_type.container
+    - paragraphs.paragraphs_type.full_width_media
+    - paragraphs.paragraphs_type.wysiwyg
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: Dqzl6X95Gq50DpTzLUNdILW0dRVNDv-ptNJMliKVtUA
+id: node.article.field_components
+field_name: field_components
+entity_type: node
+bundle: article
+label: Components
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      wysiwyg: wysiwyg
+      container: container
+      full_width_media: full_width_media
+    negate: 0
+    target_bundles_drag_drop:
+      container:
+        weight: 4
+        enabled: true
+      full_width_media:
+        weight: 5
+        enabled: true
+      wysiwyg:
+        weight: 2
+        enabled: true
+field_type: entity_reference_revisions

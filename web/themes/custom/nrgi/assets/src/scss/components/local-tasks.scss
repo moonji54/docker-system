@@ -1,0 +1,36 @@
+.block-local-tasks-block {
+  background-color : #2d2d2d;
+  color            : #ccc;
+  display          : block;
+  font-family      : "Source Sans Pro", "Lucida Grande", Verdana, sans-serif;
+  font-size        : 12px;
+  position         : relative;
+  width            : 100%;
+
+  .tabs {
+    display : block;
+    margin  : 0;
+
+    li {
+      display      : block;
+      float        : left;
+      margin-right : 0;
+
+      a {
+        display : block;
+        padding : 1em 2em;
+
+        &.is-active {
+          background : #0084d7;
+          color      : $white;
+        }
+
+        &:hover, &:focus {
+          background      : #0084d7;
+          color           : $white;
+          text-decoration : none;
+        }
+      }
+    }
+  }
+}

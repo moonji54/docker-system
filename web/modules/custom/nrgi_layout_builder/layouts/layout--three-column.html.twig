@@ -1,0 +1,50 @@
+
+
+{#
+/**
+ * @file
+ * Default theme implementation to display a two-column layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ * - settings: The custom form settings for the layout.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{{ attach_library('nrgi_layout_builder/layout-builder-grid') }}
+
+{# Get the column widths #}
+{% set column_widths = settings.column_width|split('-') %}
+
+{% set row_classes = [
+  'row',
+  'c-layout__row',
+  'c-layout__row--two-column'
+] %}
+
+{% if content %}
+  <div{{ attributes.addClass( row_classes|join(' ') ) }}>
+
+    {% if content.first %}
+      <div {{ region_attributes.first.addClass('c-layout__column', 'c-layout__column--' ~ column_widths.0) }}>
+        {{ content.first }}
+      </div>
+    {% endif %}
+
+    {% if content.second %}
+      <div {{ region_attributes.second.addClass('c-layout__column', 'c-layout__column--' ~ column_widths.1) }}>
+        {{ content.second }}
+      </div>
+    {% endif %}
+
+    {% if content.third %}
+      <div {{ region_attributes.second.addClass('c-layout__column', 'c-layout__column--' ~ column_widths.2) }}>
+        {{ content.third }}
+      </div>
+    {% endif %}
+
+  </div>
+{% endif %}

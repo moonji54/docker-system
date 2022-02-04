@@ -1,0 +1,20 @@
+name: White Label
+type: theme
+description: 'White Label theme'
+package: Soapbox
+core_version_requirement: ^8.8.0 || ^9.0
+libraries:
+  - nrgi/global-styling
+  - nrgi/global-scripts
+
+base theme: classy
+#Using Classy as a base theme https://www.drupal.org/theme-guide/8/classy
+
+regions:
+  pre-header: Pre-Header
+  header: Header
+  content: Content
+  footer: Footer
+
+stylesheets-remove:
+  - '@classy/css/components/form.css'

@@ -1,0 +1,172 @@
+uuid: e4466c66-8c8a-46b6-a650-94adcfe4b545
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.chapterised_item
+    - field.field.node.article.body
+    - field.field.node.article.field_components
+    - field.field.node.article.field_image
+    - field.field.node.article.field_media_image
+    - field.field.node.article.field_summary
+    - node.type.article
+  module:
+    - field_group
+    - media_library
+    - nrgi_layout_builder
+    - path
+third_party_settings:
+  field_group:
+    group_general:
+      children:
+        - group_general_info
+        - group_media
+      label: General
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        direction: vertical
+        width_breakpoint: 640
+    group_general_info:
+      children:
+        - title
+      label: General
+      region: content
+      parent_name: group_general
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_media:
+      children:
+        - field_media_image
+      label: Media
+      region: content
+      parent_name: group_general
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+_core:
+  default_config_hash: e3aiL4kNPqgapuBp3hUWT03dJAJYHxVs7OJxThpCQc4
+id: node.article.chapterised_item
+targetEntityType: node
+bundle: article
+mode: chapterised_item
+content:
+  created:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_components:
+    type: nrgi_layout_paragraphs
+    weight: 8
+    region: content
+    settings:
+      preview_view_mode: default
+      nesting_depth: '0'
+      restrictions:
+        blacklist: include
+        container:
+          nrgi__one_column:
+            first:
+              wysiwyg: wysiwyg
+              full_width_media: full_width_media
+          nrgi__two_column:
+            first:
+              wysiwyg: wysiwyg
+              full_width_media: 0
+            second:
+              wysiwyg: wysiwyg
+              full_width_media: 0
+          nrgi__three_column:
+            first:
+              wysiwyg: wysiwyg
+              full_width_media: 0
+            second:
+              wysiwyg: wysiwyg
+              full_width_media: 0
+            third:
+              wysiwyg: wysiwyg
+              full_width_media: 0
+      require_layouts: 0
+    third_party_settings: {  }
+  field_media_image:
+    type: media_library_widget
+    weight: 9
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_image: true
+  field_summary: true
+  template: true

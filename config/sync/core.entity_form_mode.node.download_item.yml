@@ -1,0 +1,10 @@
+uuid: fe513fb9-b983-4249-8d7a-2ca1a12a837b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.download_item
+label: 'Download Item'
+targetEntityType: node
+cache: true

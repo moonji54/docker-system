@@ -1,0 +1,13 @@
+uuid: 29e2e4e0-9ffc-40ee-965c-24deada91238
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - soapbox_flexible_publishing
+_core:
+  default_config_hash: naghT2h_qnmoRxV52qSMrluhkJKabjk9MoiK0Sx0iMM
+name: 'Content Category'
+vid: content_category
+description: 'Groups content labels into categories'
+weight: 0

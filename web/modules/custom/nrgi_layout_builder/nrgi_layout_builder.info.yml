@@ -1,0 +1,9 @@
+name: 'NRGI Layout Builder'
+type: module
+description: 'Extensions and modifications to the layout builder related functionality.'
+core_version_requirement: ^9.0
+package: 'NRGI'
+dependencies:
+  - drupal:paragraphs
+  - drupal:layout_paragraphs
+  - drupal:layout_paragraphs_restriction

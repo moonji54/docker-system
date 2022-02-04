@@ -1,0 +1,10 @@
+uuid: 258a70af-01c8-4794-a9d3-b3635a345da3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.chapterised_item
+label: 'Chapterised Item'
+targetEntityType: node
+cache: true

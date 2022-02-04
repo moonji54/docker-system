@@ -1,0 +1,15 @@
+{% if breadcrumb %}
+  <ol class="c-breadcrumbs__list">
+    {% for item in breadcrumb %}
+      <li class="c-breadcrumbs__item">
+        {% include directory ~ '/templates/svg/svg.html.twig' with {'svg': 'triangle-left'} %}
+
+        {% if item.url %}
+          <a href="{{ item.url }}" class="c-breadcrumbs__link">{{ item.text }}</a>
+        {% else %}
+          <span class="c-breadcrumb__label">{{ item.text }}</span>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ol>
+{% endif %}

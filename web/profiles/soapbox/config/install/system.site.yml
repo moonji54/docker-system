@@ -1,0 +1,13 @@
+name: 'TODO Client name here'
+mail: support@designbysoapbox.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: U8kkECytEA3ptn_PDAWR5-MV3kRVu4cZ6MajY1pen64

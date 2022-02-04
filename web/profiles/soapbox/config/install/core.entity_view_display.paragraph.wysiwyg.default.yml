@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.wysiwyg.field_body
+    - paragraphs.paragraphs_type.wysiwyg
+  module:
+    - text
+_core:
+  default_config_hash: glNtgnPTBaefaidm74iYM-SSBAQDIiA_5OVFyHdw7Vg
+id: paragraph.wysiwyg.default
+targetEntityType: paragraph
+bundle: wysiwyg
+mode: default
+content:
+  field_body:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

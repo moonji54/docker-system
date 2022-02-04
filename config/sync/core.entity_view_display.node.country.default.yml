@@ -1,0 +1,20 @@
+uuid: 539819ce-556b-44c9-8d9d-29b5efd733fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.country
+  module:
+    - user
+id: node.country.default
+targetEntityType: node
+bundle: country
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,44 @@
+.o-svg {
+  &--burger {
+    // SBTODO: Icon
+    background-color : tomato;
+    height           : 20px;
+    width            : 20px;
+  }
+
+  &--logo {
+    // SBTODO: Icon
+    background-color : tomato;
+    height           : 100px;
+    width            : 100px;
+  }
+
+  &--search {
+    // SBTODO: Icon
+    background-color : tomato;
+    height           : 20px;
+    width            : 20px;
+  }
+
+  /* #Social
+  ================================================== */
+  &--facebook {
+    height : 16px;
+    width  : 16px;
+  }
+
+  &--linkedin {
+    height : 14px;
+    width  : 15px;
+  }
+
+  &--twitter {
+    height : 14px;
+    width  : 18px;
+  }
+
+  &--youtube {
+    height : 13px;
+    width  : 18px;
+  }
+}

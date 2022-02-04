@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - media_library
+  module:
+    - media
+_core:
+  default_config_hash: cKuYbA0WEhHBM0YTDutei45hZvx9fR3VaSgjJQhknjg
+id: media.media_library
+label: 'Media library'
+targetEntityType: media
+cache: true

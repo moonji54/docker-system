@@ -1,0 +1,13 @@
+.c-main-menu {
+  display : flex;
+
+  &__item {
+    position    : relative;
+    margin-left : var(--space-m);
+  }
+
+  &__sub-menu {
+    position       : absolute;
+    flex-direction : column;
+  }
+}

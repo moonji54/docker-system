@@ -1,0 +1,21 @@
+{% set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class,
+  'c-footer',
+] %}
+<div class="c-footer">
+  <div class="c-footer__inner">
+
+    {{ content }}
+
+    <div class="c-footer__credits">
+      {# SBTODO #}
+      © CLIENTNAME {{ 'now'|date('Y') }}. {{ 'All rights reserved.'|trans }}
+      <br/>{{ 'Design and development by'|trans }}
+      <a href="https://soapbox.co.uk" target="_blank">Soapbox</a>
+    </div>
+  </div>
+  <div class="u-clear"></div>
+</div>
+

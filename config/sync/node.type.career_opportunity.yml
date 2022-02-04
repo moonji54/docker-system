@@ -1,0 +1,17 @@
+uuid: 52ec21d5-dfd5-4639-b60c-137136d63b51
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Career Opportunity'
+type: career_opportunity
+description: 'Use this to add job postings to the site.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,30 @@
+nrgi.smallmobile:
+  label: mobile
+  mediaQuery: 'only screen and (max-width: 480px)'
+  weight: 5
+  multipliers:
+    - 1x
+nrgi.mobile:
+  label: mobile
+  mediaQuery: 'only screen and (max-width: 767px)'
+  weight: 4
+  multipliers:
+    - 1x
+nrgi.tablet:
+  label: tablet
+  mediaQuery: 'only screen and (max-width: 1017px)'
+  weight: 3
+  multipliers:
+    - 1x
+nrgi.smalldesktop:
+  label: smalldesktop
+  mediaQuery: 'only screen and (max-width: 1275px)'
+  weight: 2
+  multipliers:
+    - 1x
+nrgi.desktop:
+  label: desktop
+  mediaQuery: 'only screen and (min-width: 1276px)'
+  weight: 1
+  multipliers:
+    - 1x

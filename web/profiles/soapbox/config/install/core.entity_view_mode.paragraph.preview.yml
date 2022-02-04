@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: CG2tXBxzR100S4zzMFmPTJcnFlK8hgGqCi_61qb8TYk
+id: paragraph.preview
+label: Preview
+targetEntityType: paragraph
+cache: true

@@ -1,0 +1,13 @@
+uuid: e5a4a9ab-7ded-4e28-9f4e-1fa1d3dd4b80
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - soapbox_flexible_publishing
+_core:
+  default_config_hash: Qz6k6p52c1wc6HA9E7o8d6NnnStczRM9U1mYVEcW2jk
+name: 'Content Label'
+vid: content_label
+description: 'Content label list'
+weight: 0

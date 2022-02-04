@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a one-column layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ * - settings: The custom form settings for the layout.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{{ attach_library('nrgi_layout_builder/layout-builder-grid') }}
+
+{%
+  set row_classes = [
+  'row',
+  'c-layout__row',
+  'c-layout__row--one-column'
+]
+%}
+
+{% if content %}
+  <div{{ attributes.addClass( row_classes|join(' ') ) }}>
+    <div {{ region_attributes.first.addClass('c-layout__column') }}>
+      {{ content.first }}
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,135 @@
+<!-- Inline style, database may not be available, page must be standalone -->
+<style type="text/css">
+  .c-maintenance__wrapper {
+    align-items     : center;
+    display         : flex;
+    height          : 100vh;
+    justify-content : center;
+  }
+  .c-maintenance {
+    max-width : 800px;
+  }
+  @media screen and (min-height : 800px) {
+    .c-maintenance {
+      margin-bottom : 200px;
+    }
+  }
+  .c-maintenance__top {
+    border  : 3px solid #1e1e46;
+    display : flex;
+  }
+  @media screen and (max-width : 540px) {
+    .c-maintenance__top {
+      display : block;
+    }
+  }
+  .c-maintenance__content {
+    flex-grow : 1;
+    padding   : 8px;
+  }
+  @media screen and (max-width : 540px) {
+    .c-maintenance__content {
+      padding : 16px;
+    }
+  }
+  .c-maintenance__logo-wrapper {
+    align-items    : center;
+    display        : flex;
+    flex-direction : column;
+    flex-grow      : 0;
+    flex-shrink    : 0;
+  }
+  @media screen and (max-width : 540px) {
+    .c-maintenance__logo-wrapper {
+      flex-direction : row;
+    }
+  }
+  .c-maintenance__logo {
+    display    : block;
+    height     : 60px;
+    margin-top : -1px;
+    width      : 141px;
+  }
+  .c-maintenance__logo-fill {
+    background-color : #1e1e46;
+    flex-grow        : 1;
+    margin-top       : -1px;
+    width            : 100%;
+  }
+  @media screen and (max-width : 540px) {
+    .c-maintenance__logo-fill {
+      height      : 58px;
+      margin-left : -1px;
+    }
+    .c-maintenance__logo-fill--first {
+      flex-grow : 0;
+      width     : 0;
+    }
+  }
+  .c-maintenance__title-wrapper {
+    align-items : center;
+    display     : flex;
+  }
+  .c-maintenance__title {
+    color       : #1e1e46;
+    font-family : 'Barlow', sans-serif;
+    font-weight : 700;
+    font-size   : 24px;
+    line-height : 36px;
+    padding     : 8px 16px;
+  }
+  @media screen and (max-width : 540px) {
+    .c-maintenance__title {
+      font-size   : 18px;
+      line-height : 24px;
+    }
+  }
+  .c-maintenance__bottom {
+    border     : 3px solid #1e1e46;
+    display    : flex;
+    margin-top : 32px;
+    max-width  : 800px;
+  }
+  .c-maintenance-message {
+    color       : #1e1e46;
+    font-family : 'Barlow', sans-serif;
+    font-weight : 400;
+    font-size   : 16px;
+    line-height : 20px;
+    padding     : 16px;
+  }
+</style>
+
+{% set title = site_settings.maintenance_page.maintenance_title is defined ? site_settings.maintenance_page.maintenance_title : 'Under maintenance'|t %}
+{% set text = site_settings.maintenance_page.maintenance_text is defined ? site_settings.maintenance_page.maintenance_text : 'Our site is under routine maintenance, please check back again shortly.'|t %}
+
+<div class="c-maintenance__wrapper">
+  <div class="c-maintenance">
+
+    <div class="c-maintenance__top">
+      <div class="c-maintenance__logo-wrapper">
+        <div class="c-maintenance__logo-fill c-maintenance__logo-fill--first"></div>
+        {# SBTODO Set maintenance page logo #}
+        <img
+          class="c-maintenance__logo"
+          src="{{ base_path ~ directory }}/assets/img/logo.png"
+          alt="{{ 'Logo'|t }}"
+        />
+        <div class="c-maintenance__logo-fill c-maintenance__logo-fill--last"></div>
+      </div>
+      <div class="c-maintenance__title-wrapper">
+        <h1 class="c-maintenance__title">{{ title }}</h1>
+      </div>
+    </div>
+
+    <div class="c-maintenance__bottom">
+      <div class="c-maintenance-message__wrapper">
+        <p class="c-maintenance-message">{{ text }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{# SBTODO Set font? #}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow:400,700"/>

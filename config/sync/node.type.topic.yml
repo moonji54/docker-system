@@ -1,0 +1,17 @@
+uuid: ab01a067-8517-40eb-9053-17de05e4fc8b
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Topic
+type: topic
+description: 'This content type primarily functions as a taxonomy.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

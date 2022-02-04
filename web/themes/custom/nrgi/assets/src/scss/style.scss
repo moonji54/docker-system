@@ -1,0 +1,81 @@
+/*
+    Theme Name: Default Theme by Soapbox
+    Theme URI: http://www.soapbox.co.uk
+    Description: Default Theme by Soapbox
+    Author: Soapbox
+    Version: 1.0
+*/
+/*
+    ===============================
+    1. SETTINGS
+    ===============================
+*/
+@import "settings/colours";
+@import "settings/fonts";
+@import "settings/spacing";
+
+// CSS Grid based grid system (1/2)
+@import "settings/grid-settings";
+
+// Float based grid system (1/2)
+// @import "settings/grid-settings--bourbon-neat";
+
+/*
+    ===============================
+    2. TOOLS
+    ===============================
+*/
+// CSS Grid based grid system (2/2)
+@import "tools/include-media/include-media";
+
+// Float based grid system (2/2)
+// @import "tools/neat/neat";
+
+@import "tools/grid-mixins";
+@import "tools/mixins";
+@import "tools/text-styles";
+
+/*
+    ===============================
+    3. RESET
+    ===============================
+*/
+@import "reset/reset";
+/*
+    ===============================
+    4. BASE
+    ===============================
+*/
+@import "base/base";
+/*
+    ===============================
+    5. OBJECTS
+    ===============================
+*/
+@import "objects/button";
+@import "objects/content-from-editor";
+@import "objects/container";
+@import "objects/link";
+@import "objects/section";
+@import "objects/svg";
+/*
+    ===============================
+    6. COMPONENTS
+    ===============================
+*/
+@import "components/breadcrumbs";
+@import "components/footer";
+@import "components/form";
+@import "components/header";
+@import "components/local-tasks";
+@import "components/main-menu";
+@import "components/share";
+@import "components/table";
+/*
+    ===============================
+    7. TRUMPS
+    ===============================
+*/
+@import "overrides/utilities";
+@import "overrides/plugins";
+@import "overrides/print";

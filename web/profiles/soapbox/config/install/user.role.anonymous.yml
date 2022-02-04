@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: l9ctXbuhc2WYmUEZ4I1zDyKUXOU27KliTnmM10c9RX4
+id: anonymous
+label: 'Anonymous user'
+weight: -10
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'access sitemap'
+  - 'search content'
+  - 'use text format restricted_html'
+  - 'view media'
+  - 'view the administration theme'

@@ -1,0 +1,59 @@
+{% if
+  content.twitter is not empty
+  or content.linkedin is not empty
+  or content.facebook is not empty
+  or content.email_subject is not empty
+  or content.email_body is not empty %}
+  <div class="c-share">
+    <div class="o-container">
+      <div class="c-share__inner">
+        <p class="c-share__label">{{ label }}</p>
+        <ul class="c-share__items">
+          {% if content.twitter is not empty %}
+            <li class="c-share__item">
+              <a href="{{ content.twitter|render|striptags }}" class="c-share__link" target="_blank">
+                {# SBTODO set svg #}
+                <svg class="o-svg o-svg--twitter">
+                  <use class="o-svg__use" xlink:href="/{{ base_path ~ directory }}/assets/img/symbol/svg/sprite.symbol.svg?v=3#twitter"/>
+                </svg>
+              </a>
+            </li>
+          {% endif %}
+
+          {% if content.linkedin is not empty %}
+            <li class="c-share__item">
+              <a href="{{ content.linkedin|render|striptags }}" class="c-share__link" target="_blank">
+                {# SBTODO set svg #}
+                <svg class="o-svg o-svg--linkedin">
+                  <use class="o-svg__use" xlink:href="/{{ base_path ~ directory }}/assets/img/symbol/svg/sprite.symbol.svg?v=3#linkedin"/>
+                </svg>
+              </a>
+            </li>
+          {% endif %}
+
+          {% if content.facebook is not empty %}
+            <li class="c-share__item">
+              <a href="{{ content.facebook|render|striptags }}" class="c-share__link" target="_blank">
+                {# SBTODO set svg #}
+                <svg class="o-svg o-svg--facebook">
+                  <use class="o-svg__use" xlink:href="/{{ base_path ~ directory }}/assets/img/symbol/svg/sprite.symbol.svg?v=3#facebook"/>
+                </svg>
+              </a>
+            </li>
+          {% endif %}
+
+          {% if content.email_subject is not empty or content.email_body is not empty %}
+            <li class="c-share__item">
+              <a href="mailto:?subject={{ content.email_subject|render|striptags }}&body={{ content.email_body|render|striptags }}" class="c-share__link" target="_blank">
+                {# SBTODO set svg #}
+                <svg class="o-svg o-svg--email">
+                  <use class="o-svg__use" xlink:href="/{{ base_path ~ directory }}/assets/img/symbol/svg/sprite.symbol.svg?v=3#email"/>
+                </svg>
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endif %}

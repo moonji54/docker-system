@@ -1,0 +1,4 @@
+{% set extra_class = (extra_class is not empty ? ' ' ~ extra_class : '') %}
+<svg class="o-svg o-svg--{{ svg|e('html_attr') }}{{ extra_class }}">
+  <use class="o-svg__use" xlink:href="/{{ base_path ~ directory }}/assets/img/symbol/svg/sprite.symbol.svg?v=11#{{ svg|e('html_attr') }}"/>
+</svg>

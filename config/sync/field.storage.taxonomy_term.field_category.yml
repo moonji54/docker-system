@@ -1,0 +1,21 @@
+uuid: ea7012e7-9af5-441a-8b09-6bb7ed3c6b75
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+_core:
+  default_config_hash: 4MYh1KyvPHottfjFQeGrVL596X68x_1FTGeinji8t7A
+id: taxonomy_term.field_category
+field_name: field_category
+entity_type: taxonomy_term
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

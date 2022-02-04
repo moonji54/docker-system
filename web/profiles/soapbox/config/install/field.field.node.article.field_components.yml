@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_components
+    - node.type.article
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: wgsR4mwfq0H93kCFHhoCwiNmAcT6quZd82Rdjtj5Kkw
+id: node.article.field_components
+field_name: field_components
+entity_type: node
+bundle: article
+label: Components
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles: null
+    target_bundles_drag_drop:
+      wysiwyg:
+        weight: 2
+        enabled: false
+field_type: entity_reference_revisions

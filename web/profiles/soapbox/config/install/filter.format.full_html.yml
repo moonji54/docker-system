@@ -1,0 +1,67 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.full
+  module:
+    - editor
+    - linkit
+    - media
+_core:
+  default_config_hash: 3TVb7gHjznHwqDOGQmsmHmE0U7ko7TTuPCH5v8RaYnU
+name: 'Full HTML'
+format: full_html
+weight: 2
+filters:
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: true
+    weight: 8
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: true
+    weight: 9
+    settings: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }
+  editor_file_reference:
+    id: editor_file_reference
+    provider: editor
+    status: true
+    weight: 11
+    settings: {  }
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<pre> <drupal-media data-entity-type data-entity-uuid data-view-mode data-align data-caption alt title> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id class data*><h3 id class data*> <h4 id class data*> <h5 id class data*> <p> <br> <span> <img src alt height width data-entity-type data-entity-uuid data-align data-caption> <s> <u> <a href hreflang data-entity-substitution data-entity-type data-entity-uuid title target class> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr><iframe src width height data*> <div class id data-align> <figure class id data-align> <hr *><svg xmlns width height viewBox baseProfile*><title *><g fill fill-rule*><path fill d*>'
+      filter_html_help: true
+      filter_html_nofollow: false
+  linkit:
+    id: linkit
+    provider: linkit
+    status: true
+    weight: 0
+    settings:
+      title: true
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: 100
+    settings:
+      default_view_mode: default
+      allowed_view_modes:
+        full: full
+      allowed_media_types:
+        image: image
+        remote_video: remote_video

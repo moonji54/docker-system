@@ -1,0 +1,22 @@
+<header class="c-header" id="js-header">
+  <div class="o-container">
+    <div class="c-header__inner">
+      <a href="/" class="c-header__logo" title="{{ 'Return to the homepage'|t }}">
+        {# SBTODO add and style logo #}
+        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'logo'} %}
+      </a>
+
+      {# SBTODO style main menu #}
+      <div class="c-header__menu">
+        {# SBTODO Change to the name of your menu, dump elements if you need to see what's in your region. #}
+        {{ elements.mainnavigation }}
+      </div>
+
+      <button class="c-header__burger js-header-burger">
+        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'burger', 'extra_class': 'c-header__burger-menu'} %}
+        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'menu-close','extra_class': 'c-header__burger-close'} %}
+        <span class="c-header__burger-text js-burger-text">{{ 'Menu'|trans }}</span>
+      </button>
+    </div>
+  </div>
+</header>

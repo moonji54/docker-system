@@ -1,0 +1,32 @@
+uuid: 9f1f5512-2126-4ec0-afec-0b552808db5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.content_label.field_category
+    - taxonomy.vocabulary.content_label
+_core:
+  default_config_hash: efYAQgvVbzZAZ8jA_qvKiKHsza8k1ip4BpD9rbpYSUo
+id: taxonomy_term.content_label.default
+targetEntityType: taxonomy_term
+bundle: content_label
+mode: default
+content:
+  field_category:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true
+  status: true

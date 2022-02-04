@@ -1,0 +1,12 @@
+uuid: ca616533-8ab3-4a84-9f56-c37b46547452
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: MZ9bT61ftxX6y2Fap7SVM-aqloyHmDFLZjc2CtvhBqU
+id: media.wysiwyg_half_width
+label: 'WYSIWYG half-width'
+targetEntityType: media
+cache: true

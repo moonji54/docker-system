@@ -1,0 +1,44 @@
+{% set base_class = ('sort' in element['#id'] ? 'c-sorters' : 'c-filter') %}
+{% set classes = [
+  base_class,
+  base_class ~ '--' ~ (element['#type'] is defined ? element['#type'] : 'unknown'),
+  base_class ~ '--' ~ (element['#id'] is defined ? element['#id']|replace({'edit-': ''}) : 'id-unknown'),
+  'js-form-item',
+  'js-form-wrapper',
+] %}
+{# SBTODO: Add the class only to checkboxes#}
+<fieldset{{ attributes.addClass(classes) }}>
+  {% set legend_span_classes = [
+    base_class ~ '__legend',
+    required ? base_class ~ '__legend--required',
+    required ? 'js-form-required',
+    'js-filter-header'
+  ] %}
+
+  {% if legend.title is not empty %}
+    <legend{{ legend.attributes.addClass(legend_span_classes) }}>
+      {{ legend.title }}
+
+      {# Output the chevron if filter is not publication status or sorter #}
+      {% if element['#id'] is defined and element['#id'] != 'edit-status' and element['#id'] != 'edit-sort-bef-combine' %}
+        <span class="c-filter__chevron js-filter-chevron">
+          {% include '@mignex/svg/svg.html.twig' with {'svg': 'chevron'} %}
+        </span>
+      {% endif %}
+    </legend>
+  {% endif %}
+
+  <div class="{{ base_class }}__items">
+    {% if errors %}
+      <div class="{{ base_class }}__item-error">
+        <strong>{{ errors }}</strong>
+      </div>
+    {% endif %}
+
+    {{ children }}
+
+    {% if description.content %}
+      <div{{ description.attributes.addClass(base_class ~ '__item-description') }}>{{ description.content }}</div>
+    {% endif %}
+  </div>
+</fieldset>

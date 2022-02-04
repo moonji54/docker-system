@@ -1,0 +1,44 @@
+.c-form {
+  label {
+    @include ts-heading-5;
+    font-weight : 500;
+  }
+
+  input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="number"], select, textarea {
+    border     : 1px solid $primary;
+    box-sizing : border-box;
+    display    : block;
+    margin     : var(--space-s) 0 var(--space-m) 0;
+    padding    : var(--space-s);
+  }
+
+  .description {
+    @include ts-body;
+    margin : var(--space-s) 0;
+
+    a {
+      font-weight : 500;
+
+      &:hover, &:focus {
+        text-decoration : underline;
+      }
+    }
+  }
+
+  input[type="submit"], input[type="button"] {
+    @include o-button;
+    background-color : $white;
+    margin           : 0;
+
+    &:hover, &:focus {
+      background-color : $primary;
+      color            : $white;
+    }
+  }
+
+  .form-managed-file {
+    input[type="submit"], input[type="button"] {
+      padding : var(--space-xs) var(--space-m);
+    }
+  }
+}

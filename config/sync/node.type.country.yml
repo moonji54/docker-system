@@ -1,0 +1,17 @@
+uuid: d639027b-50ee-4234-9024-1a4f47467faa
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Country
+type: country
+description: 'This content type primarily functions as a taxonomy.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

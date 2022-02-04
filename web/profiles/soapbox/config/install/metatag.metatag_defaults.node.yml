@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 88dO8PdhpV-aNO1y23e86U3kGFMG3A0gJm6Oc0_YbTo
+id: node
+label: Content
+tags:
+  description: '[node:summary]'
+  canonical_url: '[node:url]'
+  title: '[node:title] | [site:name]'
+  og_site_name: '[site:name]'
+  og_image_height: '[node:field_media:entity:field_media_image:og_image:height]'
+  og_title: '[node:title]'
+  og_description: '[node:field_summary]'
+  og_image_width: '[node:field_media:entity:field_media_image:og_image:width]'
+  og_image_alt: '[node:field_media:entity:name]'
+  og_image: '[node:field_media:entity:field_media_image:og_image:url]'
+  twitter_cards_image_alt: '[node:field_media:entity:name]'
+  twitter_cards_title: '[node:title]'
+  twitter_cards_page_url: '[node:path]'
+  twitter_cards_type: summary_large_image
+  twitter_cards_image_width: '[node:field_media:entity:field_media_image:og_image:width]'
+  twitter_cards_image_height: '[node:field_media:entity:field_media_image:og_image:height]'
+  twitter_cards_image: '[node:field_media:entity:field_media_image:og_image:url]'
+  twitter_cards_description: '[node:field_summary]'

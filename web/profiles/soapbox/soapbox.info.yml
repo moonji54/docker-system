@@ -1,0 +1,86 @@
+name: Soapbox
+type: profile
+description: 'Soapbox install profile extending Standard'
+core_version_requirement: ^8.8.0 || ^9.0
+
+install:
+  - node
+  - history
+  - block
+  - breakpoint
+  - context_active_trail
+  - context_ui
+  - ckeditor
+  - color
+  - config
+  - linkit
+  - metatag
+  - metatag_open_graph
+  - metatag_twitter_cards
+  - menu_link_content
+  - datetime
+  - block_content
+  - editor
+  - help
+  - admin_toolbar
+  - admin_toolbar_links_access_filter
+  - admin_toolbar_search
+  - adminimal_admin_toolbar
+  - image
+  - menu_ui
+  - media
+  - media_library
+  - soapbox_media
+  - soapbox_nodes
+  - soapbox_filters
+  - soapbox_forms
+  - soapbox_field_plugins
+  - soapbox_breadcrumbs
+  - soapbox_related_content
+  - soapbox_themes
+  - soapbox_views
+  - unified_date
+  - options
+  - path
+  - page_cache
+  - dynamic_page_cache
+  - big_pipe
+  - taxonomy
+  - dblog
+  - search
+  - toolbar
+  - field_ui
+  - file
+  - rdf
+  - views
+  - views_ui
+  - automated_cron
+  - field_group
+  - menu_block
+  - allowed_formats
+  - paragraphs
+  - redirect
+  - role_delegation
+  - save_edit
+  - search_api
+  - shortcut
+  - simple_sitemap
+  - simple_user_management
+  - site_settings
+  - swiftmailer
+  - sitemap
+  - responsive_image
+  - twig_tweak
+  - oembed_providers
+  - twig_field_value
+  - token_default
+  - views_ajax_history
+  - viewsreference
+  - better_exposed_filters
+  - anchor_link
+  - soapbox_routes
+  - content_moderation
+  - workflows
+themes:
+  - bartik
+  - claro

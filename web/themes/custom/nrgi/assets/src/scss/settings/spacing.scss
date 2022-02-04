@@ -1,0 +1,29 @@
+/* Baseline
+================================================== */
+$baseline-spacing : 4px;
+
+/* Spacing
+================================================== */
+:root {
+  --space-xxs : #{$baseline-spacing}; // 4px
+  --space-xs  : #{$baseline-spacing * 2}; // 8px
+  --space-s   : #{$baseline-spacing * 3}; // 12px
+  --space-m   : #{$baseline-spacing * 4}; // 16px
+  --space-l   : #{$baseline-spacing * 6}; // 24px
+  --space-xl  : #{$baseline-spacing * 8}; // 32px
+  --space-2xl : #{$baseline-spacing * 12}; // 48px
+  --space-3xl : #{$baseline-spacing * 16}; // 64px
+  --space-4xl : #{$baseline-spacing * 20}; // 80px
+}
+
+/*
+
+Usage examples:
+
+Single value:
+  padding: var(--space-xl);
+
+Multi value:
+  padding: var(--space-m) 0 var(--space-l);
+
+ */

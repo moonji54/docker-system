@@ -1,0 +1,16 @@
+<div{{ attributes.addClass('c-login') }}>
+  <div class="o-container">
+    <div class="c-login__inner">
+      {{ title_prefix }}
+      {% if label %}
+        <h2{{ title_attributes.addClass('c-login__title') }}>{{ label }}</h2>
+      {% endif %}
+      {{ title_suffix }}
+      {% block content %}
+        <div class="c-form">
+          {{ content }}
+        </div>
+      {% endblock %}
+    </div>
+  </div>
+</div>

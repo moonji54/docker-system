@@ -1,0 +1,25 @@
+uuid: 805eeaf1-bf79-49eb-b5e0-80ba9652357e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_allowed_content_types
+    - taxonomy.vocabulary.content_category
+_core:
+  default_config_hash: Ku13TeSTNupnupNAYBQwdcFx5kAmoyN9z3PgF1A2204
+id: taxonomy_term.content_category.field_allowed_content_types
+field_name: field_allowed_content_types
+entity_type: taxonomy_term
+bundle: content_category
+label: 'Allowed content types'
+description: 'Which content types can use sub-types in this category?'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node_type'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

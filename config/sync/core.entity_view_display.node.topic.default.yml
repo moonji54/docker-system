@@ -1,0 +1,20 @@
+uuid: bed68bff-6301-4796-8f3f-a9816d923b3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.topic
+  module:
+    - user
+id: node.topic.default
+targetEntityType: node
+bundle: topic
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

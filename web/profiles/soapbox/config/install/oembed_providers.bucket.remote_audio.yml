@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+id: remote_audio
+label: 'Remote audio'
+providers:
+  - Audioboom
+  - SoundCloud
+  - Spotify
+description: ''

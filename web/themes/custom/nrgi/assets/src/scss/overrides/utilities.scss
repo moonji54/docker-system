@@ -1,0 +1,18 @@
+/* #Miscellaneous
+================================================== */
+.u-accessible-hide {
+  height   : 1px;
+  left     : -10000px;
+  overflow : hidden;
+  position : absolute;
+  top      : auto;
+  width    : 1px;
+}
+
+.u-hidden {
+  display : none;
+}
+
+.u-clear {
+  clear : both;
+}

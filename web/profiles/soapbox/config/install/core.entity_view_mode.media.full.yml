@@ -1,0 +1,11 @@
+langcode: en
+status: false
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: UEyG9r4ecTwLPFjpthLCx19I5e_J4vIbbALFwIXUwig
+id: media.full
+label: 'Full content'
+targetEntityType: media
+cache: true

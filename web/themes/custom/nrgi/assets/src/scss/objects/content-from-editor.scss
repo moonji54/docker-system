@@ -1,0 +1,225 @@
+.o-content-from-editor {
+  p {
+    @include ts-body;
+    margin-bottom : var(--space-xl);
+  }
+
+  // Fix for old legacy contents where client has added various spans within divs.
+  div span {
+    @include ts-body;
+    margin-bottom : var(--space-xl);
+  }
+
+  h1, h2, h3, h4, h5, h6, p, ol, ul, a {
+    box-sizing : border-box;
+  }
+
+  h1 {
+    @include ts-heading-1;
+    margin-bottom : var(--space-xl);
+  }
+
+  h2 {
+    @include ts-heading-2;
+    margin-bottom : var(--space-xl);
+  }
+
+  h3, h4, h5, h6 {
+    @include ts-heading-3;
+    margin-bottom : var(--space-xl);
+  }
+
+  p + h1,
+  p + h2,
+  p + h3,
+  blockquote + h1,
+  blockquote + h2,
+  blockquote + h3,
+  blockquote + h4,
+  blockquote + h5,
+  blockquote + h6 {
+    margin-top : var(--space-3xl);
+  }
+
+  p + h4,
+  p + h5,
+  p + h6,
+  blockquote + p {
+    margin-top : var(--space-xl);
+  }
+
+  a {
+    text-decoration : underline;
+
+    &:hover, &:focus {
+      color           : $primary--light;
+      text-decoration : underline;
+    }
+  }
+
+  > :last-child {
+    margin-bottom : 0;
+  }
+
+  img {
+    display   : block;
+    height    : auto;
+    max-width : 100%;
+    width     : auto;
+
+    &.size-large {
+      margin-left  : 0;
+      margin-right : 0;
+      width        : 100%;
+    }
+  }
+
+  figure {
+    margin-bottom : var(--space-m);
+
+    figcaption {
+      box-sizing : border-box;
+      display    : inline-block;
+      padding    : var(--space-s) var(--space-m);
+      width      : 100%;
+    }
+  }
+
+  /* Block Quotes
+  ================================================== */
+  blockquote {
+    border-left : 3px solid $primary;
+    margin      : var(--space-2xl) 0 var(--space-2xl) var(--space-l);
+    padding     : var(--space-s) 0 var(--space-s) var(--space-xl);
+
+    p {
+      @include ts-body;
+      font-style    : italic;
+      font-weight   : 400;
+      margin-bottom : 0;
+    }
+
+    footer {
+      @include ts-body(true);
+      margin-top : var(--space-m);
+    }
+  }
+
+  /* Aligned Images
+  ================================================== */
+  .alignleft, .align-left {
+    float  : left;
+    margin : var(--space-l) var(--space-xl) var(--space-l) 0;
+  }
+
+  .aligncenter, .align-center {
+    display : block;
+    margin  : var(--space-xl) auto var(--space-xl) auto;
+  }
+
+  .alignright, .align-right {
+    float  : right;
+    margin : var(--space-l) 0 var(--space-xl) var(--space-l);
+  }
+
+  .alignnone {
+    display   : block;
+    margin    : var(--space-3xl) 0 var(--space-3xl);
+    height    : auto;
+    max-width : 100%;
+
+    @include media(">tablet") {
+      margin-top : var(--space-xl);
+    }
+  }
+
+  .alignleft,
+  .alignright,
+  .alignnone {
+    @include media(">tablet") {
+      display       : block;
+      float         : none;
+      margin-bottom : var(--space-m);
+      margin-left   : 0;
+    }
+  }
+
+  /* Lists
+  ================================================== */
+  ol {
+    list-style : decimal;
+
+    ul {
+      list-style : disc;
+    }
+
+    ol {
+      list-style : lower-latin;
+    }
+  }
+
+  ul {
+    list-style : disc;
+
+    ul {
+      list-style : circle;
+    }
+
+    ol {
+      list-style : decimal;
+    }
+  }
+
+  ol, ul {
+    @include ts-body;
+    margin : var(--space-m) 0 var(--space-l) var(--space-l);
+
+    @include media(">tablet") {
+      margin-bottom : var(--space-m);
+      margin-top    : var(--space-m);
+    }
+
+    ul, ol {
+      margin : 4px 0 5px var(--space-l);
+    }
+
+    li {
+      margin-bottom : var(--space-xs);
+      padding-left  : var(--space-xs);
+    }
+  }
+
+  /* Miscellaneous
+  ================================================== */
+  address {
+    @include ts-body;
+    font-style    : italic;
+    margin-bottom : var(--space-m);
+  }
+
+  big {
+    font-size   : 22px;
+    line-height : 32px;
+  }
+
+  small {
+    font-size   : 14px;
+    line-height : 22px;
+  }
+
+  cite {
+    font-weight : 700;
+  }
+
+  q {
+    font-style : italic;
+  }
+
+  code, var {
+    font-family : Consolas, monospace;
+  }
+
+  div {
+    margin-bottom : var(--space-m);
+  }
+}

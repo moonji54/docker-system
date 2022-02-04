@@ -1,0 +1,20 @@
+uuid: 69551398-1384-4fdc-ad2c-3a3a492f3b4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.external_publication
+  module:
+    - user
+id: node.external_publication.default
+targetEntityType: node
+bundle: external_publication
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

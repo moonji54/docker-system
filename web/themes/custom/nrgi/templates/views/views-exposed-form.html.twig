@@ -1,0 +1,50 @@
+{# Filters, submit, reset, and other action buttons #}
+{% if form['#filters'] is not empty %}
+
+  {% if attribute(form, 'keywords') is defined %}
+    {{ attribute(form, 'keywords') }}
+  {% endif %}
+
+  <h5 class="c-listing__filters-title ts-filter-item">{{ 'Filter  by:'|t }}</h5>
+  {% for key in form['#filters'] %}
+    {% if attribute(form, key) is defined and key != 'keywords' %}
+      {{ attribute(form, key) }}
+    {% endif %}
+  {% endfor %}
+
+  {% for key in form['#submit_buttons'] %}
+    {% if attribute(form, key) is defined %}
+      {{ attribute(form, key) }}
+    {% endif %}
+  {% endfor %}
+
+  {# Active filters are configured using BEF #}
+  {% if form.active_filters is not empty %}
+    {{ attribute(form, 'active_filters') }}
+  {% endif %}
+
+{% endif %}
+
+{# Sorters #}
+{% if form['#sorters'] is not empty %}
+  <div class="c-sorters">
+
+    {% for key in form['#sorters'] %}
+      {% if attribute(form, key) is defined %}
+        {{ attribute(form, key) }}
+      {% endif %}
+    {% endfor %}
+
+  </div>
+{% endif %}
+
+{# Output whatever is left unrendered such as hidden fields. #}
+{% for key, value in form %}
+  {% if
+    not key starts with '#'
+    and key not in form['#filters']
+    and key not in form['#sorters']
+    and key not in form['#submit_buttons'] %}
+    {{ value }}
+  {% endif %}
+{% endfor %}

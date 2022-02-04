@@ -1,0 +1,13 @@
+{% set classes = [
+  'c-node',
+  'c-node--type-' ~ node.bundle|clean_class,
+] %}
+<article{{ attributes.addClass(classes) }}>
+
+  <h1 class="c-node__title">{{ label }}</h1>
+
+  <div class="c-node__contents">
+    {{ content }}
+  </div>
+
+</article>

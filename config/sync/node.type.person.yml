@@ -1,0 +1,17 @@
+uuid: 36be1a08-13bb-4a65-874f-97f9516f0b28
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Person
+type: person
+description: 'Use this to add People to the site.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

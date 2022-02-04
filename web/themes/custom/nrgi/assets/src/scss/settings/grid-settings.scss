@@ -1,0 +1,9 @@
+// The space between columns and the space padding the edges of the browser.
+$gutter         : 32px;
+$gutter--mobile : 16px;
+
+// The maximum width the site will go before the container kicks in.
+$max-width      : 1136px;
+
+// Breakpoints that are used by include-media.scss
+$breakpoints    : (phone: 320px, large-phone: 550px, tablet: 768px, desktop: 1024px, large-desktop: 1200px);

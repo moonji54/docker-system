@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: wBC_URho9jk2ppj0493IH0OdPRebHC9eMQDhRszhNkc
+id: wysiwyg
+label: WYSIWYG
+icon_uuid: null
+icon_default: null
+description: 'A rich text area.'
+behavior_plugins: {  }

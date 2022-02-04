@@ -1,0 +1,20 @@
+uuid: d878091b-24da-4ee2-9858-9eee45b6ecbd
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.event
+  module:
+    - user
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

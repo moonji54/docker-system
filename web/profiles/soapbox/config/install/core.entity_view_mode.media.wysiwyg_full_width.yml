@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: G32VfSgilHC48JI1aXGL8-LqIdSge4T8CcUdHcb0Riw
+id: media.wysiwyg_full_width
+label: 'WYSIWYG full-width'
+targetEntityType: media
+cache: true

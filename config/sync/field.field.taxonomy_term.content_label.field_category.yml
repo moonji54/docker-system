@@ -1,0 +1,31 @@
+uuid: 8b04a50f-3b42-4367-a376-a09c28631d16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_category
+    - taxonomy.vocabulary.content_category
+    - taxonomy.vocabulary.content_label
+_core:
+  default_config_hash: suArUlHsidg_JYpwUypc_n_0phEtR4kZ1M-ErT-fCmI
+id: taxonomy_term.content_label.field_category
+field_name: field_category
+entity_type: taxonomy_term
+bundle: content_label
+label: Category
+description: 'Which category should this content label apply to?'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_category: content_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

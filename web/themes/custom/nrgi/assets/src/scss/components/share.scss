@@ -1,0 +1,38 @@
+.c-share {
+  padding-top : var(--space-xl);
+  position    : relative;
+
+  &__inner {
+    @include grid;
+  }
+
+  &__label {
+    @include ts-body;
+    float       : left;
+    font-weight : 500;
+    line-height : 36px;
+  }
+
+  &__items {
+    float       : left;
+    margin-left : var(--space-xl);
+  }
+
+  &__item {
+    float       : left;
+    margin-left : var(--space-m);
+  }
+
+  &__link {
+    @include ts-body;
+    color : $primary;
+
+    &:hover {
+      color : $primary--light;
+    }
+
+    .o-svg {
+      vertical-align : middle;
+    }
+  }
+}

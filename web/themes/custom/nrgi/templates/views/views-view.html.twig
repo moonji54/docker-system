@@ -1,0 +1,74 @@
+{% set classes = [
+  'view',
+  'view-' ~ id|clean_class,
+  'view-id-' ~ id,
+  'view-display-id-' ~ display_id,
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
+] %}
+<div{{ attributes.addClass(classes) }}>
+  <div class="c-listing__inner">
+
+    {{ title_prefix }}
+    {% if title %}
+      {{ title }}
+    {% endif %}
+    {{ title_suffix }}
+
+    {% if attachment_before %}
+      <div class="c-listing__attachment c-listing__attachment-before">
+        {{ attachment_before }}
+      </div>
+    {% endif %}
+
+    <div class="c-listing__filters js-filters">
+      {{ exposed }}
+    </div>
+
+    {% set has_padding_top = (header is not empty or exposed['#sorters'] is not empty) %}
+    <div class="c-listing__content c-listing__content--nine-col">
+      {% if header is not empty %}
+        <div class="c-listing__results-count">
+          {{ header }}
+        </div>
+      {% endif %}
+      {% if rows %}
+        <div class="c-listing__items">
+          {{ rows }}
+        </div>
+        {% if pager %}
+          {{ pager }}
+        {% endif %}
+      {% elseif empty %}
+
+        <div class="c-listing__empty">
+          {% if site_settings.listings.listing_no_results.field_text is not empty %}
+            <h2 class="c-listing__empty-title ts-heading-4">{{ site_settings.listings.listing_no_results.field_text }}</h2>
+          {% endif %}
+
+          {% if site_settings.listings.listing_no_results.field_summary is not empty %}
+            <p class="c-listing__empty-body ts-body">{{ site_settings.listings.listing_no_results.field_summary|nl2br }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+    {% if attachment_after %}
+      <div class="c-listing__attachment c-listing__attachment-after">
+        {{ attachment_after }}
+      </div>
+    {% endif %}
+    {% if more %}
+      {{ more }}
+    {% endif %}
+    {% if footer %}
+      <div class="c-listing__footer">
+        {{ footer }}
+      </div>
+    {% endif %}
+    {% if feed_icons %}
+      <div class="c-listing__feed-icons">
+        {{ feed_icons }}
+      </div>
+    {% endif %}
+  </div>
+</div>

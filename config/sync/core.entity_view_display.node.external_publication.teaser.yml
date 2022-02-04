@@ -1,0 +1,21 @@
+uuid: 1e814e35-486b-4b50-b9e5-4e3990a279c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.external_publication
+  module:
+    - user
+id: node.external_publication.teaser
+targetEntityType: node
+bundle: external_publication
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

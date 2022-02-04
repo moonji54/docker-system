@@ -1,0 +1,18 @@
+uuid: 557a28ea-f9cf-47f0-97e3-02e32eca3c96
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.max_1300x1300
+_core:
+  default_config_hash: FCwEy07CoIXPCYrrF_O4icOoIuqraOsHe62rKzDrgt8
+id: wysiwyg_full_width
+label: 'WYSIWYG full-width'
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: max_1300x1300
+breakpoint_group: responsive_image
+fallback_image_style: max_1300x1300

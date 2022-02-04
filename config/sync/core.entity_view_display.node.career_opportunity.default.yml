@@ -1,0 +1,20 @@
+uuid: c4012261-6d18-41b7-a2f7-c6ed56e59884
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.career_opportunity
+  module:
+    - user
+id: node.career_opportunity.default
+targetEntityType: node
+bundle: career_opportunity
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

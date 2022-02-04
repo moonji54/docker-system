@@ -1,0 +1,44 @@
+<?php
+
+
+/**
+ * Implements hook_plugin_filter_TYPE__CONSUMER_alter().
+ */
+function nrgi_layout_builder_plugin_filter_layout__layout_builder_alter(array &$definitions): void {
+  // Remove all non-demo layouts from Layout Builder.
+  foreach ($definitions as $id => $definition) {
+    if (!str_starts_with($id, 'nrgi')) {
+      unset($definitions[$id]);
+    }
+  }
+}
+
+// Whatever the score is.
+$form_totals = [
+  'commitments' => 4,
+  'pledge' => 7,
+];
+
+// Get and do something with the ranking.
+foreach ($form_totals as $type => $score) {
+  $ranking = get_ranking($type, $score);
+}
+
+function get_ranking($type, $score) {
+  $settings = [
+    'commitments' => [
+      'gold' => 7,
+      'bronze' => 5,
+      'etc' => 3,
+      'etc2' => 1,
+    ],
+  ];
+  if (isset($settings[$type])) {
+    foreach ($settings[$type] as $ranking => $minimum_score) {
+      if ($score >= $minimum_score) {
+        return $ranking;
+      }
+    }
+  }
+  return false;
+}

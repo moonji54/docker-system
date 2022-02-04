@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 3S9ppvjoX6680IOOwfdqFhRGKq-IrMgQc-w-pSqxnWA
+id: authenticated
+label: 'Authenticated user'
+weight: -9
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access shortcuts'
+  - 'access site-wide contact form'
+  - 'access sitemap'
+  - 'search content'
+  - 'use text format basic_html'
+  - 'view media'
+  - 'view the administration theme'

@@ -1,0 +1,47 @@
+uuid: eda9391b-d22d-4ac2-9b4d-cec628ab8d82
+langcode: en
+status: true
+dependencies:
+  module:
+    - context
+  theme:
+    - claro
+_core:
+  default_config_hash: aWJJLQ_Xup-mG7RfcR6-MOZbFW2ETUpA3qYNFnSij-0
+id: claro_secondary_local_tasks
+theme: claro
+region: pre_content
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility:
+  context:
+    id: context
+    negate: null
+    values: ''
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  request_path_exclusion:
+    id: request_path_exclusion
+    negate: true
+    pages: '/node/*/edit/*'
+  context_all:
+    id: context_all
+    negate: null
+    values: ''

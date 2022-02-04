@@ -1,0 +1,17 @@
+uuid: 15b02b5d-62d3-4adb-99e0-ab89e77a619c
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Collection
+type: collection
+description: 'Use this for the Collection content type where the goal is to group other contents together.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

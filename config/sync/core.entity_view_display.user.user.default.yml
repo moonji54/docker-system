@@ -1,0 +1,31 @@
+uuid: d9ad6265-6247-4c73-840d-5e86edf1ea29
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - image
+    - user
+_core:
+  default_config_hash: UGX5rtwRCnnV95CQDaH9Njbs_-l-uX_6VExEux_MDVo
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  member_for:
+    weight: 5
+    region: content
+  user_picture:
+    type: image
+    weight: 0
+    region: content
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  search_api_excerpt: true

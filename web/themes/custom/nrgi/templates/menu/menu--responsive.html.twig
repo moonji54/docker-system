@@ -1,0 +1,81 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+<div class="c-responsive-menu js-responsive-menu">
+
+  {% if site_settings.header.tagline is not empty %}
+    <div class="c-responsive-menu__tagline-wrapper">
+      <div class="o-container">
+        <p class="c-responsive-menu__tagline">{{ site_settings.header.tagline }}</p>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="c-responsive-menu__inner">
+
+    <form class="c-responsive-menu__form" action="/search" method="get">
+      <input title="Enter the terms you wish to search for." placeholder="{{ site_settings.header.header|e('html_attr') }}" type="search" name="keywords" value="" size="15" maxlength="128" class="c-responsive-menu__keywords"/>
+      <button class="c-responsive-menu__button" title="Search all content" type="submit" value="">
+        <span class="c-responsive-menu__button-text u-accessible-hide">Search</span>
+      </button>
+    </form>
+
+    {{ menus.menu_links(items, attributes, 0, directory) }}
+  </div>
+
+</div>
+
+{% macro menu_links(items, attributes, menu_level, directory) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+<ul{{ attributes.addClass('c-responsive-menu__list') }}>
+  {% else %}
+  <ul class="c-responsive-menu__sublist">
+    {% endif %}
+    {% for item in items %}
+      {% set classes = [
+        'c-responsive-menu__item',
+        item.is_expanded ? 'c-responsive-menu__item--expanded',
+        item.is_collapsed ? 'c-responsive-menu__item--collapsed',
+        item.in_active_trail ? 'c-responsive-menu__item--active-trail',
+      ] %}
+      <li{{ item.attributes.addClass(classes) }}>
+        <span class="c-responsive-menu__row">
+          {{ link(item.title, item.url, { 'class':['c-responsive-menu__link']}) }}
+          {% if item.below %}
+            <a href="#" class="c-responsive-menu__toggle js-responsive-menu-toggle">{% include directory ~ '/templates/svg/svg.html.twig' with {'svg': 'caret'} %}</a>
+          {% endif %}
+        </span>
+
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1, directory) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endmacro %}

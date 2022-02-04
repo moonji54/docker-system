@@ -1,0 +1,14 @@
+/* Grid for different column quantities */
+.c-layout__row {
+  display: grid;
+  grid-column-gap: 16px;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.c-layout__row--two-column {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.c-layout__row--three-column {
+  grid-template-columns: repeat(3, 1fr);
+}

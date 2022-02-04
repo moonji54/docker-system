@@ -1,0 +1,10 @@
+uuid: 8218dddc-5ba2-4599-b322-be0a81d2c8c3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.external_item
+label: 'External Item'
+targetEntityType: node
+cache: true

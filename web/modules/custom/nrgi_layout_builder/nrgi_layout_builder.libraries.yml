@@ -1,0 +1,16 @@
+layout-builder-grid:
+  version: 1.0
+  css:
+    base:
+      assets/css/layout-builder-grid.css: {}
+
+layout-builder-expand:
+  version: 1.0
+  css:
+    base:
+      assets/css/layout-builder-expand.css: {}
+  js:
+    assets/js/layout-builder-expand.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

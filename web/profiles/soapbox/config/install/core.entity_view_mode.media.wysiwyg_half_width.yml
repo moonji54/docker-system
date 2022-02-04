@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: _rg3hxi160ZFsBibNHE-I1FRML-eT51QQz_PijINl7o
+id: media.wysiwyg_half_width
+label: 'WYSIWYG half-width'
+targetEntityType: media
+cache: true

@@ -1,0 +1,17 @@
+uuid: 0719b169-f9ef-4c3c-992a-fea2c31914d1
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Event
+type: event
+description: 'Use this to create Event content items.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

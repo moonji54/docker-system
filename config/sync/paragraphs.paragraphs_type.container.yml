@@ -1,0 +1,18 @@
+uuid: 2d5e657a-8b10-46eb-a37c-ca160adc962a
+langcode: en
+status: true
+dependencies:
+  module:
+    - layout_paragraphs
+id: container
+label: Container
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins:
+  layout_paragraphs:
+    enabled: true
+    available_layouts:
+      nrgi__one_column: 'One Column'
+      nrgi__two_column: 'Two Column'
+      nrgi__three_column: 'Three Column'

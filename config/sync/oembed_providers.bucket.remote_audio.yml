@@ -1,0 +1,13 @@
+uuid: 0ae080c9-9ff7-4ab5-afe4-7e732e8202e8
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rcLDRYlhQJTtvMzeCM6vHTn_HicNv2rNPcz8r_Mya_8
+id: remote_audio
+label: 'Remote audio'
+providers:
+  - Audioboom
+  - SoundCloud
+  - Spotify
+description: ''

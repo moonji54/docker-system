@@ -1,0 +1,11 @@
+{% set rendered = content|render %}
+{% if rendered|striptags|trim is not empty %}
+  <div class="c-breadcrumbs">
+    <div class="o-container">
+      <div class="c-breadcrumbs__inner">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
