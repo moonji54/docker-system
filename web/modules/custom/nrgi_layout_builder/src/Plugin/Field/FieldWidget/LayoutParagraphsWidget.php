@@ -46,6 +46,9 @@ class LayoutParagraphsWidget extends LayoutParagraphsRestrictionWidget {
    */
   protected function formMultipleElements(FieldItemListInterface $items, array &$form, FormStateInterface $form_state) {
     $elements = parent::formMultipleElements($items, $form, $form_state);
+    if ($form_state->getFormObject()->getFormId() === 'field_config_edit_form') {
+      return $elements;
+    }
     $elements['expand'] = [
       '#type' => 'button',
       '#value' => ['Expand'],
