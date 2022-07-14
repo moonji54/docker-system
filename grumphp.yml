@@ -1,0 +1,29 @@
+grumphp:
+  process_timeout: 60
+  tasks:
+    phpcs:
+      standard: Drupal
+      ignore_patterns:
+        - .github
+        - .gitlab
+        - bower_components
+        - node_modules
+        - vendor
+        - web/core
+        - web/libraries
+        - web/modules/contrib
+        - web/sites/default
+        - "*.json"
+        - "*vendor/*"
+        - /.ddev/
+        - /tests/
+        - web/README.md
+        - CHANGELOG.md
+        # Compiled Drupal theme files.
+        - web/themes/custom/nrgi/assets/css/
+      triggered_by:
+        - inc
+        - install
+        - test
+        - profile
+        - info
