@@ -26,6 +26,21 @@ nrgi__two_column:
     second:
       label: Second
 
+nrgi__call_to_action:
+  label: 'Call to action'
+  path: layouts
+  template: layout--two-column
+  class: Drupal\nrgi_layout_builder\Plugin\Layout\TwoColumnLayout
+  category: 'Columns: 2'
+  default_region: first
+  icon_map:
+    - [first, second]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+
 nrgi__three_column:
   label: 'Three Column'
   path: layouts
