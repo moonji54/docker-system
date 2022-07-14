@@ -1,9 +1,7 @@
-name: 'NRGI Backend'
+name: 'Project Backend'
 type: module
 description: 'Extensions and modifications to the backend related functionality.'
 core_version_requirement: ^9.0
-package: 'NRGI'
+package: 'Custom'
 dependencies:
   - drupal:paragraphs
-  - drupal:layout_paragraphs
-  - drupal:layout_paragraphs_restriction

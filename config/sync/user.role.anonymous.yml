@@ -4,7 +4,6 @@ status: true
 dependencies:
   module:
     - media
-    - search
     - sitemap
     - system
 _core:
@@ -18,7 +17,6 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'access sitemap'
-  - 'search content'
   - 'use text format restricted_html'
   - 'view media'
   - 'view the administration theme'

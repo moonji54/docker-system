@@ -7,8 +7,8 @@ dependencies:
     - soapbox_breadcrumbs
 _core:
   default_config_hash: 3VSea8paZkhjca8vSgrRmun0KzWYl2a2fjHWMZh0cAo
-name: article
 label: Article
+name: article
 group: Breadcrumbs
 description: 'Breadcrumb active trail for articles'
 requireAllConditions: false

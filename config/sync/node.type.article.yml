@@ -4,19 +4,10 @@ status: true
 dependencies:
   module:
     - menu_ui
-    - soapbox_flexible_publishing
 third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-  soapbox_flexible_publishing:
-    use_templates: 1
-    form_modes_as_templates:
-      chapterised_item: chapterised_item
-      download_item: download_item
-      external_item: external_item
-      simple_item: simple_item
-    disable_form_mode_contextual_links: 1
 _core:
   default_config_hash: pEe7CcbP6qHK7YgtMOuatAyep8xcEQC1TwpRKKNJ9Zw
 name: Article

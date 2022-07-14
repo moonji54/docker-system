@@ -11,7 +11,6 @@ dependencies:
     - media.type.video
     - node.type.article
     - node.type.page
-    - taxonomy.vocabulary.content_label
   module:
     - admin_toolbar_search
     - file
@@ -22,7 +21,6 @@ dependencies:
     - redirect
     - role_delegation
     - save_edit
-    - search
     - simple_user_management
     - site_settings
     - sitemap
@@ -61,7 +59,6 @@ permissions:
   - 'create page content'
   - 'create remote_audio media'
   - 'create remote_video media'
-  - 'create terms in content_label'
   - 'create terms in tags'
   - 'create url aliases'
   - 'create user accounts'
@@ -89,7 +86,6 @@ permissions:
   - 'delete own video media'
   - 'delete page revisions'
   - 'delete site setting entities'
-  - 'delete terms in content_label'
   - 'delete terms in tags'
   - 'edit any article content'
   - 'edit any audio media'
@@ -108,7 +104,6 @@ permissions:
   - 'edit own remote_video media'
   - 'edit own video media'
   - 'edit site setting entities'
-  - 'edit terms in content_label'
   - 'edit terms in tags'
   - 'revert all revisions'
   - 'revert article revisions'
@@ -116,7 +111,6 @@ permissions:
   - 'update any media'
   - 'update media'
   - 'use admin toolbar search'
-  - 'use advanced search'
   - 'use save and edit'
   - 'use text format full_html'
   - 'use text format restricted_html'

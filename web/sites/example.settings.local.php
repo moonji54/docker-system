@@ -32,6 +32,9 @@
  *
  * @see https://wiki.php.net/rfc/expectations
  */
+
+use Kint\Kint;
+
 assert_options(ASSERT_ACTIVE, TRUE);
 \Drupal\Component\Assertion\Handle::register();
 
@@ -52,7 +55,7 @@ $config['system.logging']['error_level'] = 'verbose';
  * Disable CSS and JS aggregation.
  */
 $config['system.performance']['css']['preprocess'] = FALSE;
-$config['system.performance']['js']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess']  = FALSE;
 
 /**
  * Disable the render cache.
@@ -66,7 +69,7 @@ $config['system.performance']['js']['preprocess'] = FALSE;
  *
  * Only use this setting once the site has been installed.
  */
-# $settings['cache']['bins']['render'] = 'cache.backend.null';
+$settings['cache']['bins']['render'] = 'cache.backend.null';
 
 /**
  * Disable caching for migrations.
@@ -74,7 +77,7 @@ $config['system.performance']['js']['preprocess'] = FALSE;
  * Uncomment the code below to only store migrations in memory and not in the
  * database. This makes it easier to develop custom migrations.
  */
-# $settings['cache']['bins']['discovery_migration'] = 'cache.backend.memory';
+$settings['cache']['bins']['discovery_migration'] = 'cache.backend.memory';
 
 /**
  * Disable Internal Page Cache.
@@ -88,7 +91,7 @@ $config['system.performance']['js']['preprocess'] = FALSE;
  *
  * Only use this setting once the site has been installed.
  */
-# $settings['cache']['bins']['page'] = 'cache.backend.null';
+$settings['cache']['bins']['page'] = 'cache.backend.null';
 
 /**
  * Disable Dynamic Page Cache.
@@ -97,7 +100,7 @@ $config['system.performance']['js']['preprocess'] = FALSE;
  * cacheability metadata is present (and hence the expected behavior). However,
  * in the early stages of development, you may want to disable it.
  */
-# $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 
 /**
  * Allow test modules and themes to be installed.
@@ -152,4 +155,26 @@ $settings['skip_permissions_hardening'] = TRUE;
  * to use this feature with modules that affect Drupal in a major way such as
  * the language or field module.
  */
-# $settings['config_exclude_modules'] = ['devel', 'stage_file_proxy'];
+$settings['config_exclude_modules'] = [
+  'devel',
+  'devel_entity_updates',
+  'stage_file_proxy',
+];
+
+// Change kint maxLevels setting:
+// Require Kint class
+//require_once(DRUPAL_ROOT . '/../vendor/kint-php/kint/src/Kint.php');
+//
+//// Change kint max_depth setting:
+//if (class_exists('Kint')) {
+//  Kint::$max_depth = 3;
+//}
+
+/**
+ * Trusted hosts
+ */
+//$settings['trusted_host_patterns'] = [
+//  '^soapbox\.co\.uk\.ddev\.site$',
+//  '^www\.designbysoapbox\.com$',
+//  '^designbysoapbox\.com',
+//];

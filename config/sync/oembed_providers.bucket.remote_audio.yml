@@ -6,8 +6,8 @@ _core:
   default_config_hash: rcLDRYlhQJTtvMzeCM6vHTn_HicNv2rNPcz8r_Mya_8
 id: remote_audio
 label: 'Remote audio'
+description: ''
 providers:
   - Audioboom
   - SoundCloud
   - Spotify
-description: ''

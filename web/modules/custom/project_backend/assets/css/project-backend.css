@@ -1,0 +1,9 @@
+/*
+Adjusting the backend node form content width so the autocomplete fields don't overflow from the container.
+ */
+@media screen and (min-width: 61rem) {
+  .layout-region--node-main .layout-region__content,
+  .layout-region--node-footer .layout-region__content {
+    max-width: 90% !important;
+  }
+}

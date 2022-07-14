@@ -1,0 +1,5 @@
+name: Project frontend
+type: module
+description: Provides general frontend modifications for Bruegel
+package: Custom
+core_version_requirement: ^9

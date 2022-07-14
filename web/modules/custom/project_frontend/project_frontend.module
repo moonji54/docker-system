@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Contains project_frontend.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+\Drupal::moduleHandler()->loadInclude('project_frontend', 'inc', 'project_frontend.field');
+\Drupal::moduleHandler()->loadInclude('project_frontend', 'inc', 'project_frontend.form');
+\Drupal::moduleHandler()->loadInclude('project_frontend', 'inc', 'project_frontend.meta');
+\Drupal::moduleHandler()->loadInclude('project_frontend', 'inc', 'project_frontend.metatag');
+\Drupal::moduleHandler()->loadInclude('project_frontend', 'inc', 'project_frontend.node');
+\Drupal::moduleHandler()->loadInclude('project_frontend', 'inc', 'project_frontend.region');
+\Drupal::moduleHandler()->loadInclude('project_frontend', 'inc', 'project_frontend.paragraph');
+\Drupal::moduleHandler()->loadInclude('project_frontend', 'inc', 'project_frontend.views');

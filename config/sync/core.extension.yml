@@ -14,26 +14,30 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
+  bugherd: 0
   ckeditor: 0
-  color: 0
   config: 0
   content_moderation: 0
   context: 0
   context_active_trail: 0
   context_ui: 0
   contextual: 0
+  crop: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
+  editor_advanced_link: 0
   entity_reference_revisions: 0
+  entity_usage: 0
   fakeobjects: 0
   field: 0
   field_group: 0
   field_ui: 0
   file: 0
+  file_delete: 0
   filter: 0
-  form_mode_manager: 0
+  focal_point: 0
   help: 0
   history: 0
   image: 0
@@ -50,36 +54,42 @@ module:
   mailsystem: 0
   media: 0
   media_library: 0
+  media_remote_audio: 0
   menu_block: 0
   menu_link_content: 0
   menu_ui: 0
   metatag: 0
   metatag_open_graph: 0
   metatag_twitter_cards: 0
+  mysql: 0
   node: 0
   nrgi_layout_builder: 0
   oembed_providers: 0
   options: 0
+  override_node_options: 0
   page_cache: 0
   path: 0
   path_alias: 0
+  project_backend: 0
+  project_frontend: 0
   rdf: 0
   redirect: 0
   responsive_image: 0
   role_delegation: 0
   save_edit: 0
-  search: 0
+  scheduler: 0
+  scheduler_content_moderation_integration: 0
   search_api: 0
+  search_api_db: 0
   shortcut: 0
   simple_sitemap: 0
   simple_user_management: 0
   site_settings: 0
   sitemap: 0
   soapbox_breadcrumbs: 0
-  soapbox_content_labels: 0
+  soapbox_featured_cards: 0
   soapbox_field_plugins: 0
   soapbox_filters: 0
-  soapbox_flexible_publishing: 0
   soapbox_forms: 0
   soapbox_media: 0
   soapbox_nodes: 0
@@ -97,10 +107,12 @@ module:
   twig_field_value: 0
   twig_tweak: 0
   unified_date: 0
+  update: 0
   user: 0
   views_ajax_history: 0
   views_ui: 0
   viewsreference: 0
+  webp: 0
   workflows: 0
   views: 10
   paragraphs: 11
