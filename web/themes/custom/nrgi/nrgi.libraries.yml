@@ -5,7 +5,7 @@ global-styling:
     theme:
       assets/css/style.min.css: { minified: true }
   ckeditor_stylesheets:
-    - assets/css/tinymce-style.css
+    - assets/css/ckeditor-style.css
 
 # Scripts that may be needed on any page.
 global-scripts:

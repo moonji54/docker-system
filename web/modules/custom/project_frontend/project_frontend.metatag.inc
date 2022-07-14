@@ -12,8 +12,6 @@ use Drupal\node\NodeInterface;
 function project_frontend_metatags_alter(array &$metatags, array &$context) {
   $node = \Drupal::routeMatch()->getParameter('node');
 
-  // SBTODO: Replace 'whitelabel' with theme name.
-
   if ($node && $node instanceof NodeInterface) {
     switch ($node->bundle()) {
       case 'homepage':
@@ -22,8 +20,8 @@ function project_frontend_metatags_alter(array &$metatags, array &$context) {
           $metatags["twitter_cards_image"] = '[node:field_background_media:entity:field_media_image:og_image:url]';
         }
         else {
-          $metatags["og_image"]            = '[site:url]themes/custom/whitelabel/assets/img/default-social-share.png';
-          $metatags["twitter_cards_image"] = '[site:url]themes/custom/whitelabel/assets/img/default-social-share.png';
+          $metatags["og_image"]            = '[site:url]themes/custom/nrgi/assets/img/default-social-share.png';
+          $metatags["twitter_cards_image"] = '[site:url]themes/custom/nrgi/assets/img/default-social-share.png';
         }
         break;
 
@@ -33,7 +31,7 @@ function project_frontend_metatags_alter(array &$metatags, array &$context) {
           $metatags["twitter_cards_image"] = '[node:field_image:entity:field_media_image:og_image:url]';
         }
         else {
-          $metatags["og_image"]            = '[site:url]themes/custom/whitelabel/assets/img/default-social-share.png';
+          $metatags["og_image"]            = '[site:url]themes/custom/nrgi/assets/img/default-social-share.png';
           $metatags["twitter_cards_image"] = '[node:field_image:entity:field_media_image:og_image:url]';
         }
         break;

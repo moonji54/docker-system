@@ -8,10 +8,12 @@ use Drupal\editor\Entity\Editor;
  */
 
 // Custom admin css.
-\Drupal::moduleHandler()->loadInclude('project_backend', 'inc', 'project_backend.theme');
+\Drupal::moduleHandler()
+  ->loadInclude('project_backend', 'inc', 'project_backend.theme');
 
 // Add remote audio as a media type.
-\Drupal::moduleHandler()->loadInclude('project_backend', 'inc', 'project_backend.media_types');
+\Drupal::moduleHandler()
+  ->loadInclude('project_backend', 'inc', 'project_backend.media_types');
 
 
 /**
@@ -20,6 +22,6 @@ use Drupal\editor\Entity\Editor;
  * Implements hook_ckeditor_css_alter().
  */
 function project_backend_ckeditor_css_alter(array &$css, Editor $editor) {
-  // SBTODO: Change whitelabel to theme name
-  $css[] = \Drupal::service('extension.list.theme')->getPath('whitelabel') . '/assets/css/ckeditor-style.css';
+  $css[] = \Drupal::service('extension.list.theme')
+      ->getPath('nrgi') . '/assets/css/ckeditor-style.css';
 }

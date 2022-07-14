@@ -4,6 +4,7 @@ nrgi.smallmobile:
   weight: 5
   multipliers:
     - 1x
+    - 2x
 nrgi.mobile:
   label: mobile
   mediaQuery: 'only screen and (max-width: 767px)'
@@ -16,6 +17,7 @@ nrgi.tablet:
   weight: 3
   multipliers:
     - 1x
+    - 2x
 nrgi.smalldesktop:
   label: smalldesktop
   mediaQuery: 'only screen and (max-width: 1275px)'
@@ -28,3 +30,4 @@ nrgi.desktop:
   weight: 1
   multipliers:
     - 1x
+    - 2x

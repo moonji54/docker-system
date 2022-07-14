@@ -1,6 +1,6 @@
-name: White Label
+name: NRGI
 type: theme
-description: 'White Label theme'
+description: 'NRGI theme'
 package: Soapbox
 core_version_requirement: ^8.8.0 || ^9.0
 libraries:

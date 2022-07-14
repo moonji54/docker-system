@@ -120,4 +120,7 @@ module:
 theme:
   bartik: 0
   claro: 0
+  stable: 0
+  classy: 0
+  nrgi: 0
 profile: soapbox
