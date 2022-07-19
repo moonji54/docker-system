@@ -7,14 +7,12 @@ dependencies:
     - media.type.audio
     - media.type.document
     - media.type.image
-    - media.type.remote_audio
     - media.type.remote_video
     - media.type.video
     - node.type.article
     - node.type.page
   module:
     - admin_toolbar_search
-    - eu_cookie_compliance
     - file
     - filter
     - media
@@ -89,7 +87,6 @@ permissions:
   - 'delete page revisions'
   - 'delete site setting entities'
   - 'delete terms in tags'
-  - 'display eu cookie compliance popup'
   - 'edit any article content'
   - 'edit any audio media'
   - 'edit any document media'

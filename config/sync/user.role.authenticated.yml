@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - eu_cookie_compliance
     - media
     - shortcut
     - sitemap
@@ -19,7 +18,6 @@ permissions:
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'access sitemap'
-  - 'display eu cookie compliance popup'
   - 'use text format basic_html'
   - 'view media'
   - 'view the administration theme'

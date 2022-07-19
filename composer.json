@@ -108,7 +108,6 @@
         "drupal/dropzonejs": "^2.3",
         "drupal/editor_advanced_link": "^2.0",
         "drupal/entity_usage": "^2.0@beta",
-        "drupal/eu_cookie_compliance": "^1.19",
         "drupal/field_group": "^3.1",
         "drupal/file_delete": "^1.0",
         "drupal/focal_point": "^1.5",

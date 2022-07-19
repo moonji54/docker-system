@@ -115,7 +115,6 @@ module:
   views: 10
   paragraphs: 11
   soapbox: 1000
-  eu_cookie_compliance: 1001
 theme:
   bartik: 0
   claro: 0
