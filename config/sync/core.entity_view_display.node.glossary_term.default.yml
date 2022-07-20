@@ -1,14 +1,14 @@
-uuid: 69551398-1384-4fdc-ad2c-3a3a492f3b4c
+uuid: 5703e3fa-55a0-4c52-81c9-5ad867ed1fbc
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.external_publication
+    - node.type.glossary_term
   module:
     - user
-id: node.external_publication.default
+id: node.glossary_term.default
 targetEntityType: node
-bundle: external_publication
+bundle: glossary_term
 mode: default
 content:
   links:

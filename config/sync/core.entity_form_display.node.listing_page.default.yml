@@ -1,14 +1,16 @@
-uuid: df1ed854-ff09-4cca-b186-e1c568ebca77
+uuid: 17b3e8d0-d72c-437b-a6bc-fabaf899ffd4
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.external_publication
+    - node.type.listing_page
   module:
     - path
-id: node.external_publication.default
+    - scheduler
+    - scheduler_content_moderation_integration
+id: node.listing_page.default
 targetEntityType: node
-bundle: external_publication
+bundle: listing_page
 mode: default
 content:
   created:
@@ -29,6 +31,18 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  publish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
@@ -62,10 +76,21 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  unpublish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   url_redirects:
     weight: 50
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  template: true
+hidden: {  }
