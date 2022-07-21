@@ -11,13 +11,8 @@ dependencies:
     - field.field.node.article.field_summary
     - node.type.article
   module:
-    - layout_builder
     - layout_paragraphs
     - user
-third_party_settings:
-  layout_builder:
-    enabled: false
-    allow_custom: false
 _core:
   default_config_hash: zjCP_ca9pMZvhD1Z2mp3NNm3ecDh3LiWqfUKs8Ncogs
 id: node.article.full

@@ -100,6 +100,7 @@
         "drupal/console": "~1.0",
         "drupal/context": "^4.0@beta|^4.0@RC|^4.0",
         "drupal/context_active_trail": "^2.0@beta|^2.0@RC|^2.0",
+        "drupal/cookiepro": "^2.0",
         "drupal/core": "^9.3",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-project-message": "^9.1",
