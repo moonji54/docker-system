@@ -18,5 +18,5 @@ selection_criteria:
     bundles:
       publication: publication
 selection_logic: and
-weight: -1
+weight: -2
 relationships: {  }

@@ -18,5 +18,5 @@ selection_criteria:
     bundles:
       country: country
 selection_logic: and
-weight: -7
+weight: -8
 relationships: {  }
