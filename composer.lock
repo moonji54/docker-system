@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d87775270019e55d58d939a1ba52ac9",
+    "content-hash": "35d148a733335e5da0d4a5ed3e4b798d",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2451,7 +2451,8 @@
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
                     }
-                }
+                },
+                "patches_applied": []
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -3264,6 +3265,11 @@
                         "[web-root]/profiles/README.txt": "assets/scaffold/files/profiles.README.txt",
                         "[web-root]/themes/README.txt": "assets/scaffold/files/themes.README.txt"
                     }
+                },
+                "patches_applied": {
+                    "Error during custom module uninstallation : Call to a member function getConfigDependencyKey() on null": "https://www.drupal.org/files/issues/2019-07-17/custom-taxonomy-uninstallation.patch",
+                    "Entity References as checkboxes or dropdowns": "https://www.drupal.org/files/issues/2021-12-02/2429699-453-9.3.x.patch",
+                    "Supports OEmbed providers without thumbnails dimensions": "https://www.drupal.org/files/issues/2020-02-14/supports-oembed-providers-without-thumbnails-dimensions-3111991-5.patch"
                 }
             },
             "autoload": {
@@ -4052,6 +4058,10 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Ensure visibility of invalid fields (JS)": "https://www.drupal.org/files/issues/2020-05-28/2787179-highlight-html5-validation-53.patch",
+                    "Undefined index name in form display": "https://www.drupal.org/files/issues/2020-08-10/field_group-undefined-index-name-3064890-16.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4243,7 +4253,8 @@
                 "source": "https://www.drupal.org/project/form_mode_manager",
                 "issues": "https://www.drupal.org/project/issues/form_mode_manager",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
-            }
+            },
+            "time": "2022-07-06T02:15:06+00:00"
         },
         {
             "name": "drupal/jquery_ui",
@@ -4855,6 +4866,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Menu edit form is not visible on the node edit page": "https://www.drupal.org/files/issues/2018-11-30/2900957-default-menu-items.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -6072,6 +6086,57 @@
             }
         },
         {
+            "name": "drupal/svg_image",
+            "version": "1.16.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/svg_image.git",
+                "reference": "8.x-1.16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/svg_image-8.x-1.16.zip",
+                "reference": "8.x-1.16",
+                "shasum": "e29b6fff49aacfaf81e58059b09551b45325f633"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "enshrined/svg-sanitize": ">=0.15 <1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.16",
+                    "datestamp": "1647314248",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Yaroslav Lushnikov",
+                    "homepage": "https://www.drupal.org/user/2870933",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "See contributors",
+                    "homepage": "https://www.drupal.org/node/2887125/committers"
+                }
+            ],
+            "description": "Overrides the standard image formatter and widget to support SVG files.",
+            "homepage": "http://drupal.org/project/svg_image",
+            "support": {
+                "source": "http://cgit.drupalcode.org/svg_image",
+                "issues": "http://drupal.org/project/svg_image"
+            }
+        },
+        {
             "name": "drupal/swiftmailer",
             "version": "2.2.0",
             "source": {
@@ -6635,7 +6700,8 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/webp",
                 "issues": "https://www.drupal.org/project/issues/webp"
-            }
+            },
+            "time": "2022-01-15T12:43:11+00:00"
         },
         {
             "name": "drush/drush",
@@ -6915,6 +6981,47 @@
                 "source": "https://github.com/enlightn/security-checker/tree/v1.10.0"
             },
             "time": "2022-02-21T22:40:16+00:00"
+        },
+        {
+            "name": "enshrined/svg-sanitize",
+            "version": "0.15.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/darylldoyle/svg-sanitizer.git",
+                "reference": "e50b83a2f1f296ca61394fe88fbfe3e896a84cf4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/darylldoyle/svg-sanitizer/zipball/e50b83a2f1f296ca61394fe88fbfe3e896a84cf4",
+                "reference": "e50b83a2f1f296ca61394fe88fbfe3e896a84cf4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-libxml": "*",
+                "php": "^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5 || ^8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "enshrined\\svgSanitize\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Daryll Doyle",
+                    "email": "daryll@enshrined.co.uk"
+                }
+            ],
+            "description": "An SVG sanitizer for PHP",
+            "time": "2022-02-21T09:13:59+00:00"
         },
         {
             "name": "enyo/dropzone",
@@ -8718,7 +8825,6 @@
                 "drupal/core": "^8.8.0 || ^9.0",
                 "phpro/grumphp-shim": "^1.12"
             },
-            "default-branch": true,
             "type": "soapbox-drupal-modules",
             "license": [
                 "proprietary"
@@ -15911,5 +16017,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "1.1.0"
 }
