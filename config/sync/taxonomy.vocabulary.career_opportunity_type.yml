@@ -1,0 +1,8 @@
+uuid: 7ad83288-03d7-4de8-ac1c-d9642c59fe42
+langcode: en
+status: true
+dependencies: {  }
+name: 'Career Opportunity Type'
+vid: career_opportunity_type
+description: ''
+weight: 0
