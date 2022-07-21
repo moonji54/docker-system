@@ -244,3 +244,4 @@ error_log
 Network Trash Folder
 Temporary Items
 .apdisk
+/.lando.yml

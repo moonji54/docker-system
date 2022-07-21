@@ -1,15 +1,16 @@
-uuid: 69551398-1384-4fdc-ad2c-3a3a492f3b4c
+uuid: 1fe4a1e5-3de8-4f99-a572-d9398b30fbd6
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.external_publication
+    - core.entity_view_mode.node.teaser
+    - node.type.landing_page
   module:
     - user
-id: node.external_publication.default
+id: node.landing_page.teaser
 targetEntityType: node
-bundle: external_publication
-mode: default
+bundle: landing_page
+mode: teaser
 content:
   links:
     settings: {  }

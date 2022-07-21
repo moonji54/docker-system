@@ -1,0 +1,22 @@
+uuid: ad2e83ae-5f6a-4bc7-8e2f-07856064ac4a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: listing_page
+label: 'Listing Page'
+type: 'canonical_entities:node'
+pattern: 'listing-pages/[node:title]'
+selection_criteria:
+  ebfc7e9e-7702-4837-a099-c8f149fb192d:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: ebfc7e9e-7702-4837-a099-c8f149fb192d
+    context_mapping:
+      node: node
+    bundles:
+      listing_page: listing_page
+selection_logic: and
+weight: -4
+relationships: {  }

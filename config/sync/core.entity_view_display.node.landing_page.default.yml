@@ -1,14 +1,14 @@
-uuid: f5618aef-f908-46ee-89fd-86bb194ebb1a
+uuid: 38f3f450-7df7-4280-9be4-5090d12c2b36
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.collection
+    - node.type.landing_page
   module:
     - user
-id: node.collection.default
+id: node.landing_page.default
 targetEntityType: node
-bundle: collection
+bundle: landing_page
 mode: default
 content:
   links:

@@ -1,0 +1,22 @@
+uuid: 1cfcd210-57e5-413f-9516-7dd346835817
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: country
+label: Country
+type: 'canonical_entities:node'
+pattern: 'countries/[node:title]'
+selection_criteria:
+  8a92b2f0-7018-44bc-a7b6-ba77b9d2b7bc:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 8a92b2f0-7018-44bc-a7b6-ba77b9d2b7bc
+    context_mapping:
+      node: node
+    bundles:
+      country: country
+selection_logic: and
+weight: -8
+relationships: {  }

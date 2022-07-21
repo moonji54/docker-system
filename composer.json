@@ -156,7 +156,8 @@
     },
     "require-dev": {
         "drupal/core-dev": "^9",
-        "kint-php/kint": "^4.1"
+        "kint-php/kint": "^4.1",
+        "phpro/grumphp": "^1.13"
     },
     "conflict": {
         "drupal/drupal": "*"

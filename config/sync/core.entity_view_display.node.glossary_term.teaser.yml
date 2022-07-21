@@ -1,15 +1,15 @@
-uuid: e9712147-8f05-4ffe-9e13-c0b348f68987
+uuid: eefea81a-ad58-48e0-9b50-359b0f8d5c21
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - node.type.collection
+    - node.type.glossary_term
   module:
     - user
-id: node.collection.teaser
+id: node.glossary_term.teaser
 targetEntityType: node
-bundle: collection
+bundle: glossary_term
 mode: teaser
 content:
   links:
