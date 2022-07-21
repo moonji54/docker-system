@@ -1,0 +1,47 @@
+uuid: 90a05755-0d13-41bc-a34c-54ff39a880fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.copyright.field_description
+    - site_settings.site_setting_entity_type.copyright
+  module:
+    - text
+    - user
+id: site_setting_entity.copyright.default
+targetEntityType: site_setting_entity
+bundle: copyright
+mode: default
+content:
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  fieldset:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -4
+    region: content
+  name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -4
+    region: content
+  user_id:
+    type: author
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

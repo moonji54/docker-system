@@ -1,0 +1,19 @@
+uuid: 3b5e8f7f-19dd-42ad-a551-f33628e61451
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - site_settings
+id: site_setting_entity.field_youtube_link
+field_name: field_youtube_link
+entity_type: site_setting_entity
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

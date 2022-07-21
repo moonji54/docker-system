@@ -138,6 +138,7 @@
         "drupal/site_settings": "^1.13",
         "drupal/sitemap": "^2.0@beta|^2.0@RC|^2.0",
         "drupal/stage_file_proxy": "^1.0",
+        "drupal/svg_image": "^1.16",
         "drupal/swiftmailer": "^2.0",
         "drupal/token_default": "^1.0@beta|^1.0@RC|^1.0",
         "drupal/twig_field_value": "^2.0",

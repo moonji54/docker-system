@@ -98,6 +98,7 @@ module:
   soapbox_routes: 0
   soapbox_themes: 0
   soapbox_views: 0
+  svg_image: 0
   swiftmailer: 0
   system: 0
   taxonomy: 0
