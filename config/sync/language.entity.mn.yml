@@ -1,0 +1,9 @@
+uuid: 40c83b3f-0dc9-4623-957b-bef9352db3c9
+langcode: en
+status: true
+dependencies: {  }
+id: mn
+label: Mongolian
+direction: ltr
+weight: 4
+locked: false

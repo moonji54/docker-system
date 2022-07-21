@@ -1,0 +1,11 @@
+uuid: bed2e6b1-5839-4cc9-9b89-46a83ef0b3c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.collection
+id: node.collection
+target_entity_type_id: node
+target_bundle: collection
+default_langcode: site_default
+language_alterable: true

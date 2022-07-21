@@ -6,6 +6,8 @@ dependencies:
     - node.type.external_publication
   module:
     - path
+    - scheduler
+    - scheduler_content_moderation_integration
 id: node.external_publication.default
 targetEntityType: node
 bundle: external_publication
@@ -16,6 +18,13 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   path:
     type: path
