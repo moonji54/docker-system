@@ -21,7 +21,7 @@ module:
   context: 0
   context_active_trail: 0
   context_ui: 0
-  contextual: 0
+  cookiepro: 0
   crop: 0
   datetime: 0
   dblog: 0
@@ -45,6 +45,7 @@ module:
   jquery_ui_datepicker: 0
   jquery_ui_slider: 0
   jquery_ui_touch_punch: 0
+  language: 0
   layout_builder: 0
   layout_discovery: 0
   layout_paragraphs: 0

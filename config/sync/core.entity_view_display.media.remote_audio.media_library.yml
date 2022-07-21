@@ -20,16 +20,17 @@ content:
     type: image
     label: hidden
     settings:
-      image_style: medium
       image_link: ''
+      image_style: medium
       image_loading:
         attribute: lazy
-    weight: 0
     third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   created: true
   field_media_oembed_audio: true
+  langcode: true
   name: true
   search_api_excerpt: true
   uid: true
