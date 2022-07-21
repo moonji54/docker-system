@@ -1,0 +1,55 @@
+uuid: 5298c2bb-ed41-4e40-ad6a-3d99c7f4a3e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.footer_logo.field_logo
+    - site_settings.site_setting_entity_type.footer_logo
+  module:
+    - svg_image
+    - user
+id: site_setting_entity.footer_logo.default
+targetEntityType: site_setting_entity
+bundle: footer_logo
+mode: default
+content:
+  field_logo:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: false
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  fieldset:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -4
+    region: content
+  name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -4
+    region: content
+  user_id:
+    type: author
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

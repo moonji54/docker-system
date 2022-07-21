@@ -1,0 +1,8 @@
+uuid: e5599d00-e346-48a7-9c01-f4b5af1a1f3a
+langcode: en
+status: true
+dependencies: {  }
+id: copyright
+label: Copyright
+fieldset: Copyright
+multiple: false
