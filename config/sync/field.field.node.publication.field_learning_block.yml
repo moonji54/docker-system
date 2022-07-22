@@ -1,0 +1,19 @@
+uuid: 8a842b0b-66a3-43c1-9108-e35687ad302f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_learning_block
+    - node.type.publication
+id: node.publication.field_learning_block
+field_name: field_learning_block
+entity_type: node
+bundle: publication
+label: 'Learning block'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

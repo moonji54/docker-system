@@ -1,0 +1,19 @@
+uuid: ca99fbf8-5974-4616-bde6-78b763c1e45d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_acknowledgement_donor
+    - node.type.publication
+id: node.publication.field_acknowledgement_donor
+field_name: field_acknowledgement_donor
+entity_type: node
+bundle: publication
+label: 'Acknowledgement donor'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

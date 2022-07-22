@@ -1,0 +1,21 @@
+uuid: d3aca508-3056-491b-95cb-a8bb78f9bfac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_absctract
+    - node.type.publication
+  module:
+    - text
+id: node.publication.field_absctract
+field_name: field_absctract
+entity_type: node
+bundle: publication
+label: Absctract
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
