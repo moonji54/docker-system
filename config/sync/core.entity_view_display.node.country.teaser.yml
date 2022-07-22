@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.country.field_taxonomy_term
     - node.type.country
   module:
     - user
@@ -18,5 +19,6 @@ content:
     weight: 100
     region: content
 hidden:
+  field_taxonomy_term: true
   langcode: true
   search_api_excerpt: true
