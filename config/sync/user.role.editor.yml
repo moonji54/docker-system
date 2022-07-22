@@ -24,11 +24,15 @@ dependencies:
     - node.type.person
     - node.type.publication
     - node.type.topic
+    - workflows.workflow.editorial
   module:
+    - admin_toolbar_search
+    - content_moderation
     - filter
     - media
     - node
-    - site_settings
+    - override_node_options
+    - save_edit
     - sitemap
     - system
     - toolbar
@@ -88,6 +92,21 @@ permissions:
   - 'edit own topic content'
   - 'edit own video media'
   - 'edit terms in tags'
+  - 'enter all revision log entry'
+  - 'enter article revision log entry'
+  - 'enter career_opportunity revision log entry'
+  - 'enter collection revision log entry'
+  - 'enter country revision log entry'
+  - 'enter event revision log entry'
+  - 'enter external_publication revision log entry'
+  - 'enter glossary_term revision log entry'
+  - 'enter homepage revision log entry'
+  - 'enter landing_page revision log entry'
+  - 'enter listing_page revision log entry'
+  - 'enter page revision log entry'
+  - 'enter person revision log entry'
+  - 'enter publication revision log entry'
+  - 'enter topic revision log entry'
   - 'revert all revisions'
   - 'revert article revisions'
   - 'revert career_opportunity revisions'
@@ -105,10 +124,18 @@ permissions:
   - 'revert topic revisions'
   - 'update any media'
   - 'update media'
+  - 'use admin toolbar search'
+  - 'use editorial transition archive'
+  - 'use editorial transition archived_draft'
+  - 'use editorial transition archived_published'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition publish'
+  - 'use save and edit'
   - 'use text format full_html'
   - 'use text format restricted_html'
   - 'view all media revisions'
   - 'view all revisions'
+  - 'view any unpublished content'
   - 'view article revisions'
   - 'view career_opportunity revisions'
   - 'view collection revisions'
@@ -118,13 +145,13 @@ permissions:
   - 'view glossary_term revisions'
   - 'view homepage revisions'
   - 'view landing_page revisions'
+  - 'view latest version'
   - 'view listing_page revisions'
+  - 'view media'
   - 'view own unpublished content'
   - 'view own unpublished media'
   - 'view page revisions'
   - 'view person revisions'
   - 'view publication revisions'
-  - 'view published site setting entities'
   - 'view the administration theme'
   - 'view topic revisions'
-  - 'view unpublished site setting entities'

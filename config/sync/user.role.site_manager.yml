@@ -38,7 +38,6 @@ dependencies:
   module:
     - admin_toolbar_search
     - content_moderation
-    - entity_reference_revisions
     - file
     - filter
     - image
@@ -47,6 +46,7 @@ dependencies:
     - node
     - override_node_options
     - paragraphs
+    - save_edit
     - simple_user_management
     - site_settings
     - system
@@ -141,7 +141,6 @@ permissions:
   - 'delete landing_page revisions'
   - 'delete listing_page revisions'
   - 'delete media'
-  - 'delete orphan revisions'
   - 'delete own article content'
   - 'delete own audio media'
   - 'delete own career_opportunity content'
@@ -196,7 +195,6 @@ permissions:
   - 'edit any remote_video media'
   - 'edit any topic content'
   - 'edit any video media'
-  - 'edit behavior plugin settings'
   - 'edit own article content'
   - 'edit own audio media'
   - 'edit own career_opportunity content'
@@ -355,6 +353,7 @@ permissions:
   - 'use editorial transition archived_published'
   - 'use editorial transition create_new_draft'
   - 'use editorial transition publish'
+  - 'use save and edit'
   - 'use text format full_html'
   - 'view all media revisions'
   - 'view all revisions'
