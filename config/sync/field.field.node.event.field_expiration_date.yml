@@ -1,0 +1,21 @@
+uuid: 24948c31-e141-4087-8f11-5ebb232ecb6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_expiration_date
+    - node.type.event
+  module:
+    - datetime
+id: node.event.field_expiration_date
+field_name: field_expiration_date
+entity_type: node
+bundle: event
+label: 'Expiration date'
+description: 'The date on which the content should expire (aka, be unpublished, aka, disappear from the site)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

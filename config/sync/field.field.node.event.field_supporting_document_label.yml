@@ -1,0 +1,19 @@
+uuid: e622098b-7c33-4633-93c2-59b372af0206
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_supporting_document_label
+    - node.type.event
+id: node.event.field_supporting_document_label
+field_name: field_supporting_document_label
+entity_type: node
+bundle: event
+label: 'Supporting document label'
+description: 'Enter the label for the supporting document. For example, if your file is a methodology, then add "Methodology" in this field.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

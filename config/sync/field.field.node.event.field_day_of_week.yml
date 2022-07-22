@@ -1,0 +1,21 @@
+uuid: fe81f942-db25-4502-ba22-b30c3d754a8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_day_of_week
+    - node.type.event
+id: node.event.field_day_of_week
+field_name: field_day_of_week
+entity_type: node
+bundle: event
+label: 'Day(s) of week'
+description: 'Add week day or days that this course, training, or workshop will take place. '
+required: true
+translatable: false
+default_value:
+  -
+    value: 1658495781
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

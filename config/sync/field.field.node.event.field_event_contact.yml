@@ -1,0 +1,29 @@
+uuid: d453bc72-8282-47fc-a069-01b065e552b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_contact
+    - node.type.event
+    - taxonomy.vocabulary.people
+id: node.event.field_event_contact
+field_name: field_event_contact
+entity_type: node
+bundle: event
+label: 'Event contact'
+description: 'Add event contact '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      people: people
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

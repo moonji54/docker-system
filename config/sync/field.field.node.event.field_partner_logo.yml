@@ -1,0 +1,29 @@
+uuid: 84987f8e-1776-4e01-b20b-e5cf7f8e0939
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_partner_logo
+    - media.type.document
+    - node.type.event
+id: node.event.field_partner_logo
+field_name: field_partner_logo
+entity_type: node
+bundle: event
+label: 'Partner logo'
+description: 'Upload a high resolution image of the partner''s official logo'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

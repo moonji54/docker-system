@@ -1,0 +1,19 @@
+uuid: 252e7165-a158-4188-9e76-3c1a5dc07f40
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_registration
+field_name: field_registration
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
