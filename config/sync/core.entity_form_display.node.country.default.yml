@@ -4,7 +4,9 @@ status: true
 dependencies:
   config:
     - node.type.country
+    - workflows.workflow.editorial
   module:
+    - content_moderation
     - path
     - scheduler
     - scheduler_content_moderation_integration
@@ -25,6 +27,12 @@ content:
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    region: content
+    settings: {  }
     third_party_settings: {  }
   path:
     type: path
