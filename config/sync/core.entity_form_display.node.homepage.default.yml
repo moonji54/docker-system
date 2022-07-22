@@ -3,8 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.homepage.field_featured_content
     - node.type.homepage
   module:
+    - nrgi_layout_builder
     - path
     - scheduler
     - scheduler_content_moderation_integration
@@ -18,6 +20,27 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_featured_content:
+    type: nrgi_layout_paragraphs
+    weight: 121
+    region: content
+    settings:
+      preview_view_mode: default
+      nesting_depth: '0'
+      require_layouts: 0
+      restrictions:
+        blacklist: {  }
+        container:
+          nrgi__one_column:
+            first: {  }
+          nrgi__two_column:
+            first: {  }
+            second: {  }
+          nrgi__three_column:
+            first: {  }
+            second: {  }
+            third: {  }
     third_party_settings: {  }
   langcode:
     type: language_select

@@ -1,0 +1,31 @@
+uuid: 65d86483-fc4a-488f-b0f2-687c951572c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.feature_content.field_description
+    - field.field.paragraph.feature_content.field_title
+    - paragraphs.paragraphs_type.feature_content
+  module:
+    - text
+id: paragraph.feature_content.default
+targetEntityType: paragraph
+bundle: feature_content
+mode: default
+content:
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true
