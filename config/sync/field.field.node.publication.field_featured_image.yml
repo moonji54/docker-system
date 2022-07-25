@@ -11,7 +11,7 @@ field_name: field_featured_image
 entity_type: node
 bundle: publication
 label: 'Featured image'
-description: ''
+description: 'The main image that displays at the top of the page'
 required: false
 translatable: false
 default_value: {  }

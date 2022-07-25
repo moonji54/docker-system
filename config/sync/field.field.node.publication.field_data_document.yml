@@ -11,7 +11,7 @@ field_name: field_data_document
 entity_type: node
 bundle: publication
 label: 'Data document'
-description: ''
+description: 'The Excel/csv file containing additional data'
 required: false
 translatable: false
 default_value: {  }

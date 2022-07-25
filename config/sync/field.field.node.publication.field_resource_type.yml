@@ -11,7 +11,7 @@ field_name: field_resource_type
 entity_type: node
 bundle: publication
 label: 'Resource type'
-description: ''
+description: 'Choose the resource type relevant to this content item.'
 required: true
 translatable: false
 default_value: {  }

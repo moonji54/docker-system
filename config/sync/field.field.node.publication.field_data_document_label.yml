@@ -10,7 +10,7 @@ field_name: field_data_document_label
 entity_type: node
 bundle: publication
 label: 'Data document label'
-description: ''
+description: 'Enter the label for the data document. For example, if your file contains data for figure one, then add "Figure 1 Data" in this field.'
 required: false
 translatable: false
 default_value: {  }

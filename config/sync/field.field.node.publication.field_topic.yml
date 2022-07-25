@@ -11,7 +11,7 @@ field_name: field_topic
 entity_type: node
 bundle: publication
 label: Topic
-description: ''
+description: 'Select the topic this work falls under'
 required: true
 translatable: false
 default_value: {  }

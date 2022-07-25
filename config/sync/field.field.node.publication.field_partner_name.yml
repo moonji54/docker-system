@@ -10,7 +10,7 @@ field_name: field_partner_name
 entity_type: node
 bundle: publication
 label: 'Partner name'
-description: ''
+description: 'Enter the official name of the partner organisation. This should be the parent entity (e.g.,William and Flora Hewlett Foundation) '
 required: false
 translatable: false
 default_value: {  }

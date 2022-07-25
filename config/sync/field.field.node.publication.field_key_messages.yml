@@ -16,7 +16,7 @@ field_name: field_key_messages
 entity_type: node
 bundle: publication
 label: 'Key messages'
-description: ''
+description: 'Add key messages or findings applicable to this content piece.'
 required: false
 translatable: false
 default_value: {  }

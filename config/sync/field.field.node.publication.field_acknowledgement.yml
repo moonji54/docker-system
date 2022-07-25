@@ -10,7 +10,7 @@ field_name: field_acknowledgement
 entity_type: node
 bundle: publication
 label: Acknowledgement
-description: ''
+description: 'Enter the name of any non-funding organizations that should be acknowledged in this item.'
 required: false
 translatable: false
 default_value: {  }

@@ -12,7 +12,7 @@ field_name: field_external_author_link
 entity_type: node
 bundle: publication
 label: 'External author link'
-description: ''
+description: 'A link to bios for authors who are not affiliated with NRGI'
 required: false
 translatable: false
 default_value: {  }

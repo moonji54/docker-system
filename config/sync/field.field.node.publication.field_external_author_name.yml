@@ -10,7 +10,7 @@ field_name: field_external_author_name
 entity_type: node
 bundle: publication
 label: 'External author name'
-description: ''
+description: 'A field for entering the name of authors who are not affiliated with NRGI'
 required: false
 translatable: false
 default_value: {  }

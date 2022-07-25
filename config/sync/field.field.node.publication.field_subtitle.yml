@@ -10,7 +10,7 @@ field_name: field_subtitle
 entity_type: node
 bundle: publication
 label: Subtitle
-description: ''
+description: 'Enter the subtitle. This should be no more than two sentences that elaborate on the title. Subtitles will never appear without the title, though titles may be displayed without subtitles.'
 required: false
 translatable: false
 default_value: {  }

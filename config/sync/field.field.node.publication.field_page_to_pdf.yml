@@ -10,7 +10,7 @@ field_name: field_page_to_pdf
 entity_type: node
 bundle: publication
 label: 'Page to PDF'
-description: ''
+description: 'Check the box if this item should automatically generate a PDF from the HTML content. Leave unchecked if you are uploading a PDF file produced elsewhere.'
 required: false
 translatable: false
 default_value:
