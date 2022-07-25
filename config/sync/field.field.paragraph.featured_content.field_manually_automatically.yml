@@ -1,0 +1,23 @@
+uuid: c19e63b2-4535-4c17-8ce3-35eb54a8e359
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_manually_automatically
+    - paragraphs.paragraphs_type.featured_content
+id: paragraph.featured_content.field_manually_automatically
+field_name: field_manually_automatically
+entity_type: paragraph
+bundle: featured_content
+label: 'Select Items'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Manually
+  off_label: Automatically
+field_type: boolean

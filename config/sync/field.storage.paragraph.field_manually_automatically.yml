@@ -1,0 +1,18 @@
+uuid: e52c695f-bb98-4a71-9ebd-a8611b19a59e
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_manually_automatically
+field_name: field_manually_automatically
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

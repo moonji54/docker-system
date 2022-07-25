@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_featured_content
     - node.type.homepage
-    - paragraphs.paragraphs_type.container
+    - paragraphs.paragraphs_type.featured_content
   module:
     - entity_reference_revisions
 id: node.homepage.field_featured_content
@@ -22,11 +22,14 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      container: container
+      featured_content: featured_content
     negate: 0
     target_bundles_drag_drop:
       container:
         weight: 4
+        enabled: false
+      featured_content:
+        weight: 6
         enabled: true
       full_width_media:
         weight: 5

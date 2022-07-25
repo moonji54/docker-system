@@ -1,24 +1,25 @@
-uuid: ecd8c271-43ad-4273-9652-e88f06a3eb26
+uuid: 127053b8-8f54-457d-9fd8-02c023ed9ba6
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_title
-    - paragraphs.paragraphs_type.feature_content
+    - paragraphs.paragraphs_type.featured_content
   module:
     - allowed_formats
     - text
 third_party_settings:
   allowed_formats:
-    allowed_formats: {  }
-id: paragraph.feature_content.field_title
+    allowed_formats:
+      - full_html
+id: paragraph.featured_content.field_title
 field_name: field_title
 entity_type: paragraph
-bundle: feature_content
+bundle: featured_content
 label: Title
 description: ''
-required: true
-translatable: false
+required: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
