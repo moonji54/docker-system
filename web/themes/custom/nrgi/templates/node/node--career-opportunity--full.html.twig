@@ -1,0 +1,67 @@
+{% set classes = [
+  'c-node',
+  'c-node--type-' ~ node.bundle|clean_class,
+] %}
+<article{{ attributes.addClass(classes) }}>
+
+  {% if content.field_apply|field_apply %}
+    {{ content.field_apply }}
+  {% endif %}
+
+  {% if content.field_body|field_body %}
+    {{ content.field_body }}
+  {% endif %}
+
+  {% if content.field_career_opportunity_type|field_career_opportunity_type %}
+    {{ content.field_career_opportunity_type }}
+  {% endif %}
+
+  {% if content.field_city|field_city %}
+    {{ content.field_city }}
+  {% endif %}
+
+  {% if content.field_contact_for_queries|field_contact_for_queries %}
+    {{ content.field_contact_for_queries }}
+  {% endif %}
+
+  {% if content.field_country|field_country %}
+    {{ content.field_country }}
+  {% endif %}
+
+  {% if content.field_disclaimer|field_disclaimer %}
+    {{ content.field_disclaimer }}
+  {% endif %}
+
+  {% if content.field_expiration_date|field_expiration_date %}
+    {{ content.field_expiration_date }}
+  {% endif %}
+
+  {% if content.field_offer_deadline|field_offer_deadline %}
+    {{ content.field_offer_deadline }}
+  {% endif %}
+
+  {% if content.field_photo_caption|field_photo_caption %}
+    {{ content.field_photo_caption }}
+  {% endif %}
+
+  {% if content.field_region|field_region %}
+    {{ content.field_region }}
+  {% endif %}
+
+  {% if content.field_salary|field_salary %}
+    {{ content.field_salary }}
+  {% endif %}
+
+  {% if content.field_short_description|field_short_description %}
+    {{ content.field_short_description }}
+  {% endif %}
+
+  {% if content.field_supporting_document|field_supporting_document %}
+    {{ content.field_supporting_document }}
+  {% endif %}
+
+  {% if content.field_supporting_document_label|field_supporting_document_label %}
+    {{ content.field_supporting_document_label }}
+  {% endif %}
+
+</article>
