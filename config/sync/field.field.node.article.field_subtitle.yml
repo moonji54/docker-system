@@ -1,0 +1,19 @@
+uuid: 3ccadd14-75c0-4cf4-98eb-f57f7516a34f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subtitle
+    - node.type.article
+id: node.article.field_subtitle
+field_name: field_subtitle
+entity_type: node
+bundle: article
+label: Subtitle
+description: 'Enter the subtitle. This should be no more than two sentences that elaborate on the title. Subtitles will never appear without the title, though titles may be displayed without subtitles.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

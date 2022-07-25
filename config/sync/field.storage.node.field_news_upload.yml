@@ -1,17 +1,16 @@
-uuid: 80e429ba-4626-43a5-a05b-f616ada4748f
+uuid: 899359d0-8ee6-4266-b04f-4440c40594db
 langcode: en
 status: true
 dependencies:
   module:
+    - media
     - node
-_core:
-  default_config_hash: O_2_G-HZKaeTywrgQlmvWomPFAZNPIfTWCPpJu3d6OE
-id: node.field_summary
-field_name: field_summary
+id: node.field_news_upload
+field_name: field_news_upload
 entity_type: node
-type: string_long
+type: entity_reference
 settings:
-  case_sensitive: false
+  target_type: media
 module: core
 locked: false
 cardinality: 1

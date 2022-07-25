@@ -1,28 +1,26 @@
-uuid: 51e4f3e6-c9f2-4bc6-951b-801462fa2646
+uuid: 1110f269-3987-4a94-b1e7-b4f09cb595b4
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_media_image
-    - media.type.image
+    - field.storage.node.field_author
     - node.type.article
-_core:
-  default_config_hash: vya5IIPQFaA95Vc6wwIvXGWv0h2US5WA4TVIW8gsCLQ
-id: node.article.field_media_image
-field_name: field_media_image
+    - node.type.person
+id: node.article.field_author
+field_name: field_author
 entity_type: node
 bundle: article
-label: 'Featured image'
-description: ''
+label: Author
+description: 'The person(s) who will be credited with writing the content'
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:media'
+  handler: 'default:node'
   handler_settings:
     target_bundles:
-      image: image
+      person: person
     sort:
       field: _none
       direction: ASC

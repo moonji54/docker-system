@@ -1,21 +1,18 @@
-uuid: 3e76bc38-544f-48dd-a2de-b1ea90d8d403
+uuid: 1d6d92c6-e22a-42ee-bc17-f66215306781
 langcode: en
 status: true
 dependencies:
   module:
-    - media
     - node
-_core:
-  default_config_hash: qYVtbkNkax_AuErh3E07Ha3U0jVUCDsUtfgWZ6Z4HQY
-id: node.field_media_image
-field_name: field_media_image
+id: node.field_author
+field_name: field_author
 entity_type: node
 type: entity_reference
 settings:
-  target_type: media
+  target_type: node
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
