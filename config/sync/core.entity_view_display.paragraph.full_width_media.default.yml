@@ -3,14 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.full_width_media.field_media
+    - field.field.paragraph.full_width_media.field_image
     - paragraphs.paragraphs_type.full_width_media
 id: paragraph.full_width_media.default
 targetEntityType: paragraph
 bundle: full_width_media
 mode: default
 content:
-  field_media:
+  field_image:
     type: entity_reference_entity_view
     label: above
     settings:

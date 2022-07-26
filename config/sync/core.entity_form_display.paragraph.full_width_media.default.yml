@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.full_width_media.field_media
+    - field.field.paragraph.full_width_media.field_image
     - paragraphs.paragraphs_type.full_width_media
   module:
     - media_library
@@ -12,7 +12,7 @@ targetEntityType: paragraph
 bundle: full_width_media
 mode: default
 content:
-  field_media:
+  field_image:
     type: media_library_widget
     weight: 0
     region: content
