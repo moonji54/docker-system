@@ -1,14 +1,12 @@
-uuid: 8f4a3574-b230-4d49-ac8a-796e51271578
+uuid: 28bb2f20-7bc7-47b7-95cb-eac149c75169
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
     - text
-_core:
-  default_config_hash: _toFAQsdpjWOpsMwOlt2KuOfxaEehbAuadFjAMsznmI
-id: paragraph.field_body
-field_name: field_body
+id: paragraph.field_wysiwyg
+field_name: field_wysiwyg
 entity_type: paragraph
 type: text_long
 settings: {  }

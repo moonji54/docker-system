@@ -2,7 +2,10 @@ uuid: 6b045422-f9c4-4c7b-8b7b-34ff476c7675
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.wysiwyg
   module:
+    - filter
     - media
     - sitemap
     - system
@@ -18,5 +21,6 @@ permissions:
   - 'access site-wide contact form'
   - 'access sitemap'
   - 'use text format restricted_html'
+  - 'use text format wysiwyg'
   - 'view media'
   - 'view the administration theme'
