@@ -5,6 +5,7 @@ dependencies:
   module:
     - linkit
     - media
+    - project_backend
 name: WYSIWYG
 format: wysiwyg
 weight: 0
@@ -50,3 +51,9 @@ filters:
         document: document
         image: image
         video: video
+  filter_tables:
+    id: filter_tables
+    provider: project_backend
+    status: true
+    weight: 0
+    settings: {  }
