@@ -3,9 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.country.field_components
     - field.field.node.country.field_taxonomy_term
     - node.type.country
   module:
+    - nrgi_layout_builder
     - path
     - scheduler
     - scheduler_content_moderation_integration
@@ -19,6 +21,17 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_components:
+    type: nrgi_layout_paragraphs
+    weight: 122
+    region: content
+    settings:
+      preview_view_mode: default
+      nesting_depth: '0'
+      require_layouts: 0
+      restrictions:
+        blacklist: {  }
     third_party_settings: {  }
   field_taxonomy_term:
     type: entity_reference_autocomplete

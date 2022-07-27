@@ -1,11 +1,11 @@
-uuid: e52c695f-bb98-4a71-9ebd-a8611b19a59e
+uuid: 3c1cd08c-9159-4fc7-8bd4-7abec9ff0c44
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-id: paragraph.field_manually_automatically
-field_name: field_manually_automatically
+id: paragraph.field_items_selection
+field_name: field_items_selection
 entity_type: paragraph
 type: boolean
 settings: {  }

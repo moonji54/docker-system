@@ -9,7 +9,7 @@ id: paragraph.featured_content.field_number_of_items
 field_name: field_number_of_items
 entity_type: paragraph
 bundle: featured_content
-label: 'Number of items'
+label: 'Number of items per row'
 description: ''
 required: true
 translatable: false

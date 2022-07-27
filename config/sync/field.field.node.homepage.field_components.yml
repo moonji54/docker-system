@@ -1,21 +1,21 @@
-uuid: 711cd0b5-811c-4022-9a97-49bfe5b08bec
+uuid: 3755956c-ed1e-466c-ab1d-d20b08c20e7a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_featured_content
+    - field.storage.node.field_components
     - node.type.homepage
     - paragraphs.paragraphs_type.featured_content
   module:
     - entity_reference_revisions
-id: node.homepage.field_featured_content
-field_name: field_featured_content
+id: node.homepage.field_components
+field_name: field_components
 entity_type: node
 bundle: homepage
-label: 'Featured content'
+label: Components
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -26,15 +26,15 @@ settings:
     negate: 0
     target_bundles_drag_drop:
       container:
-        weight: 4
+        weight: 5
         enabled: false
       featured_content:
         weight: 6
         enabled: true
       full_width_media:
-        weight: 5
+        weight: 7
         enabled: false
       wysiwyg:
-        weight: 6
+        weight: 8
         enabled: false
 field_type: entity_reference_revisions

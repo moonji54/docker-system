@@ -3,20 +3,36 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.featured_content.field_button_text_and_link
     - field.field.paragraph.featured_content.field_content_cards
     - field.field.paragraph.featured_content.field_description
-    - field.field.paragraph.featured_content.field_manually_automatically
+    - field.field.paragraph.featured_content.field_dynamic_listing
+    - field.field.paragraph.featured_content.field_items_selection
     - field.field.paragraph.featured_content.field_number_of_items
     - field.field.paragraph.featured_content.field_show_image
     - field.field.paragraph.featured_content.field_title
     - paragraphs.paragraphs_type.featured_content
   module:
+    - link
     - text
+    - viewsreference
 id: paragraph.featured_content.default
 targetEntityType: paragraph
 bundle: featured_content
 mode: default
 content:
+  field_button_text_and_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 8
+    region: content
   field_content_cards:
     type: entity_reference_label
     label: above
@@ -32,7 +48,16 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_manually_automatically:
+  field_dynamic_listing:
+    type: viewsreference_formatter
+    label: above
+    settings:
+      plugin_types:
+        - block
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_items_selection:
     type: boolean
     label: above
     settings:
@@ -40,7 +65,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 3
+    weight: 7
     region: content
   field_number_of_items:
     type: number_integer

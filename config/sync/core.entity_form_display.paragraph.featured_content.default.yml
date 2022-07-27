@@ -3,27 +3,33 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.featured_content.field_button_text_and_link
     - field.field.paragraph.featured_content.field_content_cards
     - field.field.paragraph.featured_content.field_description
-    - field.field.paragraph.featured_content.field_manually_automatically
+    - field.field.paragraph.featured_content.field_dynamic_listing
+    - field.field.paragraph.featured_content.field_items_selection
     - field.field.paragraph.featured_content.field_number_of_items
     - field.field.paragraph.featured_content.field_show_image
     - field.field.paragraph.featured_content.field_title
     - paragraphs.paragraphs_type.featured_content
   module:
+    - conditional_fields
     - field_group
+    - link
+    - text
+    - viewsreference
 third_party_settings:
   field_group:
     group_content_cards:
       children:
-        - field_manually_automatically
+        - field_items_selection
+        - field_content_cards
         - field_number_of_items
         - field_show_image
-        - field_content_cards
       label: 'Content Cards'
       region: content
       parent_name: ''
-      weight: 0
+      weight: 2
       format_type: tab
       format_settings:
         classes: ''
@@ -37,28 +43,62 @@ targetEntityType: paragraph
 bundle: featured_content
 mode: default
 content:
+  field_button_text_and_link:
+    type: link_default
+    weight: 9
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   field_content_cards:
-    type: options_select
-    weight: 5
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 4
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dynamic_listing:
+    type: viewsreference_select
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_manually_automatically:
+  field_items_selection:
     type: options_buttons
-    weight: 2
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   field_number_of_items:
     type: number
-    weight: 6
+    weight: 7
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_show_image:
     type: boolean_checkbox
-    weight: 4
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_title:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      conditional_fields: {  }
+  status:
+    type: boolean_checkbox
+    weight: 1
     region: content
     settings:
       display_label: true
@@ -66,5 +106,3 @@ content:
 hidden:
   created: true
   field_description: true
-  field_title: true
-  status: true

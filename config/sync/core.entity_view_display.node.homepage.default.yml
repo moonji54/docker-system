@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.homepage.field_featured_content
+    - field.field.node.homepage.field_components
     - node.type.homepage
   module:
     - entity_reference_revisions
@@ -13,7 +13,7 @@ targetEntityType: node
 bundle: homepage
 mode: default
 content:
-  field_featured_content:
+  field_components:
     type: entity_reference_revisions_entity_view
     label: above
     settings:

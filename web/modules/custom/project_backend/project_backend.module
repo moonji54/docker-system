@@ -1,6 +1,8 @@
 <?php
 
 use Drupal\editor\Entity\Editor;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\Entity\Vocabulary;
 
 /**
  * @file
@@ -24,4 +26,74 @@ use Drupal\editor\Entity\Editor;
 function project_backend_ckeditor_css_alter(array &$css, Editor $editor) {
   $css[] = \Drupal::service('extension.list.theme')
       ->getPath('nrgi') . '/assets/css/ckeditor-style.css';
+}
+
+/**
+ *
+ * Implements hook_field_widget_single_element_WIDGET_TYPE_form_alter
+ */
+function project_backend_field_widget_single_element_paragraphs_form_alter(array &$element, \Drupal\Core\Form\FormStateInterface $form_state, array $context) {
+  $field_definition = $context['items']->getFieldDefinition();
+  $paragraph_entity_reference_field_name = $field_definition->getName();
+  if ($paragraph_entity_reference_field_name == 'field_components') {
+    $widget_state = \Drupal\Core\Field\WidgetBase::getWidgetState($element['#field_parents'], $paragraph_entity_reference_field_name, $form_state);
+
+    /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+    $paragraph_instance = $widget_state['paragraphs'][$element['#delta']]['entity'];
+    $paragraph_type = $paragraph_instance->bundle();
+
+    // Determine which paragraph type is being embedded.
+    if ($paragraph_type == 'featured_content') {
+
+      $dependee_field_name = 'field_items_selection';
+      $selector = sprintf(':input[name="%s[%d][subform][%s]"]', $paragraph_entity_reference_field_name, $element['#delta'], $dependee_field_name);
+
+      $element['subform']['field_content_cards']['#states'] = [
+        'visible' => [
+          $selector => ['value' => '0'],
+        ],
+      ];
+      $element['subform']['field_dynamic_listing']['#states'] = [
+        'visible' => [
+          $selector => ['value' => '1'],
+        ],
+      ];
+    }
+    // Add js functionnality to view and select contextual filters
+    // get all the content type ids and labels
+    $entityTypeManager = \Drupal::service('entity_type.manager');
+    $contentTypes = [];
+    $content = $entityTypeManager->getStorage('node_type')->loadMultiple();
+    foreach ($content as $contentType) {
+      if ($contentType->id() != 'person') {
+        $contentTypes[$contentType->id()] = $contentType->label();
+      }
+    }
+
+    // get all the taxonomy term ids and labels;
+    $vocabularies = ['topic', 'country', 'language', 'content_type_label', 'career_opportunity_type'];
+    $taxonomyTerms = [];
+    $terms = Term::loadMultiple();
+    foreach ($terms as $term) {
+      if (in_array($term->bundle(), $vocabularies)) {
+        $taxonomyTerms[$term->id()] = $term->getName();
+      }
+    }
+
+    // create two dummy fields
+    $element['subform']['field_dynamic_listing']['taxonomy_term'] = [
+      '#type' => 'select',
+      '#title' => t('Tags'),
+      '#options' => array_values($taxonomyTerms),
+      '#multiple' => True,
+    ];
+
+    $element['subform']['field_dynamic_listing']['content_type'] = [
+      '#type' => 'select',
+      '#title' => t('Content types'),
+      '#options' => array_values($contentTypes),
+      '#multiple' => True,
+    ];
+    $t = 1;
+  }
 }
