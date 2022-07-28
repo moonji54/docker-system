@@ -5,13 +5,11 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.article.body
-    - field.field.node.article.field_components
     - field.field.node.article.field_image
     - field.field.node.article.field_media_image
     - field.field.node.article.field_summary
     - node.type.article
   module:
-    - layout_paragraphs
     - user
 _core:
   default_config_hash: zjCP_ca9pMZvhD1Z2mp3NNm3ecDh3LiWqfUKs8Ncogs
@@ -20,15 +18,6 @@ targetEntityType: node
 bundle: article
 mode: full
 content:
-  field_components:
-    type: layout_paragraphs
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 102
-    region: content
   field_media_image:
     type: entity_reference_entity_view
     label: above

@@ -1,16 +1,17 @@
-uuid: 539819ce-556b-44c9-8d9d-29b5efd733fd
+uuid: 4e56d40e-81b8-464e-aad1-3de3804460e9
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.card
     - field.field.node.country.field_taxonomy_term
     - node.type.country
   module:
     - user
-id: node.country.default
+id: node.country.card
 targetEntityType: node
 bundle: country
-mode: default
+mode: card
 content:
   content_moderation_control:
     settings: {  }
@@ -19,17 +20,25 @@ content:
     region: content
   field_taxonomy_term:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    weight: 101
+    weight: 2
+    region: content
+  langcode:
+    type: language
+    label: hidden
+    settings:
+      link_to_entity: false
+      native_language: false
+    third_party_settings: {  }
+    weight: 1
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
-  langcode: true
   search_api_excerpt: true

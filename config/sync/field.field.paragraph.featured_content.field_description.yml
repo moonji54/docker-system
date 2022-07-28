@@ -6,7 +6,12 @@ dependencies:
     - field.storage.paragraph.field_description
     - paragraphs.paragraphs_type.featured_content
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - text_and_links
 id: paragraph.featured_content.field_description
 field_name: field_description
 entity_type: paragraph

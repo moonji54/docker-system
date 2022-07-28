@@ -1,8 +1,9 @@
-uuid: 84c5409a-60f4-45c4-9e48-1d7f25b7ff19
+uuid: fb828f47-31ac-4c86-afc8-3a6c4b609dd9
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.card
     - field.field.node.article.body
     - field.field.node.article.field_image
     - field.field.node.article.field_media_image
@@ -12,10 +13,10 @@ dependencies:
     - user
 _core:
   default_config_hash: zjCP_ca9pMZvhD1Z2mp3NNm3ecDh3LiWqfUKs8Ncogs
-id: node.article.default
+id: node.article.card
 targetEntityType: node
 bundle: article
-mode: default
+mode: card
 content:
   field_media_image:
     type: entity_reference_entity_view

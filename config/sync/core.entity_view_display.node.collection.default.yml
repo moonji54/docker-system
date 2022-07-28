@@ -1,16 +1,15 @@
-uuid: 9fec2e6d-456c-40da-a32e-e96d3191107a
+uuid: b9d87c8d-be9c-4bc9-8849-4ab90d28badc
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
-    - node.type.homepage
+    - node.type.collection
   module:
     - user
-id: node.homepage.teaser
+id: node.collection.default
 targetEntityType: node
-bundle: homepage
-mode: teaser
+bundle: collection
+mode: default
 content:
   links:
     settings: {  }

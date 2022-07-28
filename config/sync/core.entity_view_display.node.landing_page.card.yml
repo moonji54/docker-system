@@ -1,16 +1,16 @@
-uuid: 9fec2e6d-456c-40da-a32e-e96d3191107a
+uuid: 3d365e60-00cc-441e-b224-0cb4c9e1e9d7
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
-    - node.type.homepage
+    - core.entity_view_mode.node.card
+    - node.type.landing_page
   module:
     - user
-id: node.homepage.teaser
+id: node.landing_page.card
 targetEntityType: node
-bundle: homepage
-mode: teaser
+bundle: landing_page
+mode: card
 content:
   links:
     settings: {  }
