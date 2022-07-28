@@ -5,9 +5,9 @@ dependencies:
   config:
     - field.field.paragraph.cta_download.field_description
     - field.field.paragraph.cta_download.field_file
-    - field.field.paragraph.cta_download.field_headline
     - field.field.paragraph.cta_download.field_image
     - field.field.paragraph.cta_download.field_link_and_text
+    - field.field.paragraph.cta_download.field_title
     - paragraphs.paragraphs_type.cta_download
   module:
     - file
@@ -33,13 +33,6 @@ content:
       use_description_as_link_text: true
     third_party_settings: {  }
     weight: 3
-    region: content
-  field_headline:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
     region: content
   field_image:
     type: image
@@ -67,6 +60,13 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_title:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
     region: content
 hidden:
   search_api_excerpt: true

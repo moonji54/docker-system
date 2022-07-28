@@ -1,9 +1,9 @@
-uuid: ffbbf2b8-14ac-4fe5-8944-519395fb71c9
+uuid: 1c48102c-5122-4e6e-8fb2-f62877cb5f28
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_headline
+    - field.storage.paragraph.field_title
     - paragraphs.paragraphs_type.cta_download
   module:
     - allowed_formats
@@ -11,11 +11,11 @@ dependencies:
 third_party_settings:
   allowed_formats:
     allowed_formats: {  }
-id: paragraph.cta_download.field_headline
-field_name: field_headline
+id: paragraph.cta_download.field_title
+field_name: field_title
 entity_type: paragraph
 bundle: cta_download
-label: Headline
+label: Title
 description: ''
 required: false
 translatable: false
