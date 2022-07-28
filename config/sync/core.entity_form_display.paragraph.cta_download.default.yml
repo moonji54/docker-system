@@ -1,28 +1,59 @@
-uuid: 2b5f4ecd-b3b7-40b2-b762-39fba9834144
+uuid: 19e3c44e-4b7d-4d9a-a910-845a56b59900
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.cta_download.field_body
+    - field.field.paragraph.cta_download.field_description
+    - field.field.paragraph.cta_download.field_file
     - field.field.paragraph.cta_download.field_headline
     - field.field.paragraph.cta_download.field_image
+    - field.field.paragraph.cta_download.field_link_and_text
     - image.style.thumbnail
     - paragraphs.paragraphs_type.cta_download
   module:
+    - field_group
+    - file
+    - link
     - svg_image
     - text
+third_party_settings:
+  field_group:
+    group_buttons:
+      children:
+        - field_link_and_text
+        - field_file
+      label: Buttons
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        required_fields: true
+        direction: vertical
+        width_breakpoint: 640
 id: paragraph.cta_download.default
 targetEntityType: paragraph
 bundle: cta_download
 mode: default
 content:
-  field_body:
-    type: text_textarea
+  field_description:
+    type: text_textfield
     weight: 1
     region: content
     settings:
-      rows: 5
+      size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_file:
+    type: file_generic
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
     third_party_settings: {  }
   field_headline:
     type: text_textfield
@@ -34,11 +65,19 @@ content:
     third_party_settings: {  }
   field_image:
     type: image_image
-    weight: 2
+    weight: 3
     region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_link_and_text:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
 hidden:
   created: true

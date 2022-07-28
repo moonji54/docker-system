@@ -1,4 +1,4 @@
-uuid: 311f1474-5e2d-440b-a953-1f56b52ccb7a
+uuid: ffbbf2b8-14ac-4fe5-8944-519395fb71c9
 langcode: en
 status: true
 dependencies:
@@ -10,8 +10,7 @@ dependencies:
     - text
 third_party_settings:
   allowed_formats:
-    allowed_formats:
-      - full_html
+    allowed_formats: {  }
 id: paragraph.cta_download.field_headline
 field_name: field_headline
 entity_type: paragraph

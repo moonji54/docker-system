@@ -1,13 +1,17 @@
-uuid: da4d09a5-d490-4bcf-b07f-c23cf3d9b2dc
+uuid: 5a02e330-507e-4ab0-b836-44bc6cd062d0
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.cta_download.field_body
+    - field.field.paragraph.cta_download.field_description
+    - field.field.paragraph.cta_download.field_file
     - field.field.paragraph.cta_download.field_headline
     - field.field.paragraph.cta_download.field_image
+    - field.field.paragraph.cta_download.field_link_and_text
     - paragraphs.paragraphs_type.cta_download
   module:
+    - file
+    - link
     - svg_image
     - text
 id: paragraph.cta_download.default
@@ -15,12 +19,20 @@ targetEntityType: paragraph
 bundle: cta_download
 mode: default
 content:
-  field_body:
+  field_description:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 3
     region: content
   field_headline:
     type: text_default
@@ -41,6 +53,18 @@ content:
       svg_render_as_image: true
       image_loading:
         attribute: lazy
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_link_and_text:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
     third_party_settings: {  }
     weight: 2
     region: content
