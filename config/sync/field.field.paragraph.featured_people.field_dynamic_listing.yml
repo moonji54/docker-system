@@ -1,0 +1,53 @@
+uuid: 56eed3f2-d83b-4391-9674-ec694b309776
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_dynamic_listing
+    - paragraphs.paragraphs_type.featured_people
+  module:
+    - viewsreference
+id: paragraph.featured_people.field_dynamic_listing
+field_name: field_dynamic_listing
+entity_type: paragraph
+bundle: featured_people
+label: 'Dynamic listing'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:view'
+  handler_settings:
+    target_bundles: null
+    auto_create: 0
+  plugin_types:
+    block: block
+    default: 0
+    page: 0
+    feed: 0
+  preselect_views:
+    content: content
+    block_content: 0
+    content_recent: 0
+    files: 0
+    frontpage: 0
+    media: 0
+    media_library: 0
+    moderated_content: 0
+    redirect: 0
+    scheduler_scheduled_content: 0
+    taxonomy_term: 0
+    user_admin_people: 0
+    watchdog: 0
+    who_s_new: 0
+    who_s_online: 0
+  enabled_settings:
+    featured_term: featured_term
+    title: 0
+    pager: 0
+    argument: 0
+    offset: 0
+    limit: 0
+field_type: viewsreference

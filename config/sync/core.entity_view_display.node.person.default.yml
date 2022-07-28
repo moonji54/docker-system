@@ -12,19 +12,12 @@ targetEntityType: node
 bundle: person
 mode: default
 content:
-  field_taxonomy_term:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 101
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
+  field_taxonomy_term: true
   langcode: true
   search_api_excerpt: true
