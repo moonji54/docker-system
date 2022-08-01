@@ -1,0 +1,10 @@
+uuid: 45db07e1-6774-4f74-a9a5-980e2d71e91c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.sidebar_related_content
+label: 'Mini card'
+targetEntityType: node
+cache: true
