@@ -21,8 +21,9 @@ default_value:
     options:
       featured_term: {  }
       featured_content_type: {  }
+      limit: ''
     display_id: block
-    data: 'a:7:{s:13:"featured_term";a:0:{}s:21:"featured_content_type";a:0:{}s:5:"title";N;s:5:"pager";N;s:8:"argument";N;s:6:"offset";N;s:5:"limit";N;}'
+    data: 'a:8:{s:13:"featured_term";a:0:{}s:13:"limit_results";N;s:21:"featured_content_type";a:0:{}s:5:"title";N;s:5:"pager";N;s:8:"argument";N;s:6:"offset";N;s:5:"limit";s:0:"";}'
     target_uuid: 86d7b8bc-cc57-4a91-bb7a-e5903d5661d2
 default_value_callback: ''
 settings:
@@ -54,9 +55,10 @@ settings:
   enabled_settings:
     featured_term: featured_term
     featured_content_type: featured_content_type
+    limit: limit
+    limit_results: 0
     title: 0
     pager: 0
     argument: 0
     offset: 0
-    limit: 0
 field_type: viewsreference

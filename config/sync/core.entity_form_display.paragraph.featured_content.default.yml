@@ -8,7 +8,6 @@ dependencies:
     - field.field.paragraph.featured_content.field_description
     - field.field.paragraph.featured_content.field_dynamic_listing
     - field.field.paragraph.featured_content.field_items_selection
-    - field.field.paragraph.featured_content.field_number_of_items
     - field.field.paragraph.featured_content.field_show_image
     - field.field.paragraph.featured_content.field_title
     - paragraphs.paragraphs_type.featured_content
@@ -104,13 +103,6 @@ content:
     weight: 9
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_number_of_items:
-    type: number
-    weight: 7
-    region: content
-    settings:
-      placeholder: ''
     third_party_settings: {  }
   field_show_image:
     type: boolean_checkbox
