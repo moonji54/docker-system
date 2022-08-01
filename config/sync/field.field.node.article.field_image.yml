@@ -6,7 +6,14 @@ dependencies:
     - field.storage.node.field_image
     - node.type.article
   module:
+    - content_translation
     - image
+third_party_settings:
+  content_translation:
+    translation_sync:
+      alt: alt
+      title: title
+      file: '0'
 _core:
   default_config_hash: DfRBx5FqM85gtKWpq9QZcjImqSxS91v7ohw0xU8EN_s
 id: node.article.field_image

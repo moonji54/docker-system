@@ -1,0 +1,22 @@
+uuid: 1d952201-3ba7-434c-b4bb-235d73584ff2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.career_opportunity
+id: node.career_opportunity.unified_date
+field_name: unified_date
+entity_type: node
+bundle: career_opportunity
+label: 'Unified date'
+description: 'The unified date field.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

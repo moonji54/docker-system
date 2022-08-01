@@ -1,0 +1,22 @@
+uuid: 82205c3a-f6c1-4f48-9e34-5553b1f6e46b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.person
+id: node.person.unified_date
+field_name: unified_date
+entity_type: node
+bundle: person
+label: 'Unified date'
+description: 'The unified date field.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

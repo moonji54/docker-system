@@ -1,0 +1,18 @@
+uuid: 4f35f4e8-2a86-44ca-be08-08f8af4d9291
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.publication
+id: node.publication.metatag
+field_name: metatag
+entity_type: node
+bundle: publication
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The meta tags for the entity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

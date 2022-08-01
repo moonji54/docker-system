@@ -1,0 +1,20 @@
+uuid: c003d9c0-f87c-4db4-8df6-7b1fb1b091e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.landing_page
+  module:
+    - options
+id: node.landing_page.unpublish_state
+field_name: unpublish_state
+entity_type: node
+bundle: landing_page
+label: 'Unpublish state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

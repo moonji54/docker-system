@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\editor\Entity\Editor;
 
 /**
@@ -24,4 +25,12 @@ use Drupal\editor\Entity\Editor;
 function project_backend_ckeditor_css_alter(array &$css, Editor $editor) {
   $css[] = \Drupal::service('extension.list.theme')
       ->getPath('nrgi') . '/assets/css/ckeditor-style.css';
+}
+
+function project_backend_language_switch_links_alter(array &$links, $type, $path) {
+  $currentLanguage = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $translationLanguages = array_keys(\Drupal::routeMatch()->getParameter('node')->getTranslationLanguages());
+  if (in_array($currentLanguage, $translationLanguages)) {
+    $t = 1;
+  }
 }
