@@ -1,18 +1,18 @@
-uuid: 351e0741-6806-4483-bbb4-5684435a321e
+uuid: 70eb6723-4106-4478-acf1-344859f32ea4
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.homepage.field_components
-    - node.type.homepage
+    - field.field.node.listing_page.field_components
+    - node.type.listing_page
   module:
     - entity_reference_revisions
     - path
     - scheduler
     - scheduler_content_moderation_integration
-id: node.homepage.default
+id: node.listing_page.default
 targetEntityType: node
-bundle: homepage
+bundle: listing_page
 mode: default
 content:
   created:
