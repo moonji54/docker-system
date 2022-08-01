@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.country.field_taxonomy_term
     - node.type.country
     - workflows.workflow.editorial
   module:
@@ -20,6 +21,16 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_taxonomy_term:
+    type: entity_reference_autocomplete
+    weight: 121
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   langcode:
     type: language_select

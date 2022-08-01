@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.country.field_taxonomy_term
     - node.type.country
   module:
     - user
@@ -15,6 +16,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: -20
+  field_taxonomy_term:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
     region: content
   links:
     settings: {  }
