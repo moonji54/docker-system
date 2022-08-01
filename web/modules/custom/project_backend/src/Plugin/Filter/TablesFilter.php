@@ -16,7 +16,7 @@ use Drupal\filter\Plugin\FilterBase;
 class TablesFilter extends FilterBase {
 
   public function process($text, $langcode) {
-    $text = str_replace('<table>', "<div class='resposive-table'><table>", $text);
+    $text = str_replace('<table>', "<div class='responsive-table'><table>", $text);
     $text = str_replace('</table>', "</table></div>", $text);
     return new FilterProcessResult($text);
   }
