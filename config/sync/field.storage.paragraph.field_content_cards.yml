@@ -1,19 +1,19 @@
-uuid: c7ad827a-5b42-4db3-9dad-92bb0a135a69
+uuid: 2bde0d5d-4d28-42a8-9e0e-887ff069686c
 langcode: en
 status: true
 dependencies:
   module:
+    - node
     - paragraphs
-    - text
-id: paragraph.field_title
-field_name: field_title
+id: paragraph.field_content_cards
+field_name: field_content_cards
 entity_type: paragraph
-type: text
+type: entity_reference
 settings:
-  max_length: 255
-module: text
+  target_type: node
+module: core
 locked: false
-cardinality: 1
+cardinality: 4
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

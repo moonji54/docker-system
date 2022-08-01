@@ -1,17 +1,15 @@
-uuid: c7ad827a-5b42-4db3-9dad-92bb0a135a69
+uuid: 3b5e6e42-e67a-40f4-a189-eeba489901bf
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-    - text
-id: paragraph.field_title
-field_name: field_title
+id: paragraph.field_show_image
+field_name: field_show_image
 entity_type: paragraph
-type: text
-settings:
-  max_length: 255
-module: text
+type: boolean
+settings: {  }
+module: core
 locked: false
 cardinality: 1
 translatable: true
