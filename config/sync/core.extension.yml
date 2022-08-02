@@ -17,6 +17,7 @@ module:
   bugherd: 0
   ckeditor: 0
   config: 0
+  config_translation: 0
   content_moderation: 0
   context: 0
   context_active_trail: 0
@@ -52,6 +53,7 @@ module:
   layout_paragraphs_restriction: 0
   link: 0
   linkit: 0
+  locale: 0
   mailsystem: 0
   media: 0
   media_library: 0
