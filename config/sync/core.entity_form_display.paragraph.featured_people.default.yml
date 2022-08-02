@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.featured_people.field_content_cards
     - field.field.paragraph.featured_people.field_dynamic_listing
     - field.field.paragraph.featured_people.field_items_selection
+    - field.field.paragraph.featured_people.field_layout
     - field.field.paragraph.featured_people.field_show_image
     - field.field.paragraph.featured_people.field_subtitle
     - field.field.paragraph.featured_people.field_title
@@ -23,6 +24,7 @@ third_party_settings:
         - field_title
         - field_subtitle
         - field_show_image
+        - field_layout
         - field_items_selection
         - field_dynamic_listing
         - field_content_cards
@@ -46,7 +48,7 @@ mode: default
 content:
   field_button_text_and_link:
     type: link_default
-    weight: 7
+    weight: 8
     region: content
     settings:
       placeholder_url: ''
@@ -54,7 +56,7 @@ content:
     third_party_settings: {  }
   field_content_cards:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 7
     region: content
     settings:
       match_operator: CONTAINS
@@ -64,15 +66,22 @@ content:
     third_party_settings: {  }
   field_dynamic_listing:
     type: viewsreference_select
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_items_selection:
     type: options_buttons
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_layout:
+    type: number
+    weight: 4
+    region: content
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   field_show_image:
     type: boolean_checkbox

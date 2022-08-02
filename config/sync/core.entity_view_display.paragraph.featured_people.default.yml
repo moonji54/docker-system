@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.featured_people.field_content_cards
     - field.field.paragraph.featured_people.field_dynamic_listing
     - field.field.paragraph.featured_people.field_items_selection
+    - field.field.paragraph.featured_people.field_layout
     - field.field.paragraph.featured_people.field_show_image
     - field.field.paragraph.featured_people.field_subtitle
     - field.field.paragraph.featured_people.field_title
@@ -58,6 +59,15 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 7
+    region: content
+  field_layout:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 11
     region: content
   field_show_image:
     type: boolean
