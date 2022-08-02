@@ -1,8 +1,9 @@
-uuid: d878091b-24da-4ee2-9858-9eee45b6ecbd
+uuid: 9bb8d1b8-d47a-4ff9-8d41-1cabcf67c318
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.sidebar_related_content
     - field.field.node.event.field_address
     - field.field.node.event.field_body
     - field.field.node.event.field_country
@@ -54,10 +55,10 @@ dependencies:
     - options
     - text
     - user
-id: node.event.default
+id: node.event.sidebar_related_content
 targetEntityType: node
 bundle: event
-mode: default
+mode: sidebar_related_content
 content:
   content_moderation_control:
     settings: {  }

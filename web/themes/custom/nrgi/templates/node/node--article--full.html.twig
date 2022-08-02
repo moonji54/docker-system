@@ -96,4 +96,7 @@
     {{ content.field_transcript }}
   {% endif %}
 
+  {% if content.field_page_builder|field_page_builder %}
+    {{ content.field_page_builder }}
+  {% endif %}
 </article>

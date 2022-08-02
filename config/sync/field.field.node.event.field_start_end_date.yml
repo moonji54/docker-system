@@ -1,0 +1,21 @@
+uuid: a3ba233e-1d28-461f-b33a-134baa2aafe1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_start_end_date
+    - node.type.event
+  module:
+    - datetime_range
+id: node.event.field_start_end_date
+field_name: field_start_end_date
+entity_type: node
+bundle: event
+label: 'Start/end date'
+description: 'Enter the date on which the event/course/training will start and end'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

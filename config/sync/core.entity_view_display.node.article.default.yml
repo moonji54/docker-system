@@ -14,8 +14,10 @@ dependencies:
     - field.field.node.article.field_key_messages
     - field.field.node.article.field_keywords
     - field.field.node.article.field_languages
+    - field.field.node.article.field_link_from_external_card
     - field.field.node.article.field_link_to_external_item
     - field.field.node.article.field_news_upload
+    - field.field.node.article.field_page_builder
     - field.field.node.article.field_partner_logo
     - field.field.node.article.field_partner_name
     - field.field.node.article.field_photo_caption
@@ -29,6 +31,7 @@ dependencies:
     - node.type.article
   module:
     - datetime
+    - entity_reference_revisions
     - link
     - text
     - user
@@ -39,23 +42,28 @@ targetEntityType: node
 bundle: article
 mode: default
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   field_acknowledgement:
     type: basic_string
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 112
     region: content
   field_acknowledgement_donor:
     type: basic_string
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 113
     region: content
   field_author:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -63,7 +71,7 @@ content:
     region: content
   field_country:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -71,7 +79,7 @@ content:
     region: content
   field_expiration_date:
     type: datetime_default
-    label: above
+    label: hidden
     settings:
       timezone_override: ''
       format_type: medium
@@ -80,7 +88,7 @@ content:
     region: content
   field_external_author_link:
     type: link
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -92,7 +100,7 @@ content:
     region: content
   field_external_author_name:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -100,7 +108,7 @@ content:
     region: content
   field_featured_image:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -108,14 +116,14 @@ content:
     region: content
   field_key_messages:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 106
     region: content
   field_keywords:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -123,15 +131,27 @@ content:
     region: content
   field_languages:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     weight: 114
     region: content
+  field_link_from_external_card:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 125
+    region: content
   field_link_to_external_item:
     type: link
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -143,16 +163,25 @@ content:
     region: content
   field_news_upload:
     type: entity_reference_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
     weight: 118
     region: content
+  field_page_builder:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 124
+    region: content
   field_partner_logo:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -160,7 +189,7 @@ content:
     region: content
   field_partner_name:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -168,7 +197,7 @@ content:
     region: content
   field_photo_caption:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -176,7 +205,7 @@ content:
     region: content
   field_publisher:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -184,7 +213,7 @@ content:
     region: content
   field_region:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -192,7 +221,7 @@ content:
     region: content
   field_resource_type:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -200,7 +229,7 @@ content:
     region: content
   field_short_description:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -208,7 +237,7 @@ content:
     region: content
   field_subtitle:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -216,7 +245,7 @@ content:
     region: content
   field_topic:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -224,7 +253,7 @@ content:
     region: content
   field_transcript:
     type: basic_string
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 105

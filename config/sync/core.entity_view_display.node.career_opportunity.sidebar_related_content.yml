@@ -1,8 +1,9 @@
-uuid: c4012261-6d18-41b7-a2f7-c6ed56e59884
+uuid: e82bcbc4-b6c9-413d-ba31-a3886eca289d
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.sidebar_related_content
     - field.field.node.career_opportunity.field_apply
     - field.field.node.career_opportunity.field_body
     - field.field.node.career_opportunity.field_career_opportunity_type
@@ -26,10 +27,10 @@ dependencies:
     - link
     - text
     - user
-id: node.career_opportunity.default
+id: node.career_opportunity.sidebar_related_content
 targetEntityType: node
 bundle: career_opportunity
-mode: default
+mode: sidebar_related_content
 content:
   content_moderation_control:
     settings: {  }

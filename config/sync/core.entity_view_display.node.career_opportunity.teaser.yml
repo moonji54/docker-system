@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.career_opportunity.field_disclaimer
     - field.field.node.career_opportunity.field_expiration_date
     - field.field.node.career_opportunity.field_offer_deadline
+    - field.field.node.career_opportunity.field_page_builder
     - field.field.node.career_opportunity.field_photo_caption
     - field.field.node.career_opportunity.field_region
     - field.field.node.career_opportunity.field_salary
@@ -27,6 +28,11 @@ targetEntityType: node
 bundle: career_opportunity
 mode: teaser
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -42,6 +48,7 @@ hidden:
   field_disclaimer: true
   field_expiration_date: true
   field_offer_deadline: true
+  field_page_builder: true
   field_photo_caption: true
   field_region: true
   field_salary: true

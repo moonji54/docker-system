@@ -15,8 +15,10 @@ dependencies:
     - field.field.node.article.field_key_messages
     - field.field.node.article.field_keywords
     - field.field.node.article.field_languages
+    - field.field.node.article.field_link_from_external_card
     - field.field.node.article.field_link_to_external_item
     - field.field.node.article.field_news_upload
+    - field.field.node.article.field_page_builder
     - field.field.node.article.field_partner_logo
     - field.field.node.article.field_partner_name
     - field.field.node.article.field_photo_caption
@@ -37,6 +39,11 @@ targetEntityType: node
 bundle: article
 mode: teaser
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     weight: 100
     region: content
@@ -53,8 +60,10 @@ hidden:
   field_key_messages: true
   field_keywords: true
   field_languages: true
+  field_link_from_external_card: true
   field_link_to_external_item: true
   field_news_upload: true
+  field_page_builder: true
   field_partner_logo: true
   field_partner_name: true
   field_photo_caption: true

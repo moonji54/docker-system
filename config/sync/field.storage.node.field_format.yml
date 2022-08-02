@@ -1,17 +1,26 @@
-uuid: 58d00ff7-c75f-46c1-93e3-1108f7a51219
+uuid: 77198ade-061e-4a5c-ad63-3cbe44d479f4
 langcode: en
 status: true
 dependencies:
   module:
     - node
+    - options
 id: node.field_format
 field_name: field_format
 entity_type: node
-type: boolean
-settings: {  }
-module: core
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: inperson
+      label: 'In person'
+    -
+      value: online
+      label: Online
+  allowed_values_function: ''
+module: options
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

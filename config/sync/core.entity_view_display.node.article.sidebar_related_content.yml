@@ -1,77 +1,66 @@
-uuid: 072a92c3-43ec-4818-892f-ef5c8933d274
+uuid: 7d86a240-84f2-4480-93e7-fbd01716a74e
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.publication.field_absctract
-    - field.field.node.publication.field_acknowledgement
-    - field.field.node.publication.field_acknowledgement_donor
-    - field.field.node.publication.field_author
-    - field.field.node.publication.field_country
-    - field.field.node.publication.field_data_document
-    - field.field.node.publication.field_data_document_label
-    - field.field.node.publication.field_expiration_date
-    - field.field.node.publication.field_external_author_link
-    - field.field.node.publication.field_external_author_name
-    - field.field.node.publication.field_featured_image
-    - field.field.node.publication.field_key_messages
-    - field.field.node.publication.field_keywords
-    - field.field.node.publication.field_languages
-    - field.field.node.publication.field_learning_block
-    - field.field.node.publication.field_link_from_external_card
-    - field.field.node.publication.field_link_to_external_item
-    - field.field.node.publication.field_page_builder
-    - field.field.node.publication.field_page_to_pdf
-    - field.field.node.publication.field_partner_logo
-    - field.field.node.publication.field_partner_name
-    - field.field.node.publication.field_photo_caption
-    - field.field.node.publication.field_publisher
-    - field.field.node.publication.field_region
-    - field.field.node.publication.field_report_pdf
-    - field.field.node.publication.field_resource_type
-    - field.field.node.publication.field_short_description
-    - field.field.node.publication.field_subtitle
-    - field.field.node.publication.field_supporting_document
-    - field.field.node.publication.field_supporting_document_label
-    - field.field.node.publication.field_topic
-    - field.field.node.publication.field_transcript
-    - node.type.publication
+    - core.entity_view_mode.node.sidebar_related_content
+    - field.field.node.article.field_acknowledgement
+    - field.field.node.article.field_acknowledgement_donor
+    - field.field.node.article.field_author
+    - field.field.node.article.field_country
+    - field.field.node.article.field_expiration_date
+    - field.field.node.article.field_external_author_link
+    - field.field.node.article.field_external_author_name
+    - field.field.node.article.field_featured_image
+    - field.field.node.article.field_key_messages
+    - field.field.node.article.field_keywords
+    - field.field.node.article.field_languages
+    - field.field.node.article.field_link_from_external_card
+    - field.field.node.article.field_link_to_external_item
+    - field.field.node.article.field_news_upload
+    - field.field.node.article.field_page_builder
+    - field.field.node.article.field_partner_logo
+    - field.field.node.article.field_partner_name
+    - field.field.node.article.field_photo_caption
+    - field.field.node.article.field_publisher
+    - field.field.node.article.field_region
+    - field.field.node.article.field_resource_type
+    - field.field.node.article.field_short_description
+    - field.field.node.article.field_subtitle
+    - field.field.node.article.field_topic
+    - field.field.node.article.field_transcript
+    - node.type.article
   module:
     - datetime
     - entity_reference_revisions
     - link
     - text
     - user
-id: node.publication.default
+_core:
+  default_config_hash: zjCP_ca9pMZvhD1Z2mp3NNm3ecDh3LiWqfUKs8Ncogs
+id: node.article.sidebar_related_content
 targetEntityType: node
-bundle: publication
-mode: default
+bundle: article
+mode: sidebar_related_content
 content:
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: 0
-    region: content
-  field_absctract:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 15
+    weight: -20
     region: content
   field_acknowledgement:
     type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 25
+    weight: 112
     region: content
   field_acknowledgement_donor:
     type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 32
+    weight: 113
     region: content
   field_author:
     type: entity_reference_label
@@ -79,7 +68,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 9
+    weight: 107
     region: content
   field_country:
     type: entity_reference_label
@@ -87,23 +76,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
-    region: content
-  field_data_document:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 34
-    region: content
-  field_data_document_label:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 33
+    weight: 122
     region: content
   field_expiration_date:
     type: datetime_default
@@ -112,7 +85,7 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 8
+    weight: 104
     region: content
   field_external_author_link:
     type: link
@@ -124,7 +97,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 31
+    weight: 109
     region: content
   field_external_author_name:
     type: string
@@ -132,7 +105,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 29
+    weight: 108
     region: content
   field_featured_image:
     type: entity_reference_label
@@ -140,14 +113,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 28
+    weight: 117
     region: content
   field_key_messages:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 27
+    weight: 106
     region: content
   field_keywords:
     type: entity_reference_label
@@ -155,7 +128,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 3
+    weight: 121
     region: content
   field_languages:
     type: entity_reference_label
@@ -163,18 +136,11 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 6
-    region: content
-  field_learning_block:
-    type: basic_string
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 30
+    weight: 114
     region: content
   field_link_from_external_card:
     type: link
-    label: hidden
+    label: above
     settings:
       trim_length: 80
       url_only: false
@@ -182,7 +148,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 10
+    weight: 125
     region: content
   field_link_to_external_item:
     type: link
@@ -194,7 +160,16 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 26
+    weight: 116
+    region: content
+  field_news_upload:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 118
     region: content
   field_page_builder:
     type: entity_reference_revisions_entity_view
@@ -203,17 +178,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 7
-    region: content
-  field_page_to_pdf:
-    type: boolean
-    label: hidden
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 16
+    weight: 124
     region: content
   field_partner_logo:
     type: entity_reference_label
@@ -221,7 +186,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 12
+    weight: 119
     region: content
   field_partner_name:
     type: string
@@ -229,7 +194,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 24
+    weight: 111
     region: content
   field_photo_caption:
     type: string
@@ -237,7 +202,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 22
+    weight: 103
     region: content
   field_publisher:
     type: string
@@ -245,7 +210,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 21
+    weight: 110
     region: content
   field_region:
     type: entity_reference_label
@@ -253,15 +218,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 5
-    region: content
-  field_report_pdf:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 23
+    weight: 123
     region: content
   field_resource_type:
     type: entity_reference_label
@@ -269,7 +226,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 20
+    weight: 115
     region: content
   field_short_description:
     type: string
@@ -277,7 +234,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 11
+    weight: 102
     region: content
   field_subtitle:
     type: string
@@ -285,23 +242,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 19
-    region: content
-  field_supporting_document:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 18
-    region: content
-  field_supporting_document_label:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 17
+    weight: 101
     region: content
   field_topic:
     type: entity_reference_label
@@ -309,28 +250,21 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 2
+    weight: 120
     region: content
   field_transcript:
     type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 14
-    region: content
-  langcode:
-    type: language
-    label: hidden
-    settings:
-      link_to_entity: false
-      native_language: false
-    third_party_settings: {  }
-    weight: 13
+    weight: 105
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 100
     region: content
 hidden:
+  langcode: true
+  layout_builder__layout: true
   search_api_excerpt: true

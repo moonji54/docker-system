@@ -1,8 +1,9 @@
-uuid: 072a92c3-43ec-4818-892f-ef5c8933d274
+uuid: 4bad5227-b386-44b0-aaa7-cf8c747d8e6e
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.sidebar_related_content
     - field.field.node.publication.field_absctract
     - field.field.node.publication.field_acknowledgement
     - field.field.node.publication.field_acknowledgement_donor
@@ -42,10 +43,10 @@ dependencies:
     - link
     - text
     - user
-id: node.publication.default
+id: node.publication.sidebar_related_content
 targetEntityType: node
 bundle: publication
-mode: default
+mode: sidebar_related_content
 content:
   content_moderation_control:
     settings: {  }

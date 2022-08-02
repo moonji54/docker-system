@@ -1,8 +1,9 @@
-uuid: ce76476f-2800-46d5-8a22-e886a2ad7273
+uuid: ea40e8ff-ab30-4e66-8b99-a0fb36c31397
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.sidebar_related_content
     - field.field.node.person.field_additional_profiles
     - field.field.node.person.field_board_member_type
     - field.field.node.person.field_country
@@ -27,10 +28,10 @@ dependencies:
     - options
     - text
     - user
-id: node.person.default
+id: node.person.sidebar_related_content
 targetEntityType: node
 bundle: person
-mode: default
+mode: sidebar_related_content
 content:
   content_moderation_control:
     settings: {  }

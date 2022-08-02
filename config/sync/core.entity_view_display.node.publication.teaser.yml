@@ -7,9 +7,11 @@ dependencies:
     - field.field.node.publication.field_absctract
     - field.field.node.publication.field_acknowledgement
     - field.field.node.publication.field_acknowledgement_donor
+    - field.field.node.publication.field_author
     - field.field.node.publication.field_country
     - field.field.node.publication.field_data_document
     - field.field.node.publication.field_data_document_label
+    - field.field.node.publication.field_expiration_date
     - field.field.node.publication.field_external_author_link
     - field.field.node.publication.field_external_author_name
     - field.field.node.publication.field_featured_image
@@ -17,7 +19,9 @@ dependencies:
     - field.field.node.publication.field_keywords
     - field.field.node.publication.field_languages
     - field.field.node.publication.field_learning_block
+    - field.field.node.publication.field_link_from_external_card
     - field.field.node.publication.field_link_to_external_item
+    - field.field.node.publication.field_page_builder
     - field.field.node.publication.field_page_to_pdf
     - field.field.node.publication.field_partner_logo
     - field.field.node.publication.field_partner_name
@@ -40,6 +44,11 @@ targetEntityType: node
 bundle: publication
 mode: teaser
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -49,9 +58,11 @@ hidden:
   field_absctract: true
   field_acknowledgement: true
   field_acknowledgement_donor: true
+  field_author: true
   field_country: true
   field_data_document: true
   field_data_document_label: true
+  field_expiration_date: true
   field_external_author_link: true
   field_external_author_name: true
   field_featured_image: true
@@ -59,7 +70,9 @@ hidden:
   field_keywords: true
   field_languages: true
   field_learning_block: true
+  field_link_from_external_card: true
   field_link_to_external_item: true
+  field_page_builder: true
   field_page_to_pdf: true
   field_partner_logo: true
   field_partner_name: true

@@ -15,8 +15,10 @@ dependencies:
     - field.field.node.article.field_key_messages
     - field.field.node.article.field_keywords
     - field.field.node.article.field_languages
+    - field.field.node.article.field_link_from_external_card
     - field.field.node.article.field_link_to_external_item
     - field.field.node.article.field_news_upload
+    - field.field.node.article.field_page_builder
     - field.field.node.article.field_partner_logo
     - field.field.node.article.field_partner_name
     - field.field.node.article.field_photo_caption
@@ -28,7 +30,9 @@ dependencies:
     - field.field.node.article.field_topic
     - field.field.node.article.field_transcript
     - node.type.article
+    - workflows.workflow.editorial
   module:
+    - content_moderation
     - field_group
     - path
     - scheduler
@@ -99,6 +103,12 @@ content:
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    region: content
+    settings: {  }
     third_party_settings: {  }
   path:
     type: path
@@ -186,8 +196,10 @@ hidden:
   field_key_messages: true
   field_keywords: true
   field_languages: true
+  field_link_from_external_card: true
   field_link_to_external_item: true
   field_news_upload: true
+  field_page_builder: true
   field_partner_logo: true
   field_partner_name: true
   field_photo_caption: true
