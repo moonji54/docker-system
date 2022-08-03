@@ -6,9 +6,11 @@ dependencies:
     - field.storage.paragraph.field_content_selection
     - node.type.article
     - node.type.career_opportunity
+    - node.type.country
     - node.type.event
     - node.type.person
     - node.type.publication
+    - node.type.topic
     - paragraphs.paragraphs_type.limited_list
 id: paragraph.limited_list.field_content_selection
 field_name: field_content_selection
@@ -26,9 +28,11 @@ settings:
     target_bundles:
       article: article
       career_opportunity: career_opportunity
+      country: country
       event: event
       person: person
       publication: publication
+      topic: topic
     sort:
       field: _none
       direction: ASC
