@@ -1,9 +1,9 @@
-uuid: 040bd9a6-24fa-4394-a2fc-1c9d6429bf3e
+uuid: fe0a9573-6408-4795-bccf-39a31907fc66
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.card
+    - core.entity_view_mode.node.card_no_image
     - field.field.node.page.body
     - field.field.node.page.field_body
     - node.type.page
@@ -12,10 +12,10 @@ dependencies:
     - user
 _core:
   default_config_hash: 1wQaXuVb9u-z3eYzDxMBpmCCzyi6zJZKhbNyDtuWbPM
-id: node.page.card
+id: node.page.card_no_image
 targetEntityType: node
 bundle: page
-mode: card
+mode: card_no_image
 content:
   body:
     type: text_default
@@ -24,12 +24,18 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
 hidden:
-  field_body: true
   langcode: true
   search_api_excerpt: true
