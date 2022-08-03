@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.event.field_data_document
     - field.field.node.event.field_data_document_label
     - field.field.node.event.field_day_of_week
+    - field.field.node.event.field_end_date
     - field.field.node.event.field_event_contact
     - field.field.node.event.field_event_location
     - field.field.node.event.field_event_recording
@@ -38,7 +39,7 @@ dependencies:
     - field.field.node.event.field_short_description
     - field.field.node.event.field_speakers
     - field.field.node.event.field_speakers_external
-    - field.field.node.event.field_start_end_date
+    - field.field.node.event.field_start_date
     - field.field.node.event.field_supporting_document
     - field.field.node.event.field_supporting_document_label
     - field.field.node.event.field_time_commitment
@@ -49,7 +50,6 @@ dependencies:
     - node.type.event
   module:
     - datetime
-    - datetime_range
     - entity_reference_revisions
     - link
     - options
@@ -343,16 +343,6 @@ content:
     third_party_settings: {  }
     weight: 107
     region: content
-  field_start_end_date:
-    type: daterange_default
-    label: hidden
-    settings:
-      timezone_override: ''
-      format_type: medium
-      separator: '-'
-    third_party_settings: {  }
-    weight: 142
-    region: content
   field_supporting_document:
     type: entity_reference_label
     label: hidden
@@ -420,5 +410,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_end_date: true
+  field_start_date: true
   langcode: true
   search_api_excerpt: true

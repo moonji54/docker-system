@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.event.field_data_document
     - field.field.node.event.field_data_document_label
     - field.field.node.event.field_day_of_week
+    - field.field.node.event.field_end_date
     - field.field.node.event.field_event_contact
     - field.field.node.event.field_event_location
     - field.field.node.event.field_event_recording
@@ -37,7 +38,7 @@ dependencies:
     - field.field.node.event.field_short_description
     - field.field.node.event.field_speakers
     - field.field.node.event.field_speakers_external
-    - field.field.node.event.field_start_end_date
+    - field.field.node.event.field_start_date
     - field.field.node.event.field_supporting_document
     - field.field.node.event.field_supporting_document_label
     - field.field.node.event.field_time_commitment
@@ -50,7 +51,6 @@ dependencies:
   module:
     - content_moderation
     - datetime
-    - datetime_range
     - field_group
     - link
     - media_library
@@ -150,7 +150,8 @@ third_party_settings:
         required_fields: true
     group_event_details:
       children:
-        - field_start_end_date
+        - field_start_date
+        - field_end_date
         - field_time_zone
         - field_format
         - field_registration
@@ -229,7 +230,7 @@ content:
     third_party_settings: {  }
   field_address:
     type: string_textfield
-    weight: 106
+    weight: 121
     region: content
     settings:
       size: 60
@@ -263,7 +264,7 @@ content:
     third_party_settings: {  }
   field_course_syilabus:
     type: media_library_widget
-    weight: 110
+    weight: 125
     region: content
     settings:
       media_types: {  }
@@ -317,13 +318,19 @@ content:
             selector: ''
   field_day_of_week:
     type: datetime_timestamp
-    weight: 111
+    weight: 126
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_end_date:
+    type: datetime_default
+    weight: 116
     region: content
     settings: {  }
     third_party_settings: {  }
   field_event_contact:
     type: entity_reference_autocomplete
-    weight: 108
+    weight: 123
     region: content
     settings:
       match_operator: CONTAINS
@@ -333,7 +340,7 @@ content:
     third_party_settings: {  }
   field_event_location:
     type: string_textfield
-    weight: 105
+    weight: 120
     region: content
     settings:
       size: 60
@@ -359,7 +366,7 @@ content:
             selector: ''
   field_event_recording:
     type: boolean_checkbox
-    weight: 114
+    weight: 129
     region: content
     settings:
       display_label: true
@@ -386,7 +393,7 @@ content:
     third_party_settings: {  }
   field_expertise_required:
     type: string_textfield
-    weight: 112
+    weight: 127
     region: content
     settings:
       size: 60
@@ -410,7 +417,7 @@ content:
     third_party_settings: {  }
   field_format:
     type: options_buttons
-    weight: 103
+    weight: 118
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -450,7 +457,7 @@ content:
     third_party_settings: {  }
   field_open_registration:
     type: options_select
-    weight: 113
+    weight: 128
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -520,7 +527,7 @@ content:
     third_party_settings: {  }
   field_registration:
     type: link_default
-    weight: 104
+    weight: 119
     region: content
     settings:
       placeholder_url: ''
@@ -552,9 +559,9 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_start_end_date:
-    type: daterange_default
-    weight: 101
+  field_start_date:
+    type: datetime_default
+    weight: 115
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -597,13 +604,13 @@ content:
             selector: ''
   field_time_commitment:
     type: datetime_timestamp
-    weight: 109
+    weight: 124
     region: content
     settings: {  }
     third_party_settings: {  }
   field_time_zone:
     type: string_textfield
-    weight: 102
+    weight: 117
     region: content
     settings:
       size: 60
@@ -629,7 +636,7 @@ content:
     third_party_settings: {  }
   field_video_conferencing:
     type: link_default
-    weight: 107
+    weight: 122
     region: content
     settings:
       placeholder_url: ''

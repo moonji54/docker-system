@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.event.field_data_document
     - field.field.node.event.field_data_document_label
     - field.field.node.event.field_day_of_week
+    - field.field.node.event.field_end_date
     - field.field.node.event.field_event_contact
     - field.field.node.event.field_event_location
     - field.field.node.event.field_event_recording
@@ -38,7 +39,7 @@ dependencies:
     - field.field.node.event.field_short_description
     - field.field.node.event.field_speakers
     - field.field.node.event.field_speakers_external
-    - field.field.node.event.field_start_end_date
+    - field.field.node.event.field_start_date
     - field.field.node.event.field_supporting_document
     - field.field.node.event.field_supporting_document_label
     - field.field.node.event.field_time_commitment
@@ -74,6 +75,7 @@ hidden:
   field_data_document: true
   field_data_document_label: true
   field_day_of_week: true
+  field_end_date: true
   field_event_contact: true
   field_event_location: true
   field_event_recording: true
@@ -99,7 +101,7 @@ hidden:
   field_short_description: true
   field_speakers: true
   field_speakers_external: true
-  field_start_end_date: true
+  field_start_date: true
   field_supporting_document: true
   field_supporting_document_label: true
   field_time_commitment: true

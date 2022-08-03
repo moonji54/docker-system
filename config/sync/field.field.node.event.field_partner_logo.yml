@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_partner_logo
-    - media.type.document
+    - media.type.image
     - node.type.event
 id: node.event.field_partner_logo
 field_name: field_partner_logo
@@ -20,10 +20,10 @@ settings:
   handler: 'default:media'
   handler_settings:
     target_bundles:
-      document: document
+      image: image
     sort:
       field: _none
       direction: ASC
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: document
 field_type: entity_reference
