@@ -1,18 +1,16 @@
-uuid: 8f4a3574-b230-4d49-ac8a-796e51271578
+uuid: 9da442e8-23c8-4ebf-9827-c23a465b1862
 langcode: en
 status: true
 dependencies:
   module:
+    - link
     - paragraphs
-    - text
-_core:
-  default_config_hash: _toFAQsdpjWOpsMwOlt2KuOfxaEehbAuadFjAMsznmI
-id: paragraph.field_body
-field_name: field_body
+id: paragraph.field_link_and_text
+field_name: field_link_and_text
 entity_type: paragraph
-type: text_long
+type: link
 settings: {  }
-module: text
+module: link
 locked: false
 cardinality: 1
 translatable: true
