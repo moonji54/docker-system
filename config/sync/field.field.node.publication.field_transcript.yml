@@ -1,0 +1,19 @@
+uuid: 810c9268-254b-479c-96ff-a42d03c5f629
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_transcript
+    - node.type.publication
+id: node.publication.field_transcript
+field_name: field_transcript
+entity_type: node
+bundle: publication
+label: Transcript
+description: 'Add transcripts from podcasts, video, and other multimedia'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

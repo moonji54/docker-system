@@ -1,0 +1,19 @@
+uuid: 6e5bc44e-3b38-4c74-85a3-1db552a70f07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_partner_name
+    - node.type.publication
+id: node.publication.field_partner_name
+field_name: field_partner_name
+entity_type: node
+bundle: publication
+label: 'Partner name'
+description: 'Enter the official name of the partner organisation. This should be the parent entity (e.g.,William and Flora Hewlett Foundation) '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

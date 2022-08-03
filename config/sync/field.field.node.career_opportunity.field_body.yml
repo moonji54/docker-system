@@ -1,0 +1,25 @@
+uuid: 9d39656a-af30-454e-9934-8aa3e6d313c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.career_opportunity
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.career_opportunity.field_body
+field_name: field_body
+entity_type: node
+bundle: career_opportunity
+label: Body
+description: 'The main body content for the item'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
