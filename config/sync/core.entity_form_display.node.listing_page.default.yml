@@ -4,12 +4,16 @@ status: true
 dependencies:
   config:
     - field.field.node.listing_page.field_components
+    - field.field.node.listing_page.field_language_bar_text
     - node.type.listing_page
+    - workflows.workflow.editorial
   module:
+    - content_moderation
     - entity_reference_revisions
     - path
     - scheduler
     - scheduler_content_moderation_integration
+    - text
 id: node.listing_page.default
 targetEntityType: node
 bundle: listing_page
@@ -31,12 +35,26 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_language_bar_text:
+    type: text_textfield
+    weight: 122
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 2
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    region: content
+    settings: {  }
     third_party_settings: {  }
   path:
     type: path
@@ -84,6 +102,11 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete

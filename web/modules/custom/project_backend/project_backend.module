@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\block\Entity\Block;
+use Drupal\Core\Block\BlockPluginInterface;
 use Drupal\editor\Entity\Editor;
 
 /**
@@ -26,11 +28,48 @@ function project_backend_ckeditor_css_alter(array &$css, Editor $editor) {
       ->getPath('nrgi') . '/assets/css/ckeditor-style.css';
 }
 
+/**
+ * Implements hook_language_switch_links_alter().
+ */
 function project_backend_language_switch_links_alter(array &$links, $type, $path) {
-  $translationLanguages = Drupal::routeMatch()->getParameter('node')->getTranslationLanguages();
+  // Only show the translations that are available
+  $translationLanguages = Drupal::routeMatch()
+    ->getParameter('node')
+    ->getTranslationLanguages();
   foreach ($links as $lang => $link) {
     if (!in_array($lang, array_keys($translationLanguages))) {
       unset($links[$lang]);
     }
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function project_backend_preprocess_node(&$variables) {
+  // Add the language switcher block to a variable that will be available in twig
+  // Show the block only if there is a translation
+  if (count($variables["elements"]["#node"]->getTranslationLanguages()) > 1) {
+    $block = Block::load('languageswitcher');
+    $render = Drupal::entityTypeManager()
+      ->getViewBuilder('block')
+      ->view($block);
+    $variables['language_switcher'] = $render;
+  };
+}
+
+/**
+ * Implements hook_block_view_alter().
+ */
+function project_backend_block_view_alter(array &$build, BlockPluginInterface $block) {
+  // Set the language switcher label based on the CT type
+  if ($block->getPluginId() !== 'language_block:language_interface') {
+    return;
+  }
+  $node = Drupal::routeMatch()->getParameter('node');
+  $pages = ['landing_page', 'page','listing_page'];
+  $build['#configuration']['label'] = t('Select language');
+  if (in_array($node->getType(), $pages)) {
+    $build['#configuration']['label'] = t($node->field_language_bar_text->value);
   }
 }

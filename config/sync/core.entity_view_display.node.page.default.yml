@@ -3,12 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.page.body
     - field.field.node.page.field_components
+    - field.field.node.page.field_language_bar_text
     - node.type.page
   module:
     - entity_reference_revisions
-    - text
     - user
 _core:
   default_config_hash: 1wQaXuVb9u-z3eYzDxMBpmCCzyi6zJZKhbNyDtuWbPM
@@ -17,12 +16,10 @@ targetEntityType: node
 bundle: page
 mode: default
 content:
-  body:
-    type: text_default
-    label: hidden
+  content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
   field_components:
     type: entity_reference_revisions_entity_view
@@ -31,11 +28,14 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 102
+    weight: 2
     region: content
   links:
-    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden:
+  field_language_bar_text: true
   langcode: true
   search_api_excerpt: true
