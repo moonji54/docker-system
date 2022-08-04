@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\Field\WidgetBase;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\editor\Entity\Editor;
 
 /**
@@ -24,4 +26,39 @@ use Drupal\editor\Entity\Editor;
 function project_backend_ckeditor_css_alter(array &$css, Editor $editor) {
   $css[] = \Drupal::service('extension.list.theme')
       ->getPath('nrgi') . '/assets/css/ckeditor-style.css';
+}
+
+/**
+ *
+ * Implements hook_field_widget_single_element_WIDGET_TYPE_form_alter
+ */
+function project_backend_field_widget_single_element_paragraphs_form_alter(array &$element, FormStateInterface $form_state, array $context) {
+  $field_definition = $context['items']->getFieldDefinition();
+  $paragraph_entity_reference_field_name = $field_definition->getName();
+  if ($paragraph_entity_reference_field_name == 'field_components') {
+    $widget_state = WidgetBase::getWidgetState($element['#field_parents'], $paragraph_entity_reference_field_name, $form_state);
+
+    /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+    $paragraph_instance = $widget_state['paragraphs'][$element['#delta']]['entity'];
+    $paragraph_type = $paragraph_instance->bundle();
+
+    // Determine which paragraph type is being embedded.
+    if (in_array($paragraph_type, ['featured_content', 'featured_people'])) {
+
+      $dependee_field_name = 'field_items_selection';
+      $selector = sprintf(':input[name="%s[%d][subform][%s]"]', $paragraph_entity_reference_field_name, $element['#delta'], $dependee_field_name);
+
+      $element['subform']['field_content_cards']['#states'] = [
+        'visible' => [
+          $selector => ['value' => '0'],
+        ],
+      ];
+
+      $element['subform']['field_dynamic_listing']['#states'] = [
+        'visible' => [
+          $selector => ['value' => '1'],
+        ],
+      ];
+    }
+  }
 }

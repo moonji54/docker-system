@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_components
     - node.type.homepage
     - paragraphs.paragraphs_type.wysiwyg
+    - paragraphs.paragraphs_type.featured_people
   module:
     - entity_reference_revisions
 id: node.homepage.field_components
@@ -23,15 +24,19 @@ settings:
   handler_settings:
     target_bundles:
       wysiwyg: wysiwyg
+      featured_people: featured_people
     negate: 0
     target_bundles_drag_drop:
       container:
         weight: 4
         enabled: false
-      full_width_media:
+      featured_people:
         weight: 5
+        enabled: true
+      full_width_media:
+        weight: 6
         enabled: false
       wysiwyg:
-        weight: 6
+        weight: 7
         enabled: true
 field_type: entity_reference_revisions
