@@ -133,6 +133,7 @@
         "drupal/save_edit": "^1.1",
         "drupal/scheduler": "^1.4",
         "drupal/scheduler_content_moderation_integration": "^1.4",
+        "drupal/schema_metatag": "^2.3",
         "drupal/search_api": "^1.11",
         "drupal/simple_sitemap": "^3.0",
         "drupal/simple_user_management": "^1.0",
