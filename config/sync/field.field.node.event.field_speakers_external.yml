@@ -1,0 +1,25 @@
+uuid: 58d673ee-24a2-4fbd-a17e-5fbe5b5ffba9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_speakers_external
+    - node.type.event
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.event.field_speakers_external
+field_name: field_speakers_external
+entity_type: node
+bundle: event
+label: 'Speakers (External)'
+description: 'Add the name, title and organization of any speakers not affiliated with NRGI. Use the format Speaker Name: Title, Organization. Add one speaker per line.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

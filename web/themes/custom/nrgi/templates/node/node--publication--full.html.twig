@@ -1,0 +1,122 @@
+{% set classes = [
+  'c-node',
+  'c-node--type-' ~ node.bundle|clean_class,
+] %}
+<article{{ attributes.addClass(classes) }}>
+
+  {% if content.field_absctract|field_absctract %}
+    {{ content.field_absctract }}
+  {% endif %}
+
+  {% if content.field_acknowledgement|field_acknowledgement %}
+    {{ content.field_acknowledgement }}
+  {% endif %}
+
+  {% if content.field_acknowledgement_donor|field_acknowledgement_donor %}
+    {{ content.field_acknowledgement_donor }}
+  {% endif %}
+
+  {% if content.field_country|field_country %}
+    {{ content.field_country }}
+  {% endif %}
+
+  {% if content.field_data_document|field_data_document %}
+    {{ content.field_data_document }}
+  {% endif %}
+
+  {% if content.field_data_document_label|field_data_document_label %}
+    {{ content.field_data_document_label }}
+  {% endif %}
+
+  {% if content.field_external_author_link|field_external_author_link %}
+    {{ content.field_external_author_link }}
+  {% endif %}
+
+  {% if content.field_external_author_name|field_external_author_name %}
+    {{ content.field_external_author_name }}
+  {% endif %}
+
+  {% if content.field_featured_image|field_featured_image %}
+    {{ content.field_featured_image }}
+  {% endif %}
+
+  {% if content.field_key_messages|field_key_messages %}
+    {{ content.field_key_messages }}
+  {% endif %}
+
+  {% if content.field_keywords|field_keywords %}
+    {{ content.field_keywords }}
+  {% endif %}
+
+  {% if content.field_learning_block|field_learning_block %}
+    {{ content.field_learning_block }}
+  {% endif %}
+
+  {% if content.field_link_to_external_item|field_link_to_external_item %}
+    {{ content.field_link_to_external_item }}
+  {% endif %}
+
+  {% if content.field_page_to_pdf|field_page_to_pdf %}
+    {{ content.field_page_to_pdf }}
+  {% endif %}
+
+  {% if content.field_partner_logo|field_partner_logo %}
+    {{ content.field_partner_logo }}
+  {% endif %}
+
+  {% if content.field_partner_name|field_partner_name %}
+    {{ content.field_partner_name }}
+  {% endif %}
+
+  {% if content.field_photo_caption|field_photo_caption %}
+    {{ content.field_photo_caption }}
+  {% endif %}
+
+  {% if content.field_publisher|field_publisher %}
+    {{ content.field_publisher }}
+  {% endif %}
+
+  {% if content.field_region|field_region %}
+    {{ content.field_region }}
+  {% endif %}
+
+  {% if content.field_report_pdf|field_report_pdf %}
+    {{ content.field_report_pdf }}
+  {% endif %}
+
+  {% if content.field_resource_type|field_resource_type %}
+    {{ content.field_resource_type }}
+  {% endif %}
+
+  {% if content.field_short_description|field_short_description %}
+    {{ content.field_short_description }}
+  {% endif %}
+
+  {% if content.field_subtitle|field_subtitle %}
+    {{ content.field_subtitle }}
+  {% endif %}
+
+  {% if content.field_supporting_document|field_supporting_document %}
+    {{ content.field_supporting_document }}
+  {% endif %}
+
+  {% if content.field_supporting_document_label|field_supporting_document_label %}
+    {{ content.field_supporting_document_label }}
+  {% endif %}
+
+  {% if content.field_topic|field_topic %}
+    {{ content.field_topic }}
+  {% endif %}
+
+  {% if content.field_transcript|field_transcript %}
+    {{ content.field_transcript }}
+  {% endif %}
+
+  {% if content.field_languages|field_languages %}
+    {{ content.field_languages }}
+  {% endif %}
+
+  {% if content.field_page_builder|field_page_builder %}
+    {{ content.field_page_builder }}
+  {% endif %}
+</article>

@@ -1,0 +1,19 @@
+uuid: f2ede0a3-6ea5-455e-bcf8-0db7e3528854
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_additional_profiles
+field_name: field_additional_profiles
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

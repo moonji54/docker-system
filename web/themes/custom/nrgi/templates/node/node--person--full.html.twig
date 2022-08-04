@@ -1,0 +1,74 @@
+{% set classes = [
+  'c-node',
+  'c-node--type-' ~ node.bundle|clean_class,
+] %}
+<article{{ attributes.addClass(classes) }}>
+
+  {% if content.field_additional_profiles|field_additional_profiles %}
+    {{ content.field_additional_profiles }}
+  {% endif %}
+
+  {% if content.field_board_member_type|field_board_member_type %}
+    {{ content.field_board_member_type }}
+  {% endif %}
+
+  {% if content.field_country|field_country %}
+    {{ content.field_country }}
+  {% endif %}
+
+  {% if content.field_expiration_date|field_expiration_date %}
+    {{ content.field_expiration_date }}
+  {% endif %}
+
+  {% if content.field_focus_areas|field_focus_areas %}
+    {{ content.field_focus_areas }}
+  {% endif %}
+
+  {% if content.field_full_bio|field_full_bio %}
+    {{ content.field_full_bio }}
+  {% endif %}
+
+  {% if content.field_full_name|field_full_name %}
+    {{ content.field_full_name }}
+  {% endif %}
+
+  {% if content.field_given_name|field_given_name %}
+    {{ content.field_given_name }}
+  {% endif %}
+
+  {% if content.field_headshot|field_headshot %}
+    {{ content.field_headshot }}
+  {% endif %}
+
+  {% if content.field_job_title|field_job_title %}
+    {{ content.field_job_title }}
+  {% endif %}
+
+  {% if content.field_region|field_region %}
+    {{ content.field_region }}
+  {% endif %}
+
+  {% if content.field_region|field_region %}
+    {{ content.field_region }}
+  {% endif %}
+
+  {% if content.field_role_type|field_role_type %}
+    {{ content.field_role_type }}
+  {% endif %}
+
+  {% if content.field_short_bio|field_short_bio %}
+    {{ content.field_short_bio }}
+  {% endif %}
+
+  {% if content.field_surname|field_surname %}
+    {{ content.field_surname }}
+  {% endif %}
+
+  {% if content.field_twitter|field_twitter %}
+    {{ content.field_twitter }}
+  {% endif %}
+
+  {% if content.field_page_builder|field_page_builder %}
+    {{ content.field_page_builder }}
+  {% endif %}
+</article>

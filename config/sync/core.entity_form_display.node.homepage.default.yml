@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.homepage.field_components
     - node.type.homepage
   module:
+    - entity_reference_revisions
     - paragraphs
     - path
     - scheduler

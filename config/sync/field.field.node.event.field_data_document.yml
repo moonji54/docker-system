@@ -1,0 +1,29 @@
+uuid: f56ffa4a-d206-4d2f-8ef0-b79e0a3fde98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_document
+    - media.type.document
+    - node.type.event
+id: node.event.field_data_document
+field_name: field_data_document
+entity_type: node
+bundle: event
+label: 'Data document'
+description: 'The Excel/csv file containing additional data'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,10 +1,11 @@
-uuid: 5f6716b9-abac-412d-b1b4-47a0d898b271
+uuid: fb80c06d-9c2b-489c-ba39-d7a5feca20d8
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_components
     - node.type.homepage
+    - paragraphs.paragraphs_type.wysiwyg
     - paragraphs.paragraphs_type.featured_people
   module:
     - entity_reference_revisions
@@ -22,19 +23,20 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
+      wysiwyg: wysiwyg
       featured_people: featured_people
     negate: 0
     target_bundles_drag_drop:
       container:
-        weight: 5
+        weight: 4
         enabled: false
       featured_people:
-        weight: 6
+        weight: 5
         enabled: true
       full_width_media:
-        weight: 7
+        weight: 6
         enabled: false
       wysiwyg:
-        weight: 8
-        enabled: false
+        weight: 7
+        enabled: true
 field_type: entity_reference_revisions

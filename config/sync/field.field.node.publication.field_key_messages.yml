@@ -1,0 +1,25 @@
+uuid: 165bdcde-781a-4224-8b1a-cee34ba5bf5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_key_messages
+    - node.type.publication
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.publication.field_key_messages
+field_name: field_key_messages
+entity_type: node
+bundle: publication
+label: 'Key messages'
+description: 'Add key messages or findings applicable to this content piece.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

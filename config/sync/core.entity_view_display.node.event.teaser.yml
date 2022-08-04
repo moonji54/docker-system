@@ -4,6 +4,49 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.event.field_address
+    - field.field.node.event.field_body
+    - field.field.node.event.field_country
+    - field.field.node.event.field_course_host
+    - field.field.node.event.field_course_syilabus
+    - field.field.node.event.field_course_training_contact
+    - field.field.node.event.field_data_document
+    - field.field.node.event.field_data_document_label
+    - field.field.node.event.field_day_of_week
+    - field.field.node.event.field_end_date
+    - field.field.node.event.field_event_contact
+    - field.field.node.event.field_event_location
+    - field.field.node.event.field_event_recording
+    - field.field.node.event.field_event_role_type
+    - field.field.node.event.field_event_type
+    - field.field.node.event.field_expertise_required
+    - field.field.node.event.field_expiration_date
+    - field.field.node.event.field_featured_image
+    - field.field.node.event.field_format
+    - field.field.node.event.field_instructors
+    - field.field.node.event.field_instructors_external
+    - field.field.node.event.field_keywords
+    - field.field.node.event.field_languages
+    - field.field.node.event.field_open_registration
+    - field.field.node.event.field_organizing_partner
+    - field.field.node.event.field_page_builder
+    - field.field.node.event.field_partner_logo
+    - field.field.node.event.field_partner_name
+    - field.field.node.event.field_photo_caption
+    - field.field.node.event.field_publisher
+    - field.field.node.event.field_region
+    - field.field.node.event.field_registration
+    - field.field.node.event.field_short_description
+    - field.field.node.event.field_speakers
+    - field.field.node.event.field_speakers_external
+    - field.field.node.event.field_start_date
+    - field.field.node.event.field_supporting_document
+    - field.field.node.event.field_supporting_document_label
+    - field.field.node.event.field_time_commitment
+    - field.field.node.event.field_time_zone
+    - field.field.node.event.field_topic
+    - field.field.node.event.field_transcript
+    - field.field.node.event.field_video_conferencing
     - node.type.event
   module:
     - user
@@ -12,11 +55,59 @@ targetEntityType: node
 bundle: event
 mode: teaser
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 100
     region: content
 hidden:
+  field_address: true
+  field_body: true
+  field_country: true
+  field_course_host: true
+  field_course_syilabus: true
+  field_course_training_contact: true
+  field_data_document: true
+  field_data_document_label: true
+  field_day_of_week: true
+  field_end_date: true
+  field_event_contact: true
+  field_event_location: true
+  field_event_recording: true
+  field_event_role_type: true
+  field_event_type: true
+  field_expertise_required: true
+  field_expiration_date: true
+  field_featured_image: true
+  field_format: true
+  field_instructors: true
+  field_instructors_external: true
+  field_keywords: true
+  field_languages: true
+  field_open_registration: true
+  field_organizing_partner: true
+  field_page_builder: true
+  field_partner_logo: true
+  field_partner_name: true
+  field_photo_caption: true
+  field_publisher: true
+  field_region: true
+  field_registration: true
+  field_short_description: true
+  field_speakers: true
+  field_speakers_external: true
+  field_start_date: true
+  field_supporting_document: true
+  field_supporting_document_label: true
+  field_time_commitment: true
+  field_time_zone: true
+  field_topic: true
+  field_transcript: true
+  field_video_conferencing: true
   langcode: true
   search_api_excerpt: true

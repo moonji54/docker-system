@@ -1,0 +1,19 @@
+uuid: 9dbcd601-8628-4935-be62-1803aa9bd9b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_document_label
+    - node.type.event
+id: node.event.field_data_document_label
+field_name: field_data_document_label
+entity_type: node
+bundle: event
+label: 'Data document label'
+description: 'Enter the label for the data document. For example, if your file contains data for figure one, then add "Figure 1 Data" in this field.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
