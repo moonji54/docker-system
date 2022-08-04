@@ -1,0 +1,25 @@
+uuid: 3a2f226f-cc37-4027-b1c0-3a98abd9258a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.event
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.event.field_body
+field_name: field_body
+entity_type: node
+bundle: event
+label: Body
+description: 'The main body content for the item'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

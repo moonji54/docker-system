@@ -1,0 +1,25 @@
+uuid: d3aca508-3056-491b-95cb-a8bb78f9bfac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_absctract
+    - node.type.publication
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.publication.field_absctract
+field_name: field_absctract
+entity_type: node
+bundle: publication
+label: Absctract
+description: 'Enter a short, 3-4 sentence overview of the publication. Used in the standfirst text on a publication page.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,19 @@
+uuid: 2ccc954e-3f88-4a48-ac61-3f610fe06ada
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_short_description
+    - node.type.career_opportunity
+id: node.career_opportunity.field_short_description
+field_name: field_short_description
+entity_type: node
+bundle: career_opportunity
+label: 'Short description'
+description: 'One-sentence highlight/overview of the item. For use in link descriptions, search results, or other places where a blurb might be needed.150 characters, max.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

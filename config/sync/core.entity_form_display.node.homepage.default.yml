@@ -8,8 +8,10 @@ dependencies:
     - field.field.node.homepage.field_cta_link
     - field.field.node.homepage.field_description
     - field.field.node.homepage.field_link_bar
+    - field.field.node.homepage.field_components
     - node.type.homepage
   module:
+    - entity_reference_revisions
     - field_group
     - link
     - media_library
@@ -62,6 +64,16 @@ content:
     weight: 5
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_components:
+    type: entity_reference_revisions_autocomplete
+    weight: 121
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_background_image:
     type: media_library_widget

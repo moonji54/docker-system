@@ -97,6 +97,7 @@
         "drupal/anchor_link": "^2.5",
         "drupal/better_exposed_filters": "^5.0@beta|^5.0@RC|^5.0",
         "drupal/bugherd": "^1.0@beta",
+        "drupal/conditional_fields": "^4.0@alpha",
         "drupal/console": "~1.0",
         "drupal/context": "^4.0@beta|^4.0@RC|^4.0",
         "drupal/context_active_trail": "^2.0@beta|^2.0@RC|^2.0",
@@ -207,7 +208,8 @@
             "drupal/core": {
                 "Error during custom module uninstallation : Call to a member function getConfigDependencyKey() on null": "https://www.drupal.org/files/issues/2019-07-17/custom-taxonomy-uninstallation.patch",
                 "Entity References as checkboxes or dropdowns": "https://www.drupal.org/files/issues/2021-12-02/2429699-453-9.3.x.patch",
-                "Supports OEmbed providers without thumbnails dimensions": "https://www.drupal.org/files/issues/2020-02-14/supports-oembed-providers-without-thumbnails-dimensions-3111991-5.patch"
+                "Supports OEmbed providers without thumbnails dimensions": "https://www.drupal.org/files/issues/2020-02-14/supports-oembed-providers-without-thumbnails-dimensions-3111991-5.patch",
+                "Ckeditor issue" : "https://www.drupal.org/files/issues/2022-07-11/core-3268983-40.patch"
             },
             "drupal/bugherd": {
                 "Error: Class 'Zend\\Escaper\\Escaper' not found in bugherd_page_attachments()": "https://www.drupal.org/files/issues/2021-12-16/Zend_Escaper_Escaper-3253467.patch"

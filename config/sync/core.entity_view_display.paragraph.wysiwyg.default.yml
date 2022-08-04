@@ -3,7 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.wysiwyg.field_body
+    - field.field.paragraph.wysiwyg.field_sidebar_related_content
+    - field.field.paragraph.wysiwyg.field_wysiwyg
     - paragraphs.paragraphs_type.wysiwyg
   module:
     - text
@@ -14,9 +15,17 @@ targetEntityType: paragraph
 bundle: wysiwyg
 mode: default
 content:
-  field_body:
+  field_sidebar_related_content:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_wysiwyg:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 0

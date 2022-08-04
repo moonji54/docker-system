@@ -1,0 +1,41 @@
+uuid: eef8bf25-c159-4584-8f9d-64bbb73133cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_components
+    - node.type.landing_page
+    - paragraphs.paragraphs_type.container
+    - paragraphs.paragraphs_type.full_width_media
+    - paragraphs.paragraphs_type.wysiwyg
+  module:
+    - entity_reference_revisions
+id: node.landing_page.field_components
+field_name: field_components
+entity_type: node
+bundle: landing_page
+label: Components
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      container: container
+      full_width_media: full_width_media
+      wysiwyg: wysiwyg
+    negate: 0
+    target_bundles_drag_drop:
+      container:
+        weight: 4
+        enabled: true
+      full_width_media:
+        weight: 5
+        enabled: true
+      wysiwyg:
+        weight: 6
+        enabled: true
+field_type: entity_reference_revisions

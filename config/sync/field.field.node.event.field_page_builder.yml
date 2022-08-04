@@ -1,0 +1,41 @@
+uuid: 22f1292e-993e-4160-a9b5-3e897fa143d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_builder
+    - node.type.event
+  module:
+    - entity_reference_revisions
+id: node.event.field_page_builder
+field_name: field_page_builder
+entity_type: node
+bundle: event
+label: 'Page builder'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: null
+    negate: 0
+    target_bundles_drag_drop:
+      container:
+        weight: 6
+        enabled: false
+      cta_download:
+        weight: 7
+        enabled: false
+      featured_pages:
+        weight: 8
+        enabled: false
+      full_width_media:
+        weight: 9
+        enabled: false
+      wysiwyg:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

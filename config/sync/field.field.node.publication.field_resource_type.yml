@@ -1,0 +1,29 @@
+uuid: 87641dde-c5f5-446f-a5a1-703107595df3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_resource_type
+    - node.type.publication
+    - taxonomy.vocabulary.resource_type
+id: node.publication.field_resource_type
+field_name: field_resource_type
+entity_type: node
+bundle: publication
+label: 'Resource type'
+description: 'Choose the resource type relevant to this content item.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      resource_type: resource_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

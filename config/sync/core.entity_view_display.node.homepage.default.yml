@@ -8,8 +8,10 @@ dependencies:
     - field.field.node.homepage.field_cta_link
     - field.field.node.homepage.field_description
     - field.field.node.homepage.field_link_bar
+    - field.field.node.homepage.field_components
     - node.type.homepage
   module:
+    - entity_reference_revisions
     - link
     - text
     - user
@@ -65,6 +67,15 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 105
+    region: content
+  field_components:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 101
     region: content
   links:
     settings: {  }
