@@ -1,0 +1,31 @@
+uuid: 297b49a9-f8b1-4c1b-90ab-eafcb1286779
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_media_iframe_video
+    - media.type.data_visualisation
+  module:
+    - iframe
+id: media.data_visualisation.field_media_media_iframe_video
+field_name: field_media_media_iframe_video
+entity_type: media
+bundle: data_visualisation
+label: 'Iframe Video'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: null
+  headerlevel: null
+  class: null
+  frameborder: null
+  scrolling: null
+  transparency: null
+  allowfullscreen: null
+  tokensupport: null
+  width: null
+  height: null
+field_type: iframe

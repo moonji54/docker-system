@@ -1,0 +1,60 @@
+uuid: d6feff6e-a44f-4b5f-89aa-5c152269f838
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.embed.field_caption
+    - field.field.paragraph.embed.field_credit
+    - field.field.paragraph.embed.field_media_library_selection
+    - field.field.paragraph.embed.field_sharing
+    - field.field.paragraph.embed.field_title
+    - paragraphs.paragraphs_type.embed
+  module:
+    - text
+id: paragraph.embed.default
+targetEntityType: paragraph
+bundle: embed
+mode: default
+content:
+  field_caption:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_credit:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_media_library_selection:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_sharing:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_title:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

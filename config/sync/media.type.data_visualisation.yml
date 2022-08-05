@@ -1,0 +1,15 @@
+uuid: e9ebe179-2bad-459d-a05f-048d924481c4
+langcode: en
+status: true
+dependencies:
+  module:
+    - iframe_video
+id: data_visualisation
+label: 'Data visualisation'
+description: ''
+source: media_iframe_video
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_media_iframe_video
+field_map: {  }
