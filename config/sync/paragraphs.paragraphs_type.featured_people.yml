@@ -1,0 +1,10 @@
+uuid: 0811c398-c472-4661-ad30-c21046d4a5d4
+langcode: en
+status: true
+dependencies: {  }
+id: featured_people
+label: 'Featured People'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

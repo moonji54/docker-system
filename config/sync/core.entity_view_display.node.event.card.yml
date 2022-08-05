@@ -1,0 +1,22 @@
+uuid: 77f79c30-8a9b-479f-80aa-f3fed43e8824
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - node.type.event
+  module:
+    - user
+id: node.event.card
+targetEntityType: node
+bundle: event
+mode: card
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

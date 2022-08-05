@@ -1,0 +1,10 @@
+uuid: e14859ec-4fd6-4b39-963d-780bfbe2d2fc
+langcode: en
+status: true
+dependencies: {  }
+id: featured_pages
+label: 'Featured Pages'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

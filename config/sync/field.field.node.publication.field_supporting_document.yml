@@ -1,0 +1,29 @@
+uuid: 13b92c05-827c-45dc-96ba-ed5ba19d20e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_supporting_document
+    - media.type.document
+    - node.type.publication
+id: node.publication.field_supporting_document
+field_name: field_supporting_document
+entity_type: node
+bundle: publication
+label: 'Supporting document'
+description: 'Upload additional, supplemental materials, if those are printed separately. Examples could include methodologies, executive summaries, or errata.)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,22 @@
+uuid: 6fce841e-13fe-42bf-bdbc-526858965b63
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - node.type.publication
+  module:
+    - user
+id: node.publication.card
+targetEntityType: node
+bundle: publication
+mode: card
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

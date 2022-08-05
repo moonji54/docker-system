@@ -3,22 +3,176 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.person.field_taxonomy_term
+    - field.field.node.person.field_additional_profiles
+    - field.field.node.person.field_board_member_type
+    - field.field.node.person.field_country
+    - field.field.node.person.field_expiration_date
+    - field.field.node.person.field_focus_areas
+    - field.field.node.person.field_full_bio
+    - field.field.node.person.field_full_name
+    - field.field.node.person.field_given_name
+    - field.field.node.person.field_headshot
+    - field.field.node.person.field_job_title
+    - field.field.node.person.field_page_builder
+    - field.field.node.person.field_region
+    - field.field.node.person.field_role_type
+    - field.field.node.person.field_short_bio
+    - field.field.node.person.field_surname
+    - field.field.node.person.field_twitter
     - node.type.person
   module:
+    - datetime
+    - entity_reference_revisions
+    - link
+    - options
+    - text
     - user
 id: node.person.default
 targetEntityType: node
 bundle: person
 mode: default
 content:
-  field_taxonomy_term:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_additional_profiles:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_board_member_type:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_country:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
+    weight: 113
+    region: content
+  field_expiration_date:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
     weight: 101
+    region: content
+  field_focus_areas:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_full_bio:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_full_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_given_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_headshot:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_job_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_page_builder:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  field_region:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_role_type:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_short_bio:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_surname:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_twitter:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 108
     region: content
   links:
     settings: {  }

@@ -1,0 +1,23 @@
+uuid: e22442bb-08d2-42b8-b670-9ccc1eb874b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_items_selection
+    - paragraphs.paragraphs_type.featured_people
+id: paragraph.featured_people.field_items_selection
+field_name: field_items_selection
+entity_type: paragraph
+bundle: featured_people
+label: 'Items Selection'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Automatically
+  off_label: Manually
+field_type: boolean

@@ -1,0 +1,21 @@
+uuid: b65a0f24-a60e-43c4-a85a-7eaf35c4997f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_expertise_required
+field_name: field_expertise_required
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

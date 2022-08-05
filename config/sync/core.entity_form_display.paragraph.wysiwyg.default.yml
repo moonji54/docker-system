@@ -3,7 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.wysiwyg.field_body
+    - field.field.paragraph.wysiwyg.field_sidebar_related_content
+    - field.field.paragraph.wysiwyg.field_wysiwyg
     - paragraphs.paragraphs_type.wysiwyg
   module:
     - text
@@ -14,7 +15,17 @@ targetEntityType: paragraph
 bundle: wysiwyg
 mode: default
 content:
-  field_body:
+  field_sidebar_related_content:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_wysiwyg:
     type: text_textarea
     weight: 0
     region: content

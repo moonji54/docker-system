@@ -1,0 +1,19 @@
+uuid: abe8b4e9-2746-48df-a4f9-86260468c913
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_publisher
+    - node.type.event
+id: node.event.field_publisher
+field_name: field_publisher
+entity_type: node
+bundle: event
+label: Publisher
+description: 'The name of the organization(s) that published the content item'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

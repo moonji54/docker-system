@@ -1,0 +1,22 @@
+uuid: 3d365e60-00cc-441e-b224-0cb4c9e1e9d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - node.type.landing_page
+  module:
+    - user
+id: node.landing_page.card
+targetEntityType: node
+bundle: landing_page
+mode: card
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
