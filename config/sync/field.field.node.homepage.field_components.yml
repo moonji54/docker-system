@@ -5,8 +5,11 @@ dependencies:
   config:
     - field.storage.node.field_components
     - node.type.homepage
-    - paragraphs.paragraphs_type.wysiwyg
+    - paragraphs.paragraphs_type.cta_download
+    - paragraphs.paragraphs_type.featured_content
+    - paragraphs.paragraphs_type.featured_pages
     - paragraphs.paragraphs_type.featured_people
+    - paragraphs.paragraphs_type.wysiwyg
   module:
     - entity_reference_revisions
 id: node.homepage.field_components
@@ -23,13 +26,25 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      wysiwyg: wysiwyg
       featured_people: featured_people
+      wysiwyg: wysiwyg
+      cta_download: cta_download
+      featured_content: featured_content
+      featured_pages: featured_pages
     negate: 0
     target_bundles_drag_drop:
       container:
         weight: 4
         enabled: false
+      cta_download:
+        weight: 9
+        enabled: true
+      featured_content:
+        weight: 10
+        enabled: true
+      featured_pages:
+        weight: 11
+        enabled: true
       featured_people:
         weight: 5
         enabled: true

@@ -31,5 +31,21 @@ content:
     weight: 100
     region: content
 hidden:
+  field_additional_profiles: true
+  field_board_member_type: true
+  field_country: true
+  field_expiration_date: true
+  field_focus_areas: true
+  field_full_bio: true
+  field_full_name: true
+  field_given_name: true
+  field_headshot: true
+  field_job_title: true
+  field_page_builder: true
+  field_region: true
+  field_role_type: true
+  field_short_bio: true
+  field_surname: true
+  field_twitter: true
   langcode: true
   search_api_excerpt: true
