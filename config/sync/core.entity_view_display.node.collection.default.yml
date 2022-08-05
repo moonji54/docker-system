@@ -1,0 +1,21 @@
+uuid: b9d87c8d-be9c-4bc9-8849-4ab90d28badc
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.collection
+  module:
+    - user
+id: node.collection.default
+targetEntityType: node
+bundle: collection
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

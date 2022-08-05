@@ -1,0 +1,22 @@
+uuid: 2dfae982-24e5-49db-b306-a3d88aa9aa61
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - node.type.collection
+  module:
+    - user
+id: node.collection.card
+targetEntityType: node
+bundle: collection
+mode: card
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

@@ -1,16 +1,17 @@
-uuid: bed68bff-6301-4796-8f3f-a9816d923b3f
+uuid: ad4873d5-69c6-4470-8c9d-fca91c24cc7c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.topic.field_taxonomy_term
-    - node.type.topic
+    - core.entity_view_mode.node.card
+    - field.field.node.person.field_taxonomy_term
+    - node.type.person
   module:
     - user
-id: node.topic.default
+id: node.person.card
 targetEntityType: node
-bundle: topic
-mode: default
+bundle: person
+mode: card
 content:
   content_moderation_control:
     settings: {  }

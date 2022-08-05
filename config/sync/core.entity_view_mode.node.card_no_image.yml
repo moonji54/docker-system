@@ -1,0 +1,10 @@
+uuid: 8259ee66-3828-41a6-ac8a-f2aefe49a23c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.card_no_image
+label: 'Card - no image'
+targetEntityType: node
+cache: true
