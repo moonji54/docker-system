@@ -1,0 +1,23 @@
+uuid: 218e7e4a-28ba-4eb0-a7e9-32e39ef230a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_show_image
+    - paragraphs.paragraphs_type.featured_people
+id: paragraph.featured_people.field_show_image
+field_name: field_show_image
+entity_type: paragraph
+bundle: featured_people
+label: 'Show Image'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

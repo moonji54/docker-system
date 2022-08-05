@@ -9,11 +9,11 @@ use Drupal\Core\Field\WidgetBase;
  */
 
 // Custom admin css.
-Drupal::moduleHandler()
+\Drupal::moduleHandler()
   ->loadInclude('project_backend', 'inc', 'project_backend.theme');
 
 // Add remote audio as a media type.
-Drupal::moduleHandler()
+\Drupal::moduleHandler()
   ->loadInclude('project_backend', 'inc', 'project_backend.media_types');
 
 
@@ -23,7 +23,7 @@ Drupal::moduleHandler()
  * Implements hook_ckeditor_css_alter().
  */
 function project_backend_ckeditor_css_alter(array &$css, Editor $editor) {
-  $css[] = Drupal::service('extension.list.theme')
+  $css[] = \Drupal::service('extension.list.theme')
       ->getPath('nrgi') . '/assets/css/ckeditor-style.css';
 }
 
@@ -42,7 +42,7 @@ function project_backend_field_widget_single_element_paragraphs_form_alter(array
     $paragraph_type = $paragraph_instance->bundle();
 
     // Determine which paragraph type is being embedded.
-    if ($paragraph_type == 'featured_content') {
+    if (in_array($paragraph_type, ['featured_content', 'featured_people'])) {
 
       $dependee_field_name = 'field_items_selection';
       $selector = sprintf(':input[name="%s[%d][subform][%s]"]', $paragraph_entity_reference_field_name, $element['#delta'], $dependee_field_name);
@@ -52,6 +52,7 @@ function project_backend_field_widget_single_element_paragraphs_form_alter(array
           $selector => ['value' => '0'],
         ],
       ];
+
       $element['subform']['field_dynamic_listing']['#states'] = [
         'visible' => [
           $selector => ['value' => '1'],

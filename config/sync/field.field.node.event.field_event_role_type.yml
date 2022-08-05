@@ -1,0 +1,29 @@
+uuid: 6076cbe6-483c-483b-8fb8-d380e36d35d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_role_type
+    - node.type.event
+    - taxonomy.vocabulary.event_role_label
+id: node.event.field_event_role_type
+field_name: field_event_role_type
+entity_type: node
+bundle: event
+label: 'Event role type'
+description: 'Select the type of role that person is performing at the event'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      event_role_label: event_role_label
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

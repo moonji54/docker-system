@@ -1,0 +1,42 @@
+uuid: fb80c06d-9c2b-489c-ba39-d7a5feca20d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_components
+    - node.type.homepage
+    - paragraphs.paragraphs_type.wysiwyg
+    - paragraphs.paragraphs_type.featured_people
+  module:
+    - entity_reference_revisions
+id: node.homepage.field_components
+field_name: field_components
+entity_type: node
+bundle: homepage
+label: Components
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      wysiwyg: wysiwyg
+      featured_people: featured_people
+    negate: 0
+    target_bundles_drag_drop:
+      container:
+        weight: 4
+        enabled: false
+      featured_people:
+        weight: 5
+        enabled: true
+      full_width_media:
+        weight: 6
+        enabled: false
+      wysiwyg:
+        weight: 7
+        enabled: true
+field_type: entity_reference_revisions

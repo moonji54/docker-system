@@ -1,0 +1,19 @@
+uuid: 010fd104-f1fe-4b36-ba8b-5105b1f60281
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_acknowledgement_donor
+    - node.type.article
+id: node.article.field_acknowledgement_donor
+field_name: field_acknowledgement_donor
+entity_type: node
+bundle: article
+label: 'Acknowledgement donor logo'
+description: 'Upload a high resolution image of the donor(s) official logo(s), if applicable'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

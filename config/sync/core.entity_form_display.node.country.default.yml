@@ -5,7 +5,9 @@ dependencies:
   config:
     - field.field.node.country.field_taxonomy_term
     - node.type.country
+    - workflows.workflow.editorial
   module:
+    - content_moderation
     - path
     - scheduler
     - scheduler_content_moderation_integration

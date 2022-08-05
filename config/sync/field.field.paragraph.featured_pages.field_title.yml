@@ -1,0 +1,25 @@
+uuid: 56586479-4ff9-4ee6-851b-a3ef92e54c4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.featured_pages
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: paragraph.featured_pages.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: featured_pages
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

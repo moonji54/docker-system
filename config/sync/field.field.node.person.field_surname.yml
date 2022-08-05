@@ -1,0 +1,19 @@
+uuid: db051e58-fa40-4b10-8bf4-e0627d7ec287
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_surname
+    - node.type.person
+id: node.person.field_surname
+field_name: field_surname
+entity_type: node
+bundle: person
+label: Surname
+description: 'Enter the surname of the person'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

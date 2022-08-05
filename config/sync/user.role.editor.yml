@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - filter.format.full_html
+    - filter.format.wysiwyg
     - media.type.audio
     - media.type.document
     - media.type.image
@@ -11,22 +12,30 @@ dependencies:
     - media.type.remote_video
     - media.type.video
     - node.type.article
+    - node.type.career_opportunity
+    - node.type.collection
+    - node.type.country
+    - node.type.event
+    - node.type.external_publication
+    - node.type.glossary_term
+    - node.type.homepage
+    - node.type.landing_page
+    - node.type.listing_page
     - node.type.page
+    - node.type.person
+    - node.type.publication
+    - node.type.topic
+    - workflows.workflow.editorial
   module:
     - admin_toolbar_search
-    - file
+    - content_moderation
     - filter
     - media
     - node
-    - path
-    - redirect
-    - role_delegation
+    - override_node_options
     - save_edit
-    - simple_user_management
-    - site_settings
     - sitemap
     - system
-    - taxonomy
     - toolbar
 _core:
   default_config_hash: ynT9nh1WETdnbj8jkDnvrpDTHun8boxO9TgXrxSWCTk
@@ -36,92 +45,115 @@ weight: -8
 is_admin: null
 permissions:
   - 'access administration pages'
+  - 'access content'
   - 'access content overview'
-  - 'access files overview'
   - 'access media overview'
-  - 'access site settings overview'
   - 'access sitemap'
-  - 'access taxonomy overview'
   - 'access toolbar'
-  - 'access user profiles'
-  - 'add site setting entities'
-  - 'administer media'
-  - 'administer media types'
-  - 'administer redirects'
-  - 'approve user accounts'
-  - 'assign editor role'
-  - 'cancel account'
-  - 'change own username'
-  - 'create article content'
-  - 'create audio media'
-  - 'create document media'
-  - 'create image media'
-  - 'create media'
-  - 'create page content'
-  - 'create remote_audio media'
-  - 'create remote_video media'
   - 'create terms in tags'
-  - 'create url aliases'
-  - 'create user accounts'
-  - 'create video media'
-  - 'deactivate user accounts'
-  - 'delete all revisions'
-  - 'delete any article content'
-  - 'delete any audio media'
-  - 'delete any document media'
-  - 'delete any image media'
-  - 'delete any media'
-  - 'delete any page content'
-  - 'delete any remote_audio media'
-  - 'delete any remote_video media'
-  - 'delete any video media'
-  - 'delete article revisions'
-  - 'delete media'
-  - 'delete own article content'
-  - 'delete own audio media'
-  - 'delete own document media'
-  - 'delete own image media'
-  - 'delete own page content'
-  - 'delete own remote_audio media'
-  - 'delete own remote_video media'
-  - 'delete own video media'
-  - 'delete page revisions'
-  - 'delete site setting entities'
   - 'delete terms in tags'
   - 'edit any article content'
   - 'edit any audio media'
+  - 'edit any career_opportunity content'
+  - 'edit any collection content'
+  - 'edit any country content'
   - 'edit any document media'
+  - 'edit any event content'
+  - 'edit any external_publication content'
+  - 'edit any glossary_term content'
+  - 'edit any homepage content'
   - 'edit any image media'
+  - 'edit any landing_page content'
+  - 'edit any listing_page content'
   - 'edit any page content'
+  - 'edit any person content'
+  - 'edit any publication content'
   - 'edit any remote_audio media'
   - 'edit any remote_video media'
+  - 'edit any topic content'
   - 'edit any video media'
   - 'edit own article content'
   - 'edit own audio media'
+  - 'edit own career_opportunity content'
+  - 'edit own collection content'
+  - 'edit own country content'
   - 'edit own document media'
+  - 'edit own event content'
+  - 'edit own external_publication content'
+  - 'edit own glossary_term content'
+  - 'edit own homepage content'
   - 'edit own image media'
+  - 'edit own landing_page content'
+  - 'edit own listing_page content'
   - 'edit own page content'
+  - 'edit own person content'
+  - 'edit own publication content'
   - 'edit own remote_audio media'
   - 'edit own remote_video media'
+  - 'edit own topic content'
   - 'edit own video media'
-  - 'edit site setting entities'
   - 'edit terms in tags'
+  - 'enter all revision log entry'
+  - 'enter article revision log entry'
+  - 'enter career_opportunity revision log entry'
+  - 'enter collection revision log entry'
+  - 'enter country revision log entry'
+  - 'enter event revision log entry'
+  - 'enter external_publication revision log entry'
+  - 'enter glossary_term revision log entry'
+  - 'enter homepage revision log entry'
+  - 'enter landing_page revision log entry'
+  - 'enter listing_page revision log entry'
+  - 'enter page revision log entry'
+  - 'enter person revision log entry'
+  - 'enter publication revision log entry'
+  - 'enter topic revision log entry'
   - 'revert all revisions'
   - 'revert article revisions'
+  - 'revert career_opportunity revisions'
+  - 'revert collection revisions'
+  - 'revert country revisions'
+  - 'revert event revisions'
+  - 'revert external_publication revisions'
+  - 'revert glossary_term revisions'
+  - 'revert homepage revisions'
+  - 'revert landing_page revisions'
+  - 'revert listing_page revisions'
   - 'revert page revisions'
+  - 'revert person revisions'
+  - 'revert publication revisions'
+  - 'revert topic revisions'
   - 'update any media'
   - 'update media'
   - 'use admin toolbar search'
+  - 'use editorial transition archive'
+  - 'use editorial transition archived_draft'
+  - 'use editorial transition archived_published'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition publish'
   - 'use save and edit'
   - 'use text format full_html'
   - 'use text format restricted_html'
+  - 'use text format wysiwyg'
   - 'view all media revisions'
   - 'view all revisions'
+  - 'view any unpublished content'
   - 'view article revisions'
+  - 'view career_opportunity revisions'
+  - 'view collection revisions'
+  - 'view country revisions'
+  - 'view event revisions'
+  - 'view external_publication revisions'
+  - 'view glossary_term revisions'
+  - 'view homepage revisions'
+  - 'view landing_page revisions'
+  - 'view latest version'
+  - 'view listing_page revisions'
+  - 'view media'
   - 'view own unpublished content'
   - 'view own unpublished media'
   - 'view page revisions'
-  - 'view published site setting entities'
+  - 'view person revisions'
+  - 'view publication revisions'
   - 'view the administration theme'
-  - 'view unpublished site setting entities'
-  - 'view user email addresses'
+  - 'view topic revisions'

@@ -4,9 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
-    - field.field.node.page.field_body
+    - field.field.node.page.field_components
     - node.type.page
   module:
+    - entity_reference_revisions
     - path
     - scheduler
     - scheduler_content_moderation_integration
@@ -34,15 +35,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_body:
-    type: text_textarea_with_summary
+  field_components:
+    type: entity_reference_revisions_autocomplete
     weight: 121
     region: content
     settings:
-      rows: 9
-      summary_rows: 3
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
       placeholder: ''
-      show_summary: false
     third_party_settings: {  }
   langcode:
     type: language_select

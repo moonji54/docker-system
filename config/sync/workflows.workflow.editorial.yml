@@ -2,6 +2,21 @@ uuid: f078c0c8-a478-45ca-b8de-657645b4a7db
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.article
+    - node.type.career_opportunity
+    - node.type.collection
+    - node.type.country
+    - node.type.event
+    - node.type.external_publication
+    - node.type.glossary_term
+    - node.type.homepage
+    - node.type.landing_page
+    - node.type.listing_page
+    - node.type.page
+    - node.type.person
+    - node.type.publication
+    - node.type.topic
   module:
     - content_moderation
 _core:
@@ -59,5 +74,20 @@ type_settings:
         - published
       to: published
       weight: 1
-  entity_types: {  }
+  entity_types:
+    node:
+      - article
+      - career_opportunity
+      - collection
+      - country
+      - event
+      - external_publication
+      - glossary_term
+      - homepage
+      - landing_page
+      - listing_page
+      - page
+      - person
+      - publication
+      - topic
   default_moderation_state: draft
