@@ -4,10 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.card
-    - field.field.node.article.body
-    - field.field.node.article.field_image
-    - field.field.node.article.field_media_image
-    - field.field.node.article.field_summary
     - node.type.article
   module:
     - user
