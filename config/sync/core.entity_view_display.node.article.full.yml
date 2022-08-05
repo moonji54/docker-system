@@ -20,6 +20,11 @@ targetEntityType: node
 bundle: article
 mode: full
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   field_components:
     type: layout_paragraphs
     label: above

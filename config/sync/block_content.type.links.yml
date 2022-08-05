@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: links
-label: Links
+label: 'Links Block'
 revision: 0
-description: ''
+description: 'A links block contains link fields.'
