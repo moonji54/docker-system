@@ -9,11 +9,11 @@ use Drupal\Core\Field\WidgetBase;
  */
 
 // Custom admin css.
-\Drupal::moduleHandler()
+Drupal::moduleHandler()
   ->loadInclude('project_backend', 'inc', 'project_backend.theme');
 
 // Add remote audio as a media type.
-\Drupal::moduleHandler()
+Drupal::moduleHandler()
   ->loadInclude('project_backend', 'inc', 'project_backend.media_types');
 
 
@@ -23,7 +23,7 @@ use Drupal\Core\Field\WidgetBase;
  * Implements hook_ckeditor_css_alter().
  */
 function project_backend_ckeditor_css_alter(array &$css, Editor $editor) {
-  $css[] = \Drupal::service('extension.list.theme')
+  $css[] = Drupal::service('extension.list.theme')
       ->getPath('nrgi') . '/assets/css/ckeditor-style.css';
 }
 
@@ -81,4 +81,15 @@ function project_backend_preprocess_paragraph(&$vars) {
       }
     }
   }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function project_backend_theme($existing, $type, $theme, $path) {
+  return [
+    'social_media_links' => [
+      'variables' => ['social_network' => NULL],
+    ],
+  ];
 }

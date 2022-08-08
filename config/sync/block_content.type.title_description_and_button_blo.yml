@@ -1,0 +1,8 @@
+uuid: 2f4c5df5-c3db-419d-b06e-bfa7755bf40b
+langcode: en
+status: true
+dependencies: {  }
+id: title_description_and_button_blo
+label: 'Title, description and button block'
+revision: 0
+description: 'A  Title, description and button block contains a title, description, button text and link.'

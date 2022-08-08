@@ -12,11 +12,59 @@ targetEntityType: node
 bundle: event
 mode: card
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 100
     region: content
 hidden:
+  field_address: true
+  field_body: true
+  field_country: true
+  field_course_host: true
+  field_course_syilabus: true
+  field_course_training_contact: true
+  field_data_document: true
+  field_data_document_label: true
+  field_day_of_week: true
+  field_end_date: true
+  field_event_contact: true
+  field_event_location: true
+  field_event_recording: true
+  field_event_role_type: true
+  field_event_type: true
+  field_expertise_required: true
+  field_expiration_date: true
+  field_featured_image: true
+  field_format: true
+  field_instructors: true
+  field_instructors_external: true
+  field_keywords: true
+  field_languages: true
+  field_open_registration: true
+  field_organizing_partner: true
+  field_page_builder: true
+  field_partner_logo: true
+  field_partner_name: true
+  field_photo_caption: true
+  field_publisher: true
+  field_region: true
+  field_registration: true
+  field_short_description: true
+  field_speakers: true
+  field_speakers_external: true
+  field_start_date: true
+  field_supporting_document: true
+  field_supporting_document_label: true
+  field_time_commitment: true
+  field_time_zone: true
+  field_topic: true
+  field_transcript: true
+  field_video_conferencing: true
   langcode: true
   search_api_excerpt: true
