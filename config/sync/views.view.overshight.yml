@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.person_card
+    - core.entity_view_mode.node.list_item
     - node.type.person
     - taxonomy.vocabulary.country
     - taxonomy.vocabulary.person_type
@@ -211,7 +211,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: person_card
+          view_mode: list_item
       query:
         type: views_query
         options:
@@ -348,7 +348,7 @@ display:
           exposed: true
           expose:
             operator_id: field_country_target_id_op
-            label: 'Country (field_country)'
+            label: Country
             description: ''
             use_operator: false
             operator: field_country_target_id_op
@@ -399,7 +399,7 @@ display:
           exposed: true
           expose:
             operator_id: field_role_type_target_id_1_op
-            label: 'Role type (field_role_type)'
+            label: 'Role type'
             description: ''
             use_operator: false
             operator: field_role_type_target_id_1_op
@@ -448,7 +448,7 @@ display:
           exposed: true
           expose:
             operator_id: field_topic_target_id_op
-            label: 'Topic (field_topic)'
+            label: Topic
             description: ''
             use_operator: false
             operator: field_topic_target_id_op
