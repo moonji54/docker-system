@@ -1,9 +1,9 @@
-uuid: 6fce841e-13fe-42bf-bdbc-526858965b63
+uuid: b41eecd3-543c-4889-bc8e-7841bfb4f4c8
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.card
+    - core.entity_view_mode.node.card_no_image
     - field.field.node.publication.field_absctract
     - field.field.node.publication.field_acknowledgement
     - field.field.node.publication.field_acknowledgement_donor
@@ -57,6 +57,23 @@ third_party_settings:
         open: false
         description: ''
         required_fields: false
+    group_taxonomies:
+      children:
+        - field_country
+        - field_topic
+        - field_keywords
+      label: Taxonomies
+      parent_name: ''
+      region: content
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: false
     group_it:
       children:
         - field_languages
@@ -73,47 +90,15 @@ third_party_settings:
         open: false
         description: ''
         required_fields: false
-    group_uploads:
-      children:
-        - field_featured_image
-      label: Uploads
-      parent_name: ''
-      region: content
-      weight: 3
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: false
-    group_taxonomies:
-      children:
-        - field_topic
-        - field_country
-        - field_keywords
-      label: Taxonomies
-      parent_name: ''
-      region: content
-      weight: 2
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: false
-id: node.publication.card
+id: node.publication.card_no_image
 targetEntityType: node
 bundle: publication
-mode: card
+mode: card_no_image
 content:
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_country:
     type: entity_reference_label
@@ -121,15 +106,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 6
-    region: content
-  field_featured_image:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 4
+    weight: 12
     region: content
   field_keywords:
     type: entity_reference_label
@@ -137,15 +114,15 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 7
+    weight: 14
     region: content
   field_languages:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
+    weight: 6
     region: content
   field_resource_type:
     type: entity_reference_label
@@ -153,7 +130,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 5
+    weight: 7
     region: content
   field_short_description:
     type: string
@@ -165,16 +142,16 @@ content:
     region: content
   field_topic:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    weight: 5
+    weight: 13
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
 hidden:
   field_absctract: true
@@ -186,6 +163,7 @@ hidden:
   field_expiration_date: true
   field_external_author_link: true
   field_external_author_name: true
+  field_featured_image: true
   field_key_messages: true
   field_learning_block: true
   field_link_from_external_card: true
