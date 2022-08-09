@@ -1,0 +1,54 @@
+uuid: c27dba6d-d621-439d-90c0-eec387a2b3dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.limited_list.field_button
+    - field.field.paragraph.limited_list.field_content_selection
+    - field.field.paragraph.limited_list.field_description
+    - field.field.paragraph.limited_list.field_title
+    - paragraphs.paragraphs_type.limited_list
+  module:
+    - link
+id: paragraph.limited_list.default
+targetEntityType: paragraph
+bundle: limited_list
+mode: default
+content:
+  field_button:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_content_selection:
+    type: entity_reference_autocomplete_tags
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_description:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
