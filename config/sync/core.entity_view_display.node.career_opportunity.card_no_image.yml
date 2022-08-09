@@ -1,9 +1,9 @@
-uuid: 418b74e9-071d-4311-96de-36516821b9ab
+uuid: 61679995-c0ea-4edd-8b4e-0c275f37fefa
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.card
+    - core.entity_view_mode.node.card_no_image
     - field.field.node.career_opportunity.field_apply
     - field.field.node.career_opportunity.field_body
     - field.field.node.career_opportunity.field_career_opportunity_type
@@ -56,10 +56,10 @@ third_party_settings:
         open: false
         description: ''
         required_fields: false
-    group_uploads:
+    group_taxonomies:
       children:
-        - field_photo_caption
-      label: Uploads
+        - field_country
+      label: Taxonomies
       parent_name: ''
       region: content
       weight: 2
@@ -71,30 +71,15 @@ third_party_settings:
         open: false
         description: ''
         required_fields: false
-    group_taxonomies:
-      children:
-        - field_country
-      label: Taxonomies
-      parent_name: ''
-      region: content
-      weight: 3
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: false
-id: node.career_opportunity.card
+id: node.career_opportunity.card_no_image
 targetEntityType: node
 bundle: career_opportunity
-mode: card
+mode: card_no_image
 content:
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: 19
+    weight: 15
     region: content
   field_country:
     type: entity_reference_label
@@ -102,15 +87,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
-    region: content
-  field_photo_caption:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 5
+    weight: 3
     region: content
   field_short_description:
     type: string
@@ -127,12 +104,12 @@ content:
       link_to_entity: false
       native_language: false
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
 hidden:
   field_apply: true
@@ -144,6 +121,7 @@ hidden:
   field_expiration_date: true
   field_offer_deadline: true
   field_page_builder: true
+  field_photo_caption: true
   field_region: true
   field_salary: true
   field_supporting_document: true
