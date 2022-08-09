@@ -12,11 +12,32 @@ targetEntityType: node
 bundle: career_opportunity
 mode: card
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 100
     region: content
 hidden:
+  field_apply: true
+  field_body: true
+  field_career_opportunity_type: true
+  field_city: true
+  field_contact_for_queries: true
+  field_country: true
+  field_disclaimer: true
+  field_expiration_date: true
+  field_offer_deadline: true
+  field_page_builder: true
+  field_photo_caption: true
+  field_region: true
+  field_salary: true
+  field_short_description: true
+  field_supporting_document: true
+  field_supporting_document_label: true
   langcode: true
   search_api_excerpt: true
