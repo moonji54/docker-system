@@ -114,6 +114,7 @@
         "drupal/file_delete": "^1.0",
         "drupal/focal_point": "^1.5",
         "drupal/form_mode_manager": "2.x-dev",
+        "drupal/iframe_video": "^1.0",
         "drupal/layout_paragraphs": "^1.0",
         "drupal/layout_paragraphs_restriction": "^1.0@alpha",
         "drupal/linkit": "^6.0@beta|^6.0@RC|^6.0",
