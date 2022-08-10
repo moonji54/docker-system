@@ -82,3 +82,15 @@ function project_backend_preprocess_paragraph(&$vars) {
     }
   }
 }
+
+/**
+ * Implements hook_theme().
+ */
+function project_backend_theme($existing, $type, $theme, $path) {
+  return [
+    'block--share-block' => [
+      'variables' => ['social_network' => NULL],
+    ],
+  ];
+}
+
