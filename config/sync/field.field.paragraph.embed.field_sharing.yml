@@ -1,0 +1,23 @@
+uuid: 5102ce10-4da4-423c-b9eb-874b0127b253
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sharing
+    - paragraphs.paragraphs_type.embed
+id: paragraph.embed.field_sharing
+field_name: field_sharing
+entity_type: paragraph
+bundle: embed
+label: Sharing
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

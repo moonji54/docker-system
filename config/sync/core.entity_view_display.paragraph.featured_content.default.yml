@@ -1,0 +1,98 @@
+uuid: 450483d0-094b-4316-90e5-c4de920917c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.featured_content.field_button_text_and_link
+    - field.field.paragraph.featured_content.field_content_cards
+    - field.field.paragraph.featured_content.field_description
+    - field.field.paragraph.featured_content.field_dynamic_listing
+    - field.field.paragraph.featured_content.field_items_selection
+    - field.field.paragraph.featured_content.field_layout
+    - field.field.paragraph.featured_content.field_show_image
+    - field.field.paragraph.featured_content.field_title
+    - paragraphs.paragraphs_type.featured_content
+  module:
+    - link
+    - text
+    - viewsreference
+id: paragraph.featured_content.default
+targetEntityType: paragraph
+bundle: featured_content
+mode: default
+content:
+  field_button_text_and_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_content_cards:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: card_no_image
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_dynamic_listing:
+    type: viewsreference_formatter
+    label: above
+    settings:
+      plugin_types:
+        - block
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_items_selection:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_layout:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_show_image:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_title:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

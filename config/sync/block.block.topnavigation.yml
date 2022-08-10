@@ -1,0 +1,60 @@
+uuid: 24d76ef1-631f-410e-90d9-5835b7abbd39
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.top-navigation
+  module:
+    - context
+    - menu_block
+    - user
+  theme:
+    - nrgi
+id: topnavigation
+theme: nrgi
+region: header
+weight: 0
+provider: null
+plugin: 'menu_block:top-navigation'
+settings:
+  id: 'menu_block:top-navigation'
+  label: 'Top navigation'
+  label_display: visible
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 0
+  expand_all_items: false
+  parent: 'top-navigation:'
+  suggestion: top_navigation
+visibility:
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+      site_manager: site_manager

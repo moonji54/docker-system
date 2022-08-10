@@ -1,0 +1,27 @@
+uuid: 0e98554f-a0f0-4f73-a9da-b53a9883af25
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - node.type.external_publication
+  module:
+    - user
+id: node.external_publication.card
+targetEntityType: node
+bundle: external_publication
+mode: card
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
