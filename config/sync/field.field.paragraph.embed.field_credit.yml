@@ -1,0 +1,26 @@
+uuid: 544efada-2112-49fe-9fd3-0507230270c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_credit
+    - paragraphs.paragraphs_type.embed
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - text_and_links
+id: paragraph.embed.field_credit
+field_name: field_credit
+entity_type: paragraph
+bundle: embed
+label: Credit
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

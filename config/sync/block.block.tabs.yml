@@ -1,24 +1,29 @@
-uuid: 3fe0a2c8-5f58-498e-84ba-d1e8f14ab590
+uuid: 0de5a24d-1f60-4418-81b8-399978b531c4
 langcode: en
 status: true
 dependencies:
   module:
     - context
-    - system
   theme:
     - nrgi
-id: nrgi_mainpagecontent
+id: tabs
 theme: nrgi
-region: content
+region: pre-header
 weight: 0
 provider: null
-plugin: system_main_block
+plugin: local_tasks_block
 settings:
-  id: system_main_block
-  label: 'Main page content'
+  id: local_tasks_block
+  label: Tabs
   label_display: '0'
-  provider: system
+  provider: core
+  primary: true
+  secondary: true
 visibility:
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
   context:
     id: context
     negate: null
@@ -34,7 +39,3 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
-  context_all:
-    id: context_all
-    negate: null
-    values: ''
