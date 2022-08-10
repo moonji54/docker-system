@@ -1,0 +1,29 @@
+uuid: adcd56e2-92b7-4698-a322-963f6c6a2ed7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keywords
+    - node.type.publication
+    - taxonomy.vocabulary.keyword
+id: node.publication.field_keywords
+field_name: field_keywords
+entity_type: node
+bundle: publication
+label: Keywords
+description: 'Select relevant keyword(s) for this item. Aim for 5-7 closely related keywords. Note that these will be used in selecting related content. Choosing too many (or too few) keywords could skew your results. '
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      keyword: keyword
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

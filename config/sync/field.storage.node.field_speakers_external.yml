@@ -1,0 +1,19 @@
+uuid: 4205132c-d50e-4cc6-9425-eba0d6eac1af
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_speakers_external
+field_name: field_speakers_external
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

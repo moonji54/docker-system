@@ -1,0 +1,32 @@
+{% set classes = [
+  'o-section',
+  'o-section--wysiwyg',
+  'c-wysiwyg',
+] %}
+
+{% set rendered = content|render %}
+{% if rendered|striptags|trim is not empty %}
+  <div{{ attributes.addClass(classes) }}>
+    <div class="c-embed__inner o-content-from-editor">
+      {% if content.field_title|field_title %}
+        {{ content.field_title }}
+      {% endif %}
+
+      {% if content.field_media_library_selection|field_media_library_selection %}
+        {{ content.field_media_library_selection }}
+      {% endif %}
+
+      {% if content.field_caption|field_caption %}
+        {{ content.field_caption }}
+      {% endif %}
+
+      {% if content.field_credit|field_credit %}
+        {{ content.field_credit }}
+      {% endif %}
+
+      {% if content.field_sharing|field_sharing %}
+        {{ content.field_sharing }}
+      {% endif %}
+    </div>
+  </div>
+{% endif %}

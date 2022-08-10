@@ -1,0 +1,21 @@
+uuid: 9a700d41-844c-4196-a570-b3a52cec5ce6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_open_registration
+    - node.type.event
+  module:
+    - options
+id: node.event.field_open_registration
+field_name: field_open_registration
+entity_type: node
+bundle: event
+label: 'Open registration'
+description: 'Select if event will have open registration throughout the course of its duration. If selected add "open registration" label to event page. (If not selected, event will be treated as past event if start date has passed and, once start date has past it will have an "Applications closed" label).'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

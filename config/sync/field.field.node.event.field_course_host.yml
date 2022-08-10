@@ -1,0 +1,19 @@
+uuid: cfec62b8-48f3-41c3-8001-0c2a9b5e47a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_host
+    - node.type.event
+id: node.event.field_course_host
+field_name: field_course_host
+entity_type: node
+bundle: event
+label: 'Course host'
+description: 'Add course host (e.g. a university, academy, etc.)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

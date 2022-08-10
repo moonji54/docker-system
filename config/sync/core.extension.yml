@@ -16,6 +16,7 @@ module:
   breakpoint: 0
   bugherd: 0
   ckeditor: 0
+  conditional_fields: 0
   config: 0
   content_moderation: 0
   context: 0
@@ -25,6 +26,7 @@ module:
   crop: 0
   ctools: 0
   datetime: 0
+  datetime_range: 0
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
@@ -41,6 +43,8 @@ module:
   focal_point: 0
   help: 0
   history: 0
+  iframe: 0
+  iframe_video: 0
   image: 0
   jquery_ui: 0
   jquery_ui_datepicker: 0
@@ -80,6 +84,13 @@ module:
   save_edit: 0
   scheduler: 0
   scheduler_content_moderation_integration: 0
+  schema_article: 0
+  schema_article_example: 0
+  schema_event: 0
+  schema_job_posting: 0
+  schema_metatag: 0
+  schema_organization: 0
+  schema_person: 0
   search: 0
   search_api: 0
   search_api_db: 0

@@ -1,0 +1,21 @@
+uuid: 5a7680da-ff4c-422e-b075-19c321cadfb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_time_commitment
+    - node.type.event
+id: node.event.field_time_commitment
+field_name: field_time_commitment
+entity_type: node
+bundle: event
+label: 'Time commitment'
+description: 'Add amount of hours that users will be expected to commit for the course, training, event, etc. '
+required: true
+translatable: false
+default_value:
+  -
+    value: 1658495646
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

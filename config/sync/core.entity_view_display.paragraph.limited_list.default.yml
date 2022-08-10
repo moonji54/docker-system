@@ -1,0 +1,54 @@
+uuid: db742de7-d85d-4fd5-a505-e3fa856e404a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.limited_list.field_button
+    - field.field.paragraph.limited_list.field_content_selection
+    - field.field.paragraph.limited_list.field_description
+    - field.field.paragraph.limited_list.field_title
+    - paragraphs.paragraphs_type.limited_list
+  module:
+    - link
+id: paragraph.limited_list.default
+targetEntityType: paragraph
+bundle: limited_list
+mode: default
+content:
+  field_button:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_content_selection:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true
