@@ -4,9 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.node.landing_page.field_components
+    - field.field.node.landing_page.field_image
+    - field.field.node.landing_page.field_intro_text
+    - field.field.node.landing_page.field_title
     - node.type.landing_page
   module:
     - entity_reference_revisions
+    - svg_image
+    - text
     - user
 id: node.landing_page.default
 targetEntityType: node
@@ -26,6 +31,36 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_intro_text:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
     region: content
   links:
     settings: {  }
