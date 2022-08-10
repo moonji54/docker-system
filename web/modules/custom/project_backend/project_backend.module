@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\editor\Entity\Editor;
 use Drupal\Core\Field\WidgetBase;
@@ -92,4 +93,16 @@ function project_backend_theme($existing, $type, $theme, $path) {
       'variables' => ['social_network' => NULL],
     ],
   ];
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function project_backend_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (str_starts_with($form_id, 'site_setting_entity_newsletter')) {
+    Cache::invalidateTags(['newsletter_signup_block']);
+  }
+  if (str_starts_with($form_id, 'site_setting_entity_social_media_links')) {
+    Cache::invalidateTags(['social_media_block']);
+  }
 }

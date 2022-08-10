@@ -1,5 +1,7 @@
-<a href="{{ social_network.facebook.url }}"> {{ social_network.facebook.title }}</a>
-<a href="{{ social_network.twitter.url }}"> {{ social_network.twitter.title }}</a>
-<a href="{{ social_network.linkedin.url }}"> {{ social_network.linkedin.title }}</a>
-<a href="{{ social_network.youtube.url }}"> {{ social_network.youtube.title }}</a>
+{% for link in social_network %}
+  {{ social_network }}
+  <a href="{{ link.field_social_media_link.url }}" class="{{ link.field_social_media }}"> {{ link.field_social_media_link.title }}</a>
+{% endfor %}
+
+
 

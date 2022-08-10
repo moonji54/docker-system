@@ -4,7 +4,6 @@ namespace Drupal\project_backend\Plugin\Block;
 
 use Drupal;
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Url;
 
 /**
  * Provides a Social Media Block.
@@ -21,21 +20,15 @@ class SocialMediaBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    $config = Drupal::Config('project_backend.settings');
-    foreach ($config->get('project_backend.social') as $social_network => $url) {
-      if ($url != '') {
-        $social_menu[$social_network] = [
-          'title' => $social_network,
-          'url' => Url::fromUri($url, ['attributes' => ['class' => [$social_network]]]),
-        ];
-      }
+    // Get the site settings
+    $social_media_links = Drupal::service('site_settings.loader')->loadByFieldset('social_media_links')['social_media_links'];
+    if ($social_media_links == []) {
+      return [];
     }
-    $build = [
+    return $build = [
       '#theme' => 'social_media_links',
-      '#attributes' => ['class' => ['links']],
-      '#social_network' => $social_menu,
+      '#social_network' => $social_media_links,
     ];
-    return $build;
   }
 
   /**
