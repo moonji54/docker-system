@@ -1,4 +1,4 @@
-uuid: 030764fb-73d3-44a7-b6cb-21bd51945f77
+uuid: 3f8663f4-7189-4043-9366-52a10d88fee9
 langcode: en
 status: true
 dependencies:
@@ -7,13 +7,12 @@ dependencies:
   module:
     - context
     - menu_block
-    - user
   theme:
     - nrgi
 id: mainnavigation
 theme: nrgi
 region: header
-weight: 0
+weight: -1
 provider: null
 plugin: 'menu_block:main'
 settings:
@@ -26,8 +25,8 @@ settings:
   label_link: false
   label_type: block
   level: 1
-  depth: 0
-  expand_all_items: false
+  depth: 2
+  expand_all_items: true
   parent: 'main:'
   suggestion: main
 visibility:
@@ -50,11 +49,3 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
-  user_role:
-    id: user_role
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
-    roles:
-      administrator: administrator
-      site_manager: site_manager
