@@ -9,7 +9,7 @@ dependencies:
 id: nrgi_pagetitle
 theme: nrgi
 region: content
-weight: -1
+weight: 0
 provider: null
 plugin: page_title_block
 settings:

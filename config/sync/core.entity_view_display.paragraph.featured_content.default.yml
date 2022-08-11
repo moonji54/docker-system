@@ -37,8 +37,8 @@ content:
     type: entity_reference_entity_view
     label: above
     settings:
-      view_mode: card_no_image
-      link: false
+      view_mode: default
+      link: true
     third_party_settings: {  }
     weight: 2
     region: content

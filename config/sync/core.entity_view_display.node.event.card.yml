@@ -4,147 +4,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.card
-    - field.field.node.event.field_address
-    - field.field.node.event.field_body
-    - field.field.node.event.field_country
-    - field.field.node.event.field_course_host
-    - field.field.node.event.field_course_syilabus
-    - field.field.node.event.field_course_training_contact
-    - field.field.node.event.field_data_document
-    - field.field.node.event.field_data_document_label
-    - field.field.node.event.field_day_of_week
-    - field.field.node.event.field_end_date
-    - field.field.node.event.field_event_contact
-    - field.field.node.event.field_event_location
-    - field.field.node.event.field_event_recording
-    - field.field.node.event.field_event_role_type
-    - field.field.node.event.field_event_type
-    - field.field.node.event.field_expertise_required
-    - field.field.node.event.field_expiration_date
-    - field.field.node.event.field_featured_image
-    - field.field.node.event.field_format
-    - field.field.node.event.field_instructors
-    - field.field.node.event.field_instructors_external
-    - field.field.node.event.field_keywords
-    - field.field.node.event.field_languages
-    - field.field.node.event.field_open_registration
-    - field.field.node.event.field_organizing_partner
-    - field.field.node.event.field_page_builder
-    - field.field.node.event.field_partner_logo
-    - field.field.node.event.field_partner_name
-    - field.field.node.event.field_photo_caption
-    - field.field.node.event.field_publisher
-    - field.field.node.event.field_region
-    - field.field.node.event.field_registration
-    - field.field.node.event.field_short_description
-    - field.field.node.event.field_speakers
-    - field.field.node.event.field_speakers_external
-    - field.field.node.event.field_start_date
-    - field.field.node.event.field_supporting_document
-    - field.field.node.event.field_supporting_document_label
-    - field.field.node.event.field_time_commitment
-    - field.field.node.event.field_time_zone
-    - field.field.node.event.field_topic
-    - field.field.node.event.field_transcript
-    - field.field.node.event.field_video_conferencing
     - node.type.event
   module:
-    - datetime
-    - field_group
-    - options
-    - text
     - user
-third_party_settings:
-  field_group:
-    group_event_details:
-      children:
-        - field_start_date
-        - field_end_date
-        - field_time_zone
-        - field_format
-        - field_open_registration
-        - field_event_recording
-      label: 'Event details'
-      parent_name: ''
-      region: content
-      weight: 6
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: false
-    group_uploads:
-      children:
-        - field_featured_image
-      label: Uploads
-      parent_name: ''
-      region: content
-      weight: 7
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: false
-    group_taxonomies:
-      children:
-        - field_topic
-        - field_keywords
-        - field_country
-        - field_event_type
-      label: Taxonomies
-      parent_name: ''
-      region: content
-      weight: 8
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: false
-    group_item_information:
-      children:
-        - field_speakers
-        - field_speakers_external
-        - field_instructors
-        - field_instructors_external
-        - field_course_host
-        - field_organizing_partner
-        - field_languages
-      label: 'Item information'
-      parent_name: ''
-      region: content
-      weight: 5
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: false
-    group_description:
-      children:
-        - field_short_description
-      label: Description
-      parent_name: ''
-      region: content
-      weight: 2
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: false
 id: node.event.card
 targetEntityType: node
 bundle: event
@@ -153,178 +15,39 @@ content:
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: 0
-    region: content
-  field_country:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 6
-    region: content
-  field_course_host:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 42
-    region: content
-  field_end_date:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 9
-    region: content
-  field_event_recording:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 13
-    region: content
-  field_event_type:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 7
-    region: content
-  field_featured_image:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_format:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 11
-    region: content
-  field_instructors:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 40
-    region: content
-  field_instructors_external:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 41
-    region: content
-  field_keywords:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 5
-    region: content
-  field_languages:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 44
-    region: content
-  field_open_registration:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 12
-    region: content
-  field_organizing_partner:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 43
-    region: content
-  field_short_description:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 34
-    region: content
-  field_speakers:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 38
-    region: content
-  field_speakers_external:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 39
-    region: content
-  field_start_date:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 8
-    region: content
-  field_time_zone:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 10
-    region: content
-  field_topic:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 4
+    weight: -20
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 100
     region: content
 hidden:
   field_address: true
   field_body: true
+  field_country: true
+  field_course_host: true
   field_course_syilabus: true
   field_course_training_contact: true
   field_data_document: true
   field_data_document_label: true
   field_day_of_week: true
+  field_end_date: true
   field_event_contact: true
   field_event_location: true
+  field_event_recording: true
   field_event_role_type: true
+  field_event_type: true
   field_expertise_required: true
   field_expiration_date: true
+  field_featured_image: true
+  field_format: true
+  field_instructors: true
+  field_instructors_external: true
+  field_keywords: true
+  field_languages: true
+  field_open_registration: true
+  field_organizing_partner: true
   field_page_builder: true
   field_partner_logo: true
   field_partner_name: true
@@ -332,9 +55,15 @@ hidden:
   field_publisher: true
   field_region: true
   field_registration: true
+  field_short_description: true
+  field_speakers: true
+  field_speakers_external: true
+  field_start_date: true
   field_supporting_document: true
   field_supporting_document_label: true
   field_time_commitment: true
+  field_time_zone: true
+  field_topic: true
   field_transcript: true
   field_video_conferencing: true
   langcode: true
