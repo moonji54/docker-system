@@ -16,7 +16,7 @@ plugin: social_media_share_block
 settings:
   id: social_media_share_block
   label: 'Social Media Share block'
-  label_display: visible
+  label_display: '0'
   provider: project_backend
 visibility:
   context_all:

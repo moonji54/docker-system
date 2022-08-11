@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_components
     - node.type.page
+    - paragraphs.paragraphs_type.featured_pages
     - paragraphs.paragraphs_type.wysiwyg
   module:
     - entity_reference_revisions
@@ -23,13 +24,29 @@ settings:
   handler_settings:
     target_bundles:
       wysiwyg: wysiwyg
+      featured_pages: featured_pages
     negate: 0
     target_bundles_drag_drop:
       container:
         weight: 4
         enabled: false
+      cta_download:
+        weight: 10
+        enabled: false
+      featured_content:
+        weight: 11
+        enabled: false
+      featured_pages:
+        weight: 12
+        enabled: true
+      featured_people:
+        weight: 13
+        enabled: false
       full_width_media:
         weight: 5
+        enabled: false
+      limited_list:
+        weight: 15
         enabled: false
       wysiwyg:
         weight: 6
