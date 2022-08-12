@@ -3,12 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.page.body
     - field.field.node.page.field_components
     - node.type.page
   module:
     - entity_reference_revisions
-    - text
     - user
 _core:
   default_config_hash: 1wQaXuVb9u-z3eYzDxMBpmCCzyi6zJZKhbNyDtuWbPM
@@ -17,13 +15,6 @@ targetEntityType: node
 bundle: page
 mode: default
 content:
-  body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
-    region: content
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
@@ -42,6 +33,5 @@ content:
     weight: 101
     region: content
 hidden:
-  field_body: true
   langcode: true
   search_api_excerpt: true
