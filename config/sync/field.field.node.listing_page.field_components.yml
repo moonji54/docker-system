@@ -40,7 +40,7 @@ settings:
         enabled: false
       cta_download:
         weight: 11
-        enabled: true
+        enabled: false
       embed:
         weight: 12
         enabled: false
