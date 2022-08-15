@@ -4,6 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.homepage.field_background_image
+    - field.field.node.homepage.field_banner_title
+    - field.field.node.homepage.field_cta_link
+    - field.field.node.homepage.field_description
+    - field.field.node.homepage.field_link_bar
     - field.field.node.homepage.field_components
     - node.type.homepage
   module:
@@ -13,12 +18,22 @@ targetEntityType: node
 bundle: homepage
 mode: teaser
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 100
     region: content
 hidden:
+  field_background_image: true
+  field_banner_title: true
   field_components: true
+  field_cta_link: true
+  field_description: true
+  field_link_bar: true
   langcode: true
   search_api_excerpt: true
