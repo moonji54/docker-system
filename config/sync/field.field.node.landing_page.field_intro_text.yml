@@ -1,0 +1,26 @@
+uuid: 27e737a4-9ec8-4e1e-8cdc-7a84a48e2a19
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intro_text
+    - node.type.landing_page
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - plain_text
+id: node.landing_page.field_intro_text
+field_name: field_intro_text
+entity_type: node
+bundle: landing_page
+label: 'Intro text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

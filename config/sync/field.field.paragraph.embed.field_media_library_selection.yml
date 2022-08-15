@@ -1,0 +1,35 @@
+uuid: e893806a-e8b5-41b1-bcff-9e63785237a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_media_library_selection
+    - media.type.data_visualisation
+    - media.type.image
+    - media.type.remote_audio
+    - media.type.remote_video
+    - paragraphs.paragraphs_type.embed
+id: paragraph.embed.field_media_library_selection
+field_name: field_media_library_selection
+entity_type: paragraph
+bundle: embed
+label: 'Media library selection'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      data_visualisation: data_visualisation
+      image: image
+      remote_audio: remote_audio
+      remote_video: remote_video
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: image
+field_type: entity_reference

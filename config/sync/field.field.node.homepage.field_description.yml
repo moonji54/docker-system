@@ -1,0 +1,25 @@
+uuid: b1cee29c-6c22-4c79-8719-c988e1b25783
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.homepage
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.homepage.field_description
+field_name: field_description
+entity_type: node
+bundle: homepage
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

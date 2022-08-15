@@ -39,6 +39,9 @@ settings:
       cta_download:
         weight: 9
         enabled: true
+      embed:
+        weight: 12
+        enabled: false
       featured_content:
         weight: 10
         enabled: true
@@ -47,9 +50,12 @@ settings:
         enabled: true
       featured_people:
         weight: 5
-        enabled: true
+        enabled: false
       full_width_media:
         weight: 6
+        enabled: false
+      limited_list:
+        weight: 17
         enabled: false
       wysiwyg:
         weight: 7

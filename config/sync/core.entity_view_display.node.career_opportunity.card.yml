@@ -4,9 +4,88 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.card
+    - field.field.node.career_opportunity.field_apply
+    - field.field.node.career_opportunity.field_body
+    - field.field.node.career_opportunity.field_career_opportunity_type
+    - field.field.node.career_opportunity.field_city
+    - field.field.node.career_opportunity.field_contact_for_queries
+    - field.field.node.career_opportunity.field_country
+    - field.field.node.career_opportunity.field_disclaimer
+    - field.field.node.career_opportunity.field_expiration_date
+    - field.field.node.career_opportunity.field_offer_deadline
+    - field.field.node.career_opportunity.field_page_builder
+    - field.field.node.career_opportunity.field_photo_caption
+    - field.field.node.career_opportunity.field_region
+    - field.field.node.career_opportunity.field_salary
+    - field.field.node.career_opportunity.field_short_description
+    - field.field.node.career_opportunity.field_supporting_document
+    - field.field.node.career_opportunity.field_supporting_document_label
     - node.type.career_opportunity
   module:
+    - field_group
     - user
+third_party_settings:
+  field_group:
+    group_description:
+      children:
+        - field_short_description
+      label: Description
+      parent_name: ''
+      region: content
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: false
+    group_it:
+      children:
+        - langcode
+      label: 'Item information'
+      parent_name: ''
+      region: content
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: false
+    group_uploads:
+      children:
+        - field_photo_caption
+      label: Uploads
+      parent_name: ''
+      region: content
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: false
+    group_taxonomies:
+      children:
+        - field_country
+      label: Taxonomies
+      parent_name: ''
+      region: content
+      weight: 3
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: false
 id: node.career_opportunity.card
 targetEntityType: node
 bundle: career_opportunity
@@ -15,12 +94,45 @@ content:
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: -20
+    weight: 19
+    region: content
+  field_country:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_photo_caption:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_short_description:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  langcode:
+    type: language
+    label: above
+    settings:
+      link_to_entity: false
+      native_language: false
+    third_party_settings: {  }
+    weight: 3
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 4
     region: content
 hidden:
   field_apply: true
@@ -28,16 +140,12 @@ hidden:
   field_career_opportunity_type: true
   field_city: true
   field_contact_for_queries: true
-  field_country: true
   field_disclaimer: true
   field_expiration_date: true
   field_offer_deadline: true
   field_page_builder: true
-  field_photo_caption: true
   field_region: true
   field_salary: true
-  field_short_description: true
   field_supporting_document: true
   field_supporting_document_label: true
-  langcode: true
   search_api_excerpt: true
