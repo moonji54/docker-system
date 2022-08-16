@@ -1,18 +1,16 @@
-uuid: a191eec5-8c93-4595-971b-e8e62a83e8ba
+uuid: fed8082f-12c7-4efc-a780-654ab657c1ad
 langcode: en
 status: true
 dependencies:
   module:
+    - link
     - node
-id: node.field_title
-field_name: field_title
+id: node.field_cta_link
+field_name: field_cta_link
 entity_type: node
-type: string
-settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
-module: core
+type: link
+settings: {  }
+module: link
 locked: false
 cardinality: 1
 translatable: true

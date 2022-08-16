@@ -9,7 +9,6 @@ dependencies:
     - paragraphs.paragraphs_type.featured_content
     - paragraphs.paragraphs_type.featured_pages
     - paragraphs.paragraphs_type.featured_people
-    - paragraphs.paragraphs_type.full_width_media
     - paragraphs.paragraphs_type.wysiwyg
   module:
     - entity_reference_revisions
@@ -28,7 +27,6 @@ settings:
   handler_settings:
     target_bundles:
       featured_people: featured_people
-      full_width_media: full_width_media
       wysiwyg: wysiwyg
       cta_download: cta_download
       featured_content: featured_content
@@ -41,6 +39,9 @@ settings:
       cta_download:
         weight: 9
         enabled: true
+      embed:
+        weight: 12
+        enabled: false
       featured_content:
         weight: 10
         enabled: true
@@ -49,10 +50,13 @@ settings:
         enabled: true
       featured_people:
         weight: 5
-        enabled: true
+        enabled: false
       full_width_media:
         weight: 6
-        enabled: true
+        enabled: false
+      limited_list:
+        weight: 17
+        enabled: false
       wysiwyg:
         weight: 7
         enabled: true
