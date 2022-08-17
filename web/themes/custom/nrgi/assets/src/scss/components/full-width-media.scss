@@ -1,0 +1,25 @@
+.full-width-media {
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $black;
+  max-width: 100%;
+  min-height: 50vh;
+  overflow: hidden;
+  position: relative;
+
+  &&__image {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+  }
+
+  &&__content {
+
+  }
+
+  &&__caption {
+    margin-top: 24px;
+  }
+}

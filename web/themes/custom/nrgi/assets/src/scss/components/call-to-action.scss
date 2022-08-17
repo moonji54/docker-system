@@ -1,0 +1,51 @@
+.c-call-to-action {
+  backdrop-filter: blur(44px);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $black;
+  min-height: 50vh;
+  overflow: hidden;
+  position: relative;
+
+  &__image {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &__content {
+    background-color: #25E1AF;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 32% 100%, 0 69%);
+    //clip-path: url('../images/cta-clip-path.svg');
+    height: 100%;
+    position: absolute;
+    right: 0;
+    width: 50vw;
+  }
+
+  &__title {
+    @include ts-heading-1;
+    margin-bottom: 24px;
+    padding: 10% 0 0 10%;
+  }
+
+  &__description {
+    @include ts-description;
+    margin-bottom: 24px;
+    padding-left: 10%;
+  }
+
+  &__link {
+    @include ts-link;
+    margin-bottom: 24px;
+    padding-left: 10%;
+  }
+
+  // Modifiers
+  &--no-image {
+
+  }
+}

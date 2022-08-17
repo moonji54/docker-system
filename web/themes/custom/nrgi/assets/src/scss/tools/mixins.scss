@@ -4,34 +4,34 @@
     ===============================
 */
 @mixin accessible-hide() {
-  height   : 1px;
-  left     : -10000px;
-  overflow : hidden;
-  position : absolute;
-  top      : auto;
-  width    : 1px;
+  height: 1px;
+  left: -10000px;
+  overflow: hidden;
+  position: absolute;
+  top: auto;
+  width: 1px;
 }
 
 @mixin checkbox-hide {
-  border   : 0;
-  clip     : rect(0 0 0 0);
-  height   : 1px;
-  margin   : -1px;
-  overflow : hidden;
-  padding  : 0;
-  position : absolute;
-  width    : 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 // e.g 16:9 would be ratio(9, 16));
 @mixin ratio($height, $width) {
-  padding-bottom : ($height / $width) * 100;
+  padding-bottom: ($height / $width) * 100;
 }
 
 /* Z-index management
 ================================================== */
-$z-index : (
-        skip-button: 10
+$z-index: (
+  skip-button: 10
 );
 
 @function z-index($key) {
@@ -39,19 +39,19 @@ $z-index : (
 }
 
 @mixin z-index($key) {
-  z-index : z-index($key);
+  z-index: z-index($key);
 }
 
 // Object-fit polyfill script
 @mixin object-fit($fit: fill, $position: null) {
-  -o-object-fit : $fit;
-  object-fit    : $fit;
+  -o-object-fit: $fit;
+  object-fit: $fit;
   @if $position {
-    -o-object-position : $position;
-    object-position    : $position;
-    font-family        : 'object-fit: #{$fit}; object-position: #{$position}';
+    -o-object-position: $position;
+    object-position: $position;
+    font-family: 'object-fit: #{$fit}; object-position: #{$position}';
   } @else {
-    font-family        : 'object-fit: #{$fit}';
+    font-family: 'object-fit: #{$fit}';
   }
 }
 
@@ -63,34 +63,48 @@ $z-index : (
 
 /* Font families */
 @mixin sans {
-  font-family : Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+@mixin dm-sans {
+  font-family: 'DM Sans', sans-serif;
+}
+
+@mixin inter {
+  font-family: 'Inter', sans-serif;;
+}
+
+@mixin regular-pro {
+  font-family: 'Regular PRO' /*backup, backup  */
+;
 }
 
 /* Body text */
 @mixin default-list-style {
   ul, ol {
-    margin-bottom : 24px;
-    padding-left  : 21px;
+    margin-bottom: 24px;
+    padding-left: 21px;
 
     li {
-      font-weight   : 600;
-      margin-bottom : 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
     }
   }
 
   ul {
-    list-style-type : disc;
+    list-style-type: disc;
 
     ul {
-      list-style-type : circle;
+      list-style-type: circle;
     }
   }
 
   ol {
-    list-style-type : decimal;
+    list-style-type: decimal;
 
     ol {
-      list-style-type : lower-alpha;
+      list-style-type: lower-alpha;
     }
   }
 }
@@ -102,19 +116,19 @@ $z-index : (
 */
 @mixin placeholder($color) {
   &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color   : $color;
-    opacity : 1;
+    color: $color;
+    opacity: 1;
   }
   &::-moz-placeholder { /* Firefox 19+ */
-    color   : $color;
-    opacity : 1;
+    color: $color;
+    opacity: 1;
   }
   &:-ms-input-placeholder { /* IE 10+ */
-    color   : $color;
-    opacity : 1;
+    color: $color;
+    opacity: 1;
   }
   &:-moz-placeholder { /* Firefox 18- */
-    color   : $color;
-    opacity : 1;
+    color: $color;
+    opacity: 1;
   }
 }
