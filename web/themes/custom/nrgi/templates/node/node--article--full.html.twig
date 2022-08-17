@@ -2,6 +2,25 @@
   'c-node',
   'c-node--type-' ~ node.bundle|clean_class,
 ] %}
+<div class="c-node__content-header">
+  {% include 'node--content-header.html.twig' %}
+  {% if content.field_resource_type|field_value %}
+    {{ content.field_resource_type }}
+  {% endif %}
+
+  {% if content.field_author|field_value %}
+    {{ content.field_author }}
+  {% endif %}
+
+  {% if content.cta_download %}
+    {{ content.cta_download }}
+  {% endif %}
+
+  {# TODO Add the date published #}
+  {# TODO Add the time to read #}
+
+</div>
+
 <article{{ attributes.addClass(classes) }}>
 
   {% if content.field_acknowledgement|field_value %}
@@ -74,10 +93,6 @@
 
   {% if content.field_region|field_value %}
     {{ content.field_region }}
-  {% endif %}
-
-  {% if content.field_resource_type|field_value %}
-    {{ content.field_resource_type }}
   {% endif %}
 
   {% if content.field_short_description|field_value %}

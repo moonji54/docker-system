@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\block\Entity\Block;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\editor\Entity\Editor;
 use Drupal\Core\Field\WidgetBase;
@@ -58,6 +59,32 @@ function project_backend_field_widget_single_element_paragraphs_form_alter(array
           $selector => ['value' => '1'],
         ],
       ];
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function project_backend_preprocess_node(&$variables) {
+  // send the breadcrumb block to a template so it can be repositioned as needed
+  $block = Block::load('breadcrumbs');
+  $render = Drupal::entityTypeManager()
+    ->getViewBuilder('block')
+    ->view($block);
+  $variables['breadcrumbs'] = $render;
+
+  // Set the variable for the node title
+  $variables['content']['field_title'] = $variables['node']->getTitle();
+
+  // Set the variable for the CTA download to be available separately in the template
+  if (array_key_exists('field_page_builder', $variables['content'])) {
+    foreach ($variables['content']['field_page_builder'] as $key => $field) {
+      if (is_numeric($key)) {
+        if ($field['#paragraph']->getType() == 'cta_download') {
+          $variables['content']['cta_download'] = $field;
+        }
+      }
     }
   }
 }
