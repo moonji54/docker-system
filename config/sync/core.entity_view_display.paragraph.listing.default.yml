@@ -1,0 +1,34 @@
+uuid: c245d872-7422-410b-8f1a-62c705b7c14d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.listing.field_listing
+    - field.field.paragraph.listing.field_title
+    - paragraphs.paragraphs_type.listing
+  module:
+    - text
+    - viewsreference
+id: paragraph.listing.default
+targetEntityType: paragraph
+bundle: listing
+mode: default
+content:
+  field_listing:
+    type: viewsreference_formatter
+    label: above
+    settings:
+      plugin_types:
+        - block
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true
