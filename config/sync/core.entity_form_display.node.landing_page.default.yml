@@ -8,12 +8,14 @@ dependencies:
     - field.field.node.landing_page.field_intro_text
     - field.field.node.landing_page.field_title
     - image.style.thumbnail
+    - field.field.node.landing_page.field_language_bar_text
     - node.type.landing_page
     - workflows.workflow.editorial
   module:
     - content_moderation
     - field_group
     - paragraphs
+    - entity_reference_revisions
     - path
     - scheduler
     - scheduler_content_moderation_integration
@@ -165,6 +167,11 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete

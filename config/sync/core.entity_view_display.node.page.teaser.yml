@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.field_components
+    - field.field.node.page.field_language_bar_text
     - node.type.page
   module:
     - user
@@ -26,5 +27,6 @@ content:
 hidden:
   field_body: true
   field_components: true
+  field_language_bar_text: true
   langcode: true
   search_api_excerpt: true

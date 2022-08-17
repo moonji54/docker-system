@@ -18,6 +18,7 @@ module:
   ckeditor: 0
   conditional_fields: 0
   config: 0
+  config_translation: 0
   content_moderation: 0
   context: 0
   context_active_trail: 0
@@ -56,6 +57,7 @@ module:
   layout_paragraphs_restriction: 0
   link: 0
   linkit: 0
+  locale: 0
   mailsystem: 0
   media: 0
   media_library: 0
@@ -78,6 +80,7 @@ module:
   project_backend: 0
   project_frontend: 0
   rdf: 0
+  recreate_block_content: 0
   redirect: 0
   responsive_image: 0
   role_delegation: 0
@@ -131,6 +134,7 @@ module:
   webp: 0
   workflows: 0
   pathauto: 1
+  content_translation: 10
   views: 10
   paragraphs: 11
   soapbox: 1000

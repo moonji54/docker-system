@@ -1,12 +1,14 @@
 <?php
-
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\editor\Entity\Editor;
-use Drupal\Core\Field\WidgetBase;
 /**
  * @file
  * Contains project_backend.module.
  */
+
+use Drupal\block\Entity\Block;
+use Drupal\Core\Block\BlockPluginInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\editor\Entity\Editor;
+use Drupal\Core\Field\WidgetBase;
 
 // Custom admin css.
 \Drupal::moduleHandler()
@@ -15,7 +17,6 @@ use Drupal\Core\Field\WidgetBase;
 // Add remote audio as a media type.
 \Drupal::moduleHandler()
   ->loadInclude('project_backend', 'inc', 'project_backend.media_types');
-
 
 /**
  * Load our theme's CK Editor CSS file.
@@ -80,5 +81,51 @@ function project_backend_preprocess_paragraph(&$vars) {
         }
       }
     }
+  }
+}
+
+/**
+ * Implements hook_language_switch_links_alter().
+ */
+function project_backend_language_switch_links_alter(array &$links, $type, $path) {
+  // Only show the translations that are available
+  $translationLanguages = Drupal::routeMatch()
+    ->getParameter('node')
+    ->getTranslationLanguages();
+  foreach ($links as $lang => $link) {
+    if (!in_array($lang, array_keys($translationLanguages))) {
+      unset($links[$lang]);
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function project_backend_preprocess_node(&$variables) {
+  // Add the language switcher block to a variable that will be available in twig
+  // Show the block only if there is a translation
+  if (count($variables["elements"]["#node"]->getTranslationLanguages()) > 1) {
+    $block = Block::load('languageswitcher');
+    $render = Drupal::entityTypeManager()
+      ->getViewBuilder('block')
+      ->view($block);
+    $variables['language_switcher'] = $render;
+  };
+}
+
+/**
+ * Implements hook_block_view_alter().
+ */
+function project_backend_block_view_alter(array &$build, BlockPluginInterface $block) {
+  // Set the language switcher label based on the CT type
+  if ($block->getPluginId() !== 'language_block:language_interface') {
+    return;
+  }
+  $node = Drupal::routeMatch()->getParameter('node');
+  $pages = ['landing_page', 'page','listing_page'];
+  $build['#configuration']['label'] = t('Select language');
+  if (in_array($node->getType(), $pages)) {
+    $build['#configuration']['label'] = t($node->field_language_bar_text->value);
   }
 }

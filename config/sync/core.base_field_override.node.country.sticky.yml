@@ -1,0 +1,22 @@
+uuid: 2a192a24-984c-4089-a315-90b19400aa90
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.country
+id: node.country.sticky
+field_name: sticky
+entity_type: node
+bundle: country
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

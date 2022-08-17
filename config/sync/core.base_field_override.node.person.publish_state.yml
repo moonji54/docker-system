@@ -1,0 +1,20 @@
+uuid: 3f6fa23b-b08d-4bd9-b7a6-186507a9a92f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.person
+  module:
+    - options
+id: node.person.publish_state
+field_name: publish_state
+entity_type: node
+bundle: person
+label: 'Publish state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

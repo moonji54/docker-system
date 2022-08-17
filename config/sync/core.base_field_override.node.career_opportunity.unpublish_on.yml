@@ -1,0 +1,18 @@
+uuid: c49dc8f3-d1c6-4706-a8ae-d7925c9fdbc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.career_opportunity
+id: node.career_opportunity.unpublish_on
+field_name: unpublish_on
+entity_type: node
+bundle: career_opportunity
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

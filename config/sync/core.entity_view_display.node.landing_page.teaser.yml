@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.landing_page.field_image
     - field.field.node.landing_page.field_intro_text
     - field.field.node.landing_page.field_title
+    - field.field.node.landing_page.field_language_bar_text
     - node.type.landing_page
   module:
     - user
@@ -31,5 +32,6 @@ hidden:
   field_image: true
   field_intro_text: true
   field_title: true
+  field_language_bar_text: true
   langcode: true
   search_api_excerpt: true

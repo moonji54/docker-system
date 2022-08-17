@@ -1,0 +1,25 @@
+uuid: e90e3b1e-57fa-43fd-8d0e-7398f749781b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_language_bar_text
+    - node.type.page
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.page.field_language_bar_text
+field_name: field_language_bar_text
+entity_type: node
+bundle: page
+label: 'Language bar text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -7,6 +7,7 @@ dependencies:
   module:
     - context
     - menu_block
+    - user
   theme:
     - nrgi
 id: mainnavigation
@@ -25,8 +26,8 @@ settings:
   label_link: false
   label_type: block
   level: 1
-  depth: 2
-  expand_all_items: true
+  depth: 0
+  expand_all_items: false
   parent: 'main:'
   suggestion: main
 visibility:
@@ -49,3 +50,11 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+      site_manager: site_manager

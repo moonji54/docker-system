@@ -1,0 +1,20 @@
+uuid: d4cf717f-36ba-4e8c-be31-9c65da9bbe50
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.collection
+  module:
+    - options
+id: node.collection.unpublish_state
+field_name: unpublish_state
+entity_type: node
+bundle: collection
+label: 'Unpublish state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

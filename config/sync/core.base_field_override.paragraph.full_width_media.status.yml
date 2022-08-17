@@ -1,0 +1,22 @@
+uuid: dbefc1a7-b61d-498e-b37d-5b9cb6e18f8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.full_width_media
+id: paragraph.full_width_media.status
+field_name: status
+entity_type: paragraph
+bundle: full_width_media
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

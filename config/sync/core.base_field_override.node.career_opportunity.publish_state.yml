@@ -1,0 +1,20 @@
+uuid: c95e04b8-14d9-42fb-907f-38b36d39dffe
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.career_opportunity
+  module:
+    - options
+id: node.career_opportunity.publish_state
+field_name: publish_state
+entity_type: node
+bundle: career_opportunity
+label: 'Publish state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

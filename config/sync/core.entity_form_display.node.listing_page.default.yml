@@ -4,14 +4,17 @@ status: true
 dependencies:
   config:
     - field.field.node.listing_page.field_components
+    - field.field.node.listing_page.field_language_bar_text
     - node.type.listing_page
     - workflows.workflow.editorial
   module:
     - content_moderation
     - paragraphs
+    - entity_reference_revisions
     - path
     - scheduler
     - scheduler_content_moderation_integration
+    - text
 id: node.listing_page.default
 targetEntityType: node
 bundle: listing_page
@@ -100,6 +103,11 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
