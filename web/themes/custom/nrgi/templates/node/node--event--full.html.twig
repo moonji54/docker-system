@@ -33,8 +33,8 @@
     {{ content.field_time_zone }}
   {% endif %}
 
-  {% if content.field_registration|field_value %}
-    {{ content.field_registration }}
+  {% if content.field_format|field_value %}
+    {{ content.field_format }}
   {% endif %}
 
   {% if content.field_event_location|field_value %}
@@ -48,14 +48,6 @@
 </div>
 <article{{ attributes.addClass(classes) }}>
 
-  {% if content.field_event_type|field_value %}
-    {{ content.field_event_type }}
-  {% endif %}
-
-  {% if content.field_format|field_value %}
-    {{ content.field_format }}
-  {% endif %}
-
   {% if content.field_event_location|field_value %}
     {{ content.field_event_location }}
   {% endif %}
@@ -66,10 +58,6 @@
 
   {% if content.field_featured_image|field_value %}
     {{ content.field_featured_image }}
-  {% endif %}
-
-  {% if content.field_short_description|field_value %}
-    {{ content.field_short_description }}
   {% endif %}
 
   {% if content.field_body|field_value %}
