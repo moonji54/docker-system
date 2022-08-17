@@ -1,0 +1,6 @@
+project_backend.project_backend_admin_settings:
+  title: 'Project custom site settings'
+  description: 'Add site settings.'
+  parent: system.admin_config
+  route_name: project_backend.project_backend_admin_settings
+  weight: 99

@@ -3,34 +3,28 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.site_setting_entity.social_media_links.field_facebook_link
-    - field.field.site_setting_entity.social_media_links.field_linkedin_link
-    - field.field.site_setting_entity.social_media_links.field_twitter_link
-    - field.field.site_setting_entity.social_media_links.field_youtube_link
+    - field.field.site_setting_entity.social_media_links.field_social_media
+    - field.field.site_setting_entity.social_media_links.field_social_media_link
     - site_settings.site_setting_entity_type.social_media_links
   module:
     - link
+    - options
     - user
 id: site_setting_entity.social_media_links.default
 targetEntityType: site_setting_entity
 bundle: social_media_links
 mode: default
 content:
-  field_facebook_link:
-    type: link
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+  field_social_media:
+    type: list_default
+    label: above
+    settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
-  field_linkedin_link:
+  field_social_media_link:
     type: link
-    label: hidden
+    label: above
     settings:
       trim_length: 80
       url_only: false
@@ -39,30 +33,6 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 2
-    region: content
-  field_twitter_link:
-    type: link
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_youtube_link:
-    type: link
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 4
     region: content
   fieldset:
     type: string

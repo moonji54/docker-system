@@ -3,10 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.site_setting_entity.social_media_links.field_facebook_link
-    - field.field.site_setting_entity.social_media_links.field_linkedin_link
-    - field.field.site_setting_entity.social_media_links.field_twitter_link
-    - field.field.site_setting_entity.social_media_links.field_youtube_link
+    - field.field.site_setting_entity.social_media_links.field_social_media
+    - field.field.site_setting_entity.social_media_links.field_social_media_link
     - site_settings.site_setting_entity_type.social_media_links
   module:
     - link
@@ -15,33 +13,15 @@ targetEntityType: site_setting_entity
 bundle: social_media_links
 mode: default
 content:
-  field_facebook_link:
-    type: link_default
+  field_social_media:
+    type: options_select
     weight: 11
     region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
+    settings: {  }
     third_party_settings: {  }
-  field_linkedin_link:
+  field_social_media_link:
     type: link_default
     weight: 12
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-  field_twitter_link:
-    type: link_default
-    weight: 13
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-  field_youtube_link:
-    type: link_default
-    weight: 14
     region: content
     settings:
       placeholder_url: ''
