@@ -1,25 +1,23 @@
-uuid: 0391d88c-d6a3-45b4-b1c4-ddff5625da2f
+uuid: 1cfcec32-b246-44fa-a172-71e58562cc3f
 langcode: en
 status: true
 dependencies:
   module:
     - context
-    - search
-    - system
+    - project_backend
   theme:
     - nrgi
-id: searchform
+id: socialmediashareblock
 theme: nrgi
-region: header
+region: footer
 weight: 0
 provider: null
-plugin: search_form_block
+plugin: social_media_share_block
 settings:
-  id: search_form_block
-  label: 'Search form'
-  label_display: visible
-  provider: search
-  page_id: ''
+  id: social_media_share_block
+  label: 'Social Media Share block'
+  label_display: '0'
+  provider: project_backend
 visibility:
   context_all:
     id: context_all
@@ -40,7 +38,3 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
-  request_path:
-    id: request_path
-    negate: false
-    pages: '/*'

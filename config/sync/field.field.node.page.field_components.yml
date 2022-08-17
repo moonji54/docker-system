@@ -45,6 +45,9 @@ settings:
       full_width_media:
         weight: 5
         enabled: false
+      limited_list:
+        weight: 15
+        enabled: false
       wysiwyg:
         weight: 6
         enabled: true
