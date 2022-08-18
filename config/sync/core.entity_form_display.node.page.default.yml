@@ -159,4 +159,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_language_bar_text: true
   template: true

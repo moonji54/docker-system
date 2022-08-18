@@ -1,4 +1,4 @@
-uuid: 1cfcec32-b246-44fa-a172-71e58562cc3f
+uuid: de05ea32-e427-4f2f-8264-944d3a12ae2c
 langcode: en
 status: true
 dependencies:
@@ -16,7 +16,7 @@ plugin: social_media_share_block
 settings:
   id: social_media_share_block
   label: 'Social Media Share block'
-  label_display: '0'
+  label_display: visible
   provider: project_backend
 visibility:
   context_all:

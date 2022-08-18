@@ -12,7 +12,6 @@ dependencies:
     - field.field.node.event.field_course_training_contact
     - field.field.node.event.field_data_document
     - field.field.node.event.field_data_document_label
-    - field.field.node.event.field_day_of_week
     - field.field.node.event.field_end_date
     - field.field.node.event.field_event_contact
     - field.field.node.event.field_event_location
@@ -319,7 +318,6 @@ hidden:
   field_course_training_contact: true
   field_data_document: true
   field_data_document_label: true
-  field_day_of_week: true
   field_event_contact: true
   field_event_location: true
   field_event_role_type: true

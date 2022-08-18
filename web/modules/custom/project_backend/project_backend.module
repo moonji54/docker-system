@@ -134,6 +134,35 @@ function project_backend_preprocess_node(&$variables) {
       ->view($block);
     $variables['language_switcher'] = $render;
   };
+
+  $node = $variables['node'];
+  // If the node type is publication add the date the publication was created to the variables
+  if ($node->getType() == 'publication') {
+    $variables['content']['field_created'] = date('d F Y', $node->created->value);
+  }
+  // If the node type is event add the start/end time and days of the week the event is taking place
+  if ($node->getType() == 'event') {
+    $start = $node->field_start_date->date;
+    $end = $node->field_end_date->date;
+    $start_date = $start->format('d.m.Y');
+    $end_date = $end->format('d.m.Y');
+
+    // If the start and end dates are the same only show the start date
+    if ($start_date == $end_date) {
+      $variables['content']['field_end_date'] = null;
+    }
+    // Set the start and end time fields
+    $variables['content']['field_start_time'] = $start->format('H:i');
+    $variables['content']['field_end_time'] = $end->format('H:i');
+
+    // Set the days of the week variables
+    $start_day = date('l', strtotime($start_date));
+    $end_day = date('l', strtotime($end_date));
+    $variables['content']['field_days_of_week']['start'] = t($start_day);
+    if ($start_day != $end_day | $start_date != $end_date) {
+      $variables['content']['field_days_of_week']['end'] = t($end_day);
+    }
+  }
 }
 
 /**
