@@ -1,0 +1,24 @@
+.c-featured-people {
+  @include o-container;
+
+  .c-featured-people-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__section-header {
+    @include ts-section-header;
+    display: inline-block;
+  }
+
+  &__link {
+    @include ts-button;
+    display: inline-block;
+    padding-top: 10px;
+  }
+
+  &__flex-container {
+    flex-direction: row;
+    width: 33%;
+  }
+}
