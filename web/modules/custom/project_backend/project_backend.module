@@ -111,6 +111,20 @@ function project_backend_preprocess_node(&$variables) {
     ->view($block);
   $variables['breadcrumbs'] = $render;
 
+  // Set the variable for the node title
+  $variables['content']['field_title'] = $variables['node']->getTitle();
+
+  // Set the variable for the CTA download to be available separately in the template
+  if (array_key_exists('field_page_builder', $variables['content'])) {
+    foreach ($variables['content']['field_page_builder'] as $key => $field) {
+      if (is_int($key)) {
+        if ($field['#paragraph']->getType() == 'cta_download') {
+          $variables['content']['cta_download'] = $field;
+        }
+      }
+    }
+  }
+
   // Add the language switcher block to a variable that will be available in twig
   // Show the block only if there is a translation
   if (count($variables["elements"]["#node"]->getTranslationLanguages()) > 1) {

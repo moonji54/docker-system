@@ -1,0 +1,12 @@
+{% set classes = [
+  'c-node',
+  'c-node--type-' ~ node.bundle|clean_class,
+] %}
+{{ breadcrumbs }}
+<h1 class="c-node__title">{{ label }}</h1>
+{% if content.field_short_description|field_value %}
+  {{ content.field_short_description }}
+{% endif %}
+{% if content.field_featured_image|field_value %}
+  {{ content.field_featured_image }}
+{% endif %}
