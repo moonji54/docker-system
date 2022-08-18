@@ -2,18 +2,106 @@
   'c-node',
   'c-node--type-' ~ node.bundle|clean_class,
 ] %}
+<div class="c-node__content-header">
+  {% include 'node--content-header.html.twig' %}
+
+  {% if content.field_event_type|field_value %}
+    {{ content.field_address }}
+  {% endif %}
+
+  {% if content.field_start_date|field_value %}
+    {{ content.field_start_date }}
+  {% endif %}
+
+  {% if content.field_end_date|field_value %}
+    {{ content.field_end_date }}
+  {% endif %}
+
+  {% if content.field_start_time %}
+    <div class="start-time">
+      {{ content.field_start_time }}
+    </div>
+  {% endif %}
+
+  {% if content.field_end_time %}
+    <div class="end-time">
+      {{ content.field_end_time }}
+    </div>
+  {% endif %}
+
+  {% if content.field_time_zone|field_value %}
+    {{ content.field_time_zone }}
+  {% endif %}
+
+  {% if content.field_format|field_value %}
+    {{ content.field_format }}
+  {% endif %}
+
+  {% if content.field_event_location|field_value %}
+    {{ content.field_address }}
+  {% endif %}
+
+  {% if content.cta_download %}
+    {{ content.cta_download }}
+  {% endif %}
+
+</div>
 <article{{ attributes.addClass(classes) }}>
 
-  {% if content.field_address|field_value %}
-    {{ content.field_address }}
+  {% if content.field_event_location|field_value %}
+    {{ content.field_event_location }}
+  {% endif %}
+
+  {% if content.field_open_registration|field_value %}
+    {{ content.field_open_registration }}
+  {% endif %}
+
+  {% if content.field_featured_image|field_value %}
+    {{ content.field_featured_image }}
   {% endif %}
 
   {% if content.field_body|field_value %}
     {{ content.field_body }}
   {% endif %}
 
-  {% if content.field_country|field_value %}
-    {{ content.field_country }}
+  {% if content.field_speakers|field_value %}
+    {{ content.field_speakers }}
+  {% endif %}
+
+  {% if content.field_speakers_external|field_value %}
+    {{ content.field_speakers_external }}
+  {% endif %}
+
+  {% if content.field_instructors|field_value %}
+    {{ content.field_instructors }}
+  {% endif %}
+
+  {% if content.field_instructors_external|field_value %}
+    {{ content.field_instructors_external }}
+  {% endif %}
+
+  {% if content.field_partner_name|field_value %}
+    {{ content.field_partner_name }}
+  {% endif %}
+
+  {% if content.field_partner_logo|field_value %}
+    {{ content.field_partner_logo }}
+  {% endif %}
+
+  {% if content.field_organizing_partner|field_value %}
+    {{ content.organizing_partner }}
+  {% endif %}
+
+  {% if content.field_languages|field_value %}
+    {{ content.field_languages }}
+  {% endif %}
+
+  {% if content.field_transcript|field_value %}
+    {{ content.field_transcript }}
+  {% endif %}
+
+  {% if content.field_page_builder|field_value %}
+    {{ content.field_page_builder }}
   {% endif %}
 
   {% if content.field_course_training_contact|field_value %}
@@ -28,28 +116,44 @@
     {{ content.field_course_syilabus }}
   {% endif %}
 
+  {% if content.field_days_of_week.start %}
+    <div class="days-of-week-start">
+      {{ content.field_days_of_week.start }}
+    </div>
+  {% endif %}
+
+  {% if content.field_days_of_week.end %}
+    <div class="days-of-week-end">
+      {{ content.field_days_of_week.end }}
+    </div>
+  {% endif %}
+
+  {% if content.field_time_commitment|field_value %}
+    {{ content.field_time_commitment }}
+  {% endif %}
+
+  {% if content.field_expertise_required|field_value %}
+    {{ content.field_expertise_required }}
+  {% endif %}
+
+  {% if content.field_address|field_value %}
+    {{ content.field_address }}
+  {% endif %}
+
+  {% if content.field_video_conferencing|field_value %}
+    {{ content.field_video_conferencing }}
+  {% endif %}
+
+  {% if content.field_photo_caption|field_value %}
+    {{ content.field_photo_caption }}
+  {% endif %}
+
   {% if content.field_data_document|field_value %}
     {{ content.field_data_document }}
   {% endif %}
 
-  {% if content.field_region|field_value %}
-    {{ content.field_region }}
-  {% endif %}
-
-  {% if content.field_registration|field_value %}
-    {{ content.field_registration }}
-  {% endif %}
-
-  {% if content.field_short_description|field_value %}
-    {{ content.field_short_description }}
-  {% endif %}
-
-  {% if content.field_speakers|field_value %}
-    {{ content.field_speakers }}
-  {% endif %}
-
-  {% if content.field_speakers_external|field_value %}
-    {{ content.field_speakers_external }}
+  {% if content.field_data_document_label|field_value %}
+    {{ content.field_data_document_label }}
   {% endif %}
 
   {% if content.field_supporting_document|field_value %}
@@ -60,27 +164,20 @@
     {{ content.field_supporting_document_label }}
   {% endif %}
 
-  {% if content.field_time_commitment|field_value %}
-    {{ content.field_time_commitment }}
+  {% if content.field_country|field_value %}
+    {{ content.field_country }}
   {% endif %}
 
-  {% if content.field_time_zone|field_value %}
-    {{ content.field_time_zone }}
+  {% if content.field_region|field_value %}
+    {{ content.field_region }}
   {% endif %}
 
   {% if content.field_topic|field_value %}
     {{ content.field_topic }}
   {% endif %}
 
-  {% if content.field_transcript|field_value %}
-    {{ content.field_transcript }}
+  {% if content.field_keywords|field_value %}
+    {{ content.field_keywords }}
   {% endif %}
 
-  {% if content.field_video_conferencing|field_value %}
-    {{ content.field_video_conferencing }}
-  {% endif %}
-
-  {% if content.field_page_builder|field_value %}
-    {{ content.field_page_builder }}
-  {% endif %}
 </article>
