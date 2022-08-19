@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.list_item
     - node.type.article
     - node.type.collection
+    - node.type.event
     - node.type.external_publication
     - node.type.publication
     - taxonomy.vocabulary.cities
@@ -14,26 +15,36 @@ dependencies:
     - taxonomy.vocabulary.keyword
     - taxonomy.vocabulary.language
     - taxonomy.vocabulary.regions
+    - taxonomy.vocabulary.resource_type
     - taxonomy.vocabulary.topic
   content:
-    - 'taxonomy_term:topic:0cd6b7b9-8b00-4bc7-8335-3ffaff15301b'
-    - 'taxonomy_term:topic:0fed2cfb-1575-489e-91c2-4cbdf9b98c3f'
-    - 'taxonomy_term:topic:1171b828-1fb5-468d-b513-145d3ebc2c7f'
-    - 'taxonomy_term:topic:2ff9234b-80ed-4147-8c40-7d3d24443c1b'
-    - 'taxonomy_term:topic:4760d819-a341-4ea2-836b-f6282adbdaab'
-    - 'taxonomy_term:topic:5b4ab6ff-ac53-43d1-a3fa-968f9793bfc8'
-    - 'taxonomy_term:topic:61c01142-3ae8-4579-b916-7e8787758c9e'
-    - 'taxonomy_term:topic:67ce7b73-72c8-4495-b499-8c33024293f6'
-    - 'taxonomy_term:topic:689764b3-15d3-40eb-96dd-2f8537e42189'
-    - 'taxonomy_term:topic:81591400-5a89-4618-89e5-0f8ee5d88959'
-    - 'taxonomy_term:topic:9d5ca178-b58f-4b9a-baa2-0f67d7137341'
-    - 'taxonomy_term:topic:aaee3bd0-e0bd-4b01-b5fd-f0068a9de868'
-    - 'taxonomy_term:topic:af19bf26-dde6-48d0-917d-d59ec4b840a0'
-    - 'taxonomy_term:topic:bec25127-2e6a-4ec0-b3e7-e28723a467b3'
-    - 'taxonomy_term:topic:caa7fb41-0ed4-49c3-9ecb-c07380f1248e'
-    - 'taxonomy_term:topic:cf8c1768-d970-4d74-ad97-6bd9bbd730de'
-    - 'taxonomy_term:topic:dc256cca-510f-4c2e-97e6-bdfa746f1db1'
-    - 'taxonomy_term:topic:f71e3454-e6bd-42b3-a50b-091be134f365'
+    - 'taxonomy_term:regions:1c42a145-edc6-485e-8bc9-f48d5faf49c7'
+    - 'taxonomy_term:regions:1ce47f42-1c38-4539-b710-4aa540134b8b'
+    - 'taxonomy_term:regions:4c16f4ea-1293-441f-bff3-30ec6fa909f8'
+    - 'taxonomy_term:regions:96b82093-6315-4741-909e-555ee0f5320a'
+    - 'taxonomy_term:regions:9da56b11-0c78-492e-8a30-434c418647c8'
+    - 'taxonomy_term:regions:e624f1d3-ac6a-4137-9002-36a67ad3d6a5'
+    - 'taxonomy_term:regions:e9b35310-a2fa-4605-9e5c-2e3e8e7b9ef8'
+    - 'taxonomy_term:resource_type:18366ee8-407c-4b32-9c94-27a764bd205b'
+    - 'taxonomy_term:resource_type:515518ce-620c-46d1-9822-8cb5abfb32f9'
+    - 'taxonomy_term:resource_type:58ee9dd5-ae11-44f9-a396-9a4b895aeb16'
+    - 'taxonomy_term:resource_type:744acf2f-0914-45cb-8c83-fafbc75c0589'
+    - 'taxonomy_term:resource_type:8a9e3ed9-941d-40c1-a478-77bf6b7139b5'
+    - 'taxonomy_term:resource_type:b4cf4bce-8119-43a0-b200-4652d5ba00cc'
+    - 'taxonomy_term:resource_type:bc24aef0-f100-48ac-a438-4d5ad1c5e06f'
+    - 'taxonomy_term:resource_type:bc40d40c-04ac-42a1-831e-b1534fdaff18'
+    - 'taxonomy_term:resource_type:c5d3ed47-7531-4fe4-a2d9-c07c32510448'
+    - 'taxonomy_term:resource_type:d0a113a0-572f-47a8-81eb-f96eb4923d66'
+    - 'taxonomy_term:resource_type:e20b7395-59f0-4fa2-947b-ed7c39090c42'
+    - 'taxonomy_term:resource_type:fdd65c7d-b959-4a04-bbea-24dde760c463'
+    - 'taxonomy_term:topic:12da64c3-c6d8-4f79-93bb-690d5c58287b'
+    - 'taxonomy_term:topic:31e6e1a6-f9d4-46ff-8b3b-4bd8f801772b'
+    - 'taxonomy_term:topic:452d45a6-3d8a-4597-9cbd-6fc34dbf6089'
+    - 'taxonomy_term:topic:546b2bb3-ae9c-4e3c-90c0-db080fed969a'
+    - 'taxonomy_term:topic:75c6e26b-96c7-4009-a2d9-5bacd55855d3'
+    - 'taxonomy_term:topic:a91d6f62-e285-4a48-b72e-0037a963aec8'
+    - 'taxonomy_term:topic:e3338a9b-5723-4e5f-8ba4-c85ffde71c9d'
+    - 'taxonomy_term:topic:fb84580b-e966-411b-8c18-a2ea14aebe39'
   module:
     - node
     - taxonomy
@@ -314,6 +325,183 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            article: article
+            collection: collection
+            event: event
+            external_publication: external_publication
+            publication: publication
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_topic_target_id:
+          id: field_topic_target_id
+          table: node__field_topic
+          field: field_topic_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            405: 405
+            398: 398
+            400: 400
+            401: 401
+            402: 402
+            403: 403
+            404: 404
+            399: 399
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: topic
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_resource_type_target_id:
+          id: field_resource_type_target_id
+          table: node__field_resource_type
+          field: field_resource_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            204: 204
+            196: 196
+            202: 202
+            207: 207
+            197: 197
+            203: 203
+            195: 195
+            209: 209
+            206: 206
+            199: 199
+            194: 194
+            198: 198
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: resource_type
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        filters: false
+        filter_groups: false
       display_description: ''
       display_extenders:
         ajax_history: {  }
