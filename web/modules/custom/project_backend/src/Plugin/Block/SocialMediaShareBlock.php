@@ -88,12 +88,16 @@ class SocialMediaShareBlock extends BlockBase implements ContainerFactoryPluginI
     'twitter' => [
       'parameters' => [
         'url' => 'text',
+        'title' => 'title',
+        'summary' => 'summary',
         ],
       'social_media' => 'https://twitter.com/intent/tweet?',
     ],
     'facebook' => [
       'parameters' => [
         'url' => 'u',
+        'title' => 'title',
+        'summary' => 'summary',
       ],
       'social_media' => 'https://www.facebook.com/sharer/sharer.php?',
     ],
@@ -107,8 +111,16 @@ class SocialMediaShareBlock extends BlockBase implements ContainerFactoryPluginI
     $request = $this->requestStack->getCurrentRequest();
     $url = $request->getSchemeAndHttpHost() . $request->getRequestUri();
     $node = $this->routeMatch->getParameter('node');
+    if (!$node) {
+      return [];
+    }
     $title = $node->getTitle();
-    $description = $node->field_short_description->value;
+    if ($node->hasField('field_short_description')) {
+      $description = $node->field_short_description->value;
+    }
+    if ($node->hasField('field_intro_text')) {
+      $description = $node->field_intro_text->value;
+    }
     // for homepage the title is the url
     if ($this->pathMatcher->isFrontPage()) {
       $title = $url;

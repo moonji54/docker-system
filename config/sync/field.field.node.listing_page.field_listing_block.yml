@@ -26,33 +26,30 @@ settings:
     negate: 0
     target_bundles_drag_drop:
       container:
-        weight: 11
+        weight: 10
         enabled: false
       cta_download:
-        weight: 12
-        enabled: false
-      embed:
-        weight: 13
+        weight: 11
         enabled: false
       featured_content:
-        weight: 14
+        weight: 12
         enabled: false
       featured_pages:
-        weight: 15
+        weight: 13
         enabled: false
       featured_people:
-        weight: 16
+        weight: 14
         enabled: false
       full_width_media:
-        weight: 17
+        weight: 15
         enabled: false
       limited_list:
-        weight: 18
+        weight: 16
         enabled: false
       listing:
-        weight: 20
+        weight: 17
         enabled: true
       wysiwyg:
-        weight: 19
+        weight: 18
         enabled: false
 field_type: entity_reference_revisions
