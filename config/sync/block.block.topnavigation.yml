@@ -1,24 +1,35 @@
-uuid: 3c0abac5-7fd6-4441-8ac5-30e94a6ce001
+uuid: bff41a89-78ae-4e99-8cf8-076e93dad1f2
 langcode: en
-status: false
+status: true
 dependencies:
+  config:
+    - system.menu.top-navigation
   module:
     - context
-    - language
+    - menu_block
     - system
   theme:
     - nrgi
-id: languageswitcher
+id: topnavigation
 theme: nrgi
-region: content
-weight: -2
+region: pre-header
+weight: -5
 provider: null
-plugin: 'language_block:language_interface'
+plugin: 'menu_block:top-navigation'
 settings:
-  id: 'language_block:language_interface'
-  label: 'Explore content in '
+  id: 'menu_block:top-navigation'
+  label: 'Top navigation'
   label_display: visible
-  provider: language
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 0
+  expand_all_items: false
+  parent: 'top-navigation:'
+  suggestion: top_navigation
 visibility:
   context_all:
     id: context_all
@@ -42,4 +53,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: '/*'
+    pages: '*'

@@ -7,13 +7,13 @@ dependencies:
   module:
     - context
     - menu_block
-    - user
+    - system
   theme:
     - nrgi
 id: mainnavigation
 theme: nrgi
 region: header
-weight: -1
+weight: -4
 provider: null
 plugin: 'menu_block:main'
 settings:
@@ -50,11 +50,7 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
-  user_role:
-    id: user_role
+  request_path:
+    id: request_path
     negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
-    roles:
-      administrator: administrator
-      site_manager: site_manager
+    pages: '*'

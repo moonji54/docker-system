@@ -5,12 +5,13 @@ dependencies:
   module:
     - context
     - project_backend
+    - system
   theme:
     - nrgi
 id: socialmediashareblock
 theme: nrgi
 region: footer
-weight: 0
+weight: -2
 provider: null
 plugin: social_media_share_block
 settings:
@@ -38,3 +39,7 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
+  request_path:
+    id: request_path
+    negate: false
+    pages: '*'

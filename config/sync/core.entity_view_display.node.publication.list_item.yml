@@ -1,8 +1,9 @@
-uuid: 072a92c3-43ec-4818-892f-ef5c8933d274
+uuid: 8da6bfb9-095c-4dea-9390-347150f4b8a4
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.list_item
     - field.field.node.publication.field_absctract
     - field.field.node.publication.field_acknowledgement
     - field.field.node.publication.field_acknowledgement_donor
@@ -42,10 +43,10 @@ dependencies:
     - link
     - text
     - user
-id: node.publication.default
+id: node.publication.list_item
 targetEntityType: node
 bundle: publication
-mode: default
+mode: list_item
 content:
   content_moderation_control:
     settings: {  }
@@ -333,4 +334,5 @@ content:
     weight: 1
     region: content
 hidden:
+  langcode: true
   search_api_excerpt: true

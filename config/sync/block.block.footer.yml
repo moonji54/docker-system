@@ -1,24 +1,34 @@
-uuid: 3c0abac5-7fd6-4441-8ac5-30e94a6ce001
+uuid: bd3e293f-83e1-4152-8c17-e9851904a930
 langcode: en
-status: false
+status: true
 dependencies:
+  config:
+    - system.menu.footer
   module:
     - context
-    - language
-    - system
+    - menu_block
   theme:
     - nrgi
-id: languageswitcher
+id: footer
 theme: nrgi
-region: content
-weight: -2
+region: footer
+weight: -4
 provider: null
-plugin: 'language_block:language_interface'
+plugin: 'menu_block:footer'
 settings:
-  id: 'language_block:language_interface'
-  label: 'Explore content in '
+  id: 'menu_block:footer'
+  label: Footer
   label_display: visible
-  provider: language
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 0
+  expand_all_items: false
+  parent: 'footer:'
+  suggestion: footer
 visibility:
   context_all:
     id: context_all
@@ -39,7 +49,3 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
-  request_path:
-    id: request_path
-    negate: false
-    pages: '/*'

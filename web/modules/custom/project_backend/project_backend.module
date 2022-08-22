@@ -111,9 +111,6 @@ function project_backend_preprocess_node(&$variables) {
     ->view($block);
   $variables['breadcrumbs'] = $render;
 
-  // Set the variable for the node title
-  $variables['content']['field_title'] = $variables['node']->getTitle();
-
   // Set the variable for the CTA download to be available separately in the template
   if (array_key_exists('field_page_builder', $variables['content'])) {
     foreach ($variables['content']['field_page_builder'] as $key => $field) {
@@ -138,7 +135,12 @@ function project_backend_preprocess_node(&$variables) {
   $node = $variables['node'];
   // If the node type is publication add the date the publication was created to the variables
   if ($node->getType() == 'publication') {
-    $variables['content']['field_created'] = date('d F Y', $node->created->value);
+    $variables['content']['field_created'] = [
+      '0' => [
+        '#type' => 'html_tag',
+        '#tag' => 'div',
+        '#value' => date('d F Y', $node->created->value)],
+      ];
   }
   // If the node type is event add the start/end time and days of the week the event is taking place
   if ($node->getType() == 'event') {
@@ -185,10 +187,11 @@ function project_backend_block_view_alter(array &$build, BlockPluginInterface $b
  * Implements hook_form_alter().
  */
 function project_backend_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  $forms = ['site_setting_entity_newsletter_edit_form', 'site_setting_entity_social_media_links_form'];
-  if (in_array($form_id, $forms)) {
-    Cache::invalidateTags(['social_media_block']);
+  if (str_starts_with($form_id, 'site_setting_entity_newsletter')) {
     Cache::invalidateTags(['newsletter_signup_block']);
+  }
+  if (str_starts_with($form_id, 'site_setting_entity_social_media_links')) {
+    Cache::invalidateTags(['social_media_block']);
   }
 }
 

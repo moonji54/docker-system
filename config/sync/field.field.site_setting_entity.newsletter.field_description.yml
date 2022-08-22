@@ -6,14 +6,18 @@ dependencies:
     - field.storage.site_setting_entity.field_description
     - site_settings.site_setting_entity_type.newsletter
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
 id: site_setting_entity.newsletter.field_description
 field_name: field_description
 entity_type: site_setting_entity
 bundle: newsletter
 label: Description
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

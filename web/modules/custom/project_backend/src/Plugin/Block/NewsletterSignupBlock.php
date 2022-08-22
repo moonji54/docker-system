@@ -22,7 +22,7 @@ class NewsletterSignupBlock extends BlockBase {
    */
   public function build() {
     $newsletter = Drupal::service('site_settings.loader')->loadByFieldset('newsletter')['newsletter'];
-    if ($newsletter == []) {
+    if ($newsletter == '') {
       return [];
     }
 

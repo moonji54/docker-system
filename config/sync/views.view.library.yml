@@ -10,29 +10,39 @@ dependencies:
     - node.type.publication
     - taxonomy.vocabulary.cities
     - taxonomy.vocabulary.country
+    - taxonomy.vocabulary.event_type
     - taxonomy.vocabulary.keyword
     - taxonomy.vocabulary.language
     - taxonomy.vocabulary.regions
+    - taxonomy.vocabulary.resource_type
     - taxonomy.vocabulary.topic
   content:
-    - 'taxonomy_term:topic:0600ca86-dab2-4c08-9292-316f5a64bba7'
-    - 'taxonomy_term:topic:0cd6b7b9-8b00-4bc7-8335-3ffaff15301b'
-    - 'taxonomy_term:topic:0fed2cfb-1575-489e-91c2-4cbdf9b98c3f'
-    - 'taxonomy_term:topic:1171b828-1fb5-468d-b513-145d3ebc2c7f'
-    - 'taxonomy_term:topic:2ff9234b-80ed-4147-8c40-7d3d24443c1b'
-    - 'taxonomy_term:topic:4760d819-a341-4ea2-836b-f6282adbdaab'
-    - 'taxonomy_term:topic:5b4ab6ff-ac53-43d1-a3fa-968f9793bfc8'
-    - 'taxonomy_term:topic:67ce7b73-72c8-4495-b499-8c33024293f6'
-    - 'taxonomy_term:topic:689764b3-15d3-40eb-96dd-2f8537e42189'
-    - 'taxonomy_term:topic:7c9e9a8f-e4a2-4da3-a760-455271328ab4'
-    - 'taxonomy_term:topic:81591400-5a89-4618-89e5-0f8ee5d88959'
-    - 'taxonomy_term:topic:9d5ca178-b58f-4b9a-baa2-0f67d7137341'
-    - 'taxonomy_term:topic:a6cf13d0-2b63-4807-88cd-3b1fd7b3a1ef'
-    - 'taxonomy_term:topic:aaee3bd0-e0bd-4b01-b5fd-f0068a9de868'
-    - 'taxonomy_term:topic:af19bf26-dde6-48d0-917d-d59ec4b840a0'
-    - 'taxonomy_term:topic:bec25127-2e6a-4ec0-b3e7-e28723a467b3'
-    - 'taxonomy_term:topic:cf8c1768-d970-4d74-ad97-6bd9bbd730de'
-    - 'taxonomy_term:topic:d89d2c81-7736-4917-83af-3e547609721a'
+    - 'taxonomy_term:event_type:2cc771ae-5126-4423-9d32-4c8dcdb63f04'
+    - 'taxonomy_term:event_type:3b8ad31d-d49e-4671-8cae-6fc4daf5b9e1'
+    - 'taxonomy_term:event_type:534c42c4-4d48-442a-b976-33b48e0c76b2'
+    - 'taxonomy_term:event_type:92489268-df5e-4349-bed3-bfd832b3901f'
+    - 'taxonomy_term:event_type:9ca1e640-2764-45aa-8c1e-dbfd4516071e'
+    - 'taxonomy_term:event_type:a21d3609-4c0f-45bf-ba31-e3663b848462'
+    - 'taxonomy_term:regions:1c42a145-edc6-485e-8bc9-f48d5faf49c7'
+    - 'taxonomy_term:regions:1ce47f42-1c38-4539-b710-4aa540134b8b'
+    - 'taxonomy_term:regions:4c16f4ea-1293-441f-bff3-30ec6fa909f8'
+    - 'taxonomy_term:regions:96b82093-6315-4741-909e-555ee0f5320a'
+    - 'taxonomy_term:regions:e624f1d3-ac6a-4137-9002-36a67ad3d6a5'
+    - 'taxonomy_term:regions:e9b35310-a2fa-4605-9e5c-2e3e8e7b9ef8'
+    - 'taxonomy_term:resource_type:18366ee8-407c-4b32-9c94-27a764bd205b'
+    - 'taxonomy_term:resource_type:515518ce-620c-46d1-9822-8cb5abfb32f9'
+    - 'taxonomy_term:resource_type:58ee9dd5-ae11-44f9-a396-9a4b895aeb16'
+    - 'taxonomy_term:resource_type:5cef0cbd-cc49-4f80-af6a-f9d2aaa69016'
+    - 'taxonomy_term:resource_type:6858405c-f415-4956-9fe6-06466f7ec5f9'
+    - 'taxonomy_term:resource_type:744acf2f-0914-45cb-8c83-fafbc75c0589'
+    - 'taxonomy_term:resource_type:8a9e3ed9-941d-40c1-a478-77bf6b7139b5'
+    - 'taxonomy_term:resource_type:b4cf4bce-8119-43a0-b200-4652d5ba00cc'
+    - 'taxonomy_term:resource_type:bc24aef0-f100-48ac-a438-4d5ad1c5e06f'
+    - 'taxonomy_term:resource_type:bc40d40c-04ac-42a1-831e-b1534fdaff18'
+    - 'taxonomy_term:resource_type:c5d3ed47-7531-4fe4-a2d9-c07c32510448'
+    - 'taxonomy_term:resource_type:d0a113a0-572f-47a8-81eb-f96eb4923d66'
+    - 'taxonomy_term:resource_type:e20b7395-59f0-4fa2-947b-ed7c39090c42'
+    - 'taxonomy_term:resource_type:fdd65c7d-b959-4a04-bbea-24dde760c463'
   module:
     - node
     - taxonomy
@@ -321,6 +331,182 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type_1:
+          id: type_1
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            article: article
+            collection: collection
+            external_publication: external_publication
+            publication: publication
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_resource_type_target_id:
+          id: field_resource_type_target_id
+          table: node__field_resource_type
+          field: field_resource_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            205: 205
+            204: 204
+            196: 196
+            202: 202
+            207: 207
+            197: 197
+            203: 203
+            195: 195
+            201: 201
+            209: 209
+            206: 206
+            199: 199
+            194: 194
+            198: 198
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: resource_type
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_event_type_target_id:
+          id: field_event_type_target_id
+          table: node__field_event_type
+          field: field_event_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            184: 184
+            185: 185
+            183: 183
+            187: 187
+            186: 186
+            188: 188
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: event_type
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        filters: false
+        filter_groups: false
       display_description: ''
       display_extenders:
         ajax_history: {  }
@@ -400,69 +586,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        field_topic_target_id:
-          id: field_topic_target_id
-          table: node__field_topic
-          field: field_topic_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value:
-            12: 12
-            13: 13
-            3: 3
-            19: 19
-            20: 20
-            18: 18
-            15: 15
-            4: 4
-            11: 11
-            2: 2
-            17: 17
-            14: 14
-            22: 22
-            7: 7
-            1: 1
-            5: 5
-            21: 21
-            23: 23
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: topic
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
         field_city_target_id:
           id: field_city_target_id
           table: node__field_city
@@ -803,6 +926,116 @@ display:
           reduce_duplicates: false
           vid: topic
           type: textfield
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_resource_type_target_id:
+          id: field_resource_type_target_id
+          table: node__field_resource_type
+          field: field_resource_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            205: 205
+            204: 204
+            196: 196
+            202: 202
+            207: 207
+            197: 197
+            203: 203
+            195: 195
+            201: 201
+            209: 209
+            206: 206
+            199: 199
+            194: 194
+            198: 198
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: resource_type
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_event_type_target_id:
+          id: field_event_type_target_id
+          table: node__field_event_type
+          field: field_event_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            184: 184
+            185: 185
+            183: 183
+            187: 187
+            186: 186
+            188: 188
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: event_type
+          type: select
           hierarchy: false
           limit: true
           error_message: true

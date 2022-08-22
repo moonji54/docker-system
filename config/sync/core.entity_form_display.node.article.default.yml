@@ -312,14 +312,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_languages:
-    type: entity_reference_autocomplete_tags
+    type: options_buttons
     weight: 22
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_link_from_external_card:
     type: link_default
@@ -345,26 +341,29 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_page_builder:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 16
     region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
-      add_mode: dropdown
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: button
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: _none
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
     third_party_settings: {  }
   field_partner_logo:
-    type: entity_reference_autocomplete_tags
+    type: media_library_widget
     weight: 21
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      media_types: {  }
     third_party_settings: {  }
   field_partner_name:
     type: string_textfield
