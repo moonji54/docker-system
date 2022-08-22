@@ -4,15 +4,13 @@
 ] %}
 <article{{ attributes.addClass(classes) }}>
 
-  <h1 class="c-node__title">{{ label }}</h1>
-
+  <div class="c-node__content-header">
+    {% include 'node--content-header.html.twig' %}
+  </div>
   <div class="c-node__contents">
-    {% if content.field_background_image|field_value %}
-      {{ content.field_background_image }}
-    {% endif %}
 
-    {% if content.field_cta_link|field_value %}
-      {{ content.field_cta_link }}
+    {% if content.field_banner_title|field_value %}
+      {{ content.field_banner_title }}
     {% endif %}
 
     {% if content.field_description|field_value %}
@@ -23,9 +21,25 @@
       {{ content.field_link_bar }}
     {% endif %}
 
-    {% if content.field_banner_title|field_value %}
-      {{ content.field_banner_title }}
+    {% if content.field_background_image|field_value %}
+      {{ content.field_background_image }}
     {% endif %}
+
+    {% if content.field_components|field_value %}
+      {{ content.field_components }}
+    {% endif %}
+
+    {% if content.field_cta_link|field_value %}
+      {{ content.field_cta_link }}
+    {% endif %}
+
+
+
+    {% if content.field_link_bar|field_value %}
+      {{ content.field_link_bar }}
+    {% endif %}
+
+
   </div>
 
 </article>

@@ -1,18 +1,18 @@
-uuid: b5de2d99-f10e-46f9-9529-fec7fdbff686
+uuid: d0444424-9149-4e1f-a34a-c00db8598f1a
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_layout
-    - paragraphs.paragraphs_type.featured_people
-id: paragraph.featured_people.field_layout
+    - paragraphs.paragraphs_type.featured_pages
+id: paragraph.featured_pages.field_layout
 field_name: field_layout
 entity_type: paragraph
-bundle: featured_people
+bundle: featured_pages
 label: Layout
 description: ''
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

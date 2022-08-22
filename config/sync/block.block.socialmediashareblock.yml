@@ -5,6 +5,7 @@ dependencies:
   module:
     - context
     - project_backend
+    - system
   theme:
     - nrgi
 id: socialmediashareblock
@@ -38,3 +39,7 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
+  request_path:
+    id: request_path
+    negate: false
+    pages: '*'

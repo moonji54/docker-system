@@ -115,6 +115,7 @@ class SocialMediaShareBlock extends BlockBase implements ContainerFactoryPluginI
       return [];
     }
     $title = $node->getTitle();
+    $description = '';
     if ($node->hasField('field_short_description')) {
       $description = $node->field_short_description->value;
     }
@@ -132,16 +133,15 @@ class SocialMediaShareBlock extends BlockBase implements ContainerFactoryPluginI
       $social_network_share[$social_network] = $parameters['social_media']
         . http_build_query([$parameters['parameters']['url'] => $url,
           $parameters['parameters']['title'] => $title,
-          $parameters['parameters']['summary'] ?? $parameters['parameters']['summary'] = 'summary' => $description]);
+          $parameters['parameters']['summary'] ??
+          $parameters['parameters']['summary'] = 'summary' => $description]);
     }
 
     // add data for email_subject and email_body
     $social_network_share['email_subject'] = $title;
     $social_network_share['email_body'] = $url;
 
-    return $build = [
-      '#theme' => 'block--share-block',
-      '#content' => $social_network_share,
-    ];
+    return $social_network_share;
+
   }
 }

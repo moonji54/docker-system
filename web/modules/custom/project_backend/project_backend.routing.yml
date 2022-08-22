@@ -1,7 +1,0 @@
-project_backend.project_backend_admin_settings:
-  path: '/admin/config/system/links-to-social/settings'
-  defaults:
-    _form: '\Drupal\project_backend\Form\ProjectBackendSettingsForm'
-    _title: 'Custom site settings'
-  requirements:
-    _permission: 'administer site configuration'
