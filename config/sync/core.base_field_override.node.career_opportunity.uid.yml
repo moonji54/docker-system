@@ -1,0 +1,20 @@
+uuid: 6a0d2acc-ee7d-460f-b6c5-e7003d1ef702
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.career_opportunity
+id: node.career_opportunity.uid
+field_name: uid
+entity_type: node
+bundle: career_opportunity
+label: 'Authored by'
+description: 'The username of the content author.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

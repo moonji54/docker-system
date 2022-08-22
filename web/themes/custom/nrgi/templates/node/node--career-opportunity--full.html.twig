@@ -2,6 +2,26 @@
   'c-node',
   'c-node--type-' ~ node.bundle|clean_class,
 ] %}
+<div class="c-node__content-header">
+  {% include 'node--content-header.html.twig' %}
+
+  {% if content.field_career_opportunity_type|field_value %}
+    {{ content.field_career_opportunity_type }}
+  {% endif %}
+
+  {% if content.field_country|field_value %}
+    {{ content.field_country }}
+  {% endif %}
+
+  {% if content.field_city|field_value %}
+    {{ content.field_city }}
+  {% endif %}
+
+  {% if content.field_apply|field_value %}
+    {{ content.field_apply }}
+  {% endif %}
+
+</div>
 <article{{ attributes.addClass(classes) }}>
 
   {% if content.field_apply|field_value %}

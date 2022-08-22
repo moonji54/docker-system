@@ -1,0 +1,18 @@
+uuid: 69cdd24b-120a-4961-a456-cb06e95820d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.career_opportunity
+id: node.career_opportunity.title
+field_name: title
+entity_type: node
+bundle: career_opportunity
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

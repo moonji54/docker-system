@@ -1,0 +1,18 @@
+uuid: 02b5d93e-a442-4944-9d85-2155f2310f93
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.glossary_term
+id: node.glossary_term.unpublish_on
+field_name: unpublish_on
+entity_type: node
+bundle: glossary_term
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

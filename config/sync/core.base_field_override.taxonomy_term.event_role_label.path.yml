@@ -1,0 +1,20 @@
+uuid: cda32221-2bd3-4837-9546-4e210235cef9
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.event_role_label
+  module:
+    - path
+id: taxonomy_term.event_role_label.path
+field_name: path
+entity_type: taxonomy_term
+bundle: event_role_label
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

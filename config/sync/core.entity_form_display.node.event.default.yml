@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.event.field_course_training_contact
     - field.field.node.event.field_data_document
     - field.field.node.event.field_data_document_label
-    - field.field.node.event.field_day_of_week
     - field.field.node.event.field_end_date
     - field.field.node.event.field_event_contact
     - field.field.node.event.field_event_location
@@ -316,12 +315,6 @@ content:
             effect: show
             effect_options: {  }
             selector: ''
-  field_day_of_week:
-    type: datetime_timestamp
-    weight: 126
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_end_date:
     type: datetime_default
     weight: 116
@@ -603,10 +596,11 @@ content:
             effect_options: {  }
             selector: ''
   field_time_commitment:
-    type: datetime_timestamp
-    weight: 124
+    type: number
+    weight: 130
     region: content
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   field_time_zone:
     type: string_textfield
@@ -701,6 +695,11 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete

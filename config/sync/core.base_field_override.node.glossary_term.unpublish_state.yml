@@ -1,0 +1,20 @@
+uuid: dd43adda-57c1-4e2d-b439-2b8a2741e90c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.glossary_term
+  module:
+    - options
+id: node.glossary_term.unpublish_state
+field_name: unpublish_state
+entity_type: node
+bundle: glossary_term
+label: 'Unpublish state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

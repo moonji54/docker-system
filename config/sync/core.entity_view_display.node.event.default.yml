@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.event.field_course_training_contact
     - field.field.node.event.field_data_document
     - field.field.node.event.field_data_document_label
-    - field.field.node.event.field_day_of_week
     - field.field.node.event.field_end_date
     - field.field.node.event.field_event_contact
     - field.field.node.event.field_event_location
@@ -128,22 +127,12 @@ content:
     third_party_settings: {  }
     weight: 133
     region: content
-  field_day_of_week:
-    type: timestamp
-    label: hidden
-    settings:
-      date_format: medium
-      custom_date_format: ''
-      timezone: ''
-    third_party_settings: {  }
-    weight: 125
-    region: content
   field_end_date:
     type: datetime_default
     label: above
     settings:
       timezone_override: ''
-      format_type: medium
+      format_type: day_month_and_year
     third_party_settings: {  }
     weight: 145
     region: content
@@ -356,7 +345,7 @@ content:
     label: above
     settings:
       timezone_override: ''
-      format_type: medium
+      format_type: day_month_and_year
     third_party_settings: {  }
     weight: 144
     region: content
@@ -377,14 +366,13 @@ content:
     weight: 132
     region: content
   field_time_commitment:
-    type: timestamp
-    label: hidden
+    type: number_integer
+    label: above
     settings:
-      date_format: medium
-      custom_date_format: ''
-      timezone: ''
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
-    weight: 123
+    weight: 146
     region: content
   field_time_zone:
     type: string

@@ -2,6 +2,13 @@
   'c-node',
   'c-node--type-' ~ node.bundle|clean_class,
 ] %}
+<div class="c-node__content-header">
+  {% include 'node--content-header.html.twig' %}
+  {% if content.cta_download %}
+    {{ content.cta_download }}
+  {% endif %}
+</div>
+
 <article{{ attributes.addClass(classes) }}>
 
   {% if content.field_absctract|field_value %}
@@ -20,8 +27,8 @@
     {{ content.field_country }}
   {% endif %}
 
-  {% if content.field_data_document|field_value %}
-    {{ content.field_data_document }}
+  {% if content.field_created %}
+    {{ content.field_created }}
   {% endif %}
 
   {% if content.field_data_document_label|field_value %}
@@ -84,8 +91,8 @@
     {{ content.field_report_pdf }}
   {% endif %}
 
-  {% if content.field_resource_type|field_value %}
-    {{ content.field_resource_type }}
+  {% if content.field_data_document|field_value %}
+    {{ content.field_data_document }}
   {% endif %}
 
   {% if content.field_short_description|field_value %}

@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_components
     - node.type.page
     - paragraphs.paragraphs_type.featured_pages
+    - paragraphs.paragraphs_type.limited_list
     - paragraphs.paragraphs_type.wysiwyg
   module:
     - entity_reference_revisions
@@ -25,6 +26,7 @@ settings:
     target_bundles:
       wysiwyg: wysiwyg
       featured_pages: featured_pages
+      limited_list: limited_list
     negate: 0
     target_bundles_drag_drop:
       container:
@@ -45,6 +47,9 @@ settings:
       full_width_media:
         weight: 5
         enabled: false
+      limited_list:
+        weight: 17
+        enabled: true
       wysiwyg:
         weight: 6
         enabled: true

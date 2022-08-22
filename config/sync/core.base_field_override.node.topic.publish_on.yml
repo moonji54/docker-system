@@ -1,0 +1,18 @@
+uuid: c7fef96b-89d5-48f6-95fa-b13009b3a219
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.topic
+id: node.topic.publish_on
+field_name: publish_on
+entity_type: node
+bundle: topic
+label: 'Publish on'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

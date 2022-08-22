@@ -6,7 +6,16 @@ dependencies:
     - field.storage.node.field_image
     - node.type.landing_page
   module:
+    - content_translation
     - image
+third_party_settings:
+  content_translation:
+    translation_sync:
+      alt: alt
+      title: title
+      file: '0'
+_core:
+  default_config_hash: DfRBx5FqM85gtKWpq9QZcjImqSxS91v7ohw0xU8EN_s
 id: node.landing_page.field_image
 field_name: field_image
 entity_type: node
@@ -14,7 +23,7 @@ bundle: landing_page
 label: Image
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

@@ -4,106 +4,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.card
-    - field.field.node.person.field_additional_profiles
-    - field.field.node.person.field_board_member_type
-    - field.field.node.person.field_country
-    - field.field.node.person.field_expiration_date
-    - field.field.node.person.field_focus_areas
-    - field.field.node.person.field_full_bio
-    - field.field.node.person.field_full_name
-    - field.field.node.person.field_given_name
-    - field.field.node.person.field_headshot
-    - field.field.node.person.field_job_title
-    - field.field.node.person.field_page_builder
-    - field.field.node.person.field_region
-    - field.field.node.person.field_role_type
-    - field.field.node.person.field_short_bio
-    - field.field.node.person.field_surname
-    - field.field.node.person.field_twitter
     - node.type.person
   module:
-    - field_group
-    - options
     - user
-third_party_settings:
-  field_group:
-    group_role:
-      children:
-        - field_job_title
-        - field_board_member_type
-      label: Role
-      parent_name: ''
-      region: content
-      weight: 0
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: false
-    group_contact_details:
-      children:
-        - field_given_name
-        - field_surname
-      label: 'Contact details'
-      parent_name: ''
-      region: content
-      weight: 1
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: false
-    group_bios:
-      children:
-        - field_short_bio
-      label: Bios
-      parent_name: ''
-      region: content
-      weight: 2
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: false
-    group_uploads:
-      children:
-        - field_headshot
-      label: Uploads
-      parent_name: ''
-      region: content
-      weight: 3
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: false
-    group_taxonomies:
-      children:
-        - field_role_type
-      label: Taxonomies
-      parent_name: ''
-      region: content
-      weight: 4
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: false
 id: node.person.card
 targetEntityType: node
 bundle: person
@@ -112,62 +15,7 @@ content:
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: 5
-    region: content
-  field_board_member_type:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  field_given_name:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  field_headshot:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  field_job_title:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  field_role_type:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  field_short_bio:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  field_surname:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 1
+    weight: -20
     region: content
   field_taxonomy_term:
     type: entity_reference_label
@@ -180,17 +28,24 @@ content:
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 100
     region: content
 hidden:
   field_additional_profiles: true
+  field_board_member_type: true
   field_country: true
   field_expiration_date: true
   field_focus_areas: true
   field_full_bio: true
   field_full_name: true
+  field_given_name: true
+  field_headshot: true
+  field_job_title: true
   field_page_builder: true
   field_region: true
+  field_role_type: true
+  field_short_bio: true
+  field_surname: true
   field_twitter: true
   langcode: true
   search_api_excerpt: true
