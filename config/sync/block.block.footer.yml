@@ -1,24 +1,34 @@
-uuid: de05ea32-e427-4f2f-8264-944d3a12ae2c
+uuid: bd3e293f-83e1-4152-8c17-e9851904a930
 langcode: en
 status: true
 dependencies:
+  config:
+    - system.menu.footer
   module:
     - context
-    - project_backend
-    - system
+    - menu_block
   theme:
     - nrgi
-id: socialmediashareblock
+id: footer
 theme: nrgi
 region: footer
-weight: -2
+weight: -4
 provider: null
-plugin: social_media_share_block
+plugin: 'menu_block:footer'
 settings:
-  id: social_media_share_block
-  label: 'Social Media Share block'
+  id: 'menu_block:footer'
+  label: Footer
   label_display: visible
-  provider: project_backend
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 0
+  expand_all_items: false
+  parent: 'footer:'
+  suggestion: footer
 visibility:
   context_all:
     id: context_all
@@ -39,7 +49,3 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
-  request_path:
-    id: request_path
-    negate: false
-    pages: '*'

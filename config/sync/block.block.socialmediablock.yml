@@ -10,7 +10,7 @@ dependencies:
 id: socialmediablock
 theme: nrgi
 region: footer
-weight: 0
+weight: -3
 provider: null
 plugin: social_media_block
 settings:

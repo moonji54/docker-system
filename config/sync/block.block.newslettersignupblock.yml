@@ -10,7 +10,7 @@ dependencies:
 id: newslettersignupblock
 theme: nrgi
 region: footer
-weight: 0
+weight: -1
 provider: null
 plugin: newsletter_signup_block
 settings:
