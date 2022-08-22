@@ -187,10 +187,11 @@ function project_backend_block_view_alter(array &$build, BlockPluginInterface $b
  * Implements hook_form_alter().
  */
 function project_backend_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  $forms = ['site_setting_entity_newsletter_edit_form', 'site_setting_entity_social_media_links_form'];
-  if (in_array($form_id, $forms)) {
-    Cache::invalidateTags(['social_media_block']);
+  if (str_starts_with($form_id, 'site_setting_entity_newsletter')) {
     Cache::invalidateTags(['newsletter_signup_block']);
+  }
+  if (str_starts_with($form_id, 'site_setting_entity_social_media_links')) {
+    Cache::invalidateTags(['social_media_block']);
   }
 }
 
