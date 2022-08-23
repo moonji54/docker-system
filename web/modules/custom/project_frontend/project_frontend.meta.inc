@@ -21,33 +21,26 @@ function _project_frontend_get_meta_fields(NodeInterface $node) {
     'field_partners'             => 'Partners',
     '_publication_name'          => 'Publication name',
     '_publisher_and_link'        => 'Publisher',
-    'field_date'                 => 'Publication date',
-    'field_project'              => 'Project',
-    'field_theme'                => 'Theme',
-    'field_keyword'              => 'Keyword',
+    'field_topic'                => 'Topic',
+    'field_keywords'             => 'Keyword',
     'field_country'              => 'Country',
-    'field_organisations'        => 'Organisation',
-    'field_series'               => 'Series',
-    'field_collection'           => 'Collection',
-    'langcode'                   => 'Language',
-    'field_downloads'            => 'Additional downloads',
-    'field_supporting_downloads' => 'Additional downloads',
-    'field_external_document'    => 'External documents',
+    'field_region'               => 'Region',
+    'field_supporting_document'  => 'Additional downloads',
+    'field_data_document'        => 'Additional downloads',
+    'field_photo_caption'        => 'Featured image photo caption',
   ];
 
   $content_type = $node->bundle();
 
   if ($content_type === 'event') {
     $fields = array_merge([
-      '_event_date'     => 'Date and time',
-      '_event_location' => 'Location',
+      'field_event_contact'       => 'Event contact',
+      'field_course_syilabus'     => 'Course syllabus',
+      'field_expertise_required'  => 'Expertise required',
+      'field_address'             => 'Address',
+      '_event_date'               => 'Date and time',
+      '_event_location'           => 'Location',
     ], $fields);
-  }
-
-  if ($content_type === 'person') {
-    unset($fields['field_downloads']);
-    unset($fields['field_organisations']);
-    unset($fields['langcode']);
   }
 
   return $fields;
