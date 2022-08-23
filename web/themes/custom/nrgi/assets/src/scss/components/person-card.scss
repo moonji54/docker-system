@@ -1,24 +1,25 @@
 .c-person-card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 
   &__image {
-    display: block;
-    left: 0;
-    position: absolute;
-    width: 15%;
-
+    object-fit: cover;
+    width: 195px;
   }
 
   &__content {
+    align-items: flex-start;
     background-color: $secondary--green--2;
-    display: block;
-    height: 10vw;
-    margin-left: 15%;
-    position: relative;
-    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px 32px 59px;
   }
 
   &__image:hover {
-    filter: sepia(75%)
+    filter: hue-rotate(20deg);
+    //better to do in JS?
   }
 
   &__content:hover {
@@ -28,12 +29,12 @@
   &__title {
     @include ts-card-title;
     font-size: 24px;
-    padding: 2% 2% 0 2%;
+    line-height: 36px;
   }
 
   &__description {
     @include ts-label($medium: true);
-    padding: 2% 2% 0 2%;
-    width: 50%;
+    font-size: 16px;
+    line-height: 24px;
   }
 }
