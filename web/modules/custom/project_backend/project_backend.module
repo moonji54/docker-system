@@ -107,16 +107,6 @@ function project_backend_preprocess_node(&$variables) {
   // Set the variable for the node title
   $variables['content']['field_title'] = $variables['node']->getTitle();
 
-  // Set the variable for the CTA download to be available separately in the template
-  if (array_key_exists('field_page_builder', $variables['content'])) {
-    foreach ($variables['content']['field_page_builder'] as $key => $field) {
-      if (is_numeric($key)) {
-        if ($field['#paragraph']->getType() == 'cta_download') {
-          $variables['content']['cta_download'] = $field;
-        }
-      }
-    }
-  }
   // send the breadcrumb block to a template so it can be repositioned as needed
   $block = Block::load('breadcrumbs');
   $render = Drupal::entityTypeManager()
@@ -147,7 +137,7 @@ function project_backend_preprocess_node(&$variables) {
 
   $node = $variables['node'];
   // If the node type is publication add the date the publication was created to the variables
-  if ($node->getType() == 'publication') {
+  if ($node->getType() == 'publication' | $node->getType() == 'article') {
     $variables['content']['field_created'] = [
       '0' => [
         '#type' => 'html_tag',

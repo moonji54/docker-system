@@ -16,9 +16,10 @@
     {{ content.cta_download }}
   {% endif %}
 
-  {# TODO Add the date published #}
-  {# TODO Add the time to read #}
-
+  {% if content.field_created %}
+    {{ content.field_created }}
+  {% endif %}
+</div>
 <article{{ attributes.addClass(classes) }}>
 
   {% if content.field_acknowledgement|field_value %}
