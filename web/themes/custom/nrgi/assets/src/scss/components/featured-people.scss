@@ -11,10 +11,21 @@
     display: inline-block;
   }
 
+  &__link-css-triangle {
+    border: 8px solid black;
+    border-bottom-color: transparent;
+    border-left-color: $primary--orange;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    color: white;
+    //display: inline-block;
+    height: 0;
+    margin-left: 77%;
+  }
+
   &__link {
     @include ts-button;
-    display: inline-block;
-    padding-top: 10px;
+    padding-top: 8px;
   }
 
   &__flex-container {
