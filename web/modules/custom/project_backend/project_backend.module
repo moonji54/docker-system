@@ -104,6 +104,9 @@ function project_backend_language_switch_links_alter(array &$links, $type, $path
  * Implements hook_preprocess_node().
  */
 function project_backend_preprocess_node(&$variables) {
+  // Set the variable for the node title
+  $variables['content']['field_title'] = $variables['node']->getTitle();
+
   // send the breadcrumb block to a template so it can be repositioned as needed
   $block = Block::load('breadcrumbs');
   $render = Drupal::entityTypeManager()
@@ -134,7 +137,7 @@ function project_backend_preprocess_node(&$variables) {
 
   $node = $variables['node'];
   // If the node type is publication add the date the publication was created to the variables
-  if ($node->getType() == 'publication') {
+  if ($node->getType() == 'publication' | $node->getType() == 'article') {
     $variables['content']['field_created'] = [
       '0' => [
         '#type' => 'html_tag',
