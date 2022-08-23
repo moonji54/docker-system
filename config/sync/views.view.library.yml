@@ -10,19 +10,12 @@ dependencies:
     - node.type.publication
     - taxonomy.vocabulary.cities
     - taxonomy.vocabulary.country
-    - taxonomy.vocabulary.event_type
     - taxonomy.vocabulary.keyword
     - taxonomy.vocabulary.language
     - taxonomy.vocabulary.regions
     - taxonomy.vocabulary.resource_type
     - taxonomy.vocabulary.topic
   content:
-    - 'taxonomy_term:event_type:2cc771ae-5126-4423-9d32-4c8dcdb63f04'
-    - 'taxonomy_term:event_type:3b8ad31d-d49e-4671-8cae-6fc4daf5b9e1'
-    - 'taxonomy_term:event_type:534c42c4-4d48-442a-b976-33b48e0c76b2'
-    - 'taxonomy_term:event_type:92489268-df5e-4349-bed3-bfd832b3901f'
-    - 'taxonomy_term:event_type:9ca1e640-2764-45aa-8c1e-dbfd4516071e'
-    - 'taxonomy_term:event_type:a21d3609-4c0f-45bf-ba31-e3663b848462'
     - 'taxonomy_term:regions:1c42a145-edc6-485e-8bc9-f48d5faf49c7'
     - 'taxonomy_term:regions:1ce47f42-1c38-4539-b710-4aa540134b8b'
     - 'taxonomy_term:regions:4c16f4ea-1293-441f-bff3-30ec6fa909f8'
@@ -445,57 +438,6 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: resource_type
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
-        field_event_type_target_id:
-          id: field_event_type_target_id
-          table: node__field_event_type
-          field: field_event_type_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value:
-            184: 184
-            185: 185
-            183: 183
-            187: 187
-            186: 186
-            188: 188
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: event_type
           type: select
           hierarchy: false
           limit: true
@@ -984,57 +926,6 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: resource_type
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
-        field_event_type_target_id:
-          id: field_event_type_target_id
-          table: node__field_event_type
-          field: field_event_type_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value:
-            184: 184
-            185: 185
-            183: 183
-            187: 187
-            186: 186
-            188: 188
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: event_type
           type: select
           hierarchy: false
           limit: true
