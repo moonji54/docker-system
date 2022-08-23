@@ -2,9 +2,11 @@
 
 namespace Drupal\project_backend\Plugin\Block;
 
-use Drupal;
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Url;
+use Drupal\site_settings\SiteSettingsLoader;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a Newsletter Signup Block.
@@ -15,13 +17,42 @@ use Drupal\Core\Url;
  *   category = @Translation("Newsletter Signup  Media"),
  * )
  */
-class NewsletterSignupBlock extends BlockBase {
+class NewsletterSignupBlock extends BlockBase implements ContainerFactoryPluginInterface {
+
+  /**
+   * @var \Drupal\site_settings\SiteSettingsLoader
+   */
+  protected $siteSettingsLoader;
+
+  /**
+   * @param \Drupal\site_settings\SiteSettingsLoader $siteSettingsLoader
+   *   The site settings loader service.
+   */
+  public function __construct(
+    array $configuration, $plugin_id, $plugin_definition,
+    SiteSettingsLoader $siteSettingsLoader) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+    $this->siteSettingsLoader = $siteSettingsLoader;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
+      $container->get('site_settings.loader')
+    );
+  }
 
   /**
    * {@inheritdoc}
    */
   public function build() {
-    $newsletter = Drupal::service('site_settings.loader')->loadByFieldset('newsletter')['newsletter'];
+    // Load the site settings
+    $newsletter = $this->siteSettingsLoader->loadByFieldset('newsletter')['newsletter'];
     if ($newsletter == '') {
       return [];
     }

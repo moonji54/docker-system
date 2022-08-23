@@ -142,7 +142,8 @@ function project_backend_preprocess_node(&$variables) {
       '0' => [
         '#type' => 'html_tag',
         '#tag' => 'div',
-        '#value' => date('d F Y', $node->created->value)],
+        '#value' => date('d F Y', $node->created->value),
+        '#attributes' => ['class' => ['created']]],
       ];
   }
   // If the node type is event add the start/end time and days of the week the event is taking place
@@ -157,15 +158,43 @@ function project_backend_preprocess_node(&$variables) {
       $variables['content']['field_end_date'] = null;
     }
     // Set the start and end time fields
-    $variables['content']['field_start_time'] = $start->format('H:i');
-    $variables['content']['field_end_time'] = $end->format('H:i');
+    $variables['content']['field_start_time'] =
+      ['0' => [
+        '#type' => 'html_tag',
+        '#tag' => 'div',
+        '#value' => $start->format('H:i'),
+        '#attributes' => ['class' => ['start-time']],
+        ],
+      ];
+    $variables['content']['field_end_time'] =
+      ['0' => [
+        '#type' => 'html_tag',
+        '#tag' => 'div',
+        '#value' => $end->format('H:i'),
+        '#attributes' => ['class' => ['end-time']],
+      ],
+    ];
 
     // Set the days of the week variables
     $start_day = date('l', strtotime($start_date));
     $end_day = date('l', strtotime($end_date));
-    $variables['content']['field_days_of_week']['start'] = t($start_day);
+    $variables['content']['field_days_of_week']['start'] =
+      ['0' => [
+        '#type' => 'html_tag',
+        '#tag' => 'div',
+        '#value' => t($start_day),
+        '#attributes' => ['class' => ['start-day']],
+      ],
+    ];
     if ($start_day != $end_day | $start_date != $end_date) {
-      $variables['content']['field_days_of_week']['end'] = t($end_day);
+      $variables['content']['field_days_of_week']['end'] =
+        ['0' => [
+          '#type' => 'html_tag',
+          '#tag' => 'div',
+          '#value' => t($end_day),
+          '#attributes' => ['class' => ['end-time']],
+        ],
+      ];
     }
   }
 }
