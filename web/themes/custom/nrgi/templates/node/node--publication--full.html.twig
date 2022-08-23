@@ -122,4 +122,53 @@
   {% if content.field_page_builder|field_value %}
     {{ content.field_page_builder }}
   {% endif %}
+
+  {% if all_meta is not empty %}
+    this is a test
+    <section class="c-meta o-section o-section--meta {{ meta_classes }}">
+      <dl>
+        {% for meta_row in all_meta %}
+          {% if meta_row.values is not empty %}
+            <div class="c-meta__row o-container">
+              <dt class="c-meta__label">{{ meta_row.label }}</dt>
+
+              <dd class="c-meta__values">
+                {% for value in meta_row.values %}
+                  {% if value.url is not empty %}
+                    {% set link_icon = '' %}
+
+                    {% for ext in ['.pdf','.doc','.docx','.txt','.rtf','.odt','.ppt','.pptx','.odp','.xls','.xlsx','.ods'] %}
+                      {% if value.url ends with ext %}
+                        {% set link_icon = 'download' %}
+                      {% endif %}
+                    {% endfor %}
+
+                    {% if link_icon is empty and value.target == '_blank' %}
+                      {% set link_icon = 'external' %}
+                    {% endif %}
+
+                    <a class="o-meta-link" href="{{ value.url }}" {% if value.url is not empty %}target="{{ value.term_target }}{% endif %}">
+                      <span class="o-meta-link__text">{{ value.text }}</span>
+
+                      {% if link_icon is not empty %}
+                        <span class="o-meta-link__icon o-meta-link__icon--{{ link_icon }}">
+                          {% if link_icon == 'external' %}
+                            {% include '@bruegel/svg/svg.html.twig' with {'svg': 'external'} %}
+                          {% elseif link_icon == 'download' %}
+                            {% include '@bruegel/svg/svg.html.twig' with {'svg': 'download'} %}
+                          {% endif %}
+                        </span>
+                      {% endif %}
+                    </a>
+                  {% else %}
+                    <span class="c-meta__value"><span class="c-meta__value-text">{{ value.text }}</span></span>
+                  {% endif %}
+                {% endfor %}
+              </dd>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </dl>
+    </section>
+  {% endif %}
 </article>
