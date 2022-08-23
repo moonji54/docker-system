@@ -1,4 +1,4 @@
-uuid: 24d76ef1-631f-410e-90d9-5835b7abbd39
+uuid: bff41a89-78ae-4e99-8cf8-076e93dad1f2
 langcode: en
 status: true
 dependencies:
@@ -7,13 +7,13 @@ dependencies:
   module:
     - context
     - menu_block
-    - user
+    - system
   theme:
     - nrgi
 id: topnavigation
 theme: nrgi
-region: header
-weight: 0
+region: pre-header
+weight: -5
 provider: null
 plugin: 'menu_block:top-navigation'
 settings:
@@ -50,11 +50,7 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
-  user_role:
-    id: user_role
+  request_path:
+    id: request_path
     negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
-    roles:
-      administrator: administrator
-      site_manager: site_manager
+    pages: '*'

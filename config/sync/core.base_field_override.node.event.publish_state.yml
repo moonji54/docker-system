@@ -1,0 +1,20 @@
+uuid: ce8cecf6-8523-4e94-a6b1-80f2be179738
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.event
+  module:
+    - options
+id: node.event.publish_state
+field_name: publish_state
+entity_type: node
+bundle: event
+label: 'Publish state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

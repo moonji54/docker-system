@@ -1,0 +1,20 @@
+uuid: e802b48f-d311-4f67-9ff3-0ffaefeb2b25
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.external_publication
+  module:
+    - options
+id: node.external_publication.publish_state
+field_name: publish_state
+entity_type: node
+bundle: external_publication
+label: 'Publish state'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

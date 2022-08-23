@@ -23,7 +23,7 @@ mode: default
 content:
   field_button_text_and_link:
     type: link
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -31,20 +31,20 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 8
+    weight: 3
     region: content
   field_content_cards:
     type: entity_reference_entity_view
-    label: above
+    label: hidden
     settings:
-      view_mode: card_no_image
-      link: false
+      view_mode: default
+      link: true
     third_party_settings: {  }
     weight: 2
     region: content
   field_description:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 1
@@ -56,17 +56,7 @@ content:
       plugin_types:
         - block
     third_party_settings: {  }
-    weight: 9
-    region: content
-  field_items_selection:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 7
+    weight: 4
     region: content
   field_layout:
     type: number_integer
@@ -75,7 +65,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 10
+    weight: 6
     region: content
   field_show_image:
     type: boolean
@@ -89,10 +79,11 @@ content:
     region: content
   field_title:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
 hidden:
+  field_items_selection: true
   search_api_excerpt: true

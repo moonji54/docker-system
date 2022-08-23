@@ -1,0 +1,18 @@
+uuid: 321f87b7-1821-4208-bb94-b986c3e39a74
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.regions
+id: taxonomy_term.regions.name
+field_name: name
+entity_type: taxonomy_term
+bundle: regions
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

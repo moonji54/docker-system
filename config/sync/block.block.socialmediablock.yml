@@ -1,0 +1,40 @@
+uuid: fce8d53e-a5e7-4eb4-93da-00b6ea6a3a23
+langcode: en
+status: true
+dependencies:
+  module:
+    - context
+    - project_backend
+  theme:
+    - nrgi
+id: socialmediablock
+theme: nrgi
+region: footer
+weight: -3
+provider: null
+plugin: social_media_block
+settings:
+  id: social_media_block
+  label: 'Social Media block'
+  label_display: visible
+  provider: project_backend
+visibility:
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid

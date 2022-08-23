@@ -1,4 +1,4 @@
-uuid: 96447984-52e9-4f98-8193-8bf6cd3c1b8f
+uuid: bd3e293f-83e1-4152-8c17-e9851904a930
 langcode: en
 status: true
 dependencies:
@@ -7,13 +7,12 @@ dependencies:
   module:
     - context
     - menu_block
-    - user
   theme:
     - nrgi
 id: footer
 theme: nrgi
 region: footer
-weight: 0
+weight: -4
 provider: null
 plugin: 'menu_block:footer'
 settings:
@@ -50,11 +49,3 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
-  user_role:
-    id: user_role
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
-    roles:
-      administrator: administrator
-      site_manager: site_manager

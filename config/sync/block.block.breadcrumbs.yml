@@ -1,4 +1,4 @@
-uuid: c34d873c-faad-42f6-a4b9-90cce7553d23
+uuid: 3d44e743-907f-481d-b85f-37f2cf754f14
 langcode: en
 status: false
 dependencies:
@@ -9,8 +9,8 @@ dependencies:
     - nrgi
 id: breadcrumbs
 theme: nrgi
-region: header
-weight: 0
+region: pre-header
+weight: -4
 provider: null
 plugin: system_breadcrumb_block
 settings:

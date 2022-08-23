@@ -1,0 +1,18 @@
+uuid: 83cca8d5-4493-44d7-8bbf-f28b2798fd7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.collection
+id: node.collection.moderation_state
+field_name: moderation_state
+entity_type: node
+bundle: collection
+label: 'Moderation state'
+description: 'The moderation state of this piece of content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

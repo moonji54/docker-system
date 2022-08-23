@@ -1,0 +1,18 @@
+uuid: cf8a6e57-0408-4513-b555-48a26cfa4773
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.country
+id: node.country.created
+field_name: created
+entity_type: node
+bundle: country
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

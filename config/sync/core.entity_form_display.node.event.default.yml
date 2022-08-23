@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.event.field_course_training_contact
     - field.field.node.event.field_data_document
     - field.field.node.event.field_data_document_label
-    - field.field.node.event.field_day_of_week
     - field.field.node.event.field_end_date
     - field.field.node.event.field_event_contact
     - field.field.node.event.field_event_location
@@ -159,12 +158,11 @@ third_party_settings:
         - field_address
         - field_video_conferencing
         - field_event_contact
-        - field_time_commitment
         - field_course_syilabus
-        - field_day_of_week
         - field_expertise_required
         - field_open_registration
         - field_event_recording
+        - field_time_commitment
       label: 'Event details'
       region: content
       parent_name: ''
@@ -280,14 +278,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_data_document:
-    type: entity_reference_autocomplete
+    type: media_library_widget
     weight: 50
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      media_types: {  }
     third_party_settings: {  }
   field_data_document_label:
     type: string_textfield
@@ -316,12 +311,6 @@ content:
             effect: show
             effect_options: {  }
             selector: ''
-  field_day_of_week:
-    type: datetime_timestamp
-    weight: 126
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_end_date:
     type: datetime_default
     weight: 116
@@ -406,14 +395,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_featured_image:
-    type: entity_reference_autocomplete
+    type: media_library_widget
     weight: 49
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      media_types: {  }
     third_party_settings: {  }
   field_format:
     type: options_buttons
@@ -482,14 +468,11 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
   field_partner_logo:
-    type: entity_reference_autocomplete
+    type: media_library_widget
     weight: 54
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      media_types: {  }
     third_party_settings: {  }
   field_partner_name:
     type: string_textfield
@@ -566,14 +549,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_supporting_document:
-    type: entity_reference_autocomplete
+    type: media_library_widget
     weight: 51
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      media_types: {  }
     third_party_settings: {  }
   field_supporting_document_label:
     type: string_textfield
@@ -603,10 +583,11 @@ content:
             effect_options: {  }
             selector: ''
   field_time_commitment:
-    type: datetime_timestamp
-    weight: 124
+    type: number
+    weight: 130
     region: content
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   field_time_zone:
     type: string_textfield
@@ -701,6 +682,11 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete

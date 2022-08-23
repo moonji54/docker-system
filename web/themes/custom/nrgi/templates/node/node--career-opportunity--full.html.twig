@@ -22,15 +22,30 @@
   {% endif %}
 
 </div>
-
 <article{{ attributes.addClass(classes) }}>
+
+  {% if content.field_apply|field_value %}
+    {{ content.field_apply }}
+  {% endif %}
 
   {% if content.field_body|field_value %}
     {{ content.field_body }}
   {% endif %}
 
+  {% if content.field_career_opportunity_type|field_value %}
+    {{ content.field_career_opportunity_type }}
+  {% endif %}
+
+  {% if content.field_city|field_value %}
+    {{ content.field_city }}
+  {% endif %}
+
   {% if content.field_contact_for_queries|field_value %}
     {{ content.field_contact_for_queries }}
+  {% endif %}
+
+  {% if content.field_country|field_value %}
+    {{ content.field_country }}
   {% endif %}
 
   {% if content.field_disclaimer|field_value %}

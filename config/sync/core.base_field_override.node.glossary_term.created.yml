@@ -1,0 +1,18 @@
+uuid: 1cd5f51c-c6ed-4de7-9ba6-7eaff20d9287
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.glossary_term
+id: node.glossary_term.created
+field_name: created
+entity_type: node
+bundle: glossary_term
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

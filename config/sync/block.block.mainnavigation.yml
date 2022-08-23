@@ -7,12 +7,13 @@ dependencies:
   module:
     - context
     - menu_block
+    - system
   theme:
     - nrgi
 id: mainnavigation
 theme: nrgi
 region: header
-weight: -1
+weight: -4
 provider: null
 plugin: 'menu_block:main'
 settings:
@@ -25,8 +26,8 @@ settings:
   label_link: false
   label_type: block
   level: 1
-  depth: 2
-  expand_all_items: true
+  depth: 0
+  expand_all_items: false
   parent: 'main:'
   suggestion: main
 visibility:
@@ -49,3 +50,7 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
+  request_path:
+    id: request_path
+    negate: false
+    pages: '*'

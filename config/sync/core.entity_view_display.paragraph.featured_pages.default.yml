@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.featured_pages.field_button_and_link
     - field.field.paragraph.featured_pages.field_content_cards
     - field.field.paragraph.featured_pages.field_description
+    - field.field.paragraph.featured_pages.field_layout
     - field.field.paragraph.featured_pages.field_show_image
     - field.field.paragraph.featured_pages.field_title
     - paragraphs.paragraphs_type.featured_pages
@@ -19,7 +20,7 @@ mode: default
 content:
   field_button_and_link:
     type: link
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -31,7 +32,7 @@ content:
     region: content
   field_content_cards:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -39,14 +40,23 @@ content:
     region: content
   field_description:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
+  field_layout:
+    type: number_integer
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
   field_show_image:
     type: boolean
-    label: above
+    label: hidden
     settings:
       format: default
       format_custom_false: ''
@@ -56,7 +66,7 @@ content:
     region: content
   field_title:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 0

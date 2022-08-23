@@ -1,0 +1,18 @@
+uuid: 6d97cb79-18bf-4ca7-a465-3e474326accf
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.event_expertise_requirement
+id: taxonomy_term.event_expertise_requirement.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: event_expertise_requirement
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

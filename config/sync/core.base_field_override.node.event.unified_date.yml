@@ -1,0 +1,22 @@
+uuid: 61ab162a-cfc6-4ad4-a4a9-697c12e9c639
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.event
+id: node.event.unified_date
+field_name: unified_date
+entity_type: node
+bundle: event
+label: 'Unified date'
+description: 'The unified date field.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

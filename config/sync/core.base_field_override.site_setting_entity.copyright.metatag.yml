@@ -1,0 +1,18 @@
+uuid: fccc9015-ec2e-4a82-ad78-62160b507b66
+langcode: en
+status: true
+dependencies:
+  config:
+    - site_settings.site_setting_entity_type.copyright
+id: site_setting_entity.copyright.metatag
+field_name: metatag
+entity_type: site_setting_entity
+bundle: copyright
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

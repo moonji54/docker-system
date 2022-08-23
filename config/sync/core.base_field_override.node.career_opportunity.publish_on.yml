@@ -1,0 +1,18 @@
+uuid: 4538268c-8a82-4888-ab93-04dc0cefdd3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.career_opportunity
+id: node.career_opportunity.publish_on
+field_name: publish_on
+entity_type: node
+bundle: career_opportunity
+label: 'Publish on'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

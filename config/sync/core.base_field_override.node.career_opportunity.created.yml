@@ -1,0 +1,18 @@
+uuid: f34e479f-1002-4114-baf8-a73cb275a8f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.career_opportunity
+id: node.career_opportunity.created
+field_name: created
+entity_type: node
+bundle: career_opportunity
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

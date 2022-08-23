@@ -1,8 +1,8 @@
-uuid: 81ee3519-209e-48af-b096-16e6e70eb838
+uuid: 51900ceb-151f-48f5-85e5-d3c6b1c41cb2
 langcode: en
 status: true
 dependencies: {  }
 id: top-navigation
 label: 'Top navigation'
-description: ''
+description: 'Top navigation'
 locked: false

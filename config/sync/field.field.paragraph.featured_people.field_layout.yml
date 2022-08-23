@@ -11,7 +11,7 @@ entity_type: paragraph
 bundle: featured_people
 label: Layout
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

@@ -1,0 +1,18 @@
+uuid: e04c1b61-3f16-4a18-9c92-6c22cd72773c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.country
+id: node.country.moderation_state
+field_name: moderation_state
+entity_type: node
+bundle: country
+label: 'Moderation state'
+description: 'The moderation state of this piece of content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
