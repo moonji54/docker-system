@@ -1,0 +1,28 @@
+{% set classes = [
+  'c-node',
+  'c-node--type-' ~ node.bundle|clean_class,
+] %}
+<div class="c-node__content-header">
+  {% include 'node--content-header.html.twig' %}
+  {% if content.cta_download %}
+    {{ content.cta_download }}
+  {% endif %}
+</div>
+
+<article{{ attributes.addClass(classes) }}>
+  {% if content.field_created %}
+    {{ content.field_created }}
+  {% endif %}
+
+  {% if content.field_featured_image|field_value %}
+    {{ content.field_featured_image }}
+  {% endif %}
+
+  {% if content.field_short_description|field_value %}
+    {{ content.field_short_description }}
+  {% endif %}
+
+  {% if content.field_subtitle|field_value %}
+    {{ content.field_subtitle }}
+  {% endif %}
+</article>
