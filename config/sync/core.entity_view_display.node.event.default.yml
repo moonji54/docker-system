@@ -61,7 +61,7 @@ content:
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: -20
+    weight: 0
     region: content
   field_address:
     type: string
@@ -69,14 +69,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 120
+    weight: 21
     region: content
   field_body:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 104
+    weight: 6
     region: content
   field_country:
     type: entity_reference_label
@@ -84,7 +84,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 137
+    weight: 35
     region: content
   field_course_host:
     type: string
@@ -92,7 +92,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 112
+    weight: 14
     region: content
   field_course_syilabus:
     type: entity_reference_entity_view
@@ -101,7 +101,7 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
-    weight: 124
+    weight: 24
     region: content
   field_course_training_contact:
     type: entity_reference_label
@@ -109,7 +109,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 113
+    weight: 15
     region: content
   field_data_document:
     type: entity_reference_label
@@ -117,7 +117,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 130
+    weight: 29
     region: content
   field_data_document_label:
     type: string
@@ -125,7 +125,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 133
+    weight: 32
     region: content
   field_end_date:
     type: datetime_default
@@ -134,7 +134,7 @@ content:
       timezone_override: ''
       format_type: day_month_and_year
     third_party_settings: {  }
-    weight: 145
+    weight: 42
     region: content
   field_event_contact:
     type: entity_reference_label
@@ -142,7 +142,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 122
+    weight: 23
     region: content
   field_event_location:
     type: string
@@ -150,7 +150,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 119
+    weight: 20
     region: content
   field_event_recording:
     type: boolean
@@ -160,7 +160,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 128
+    weight: 27
     region: content
   field_event_role_type:
     type: entity_reference_label
@@ -168,7 +168,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 139
+    weight: 37
     region: content
   field_event_type:
     type: entity_reference_label
@@ -176,7 +176,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 138
+    weight: 36
     region: content
   field_expertise_required:
     type: string
@@ -184,7 +184,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 126
+    weight: 25
     region: content
   field_expiration_date:
     type: datetime_default
@@ -193,7 +193,7 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 103
+    weight: 5
     region: content
   field_featured_image:
     type: entity_reference_label
@@ -201,14 +201,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 129
+    weight: 28
     region: content
   field_format:
     type: list_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 141
+    weight: 39
     region: content
   field_instructors:
     type: entity_reference_label
@@ -216,14 +216,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 108
+    weight: 10
     region: content
   field_instructors_external:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 109
+    weight: 11
     region: content
   field_keywords:
     type: entity_reference_label
@@ -231,7 +231,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 136
+    weight: 34
     region: content
   field_languages:
     type: entity_reference_label
@@ -239,14 +239,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 115
+    weight: 17
     region: content
   field_open_registration:
     type: list_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 127
+    weight: 26
     region: content
   field_organizing_partner:
     type: string
@@ -254,7 +254,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 114
+    weight: 16
     region: content
   field_page_builder:
     type: entity_reference_revisions_entity_view
@@ -263,7 +263,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 143
+    weight: 40
     region: content
   field_partner_logo:
     type: entity_reference_label
@@ -271,7 +271,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 134
+    weight: 33
     region: content
   field_partner_name:
     type: string
@@ -279,7 +279,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 111
+    weight: 13
     region: content
   field_photo_caption:
     type: string
@@ -287,7 +287,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 102
+    weight: 4
     region: content
   field_publisher:
     type: string
@@ -295,7 +295,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 110
+    weight: 12
     region: content
   field_region:
     type: entity_reference_label
@@ -303,7 +303,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 140
+    weight: 38
     region: content
   field_registration:
     type: link
@@ -315,7 +315,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 118
+    weight: 19
     region: content
   field_short_description:
     type: string
@@ -323,7 +323,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 101
+    weight: 3
     region: content
   field_speakers:
     type: entity_reference_label
@@ -331,14 +331,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 106
+    weight: 8
     region: content
   field_speakers_external:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 107
+    weight: 9
     region: content
   field_start_date:
     type: datetime_default
@@ -347,7 +347,7 @@ content:
       timezone_override: ''
       format_type: day_month_and_year
     third_party_settings: {  }
-    weight: 144
+    weight: 41
     region: content
   field_supporting_document:
     type: entity_reference_label
@@ -355,7 +355,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 131
+    weight: 30
     region: content
   field_supporting_document_label:
     type: string
@@ -363,7 +363,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 132
+    weight: 31
     region: content
   field_time_commitment:
     type: number_integer
@@ -372,7 +372,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 146
+    weight: 43
     region: content
   field_time_zone:
     type: string
@@ -380,7 +380,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 116
+    weight: 18
     region: content
   field_topic:
     type: entity_reference_label
@@ -388,14 +388,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 135
+    weight: 1
     region: content
   field_transcript:
     type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 105
+    weight: 7
     region: content
   field_video_conferencing:
     type: link
@@ -407,12 +407,12 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 121
+    weight: 22
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 2
     region: content
 hidden:
   langcode: true
