@@ -1,9 +1,9 @@
-uuid: 77f79c30-8a9b-479f-80aa-f3fed43e8824
+uuid: bd1011d6-5fd7-448b-8cb2-050e05b03a2e
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.card
+    - core.entity_view_mode.node.card_no_image
     - field.field.node.event.field_address
     - field.field.node.event.field_body
     - field.field.node.event.field_country
@@ -49,292 +49,171 @@ dependencies:
     - node.type.event
   module:
     - datetime
-    - field_group
     - options
     - text
     - user
-third_party_settings:
-  field_group:
-    group_event_details:
-      children:
-        - field_start_date
-        - field_end_date
-        - field_time_zone
-        - field_format
-        - field_open_registration
-        - field_event_recording
-      label: 'Event details'
-      parent_name: ''
-      region: content
-      weight: 6
-      format_type: html_element
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        element: div
-        show_label: false
-        label_element: h3
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-        open: true
-        description: ''
-    group_uploads:
-      children:
-        - field_featured_image
-      label: Uploads
-      parent_name: ''
-      region: content
-      weight: 7
-      format_type: html_element
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        element: div
-        show_label: false
-        label_element: h3
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-        open: true
-        description: ''
-    group_taxonomies:
-      children:
-        - field_topic
-        - field_keywords
-        - field_country
-        - field_event_type
-      label: Taxonomies
-      parent_name: ''
-      region: content
-      weight: 8
-      format_type: html_element
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        element: div
-        show_label: false
-        label_element: h3
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-        open: true
-        description: ''
-    group_item_information:
-      children:
-        - field_speakers
-        - field_speakers_external
-        - field_instructors
-        - field_instructors_external
-        - field_course_host
-        - field_organizing_partner
-        - field_languages
-      label: 'Item information'
-      parent_name: ''
-      region: content
-      weight: 5
-      format_type: html_element
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        element: div
-        show_label: false
-        label_element: h3
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-        open: true
-        description: ''
-    group_description:
-      children:
-        - field_short_description
-      label: Description
-      parent_name: ''
-      region: content
-      weight: 2
-      format_type: html_element
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        element: div
-        show_label: false
-        label_element: h3
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-        open: true
-        description: ''
-id: node.event.card
+id: node.event.card_no_image
 targetEntityType: node
 bundle: event
-mode: card
+mode: card_no_image
 content:
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: -20
+    weight: 0
     region: content
   field_country:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    weight: 6
+    weight: 19
     region: content
   field_course_host:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 42
+    weight: 7
     region: content
   field_end_date:
     type: datetime_default
     label: above
     settings:
       timezone_override: ''
-      format_type: medium
+      format_type: day_month_and_year
     third_party_settings: {  }
-    weight: 9
+    weight: 11
     region: content
   field_event_recording:
     type: boolean
-    label: above
+    label: hidden
     settings:
       format: default
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 13
+    weight: 15
     region: content
   field_event_type:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    weight: 7
+    weight: 20
     region: content
-  field_featured_image:
-    type: entity_reference_label
-    label: above
+  field_expiration_date:
+    type: datetime_default
+    label: hidden
     settings:
-      link: true
+      timezone_override: ''
+      format_type: medium
     third_party_settings: {  }
-    weight: 3
+    weight: 16
     region: content
   field_format:
     type: list_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 11
+    weight: 13
     region: content
   field_instructors:
     type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 40
-    region: content
-  field_instructors_external:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 41
-    region: content
-  field_keywords:
-    type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     weight: 5
     region: content
-  field_languages:
+  field_instructors_external:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_keywords:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    weight: 44
+    weight: 18
+    region: content
+  field_languages:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 9
     region: content
   field_open_registration:
     type: list_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 12
+    weight: 14
     region: content
   field_organizing_partner:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 43
+    weight: 8
     region: content
   field_short_description:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 34
+    weight: 2
     region: content
   field_speakers:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    weight: 38
+    weight: 3
     region: content
   field_speakers_external:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 39
+    weight: 4
     region: content
   field_start_date:
     type: datetime_default
     label: above
     settings:
       timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 8
-    region: content
-  field_time_zone:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
+      format_type: day_month_and_year
     third_party_settings: {  }
     weight: 10
     region: content
+  field_time_zone:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 12
+    region: content
   field_topic:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
+    weight: 17
     region: content
   links:
     settings: {  }
@@ -352,7 +231,7 @@ hidden:
   field_event_location: true
   field_event_role_type: true
   field_expertise_required: true
-  field_expiration_date: true
+  field_featured_image: true
   field_page_builder: true
   field_partner_logo: true
   field_partner_name: true

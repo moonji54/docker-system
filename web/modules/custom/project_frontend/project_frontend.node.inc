@@ -25,7 +25,7 @@ function project_frontend_preprocess_node(&$variables) {
 
   if ($node && $node instanceof NodeInterface) {
     _project_frontend_preprocess_node_type_label($variables, $node);
-    //_project_frontend_preprocess_node_date($variables, $node);
+    // _project_frontend_preprocess_node_date($variables, $node);
 
     // Based on content type (applied to all view modes).
     switch ($node->bundle()) {
@@ -86,13 +86,13 @@ function _project_frontend_preprocess_node_type_label(array &$variables, NodeInt
   }
 }
 
-/**
- * @param array $variables
- *   The variables from template_preprocess_node().
- * @param \Drupal\node\NodeInterface $node
- *   Node to preprocess.
- */
-//function _project_frontend_preprocess_node_date(array &$variables, NodeInterface $node) {
+///**
+// * @param array $variables
+// *   The variables from template_preprocess_node().
+// * @param \Drupal\node\NodeInterface $node
+// *   Node to preprocess.
+// */
+// function _project_frontend_preprocess_node_date(array &$variables, NodeInterface $node) {
 //  /** @var \Drupal\Core\Field\FieldItemList $unified_date_field */
 //  $unified_date_field = $node->get('unified_date');
 //  $date_timestamp     = $unified_date_field->getString();
@@ -229,13 +229,15 @@ function _project_frontend_preprocess_node_person_featured_work(array &$variable
 
     $limit = 4;
 
-    if (!empty($node->get('field_limit')->getValue()[0])) {
+    $fields = ['field_author'];
+
+    if ($node->hasField('field_limit') && !empty($node->get('field_limit')->getValue()[0])) {
       $limit = (int) $node->get('field_limit')->getValue()['0']['value'];
     }
 
     /** @var Drupal\project_frontend\PersonFeaturedWorkHelperService $person_featured_work_helper_service */
     $person_featured_work_helper_service = \Drupal::service('project_frontend.person_featured_work');
-    $feature_work                        = $person_featured_work_helper_service->getPersonFeaturedWorkNodes($node, $limit, $allowed_types, $view_mode);
+    $feature_work                        = $person_featured_work_helper_service->getPersonFeaturedWorkNodes($node, $limit, $allowed_types, $view_mode, $fields);
     $variables['featured_work']          = [
       'content' => $feature_work,
       'count'   => count($feature_work),

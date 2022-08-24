@@ -56,6 +56,8 @@ class PersonFeaturedWorkHelperService {
    *   Allowed node types for getting person featured work content from.
    * @param string $view_mode
    *   View mode used for rendering person featured work content.
+   * @param array $fields
+   *   Allowed fields for getting the person featured work content from.
    *
    * @return array
    *   Array of person's work nodes rendered by given view mode/
@@ -64,16 +66,23 @@ class PersonFeaturedWorkHelperService {
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Exception
    */
-  public function getPersonFeaturedWorkNodes(NodeInterface $node, $limit, array $allowed_types, $view_mode) {
+  public function getPersonFeaturedWorkNodes(NodeInterface $node, $limit, array $allowed_types, $view_mode, $fields) {
     $featured_work_nodes = [];
 
     if ($node->bundle() == 'person' && $limit > 0) {
       $query = $this->entityTypeManager->getStorage('node')
         ->getQuery();
-      $nids = $query->condition('status', 1)
-        ->condition('type', $allowed_types, 'IN')
-        ->condition('field_author', $node->id())
-        ->range(0, $limit)
+      $query->condition('status', 1)
+        ->condition('type', $allowed_types, 'IN');
+
+      // Create or condition group to check if the node id == one of the supplied fields value.
+      $orGroup = $query->orConditionGroup();
+      foreach ($fields as $field) {
+        $orGroup->condition($field, $node->id());
+      }
+      $query->condition($orGroup);
+
+      $nids = $query->range(0, $limit)
         ->sort('created', 'DESC')
         ->execute();
 

@@ -1,9 +1,9 @@
-uuid: ad4873d5-69c6-4470-8c9d-fca91c24cc7c
+uuid: 7aab0a92-32d1-4a45-ac32-2731eb51a78a
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.card
+    - core.entity_view_mode.node.card_no_image
     - field.field.node.person.field_additional_profiles
     - field.field.node.person.field_board_member_type
     - field.field.node.person.field_country
@@ -23,10 +23,10 @@ dependencies:
     - node.type.person
   module:
     - user
-id: node.person.card
+id: node.person.card_no_image
 targetEntityType: node
 bundle: person
-mode: card
+mode: card_no_image
 content:
   content_moderation_control:
     settings: {  }
@@ -35,7 +35,7 @@ content:
     region: content
   field_focus_areas:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -43,23 +43,15 @@ content:
     region: content
   field_given_name:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     weight: 2
     region: content
-  field_headshot:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 1
-    region: content
   field_job_title:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -67,24 +59,16 @@ content:
     region: content
   field_surname:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     weight: 3
     region: content
-  field_taxonomy_term:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 101
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 1
     region: content
 hidden:
   field_additional_profiles: true
@@ -93,6 +77,7 @@ hidden:
   field_expiration_date: true
   field_full_bio: true
   field_full_name: true
+  field_headshot: true
   field_page_builder: true
   field_region: true
   field_role_type: true
