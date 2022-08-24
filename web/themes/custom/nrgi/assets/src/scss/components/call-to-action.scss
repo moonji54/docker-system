@@ -1,8 +1,5 @@
 .c-call-to-action {
-  backdrop-filter: blur(44px);
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-size: cover;
+  @include o-container;
   color: $black;
   min-height: 50vh;
   overflow: hidden;
@@ -11,6 +8,7 @@
   &__image {
     height: 100%;
     left: 0;
+    object-fit: cover;
     position: absolute;
     top: 0;
     width: 100%;
@@ -18,30 +16,43 @@
 
   &__content {
     background-color: #25E1AF;
-    clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 32% 100%, 0 69%);
-    //clip-path: url('../images/cta-clip-path.svg');
     height: 100%;
+    mask-image: url("https://i.imgur.com/EOKF8b4.png"); //placehold for now!
+    mask-position: center;
+    mask-size: 100% 100%;
     position: absolute;
     right: 0;
-    width: 50vw;
+    width: 45vw;
   }
 
   &__title {
     @include ts-heading-1;
+    display: inline-block;
     margin-bottom: 24px;
-    padding: 10% 0 0 10%;
+    padding: 10% 10% 0 10%;
   }
 
   &__description {
     @include ts-description;
+    line-height: 35px;
     margin-bottom: 24px;
-    padding-left: 10%;
+    padding: 0 10%;
+  }
+
+  &__link-css-triangle {
+    border: 8px solid black;
+    border-bottom-color: transparent;
+    border-left-color: $primary--orange;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    color: white;
+    display: inline-block;
+    //padding: 0 10%;
   }
 
   &__link {
     @include ts-link;
-    margin-bottom: 24px;
-    padding-left: 10%;
+    //padding: 0 10%;
   }
 
   // Modifiers
