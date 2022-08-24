@@ -48,6 +48,11 @@
 
   {% if content.field_key_messages|field_value %}
     {{ content.field_key_messages }}
+
+    {# add parner logo on key messages #}
+    {% if content.field_partner_logo|field_value %}
+      {{ content.field_partner_logo }}
+    {% endif %}
   {% endif %}
 
   {% if content.field_keywords|field_value %}
