@@ -96,16 +96,6 @@
 
                     <a class="o-meta-link" href="{{ value.url }}" {% if value.url is not empty %}target="{{ value.term_target }}{% endif %}">
                       <span class="o-meta-link__text">{{ value.text }}</span>
-
-                      {% if link_icon is not empty %}
-                        <span class="o-meta-link__icon o-meta-link__icon--{{ link_icon }}">
-                          {% if link_icon == 'external' %}
-                            {% include '@bruegel/svg/svg.html.twig' with {'svg': 'external'} %}
-                          {% elseif link_icon == 'download' %}
-                            {% include '@bruegel/svg/svg.html.twig' with {'svg': 'download'} %}
-                          {% endif %}
-                        </span>
-                      {% endif %}
                     </a>
                   {% else %}
                     <span class="c-meta__value"><span class="c-meta__value-text">{{ value.text }}</span></span>

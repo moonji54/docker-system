@@ -22,6 +22,36 @@
   {% endif %}
 
 </div>
+
+<div class="c-node__carrer-opportunity-sidebar">
+  <div class="supporting-document">
+    {% if content.field_supporting_document|field_value %}
+      {{ content.field_supporting_document }}
+    {% endif %}
+
+    {% if content.field_supporting_document_label|field_value %}
+      {{ content.field_supporting_document_label }}
+    {% endif %}
+  </div>
+
+  <div class="deadline">
+    {% if content.field_offer_deadline|field_value %}
+      {{ content.field_offer_deadlinevalue|date('U')|format_date('day_month_and_year') }}
+    {% endif %}
+  </div>
+
+  <div class="salary">
+    {% if content.field_salary|field_value %}
+      {{ content.field_salary }}
+    {% endif %}
+  </div>
+
+  <div class="contact">
+    {% if content.field_contact_for_queries|field_value %}
+      {{ content.field_contact_for_queries }}
+    {% endif %}
+  </div>
+</div>
 <article{{ attributes.addClass(classes) }}>
 
   {% if content.field_apply|field_value %}
@@ -40,10 +70,6 @@
     {{ content.field_city }}
   {% endif %}
 
-  {% if content.field_contact_for_queries|field_value %}
-    {{ content.field_contact_for_queries }}
-  {% endif %}
-
   {% if content.field_country|field_value %}
     {{ content.field_country }}
   {% endif %}
@@ -56,10 +82,6 @@
     {{ content.field_expiration_date }}
   {% endif %}
 
-  {% if content.field_offer_deadline|field_value %}
-    {{ content.field_offer_deadline }}
-  {% endif %}
-
   {% if content.field_photo_caption|field_value %}
     {{ content.field_photo_caption }}
   {% endif %}
@@ -68,20 +90,8 @@
     {{ content.field_region }}
   {% endif %}
 
-  {% if content.field_salary|field_value %}
-    {{ content.field_salary }}
-  {% endif %}
-
   {% if content.field_short_description|field_value %}
     {{ content.field_short_description }}
-  {% endif %}
-
-  {% if content.field_supporting_document|field_value %}
-    {{ content.field_supporting_document }}
-  {% endif %}
-
-  {% if content.field_supporting_document_label|field_value %}
-    {{ content.field_supporting_document_label }}
   {% endif %}
 
   {% if content.field_page_builder|field_value %}
@@ -114,16 +124,6 @@
 
                     <a class="o-meta-link" href="{{ value.url }}" {% if value.url is not empty %}target="{{ value.term_target }}{% endif %}">
                       <span class="o-meta-link__text">{{ value.text }}</span>
-
-                      {% if link_icon is not empty %}
-                        <span class="o-meta-link__icon o-meta-link__icon--{{ link_icon }}">
-                          {% if link_icon == 'external' %}
-                            {% include '@bruegel/svg/svg.html.twig' with {'svg': 'external'} %}
-                          {% elseif link_icon == 'download' %}
-                            {% include '@bruegel/svg/svg.html.twig' with {'svg': 'download'} %}
-                          {% endif %}
-                        </span>
-                      {% endif %}
                     </a>
                   {% else %}
                     <span class="c-meta__value"><span class="c-meta__value-text">{{ value.text }}</span></span>
