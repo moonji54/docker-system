@@ -22,13 +22,16 @@
 </div>
 <article{{ attributes.addClass(classes) }}>
 
-  {% if content.field_acknowledgement|field_value %}
-    {{ content.field_acknowledgement }}
-  {% endif %}
+  <div class="acknowledgement">
+    <p>{{ 'This content was produced with financial support from'|t }}</p>
+    {% if content.field_acknowledgement|field_value %}
+      {{ content.field_acknowledgement }}
+    {% endif %}
 
-  {% if content.field_acknowledgement_donor|field_value %}
-    {{ content.field_acknowledgement_donor }}
-  {% endif %}
+    {% if content.field_acknowledgement_donor|field_value %}
+      {{ content.field_acknowledgement_donor }}
+    {% endif %}
+  </div>
 
   {% if content.field_country|field_value %}
     {{ content.field_country }}
