@@ -4,6 +4,22 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.card
+    - field.field.node.career_opportunity.field_apply
+    - field.field.node.career_opportunity.field_body
+    - field.field.node.career_opportunity.field_career_opportunity_type
+    - field.field.node.career_opportunity.field_city
+    - field.field.node.career_opportunity.field_contact_for_queries
+    - field.field.node.career_opportunity.field_country
+    - field.field.node.career_opportunity.field_disclaimer
+    - field.field.node.career_opportunity.field_expiration_date
+    - field.field.node.career_opportunity.field_offer_deadline
+    - field.field.node.career_opportunity.field_page_builder
+    - field.field.node.career_opportunity.field_photo_caption
+    - field.field.node.career_opportunity.field_region
+    - field.field.node.career_opportunity.field_salary
+    - field.field.node.career_opportunity.field_short_description
+    - field.field.node.career_opportunity.field_supporting_document
+    - field.field.node.career_opportunity.field_supporting_document_label
     - node.type.career_opportunity
   module:
     - user
@@ -15,17 +31,41 @@ content:
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: -20
+    weight: 0
+    region: content
+  field_career_opportunity_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_short_description:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  langcode:
+    type: language
+    label: above
+    settings:
+      link_to_entity: false
+      native_language: false
+    third_party_settings: {  }
+    weight: 4
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 1
     region: content
 hidden:
   field_apply: true
   field_body: true
-  field_career_opportunity_type: true
   field_city: true
   field_contact_for_queries: true
   field_country: true
@@ -36,8 +76,6 @@ hidden:
   field_photo_caption: true
   field_region: true
   field_salary: true
-  field_short_description: true
   field_supporting_document: true
   field_supporting_document_label: true
-  langcode: true
   search_api_excerpt: true

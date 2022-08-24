@@ -36,7 +36,6 @@ class SocialMediaShareBlock extends BlockBase implements ContainerFactoryPluginI
   protected $requestStack;
 
   /**
-   * Constructs an LanguageBlock object.
    *
    * @param array $configuration
    *   A configuration array containing information about the plugin instance.

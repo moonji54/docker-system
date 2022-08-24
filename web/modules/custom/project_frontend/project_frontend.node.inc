@@ -229,13 +229,15 @@ function _project_frontend_preprocess_node_person_featured_work(array &$variable
 
     $limit = 4;
 
+    $fields = ['field_author'];
+
     if ($node->hasField('field_limit') && !empty($node->get('field_limit')->getValue()[0])) {
       $limit = (int) $node->get('field_limit')->getValue()['0']['value'];
     }
 
     /** @var Drupal\project_frontend\PersonFeaturedWorkHelperService $person_featured_work_helper_service */
     $person_featured_work_helper_service = \Drupal::service('project_frontend.person_featured_work');
-    $feature_work                        = $person_featured_work_helper_service->getPersonFeaturedWorkNodes($node, $limit, $allowed_types, $view_mode);
+    $feature_work                        = $person_featured_work_helper_service->getPersonFeaturedWorkNodes($node, $limit, $allowed_types, $view_mode, $fields);
     $variables['featured_work']          = [
       'content' => $feature_work,
       'count'   => count($feature_work),

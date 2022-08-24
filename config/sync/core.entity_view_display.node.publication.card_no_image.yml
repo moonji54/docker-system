@@ -1,9 +1,9 @@
-uuid: 6fce841e-13fe-42bf-bdbc-526858965b63
+uuid: af78c3f7-8996-413a-b17c-4257b471082e
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.card
+    - core.entity_view_mode.node.card_no_image
     - field.field.node.publication.field_absctract
     - field.field.node.publication.field_acknowledgement
     - field.field.node.publication.field_acknowledgement_donor
@@ -40,35 +40,27 @@ dependencies:
   module:
     - link
     - user
-id: node.publication.card
+id: node.publication.card_no_image
 targetEntityType: node
 bundle: publication
-mode: card
+mode: card_no_image
 content:
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
-  field_featured_image:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 2
-    region: content
   field_languages:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_link_from_external_card:
     type: link
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -76,15 +68,15 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_topic:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
   links:
     settings: {  }
@@ -102,6 +94,7 @@ hidden:
   field_expiration_date: true
   field_external_author_link: true
   field_external_author_name: true
+  field_featured_image: true
   field_key_messages: true
   field_keywords: true
   field_learning_block: true
