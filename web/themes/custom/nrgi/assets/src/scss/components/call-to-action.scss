@@ -1,7 +1,7 @@
 .c-call-to-action {
   @include o-container;
   color: $black;
-  min-height: 50vh;
+  min-height: 60vh;
   overflow: hidden;
   position: relative;
 
@@ -29,7 +29,7 @@
     @include ts-heading-1;
     display: inline-block;
     margin-bottom: 24px;
-    padding: 10% 10% 0 10%;
+    padding: 13% 10% 0 10%;
   }
 
   &__description {
@@ -47,12 +47,12 @@
     border-top-color: transparent;
     color: white;
     display: inline-block;
-    //padding: 0 10%;
+    margin-left: 10%;
   }
 
   &__link {
     @include ts-link;
-    //padding: 0 10%;
+    padding: 0 10% 0 2%;
   }
 
   // Modifiers
