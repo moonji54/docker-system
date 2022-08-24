@@ -13,6 +13,14 @@
 
   {% if content.field_absctract|field_value %}
     {{ content.field_absctract }}
+
+    {# Add partner logo next to abstract if there isn't key message #}
+    {% if not content.field_key_messages|field_value %}
+      {% if content.field_partner_logo|field_value %}
+        {{ content.field_partner_logo }}
+      {% endif %}
+    {% endif %}
+
   {% endif %}
 
   {% if content.field_acknowledgement|field_value %}
@@ -49,6 +57,11 @@
 
   {% if content.field_key_messages|field_value %}
     {{ content.field_key_messages }}
+
+    {# Add partner logo next to key message #}
+    {% if content.field_partner_logo|field_value %}
+      {{ content.field_partner_logo }}
+    {% endif %}
   {% endif %}
 
   {% if content.field_keywords|field_value %}
@@ -65,10 +78,6 @@
 
   {% if content.field_page_to_pdf|field_value %}
     {{ content.field_page_to_pdf }}
-  {% endif %}
-
-  {% if content.field_partner_logo|field_value %}
-    {{ content.field_partner_logo }}
   {% endif %}
 
   {% if content.field_partner_name|field_value %}
