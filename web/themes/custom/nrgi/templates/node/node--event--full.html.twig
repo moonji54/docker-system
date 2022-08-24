@@ -62,6 +62,11 @@
 
   {% if content.field_body|field_value %}
     {{ content.field_body }}
+
+    {# Add partner logo wiht the body #}
+    {% if content.field_partner_logo|field_value %}
+      {{ content.field_partner_logo }}
+    {% endif %}
   {% endif %}
 
   {% if content.field_speakers|field_value %}
