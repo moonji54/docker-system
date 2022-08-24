@@ -50,15 +50,18 @@ class ViewsReferenceFeaturedTerm extends PluginBase implements ViewsReferenceSet
   public function alterView(ViewExecutable $view, $value) {
     // Get the current view and the selected taxonomy terms.
     $display = $view->storage->getDisplay($view->current_display);
-    $arguments = $display["display_options"]["arguments"];
-    $i = 0;
-    foreach ($arguments as $argument) {
-      if ($argument["id"] == 'field_taxonomy_term_target_id') {
-        $key = $i;
-        break;
+    if (key_exists('arguments', $display['display_options'])) {
+      $arguments = $display["display_options"]["arguments"];
+      $i = 0;
+      foreach ($arguments as $argument) {
+        if ($argument["id"] == 'field_taxonomy_term_target_id') {
+          $key = $i;
+          break;
+        }
+        $i++;
       }
-      $i++;
     }
+
     // Send the selected taxonomy terms to the view.
     if (isset($key)) {
       $valueString = implode('+', $value);

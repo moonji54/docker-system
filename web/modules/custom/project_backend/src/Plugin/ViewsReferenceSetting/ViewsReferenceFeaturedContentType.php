@@ -50,15 +50,18 @@ class ViewsReferenceFeaturedContentType extends PluginBase implements ViewsRefer
   public function alterView(ViewExecutable $view, $value) {
     // Get the current view and the selected content types.
     $display = $view->storage->getDisplay($view->current_display);
-    $arguments = $display["display_options"]["arguments"];
-    $i = 0;
-    foreach ($arguments as $argument) {
-      if ($argument["id"] == 'type') {
-        $key = $i;
-        break;
+    if (key_exists('arguments', $display['display_options'])) {
+      $arguments = $display["display_options"]["arguments"];
+      $i = 0;
+      foreach ($arguments as $argument) {
+        if ($argument["id"] == 'type') {
+          $key = $i;
+          break;
+        }
+        $i++;
       }
-      $i++;
     }
+
     // Send the selected content types to the view.
     if (isset($key)) {
       $valueString = implode('+', $value);
