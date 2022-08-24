@@ -105,7 +105,13 @@ function project_backend_language_switch_links_alter(array &$links, $type, $path
  */
 function project_backend_preprocess_node(&$variables) {
   // Set the variable for the node title
-  $variables['content']['field_title'] = $variables['node']->getTitle();
+  $variables['content']['field_title'] = [
+    '0' => [
+    '#type' => 'html_tag',
+    '#tag' => 'div',
+    '#value' => $variables['node']->getTitle(),
+    '#attributes' => ['class' => ['title']]],
+      ];
 
   // send the breadcrumb block to a template so it can be repositioned as needed
   $block = Block::load('breadcrumbs');
