@@ -1,9 +1,7 @@
 uuid: 22c876a7-8963-469a-b06e-1c420bf23a6c
 langcode: en
 status: true
-dependencies:
-  module:
-    - layout_paragraphs
+dependencies: {  }
 _core:
   default_config_hash: WcnUcJbzRvdy5eJeLxHVGQJwMefBlLLVLu8JpvSY3fw
 id: wysiwyg
@@ -11,7 +9,4 @@ label: WYSIWYG
 icon_uuid: null
 icon_default: null
 description: 'A rich text area.'
-behavior_plugins:
-  layout_paragraphs:
-    enabled: false
-    available_layouts: {  }
+behavior_plugins: {  }

@@ -87,7 +87,7 @@
     "require": {
         "ckeditor/fakeobjects": "*",
         "ckeditor/link": "*",
-        "composer/installers": "^1.9",
+        "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.6.5",
         "desandro/imagesloaded": "3.1.8",
         "desandro/masonry": "3.3.1",
@@ -98,11 +98,10 @@
         "drupal/better_exposed_filters": "^5.0@beta|^5.0@RC|^5.0",
         "drupal/bugherd": "^1.0@beta",
         "drupal/conditional_fields": "^4.0@alpha",
-        "drupal/console": "~1.0",
         "drupal/context": "^4.0@beta|^4.0@RC|^4.0",
         "drupal/context_active_trail": "^2.0@beta|^2.0@RC|^2.0",
         "drupal/cookiepro": "^2.0",
-        "drupal/core": "^9.3",
+        "drupal/core": "^9.4",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-project-message": "^9.1",
         "drupal/core-recommended": "^9.1",
@@ -114,9 +113,6 @@
         "drupal/file_delete": "^1.0",
         "drupal/focal_point": "^1.5",
         "drupal/form_mode_manager": "2.x-dev",
-        "drupal/iframe_video": "^1.0",
-        "drupal/layout_paragraphs": "^1.0",
-        "drupal/layout_paragraphs_restriction": "^1.0@alpha",
         "drupal/linked_field": "^1.3",
         "drupal/linkit": "^6.0@beta|^6.0@RC|^6.0",
         "drupal/login_redirect_per_role": "^1.2",
@@ -145,7 +141,6 @@
         "drupal/stage_file_proxy": "^1.0",
         "drupal/structure_sync": "^2.0",
         "drupal/svg_image": "^1.16",
-        "drupal/swiftmailer": "^2.0",
         "drupal/taxonomy_import": "^2.0",
         "drupal/token_default": "^1.0@beta|^1.0@RC|^1.0",
         "drupal/twig_field_value": "^2.0",
@@ -212,11 +207,7 @@
             "drupal/core": {
                 "Error during custom module uninstallation : Call to a member function getConfigDependencyKey() on null": "https://www.drupal.org/files/issues/2019-07-17/custom-taxonomy-uninstallation.patch",
                 "Entity References as checkboxes or dropdowns": "https://www.drupal.org/files/issues/2021-12-02/2429699-453-9.3.x.patch",
-                "Supports OEmbed providers without thumbnails dimensions": "https://www.drupal.org/files/issues/2020-02-14/supports-oembed-providers-without-thumbnails-dimensions-3111991-5.patch",
-                "Ckeditor issue" : "https://www.drupal.org/files/issues/2022-07-11/core-3268983-40.patch"
-            },
-            "drupal/bugherd": {
-                "Error: Class 'Zend\\Escaper\\Escaper' not found in bugherd_page_attachments()": "https://www.drupal.org/files/issues/2021-12-16/Zend_Escaper_Escaper-3253467.patch"
+                "Supports OEmbed providers without thumbnails dimensions": "https://www.drupal.org/files/issues/2020-02-14/supports-oembed-providers-without-thumbnails-dimensions-3111991-5.patch"
             },
             "drupal/field_group": {
                 "Ensure visibility of invalid fields (JS)": "https://www.drupal.org/files/issues/2020-05-28/2787179-highlight-html5-validation-53.patch",

@@ -1,15 +1,10 @@
 uuid: 1c5ad057-8262-4473-9b68-ea8cabc79def
 langcode: en
 status: true
-dependencies:
-  module:
-    - layout_paragraphs
+dependencies: {  }
 id: full_width_media
 label: 'Full-width media'
 icon_uuid: null
 icon_default: null
 description: ''
-behavior_plugins:
-  layout_paragraphs:
-    enabled: false
-    available_layouts: {  }
+behavior_plugins: {  }

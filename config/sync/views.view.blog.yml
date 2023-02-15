@@ -9,8 +9,6 @@ dependencies:
     - taxonomy.vocabulary.keyword
     - taxonomy.vocabulary.language
     - taxonomy.vocabulary.topic
-  content:
-    - 'taxonomy_term:topic:bec25127-2e6a-4ec0-b3e7-e28723a467b3'
   module:
     - node
     - taxonomy

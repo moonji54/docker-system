@@ -8,9 +8,6 @@ dependencies:
     - taxonomy.vocabulary.country
     - taxonomy.vocabulary.person_type
     - taxonomy.vocabulary.topic
-  content:
-    - 'taxonomy_term:person_type:6f016ac9-5762-40cf-808b-3333613d4325'
-    - 'taxonomy_term:person_type:a1386e8f-5c76-4e91-ad24-cd1f5a04908a'
   module:
     - node
     - taxonomy

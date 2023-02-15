@@ -1,13 +1,13 @@
 name: resourcegovernance.org
 type: drupal9
 docroot: web
-php_version: "8.0"
+php_version: "8.1"
 webserver_type: nginx-fpm
 router_http_port: "80"
 router_https_port: "443"
 xdebug_enabled: false
-additional_hostnames: []
-additional_fqdns: []
+additional_hostnames: [ ]
+additional_fqdns: [ ]
 database:
   type: mariadb
   version: "10.3"
@@ -15,8 +15,9 @@ nfs_mount_enabled: false
 mutagen_enabled: true
 use_dns_when_possible: true
 composer_version: "2"
-web_environment: []
+web_environment: [ ]
 nodejs_version: "16"
+composer_version: "2"
 
 # Key features of ddev's config.yaml:
 

@@ -7,13 +7,6 @@ dependencies:
     - node.type.event
     - taxonomy.vocabulary.event_role_label
     - taxonomy.vocabulary.topic
-  content:
-    - 'taxonomy_term:topic:0600ca86-dab2-4c08-9292-316f5a64bba7'
-    - 'taxonomy_term:topic:67ce7b73-72c8-4495-b499-8c33024293f6'
-    - 'taxonomy_term:topic:7c9e9a8f-e4a2-4da3-a760-455271328ab4'
-    - 'taxonomy_term:topic:9d5ca178-b58f-4b9a-baa2-0f67d7137341'
-    - 'taxonomy_term:topic:a6cf13d0-2b63-4807-88cd-3b1fd7b3a1ef'
-    - 'taxonomy_term:topic:d89d2c81-7736-4917-83af-3e547609721a'
   module:
     - node
     - taxonomy

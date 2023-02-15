@@ -50,13 +50,9 @@ module:
   jquery_ui_slider: 0
   jquery_ui_touch_punch: 0
   language: 0
-  layout_discovery: 0
-  layout_paragraphs: 0
-  layout_paragraphs_restriction: 0
   link: 0
   linkit: 0
   locale: 0
-  mailsystem: 0
   media: 0
   media_library: 0
   media_remote_audio: 0
@@ -68,7 +64,6 @@ module:
   metatag_twitter_cards: 0
   mysql: 0
   node: 0
-  nrgi_layout_builder: 0
   oembed_providers: 0
   options: 0
   override_node_options: 0
@@ -112,7 +107,6 @@ module:
   soapbox_views: 0
   structure_sync: 0
   svg_image: 0
-  swiftmailer: 0
   system: 0
   taxonomy: 0
   taxonomy_import: 0
