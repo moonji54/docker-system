@@ -1,11 +1,16 @@
 <?php
 
+/**
+ * @file
+ * Contains nrgi_backend.media_types.inc.
+ */
+
 use Drupal\media_library\Form\OEmbedForm;
 
 /**
  * Implements hook_media_source_info_alter().
  */
-function project_backend_media_source_info_alter(array &$sources) {
+function nrgi_backend_media_source_info_alter(array &$sources) {
   // Add remote audio as a type.
   $sources['remote_audio'] = [
     'id' => 'remote_audio',

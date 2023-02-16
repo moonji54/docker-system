@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\project_backend\Plugin\Block;
+namespace Drupal\nrgi_backend\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Http\RequestStack;

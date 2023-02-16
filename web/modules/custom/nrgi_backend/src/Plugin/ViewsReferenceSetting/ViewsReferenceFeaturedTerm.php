@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\project_backend\Plugin\ViewsReferenceSetting;
+namespace Drupal\nrgi_backend\Plugin\ViewsReferenceSetting;
 
 use Drupal\Component\Plugin\PluginBase;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
@@ -15,11 +15,11 @@ use Drupal\viewsreference\Plugin\ViewsReferenceSettingInterface;
  *
  * @ViewsReferenceSetting(
  *   id = "featured_term",
- *   label = @Translation("NRGI Featured people - Taxonomy term"),
+ *   label = @Translation("NRGI Featured content - Taxonomy term"),
  *   default_value = 0,
  * )
  */
-class ViewsReferenceFeaturedTermPeople extends PluginBase implements ViewsReferenceSettingInterface {
+class ViewsReferenceFeaturedTerm extends PluginBase implements ViewsReferenceSettingInterface {
 
   use StringTranslationTrait;
 
@@ -28,7 +28,7 @@ class ViewsReferenceFeaturedTermPeople extends PluginBase implements ViewsRefere
    */
   public function alterFormField(array &$form_field) {
     // Get all the taxonomy term ids and labels.
-    $vocabularies = ['person_type'];
+    $vocabularies = ['topic', 'country', 'language', 'content_type_label'];
     $taxonomyTerms = [];
     $terms = Term::loadMultiple();
     foreach ($terms as $term) {
@@ -51,7 +51,7 @@ class ViewsReferenceFeaturedTermPeople extends PluginBase implements ViewsRefere
     // Get the current view and the selected taxonomy terms.
     $display = $view->storage->getDisplay($view->current_display);
     if (key_exists('arguments', $display['display_options'])) {
-      $arguments = $display['display_options']['arguments'];
+      $arguments = $display["display_options"]["arguments"];
       $i = 0;
       foreach ($arguments as $argument) {
         if ($argument["id"] == 'field_taxonomy_term_target_id') {
@@ -60,14 +60,14 @@ class ViewsReferenceFeaturedTermPeople extends PluginBase implements ViewsRefere
         }
         $i++;
       }
-      // Send the selected taxonomy terms to the view.
-      if (isset($key)) {
-        $valueString = implode('+', $value);
-        $arg[$key] = $valueString;
-        $view->setArguments($arg);
-      }
     }
 
+    // Send the selected taxonomy terms to the view.
+    if (isset($key)) {
+      $valueString = implode('+', $value);
+      $arg[$key] = $valueString;
+      $view->setArguments($arg);
+    }
   }
 
 }

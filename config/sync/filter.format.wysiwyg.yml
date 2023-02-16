@@ -5,7 +5,7 @@ dependencies:
   module:
     - linkit
     - media
-    - project_backend
+    - nrgi_backend
 name: WYSIWYG
 format: wysiwyg
 weight: 0
@@ -48,12 +48,14 @@ filters:
       default_view_mode: default
       allowed_view_modes: {  }
       allowed_media_types:
+        audio: audio
         document: document
         image: image
-        video: video
+        remote_audio: remote_audio
+        remote_video: remote_video
   filter_tables:
     id: filter_tables
-    provider: project_backend
+    provider: nrgi_backend
     status: true
     weight: 0
     settings: {  }

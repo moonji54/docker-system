@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\project_backend\Plugin\Filter;
+namespace Drupal\nrgi_backend\Plugin\Filter;
 
 use Drupal\filter\FilterProcessResult;
 use Drupal\filter\Plugin\FilterBase;

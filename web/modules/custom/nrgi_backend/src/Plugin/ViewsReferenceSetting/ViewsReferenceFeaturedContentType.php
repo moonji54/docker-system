@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\project_backend\Plugin\ViewsReferenceSetting;
+namespace Drupal\nrgi_backend\Plugin\ViewsReferenceSetting;
 
 use Drupal;
 use Drupal\Component\Plugin\PluginBase;

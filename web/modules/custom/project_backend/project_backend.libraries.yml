@@ -1,5 +1,0 @@
-# Custom module library for general purposes.
-project-backend-styling:
-  css:
-    theme:
-      assets/css/project-backend.css: { }
