@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_focus_areas
     - node.type.person
-    - taxonomy.vocabulary.topic
 id: node.person.field_focus_areas
 field_name: field_focus_areas
 entity_type: node
@@ -19,8 +18,7 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles:
-      topic: topic
+    target_bundles: {  }
     sort:
       field: name
       direction: asc

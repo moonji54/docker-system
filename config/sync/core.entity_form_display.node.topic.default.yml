@@ -3,12 +3,64 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.topic.field_taxonomy_term
+    - field.field.node.topic.field_featured_image
+    - field.field.node.topic.field_page_builder
+    - field.field.node.topic.field_short_description
     - node.type.topic
     - workflows.workflow.editorial
   module:
     - content_moderation
+    - field_group
+    - media_library
+    - paragraphs
     - path
+third_party_settings:
+  field_group:
+    group_uploads:
+      children:
+        - field_featured_image
+      label: Uploads
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_page_builder:
+      children:
+        - field_page_builder
+      label: 'Page builder'
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_description:
+      children:
+        - field_short_description
+      label: Description
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
 id: node.topic.default
 targetEntityType: node
 bundle: topic
@@ -20,13 +72,37 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_taxonomy_term:
-    type: entity_reference_autocomplete
-    weight: 121
+  field_featured_image:
+    type: media_library_widget
+    weight: 20
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
+      media_types: {  }
+    third_party_settings: {  }
+  field_page_builder:
+    type: paragraphs
+    weight: 19
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: '0'
+    third_party_settings: {  }
+  field_short_description:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }

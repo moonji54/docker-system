@@ -1,0 +1,19 @@
+uuid: fe128a54-6086-4b01-a444-2303e15003b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_short_description
+    - node.type.topic
+id: node.topic.field_short_description
+field_name: field_short_description
+entity_type: node
+bundle: topic
+label: 'Short description'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

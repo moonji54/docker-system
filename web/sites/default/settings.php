@@ -788,5 +788,6 @@ $settings['config_sync_directory'] = '../config/sync';
  */
 $settings['config_exclude_modules'] = [
   'stage_file_proxy',
+  'field_tools',
   'devel',
 ];
