@@ -586,7 +586,7 @@ display:
           id: moderation_state
           table: node_field_revision
           field: moderation_state
-          relationship: none
+          relationship: nid
           group_type: group
           admin_label: ''
           entity_type: node
@@ -594,6 +594,7 @@ display:
           operator: in
           value:
             editorial-draft: editorial-draft
+            editorial-needs_review: editorial-needs_review
             editorial-archived: editorial-archived
           group: 1
           exposed: true
@@ -612,7 +613,9 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              editor: '0'
               administrator: '0'
+              site_manager: '0'
             reduce: true
           is_grouped: false
           group_info:

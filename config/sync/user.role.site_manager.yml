@@ -57,7 +57,7 @@ dependencies:
     - redirect
     - role_delegation
     - save_edit
-    - scheduler
+    - scheduled_transitions
     - simple_user_management
     - site_settings
     - site_settings_type_permissions
@@ -338,7 +338,6 @@ permissions:
   - 'revert person revisions'
   - 'revert publication revisions'
   - 'revert topic revisions'
-  - 'schedule publishing of nodes'
   - 'translate any entity'
   - 'translate article node'
   - 'translate block_content'
@@ -370,6 +369,7 @@ permissions:
   - 'use text format wysiwyg'
   - 'view all media revisions'
   - 'view all revisions'
+  - 'view all scheduled transitions'
   - 'view any unpublished content'
   - 'view article revisions'
   - 'view career_opportunity revisions'
@@ -392,7 +392,6 @@ permissions:
   - 'view published newsletter site setting entities'
   - 'view published site setting entities'
   - 'view published social_media_links site setting entities'
-  - 'view scheduled content'
   - 'view topic revisions'
   - 'view unpublished copyright site setting entities'
   - 'view unpublished footer_logo site setting entities'

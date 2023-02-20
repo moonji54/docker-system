@@ -55,8 +55,6 @@ dependencies:
     - media_library
     - paragraphs
     - path
-    - scheduler
-    - scheduler_content_moderation_integration
     - text
 third_party_settings:
   field_group:
@@ -650,14 +648,14 @@ content:
       display_label: true
     third_party_settings: {  }
   publish_on:
-    type: datetime_timestamp_no_default
-    weight: 16
+    type: datetime_timestamp
+    weight: 133
     region: content
     settings: {  }
     third_party_settings: {  }
   publish_state:
-    type: scheduler_moderation
-    weight: 13
+    type: options_select
+    weight: 131
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -699,14 +697,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   unpublish_on:
-    type: datetime_timestamp_no_default
-    weight: 15
+    type: datetime_timestamp
+    weight: 134
     region: content
     settings: {  }
     third_party_settings: {  }
   unpublish_state:
-    type: scheduler_moderation
-    weight: 14
+    type: options_select
+    weight: 132
     region: content
     settings: {  }
     third_party_settings: {  }

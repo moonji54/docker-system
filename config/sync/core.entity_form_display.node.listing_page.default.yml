@@ -4,9 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.listing_page.field_components
-    - field.field.node.listing_page.field_language_bar_text
     - field.field.node.listing_page.field_image
     - field.field.node.listing_page.field_intro
+    - field.field.node.listing_page.field_language_bar_text
     - field.field.node.listing_page.field_listing_block
     - field.field.node.listing_page.field_title
     - image.style.thumbnail
@@ -16,11 +16,7 @@ dependencies:
     - content_moderation
     - field_group
     - paragraphs
-    - entity_reference_revisions
     - path
-    - scheduler
-    - scheduler_content_moderation_integration
-    - text
     - svg_image
 third_party_settings:
   field_group:
@@ -169,14 +165,14 @@ content:
       display_label: true
     third_party_settings: {  }
   publish_on:
-    type: datetime_timestamp_no_default
-    weight: 12
+    type: datetime_timestamp
+    weight: 28
     region: content
     settings: {  }
     third_party_settings: {  }
   publish_state:
-    type: scheduler_moderation
-    weight: 11
+    type: options_select
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -218,14 +214,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   unpublish_on:
-    type: datetime_timestamp_no_default
-    weight: 9
+    type: datetime_timestamp
+    weight: 29
     region: content
     settings: {  }
     third_party_settings: {  }
   unpublish_state:
-    type: scheduler_moderation
-    weight: 10
+    type: options_select
+    weight: 27
     region: content
     settings: {  }
     third_party_settings: {  }

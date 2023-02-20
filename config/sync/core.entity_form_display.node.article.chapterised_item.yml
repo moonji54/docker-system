@@ -34,10 +34,7 @@ dependencies:
   module:
     - content_moderation
     - field_group
-    - media_library
     - path
-    - scheduler
-    - scheduler_content_moderation_integration
 third_party_settings:
   field_group:
     group_general:
@@ -125,14 +122,14 @@ content:
       display_label: true
     third_party_settings: {  }
   publish_on:
-    type: datetime_timestamp_no_default
-    weight: 30
+    type: datetime_timestamp
+    weight: 103
     region: content
     settings: {  }
     third_party_settings: {  }
   publish_state:
-    type: scheduler_moderation
-    weight: 30
+    type: options_select
+    weight: 101
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -174,14 +171,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   unpublish_on:
-    type: datetime_timestamp_no_default
-    weight: 30
+    type: datetime_timestamp
+    weight: 104
     region: content
     settings: {  }
     third_party_settings: {  }
   unpublish_state:
-    type: scheduler_moderation
-    weight: 30
+    type: options_select
+    weight: 102
     region: content
     settings: {  }
     third_party_settings: {  }

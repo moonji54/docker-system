@@ -36,7 +36,7 @@ dependencies:
     - node
     - override_node_options
     - save_edit
-    - scheduler
+    - scheduled_transitions
     - system
     - toolbar
 _core:
@@ -167,7 +167,6 @@ permissions:
   - 'revert person revisions'
   - 'revert publication revisions'
   - 'revert topic revisions'
-  - 'schedule publishing of nodes'
   - 'translate any entity'
   - 'translate article node'
   - 'translate block_content'
@@ -200,6 +199,7 @@ permissions:
   - 'use text format wysiwyg'
   - 'view all media revisions'
   - 'view all revisions'
+  - 'view all scheduled transitions'
   - 'view any unpublished content'
   - 'view article revisions'
   - 'view career_opportunity revisions'
@@ -218,6 +218,5 @@ permissions:
   - 'view page revisions'
   - 'view person revisions'
   - 'view publication revisions'
-  - 'view scheduled content'
   - 'view the administration theme'
   - 'view topic revisions'
