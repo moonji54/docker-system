@@ -105,7 +105,6 @@ module:
   soapbox_routes: 0
   soapbox_themes: 0
   soapbox_views: 0
-  structure_sync: 0
   svg_image: 0
   symfony_mailer: 0
   system: 0
