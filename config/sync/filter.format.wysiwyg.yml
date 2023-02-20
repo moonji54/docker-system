@@ -8,7 +8,7 @@ dependencies:
     - nrgi_backend
 name: WYSIWYG
 format: wysiwyg
-weight: 0
+weight: -10
 filters:
   filter_url:
     id: filter_url

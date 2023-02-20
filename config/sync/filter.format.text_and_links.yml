@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 name: 'Text and links'
 format: text_and_links
-weight: 0
+weight: -9
 filters:
   filter_url:
     id: filter_url
