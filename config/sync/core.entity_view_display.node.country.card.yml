@@ -4,7 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.card
-    - field.field.node.country.field_taxonomy_term
+    - field.field.node.country.field_featured_image
+    - field.field.node.country.field_page_builder
+    - field.field.node.country.field_region
+    - field.field.node.country.field_short_description
     - node.type.country
   module:
     - user
@@ -17,14 +20,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: -20
-    region: content
-  field_taxonomy_term:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 2
     region: content
   langcode:
     type: language
@@ -41,4 +36,8 @@ content:
     weight: 0
     region: content
 hidden:
+  field_featured_image: true
+  field_page_builder: true
+  field_region: true
+  field_short_description: true
   search_api_excerpt: true

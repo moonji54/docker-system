@@ -1,15 +1,16 @@
-uuid: 5d1d9ca3-dbee-4e3c-9486-9cbc510843f5
+uuid: c817dc06-cbfd-4b13-ac57-72f0d59c3803
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_country
-    - node.type.person
-id: node.person.field_country
-field_name: field_country
+    - field.storage.node.field_region
+    - node.type.country
+    - taxonomy.vocabulary.regions
+id: node.country.field_region
+field_name: field_region
 entity_type: node
-bundle: person
-label: Country
+bundle: country
+label: Region
 description: ''
 required: false
 translatable: true
@@ -18,7 +19,8 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles: {  }
+    target_bundles:
+      regions: regions
     sort:
       field: name
       direction: asc

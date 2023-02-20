@@ -27,7 +27,6 @@ dependencies:
     - node.type.topic
     - taxonomy.vocabulary.career_opportunity_type
     - taxonomy.vocabulary.cities
-    - taxonomy.vocabulary.country
     - taxonomy.vocabulary.event_expertise_requirement
     - taxonomy.vocabulary.event_role_label
     - taxonomy.vocabulary.event_type
@@ -116,7 +115,6 @@ permissions:
   - 'create social_media_links site setting'
   - 'create terms in career_opportunity_type'
   - 'create terms in cities'
-  - 'create terms in country'
   - 'create terms in event_expertise_requirement'
   - 'create terms in event_role_label'
   - 'create terms in event_type'
@@ -198,7 +196,6 @@ permissions:
   - 'delete social_media_links site setting'
   - 'delete terms in career_opportunity_type'
   - 'delete terms in cities'
-  - 'delete terms in country'
   - 'delete terms in event_expertise_requirement'
   - 'delete terms in event_role_label'
   - 'delete terms in event_type'
@@ -258,7 +255,6 @@ permissions:
   - 'edit social_media_links site setting'
   - 'edit terms in career_opportunity_type'
   - 'edit terms in cities'
-  - 'edit terms in country'
   - 'edit terms in event_expertise_requirement'
   - 'edit terms in event_role_label'
   - 'edit terms in event_type'

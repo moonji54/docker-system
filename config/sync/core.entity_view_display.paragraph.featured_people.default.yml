@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.paragraph.featured_people.field_button_text_and_link
     - field.field.paragraph.featured_people.field_content_cards
-    - field.field.paragraph.featured_people.field_dynamic_listing
     - field.field.paragraph.featured_people.field_items_selection
     - field.field.paragraph.featured_people.field_layout
     - field.field.paragraph.featured_people.field_show_image
@@ -15,7 +14,6 @@ dependencies:
   module:
     - link
     - text
-    - viewsreference
 id: paragraph.featured_people.default
 targetEntityType: paragraph
 bundle: featured_people
@@ -40,15 +38,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 10
-    region: content
-  field_dynamic_listing:
-    type: viewsreference_formatter
-    label: hidden
-    settings:
-      plugin_types:
-        - block
-    third_party_settings: {  }
-    weight: 9
     region: content
   field_items_selection:
     type: boolean

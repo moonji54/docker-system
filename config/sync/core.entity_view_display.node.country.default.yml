@@ -3,9 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.country.field_taxonomy_term
+    - field.field.node.country.field_featured_image
+    - field.field.node.country.field_page_builder
+    - field.field.node.country.field_region
+    - field.field.node.country.field_short_description
     - node.type.country
   module:
+    - entity_reference_revisions
     - user
 id: node.country.default
 targetEntityType: node
@@ -17,13 +21,38 @@ content:
     third_party_settings: {  }
     weight: -20
     region: content
-  field_taxonomy_term:
+  field_featured_image:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_page_builder:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_region:
     type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_short_description:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
     region: content
   links:
     settings: {  }

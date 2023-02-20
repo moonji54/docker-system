@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_country
     - node.type.publication
-    - taxonomy.vocabulary.country
 id: node.publication.field_country
 field_name: field_country
 entity_type: node
@@ -19,8 +18,7 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles:
-      country: country
+    target_bundles: {  }
     sort:
       field: name
       direction: asc

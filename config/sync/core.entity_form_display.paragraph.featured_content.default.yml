@@ -6,7 +6,6 @@ dependencies:
     - field.field.paragraph.featured_content.field_button_text_and_link
     - field.field.paragraph.featured_content.field_content_cards
     - field.field.paragraph.featured_content.field_description
-    - field.field.paragraph.featured_content.field_dynamic_listing
     - field.field.paragraph.featured_content.field_items_selection
     - field.field.paragraph.featured_content.field_layout
     - field.field.paragraph.featured_content.field_show_image
@@ -18,7 +17,6 @@ dependencies:
     - field_group
     - link
     - text
-    - viewsreference
 third_party_settings:
   field_group:
     group_content_cards:
@@ -93,12 +91,6 @@ content:
       allowed_formats:
         hide_help: '0'
         hide_guidelines: '0'
-  field_dynamic_listing:
-    type: viewsreference_select
-    weight: 12
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_items_selection:
     type: options_buttons
     weight: 10

@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.paragraph.featured_people.field_button_text_and_link
     - field.field.paragraph.featured_people.field_content_cards
-    - field.field.paragraph.featured_people.field_dynamic_listing
     - field.field.paragraph.featured_people.field_items_selection
     - field.field.paragraph.featured_people.field_layout
     - field.field.paragraph.featured_people.field_show_image
@@ -16,7 +15,6 @@ dependencies:
     - field_group
     - link
     - text
-    - viewsreference
 third_party_settings:
   field_group:
     group_featured_people:
@@ -63,12 +61,6 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_dynamic_listing:
-    type: viewsreference_select
-    weight: 6
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_items_selection:
     type: options_buttons
