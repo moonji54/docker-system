@@ -1,18 +1,15 @@
-uuid: b1e8135d-bf59-49c3-943b-c2075a269251
+uuid: 63ed8bc4-fa16-42d9-9473-882403dea1be
 langcode: en
 status: true
 dependencies:
-  module:
-    - context
-    - system
   theme:
     - claro
 _core:
-  default_config_hash: m0EB_mENEwxDWLCWYA0sWl7_N2tSB-Rhrd_QpRQKSXo
+  default_config_hash: CdXfDmRgAvms7EQovxxWPdYi0GitxeRbVtScYK16ZH0
 id: claro_local_actions
 theme: claro
 region: content
-weight: -10
+weight: -3
 provider: null
 plugin: local_actions_block
 settings:
@@ -20,27 +17,4 @@ settings:
   label: 'Primary admin actions'
   label_display: '0'
   provider: core
-visibility:
-  context:
-    id: context
-    negate: null
-    values: ''
-  user_status:
-    id: user_status
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
-    user_status:
-      viewing_profile: '0'
-      logged_viewing_profile: '0'
-      own_page_true: '0'
-      field_value: '0'
-    user_fields: uid
-  context_all:
-    id: context_all
-    negate: null
-    values: ''
-  request_path:
-    id: request_path
-    negate: true
-    pages: "/node/add\r\n/admin/content"
+visibility: {  }
