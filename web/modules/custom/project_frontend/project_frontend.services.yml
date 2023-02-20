@@ -1,4 +1,0 @@
-services:
-  project_frontend.person_featured_work:
-    class: Drupal\project_frontend\PersonFeaturedWorkHelperService
-    arguments: [ '@entity_type.manager', '@renderer' ]

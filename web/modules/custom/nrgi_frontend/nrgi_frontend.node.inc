@@ -2,31 +2,22 @@
 
 /**
  * @file
- * Contains project_frontend.node.inc.
+ * Contains nrgi_frontend.node.inc.
  */
 
-use Drupal\Component\Utility\Html;
-use Drupal\Core\Datetime\DrupalDateTime;
-use Drupal\Core\Entity\Query\QueryInterface;
-use Drupal\Core\Url;
-use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
-use Drupal\paragraphs\Entity\Paragraph;
-use Drupal\paragraphs\ParagraphInterface;
 use Drupal\taxonomy\Entity\Term;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Implements hook_preprocess_node().
  */
-function project_frontend_preprocess_node(&$variables) {
+function nrgi_frontend_preprocess_node(&$variables): void {
   /** @var Drupal\node\NodeInterface $node */
   $node = $variables['node'];
 
   if ($node && $node instanceof NodeInterface) {
-    _project_frontend_preprocess_node_type_label($variables, $node);
-    // _project_frontend_preprocess_node_date($variables, $node);
-
+    _nrgi_frontend_preprocess_node_type_label($variables, $node);
+    // _nrgi_frontend_preprocess_node_date($variables, $node);
     // Based on content type (applied to all view modes).
     switch ($node->bundle()) {
       case 'person':
@@ -42,14 +33,13 @@ function project_frontend_preprocess_node(&$variables) {
 
       case 'full':
         // Functions only for full view mode.
-        _project_frontend_preprocess_node_meta($variables, $node);
-        _project_frontend_preprocess_node_person_featured_work($variables, $node);
-        _project_frontend_preprocess_node_related_content($variables);
+        _nrgi_frontend_preprocess_node_meta($variables, $node);
+        _nrgi_frontend_preprocess_node_person_featured_work($variables, $node);
+        _nrgi_frontend_preprocess_node_related_content($variables);
         break;
 
       case 'person_card':
         // Function for person_card.
-
         break;
     }
   }
@@ -66,7 +56,7 @@ function project_frontend_preprocess_node(&$variables) {
  * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
  * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
  */
-function _project_frontend_preprocess_node_type_label(array &$variables, NodeInterface $node) {
+function _nrgi_frontend_preprocess_node_type_label(array &$variables, NodeInterface $node): void {
   // Content Type.
   $variables['type_label'] = $node->type->entity->label();
 
@@ -86,13 +76,13 @@ function _project_frontend_preprocess_node_type_label(array &$variables, NodeInt
   }
 }
 
-///**
+// /**
 // * @param array $variables
 // *   The variables from template_preprocess_node().
 // * @param \Drupal\node\NodeInterface $node
 // *   Node to preprocess.
 // */
-// function _project_frontend_preprocess_node_date(array &$variables, NodeInterface $node) {
+// function _nrgi_frontend_preprocess_node_date(array &$variables, NodeInterface $node) {
 //  /** @var \Drupal\Core\Field\FieldItemList $unified_date_field */
 //  $unified_date_field = $node->get('unified_date');
 //  $date_timestamp     = $unified_date_field->getString();
@@ -136,8 +126,7 @@ function _project_frontend_preprocess_node_type_label(array &$variables, NodeInt
 //
 //  $variables['node_date']      = $date_string;
 //  $variables['node_html_date'] = $date_string_ymd;
-//}
-
+// }
 
 /**
  * Preprocess related content.
@@ -145,9 +134,9 @@ function _project_frontend_preprocess_node_type_label(array &$variables, NodeInt
  * @param array $variables
  *   The variables from template_preprocess_node().
  */
-function _project_frontend_preprocess_node_related_content(array &$variables) {
+function _nrgi_frontend_preprocess_node_related_content(array &$variables): void {
   /** @var \Drupal\node\Entity\Node $node */
-  $node  = $variables['node'];
+  $node = $variables['node'];
   $limit = 4;
 
   if ($node->hasField('field_limit')) {
@@ -214,9 +203,9 @@ function _project_frontend_preprocess_node_related_content(array &$variables) {
  * @param \Drupal\node\NodeInterface $node
  *   Node to preprocess.
  */
-function _project_frontend_preprocess_node_person_featured_work(array &$variables, NodeInterface $node) {
+function _nrgi_frontend_preprocess_node_person_featured_work(array &$variables, NodeInterface $node): void {
   if ($node->bundle() == 'person') {
-    $view_mode     = 'featured_content_with_image';
+    $view_mode = 'featured_content_with_image';
     $allowed_types = [
       'article',
       'collection',
@@ -231,16 +220,17 @@ function _project_frontend_preprocess_node_person_featured_work(array &$variable
 
     $fields = ['field_author'];
 
-    if ($node->hasField('field_limit') && !empty($node->get('field_limit')->getValue()[0])) {
+    if ($node->hasField('field_limit') && !empty($node->get('field_limit')
+      ->getValue()[0])) {
       $limit = (int) $node->get('field_limit')->getValue()['0']['value'];
     }
 
-    /** @var Drupal\project_frontend\PersonFeaturedWorkHelperService $person_featured_work_helper_service */
-    $person_featured_work_helper_service = \Drupal::service('project_frontend.person_featured_work');
-    $feature_work                        = $person_featured_work_helper_service->getPersonFeaturedWorkNodes($node, $limit, $allowed_types, $view_mode, $fields);
-    $variables['featured_work']          = [
+    /** @var Drupal\nrgi_frontend\PersonFeaturedWorkHelperService $person_featured_work_helper_service */
+    $person_featured_work_helper_service = \Drupal::service('nrgi_frontend.person_featured_work');
+    $feature_work = $person_featured_work_helper_service->getPersonFeaturedWorkNodes($node, $limit, $allowed_types, $view_mode, $fields);
+    $variables['featured_work'] = [
       'content' => $feature_work,
-      'count'   => count($feature_work),
+      'count' => count($feature_work),
     ];
   }
 }

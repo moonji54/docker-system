@@ -2,15 +2,13 @@
 
 /**
  * @file
- * Contains project_frontend.paragraph.inc
+ * Contains nrgi_frontend.paragraph.inc.
  */
-
-use Drupal\paragraphs\Entity\Paragraph;
 
 /**
  * Implements hook_preprocess_paragraph().
  */
-function project_frontend_preprocess_paragraph(&$variables) {
+function nrgi_frontend_preprocess_paragraph(&$variables) {
   /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
   $paragraph = $variables['paragraph'];
   $node      = $paragraph->getParentEntity();
@@ -25,7 +23,7 @@ function project_frontend_preprocess_paragraph(&$variables) {
   // Add details for specific paragraph types.
   switch ($paragraph->getType()) {
     case 'featured_content':
-      //_project_frontend_preprocess_featured_content($paragraph, $variables);
+      //  _nrgi_frontend_preprocess_featured_content($paragraph, $variables);
       break;
   }
 }
@@ -38,7 +36,7 @@ function project_frontend_preprocess_paragraph(&$variables) {
  * @param array|object $variables
  *   The preprocess hook variables.
  */
-//function _project_frontend_preprocess_featured_content(Paragraph $paragraph, &$variables) {
+//function _nrgi_frontend_preprocess_featured_content(Paragraph $paragraph, &$variables) {
 //  /** @var \Drupal\soapbox_featured_cards\FeaturedCardsHelperService $featured_content_service */
 //  $featured_content_service = \Drupal::service('soapbox_featured_cards.featured_cards');
 //  // Sets image toggle field.

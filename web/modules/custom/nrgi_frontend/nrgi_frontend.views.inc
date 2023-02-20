@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Provides additional variables for the views templates.
@@ -10,16 +11,16 @@ use Drupal\views\ViewExecutable;
 /**
  * Implements hook_views_data_alter().
  */
-function project_frontend_views_data_alter(array &$data) {
+function nrgi_frontend_views_data_alter(array &$data) {
 
   // On the 'node_field_data' add a new custom filter for unified_date_year.
   $data['node_field_data']['unified_date_year'] = [
-    'title'  => t('Unified Date Year'),
+    'title' => t('Unified Date Year'),
     'filter' => [
       'title' => t('Unified Date Year'),
-      'help'  => t('Provide a list of years to filter by.'),
+      'help' => t('Provide a list of years to filter by.'),
       'field' => 'unified_date',
-      'id'    => 'unified_date_year',
+      'id' => 'unified_date_year',
     ],
   ];
 
@@ -34,9 +35,9 @@ function project_frontend_views_data_alter(array &$data) {
 /**
  * Implements hook_views_query_alter().
  */
-function project_frontend_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
+function nrgi_frontend_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
   // Exclude 404, 404 and homepage from search result.
-  $page_config      = \Drupal::config('system.site')->get('page');
+  $page_config = \Drupal::config('system.site')->get('page');
   $pages_to_exclude = ['403', '404', 'front'];
 
   if ($view->id() === 'search') {

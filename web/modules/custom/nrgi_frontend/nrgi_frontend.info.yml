@@ -1,5 +1,7 @@
-name: Project frontend
+name: NRGI frontend
 type: module
 description: Provides general frontend modifications for Bruegel
-package: Custom
+package: NRGI
 core_version_requirement: ^9
+dependencies:
+  - drupal:paragraphs

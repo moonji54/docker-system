@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\project_frontend;
+namespace Drupal\nrgi_frontend;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Render\RendererInterface;
@@ -14,7 +14,7 @@ use Drupal\node\NodeInterface;
  * Featured work is the latest content where a person has
  * been tagged as an author.
  *
- * @package Drupal\project_frontend
+ * @package Drupal\nrgi_frontend
  */
 class PersonFeaturedWorkHelperService {
 

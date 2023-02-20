@@ -1,0 +1,4 @@
+services:
+  nrgi_frontend.person_featured_work:
+    class: Drupal\nrgi_frontend\PersonFeaturedWorkHelperService
+    arguments: [ '@entity_type.manager', '@renderer' ]

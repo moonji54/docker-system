@@ -5,7 +5,7 @@ namespace Drupal\nrgi_backend\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Routing\CurrentRouteMatch;
-use Drupal\project_frontend\PersonFeaturedWorkHelperService;
+use Drupal\nrgi_frontend\PersonFeaturedWorkHelperService;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -22,7 +22,7 @@ class PersonContributionsBlock extends BlockBase implements ContainerFactoryPlug
   /**
    * The site settings loader service.
    *
-   * @var \Drupal\project_frontend\PersonFeaturedWorkHelperService
+   * @var \Drupal\nrgi_frontend\PersonFeaturedWorkHelperService
    */
   protected $personFeaturedWork;
 
@@ -39,7 +39,7 @@ class PersonContributionsBlock extends BlockBase implements ContainerFactoryPlug
    *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
    *   The plugin implementation definition.
-   * @param \Drupal\project_frontend\PersonFeaturedWorkHelperService $personFeaturedWork
+   * @param \Drupal\nrgi_frontend\PersonFeaturedWorkHelperService $personFeaturedWork
    *   The site settings loader service.
    * @param \Drupal\Core\Routing\CurrentRouteMatch $routeMatch
    *   The current route.
@@ -60,7 +60,7 @@ class PersonContributionsBlock extends BlockBase implements ContainerFactoryPlug
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('project_frontend.person_featured_work'),
+      $container->get('nrgi_frontend.person_featured_work'),
       $container->get('current_route_match')
     );
   }
