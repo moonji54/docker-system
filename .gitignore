@@ -78,8 +78,8 @@
 /.env
 
 # Ignore Soapbox theme files.
-/web/themes/custom/*/assets/css/
-/web/themes/custom/*/assets/img/symbol/svg/
+#/web/themes/custom/*/assets/css/
+#/web/themes/custom/*/assets/img/symbol/svg/
 /web/themes/custom/*/assets/src/node_modules/
 
 
