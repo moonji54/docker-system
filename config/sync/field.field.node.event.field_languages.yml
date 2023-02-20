@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_languages
     - node.type.event
-    - taxonomy.vocabulary.language
 id: node.event.field_languages
 field_name: field_languages
 entity_type: node
@@ -19,8 +18,7 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles:
-      language: language
+    target_bundles: {  }
     sort:
       field: name
       direction: asc
