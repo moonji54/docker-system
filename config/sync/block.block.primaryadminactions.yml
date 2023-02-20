@@ -1,4 +1,4 @@
-uuid: ddfd8577-8ef2-4359-b2ae-628468991306
+uuid: 0de58003-2281-44a5-a150-a38166ec46d8
 langcode: en
 status: true
 dependencies:
@@ -6,22 +6,18 @@ dependencies:
     - context
   theme:
     - nrgi
-id: nrgi_pagetitle
+id: primaryadminactions
 theme: nrgi
-region: content
+region: pre-header
 weight: -4
 provider: null
-plugin: page_title_block
+plugin: local_actions_block
 settings:
-  id: page_title_block
-  label: 'Page title'
+  id: local_actions_block
+  label: 'Primary admin actions'
   label_display: '0'
   provider: core
 visibility:
-  context:
-    id: context
-    negate: null
-    values: ''
   user_status:
     id: user_status
     negate: false
@@ -35,5 +31,9 @@ visibility:
     user_fields: uid
   context_all:
     id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
     negate: null
     values: ''

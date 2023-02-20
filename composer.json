@@ -209,7 +209,8 @@
                 "Error during custom module uninstallation : Call to a member function getConfigDependencyKey() on null": "https://www.drupal.org/files/issues/2019-07-17/custom-taxonomy-uninstallation.patch",
                 "Entity References as checkboxes or dropdowns": "https://www.drupal.org/files/issues/2021-12-02/2429699-453-9.3.x.patch",
                 "Supports OEmbed providers without thumbnails dimensions": "https://www.drupal.org/files/issues/2020-02-14/supports-oembed-providers-without-thumbnails-dimensions-3111991-5.patch",
-                "PoStreamReader::readLine() throws an error on module install": "https://www.drupal.org/files/issues/2023-01-17/drupal_core-PoStreamReader_readLine_throws_an_error_on_module_install-3301239-7.patch"
+                "PoStreamReader::readLine() throws an error on module install": "https://www.drupal.org/files/issues/2023-01-17/drupal_core-PoStreamReader_readLine_throws_an_error_on_module_install-3301239-7.patch",
+                "#2700667: Notice: Undefined index: #type in Drupal\\Core\\Form\\FormHelper::processStates()": "https://www.drupal.org/files/issues/2021-05-12/2700667-133b.patch"
             },
             "drupal/field_group": {
                 "Ensure visibility of invalid fields (JS)": "https://www.drupal.org/files/issues/2020-05-28/2787179-highlight-html5-validation-53.patch",

@@ -13,7 +13,7 @@ dependencies:
 id: topnavigation
 theme: nrgi
 region: pre-header
-weight: -5
+weight: -2
 provider: null
 plugin: 'menu_block:top-navigation'
 settings:
