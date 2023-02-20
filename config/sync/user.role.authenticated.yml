@@ -5,7 +5,6 @@ dependencies:
   module:
     - media
     - shortcut
-    - sitemap
     - system
 _core:
   default_config_hash: sG-Lwj9aM8TCAo3hNFYNFIfJUFQznrfgJXoFc9paDwY
@@ -17,7 +16,6 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
-  - 'access sitemap'
   - 'use text format basic_html'
   - 'view media'
   - 'view the administration theme'

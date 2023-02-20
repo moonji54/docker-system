@@ -94,7 +94,6 @@ module:
   simple_user_management: 0
   site_settings: 0
   site_settings_type_permissions: 0
-  sitemap: 0
   soapbox_breadcrumbs: 0
   soapbox_featured_cards: 0
   soapbox_field_plugins: 0
