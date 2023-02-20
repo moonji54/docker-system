@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_event_contact
     - node.type.event
-    - taxonomy.vocabulary.people
 id: node.event.field_event_contact
 field_name: field_event_contact
 entity_type: node
@@ -19,8 +18,7 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles:
-      people: people
+    target_bundles: {  }
     sort:
       field: name
       direction: asc
