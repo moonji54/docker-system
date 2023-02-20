@@ -1,21 +1,30 @@
 /* #General body
 ================================================== */
 @mixin ts-body($small : false) {
+  @include inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 175%;
 
   @include media("<tablet") {
 
   }
 
   a {
-    border-bottom  : 1px solid currentColor;
-    color          : currentColor;
-    font-size      : inherit;
-    padding-bottom : 3px;
-    word-wrap      : break-word;
+    border-bottom: 1px solid currentColor;
+    color: currentColor;
+    font-size: inherit;
+    line-height: 182.5%;
+    padding-bottom: 3px;
+    word-wrap: break-word;
   }
 
   @if ($small) {
-
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    line-height: 1.75;
     @include media("<tablet") {
 
     }
@@ -25,44 +34,75 @@
 /* #Headings
 ================================================== */
 @mixin ts-heading-1 {
+  @include dm-sans;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
 
   @include media("<tablet") {
-
+    @include dm-sans;
+    font-size: 40px;
   }
 }
 
 @mixin ts-heading-2 {
-
+  @include dm-sans;
+  font-style: normal;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 125%;
   @include media("<tablet") {
-
+    @include dm-sans;
+    font-size: 36px;
   }
 }
 
 @mixin ts-heading-3 {
-
+  @include dm-sans;
+  font-style: normal;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 150%;
   @include media("<tablet") {
-
+    @include dm-sans;
+    font-size: 32px;
   }
 }
 
 @mixin ts-heading-4 {
-
+  @include dm-sans;
+  font-style: normal;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 150%;
   @include media("<tablet") {
-
+    @include dm-sans;
+    font-size: 28px;
   }
 }
 
 @mixin ts-heading-5 {
-
+  @include dm-sans;
+  font-style: normal;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 150%;
   @include media("<tablet") {
-
+    @include dm-sans;
+    font-size: 24px;
   }
 }
 
 @mixin ts-heading-6 {
-
+  @include dm-sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
   @include media("<tablet") {
-
+    @include dm-sans;
+    font-size: 20px;
   }
 }
 
@@ -76,7 +116,12 @@
 /* Buttons
 ================================================== */
 @mixin ts-button($small : false) {
-
+  // come back to this as there is a separate colour
+  @include dm-sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5%;
   @include media("<tablet") {
 
   }
@@ -84,10 +129,20 @@
 
 /* Labels
 ================================================== */
-@mixin ts-label {
-
+@mixin ts-label($medium : false) {
+  @include inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.04em;
   @include media("<tablet") {
 
+  }
+
+  @if ($medium) {
+    font-size: 14px;
+    letter-spacing: 0.02em;
   }
 }
 
@@ -98,4 +153,82 @@
   @include media("<tablet") {
 
   }
+}
+
+@mixin ts-section-header {
+  @include dm-sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 175%;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@mixin ts-tab {
+  @include dm-sans;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 175%;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+@mixin ts-card-title {
+  @include inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+}
+
+@mixin ts-breadcrumb {
+  @include inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 175%;
+}
+
+@mixin ts-menu-item {
+  @include dm-sans;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 175%;
+  letter-spacing: 0.02em;
+}
+
+@mixin ts-description {
+  @include dm-sans;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+@mixin ts-header-link {
+  @include regular-pro;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+@mixin ts-hyperlink {
+  @include inter;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 1%;
+}
+
+@mixin ts-link {
+  @include dm-sans;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 32.5px;
+  letter-spacing: 2%;
 }

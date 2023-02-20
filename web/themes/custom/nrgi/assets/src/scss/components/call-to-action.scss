@@ -1,0 +1,67 @@
+.c-call-to-action {
+  @include o-container;
+  color: $black;
+  min-height: 60vh;
+  overflow: hidden;
+  position: relative;
+
+  &__image {
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &__content {
+    background-color: #25E1AF;
+    height: 100%;
+    mask-image: url("https://i.imgur.com/EOKF8b4.png"); //placehold for now!
+    mask-position: center;
+    mask-size: 100% 100%;
+    position: absolute;
+    right: 0;
+    width: 45vw;
+  }
+
+  &__title {
+    @include ts-heading-1;
+    display: inline-block;
+    margin-bottom: 24px;
+    padding: 13% 10% 0 10%;
+  }
+
+  &__description {
+    @include ts-description;
+    line-height: 35px;
+    margin-bottom: 24px;
+    padding: 0 10%;
+  }
+
+  &__link-css-triangle {
+    border: 8px solid black;
+    border-bottom-color: transparent;
+    border-left-color: $primary--orange;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    color: white;
+    display: inline-block;
+    margin-left: 10%;
+  }
+
+  &__link {
+    @include ts-link;
+    padding: 0 10% 0 1%;
+  }
+
+  // Modifiers
+  &--no-image {
+    background: $secondary-green-1;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}

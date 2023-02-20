@@ -1,5 +1,13 @@
 .c-breadcrumbs {
+  @include ts-breadcrumb;
+  background: transparent;
+  color: #00010F;
+
   &__inner {
     @include grid;
   }
+
+  //@if ($light) {
+  //  color: #ffffff;
+  //}
 }

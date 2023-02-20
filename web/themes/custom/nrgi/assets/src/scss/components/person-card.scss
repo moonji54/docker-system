@@ -1,0 +1,41 @@
+.c-person-card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  &__image {
+    height: 192px;
+    object-fit: cover;
+    width: 195px;
+  }
+
+  &__content {
+    align-items: flex-start;
+    background-color: $secondary--green--2;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px 32px 59px;
+  }
+
+  &__image:hover {
+    filter: hue-rotate(20deg);
+    //better to do in JS?
+  }
+
+  &__content:hover {
+    background-color: $primary--orange;
+  }
+
+  &__title {
+    @include ts-card-title;
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  &__description {
+    @include ts-label($medium: true);
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
