@@ -5,9 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.person_card
     - node.type.person
-    - taxonomy.vocabulary.country
     - taxonomy.vocabulary.person_type
-    - taxonomy.vocabulary.topic
   content:
     - 'taxonomy_term:person_type:1c5c93f6-98f9-4b73-909c-3eca8555bf42'
     - 'taxonomy_term:person_type:4fb500b2-5d48-4c5f-9130-dfb7b964d2ea'

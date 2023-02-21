@@ -5,10 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.list_item
     - node.type.article
-    - taxonomy.vocabulary.country
     - taxonomy.vocabulary.keyword
-    - taxonomy.vocabulary.language
-    - taxonomy.vocabulary.topic
   module:
     - node
     - taxonomy

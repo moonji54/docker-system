@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.list_item
     - node.type.event
     - taxonomy.vocabulary.event_role_label
-    - taxonomy.vocabulary.topic
   module:
     - node
     - taxonomy

@@ -5,13 +5,10 @@ dependencies:
   config:
     - field.storage.node.field_acknowledgement
     - search_api.index.node_search_index
-    - taxonomy.vocabulary.cities
-    - taxonomy.vocabulary.country
     - taxonomy.vocabulary.event_type
     - taxonomy.vocabulary.person_type
     - taxonomy.vocabulary.regions
     - taxonomy.vocabulary.resource_type
-    - taxonomy.vocabulary.topic
   module:
     - better_exposed_filters
     - search_api
@@ -230,55 +227,6 @@ display:
       sorts: {  }
       arguments: {  }
       filters:
-        field_city:
-          id: field_city
-          table: search_api_index_node_search_index
-          field: field_city
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_term
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_city_op
-            label: City
-            description: ''
-            use_operator: false
-            operator: field_city_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_city
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              editor: '0'
-              administrator: '0'
-              site_manager: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: cities
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
         type:
           id: type
           table: search_api_index_node_search_index
@@ -323,55 +271,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-        field_country:
-          id: field_country
-          table: search_api_index_node_search_index
-          field: field_country
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_term
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_country_op
-            label: Country
-            description: ''
-            use_operator: false
-            operator: field_country_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_country
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              editor: '0'
-              administrator: '0'
-              site_manager: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: country
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
         field_event_type:
           id: field_event_type
           table: search_api_index_node_search_index
@@ -616,103 +515,6 @@ display:
           hierarchy: false
           limit: true
           error_message: true
-        field_topic:
-          id: field_topic
-          table: search_api_index_node_search_index
-          field: field_topic
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_term
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_topic_op
-            label: Topic
-            description: ''
-            use_operator: false
-            operator: field_topic_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_topic
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              editor: '0'
-              administrator: '0'
-              site_manager: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: topic
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
-        keyword_name:
-          id: keyword_name
-          table: search_api_index_node_search_index
-          field: keyword_name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_text
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: keyword_name_op
-            label: Keywords
-            description: ''
-            use_operator: false
-            operator: keyword_name_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: keyword_name
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              editor: '0'
-              administrator: '0'
-              site_manager: '0'
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
       style:
         type: default
       row:
@@ -757,8 +559,8 @@ display:
       tags:
         - 'config:field.storage.node.field_acknowledgement'
         - 'config:search_api.index.node_search_index'
-  page_1:
-    id: page_1
+  page_view:
+    id: page_view
     display_title: Search
     display_plugin: page
     position: 1

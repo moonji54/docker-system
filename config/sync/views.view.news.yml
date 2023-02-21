@@ -5,10 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - node.type.article
-    - node.type.external_publication
-    - taxonomy.vocabulary.country
-    - taxonomy.vocabulary.language
-    - taxonomy.vocabulary.topic
   module:
     - node
     - taxonomy

@@ -5,16 +5,11 @@ dependencies:
   config:
     - core.entity_view_mode.node.list_item
     - node.type.article
-    - node.type.collection
-    - node.type.external_publication
     - node.type.publication
     - taxonomy.vocabulary.cities
-    - taxonomy.vocabulary.country
     - taxonomy.vocabulary.keyword
-    - taxonomy.vocabulary.language
     - taxonomy.vocabulary.regions
     - taxonomy.vocabulary.resource_type
-    - taxonomy.vocabulary.topic
   content:
     - 'taxonomy_term:regions:1c42a145-edc6-485e-8bc9-f48d5faf49c7'
     - 'taxonomy_term:regions:1ce47f42-1c38-4539-b710-4aa540134b8b'
