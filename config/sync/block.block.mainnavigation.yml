@@ -19,7 +19,7 @@ plugin: 'menu_block:main'
 settings:
   id: 'menu_block:main'
   label: 'Main navigation'
-  label_display: visible
+  label_display: '0'
   provider: menu_block
   follow: false
   follow_parent: child
