@@ -5,10 +5,8 @@ dependencies:
   config:
     - node.type.article
     - node.type.career_opportunity
-    - node.type.collection
     - node.type.country
     - node.type.event
-    - node.type.external_publication
     - node.type.glossary_term
     - node.type.homepage
     - node.type.landing_page
@@ -95,10 +93,8 @@ type_settings:
     node:
       - article
       - career_opportunity
-      - collection
       - country
       - event
-      - external_publication
       - glossary_term
       - homepage
       - landing_page

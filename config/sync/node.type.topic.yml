@@ -6,8 +6,9 @@ dependencies:
     - menu_ui
 third_party_settings:
   menu_ui:
-    available_menus: {  }
-    parent: ''
+    available_menus:
+      - main
+    parent: 'main:menu_link_content:7605afc8-4d4b-4e37-b356-c1a156a4a391'
 name: Topic
 type: topic
 description: 'This content type primarily functions as a taxonomy.'

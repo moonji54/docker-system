@@ -7,7 +7,9 @@ dependencies:
 third_party_settings:
   menu_ui:
     available_menus:
+      - footer
       - main
+      - top-navigation
     parent: 'main:'
 _core:
   default_config_hash: R6BrceyAeD4frWZJ3h6ZERqX1zD73Kpc79hevODTzZI

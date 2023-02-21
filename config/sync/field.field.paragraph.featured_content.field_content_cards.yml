@@ -6,7 +6,6 @@ dependencies:
     - field.storage.paragraph.field_content_cards
     - node.type.article
     - node.type.career_opportunity
-    - node.type.collection
     - node.type.country
     - node.type.event
     - node.type.glossary_term
@@ -34,7 +33,6 @@ settings:
     target_bundles:
       article: article
       career_opportunity: career_opportunity
-      collection: collection
       country: country
       event: event
       glossary_term: glossary_term
