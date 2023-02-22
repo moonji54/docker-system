@@ -12,21 +12,39 @@
  * @see template_preprocess_region()
  */
 #}
+{#  {% include '@natcen/region-partials/newsletter.html.twig' %} #}
 
+  {# FOOTER #}
 <footer class="c-footer">
-  <div class="o-container">
-    <div class="c-footer__inner">
-      {% if content %}
-        {{ content }}
-      {% endif %}
-    </div>
-  </div>
+  <div class="c-footer__container o-container">
+    {# Footer logo #}
+    <a href="/" class="c-footer__logo" title="{{ 'Return to the homepage'|t }}">
+      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'logo'} %}
+    </a>
 
-  <div class="c-footer__bottom">
-    <div class="o-container">
-      <div class="c-footer__inner">
-        <div class="c-footer__credit">
-          © CLIENT NAME. {{ 'All rights reserved. Design and development by'|trans }} <a href="https://www.soapbox.co.uk">Soapbox</a>.
+    {# Footer menu #}
+    <div class="c-footer__main-menu-wrapper">
+      {{ elements.footer }}
+    </div>
+
+    {# Connect with us #}
+
+    {# Newsletter link #}
+
+    {# Social links #}
+    <div class="c-footer__social-links">
+      {#      {% include '@natcen/region-partials/social-links.html.twig' %} #}
+    </div>
+
+    <div class="c-footer__bottom">
+      <div class="c-footer__bottom-inner">
+        <div class="c-footer__credits">
+          <span class="c-footer__credits-item">
+            © {{ 'now'|date('Y') }}{{ ' NRGI'|trans }}
+            </span>
+          <span class="c-footer__credits-item">{{ 'Design and development by'|trans }} <a
+                href="https://designbysoapbox.com/">Soapbox</a>
+          </span>
         </div>
       </div>
     </div>
