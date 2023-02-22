@@ -1,23 +1,30 @@
 <header class="c-header" id="js-header">
-  <div class="o-container">
-    <div class="c-header__inner">
-      <a href="/" class="c-header__logo" title="{{ 'Return to the homepage'|t }}">
-        {# SBTODO add and style logo #}
-        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'logo'} %}
-      </a>
 
-      {# SBTODO style main menu #}
-      <div class="c-header__menu">
-        {{ elements.mainnavigation }}
-      </div>
+  <section style="display: flex">
+    <a href="/" class="c-header__logo" title="{{ 'Return to the homepage'|t }}">
+      {# SBTODO add and style logo #}
+      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'logo'} %}
+    </a>
 
+    <div style="background:salmon">
+      {{ elements.topnavigation }}
+    </div>
+  </section>
+
+  <div class="c-header__inner">
+
+    <div class="c-header__menu">
+      {{ elements.mainnavigation }}
+    </div>
+
+    <button class="c-header__burger js-header-burger">
+      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'burger', 'extra_class': 'c-header__burger-menu'} %}
+      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'menu-close','extra_class': 'c-header__burger-close'} %}
+      <span class="c-header__burger-text js-burger-text">{{ 'Menu'|trans }}</span>
+    </button>
+
+    <div style="background: rosybrown">
       {{ elements.nrgi_search_form }}
-
-      <button class="c-header__burger js-header-burger">
-        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'burger', 'extra_class': 'c-header__burger-menu'} %}
-        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'menu-close','extra_class': 'c-header__burger-close'} %}
-        <span class="c-header__burger-text js-burger-text">{{ 'Menu'|trans }}</span>
-      </button>
     </div>
   </div>
 </header>

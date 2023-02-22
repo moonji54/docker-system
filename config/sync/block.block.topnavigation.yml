@@ -12,21 +12,21 @@ dependencies:
     - nrgi
 id: topnavigation
 theme: nrgi
-region: pre-header
-weight: -2
+region: header
+weight: -4
 provider: null
 plugin: 'menu_block:top-navigation'
 settings:
   id: 'menu_block:top-navigation'
   label: 'Top navigation'
-  label_display: visible
+  label_display: '0'
   provider: menu_block
   follow: false
   follow_parent: child
   label_link: false
   label_type: block
   level: 1
-  depth: 0
+  depth: 1
   expand_all_items: false
   parent: 'top-navigation:'
   suggestion: top_navigation
