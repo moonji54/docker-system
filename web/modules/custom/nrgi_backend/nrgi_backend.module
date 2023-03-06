@@ -220,27 +220,3 @@ function nrgi_backend_block_view_alter(array &$build, BlockPluginInterface $bloc
     $build['#configuration']['label'] = t($node->field_language_bar_text->value);
   }
 }
-
-/**
- * Implements hook_form_alter().
- */
-function nrgi_backend_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if (str_starts_with($form_id, 'site_setting_entity_newsletter')) {
-    Cache::invalidateTags(['newsletter_signup_block']);
-  }
-  if (str_starts_with($form_id, 'site_setting_entity_social_media_links')) {
-    Cache::invalidateTags(['social_media_block']);
-  }
-}
-
-/**
- * Implements hook_theme().
- */
-function nrgi_backend_theme($existing, $type, $theme, $path) {
-  return [
-    'social_media_links' => [
-      'variables' => ['social_network' => NULL],
-    ],
-  ];
-}
-
