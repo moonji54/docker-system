@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: newsletter
-label: Newsletter
-fieldset: Newsletter
+label: 'Newsletter sign up call to action'
+fieldset: Footer
 multiple: false

@@ -1,25 +1,19 @@
-uuid: 17fdc9d4-b157-4dfa-9235-a6853f923106
+uuid: 12ff7ea6-4f9c-4705-8e0e-acfed41d6350
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.site_setting_entity.field_description
     - site_settings.site_setting_entity_type.newsletter
-  module:
-    - allowed_formats
-    - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats: {  }
 id: site_setting_entity.newsletter.field_description
 field_name: field_description
 entity_type: site_setting_entity
 bundle: newsletter
 label: Description
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text_long
+field_type: string

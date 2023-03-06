@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: social_media_links
 label: 'Social media links'
-fieldset: 'Social media links'
+fieldset: Footer
 multiple: true

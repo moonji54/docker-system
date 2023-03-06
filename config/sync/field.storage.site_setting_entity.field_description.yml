@@ -1,16 +1,18 @@
-uuid: 1dfc87a3-a49f-42d8-bd17-c23d67e19893
+uuid: 05556834-bc6f-4e34-a02c-164dea02ad8e
 langcode: en
 status: true
 dependencies:
   module:
     - site_settings
-    - text
 id: site_setting_entity.field_description
 field_name: field_description
 entity_type: site_setting_entity
-type: text_long
-settings: {  }
-module: text
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

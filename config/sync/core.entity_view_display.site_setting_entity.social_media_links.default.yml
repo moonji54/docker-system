@@ -9,7 +9,6 @@ dependencies:
   module:
     - link
     - options
-    - user
 id: site_setting_entity.social_media_links.default
 targetEntityType: site_setting_entity
 bundle: social_media_links
@@ -40,22 +39,23 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: -4
+    weight: 0
     region: content
   name:
     type: string
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: -4
+    weight: 4
     region: content
   user_id:
-    type: author
-    label: hidden
-    settings: {  }
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
     third_party_settings: {  }
-    weight: 0
+    weight: 3
     region: content
 hidden:
   search_api_excerpt: true

@@ -12,21 +12,24 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: Facebook
-      label: Facebook
-    -
-      value: Twitter
+      value: twitter
       label: Twitter
     -
-      value: Youtube
+      value: linkedin
+      label: Linkedin
+    -
+      value: facebook
+      label: Facebook
+    -
+      value: youtube
       label: Youtube
     -
-      value: Linkedin
-      label: Linkedin
+      value: instagram
+      label: Instagram
   allowed_values_function: ''
 module: options
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
