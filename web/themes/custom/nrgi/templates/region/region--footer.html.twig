@@ -12,41 +12,34 @@
  * @see template_preprocess_region()
  */
 #}
-{#  {% include '@natcen/region-partials/newsletter.html.twig' %} #}
-
-  {# FOOTER #}
+{# FOOTER #}
 <footer class="c-footer">
   <div class="c-footer__container o-container">
-    {# Footer logo #}
-    <a href="/" class="c-footer__logo" title="{{ 'Return to the homepage'|t }}">
-      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'logo'} %}
-    </a>
 
-    {# Footer menu #}
-    <div class="c-footer__main-menu-wrapper">
-      {{ elements.footer }}
-    </div>
+    {# Newsletter / Connect with us CTA and links #}
+    {% include '@nrgi/region-partials/region--footer-cta-links.html.twig' %}
 
-    {# Connect with us #}
+    {# Logo and footer menu #}
+    <div class="c-footer__bottom" style="display: flex;">
+      {# Footer logo #}
+      <a href="/" class="c-footer__logo" title="{{ 'Return to the homepage'|t }}">
+        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'logo'} %}
+      </a>
 
-    {# Newsletter link #}
-
-    {# Social links #}
-    <div class="c-footer__social-links">
-      {#      {% include '@natcen/region-partials/social-links.html.twig' %} #}
-    </div>
-
-    <div class="c-footer__bottom">
-      <div class="c-footer__bottom-inner">
-        <div class="c-footer__credits">
-          <span class="c-footer__credits-item">
-            © {{ 'now'|date('Y') }}{{ ' NRGI'|trans }}
-            </span>
-          <span class="c-footer__credits-item">{{ 'Design and development by'|trans }} <a
-                href="https://designbysoapbox.com/">Soapbox</a>
-          </span>
-        </div>
+      {# Footer menu #}
+      <div class="c-footer__menu-wrapper">
+        {{ elements.footer }}
       </div>
     </div>
+  </div>
+
+  {# Credits #}
+  <div class="c-footer__credits" style="display: flex;">
+      <span class="c-footer__credits-item">
+        © {{ 'now'|date('Y') }}{{ ' NRGI'|trans }}
+      </span>
+    <span class="c-footer__credits-item">
+        <a href="https://www.designbysoapbox.com/">{{ 'designbysoapbox.com'|trans|upper }}</a>
+      </span>
   </div>
 </footer>
