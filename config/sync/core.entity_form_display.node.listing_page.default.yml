@@ -4,12 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.listing_page.field_components
-    - field.field.node.listing_page.field_image
     - field.field.node.listing_page.field_intro
     - field.field.node.listing_page.field_language_bar_text
     - field.field.node.listing_page.field_listing_block
     - field.field.node.listing_page.field_title
-    - image.style.thumbnail
     - node.type.listing_page
     - workflows.workflow.editorial
   module:
@@ -17,7 +15,6 @@ dependencies:
     - field_group
     - paragraphs
     - path
-    - svg_image
 third_party_settings:
   field_group:
     group_header:
@@ -95,14 +92,6 @@ content:
       features:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
-    third_party_settings: {  }
-  field_image:
-    type: image_image
-    weight: 18
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
     third_party_settings: {  }
   field_intro:
     type: string_textarea

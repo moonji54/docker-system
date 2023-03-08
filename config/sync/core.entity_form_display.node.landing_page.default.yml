@@ -4,11 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.landing_page.field_components
-    - field.field.node.landing_page.field_image
     - field.field.node.landing_page.field_intro_text
     - field.field.node.landing_page.field_language_bar_text
     - field.field.node.landing_page.field_title
-    - image.style.thumbnail
     - node.type.landing_page
     - workflows.workflow.editorial
   module:
@@ -16,7 +14,6 @@ dependencies:
     - field_group
     - paragraphs
     - path
-    - svg_image
     - text
 third_party_settings:
   field_group:
@@ -80,14 +77,6 @@ content:
       features:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
-    third_party_settings: {  }
-  field_image:
-    type: image_image
-    weight: 19
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
     third_party_settings: {  }
   field_intro_text:
     type: text_textarea

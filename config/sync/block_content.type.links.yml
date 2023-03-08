@@ -1,8 +1,0 @@
-uuid: 151004c0-ad14-4f3f-939a-4207103c667f
-langcode: en
-status: true
-dependencies: {  }
-id: links
-label: 'Links Block'
-revision: 0
-description: 'A links block contains link fields.'

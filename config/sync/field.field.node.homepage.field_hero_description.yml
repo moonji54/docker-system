@@ -1,19 +1,19 @@
-uuid: 57a0b8d1-3b89-4241-a5c6-10429fbaad83
+uuid: 4e9e8c17-8df1-418a-8eba-c829a587708f
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_banner_title
+    - field.storage.node.field_hero_description
     - node.type.homepage
-id: node.homepage.field_banner_title
-field_name: field_banner_title
+id: node.homepage.field_hero_description
+field_name: field_hero_description
 entity_type: node
 bundle: homepage
-label: 'Banner title'
+label: 'Hero banner description'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: string_long

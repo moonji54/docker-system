@@ -1,17 +1,15 @@
-uuid: e11e6242-355b-48e3-b2d6-31db63248bba
+uuid: 389758e4-f6fc-4796-b4ad-0961dcef3b43
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_banner_title
-field_name: field_banner_title
+id: node.field_hero_description
+field_name: field_hero_description
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
   case_sensitive: false
-  is_ascii: false
 module: core
 locked: false
 cardinality: 1

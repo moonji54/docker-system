@@ -4,12 +4,12 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.homepage.field_background_image
-    - field.field.node.homepage.field_banner_title
-    - field.field.node.homepage.field_cta_link
-    - field.field.node.homepage.field_description
-    - field.field.node.homepage.field_link_bar
-    - field.field.node.homepage.field_components
+    - field.field.node.homepage.field_featured_image
+    - field.field.node.homepage.field_hero_description
+    - field.field.node.homepage.field_hero_link
+    - field.field.node.homepage.field_hero_title
+    - field.field.node.homepage.field_overlay_opacity
+    - field.field.node.homepage.field_page_builder
     - node.type.homepage
   module:
     - user
@@ -29,11 +29,11 @@ content:
     weight: 100
     region: content
 hidden:
-  field_background_image: true
-  field_banner_title: true
-  field_components: true
-  field_cta_link: true
-  field_description: true
-  field_link_bar: true
+  field_featured_image: true
+  field_hero_description: true
+  field_hero_link: true
+  field_hero_title: true
+  field_overlay_opacity: true
+  field_page_builder: true
   langcode: true
   search_api_excerpt: true

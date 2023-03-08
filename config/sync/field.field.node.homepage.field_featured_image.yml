@@ -1,16 +1,16 @@
-uuid: 54070eb6-cab1-4738-a675-657bd3dd5a01
+uuid: a655254c-4593-4a5a-9e62-fb66a713a72d
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_background_image
+    - field.storage.node.field_featured_image
     - media.type.image
     - node.type.homepage
-id: node.homepage.field_background_image
-field_name: field_background_image
+id: node.homepage.field_featured_image
+field_name: field_featured_image
 entity_type: node
 bundle: homepage
-label: 'Background image'
+label: 'Hero banner image'
 description: ''
 required: false
 translatable: false
