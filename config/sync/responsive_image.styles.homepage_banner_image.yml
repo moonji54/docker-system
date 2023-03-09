@@ -1,0 +1,13 @@
+uuid: 5b559d61-2364-4d47-8e56-e4e795a554a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.large
+  theme:
+    - nrgi
+id: homepage_banner_image
+label: 'Homepage banner image'
+image_style_mappings: {  }
+breakpoint_group: nrgi
+fallback_image_style: large
