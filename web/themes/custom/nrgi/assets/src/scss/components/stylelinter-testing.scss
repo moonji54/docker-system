@@ -1,0 +1,156 @@
+/** @define c-stylelint */
+.c-stylelint {
+  $class           : &;
+  background-color : lightskyblue;
+
+  &__basic-test {
+    display         : flex;
+    flex-direction  : column;
+    grid-column     : 4 / 13;
+    justify-content : space-between;
+    position        : relative;
+  }
+
+  &__mixin-test {
+    @include grid;
+    display         : block;
+    margin          : var(--space-xs);
+
+    text-align      : center;
+    text-decoration : underline;
+  }
+
+  &__states {
+    margin          : var(--space-xs);
+
+    text-align      : center;
+    text-decoration : underline;
+
+    &--empty {
+    }
+
+    &:before {
+      display : block;
+    }
+
+    &:hover,
+    &:focus {
+      display : block;
+    }
+  }
+
+  &__attribute-testing {
+    margin : 0;
+
+    input[type="text"] {
+      border : 1px solid red;
+    }
+  }
+
+  &.has-state-class {
+    display : block;
+  }
+
+  &_invalid-element {
+    display : none;
+  }
+
+  &-invalid-modifier {
+    display : none;
+  }
+
+  &__nesting-test__nested-test2 {
+    display : none;
+  }
+
+  &__nesting-test3 {
+    &__nesting-test4 {
+      display : none;
+    }
+  }
+
+  &--modifier {
+    &--modified-again {
+      display : block;
+    }
+  }
+
+  &__empty-test {
+  }
+
+  #{$class}__interpolation-testing {
+    @include ts-heading-2;
+    display : block;
+  }
+
+  &__interpolation-test {
+    #{$class}__interpolation-testing {
+      @include ts-heading-2;
+      display : block;
+    }
+  }
+
+  .ignore {
+    display : block;
+  }
+
+  &.is-open {
+    #{$class}__interpolation-testing {
+      display : block;
+    }
+
+    #{$class}__interpolation-testing {
+      display : block;
+
+      &__image {
+        display : block;
+      }
+    }
+  }
+
+  /* Mobile
+  ================================================== */
+  &__burger {
+    @include media(">tablet") {
+      display : none;
+    }
+
+    .is-open & {
+      background : red;
+    }
+  }
+}
+
+/* stylelint-disable */
+.c-disable-test {
+  display : block;
+}
+
+/* stylelint-enable */
+
+/* stylelint-disable-next-line */
+.c-disable-test-two {
+  display : none;
+}
+
+.c-disable-test-three {
+  display : none;
+}
+
+.c-other-classes-in-file-test {
+  display : none;
+}
+
+.test_test {
+  background-color : #111100;
+  color            : currentcolor;
+  display          : block;
+
+  &_element {
+    display : flex;
+  }
+
+  &__valid-element {
+    display : block;
+  }
+}

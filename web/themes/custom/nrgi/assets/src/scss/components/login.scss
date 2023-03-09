@@ -1,0 +1,24 @@
+/** @define c-login */
+.c-login {
+  padding : var(--space-l) 0;
+
+  &__inner {
+
+  }
+
+  &__title {
+    @include ts-heading-3;
+  }
+
+  .item-list {
+    li {
+      margin-left : 0;
+
+      a {
+        &:hover, &:focus {
+          text-decoration : underline;
+        }
+      }
+    }
+  }
+}

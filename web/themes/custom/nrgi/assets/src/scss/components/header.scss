@@ -1,8 +1,4 @@
+/** @define c-header */
 .c-header {
-  background-color : peachpuff;
 
-  &__inner {
-    @include grid;
-    width : 100%;
-  }
 }

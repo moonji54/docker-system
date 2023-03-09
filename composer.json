@@ -87,7 +87,7 @@
     "require": {
         "ckeditor/fakeobjects": "*",
         "ckeditor/link": "*",
-        "composer/installers": "^2.0",
+        "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.6.5",
         "desandro/imagesloaded": "3.1.8",
         "desandro/masonry": "3.3.1",
@@ -97,11 +97,10 @@
         "drupal/anchor_link": "^2.5",
         "drupal/better_exposed_filters": "^5.0@beta|^5.0@RC|^5.0",
         "drupal/bugherd": "^1.0@beta",
-        "drupal/conditional_fields": "^4.0@alpha",
+        "drupal/console": "~1.0",
         "drupal/context": "^4.0@beta|^4.0@RC|^4.0",
         "drupal/context_active_trail": "^2.0@beta|^2.0@RC|^2.0",
-        "drupal/cookiepro": "^2.0",
-        "drupal/core": "^9.4",
+        "drupal/core": "^9.3",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-project-message": "^9.1",
         "drupal/core-recommended": "^9.1",
@@ -110,11 +109,11 @@
         "drupal/editor_advanced_link": "^2.0",
         "drupal/entity_usage": "^2.0@beta",
         "drupal/field_group": "^3.1",
-        "drupal/field_tools": "^1.0@alpha|^1.0@RC|^1.0",
         "drupal/file_delete": "^1.0",
         "drupal/focal_point": "^1.5",
         "drupal/form_mode_manager": "2.x-dev",
-        "drupal/linked_field": "^1.3",
+        "drupal/layout_paragraphs": "^1.0",
+        "drupal/layout_paragraphs_restriction": "^1.0@alpha",
         "drupal/linkit": "^6.0@beta|^6.0@RC|^6.0",
         "drupal/login_redirect_per_role": "^1.2",
         "drupal/media_remote_audio": "^1.0",
@@ -127,21 +126,18 @@
         "drupal/paragraphs": "^1.5",
         "drupal/pathauto": "^1.3",
         "drupal/recaptcha": "^3.0",
-        "drupal/recreate_block_content": "^2.1",
         "drupal/redirect": "^1.6.0",
         "drupal/role_delegation": "^1.0",
         "drupal/save_edit": "^1.1",
-        "drupal/scheduled_transitions": "^2.3",
-        "drupal/schema_metatag": "^2.3",
+        "drupal/scheduler": "^1.4",
+        "drupal/scheduler_content_moderation_integration": "^1.4",
         "drupal/search_api": "^1.11",
         "drupal/simple_sitemap": "^3.0",
         "drupal/simple_user_management": "^1.0",
         "drupal/site_settings": "^1.13",
         "drupal/sitemap": "^2.0@beta|^2.0@RC|^2.0",
         "drupal/stage_file_proxy": "^1.0",
-        "drupal/svg_image": "^1.16",
-        "drupal/symfony_mailer": "^1.1@beta|^1.0@RC|^1.0",
-        "drupal/taxonomy_import": "^2.0",
+        "drupal/swiftmailer": "^2.0",
         "drupal/token_default": "^1.0@beta|^1.0@RC|^1.0",
         "drupal/twig_field_value": "^2.0",
         "drupal/twig_tweak": "^2.1",
@@ -159,8 +155,7 @@
     },
     "require-dev": {
         "drupal/core-dev": "^9",
-        "kint-php/kint": "^4.1",
-        "phpro/grumphp": "^1.13"
+        "kint-php/kint": "^5.0"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -207,9 +202,10 @@
             "drupal/core": {
                 "Error during custom module uninstallation : Call to a member function getConfigDependencyKey() on null": "https://www.drupal.org/files/issues/2019-07-17/custom-taxonomy-uninstallation.patch",
                 "Entity References as checkboxes or dropdowns": "https://www.drupal.org/files/issues/2021-12-02/2429699-453-9.3.x.patch",
-                "Supports OEmbed providers without thumbnails dimensions": "https://www.drupal.org/files/issues/2020-02-14/supports-oembed-providers-without-thumbnails-dimensions-3111991-5.patch",
-                "PoStreamReader::readLine() throws an error on module install": "https://www.drupal.org/files/issues/2023-01-17/drupal_core-PoStreamReader_readLine_throws_an_error_on_module_install-3301239-7.patch",
-                "#2700667: Notice: Undefined index: #type in Drupal\\Core\\Form\\FormHelper::processStates()": "https://www.drupal.org/files/issues/2021-05-12/2700667-133b.patch"
+                "Supports OEmbed providers without thumbnails dimensions": "https://www.drupal.org/files/issues/2020-02-14/supports-oembed-providers-without-thumbnails-dimensions-3111991-5.patch"
+            },
+            "drupal/bugherd": {
+                "Error: Class 'Zend\\Escaper\\Escaper' not found in bugherd_page_attachments()": "https://www.drupal.org/files/issues/2021-12-16/Zend_Escaper_Escaper-3253467.patch"
             },
             "drupal/field_group": {
                 "Ensure visibility of invalid fields (JS)": "https://www.drupal.org/files/issues/2020-05-28/2787179-highlight-html5-validation-53.patch",

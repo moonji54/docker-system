@@ -1,3 +1,4 @@
+/** @define c.form */
 .c-form {
   label {
     @include ts-heading-5;
@@ -6,15 +7,14 @@
 
   input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="number"], select, textarea {
     border     : 1px solid $primary;
-    box-sizing : border-box;
     display    : block;
-    margin     : var(--space-s) 0 var(--space-m) 0;
-    padding    : var(--space-s);
+    margin     : var(--space-xs) 0 var(--space-s) 0;
+    padding    : var(--space-xs);
   }
 
   .description {
     @include ts-body;
-    margin : var(--space-s) 0;
+    margin : var(--space-xs) 0;
 
     a {
       font-weight : 500;
@@ -38,7 +38,7 @@
 
   .form-managed-file {
     input[type="submit"], input[type="button"] {
-      padding : var(--space-xs) var(--space-m);
+      padding : var(--space-xs) var(--space-s);
     }
   }
 }

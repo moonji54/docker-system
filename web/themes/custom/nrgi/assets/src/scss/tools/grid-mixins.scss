@@ -1,22 +1,11 @@
 // A 12 column grid.
 @mixin grid {
   display               : grid;
-  grid-column-gap       : $gutter;
+  grid-column-gap       : var(--gutter);
   grid-template-columns : repeat(12, 1fr);
 
-  @include media("<tablet") {
+  @include media("<=tablet") {
     grid-template-columns : repeat(4, 1fr);
-  }
-}
-
-// The element should span all 12 columns.
-@mixin full-width-grid {
-  grid-column-start : 1;
-  grid-column-end   : 13;
-
-  @include media("<tablet") {
-    grid-column-start : 1;
-    grid-column-end   : 5;
   }
 }
 
@@ -24,33 +13,8 @@
   box-sizing    : border-box;
   margin-left   : auto;
   margin-right  : auto;
-  max-width     : calc(#{$max-width} + #{$gutter * 2});
-  padding-left  : $gutter;
-  padding-right : $gutter;
+  max-width     : calc(#{$max-width} + var(--gutter) * 2);
+  padding-left  : var(--gutter);
+  padding-right : var(--gutter);
   width         : 100%;
-
-  @include media("<tablet") {
-    max-width     : calc(#{$max-width} + #{$gutter--mobile * 2});
-    padding-left  : $gutter--mobile;
-    padding-right : $gutter--mobile;
-  }
 }
-
-/*
-    ===============================
-    BOURBON NEAT GRID
-    ===============================
-*/
-/*
-@mixin u-container() {
-  @include grid-container;
-  box-sizing   : border-box;
-  margin-left  : auto;
-  margin-right : auto;
-  max-width    : $max-width;
-}
-
-.u-container {
-  @include u-container;
-}
-*/

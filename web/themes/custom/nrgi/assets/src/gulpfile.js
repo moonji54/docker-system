@@ -3,9 +3,11 @@ const babelify = require('babelify');
 const browserify = require('browserify');
 const buffer = require('vinyl-buffer');
 const gulp = require('gulp');
+const touch = require('gulp-touch-fd');
 const path = require('path');
 const source = require('vinyl-source-stream');
 const sass = require('gulp-sass')(require('sass'));
+
 // const argv       = require('yargs').argv;
 // const fs         = require('fs');
 
@@ -16,13 +18,10 @@ const sass = require('gulp-sass')(require('sass'));
 // Browsers to target when prefixing CSS.
 const autoprefixerCompatibility = [
   'last 2 versions',
-  'ie >= 9',
-  'safari >= 8'
 ];
 
 // Livereload over SSL
 const livereloadSettings = {};
-
 
 function css(file) {
   const dir = path.resolve(`${__dirname}/../css`);
@@ -41,6 +40,7 @@ function css(file) {
 
     // Output CSS file
     .pipe(gulp.dest('../css'))
+    .pipe(touch())
 
     // Minify with maps and output
     .pipe($.sourcemaps.init())
@@ -48,6 +48,7 @@ function css(file) {
     .pipe($.rename({suffix: '.min'}))
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('../css'))
+    .pipe(touch())
 
     // Run livereload
     .pipe($.filter([
@@ -61,14 +62,14 @@ function js(filename, inputfile, outputLocation) {
   const dir = path.resolve(`${__dirname}/../js`);
   const bundler = browserify({
     entries: inputfile,
-    debug: true
+    debug: true,
   });
 
   bundler.transform(babelify, {
     presets: [
-      '@babel/preset-env'
+      '@babel/preset-env',
     ],
-    sourceMaps: true
+    sourceMaps: true,
   });
 
   return bundler.bundle()
@@ -76,23 +77,25 @@ function js(filename, inputfile, outputLocation) {
       errorHandler: (error) => {
         console.log(error.message);
         this.emit('end');
-      }
+      },
     }))
     .pipe(source(`${filename}.es6`))
     .pipe(buffer())
     .pipe($.sourcemaps.init({loadMaps: true}))
     .pipe($.concat(`${filename}.js`))
     .pipe(gulp.dest(outputLocation))
+    .pipe(touch())
 
     // Minify & create sourcemap
     // .pipe($.rename({suffix: '.min'}))
     // .pipe($.uglify())
     // .pipe($.sourcemaps.write('.'))
     // .pipe(gulp.dest('../js'))
+    // .pipe(touch())
 
     .pipe($.filter([
       path.join(dir, '/**/*.js'),
-      '../**/*.js'
+      '../**/*.js',
     ]))
     // Run livereload
     .pipe($.livereload());
@@ -106,7 +109,7 @@ function themejs(filename) {
 gulp.task('build-js', gulp.series((done) => {
   // Add your js files here (we're doing them separately so they can be loaded
   // via libraries.yml)
-  themejs('test');
+  themejs('example');
 
   done();
 }));
@@ -114,8 +117,8 @@ gulp.task('build-js', gulp.series((done) => {
 // Build the theme CSS file
 gulp.task('build-css', gulp.series(() => css('scss/style.scss')));
 
-// Build the TinyMCE CSS file
-gulp.task('build-tinymce-css', gulp.series(() => css('scss/tinymce-style.scss')));
+// Build the CKEditor CSS file
+gulp.task('build-ckeditor-css', gulp.series(() => css('scss/ckeditor-style.scss')));
 
 // Build SVG sprite
 gulp.task('build-svg-sprite', gulp.series(() => {
@@ -128,8 +131,8 @@ gulp.task('build-svg-sprite', gulp.series(() => {
       // Activate the «symbol» mode
       symbol: {
         bust: false,
-      }
-    }
+      },
+    },
   };
 
   return gulp.src('sprite-images/**/*.svg')
@@ -137,7 +140,7 @@ gulp.task('build-svg-sprite', gulp.series(() => {
       errorHandler(error) {
         console.log(error.message);
         this.emit('end');
-      }
+      },
     }))
     .pipe($.svgSprite(config))
     .pipe(gulp.dest('../img'))
@@ -146,7 +149,7 @@ gulp.task('build-svg-sprite', gulp.series(() => {
 
 gulp.task('build-all', gulp.series([
   'build-css',
-  'build-tinymce-css',
+  'build-ckeditor-css',
 ]));
 
 gulp.task('build', gulp.series([

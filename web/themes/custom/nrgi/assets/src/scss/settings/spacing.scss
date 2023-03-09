@@ -1,29 +1,17 @@
-/* Baseline
-================================================== */
-$baseline-spacing : 4px;
-
 /* Spacing
 ================================================== */
 :root {
-  --space-xxs : #{$baseline-spacing}; // 4px
-  --space-xs  : #{$baseline-spacing * 2}; // 8px
-  --space-s   : #{$baseline-spacing * 3}; // 12px
-  --space-m   : #{$baseline-spacing * 4}; // 16px
-  --space-l   : #{$baseline-spacing * 6}; // 24px
-  --space-xl  : #{$baseline-spacing * 8}; // 32px
-  --space-2xl : #{$baseline-spacing * 12}; // 48px
-  --space-3xl : #{$baseline-spacing * 16}; // 64px
-  --space-4xl : #{$baseline-spacing * 20}; // 80px
+  --space-xxs : 0.25rem; // 4px
+  --space-xs  : 0.5rem; // 8px
+  --space-s   : 1rem; // 16px
+  --space-m   : 1.5rem; // 24px
+  --space-l   : 2rem; // 32px
+  --space-xl  : 3rem; // 48px
+  --space-2xl : 4rem; // 64px
+  --space-3xl : 6rem; // 96px
+  --gutter    : 2rem;
+
+  @include media("<=tablet") {
+    --gutter : 1rem;
+  }
 }
-
-/*
-
-Usage examples:
-
-Single value:
-  padding: var(--space-xl);
-
-Multi value:
-  padding: var(--space-m) 0 var(--space-l);
-
- */
