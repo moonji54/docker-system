@@ -1,7 +1,17 @@
 uuid: 1486cc20-6328-4f73-9353-cb3f402858f9
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - focal_point
 name: homepage_banner_medium
 label: 'Homepage banner Medium'
-effects: {  }
+effects:
+  65b88834-d025-4120-a9fe-1accbd435604:
+    uuid: 65b88834-d025-4120-a9fe-1accbd435604
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 640
+      height: 433
+      crop_type: focal_point

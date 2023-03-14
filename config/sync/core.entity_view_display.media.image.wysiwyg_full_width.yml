@@ -6,27 +6,16 @@ dependencies:
     - core.entity_view_mode.media.wysiwyg_full_width
     - field.field.media.image.field_media_image
     - media.type.image
-    - responsive_image.styles.wysiwyg_full_width
-  module:
-    - responsive_image
 _core:
   default_config_hash: acUwEVr975_oWkXDmMdZ91HuDuV21MLsapfZyuAogiE
 id: media.image.wysiwyg_full_width
 targetEntityType: media
 bundle: image
 mode: wysiwyg_full_width
-content:
-  field_media_image:
-    type: responsive_image
-    label: visually_hidden
-    settings:
-      responsive_image_style: wysiwyg_full_width
-      image_link: ''
-    third_party_settings: {  }
-    weight: 1
-    region: content
+content: {  }
 hidden:
   created: true
+  field_media_image: true
   langcode: true
   name: true
   search_api_excerpt: true

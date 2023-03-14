@@ -1,13 +1,45 @@
-uuid: 5b559d61-2364-4d47-8e56-e4e795a554a9
+uuid: 6878e66b-ed96-4716-8071-eafe03c080ea
 langcode: en
 status: true
 dependencies:
   config:
-    - image.style.large
+    - image.style.homepage_banner_extra_large
+    - image.style.homepage_banner_large
+    - image.style.homepage_banner_medium
   theme:
     - nrgi
 id: homepage_banner_image
 label: 'Homepage banner image'
-image_style_mappings: {  }
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: homepage_banner_medium
+    breakpoint_id: nrgi.smallmobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: homepage_banner_medium
+    breakpoint_id: nrgi.mobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: homepage_banner_large
+    breakpoint_id: nrgi.tablet
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: homepage_banner_large
+    breakpoint_id: nrgi.smalldesktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: homepage_banner_extra_large
+    breakpoint_id: nrgi.desktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: homepage_banner_extra_large
+    breakpoint_id: nrgi.desktop
+    multiplier: 2x
 breakpoint_group: nrgi
-fallback_image_style: large
+fallback_image_style: homepage_banner_medium

@@ -16,6 +16,7 @@ dependencies:
     - field_group
     - link
     - media_library
+    - media_library_edit
     - paragraphs
     - path
 third_party_settings:
@@ -115,7 +116,9 @@ content:
     region: content
     settings:
       media_types: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      media_library_edit:
+        show_edit: '1'
   field_hero_description:
     type: string_textarea
     weight: 40

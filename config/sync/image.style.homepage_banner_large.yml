@@ -1,0 +1,17 @@
+uuid: 432c3377-3fd4-4e08-a14f-23313a2cf5ad
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: homepage_banner_large
+label: 'Homepage banner Large'
+effects:
+  9ab47d52-0a76-4705-83e9-7b4d1378a7e2:
+    uuid: 9ab47d52-0a76-4705-83e9-7b4d1378a7e2
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 812
+      crop_type: focal_point
