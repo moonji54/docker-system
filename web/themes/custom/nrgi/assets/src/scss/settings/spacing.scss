@@ -1,7 +1,6 @@
 /* Spacing
 ================================================== */
 :root {
-  --space-xxs : 0.25rem; // 4px
   --space-xs  : 0.5rem; // 8px
   --space-s   : 1rem; // 16px
   --space-m   : 1.5rem; // 24px
@@ -9,9 +8,18 @@
   --space-xl  : 3rem; // 48px
   --space-2xl : 4rem; // 64px
   --space-3xl : 6rem; // 96px
+  --space-4xl : 8rem; // 128px
   --gutter    : 2rem;
 
   @include media("<=tablet") {
-    --gutter : 1rem;
+    --space-xs  : 0.25rem;
+    --space-s   : 0.5rem;
+    --space-m   : 1rem;
+    --space-l   : 1.5rem;
+    --space-xl  : 2rem;
+    --space-2xl : 2.25rem;
+    --space-3xl : 3.5rem;
+    --space-4xl : 4.5rem;
+    --gutter    : 1rem;
   }
 }
