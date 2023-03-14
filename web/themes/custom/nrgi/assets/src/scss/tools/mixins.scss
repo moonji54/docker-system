@@ -25,10 +25,10 @@
 }
 
 $z-index : (
-    footer: 10,
-    header: 15,
-    menu: 2,
-    localtasks: 3,
+  footer: 10,
+  header: 15,
+  menu: 2,
+  localtasks: 3,
 );
 
 @function z-index($key) {
@@ -46,12 +46,12 @@ $z-index : (
 */
 
 /* Font families */
-@mixin sans {
-  font-family : "Arial", sans-serif;
+@mixin sans-heading {
+  font-family : "Cabinet Grotesk", sans-serif;
 }
 
-@mixin serif {
-  font-family : "Georgia", serif;
+@mixin sans-body {
+  font-family : "Noto Sans", sans-serif;
 }
 
 /*

@@ -12,49 +12,46 @@
 */
 /* Core
 ================================================== */
-/*
- * Example @font-face done nicely:
-
+/* Full Palette
+================================================== */
 @font-face {
-  font-family : "Founders Grotesk";
-  src         : url("../fonts/FoundersGroteskWeb-Regular.woff2") format("woff2"),
-  url("../fonts/FoundersGroteskWeb-Regular.woff") format("woff");
+  font-family: "Cabinet Grotesk";
+  src: url("../fonts/CabinetGrotesk-Light.woff2") format("woff2"), url("../fonts/CabinetGrotesk-Light.woff") format("woff");
   font-display: swap;
-  font-style  : normal;
-  font-weight : 400;
+  font-style: normal;
+  font-weight: 300;
 }
-
 @font-face {
-  font-family : "Founders Grotesk";
-  src         : url("../fonts/FoundersGroteskWeb-RegularItalic.woff2") format("woff2"),
-  url("../fonts/FoundersGroteskWeb-RegularItalic.woff") format("woff");
+  font-family: "Cabinet Grotesk";
+  src: url("../fonts/CabinetGrotesk-Regular.woff2") format("woff2"), url("../fonts/CabinetGrotesk-Regular.woff") format("woff");
   font-display: swap;
-  font-style  : italic;
-  font-weight : 400;
+  font-style: normal;
+  font-weight: 400;
 }
-
 @font-face {
-  font-family : "Founders Grotesk";
-  src         : url("../fonts/FoundersGroteskWeb-Medium.woff2") format("woff2"),
-  url("../fonts/FoundersGroteskWeb-Medium.woff") format("woff");
+  font-family: "Cabinet Grotesk";
+  src: url("../fonts/CabinetGrotesk-Medium.woff2") format("woff2"), url("../fonts/CabinetGrotesk-Medium.woff") format("woff");
   font-display: swap;
-  font-style  : normal;
-  font-weight : 700;
+  font-style: normal;
+  font-weight: 500;
 }
-
 @font-face {
-  font-family : "Heldane";
-  src         : url("../fonts/heldane-text-web-regular.woff2") format("woff2"),
-  url("../fonts/heldane-text-web-regular.woff") format("woff");
+  font-family: "Cabinet Grotesk";
+  src: url("../fonts/CabinetGrotesk-Bold.woff2") format("woff2"), url("../fonts/CabinetGrotesk-Bold.woff") format("woff");
   font-display: swap;
-  font-style  : normal;
-  font-weight : 400;
+  font-style: normal;
+  font-weight: 700;
 }
-*/
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../fonts/CabinetGrotesk-Extrabold.woff2") format("woff2"), url("../fonts/CabinetGrotesk-Extrabold.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 800;
+}
 /* Spacing
 ================================================== */
 :root {
-  --space-xxs: 0.25rem;
   --space-xs: 0.5rem;
   --space-s: 1rem;
   --space-m: 1.5rem;
@@ -62,10 +59,19 @@
   --space-xl: 3rem;
   --space-2xl: 4rem;
   --space-3xl: 6rem;
+  --space-4xl: 8rem;
   --gutter: 2rem;
 }
 @media (max-width: 48rem) {
   :root {
+    --space-xs: 0.25rem;
+    --space-s: 0.5rem;
+    --space-m: 1rem;
+    --space-l: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 2.25rem;
+    --space-3xl: 3.5rem;
+    --space-4xl: 4.5rem;
     --gutter: 1rem;
   }
 }
@@ -224,7 +230,7 @@ body {
   text-decoration: underline;
 }
 :where(.o-content-from-editor) a:hover, :where(.o-content-from-editor) a:focus {
-  color: #303046;
+  color: #ED7053;
   text-decoration: underline;
 }
 :where(.o-content-from-editor) > :last-child {
@@ -245,7 +251,6 @@ body {
   margin-top: var(--space-s);
 }
 :where(.o-content-from-editor) figure figcaption {
-  background-color: #F6F6F6;
   box-sizing: border-box;
   display: inline-block;
   padding: var(--space-xs) var(--space-s);
@@ -465,8 +470,8 @@ body {
 
 /** @define c-header */ /** @define block-local-tasks-block */
 .block-local-tasks-block {
-  background-color: #333;
-  color: #ccc;
+  background-color: #333333;
+  color: #CCCCCC;
   display: block;
   font-family: "Source Sans Pro", "Lucida Grande", Verdana, sans-serif;
   font-size: 12px;
@@ -487,10 +492,10 @@ body {
   padding: var(--space-xs) var(--space-m);
 }
 .block-local-tasks-block .tabs li a.is-active {
-  background-color: #777777;
+  background-color: #2D2D32;
 }
 .block-local-tasks-block .tabs li a:hover, .block-local-tasks-block .tabs li a:focus {
-  background-color: #777777;
+  background-color: #2D2D32;
 }
 
 /** @define c-login */

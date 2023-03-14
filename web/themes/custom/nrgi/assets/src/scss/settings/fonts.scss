@@ -1,39 +1,44 @@
-/*
- * Example @font-face done nicely:
-
 @font-face {
-  font-family : "Founders Grotesk";
-  src         : url("../fonts/FoundersGroteskWeb-Regular.woff2") format("woff2"),
-  url("../fonts/FoundersGroteskWeb-Regular.woff") format("woff");
-  font-display: swap;
-  font-style  : normal;
-  font-weight : 400;
+  font-family  : "Cabinet Grotesk";
+  src          : url("../fonts/CabinetGrotesk-Light.woff2") format("woff2"),
+  url("../fonts/CabinetGrotesk-Light.woff") format("woff");
+  font-display : swap;
+  font-style   : normal;
+  font-weight  : 300;
 }
 
 @font-face {
-  font-family : "Founders Grotesk";
-  src         : url("../fonts/FoundersGroteskWeb-RegularItalic.woff2") format("woff2"),
-  url("../fonts/FoundersGroteskWeb-RegularItalic.woff") format("woff");
-  font-display: swap;
-  font-style  : italic;
-  font-weight : 400;
+  font-family  : "Cabinet Grotesk";
+  src          : url("../fonts/CabinetGrotesk-Regular.woff2") format("woff2"),
+  url("../fonts/CabinetGrotesk-Regular.woff") format("woff");
+  font-display : swap;
+  font-style   : normal;
+  font-weight  : 400;
 }
 
 @font-face {
-  font-family : "Founders Grotesk";
-  src         : url("../fonts/FoundersGroteskWeb-Medium.woff2") format("woff2"),
-  url("../fonts/FoundersGroteskWeb-Medium.woff") format("woff");
-  font-display: swap;
-  font-style  : normal;
-  font-weight : 700;
+  font-family  : "Cabinet Grotesk";
+  src          : url("../fonts/CabinetGrotesk-Medium.woff2") format("woff2"),
+  url("../fonts/CabinetGrotesk-Medium.woff") format("woff");
+  font-display : swap;
+  font-style   : normal;
+  font-weight  : 500;
 }
 
 @font-face {
-  font-family : "Heldane";
-  src         : url("../fonts/heldane-text-web-regular.woff2") format("woff2"),
-  url("../fonts/heldane-text-web-regular.woff") format("woff");
-  font-display: swap;
-  font-style  : normal;
-  font-weight : 400;
+  font-family  : "Cabinet Grotesk";
+  src          : url("../fonts/CabinetGrotesk-Bold.woff2") format("woff2"),
+  url("../fonts/CabinetGrotesk-Bold.woff") format("woff");
+  font-display : swap;
+  font-style   : normal;
+  font-weight  : 700;
 }
-*/
+
+@font-face {
+  font-family  : "Cabinet Grotesk";
+  src          : url("../fonts/CabinetGrotesk-Extrabold.woff2") format("woff2"),
+  url("../fonts/CabinetGrotesk-Extrabold.woff") format("woff");
+  font-display : swap;
+  font-style   : normal;
+  font-weight  : 800;
+}

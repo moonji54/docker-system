@@ -19,7 +19,7 @@
     text-decoration : underline;
 
     &:hover, &:focus {
-      color           : $primary--light;
+      color           : $peach-2;
       text-decoration : underline;
     }
   }
@@ -50,11 +50,10 @@
     margin-top : var(--space-s);
 
     figcaption {
-      background-color : $white--grey;
-      box-sizing       : border-box;
-      display          : inline-block;
-      padding          : var(--space-xs) var(--space-s);
-      width            : 100%;
+      box-sizing : border-box;
+      display    : inline-block;
+      padding    : var(--space-xs) var(--space-s);
+      width      : 100%;
     }
   }
 

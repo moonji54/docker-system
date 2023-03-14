@@ -1,7 +1,7 @@
 /** @define block-local-tasks-block */
 .block-local-tasks-block {
-  background-color : #333;
-  color            : #ccc;
+  background-color : #333333;
+  color            : #CCCCCC;
   display          : block;
   font-family      : "Source Sans Pro", "Lucida Grande", Verdana, sans-serif;
   font-size        : 12px;
@@ -22,11 +22,11 @@
         padding : var(--space-xs) var(--space-m);
 
         &.is-active {
-          background-color : $grey;
+          background-color : $primary;
         }
 
         &:hover, &:focus {
-          background-color : $grey;
+          background-color : $primary;
         }
       }
     }
