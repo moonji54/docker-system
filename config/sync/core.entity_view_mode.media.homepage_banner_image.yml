@@ -1,0 +1,10 @@
+uuid: 508d8762-602a-4dcf-a1e5-16d787f11c30
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.homepage_banner_image
+label: 'Homepage banner image'
+targetEntityType: media
+cache: true

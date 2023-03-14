@@ -1,0 +1,7 @@
+uuid: 1486cc20-6328-4f73-9353-cb3f402858f9
+langcode: en
+status: true
+dependencies: {  }
+name: homepage_banner_medium
+label: 'Homepage banner Medium'
+effects: {  }

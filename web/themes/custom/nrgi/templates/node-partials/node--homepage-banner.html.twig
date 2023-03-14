@@ -1,0 +1,38 @@
+{% set classes = [
+  'c-' ~ node.bundle|clean_class ~ '-banner',
+] %}
+
+{% if content.field_hero_title|field_value %}
+  <section {{ attributes.addClass(classes) }}>
+    <div class="{{ classes.0 }}__container">
+      <div class="{{ classes.0 }}__inner">
+
+        {# Title #}
+        <div class="{{ classes.0 }}__title">
+          <h2>{{ content.field_hero_title }}</h2>
+        </div>
+
+        {# Description #}
+        {% if content.field_hero_description|field_value %}
+          <p class="{{ classes.0 }}__description">{{ content.field_hero_description }}</p>
+        {% endif %}
+
+
+        {# Button link #}
+        {% if content.field_hero_link|field_value %}
+          {{ content.field_hero_link }}
+        {% endif %}
+      </div>
+    </div>
+
+    {# Image #}
+    {% if content.field_featured_image|field_value %}
+      <div class=" c-homepage-banner__image-wrapper">
+        {% if content.field_overlay_opacity|field_value %}
+          [overlay]: {{ content.field_overlay_opacity }}
+        {% endif %}
+        {{ content.field_featured_image }}
+      </div>
+    {% endif %}
+  </section>
+{% endif %}
