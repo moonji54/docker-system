@@ -1,11 +1,4 @@
 /*
-    Theme Name: Default Theme by Soapbox
-    Theme URI: http://www.designbysoapbox.com
-    Description: Default Theme by Soapbox
-    Author: Soapbox
-    Version: 2.1
-*/
-/*
     ===============================
     1. SETTINGS
     ===============================
@@ -62,7 +55,7 @@
   --space-3xl: 6rem;
   --gutter: 2rem;
 }
-@media (max-width: 48rem) {
+@media (max-width: 46.25rem) {
   :root {
     --gutter: 1rem;
   }
@@ -104,66 +97,11 @@
     3. RESET
     ===============================
 */
-/* Reset from: https://www.joshwcomeau.com/css/custom-css-reset/ */
-/*
-  Use a more-intuitive box-sizing model.
-*/
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/*
-  Remove default margin
-*/
-* {
-  margin: 0;
-}
-
-/*
-  Allow percentage-based heights in the application
-*/
-html, body {
-  height: 100%;
-}
-
-/*
-  Improve text rendering
-*/
-body {
-  -webkit-font-smoothing: antialiased;
-}
-
-/*
-  Improve media defaults
-*/
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-
-/*
-  Remove built-in form typography styles
-*/
-input, button, textarea, select {
-  font: inherit;
-}
-
-/*
-  Avoid text overflows
-*/
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-
 /*
     ===============================
     4. BASE
     ===============================
 */
-body {
-  font-size: 16px;
-}
-
 /*
     ===============================
     5. OBJECTS
@@ -189,7 +127,7 @@ body {
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
-  max-width: calc(82rem + var(--gutter) * 2);
+  max-width: calc(108.5rem + var(--gutter) * 2);
   padding-left: var(--gutter);
   padding-right: var(--gutter);
   width: 100%;
@@ -289,12 +227,12 @@ body {
   margin: var(--space-l) 0;
   max-width: 100%;
 }
-@media (max-width: 48rem) {
+@media (max-width: 46.25rem) {
   :where(.o-content-from-editor) .alignnone {
     margin-top: var(--space-m);
   }
 }
-@media (max-width: 48rem) {
+@media (max-width: 46.25rem) {
   :where(.o-content-from-editor) .alignleft,
   :where(.o-content-from-editor) .alignright,
   :where(.o-content-from-editor) .alignnone {
@@ -327,7 +265,7 @@ body {
   line-height: 1.5;
   margin: var(--space-s) 0 var(--space-m) var(--space-m);
 }
-@media (max-width: 48rem) {
+@media (max-width: 46.25rem) {
   :where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
     margin-bottom: var(--space-s);
     margin-top: var(--space-s);
@@ -364,25 +302,6 @@ body {
   margin-top: var(--space-m);
 }
 
-/** @define o-section */
-.o-section {
-  margin-top: var(--space-xl);
-  /* Modifiers
-  ================================================== */
-  /* stylelint-disable-next-line */
-}
-@media (max-width: 48rem) {
-  .o-section {
-    margin-top: var(--space-l);
-  }
-}
-.o-section--has-background {
-  padding: var(--space-xl);
-}
-.o-section--has-background + .o-section--has-background {
-  margin-top: 0;
-}
-
 /** @define o-svg */
 .o-svg {
   /* #Social
@@ -415,97 +334,6 @@ body {
     6. COMPONENTS
     ===============================
 */
-/** @define c-breadcrumbs */ /** @define c-footer */ /** @define c.form */
-.c-form label {
-  font-weight: 700;
-  font-weight: 500;
-}
-.c-form input[type=text], .c-form input[type=email], .c-form input[type=password], .c-form input[type=date], .c-form input[type=number], .c-form select, .c-form textarea {
-  border: 1px solid #1e1e46;
-  display: block;
-  margin: var(--space-xs) 0 var(--space-s) 0;
-  padding: var(--space-xs);
-}
-.c-form .description {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin: var(--space-xs) 0;
-}
-.c-form .description a {
-  font-weight: 500;
-}
-.c-form .description a:hover, .c-form .description a:focus {
-  text-decoration: underline;
-}
-.c-form input[type=submit], .c-form input[type=button] {
-  border: 1px solid #1e1e46;
-  color: #1e1e46;
-  display: inline-block;
-  overflow: hidden;
-  padding: var(--space-xs);
-  position: relative;
-  transition: background 0.1s linear;
-  z-index: 0;
-  background-color: #fff;
-  margin: 0;
-}
-.c-form input[type=submit]:hover, .c-form input[type=submit]:focus, .c-form input[type=button]:hover, .c-form input[type=button]:focus {
-  background: #1e1e46;
-  color: #fff;
-}
-.c-form input[type=submit]:hover, .c-form input[type=submit]:focus, .c-form input[type=button]:hover, .c-form input[type=button]:focus {
-  background-color: #1e1e46;
-  color: #fff;
-}
-.c-form .form-managed-file input[type=submit], .c-form .form-managed-file input[type=button] {
-  padding: var(--space-xs) var(--space-s);
-}
-
-/** @define c-header */ /** @define block-local-tasks-block */
-.block-local-tasks-block {
-  background-color: #333;
-  color: #ccc;
-  display: block;
-  font-family: "Source Sans Pro", "Lucida Grande", Verdana, sans-serif;
-  font-size: 12px;
-  position: relative;
-  width: 100%;
-}
-.block-local-tasks-block .tabs {
-  display: block;
-  margin: 0;
-}
-.block-local-tasks-block .tabs li {
-  display: block;
-  float: left;
-  margin-right: 0;
-}
-.block-local-tasks-block .tabs li a {
-  display: block;
-  padding: var(--space-xs) var(--space-m);
-}
-.block-local-tasks-block .tabs li a.is-active {
-  background-color: #777;
-}
-.block-local-tasks-block .tabs li a:hover, .block-local-tasks-block .tabs li a:focus {
-  background-color: #777;
-}
-
-/** @define c-login */
-.c-login {
-  padding: var(--space-l) 0;
-}
-.c-login__title {
-  font-weight: 700;
-}
-.c-login .item-list li {
-  margin-left: 0;
-}
-.c-login .item-list li a:hover, .c-login .item-list li a:focus {
-  text-decoration: underline;
-}
-
-/** @define c-main-menu */ /** @define c-share */
 /*
     ===============================
     7. TRUMPS
