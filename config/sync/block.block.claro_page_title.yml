@@ -1,6 +1,6 @@
 uuid: 48f59ce8-585f-4bcc-a874-5d0c5c33663c
 langcode: en
-status: false
+status: true
 dependencies:
   theme:
     - claro
