@@ -1,8 +1,16 @@
-$black : #000;
-$grey : #777;
-$white : #fff;
-$white--grey : #f6f6f6;
+/* Core
+================================================== */
+$primary         : #2D2D32; // Granite
+$secondary       : #00545A; // Ocean
+$tertiary        : #FF7D5F; // Peach
 
-// SBTODO rename primary to name of primary colour throughout assets/scss.
-$primary : #1e1e46;
-$primary--light : #303046;
+/* Full Palette
+================================================== */
+$blue-light      : #B3EFEF;
+$grey-light      : #EDEDEF;
+$peach-2         : #ED7053;
+$turquoise-light : #00C9C8;
+$turquoise-dark  : #00B5B4;
+$white           : #FFFFFF;
+$yellow-light    : #FFD66D;
+$yellow-dark     : #E6C162;

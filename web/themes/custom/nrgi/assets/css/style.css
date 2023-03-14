@@ -10,6 +10,8 @@
     1. SETTINGS
     ===============================
 */
+/* Core
+================================================== */
 /*
  * Example @font-face done nicely:
 
@@ -171,8 +173,8 @@ body {
 */
 /** @define o-button */
 .o-button {
-  border: 1px solid #1e1e46;
-  color: #1e1e46;
+  border: 1px solid #2D2D32;
+  color: #2D2D32;
   display: inline-block;
   overflow: hidden;
   padding: var(--space-xs);
@@ -181,8 +183,8 @@ body {
   z-index: 0;
 }
 .o-button:hover, .o-button:focus {
-  background: #1e1e46;
-  color: #fff;
+  background: #2D2D32;
+  color: #FFFFFF;
 }
 
 .o-container {
@@ -243,7 +245,7 @@ body {
   margin-top: var(--space-s);
 }
 :where(.o-content-from-editor) figure figcaption {
-  background-color: #f6f6f6;
+  background-color: #F6F6F6;
   box-sizing: border-box;
   display: inline-block;
   padding: var(--space-xs) var(--space-s);
@@ -259,7 +261,7 @@ body {
   margin-top: var(--space-m);
 }
 :where(.o-content-from-editor) blockquote {
-  border-left: 3px solid #1e1e46;
+  border-left: 3px solid #2D2D32;
   margin: var(--space-l) 0 var(--space-l) var(--space-m);
   padding: var(--space-xs) 0 var(--space-xs) var(--space-m);
 }
@@ -421,7 +423,7 @@ body {
   font-weight: 500;
 }
 .c-form input[type=text], .c-form input[type=email], .c-form input[type=password], .c-form input[type=date], .c-form input[type=number], .c-form select, .c-form textarea {
-  border: 1px solid #1e1e46;
+  border: 1px solid #2D2D32;
   display: block;
   margin: var(--space-xs) 0 var(--space-s) 0;
   padding: var(--space-xs);
@@ -438,24 +440,24 @@ body {
   text-decoration: underline;
 }
 .c-form input[type=submit], .c-form input[type=button] {
-  border: 1px solid #1e1e46;
-  color: #1e1e46;
+  border: 1px solid #2D2D32;
+  color: #2D2D32;
   display: inline-block;
   overflow: hidden;
   padding: var(--space-xs);
   position: relative;
   transition: background 0.1s linear;
   z-index: 0;
-  background-color: #fff;
+  background-color: #FFFFFF;
   margin: 0;
 }
 .c-form input[type=submit]:hover, .c-form input[type=submit]:focus, .c-form input[type=button]:hover, .c-form input[type=button]:focus {
-  background: #1e1e46;
-  color: #fff;
+  background: #2D2D32;
+  color: #FFFFFF;
 }
 .c-form input[type=submit]:hover, .c-form input[type=submit]:focus, .c-form input[type=button]:hover, .c-form input[type=button]:focus {
-  background-color: #1e1e46;
-  color: #fff;
+  background-color: #2D2D32;
+  color: #FFFFFF;
 }
 .c-form .form-managed-file input[type=submit], .c-form .form-managed-file input[type=button] {
   padding: var(--space-xs) var(--space-s);
@@ -485,10 +487,10 @@ body {
   padding: var(--space-xs) var(--space-m);
 }
 .block-local-tasks-block .tabs li a.is-active {
-  background-color: #777;
+  background-color: #777777;
 }
 .block-local-tasks-block .tabs li a:hover, .block-local-tasks-block .tabs li a:focus {
-  background-color: #777;
+  background-color: #777777;
 }
 
 /** @define c-login */
