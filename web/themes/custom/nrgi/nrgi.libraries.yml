@@ -4,20 +4,16 @@ global-styling:
   css:
     theme:
       assets/css/style.min.css: { minified: true }
-  ckeditor_stylesheets:
-    - assets/css/ckeditor-style.css
 
 # Scripts that may be needed on any page.
 global-scripts:
   version: 1.0
   js:
     https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js: { type: external, minified: true }
-    assets/js/header.js: {}
-    assets/js/test.js: {} #SBTODO: Remove this example!
-    https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js: { type: external, minified: false }
-    assets/js/svg4everybody.js: {}
+    assets/js/example.js: { }
   dependencies:
     - core/jquery
     - core/drupal
-    - core/jquery.once
-    - core/drupalSetting
+    - core/drupalSettings
+    - core/once
+

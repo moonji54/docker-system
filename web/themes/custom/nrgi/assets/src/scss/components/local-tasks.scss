@@ -1,6 +1,7 @@
+/** @define block-local-tasks-block */
 .block-local-tasks-block {
-  background-color : #2d2d2d;
-  color            : #ccc;
+  background-color : #333333;
+  color            : #CCCCCC;
   display          : block;
   font-family      : "Source Sans Pro", "Lucida Grande", Verdana, sans-serif;
   font-size        : 12px;
@@ -18,17 +19,14 @@
 
       a {
         display : block;
-        padding : 1em 2em;
+        padding : var(--space-xs) var(--space-m);
 
         &.is-active {
-          background : #0084d7;
-          color      : $white;
+          background-color : $primary;
         }
 
         &:hover, &:focus {
-          background      : #0084d7;
-          color           : $white;
-          text-decoration : none;
+          background-color : $primary;
         }
       }
     }

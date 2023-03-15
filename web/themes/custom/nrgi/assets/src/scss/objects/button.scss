@@ -1,29 +1,21 @@
+/** @define o-button */
 @mixin o-button {
   @include ts-button;
-  align-items      : center;
-  background-color : $black;
-  border           : 0;
-  box-sizing       : border-box;
-  color            : $white;
-  cursor           : pointer;
-  display          : inline-flex;
-  justify-content  : space-between;
-  padding          : var(--space-s) var(--space-m);
-  text-align       : left;
+  border     : 1px solid $primary;
+  color      : $primary;
+  display    : inline-block;
+  overflow   : hidden;
+  padding    : var(--space-xs);
+  position   : relative;
+  transition : background 0.1s linear;
+  z-index    : 0;
+
+  &:hover, &:focus {
+    background : $primary;
+    color      : $white;
+  }
 }
 
 .o-button {
   @include o-button;
-
-  &__icon-wrapper {
-    align-items      : center;
-    background-color : $white;
-    border-radius    : 100%;
-    color            : $black;
-    display          : flex;
-    height           : 24px;
-    justify-content  : center;
-    width            : 24px;
-  }
 }
-

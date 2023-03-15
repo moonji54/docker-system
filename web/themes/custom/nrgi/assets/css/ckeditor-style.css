@@ -1,57 +1,51 @@
 /*
-    Theme Name: Default Theme by Soapbox
-    Theme URI: http://www.designbysoapbox.com
-    Description: Default Theme by Soapbox
-    Author: Soapbox
-    Version: 2.1
-*/
-/*
     ===============================
     1. SETTINGS
     ===============================
 */
-/* Core
-================================================== */
-/* Full Palette
-================================================== */
+/*
+ * Example @font-face done nicely:
+
 @font-face {
-  font-family: "Cabinet Grotesk";
-  src: url("../fonts/CabinetGrotesk-Light.woff2") format("woff2"), url("../fonts/CabinetGrotesk-Light.woff") format("woff");
+  font-family : "Founders Grotesk";
+  src         : url("../fonts/FoundersGroteskWeb-Regular.woff2") format("woff2"),
+  url("../fonts/FoundersGroteskWeb-Regular.woff") format("woff");
   font-display: swap;
-  font-style: normal;
-  font-weight: 300;
+  font-style  : normal;
+  font-weight : 400;
 }
+
 @font-face {
-  font-family: "Cabinet Grotesk";
-  src: url("../fonts/CabinetGrotesk-Regular.woff2") format("woff2"), url("../fonts/CabinetGrotesk-Regular.woff") format("woff");
+  font-family : "Founders Grotesk";
+  src         : url("../fonts/FoundersGroteskWeb-RegularItalic.woff2") format("woff2"),
+  url("../fonts/FoundersGroteskWeb-RegularItalic.woff") format("woff");
   font-display: swap;
-  font-style: normal;
-  font-weight: 400;
+  font-style  : italic;
+  font-weight : 400;
 }
+
 @font-face {
-  font-family: "Cabinet Grotesk";
-  src: url("../fonts/CabinetGrotesk-Medium.woff2") format("woff2"), url("../fonts/CabinetGrotesk-Medium.woff") format("woff");
+  font-family : "Founders Grotesk";
+  src         : url("../fonts/FoundersGroteskWeb-Medium.woff2") format("woff2"),
+  url("../fonts/FoundersGroteskWeb-Medium.woff") format("woff");
   font-display: swap;
-  font-style: normal;
-  font-weight: 500;
+  font-style  : normal;
+  font-weight : 700;
 }
+
 @font-face {
-  font-family: "Cabinet Grotesk";
-  src: url("../fonts/CabinetGrotesk-Bold.woff2") format("woff2"), url("../fonts/CabinetGrotesk-Bold.woff") format("woff");
+  font-family : "Heldane";
+  src         : url("../fonts/heldane-text-web-regular.woff2") format("woff2"),
+  url("../fonts/heldane-text-web-regular.woff") format("woff");
   font-display: swap;
-  font-style: normal;
-  font-weight: 700;
+  font-style  : normal;
+  font-weight : 400;
 }
-@font-face {
-  font-family: "Cabinet Grotesk";
-  src: url("../fonts/CabinetGrotesk-Extrabold.woff2") format("woff2"), url("../fonts/CabinetGrotesk-Extrabold.woff") format("woff");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 800;
-}
+*/
 /* Spacing
 ================================================== */
 :root {
+  --space-xxs: 0.25rem;
   --space-xs: 0.5rem;
   --space-s: 1rem;
   --space-m: 1.5rem;
@@ -59,19 +53,10 @@
   --space-xl: 3rem;
   --space-2xl: 4rem;
   --space-3xl: 6rem;
-  --space-4xl: 8rem;
   --gutter: 2rem;
 }
-@media (max-width: 48rem) {
+@media (max-width: 46.25rem) {
   :root {
-    --space-xs: 0.25rem;
-    --space-s: 0.5rem;
-    --space-m: 1rem;
-    --space-l: 1.5rem;
-    --space-xl: 2rem;
-    --space-2xl: 2.25rem;
-    --space-3xl: 3.5rem;
-    --space-4xl: 4.5rem;
     --gutter: 1rem;
   }
 }
@@ -112,66 +97,11 @@
     3. RESET
     ===============================
 */
-/* Reset from: https://www.joshwcomeau.com/css/custom-css-reset/ */
-/*
-  Use a more-intuitive box-sizing model.
-*/
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/*
-  Remove default margin
-*/
-* {
-  margin: 0;
-}
-
-/*
-  Allow percentage-based heights in the application
-*/
-html, body {
-  height: 100%;
-}
-
-/*
-  Improve text rendering
-*/
-body {
-  -webkit-font-smoothing: antialiased;
-}
-
-/*
-  Improve media defaults
-*/
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-
-/*
-  Remove built-in form typography styles
-*/
-input, button, textarea, select {
-  font: inherit;
-}
-
-/*
-  Avoid text overflows
-*/
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-
 /*
     ===============================
     4. BASE
     ===============================
 */
-body {
-  font-size: 16px;
-}
-
 /*
     ===============================
     5. OBJECTS
@@ -179,8 +109,8 @@ body {
 */
 /** @define o-button */
 .o-button {
-  border: 1px solid #2D2D32;
-  color: #2D2D32;
+  border: 1px solid #1e1e46;
+  color: #1e1e46;
   display: inline-block;
   overflow: hidden;
   padding: var(--space-xs);
@@ -189,15 +119,15 @@ body {
   z-index: 0;
 }
 .o-button:hover, .o-button:focus {
-  background: #2D2D32;
-  color: #FFFFFF;
+  background: #1e1e46;
+  color: #fff;
 }
 
 .o-container {
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
-  max-width: calc(82rem + var(--gutter) * 2);
+  max-width: calc(108.5rem + var(--gutter) * 2);
   padding-left: var(--gutter);
   padding-right: var(--gutter);
   width: 100%;
@@ -230,7 +160,7 @@ body {
   text-decoration: underline;
 }
 :where(.o-content-from-editor) a:hover, :where(.o-content-from-editor) a:focus {
-  color: #ED7053;
+  color: #303046;
   text-decoration: underline;
 }
 :where(.o-content-from-editor) > :last-child {
@@ -251,6 +181,7 @@ body {
   margin-top: var(--space-s);
 }
 :where(.o-content-from-editor) figure figcaption {
+  background-color: #f6f6f6;
   box-sizing: border-box;
   display: inline-block;
   padding: var(--space-xs) var(--space-s);
@@ -266,7 +197,7 @@ body {
   margin-top: var(--space-m);
 }
 :where(.o-content-from-editor) blockquote {
-  border-left: 3px solid #2D2D32;
+  border-left: 3px solid #1e1e46;
   margin: var(--space-l) 0 var(--space-l) var(--space-m);
   padding: var(--space-xs) 0 var(--space-xs) var(--space-m);
 }
@@ -296,12 +227,12 @@ body {
   margin: var(--space-l) 0;
   max-width: 100%;
 }
-@media (max-width: 48rem) {
+@media (max-width: 46.25rem) {
   :where(.o-content-from-editor) .alignnone {
     margin-top: var(--space-m);
   }
 }
-@media (max-width: 48rem) {
+@media (max-width: 46.25rem) {
   :where(.o-content-from-editor) .alignleft,
   :where(.o-content-from-editor) .alignright,
   :where(.o-content-from-editor) .alignnone {
@@ -334,7 +265,7 @@ body {
   line-height: 1.5;
   margin: var(--space-s) 0 var(--space-m) var(--space-m);
 }
-@media (max-width: 48rem) {
+@media (max-width: 46.25rem) {
   :where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
     margin-bottom: var(--space-s);
     margin-top: var(--space-s);
@@ -371,25 +302,6 @@ body {
   margin-top: var(--space-m);
 }
 
-/** @define o-section */
-.o-section {
-  margin-top: var(--space-xl);
-  /* Modifiers
-  ================================================== */
-  /* stylelint-disable-next-line */
-}
-@media (max-width: 48rem) {
-  .o-section {
-    margin-top: var(--space-l);
-  }
-}
-.o-section--has-background {
-  padding: var(--space-xl);
-}
-.o-section--has-background + .o-section--has-background {
-  margin-top: 0;
-}
-
 /** @define o-svg */
 .o-svg {
   /* #Social
@@ -422,97 +334,6 @@ body {
     6. COMPONENTS
     ===============================
 */
-/** @define c-breadcrumbs */ /** @define c-footer */ /** @define c.form */
-.c-form label {
-  font-weight: 700;
-  font-weight: 500;
-}
-.c-form input[type=text], .c-form input[type=email], .c-form input[type=password], .c-form input[type=date], .c-form input[type=number], .c-form select, .c-form textarea {
-  border: 1px solid #2D2D32;
-  display: block;
-  margin: var(--space-xs) 0 var(--space-s) 0;
-  padding: var(--space-xs);
-}
-.c-form .description {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin: var(--space-xs) 0;
-}
-.c-form .description a {
-  font-weight: 500;
-}
-.c-form .description a:hover, .c-form .description a:focus {
-  text-decoration: underline;
-}
-.c-form input[type=submit], .c-form input[type=button] {
-  border: 1px solid #2D2D32;
-  color: #2D2D32;
-  display: inline-block;
-  overflow: hidden;
-  padding: var(--space-xs);
-  position: relative;
-  transition: background 0.1s linear;
-  z-index: 0;
-  background-color: #FFFFFF;
-  margin: 0;
-}
-.c-form input[type=submit]:hover, .c-form input[type=submit]:focus, .c-form input[type=button]:hover, .c-form input[type=button]:focus {
-  background: #2D2D32;
-  color: #FFFFFF;
-}
-.c-form input[type=submit]:hover, .c-form input[type=submit]:focus, .c-form input[type=button]:hover, .c-form input[type=button]:focus {
-  background-color: #2D2D32;
-  color: #FFFFFF;
-}
-.c-form .form-managed-file input[type=submit], .c-form .form-managed-file input[type=button] {
-  padding: var(--space-xs) var(--space-s);
-}
-
-/** @define c-header */ /** @define block-local-tasks-block */
-.block-local-tasks-block {
-  background-color: #333333;
-  color: #CCCCCC;
-  display: block;
-  font-family: "Source Sans Pro", "Lucida Grande", Verdana, sans-serif;
-  font-size: 12px;
-  position: relative;
-  width: 100%;
-}
-.block-local-tasks-block .tabs {
-  display: block;
-  margin: 0;
-}
-.block-local-tasks-block .tabs li {
-  display: block;
-  float: left;
-  margin-right: 0;
-}
-.block-local-tasks-block .tabs li a {
-  display: block;
-  padding: var(--space-xs) var(--space-m);
-}
-.block-local-tasks-block .tabs li a.is-active {
-  background-color: #2D2D32;
-}
-.block-local-tasks-block .tabs li a:hover, .block-local-tasks-block .tabs li a:focus {
-  background-color: #2D2D32;
-}
-
-/** @define c-login */
-.c-login {
-  padding: var(--space-l) 0;
-}
-.c-login__title {
-  font-weight: 700;
-}
-.c-login .item-list li {
-  margin-left: 0;
-}
-.c-login .item-list li a:hover, .c-login .item-list li a:focus {
-  text-decoration: underline;
-}
-
-/** @define c-main-menu */ /** @define c-share */
 /*
     ===============================
     7. TRUMPS

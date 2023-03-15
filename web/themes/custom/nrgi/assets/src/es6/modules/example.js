@@ -1,27 +1,22 @@
-/* global jQuery */
-
 class Example {
-  constructor(context, settings, Drupal, testVariable) {
-    // Values from Drupal
-    this.context = context;
-    this.settings = settings;
-    // this.Drupal = Drupal;
+  constructor($, element) {
+    this.$ = $;
+    this.$window = this.$(window);
+    this.$container = this.$(element);
+    this.$button = this.$container.find('.js-button');
 
-    // Our Variables
-    this.testVariable = testVariable;
+    this.$button.on('click', this.$.proxy(this.checkScrollbarsResize, this));
 
-    // Elements
-    this.$wrapper = jQuery('.js-example', this.context).once();
-
-    console.log(this.$wrapper);
-
-    this.message();
+    this.$contentFromEditor = this.$(element);
+    this.wrapTable();
   }
 
-  message() {
-    console.log('Is jQuery working inside class functions?');
-    console.log(jQuery('.js-example', this.context).once());
-    console.log(this.$wrapper);
+  wrapTable() {
+    const $tables = this.$contentFromEditor.find('table');
+
+    if ($tables) {
+      $tables.wrap('<figure class="table-wrapper"></figure>');
+    }
   }
 }
 

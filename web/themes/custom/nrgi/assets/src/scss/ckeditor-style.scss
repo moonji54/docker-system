@@ -1,16 +1,10 @@
-/*
-    Theme Name: Default Theme by Soapbox
-    Theme URI: http://www.designbysoapbox.com
-    Description: Default Theme by Soapbox
-    Author: Soapbox
-    Version: 2.1
-*/
+@import "settings/include-media/include-media";
+
 /*
     ===============================
     1. SETTINGS
     ===============================
 */
-@import "settings/include-media/include-media";
 @import "settings/colours";
 @import "settings/fonts";
 @import "settings/grid-settings";
@@ -21,6 +15,7 @@
     2. TOOLS
     ===============================
 */
+
 @import "tools/grid-mixins";
 @import "tools/mixins";
 @import "tools/text-styles";
@@ -30,14 +25,14 @@
     3. RESET
     ===============================
 */
-@import "reset/reset";
+//@import "reset/reset";
 
 /*
     ===============================
     4. BASE
     ===============================
 */
-@import "base/base";
+//@import "base/base";
 
 /*
     ===============================
@@ -47,7 +42,6 @@
 @import "objects/button";
 @import "objects/container";
 @import "objects/content-from-editor";
-@import "objects/section";
 @import "objects/svg";
 
 /*
@@ -55,14 +49,6 @@
     6. COMPONENTS
     ===============================
 */
-@import "components/breadcrumbs";
-@import "components/footer";
-@import "components/form";
-@import "components/header";
-@import "components/local-tasks";
-@import "components/login";
-@import "components/main-menu";
-@import "components/share";
 
 /*
     ===============================
@@ -70,5 +56,5 @@
     ===============================
 */
 @import "overrides/utilities";
-@import "overrides/plugins";
-@import "overrides/print";
+//@import "overrides/overrides";
+//@import "overrides/print";

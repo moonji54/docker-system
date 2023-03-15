@@ -1,17 +1,16 @@
-$black: #000;
-$grey: #999;
-$white: #fff;
-$secondary-green: #25E1AF;
-$secondary-green-1: #259372;
-$secondary-green-2: #005033;
-$secondary-green--1: #A0E4CC;
-$secondary--green--2: #E5F3F0;
-$primary: #1e1e46;
-$primary--light: #303046;
-$primary--orange: #FF5722;
-$primary--orange--1: #FF8A50;
-$primary-charcoal: #36555F;
+/* Core
+================================================== */
+$primary         : #2D2D32; // Granite
+$secondary       : #00545A; // Ocean
+$tertiary        : #FF7D5F; // Peach
 
-
-// SBTODO rename primary to name of primary colour throughout assets/scss.
-
+/* Full Palette
+================================================== */
+$blue-light      : #B3EFEF;
+$grey-light      : #EDEDEF;
+$peach-2         : #ED7053;
+$turquoise-light : #00C9C8;
+$turquoise-dark  : #00B5B4;
+$white           : #FFFFFF;
+$yellow-light    : #FFD66D;
+$yellow-dark     : #E6C162;

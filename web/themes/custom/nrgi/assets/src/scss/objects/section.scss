@@ -1,6 +1,19 @@
+/** @define o-section */
 .o-section {
-  border           : 1px solid lightcoral;
-  background-color : peachpuff;
+  margin-top : var(--space-xl);
 
-  // SBTODO: Grab our usual section code
+  @include media("<=tablet") {
+    margin-top : var(--space-l);
+  }
+
+  /* Modifiers
+  ================================================== */
+  &--has-background {
+    padding : var(--space-xl);
+  }
+
+  /* stylelint-disable-next-line */
+  &--has-background + &--has-background {
+    margin-top : 0;
+  }
 }

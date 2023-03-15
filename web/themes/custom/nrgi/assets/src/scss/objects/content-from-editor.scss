@@ -1,58 +1,25 @@
-.o-content-from-editor {
+:where(.o-content-from-editor) {
   p {
     @include ts-body;
-    margin-bottom : var(--space-xl);
-  }
-
-  // Fix for old legacy contents where client has added various spans within divs.
-  div span {
-    @include ts-body;
-    margin-bottom : var(--space-xl);
-  }
-
-  h1, h2, h3, h4, h5, h6, p, ol, ul, a {
-    box-sizing : border-box;
   }
 
   h1 {
     @include ts-heading-1;
-    margin-bottom : var(--space-xl);
   }
 
   h2 {
     @include ts-heading-2;
-    margin-bottom : var(--space-xl);
   }
 
   h3, h4, h5, h6 {
     @include ts-heading-3;
-    margin-bottom : var(--space-xl);
-  }
-
-  p + h1,
-  p + h2,
-  p + h3,
-  blockquote + h1,
-  blockquote + h2,
-  blockquote + h3,
-  blockquote + h4,
-  blockquote + h5,
-  blockquote + h6 {
-    margin-top : var(--space-3xl);
-  }
-
-  p + h4,
-  p + h5,
-  p + h6,
-  blockquote + p {
-    margin-top : var(--space-xl);
   }
 
   a {
     text-decoration : underline;
 
     &:hover, &:focus {
-      color           : $primary--light;
+      color           : $peach-2;
       text-decoration : underline;
     }
   }
@@ -72,36 +39,51 @@
       margin-right : 0;
       width        : 100%;
     }
+
+    &.size-full-width,
+    &.size-full-width-retina {
+      // SBTODO: Full width images breaking out?
+    }
   }
 
   figure {
-    margin-bottom : var(--space-m);
+    margin-top : var(--space-s);
 
     figcaption {
       box-sizing : border-box;
       display    : inline-block;
-      padding    : var(--space-s) var(--space-m);
+      padding    : var(--space-xs) var(--space-s);
       width      : 100%;
     }
+  }
+
+  h1 + p,
+  h2 + p,
+  h3 + p,
+  h4 + p,
+  h5 + p,
+  h6 + p,
+  p + p {
+    margin-top : var(--space-m);
   }
 
   /* Block Quotes
   ================================================== */
   blockquote {
     border-left : 3px solid $primary;
-    margin      : var(--space-2xl) 0 var(--space-2xl) var(--space-l);
-    padding     : var(--space-s) 0 var(--space-s) var(--space-xl);
+    margin      : var(--space-l) 0 var(--space-l) var(--space-m);
+    padding     : var(--space-xs) 0 var(--space-xs) var(--space-m);
 
     p {
-      @include ts-body;
+      @include ts-pullquote;
       font-style    : italic;
       font-weight   : 400;
       margin-bottom : 0;
     }
 
     footer {
-      @include ts-body(true);
-      margin-top : var(--space-m);
+      @include ts-caption;
+      margin-top : var(--space-s);
     }
   }
 
@@ -109,37 +91,37 @@
   ================================================== */
   .alignleft, .align-left {
     float  : left;
-    margin : var(--space-l) var(--space-xl) var(--space-l) 0;
+    margin : var(--space-s) var(--space-m) var(--space-s) 0;
   }
 
   .aligncenter, .align-center {
     display : block;
-    margin  : var(--space-xl) auto var(--space-xl) auto;
+    margin  : var(--space-m) auto;
   }
 
   .alignright, .align-right {
     float  : right;
-    margin : var(--space-l) 0 var(--space-xl) var(--space-l);
+    margin : var(--space-s) 0 var(--space-m) var(--space-s);
   }
 
   .alignnone {
     display   : block;
-    margin    : var(--space-3xl) 0 var(--space-3xl);
     height    : auto;
+    margin    : var(--space-l) 0;
     max-width : 100%;
 
-    @include media(">tablet") {
-      margin-top : var(--space-xl);
+    @include media("<=tablet") {
+      margin-top : var(--space-m);
     }
   }
 
   .alignleft,
   .alignright,
   .alignnone {
-    @include media(">tablet") {
+    @include media("<=tablet") {
       display       : block;
       float         : none;
-      margin-bottom : var(--space-m);
+      margin-bottom : var(--space-s);
       margin-left   : 0;
     }
   }
@@ -172,15 +154,15 @@
 
   ol, ul {
     @include ts-body;
-    margin : var(--space-m) 0 var(--space-l) var(--space-l);
+    margin : var(--space-s) 0 var(--space-m) var(--space-m);
 
-    @include media(">tablet") {
-      margin-bottom : var(--space-m);
-      margin-top    : var(--space-m);
+    @include media("<=tablet") {
+      margin-bottom : var(--space-s);
+      margin-top    : var(--space-s);
     }
 
     ul, ol {
-      margin : 4px 0 5px var(--space-l);
+      margin : 0.25rem 0 0.375rem var(--space-s);
     }
 
     li {
@@ -193,18 +175,15 @@
   ================================================== */
   address {
     @include ts-body;
-    font-style    : italic;
-    margin-bottom : var(--space-m);
+    font-style : italic;
   }
 
   big {
-    font-size   : 22px;
-    line-height : 32px;
+    font-size : 120%;
   }
 
   small {
-    font-size   : 14px;
-    line-height : 22px;
+    font-size : 80%;
   }
 
   cite {
@@ -220,6 +199,6 @@
   }
 
   div {
-    margin-bottom : var(--space-m);
+    margin-top : var(--space-m);
   }
 }
