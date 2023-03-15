@@ -33,9 +33,10 @@ function nrgi_frontend_preprocess_node(&$variables): void {
         break;
 
       case 'landing_page':
-        $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
-          $node, TRUE, 'field_attached_translated_items'
-        );
+        // SBTODO - TODO: asymmetrical on landing pages TBC 
+        // $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
+        //          $node, TRUE, 'field_attached_translated_items'
+        //        );
         break;
 
       case 'person':
