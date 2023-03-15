@@ -31,7 +31,6 @@ dependencies:
     - field.storage.node.field_short_bio
     - field.storage.node.field_subtitle
     - field.storage.node.field_surname
-    - field.storage.node.field_title
     - field.storage.node.field_topic
     - search_api.server.searchapi_server
     - core.entity_view_mode.node.list_item
@@ -276,14 +275,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_surname
-  field_title:
-    label: Title
-    datasource_id: 'entity:node'
-    property_path: field_title
-    type: string
-    dependencies:
-      config:
-        - field.storage.node.field_title
   field_topic:
     label: Topic
     datasource_id: 'entity:node'
@@ -422,7 +413,6 @@ processor_settings:
       - field_short_bio
       - field_subtitle
       - field_surname
-      - field_title
       - rendered_item
       - title
       - type
@@ -459,7 +449,6 @@ processor_settings:
       - field_short_bio
       - field_subtitle
       - field_surname
-      - field_title
       - rendered_item
       - title
       - type

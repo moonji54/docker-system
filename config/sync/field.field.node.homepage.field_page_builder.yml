@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_page_builder
     - node.type.homepage
-    - paragraphs.paragraphs_type.wysiwyg
+    - paragraphs.paragraphs_type.call_to_action
   module:
     - entity_reference_revisions
 id: node.homepage.field_page_builder
@@ -22,12 +22,12 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      wysiwyg: wysiwyg
+      call_to_action: call_to_action
     negate: 0
     target_bundles_drag_drop:
-      cta_download:
+      call_to_action:
         weight: 9
-        enabled: false
+        enabled: true
       featured_content:
         weight: 10
         enabled: false
@@ -48,5 +48,5 @@ settings:
         enabled: false
       wysiwyg:
         weight: 16
-        enabled: true
+        enabled: false
 field_type: entity_reference_revisions

@@ -1,12 +1,12 @@
-uuid: 9da442e8-23c8-4ebf-9827-c23a465b1862
+uuid: 2163836a-9abb-46c1-bbb6-47621ff12b11
 langcode: en
 status: true
 dependencies:
   module:
     - link
     - paragraphs
-id: paragraph.field_link_and_text
-field_name: field_link_and_text
+id: paragraph.field_link
+field_name: field_link
 entity_type: paragraph
 type: link
 settings: {  }

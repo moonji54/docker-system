@@ -6,7 +6,6 @@ dependencies:
     - field.field.node.listing_page.field_components
     - field.field.node.listing_page.field_intro
     - field.field.node.listing_page.field_listing_block
-    - field.field.node.listing_page.field_title
     - node.type.listing_page
   module:
     - entity_reference_revisions
@@ -45,14 +44,6 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 105
-    region: content
-  field_title:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 102
     region: content
   links:
     settings: {  }

@@ -6,7 +6,6 @@ dependencies:
     - field.field.node.listing_page.field_components
     - field.field.node.listing_page.field_intro
     - field.field.node.listing_page.field_listing_block
-    - field.field.node.listing_page.field_title
     - node.type.listing_page
     - workflows.workflow.editorial
   module:
@@ -117,14 +116,6 @@ content:
       features:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
-    third_party_settings: {  }
-  field_title:
-    type: string_textfield
-    weight: 16
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   langcode:
     type: language_select

@@ -1,17 +1,17 @@
-uuid: 268d756c-f743-41c2-bd28-f550e2d02dfb
+uuid: c7168602-0d5d-49a2-ab38-01eaba6caea7
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_title
-    - paragraphs.paragraphs_type.limited_list
-id: paragraph.limited_list.field_title
+    - paragraphs.paragraphs_type.call_to_action
+id: paragraph.call_to_action.field_title
 field_name: field_title
 entity_type: paragraph
-bundle: limited_list
+bundle: call_to_action
 label: Title
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

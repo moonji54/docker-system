@@ -4,10 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.listing.field_listing
-    - field.field.paragraph.listing.field_title
     - paragraphs.paragraphs_type.listing
   module:
-    - text
     - viewsreference
 id: paragraph.listing.default
 targetEntityType: paragraph
@@ -22,13 +20,6 @@ content:
         - block
     third_party_settings: {  }
     weight: 1
-    region: content
-  field_title:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
     region: content
 hidden:
   search_api_excerpt: true

@@ -3,9 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.landing_page.field_attached_translated_items
     - field.field.node.landing_page.field_featured_image
-    - field.field.node.landing_page.field_language_bar_text
     - field.field.node.landing_page.field_overlay_opacity
     - field.field.node.landing_page.field_page_builder
     - field.field.node.landing_page.field_short_description
@@ -23,25 +21,10 @@ third_party_settings:
     group_page_builder:
       children:
         - field_page_builder
-      label: 'Page builder'
+      label: Body
       region: content
       parent_name: ''
       weight: 5
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: true
-    group_content_items:
-      children:
-        - field_attached_translated_items
-      label: 'Content items'
-      region: content
-      parent_name: group_manual_language_links_bar
-      weight: 1
       format_type: details
       format_settings:
         classes: ''
@@ -66,22 +49,6 @@ third_party_settings:
         open: false
         description: ''
         required_fields: true
-    group_manual_language_links_bar:
-      children:
-        - field_language_bar_text
-        - group_content_items
-      label: 'Manual language switcher section'
-      region: content
-      parent_name: ''
-      weight: 3
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: true
 id: node.landing_page.default
 targetEntityType: node
 bundle: landing_page
@@ -93,16 +60,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_attached_translated_items:
-    type: entity_reference_autocomplete
-    weight: 2
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_featured_image:
     type: media_library_widget
     weight: 42
@@ -112,14 +69,6 @@ content:
     third_party_settings:
       media_library_edit:
         show_edit: '1'
-  field_language_bar_text:
-    type: string_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_overlay_opacity:
     type: number
     weight: 43

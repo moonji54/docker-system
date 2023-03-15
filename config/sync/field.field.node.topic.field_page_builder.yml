@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_page_builder
     - node.type.topic
-    - paragraphs.paragraphs_type.cta_download
     - paragraphs.paragraphs_type.featured_content
     - paragraphs.paragraphs_type.featured_pages
     - paragraphs.paragraphs_type.featured_people
@@ -29,7 +28,6 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      cta_download: cta_download
       featured_content: featured_content
       featured_pages: featured_pages
       featured_people: featured_people

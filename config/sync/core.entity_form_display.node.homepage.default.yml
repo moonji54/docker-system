@@ -44,7 +44,7 @@ third_party_settings:
     group_page_builder:
       children:
         - field_page_builder
-      label: 'Page builder'
+      label: Body
       region: content
       parent_name: ''
       weight: 4

@@ -12,7 +12,7 @@ bundle: landing_page
 label: 'Short description'
 description: 'One-sentence highlight/overview of the item. For use in link descriptions, search results, or other places where a blurb might be needed.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

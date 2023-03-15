@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.listing_page.field_components
     - field.field.node.listing_page.field_intro
     - field.field.node.listing_page.field_listing_block
-    - field.field.node.listing_page.field_title
     - node.type.listing_page
   module:
     - user
@@ -30,6 +29,5 @@ hidden:
   field_components: true
   field_intro: true
   field_listing_block: true
-  field_title: true
   langcode: true
   search_api_excerpt: true

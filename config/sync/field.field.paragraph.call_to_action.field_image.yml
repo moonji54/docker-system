@@ -1,19 +1,19 @@
-uuid: cf2866f9-aaa1-4c5b-96b9-7f1e51cf6cf9
+uuid: a4a7cdae-fbc7-4bb8-864e-6e5457d9a87f
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_featured_image
+    - field.storage.paragraph.field_image
     - media.type.image
-    - node.type.landing_page
-id: node.landing_page.field_featured_image
-field_name: field_featured_image
-entity_type: node
-bundle: landing_page
-label: 'Hero banner image'
+    - paragraphs.paragraphs_type.call_to_action
+id: paragraph.call_to_action.field_image
+field_name: field_image
+entity_type: paragraph
+bundle: call_to_action
+label: Image
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

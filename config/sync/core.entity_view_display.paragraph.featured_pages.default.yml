@@ -5,14 +5,11 @@ dependencies:
   config:
     - field.field.paragraph.featured_pages.field_button_and_link
     - field.field.paragraph.featured_pages.field_content_cards
-    - field.field.paragraph.featured_pages.field_description
     - field.field.paragraph.featured_pages.field_layout
     - field.field.paragraph.featured_pages.field_show_image
-    - field.field.paragraph.featured_pages.field_title
     - paragraphs.paragraphs_type.featured_pages
   module:
     - link
-    - text
 id: paragraph.featured_pages.default
 targetEntityType: paragraph
 bundle: featured_pages
@@ -38,13 +35,6 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_description:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
   field_layout:
     type: number_integer
     label: hidden
@@ -63,13 +53,6 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 3
-    region: content
-  field_title:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
     region: content
 hidden:
   search_api_excerpt: true

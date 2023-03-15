@@ -1,14 +1,14 @@
-uuid: cc8d8329-1667-4ac8-84dc-7cb9e3915904
+uuid: fbd4a4d5-a422-471b-b645-1146ad2bc622
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_description
-    - paragraphs.paragraphs_type.limited_list
-id: paragraph.limited_list.field_description
+    - paragraphs.paragraphs_type.call_to_action
+id: paragraph.call_to_action.field_description
 field_name: field_description
 entity_type: paragraph
-bundle: limited_list
+bundle: call_to_action
 label: Description
 description: ''
 required: false
@@ -16,4 +16,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string_long
+field_type: string

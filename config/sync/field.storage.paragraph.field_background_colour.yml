@@ -1,0 +1,30 @@
+uuid: 68aa43b7-edf7-411d-90b2-306d1191be33
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_background_colour
+field_name: field_background_colour
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: ocean
+      label: Ocean
+    -
+      value: core
+      label: Core
+    -
+      value: light_hydro
+      label: 'Light hydro'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
