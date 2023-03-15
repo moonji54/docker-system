@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.card
-    - field.field.node.landing_page.field_components
-    - field.field.node.landing_page.field_intro_text
+    - field.field.node.landing_page.field_attached_translated_items
+    - field.field.node.landing_page.field_featured_image
     - field.field.node.landing_page.field_language_bar_text
-    - field.field.node.landing_page.field_title
+    - field.field.node.landing_page.field_overlay_opacity
+    - field.field.node.landing_page.field_page_builder
+    - field.field.node.landing_page.field_short_description
     - node.type.landing_page
   module:
     - user
@@ -27,9 +29,11 @@ content:
     weight: 100
     region: content
 hidden:
-  field_components: true
-  field_intro_text: true
+  field_attached_translated_items: true
+  field_featured_image: true
   field_language_bar_text: true
-  field_title: true
+  field_overlay_opacity: true
+  field_page_builder: true
+  field_short_description: true
   langcode: true
   search_api_excerpt: true

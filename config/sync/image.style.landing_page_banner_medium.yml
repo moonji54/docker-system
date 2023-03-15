@@ -1,0 +1,17 @@
+uuid: d9faedc7-2fcc-457d-a203-e9a1c931d5b6
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: landing_page_banner_medium
+label: 'Landing page banner Medium'
+effects:
+  a0230e5c-77e4-470e-8763-9eebed93f363:
+    uuid: a0230e5c-77e4-470e-8763-9eebed93f363
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 640
+      height: 338
+      crop_type: focal_point

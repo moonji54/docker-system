@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.listing_page.field_components
     - field.field.node.listing_page.field_intro
-    - field.field.node.listing_page.field_language_bar_text
     - field.field.node.listing_page.field_listing_block
     - field.field.node.listing_page.field_title
     - node.type.listing_page
@@ -61,6 +60,5 @@ content:
     weight: 1
     region: content
 hidden:
-  field_language_bar_text: true
   langcode: true
   search_api_excerpt: true

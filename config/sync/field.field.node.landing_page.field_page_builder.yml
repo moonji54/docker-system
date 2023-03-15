@@ -1,23 +1,21 @@
-uuid: ce9e0a26-8ed4-4766-bf69-a97b9f5e3365
+uuid: 18ef40e1-009c-4973-9e3c-1bff607b343e
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_components
-    - node.type.page
-    - paragraphs.paragraphs_type.featured_pages
-    - paragraphs.paragraphs_type.limited_list
+    - field.storage.node.field_page_builder
+    - node.type.landing_page
     - paragraphs.paragraphs_type.wysiwyg
   module:
     - entity_reference_revisions
-id: node.page.field_components
-field_name: field_components
+id: node.landing_page.field_page_builder
+field_name: field_page_builder
 entity_type: node
-bundle: page
-label: Components
+bundle: landing_page
+label: 'Page builder'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -25,13 +23,8 @@ settings:
   handler_settings:
     target_bundles:
       wysiwyg: wysiwyg
-      featured_pages: featured_pages
-      limited_list: limited_list
     negate: 0
     target_bundles_drag_drop:
-      container:
-        weight: 4
-        enabled: false
       cta_download:
         weight: 9
         enabled: false
@@ -40,17 +33,20 @@ settings:
         enabled: false
       featured_pages:
         weight: 11
-        enabled: true
+        enabled: false
       featured_people:
         weight: 12
         enabled: false
       full_width_media:
-        weight: 5
+        weight: 13
         enabled: false
       limited_list:
-        weight: 17
-        enabled: true
+        weight: 14
+        enabled: false
+      listing:
+        weight: 15
+        enabled: false
       wysiwyg:
-        weight: 6
+        weight: 16
         enabled: true
 field_type: entity_reference_revisions

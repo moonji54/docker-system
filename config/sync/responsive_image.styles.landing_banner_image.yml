@@ -1,0 +1,45 @@
+uuid: 14f6961f-b4e1-4080-8508-2bedbaf31f94
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.landing_page_banner_extra_large
+    - image.style.landing_page_banner_large_
+    - image.style.landing_page_banner_medium
+  theme:
+    - nrgi
+id: landing_banner_image
+label: 'Landing banner image'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: landing_page_banner_medium
+    breakpoint_id: nrgi.smallmobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: landing_page_banner_medium
+    breakpoint_id: nrgi.mobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: landing_page_banner_large_
+    breakpoint_id: nrgi.tablet
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: landing_page_banner_large_
+    breakpoint_id: nrgi.smalldesktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: landing_page_banner_extra_large
+    breakpoint_id: nrgi.desktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: landing_page_banner_extra_large
+    breakpoint_id: nrgi.desktop
+    multiplier: 2x
+breakpoint_group: nrgi
+fallback_image_style: landing_page_banner_medium

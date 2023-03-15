@@ -1,0 +1,17 @@
+uuid: 7c015bce-ecd5-4a02-8fa5-09d31f472588
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: landing_page_banner_large_
+label: "Landing page banner Large\t"
+effects:
+  daf58990-b481-4b85-ba0c-5001b19cdd8c:
+    uuid: daf58990-b481-4b85-ba0c-5001b19cdd8c
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 634
+      crop_type: focal_point

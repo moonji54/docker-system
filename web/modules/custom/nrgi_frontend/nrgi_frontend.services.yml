@@ -1,4 +1,8 @@
 services:
+  nrgi_frontend.translation_helper:
+    class: Drupal\nrgi_frontend\NrgiTranslationHelperService
+    arguments: [ '@entity_type.manager' ]
+
   nrgi_frontend.person_featured_work:
     class: Drupal\nrgi_frontend\PersonFeaturedWorkHelperService
     arguments: [ '@entity_type.manager', '@renderer' ]

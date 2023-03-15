@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.card
     - field.field.node.listing_page.field_components
     - field.field.node.listing_page.field_intro
-    - field.field.node.listing_page.field_language_bar_text
     - field.field.node.listing_page.field_listing_block
     - field.field.node.listing_page.field_title
     - node.type.listing_page
@@ -30,7 +29,6 @@ content:
 hidden:
   field_components: true
   field_intro: true
-  field_language_bar_text: true
   field_listing_block: true
   field_title: true
   langcode: true

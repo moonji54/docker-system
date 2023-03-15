@@ -12,14 +12,32 @@ use Drupal\taxonomy\Entity\Term;
  * Implements hook_preprocess_node().
  */
 function nrgi_frontend_preprocess_node(&$variables): void {
+  // SBTODO - TODO: review and refactor function.
   /** @var Drupal\node\NodeInterface $node */
   $node = $variables['node'];
 
-  if ($node && $node instanceof NodeInterface) {
+  if ($node instanceof NodeInterface) {
+
+    // Based on content type (applied to all view modes).
     _nrgi_frontend_preprocess_node_type_label($variables, $node);
     // _nrgi_frontend_preprocess_node_date($variables, $node);
-    // Based on content type (applied to all view modes).
+
+    /** @var \Drupal\nrgi_frontend\NrgiTranslationHelperService $translation_helper_service */
+    $translation_helper_service = \Drupal::service('nrgi_frontend.translation_helper');
+
     switch ($node->bundle()) {
+      case 'homepage':
+        $variables['language_bar_links'] = $translation_helper_service->getLanguageSwitcherLinks(
+          $node, TRUE, 'field_attached_translated_items'
+        );
+        break;
+
+      case 'landing_page':
+        $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
+          $node, TRUE, 'field_attached_translated_items'
+        );
+        break;
+
       case 'person':
 
         break;
@@ -221,7 +239,7 @@ function _nrgi_frontend_preprocess_node_person_featured_work(array &$variables, 
     $fields = ['field_author'];
 
     if ($node->hasField('field_limit') && !empty($node->get('field_limit')
-      ->getValue()[0])) {
+        ->getValue()[0])) {
       $limit = (int) $node->get('field_limit')->getValue()['0']['value'];
     }
 

@@ -35,7 +35,6 @@ dependencies:
     - field.field.node.event.field_publisher
     - field.field.node.event.field_region
     - field.field.node.event.field_registration
-    - field.field.node.event.field_short_description
     - field.field.node.event.field_speakers
     - field.field.node.event.field_speakers_external
     - field.field.node.event.field_start_date
@@ -96,7 +95,6 @@ hidden:
   field_publisher: true
   field_region: true
   field_registration: true
-  field_short_description: true
   field_speakers: true
   field_speakers_external: true
   field_start_date: true

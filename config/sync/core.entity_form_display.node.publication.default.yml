@@ -29,7 +29,6 @@ dependencies:
     - field.field.node.publication.field_region
     - field.field.node.publication.field_report_pdf
     - field.field.node.publication.field_resource_type
-    - field.field.node.publication.field_short_description
     - field.field.node.publication.field_subtitle
     - field.field.node.publication.field_supporting_document
     - field.field.node.publication.field_supporting_document_label
@@ -500,14 +499,6 @@ content:
     settings:
       match_operator: CONTAINS
       match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_short_description:
-    type: string_textfield
-    weight: 21
-    region: content
-    settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }

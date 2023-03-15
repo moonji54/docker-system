@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.topic.field_featured_image
     - field.field.node.topic.field_page_builder
-    - field.field.node.topic.field_short_description
     - node.type.topic
     - workflows.workflow.editorial
   module:
@@ -97,14 +96,6 @@ content:
         add_above: '0'
         collapse_edit_all: collapse_edit_all
         duplicate: '0'
-    third_party_settings: {  }
-  field_short_description:
-    type: string_textfield
-    weight: 21
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   langcode:
     type: language_select

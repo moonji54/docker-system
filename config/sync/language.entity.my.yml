@@ -1,9 +1,9 @@
 uuid: 6d5e7c2a-cf8c-47f4-9d60-a086d2867fbf
-langcode: en
+langcode: my
 status: true
 dependencies: {  }
 id: my
-label: Burmese
+label: မြန်မာစာ
 direction: ltr
 weight: 8
 locked: false

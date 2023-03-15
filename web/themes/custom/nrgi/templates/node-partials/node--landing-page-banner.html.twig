@@ -1,0 +1,42 @@
+{% set classes = [
+  'c-' ~ node.bundle|clean_class ~ '-banner',
+] %}
+
+<section {{ attributes.addClass(classes) }} style="border: 1px dotted red; padding: 20px; background-color: darkgray">
+  <div class="{{ classes.0 }}__container">
+    <div class="{{ classes.0 }}__inner">
+
+      {# Title #}
+      <div class="{{ classes.0 }}__title">
+        <h2>{{ label }}</h2>
+      </div>
+
+      {# Description #}
+      {% if content.field_short_description|field_value %}
+        <p class="{{ classes.0 }}__description">{{ content.field_short_description }}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  {# Image #}
+  {% if content.field_featured_image|field_value %}
+    <div class=" c-landing-page-banner__image-wrapper">
+      {% if content.field_overlay_opacity|field_value %}
+        [overlay]: {{ content.field_overlay_opacity }}
+      {% endif %}
+      {{ content.field_featured_image }}
+    </div>
+  {% else %}
+    {# SBTODO: if no featured image, use nrgi brand shape #}
+  {% endif %}
+
+  {# Manual language switcher #}
+  {% if language_switcher_links %}
+    {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
+      'text' : content.field_language_bar_text|field_value ?
+      content.field_language_bar_text|field_raw('value') : "Other languages",
+      'links' : language_switcher_links
+    } %}
+  {% endif %}
+
+</section>
