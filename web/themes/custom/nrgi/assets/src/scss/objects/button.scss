@@ -1,21 +1,31 @@
 /** @define o-button */
 @mixin o-button {
   @include ts-button;
-  border     : 1px solid $primary;
-  color      : $primary;
-  display    : inline-block;
-  overflow   : hidden;
-  padding    : var(--space-xs);
-  position   : relative;
-  transition : background 0.1s linear;
-  z-index    : 0;
+  align-items   : center;
+  border        : 0.0625rem solid $primary;
+  color         : $primary;
+  display       : inline-flex;
+  gap           : var(--space-xs);
+  padding       : 0.625rem;
+  transition    : background-color 0.3s;
+  border-radius : 2.75rem;
 
-  &:hover, &:focus {
-    background : $primary;
-    color      : $white;
+  &:focus,
+  &:hover {
+    background : $grey-light;
   }
 }
 
 .o-button {
   @include o-button;
+
+  &--white {
+    border-color : $white;
+    color        : $white;
+
+    &:focus,
+    &:hover {
+      background-color : rgba($primary, 0.4);
+    }
+  }
 }

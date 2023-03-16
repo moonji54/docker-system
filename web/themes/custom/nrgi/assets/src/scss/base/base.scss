@@ -1,3 +1,17 @@
 body {
   font-size : 16px;
 }
+
+a,
+p a,
+ol li a,
+ul li a {
+  cursor          : pointer;
+  text-decoration : none;
+
+  &:focus,
+  &:hover {
+    outline         : 0;
+    text-decoration : none;
+  }
+}

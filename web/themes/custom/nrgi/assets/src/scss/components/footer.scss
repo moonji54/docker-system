@@ -1,6 +1,33 @@
 /** @define c-footer */
 .c-footer {
+  background : no-repeat center / cover url("../img/footer-bg.png");
+  color      : $white;
+  height     : 75vh;
+  padding    : var(--space-4xl) 0 var(--space-2xl) 0;
+
+  @include media("<=tablet") {
+    padding-top : var(--space-3xl);
+  }
+
+  &__container {
+    @include grid;
+  }
+
+  &__top {
+    grid-column : 1 / 7;
+  }
+
   &__inner {
+
+  }
+
+  &__buttons {
+    align-items : center;
+    display     : flex;
+    gap         : 0.25rem;
+  }
+
+  &__button {
 
   }
 }
