@@ -1,0 +1,17 @@
+uuid: 744a7858-383d-4466-a830-2c214a3eb71c
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: homepage_banner_tablet
+label: 'Homepage banner Tablet'
+effects:
+  a10d3bac-a6f8-49e6-a9a8-19f2bec47ebb:
+    uuid: a10d3bac-a6f8-49e6-a9a8-19f2bec47ebb
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1024
+      height: 694
+      crop_type: focal_point

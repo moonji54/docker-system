@@ -1,0 +1,22 @@
+uuid: 1bdf5918-6101-49f0-9a27-bb3f5a7146e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.featured_people
+id: paragraph.featured_people.status
+field_name: status
+entity_type: paragraph
+bundle: featured_people
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

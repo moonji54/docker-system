@@ -5,9 +5,7 @@ dependencies:
   config:
     - field.field.node.listing_page.field_components
     - field.field.node.listing_page.field_intro
-    - field.field.node.listing_page.field_language_bar_text
     - field.field.node.listing_page.field_listing_block
-    - field.field.node.listing_page.field_title
     - node.type.listing_page
     - workflows.workflow.editorial
   module:
@@ -119,14 +117,6 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings: {  }
-  field_title:
-    type: string_textfield
-    weight: 16
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 4
@@ -219,5 +209,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_language_bar_text: true
+hidden: {  }

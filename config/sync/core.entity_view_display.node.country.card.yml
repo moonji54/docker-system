@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.country.field_featured_image
     - field.field.node.country.field_page_builder
     - field.field.node.country.field_region
-    - field.field.node.country.field_short_description
     - node.type.country
   module:
     - user
@@ -39,5 +38,4 @@ hidden:
   field_featured_image: true
   field_page_builder: true
   field_region: true
-  field_short_description: true
   search_api_excerpt: true

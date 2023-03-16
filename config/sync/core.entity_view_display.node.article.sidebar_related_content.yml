@@ -25,7 +25,6 @@ dependencies:
     - field.field.node.article.field_publisher
     - field.field.node.article.field_region
     - field.field.node.article.field_resource_type
-    - field.field.node.article.field_short_description
     - field.field.node.article.field_subtitle
     - field.field.node.article.field_topic
     - field.field.node.article.field_transcript
@@ -227,14 +226,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 115
-    region: content
-  field_short_description:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 102
     region: content
   field_subtitle:
     type: string

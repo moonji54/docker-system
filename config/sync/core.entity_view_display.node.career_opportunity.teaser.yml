@@ -17,7 +17,6 @@ dependencies:
     - field.field.node.career_opportunity.field_photo_caption
     - field.field.node.career_opportunity.field_region
     - field.field.node.career_opportunity.field_salary
-    - field.field.node.career_opportunity.field_short_description
     - field.field.node.career_opportunity.field_supporting_document
     - field.field.node.career_opportunity.field_supporting_document_label
     - node.type.career_opportunity
@@ -52,7 +51,6 @@ hidden:
   field_photo_caption: true
   field_region: true
   field_salary: true
-  field_short_description: true
   field_supporting_document: true
   field_supporting_document_label: true
   langcode: true

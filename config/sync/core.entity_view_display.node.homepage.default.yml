@@ -3,10 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.homepage.field_attached_translated_items
     - field.field.node.homepage.field_featured_image
     - field.field.node.homepage.field_hero_description
     - field.field.node.homepage.field_hero_link
     - field.field.node.homepage.field_hero_title
+    - field.field.node.homepage.field_language_bar_text
     - field.field.node.homepage.field_overlay_opacity
     - field.field.node.homepage.field_page_builder
     - node.type.homepage
@@ -24,11 +26,19 @@ content:
     third_party_settings: {  }
     weight: -20
     region: content
+  field_attached_translated_items:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 113
+    region: content
   field_featured_image:
     type: entity_reference_entity_view
     label: above
     settings:
-      view_mode: homepage_banner_image
+      view_mode: homepage_banner
       link: false
     third_party_settings: {  }
     weight: 111
@@ -59,6 +69,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 108
+    region: content
+  field_language_bar_text:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 114
     region: content
   field_overlay_opacity:
     type: number_integer

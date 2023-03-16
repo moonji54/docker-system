@@ -76,11 +76,6 @@
   {# Homepage banner #}
   {% include '@nrgi/node-partials/node--homepage-banner.html.twig' %}
 
-  {# Manual (assymetrical) language link bar #}
-  {% if content.field_link_bar|field_value %}
-    {{ content.field_link_bar }}
-  {% endif %}
-
   {# Body #}
   {% include '@nrgi/node-partials/node--body.html.twig' %}
 </article>

@@ -3,7 +3,8 @@
 ] %}
 
 {% if content.field_hero_title|field_value %}
-  <section {{ attributes.addClass(classes) }}>
+  <section {{ attributes.addClass(classes) }}
+      style="border: 1px dotted green; padding: 20px; background-color: darkgoldenrod">
     <div class="{{ classes.0 }}__container">
       <div class="{{ classes.0 }}__inner">
 
@@ -16,7 +17,6 @@
         {% if content.field_hero_description|field_value %}
           <p class="{{ classes.0 }}__description">{{ content.field_hero_description }}</p>
         {% endif %}
-
 
         {# Button link #}
         {% if content.field_hero_link|field_value %}
@@ -33,6 +33,18 @@
         {% endif %}
         {{ content.field_featured_image }}
       </div>
+    {% else %}
+      {# SBTODO: if no featured image, use nrgi brand shape #}
     {% endif %}
   </section>
+
+  {# Manual language bar #}
+  {% if language_bar_links %}
+    {% include '@nrgi/node-partials/node--language-bar-links.html.twig' with {
+      'text' : content.field_language_bar_text|field_value ?
+      content.field_language_bar_text|field_raw('value') : "Explore content in",
+      'links' : language_bar_links
+    } %}
+  {% endif %}
+
 {% endif %}

@@ -1,0 +1,19 @@
+uuid: a51ee917-21da-46a6-b97e-04d53dfcf055
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_short_description
+    - node.type.landing_page
+id: node.landing_page.field_short_description
+field_name: field_short_description
+entity_type: node
+bundle: landing_page
+label: 'Short description'
+description: 'One-sentence highlight/overview of the item. For use in link descriptions, search results, or other places where a blurb might be needed.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

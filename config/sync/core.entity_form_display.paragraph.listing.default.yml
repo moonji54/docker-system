@@ -4,10 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.listing.field_listing
-    - field.field.paragraph.listing.field_title
     - paragraphs.paragraphs_type.listing
   module:
-    - text
     - viewsreference
 id: paragraph.listing.default
 targetEntityType: paragraph
@@ -19,14 +17,6 @@ content:
     weight: 1
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_title:
-    type: text_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true

@@ -35,7 +35,6 @@ dependencies:
     - field.field.node.event.field_publisher
     - field.field.node.event.field_region
     - field.field.node.event.field_registration
-    - field.field.node.event.field_short_description
     - field.field.node.event.field_speakers
     - field.field.node.event.field_speakers_external
     - field.field.node.event.field_start_date
@@ -308,14 +307,6 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 118
-    region: content
-  field_short_description:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 101
     region: content
   field_speakers:
     type: entity_reference_label

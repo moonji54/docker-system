@@ -16,7 +16,6 @@ dependencies:
     - field.field.node.career_opportunity.field_photo_caption
     - field.field.node.career_opportunity.field_region
     - field.field.node.career_opportunity.field_salary
-    - field.field.node.career_opportunity.field_short_description
     - field.field.node.career_opportunity.field_supporting_document
     - field.field.node.career_opportunity.field_supporting_document_label
     - node.type.career_opportunity
@@ -267,14 +266,6 @@ content:
   field_salary:
     type: string_textfield
     weight: 29
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_short_description:
-    type: string_textfield
-    weight: 7
     region: content
     settings:
       size: 60

@@ -30,7 +30,6 @@ dependencies:
     - field.field.node.publication.field_region
     - field.field.node.publication.field_report_pdf
     - field.field.node.publication.field_resource_type
-    - field.field.node.publication.field_short_description
     - field.field.node.publication.field_subtitle
     - field.field.node.publication.field_supporting_document
     - field.field.node.publication.field_supporting_document_label
@@ -81,7 +80,6 @@ hidden:
   field_region: true
   field_report_pdf: true
   field_resource_type: true
-  field_short_description: true
   field_subtitle: true
   field_supporting_document: true
   field_supporting_document_label: true

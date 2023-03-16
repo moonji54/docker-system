@@ -1,0 +1,29 @@
+uuid: 137f6c50-bfdc-46d4-a3b1-56c834f407d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_file
+    - media.type.document
+    - paragraphs.paragraphs_type.call_to_action
+id: paragraph.call_to_action.field_file
+field_name: field_file
+entity_type: paragraph
+bundle: call_to_action
+label: File
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

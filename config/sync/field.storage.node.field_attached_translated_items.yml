@@ -1,0 +1,19 @@
+uuid: b500032a-65f2-4fe7-9a9d-3e4a52991cfd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_attached_translated_items
+field_name: field_attached_translated_items
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

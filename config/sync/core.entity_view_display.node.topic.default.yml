@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.topic.field_featured_image
     - field.field.node.topic.field_page_builder
-    - field.field.node.topic.field_short_description
     - node.type.topic
   module:
     - entity_reference_revisions
@@ -36,14 +35,6 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 102
-    region: content
-  field_short_description:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 104
     region: content
   links:
     settings: {  }

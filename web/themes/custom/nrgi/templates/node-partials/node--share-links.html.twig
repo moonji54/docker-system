@@ -1,0 +1,49 @@
+{% set title = node.label %}
+{% set full_url = url('<current>')|render|render %}
+{% set share_label = 'Share'|t %}
+
+{% set networks = {
+  twitter: {
+    name: "Twitter"|t,
+    url: "https://twitter.com/intent/tweet?text=" ~ title ~ "&via=NRGInstitute" ~ "&url=" ~ full_url
+  },
+  linkedin: {
+    name: "Linkedin"|t,
+    url: "https://www.linkedin.com/sharing/share-offsite/?url=" ~ full_url
+  },
+  facebook: {
+    name: "Facebook"|t,
+    url: "https://www.facebook.com/sharer/sharer.php?u=" ~ full_url
+  },
+  whatsapp: {
+    name: "WhatsApp"|t,
+    url: "https://api.whatsapp.com/send?text=" ~ full_url
+  },
+} %}
+
+{% if extra_class is not defined %}
+  {% set extra_class = '' %}
+{% endif %}
+
+<div class="c-share-links{{ extra_class }}" style="border: 1px dotted red; padding: 20px;">
+  <div class="c-share-links__links-wrapper js-share-links">
+    {% if share_label is not empty %}
+      <span class="c-share-links__heading">{{ share_label }}</span>
+    {% endif %}
+
+    <ul class="c-share-links__list">
+      {% for network in networks %}
+        <li class="c-share-links__list-item">
+          <a class="c-share-links__link"
+             href="{{ network.url }}"
+             target="_blank"
+             data-mainlink="{{ full_url }}"
+             title="Share via {{ network.name }}">{{ network.name }}
+            {#  SBTODO: add social icons #}
+            {# {% include '@nrgi/svg/svg.html.twig' with { 'svg' : network.icon } %} #}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

@@ -25,7 +25,6 @@ dependencies:
     - field.field.node.article.field_publisher
     - field.field.node.article.field_region
     - field.field.node.article.field_resource_type
-    - field.field.node.article.field_short_description
     - field.field.node.article.field_subtitle
     - field.field.node.article.field_topic
     - field.field.node.article.field_transcript
@@ -70,7 +69,6 @@ hidden:
   field_publisher: true
   field_region: true
   field_resource_type: true
-  field_short_description: true
   field_subtitle: true
   field_topic: true
   field_transcript: true

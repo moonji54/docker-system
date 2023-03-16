@@ -1,0 +1,14 @@
+<div style="border: 1px dotted red; padding: 20px;">
+  <h3>
+    {{ text|upper }}
+  </h3>
+  {% for link in links %}
+    <button style="background-color: yellow">
+      <a href="{{ link.url }}" title="{{ text ~ " " ~ link.title }}">
+        {# SBTODO: arrow icon #}
+        ->
+        {{ link.title }}
+      </a>
+    </button>
+  {% endfor %}
+</div>
