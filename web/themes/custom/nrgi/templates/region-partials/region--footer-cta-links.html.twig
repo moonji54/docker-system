@@ -9,40 +9,39 @@
     {% if footer_site_settings.newsletter.field_description %}
       <p class="c-footer__description">{{ footer_site_settings.newsletter.field_description }}</p>
     {% endif %}
+  </div>
 
-    <div class="c-footer__buttons">
-      {# Newsletter link #}
-      {% set newsletter_button = footer_site_settings.newsletter.field_button %}
+  <div class="c-footer__buttons">
+    {# Newsletter link #}
+    {% set newsletter_button = footer_site_settings.newsletter.field_button %}
 
-      {% if newsletter_button.uri %}
-        <a class="c-footer__button o-button o-button--white" href="{{ newsletter_button.uri }}">
-          {# SBTODO - TODO : add email icon #}
+    {% if newsletter_button.uri %}
+      <a class="c-footer__button o-button o-button--white" href="{{ newsletter_button.uri }}">
+        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'email'} %}
 
-          {% include '@nrgi/svg/svg.html.twig' with {'svg': 'email'} %}
-          {{ newsletter_button.title ?: 'Sign up for email updates'|trans }}
-        </a>
-      {% endif %}
+        {{ newsletter_button.title ?: 'Sign up for email updates'|trans }}
+      </a>
+    {% endif %}
 
-      <span>•</span>
+    <span class="c-footer__divider">•</span>
 
-      {# Social links #}
-      <ul class="c-social-links">
-        {% for social_link in footer_site_settings.social_media_links %}
-          {% set has_text = false %}
+    {# Social links #}
+    <ul class="c-social-links">
+      {% for social_link in footer_site_settings.social_media_links %}
+        {% set has_text = false %}
 
-          {% if social_link.field_social_media_link.title is not empty %}
-            {% set has_text = true %}
-          {% endif %}
+        {% if social_link.field_social_media_link.title is not empty %}
+          {% set has_text = true %}
+        {% endif %}
 
-          <li class="c-social-links__list-item">
-            <a class="c-social-links__link{{ has_text ? ' c-social-links__link--has-text' }}" href="{{ social_link.field_social_media_link.uri }}">
-              {# SBTODO - TODO : add social media icons for twitter, linkedin, facebook, youtube, instagram #}
-              {% include '@nrgi/svg/svg.html.twig' with {'svg': social_link.field_social_media} %}
-              <span>{{ social_link.field_social_media_link.title|trans }}</span>
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
+        <li class="c-social-links__list-item">
+          <a class="c-social-links__link{{ has_text ? ' c-social-links__link--has-text' }}" href="{{ social_link.field_social_media_link.uri }}">
+            {% include '@nrgi/svg/svg.html.twig' with {'svg': social_link.field_social_media} %}
+
+            <span>{{ social_link.field_social_media_link.title|trans }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
   </div>
 {% endif %}

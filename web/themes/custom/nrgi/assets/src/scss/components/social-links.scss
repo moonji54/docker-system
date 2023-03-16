@@ -4,6 +4,10 @@
   flex-wrap : wrap;
   gap       : var(--space-xs);
 
+  @include media("<=tablet") {
+    gap : var(--space-s);
+  }
+
   &__link {
     align-items     : center;
     border          : 0.0625rem solid $white;

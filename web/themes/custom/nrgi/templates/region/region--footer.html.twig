@@ -12,36 +12,33 @@
  * @see template_preprocess_region()
  */
 #}
-{# FOOTER #}
+
 <footer class="c-footer">
   <div class="c-footer__container o-container">
-
-    {# Newsletter / Connect with us CTA and links #}
     <div class="c-footer__top">
       {% include '@nrgi/region-partials/region--footer-cta-links.html.twig' %}
     </div>
 
-    {# Logo and footer menu #}
-    <div class="c-footer__bottom" style="display: flex;">
-      {# Footer logo #}
+    <div class="c-footer__bottom">
       <a href="/" class="c-footer__logo" title="{{ 'Return to the homepage'|t }}">
-        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'logo'} %}
+        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'nrgi-logo-condensed'} %}
       </a>
 
       {# Footer menu #}
       <div class="c-footer__menu-wrapper">
         {{ elements.footer }}
       </div>
-    </div>
-  </div>
 
-  {# Credits #}
-  <div class="c-footer__credits" style="display: flex;">
-      <span class="c-footer__credits-item">
-        © {{ 'now'|date('Y') }}{{ ' NRGI'|trans }}
-      </span>
-    <span class="c-footer__credits-item">
-        <a href="https://www.designbysoapbox.com/">{{ 'designbysoapbox.com'|trans|upper }}</a>
-      </span>
+      {# Credits #}
+      <div class="c-footer__credits-wrapper">
+        <div class="c-footer__copyright">
+          © {{ 'now'|date('Y') }}{{ ' NRGI'|trans }}
+        </div>
+
+        <div class="c-footer__credit">
+          <a href="https://www.designbysoapbox.com/">{{ 'designbysoapbox.com'|trans|upper }}</a>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
