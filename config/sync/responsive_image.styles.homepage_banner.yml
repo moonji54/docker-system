@@ -1,45 +1,47 @@
-uuid: 6878e66b-ed96-4716-8071-eafe03c080ea
+uuid: 13b8a949-8285-45ab-a11c-1432d01f078e
 langcode: en
 status: true
 dependencies:
   config:
-    - image.style.homepage_banner_extra_large
-    - image.style.homepage_banner_large
-    - image.style.homepage_banner_medium
+    - image.style.homepage_banner_desktop
+    - image.style.homepage_banner_desktop_2x
+    - image.style.homepage_banner_mobile
+    - image.style.homepage_banner_small_mobile
+    - image.style.homepage_banner_tablet
   theme:
     - nrgi
-id: homepage_banner_image
-label: 'Homepage banner image'
+id: homepage_banner
+label: 'Homepage banner'
 image_style_mappings:
   -
     image_mapping_type: image_style
-    image_mapping: homepage_banner_medium
+    image_mapping: homepage_banner_small_mobile
     breakpoint_id: nrgi.smallmobile
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: homepage_banner_medium
+    image_mapping: homepage_banner_mobile
     breakpoint_id: nrgi.mobile
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: homepage_banner_large
+    image_mapping: homepage_banner_tablet
     breakpoint_id: nrgi.tablet
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: homepage_banner_large
+    image_mapping: homepage_banner_desktop
     breakpoint_id: nrgi.smalldesktop
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: homepage_banner_extra_large
+    image_mapping: homepage_banner_desktop
     breakpoint_id: nrgi.desktop
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: homepage_banner_extra_large
+    image_mapping: homepage_banner_desktop_2x
     breakpoint_id: nrgi.desktop
     multiplier: 2x
 breakpoint_group: nrgi
-fallback_image_style: homepage_banner_medium
+fallback_image_style: homepage_banner_desktop

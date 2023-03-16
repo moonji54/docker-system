@@ -1,0 +1,17 @@
+uuid: 59a944fd-b0e4-4706-85ec-46e138d6dc1e
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: homepage_banner_desktop_2x
+label: 'Homepage banner Desktop 2x'
+effects:
+  fa850a48-3d47-442a-83f3-f0d3df12943f:
+    uuid: fa850a48-3d47-442a-83f3-f0d3df12943f
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 2552
+      height: 1728
+      crop_type: focal_point

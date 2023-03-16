@@ -1,0 +1,10 @@
+uuid: 913d4395-4994-4798-967e-5229e02f206e
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.full_width
+label: 'Full width'
+targetEntityType: media
+cache: true

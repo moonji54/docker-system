@@ -1,0 +1,17 @@
+uuid: 9a4570b7-e200-4165-bf69-f01c03259a75
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: full_width_tablet
+label: 'Full width Tablet'
+effects:
+  c95251e1-4539-4eb4-8d3d-bb4085c9d6a1:
+    uuid: c95251e1-4539-4eb4-8d3d-bb4085c9d6a1
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1024
+      height: 541
+      crop_type: focal_point

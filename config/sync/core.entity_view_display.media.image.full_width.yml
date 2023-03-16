@@ -1,26 +1,26 @@
-uuid: 65bb5dc5-613d-42d6-884d-1db42c6dc04d
+uuid: 1e0deeff-7ae8-461f-8f95-8d73e6154e17
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.landing_page_banner_imaeg
+    - core.entity_view_mode.media.full_width
     - field.field.media.image.field_media_image
     - media.type.image
-    - responsive_image.styles.landing_banner_image
+    - responsive_image.styles.full_width
   module:
     - responsive_image
 _core:
   default_config_hash: xOjhrwlN3e_AAKpoTyaIXolQOpOCwgBJeV-84FmrbsQ
-id: media.image.landing_page_banner_imaeg
+id: media.image.full_width
 targetEntityType: media
 bundle: image
-mode: landing_page_banner_imaeg
+mode: full_width
 content:
   field_media_image:
     type: responsive_image
     label: above
     settings:
-      responsive_image_style: landing_banner_image
+      responsive_image_style: full_width
       image_link: ''
     third_party_settings: {  }
     weight: 0

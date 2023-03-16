@@ -1,0 +1,17 @@
+uuid: 3e3a4478-0653-4cc4-a5a6-88b3ba007506
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: full_width_small_mobile
+label: 'Full width Small mobile'
+effects:
+  303206ab-2efa-4a4b-8a8b-e56e9ccd0968:
+    uuid: 303206ab-2efa-4a4b-8a8b-e56e9ccd0968
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 550
+      height: 291
+      crop_type: focal_point

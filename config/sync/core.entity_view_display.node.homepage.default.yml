@@ -38,7 +38,7 @@ content:
     type: entity_reference_entity_view
     label: above
     settings:
-      view_mode: homepage_banner_image
+      view_mode: homepage_banner
       link: false
     third_party_settings: {  }
     weight: 111

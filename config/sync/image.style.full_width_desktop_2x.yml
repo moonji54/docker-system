@@ -1,0 +1,17 @@
+uuid: 50428ef5-8bf9-4c69-a2c1-786ac18c6a1e
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: full_width_desktop_2x
+label: 'Full width Desktop 2x'
+effects:
+  a2abdff7-3386-43a8-9411-4c2a2161d6bc:
+    uuid: a2abdff7-3386-43a8-9411-4c2a2161d6bc
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 2552
+      height: 1350
+      crop_type: focal_point
