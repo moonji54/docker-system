@@ -179,18 +179,24 @@ body {
 */
 /** @define o-button */
 .o-button {
-  border: 1px solid #2D2D32;
+  align-items: center;
+  border: 0.0625rem solid #2D2D32;
   color: #2D2D32;
-  display: inline-block;
-  overflow: hidden;
-  padding: var(--space-xs);
-  position: relative;
-  transition: background 0.1s linear;
-  z-index: 0;
+  display: inline-flex;
+  gap: var(--space-xs);
+  padding: 0.625rem;
+  transition: background-color 0.3s;
+  border-radius: 2.75rem;
 }
-.o-button:hover, .o-button:focus {
-  background: #2D2D32;
+.o-button:focus, .o-button:hover {
+  background: #EDEDEF;
+}
+.o-button--white {
+  border-color: #FFFFFF;
   color: #FFFFFF;
+}
+.o-button--white:focus, .o-button--white:hover {
+  background-color: rgba(45, 45, 50, 0.4);
 }
 
 .o-container {
@@ -445,20 +451,19 @@ body {
   text-decoration: underline;
 }
 .c-form input[type=submit], .c-form input[type=button] {
-  border: 1px solid #2D2D32;
+  align-items: center;
+  border: 0.0625rem solid #2D2D32;
   color: #2D2D32;
-  display: inline-block;
-  overflow: hidden;
-  padding: var(--space-xs);
-  position: relative;
-  transition: background 0.1s linear;
-  z-index: 0;
+  display: inline-flex;
+  gap: var(--space-xs);
+  padding: 0.625rem;
+  transition: background-color 0.3s;
+  border-radius: 2.75rem;
   background-color: #FFFFFF;
   margin: 0;
 }
-.c-form input[type=submit]:hover, .c-form input[type=submit]:focus, .c-form input[type=button]:hover, .c-form input[type=button]:focus {
-  background: #2D2D32;
-  color: #FFFFFF;
+.c-form input[type=submit]:focus, .c-form input[type=submit]:hover, .c-form input[type=button]:focus, .c-form input[type=button]:hover {
+  background: #EDEDEF;
 }
 .c-form input[type=submit]:hover, .c-form input[type=submit]:focus, .c-form input[type=button]:hover, .c-form input[type=button]:focus {
   background-color: #2D2D32;
