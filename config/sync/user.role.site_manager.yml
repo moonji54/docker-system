@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - filter.format.full_html
+    - filter.format.text
+    - filter.format.text_and_links
     - filter.format.wysiwyg
     - media.type.audio
     - media.type.document
@@ -337,6 +339,8 @@ permissions:
   - 'use editorial transition publish'
   - 'use save and edit'
   - 'use text format full_html'
+  - 'use text format text'
+  - 'use text format text_and_links'
   - 'use text format wysiwyg'
   - 'view all media revisions'
   - 'view all revisions'

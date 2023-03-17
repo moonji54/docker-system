@@ -112,6 +112,8 @@ module:
   taxonomy: 0
   taxonomy_import: 0
   text: 0
+  textarea_widget_for_text: 0
+  textfield_counter: 0
   token: 0
   token_default: 0
   toolbar: 0

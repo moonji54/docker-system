@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_page_builder
     - node.type.landing_page
+    - paragraphs.paragraphs_type.learning_block
     - paragraphs.paragraphs_type.wysiwyg
   module:
     - entity_reference_revisions
@@ -22,11 +23,12 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
+      learning_block: learning_block
       wysiwyg: wysiwyg
     negate: 0
     target_bundles_drag_drop:
-      cta_download:
-        weight: 9
+      call_to_action:
+        weight: 10
         enabled: false
       featured_content:
         weight: 10
@@ -40,6 +42,9 @@ settings:
       full_width_media:
         weight: 13
         enabled: false
+      learning_block:
+        weight: 15
+        enabled: true
       limited_list:
         weight: 14
         enabled: false

@@ -1,12 +1,12 @@
-uuid: 35db1f21-d9a3-4352-87cf-bfe7839f6f46
+uuid: 24c092eb-1349-4586-a164-1275cc0772b0
 langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.text_and_links
+    - filter.format.text
   module:
     - ckeditor
-format: text_and_links
+format: text
 editor: ckeditor
 settings:
   toolbar:
@@ -16,16 +16,7 @@ settings:
           name: Formatting
           items:
             - Bold
-            - Italic
-        -
-          name: Links
-          items:
-            - DrupalLink
-            - DrupalUnlink
-  plugins:
-    drupallink:
-      linkit_enabled: true
-      linkit_profile: default
+  plugins: {  }
 image_upload:
   status: false
   scheme: public

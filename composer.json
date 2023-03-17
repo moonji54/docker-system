@@ -143,6 +143,8 @@
         "drupal/svg_image": "^1.16",
         "drupal/symfony_mailer": "^1.1@beta|^1.0@RC|^1.0",
         "drupal/taxonomy_import": "^2.0",
+        "drupal/textarea_widget_for_text": "^1.2",
+        "drupal/textfield_counter": "^2.0",
         "drupal/token_default": "^1.0@beta|^1.0@RC|^1.0",
         "drupal/twig_field_value": "^2.0",
         "drupal/twig_tweak": "^2.1",
@@ -218,6 +220,10 @@
             },
             "drupal/menu_admin_per_menu": {
                 "Menu edit form is not visible on the node edit page": "https://www.drupal.org/files/issues/2018-11-30/2900957-default-menu-items.patch"
+            },
+            "drupal/textfield_counter": {
+                "Incompatibilities with Claro": "https://www.drupal.org/files/issues/2022-08-04/textfield-counter-incompatible-with-claro-3182675-10.patch",
+                "Calling static trait method getLengthOfSubmittedValue is deprecated": "https://www.drupal.org/files/issues/2022-04-27/deprecated-static-function-call-in-trait-3272128.patch"
             }
         },
         "patchLevel": {
