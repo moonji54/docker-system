@@ -369,9 +369,23 @@ ul li a:hover {
   padding: var(--space-xs) 0 var(--space-xs) var(--space-m);
 }
 :where(.o-content-from-editor) blockquote p {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 1.75rem;
+  line-height: 1.5;
   font-style: italic;
   font-weight: 400;
   margin-bottom: 0;
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) blockquote p {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) blockquote p {
+    font-size: 1.125rem;
+  }
 }
 :where(.o-content-from-editor) blockquote footer {
   font-family: "Noto Sans", sans-serif;
