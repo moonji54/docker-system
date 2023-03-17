@@ -1,4 +1,8 @@
 services:
+  nrgi_frontend.paragraph_button_link_helper:
+    class: Drupal\nrgi_frontend\NrgiParagraphButtonLinkHelperService
+    arguments: [ '@file_url_generator' ]
+
   nrgi_frontend.translation_helper:
     class: Drupal\nrgi_frontend\NrgiTranslationHelperService
     arguments: [ '@entity_type.manager' ]

@@ -16,7 +16,7 @@ function nrgi_backend_field_widget_single_element_paragraphs_form_alter(&$elemen
 
   // Conditional fields for call_to_action paragraph.
   if ($element['#paragraph_type'] === 'call_to_action') {
-    // field_link only visible if field_type value is 'link'.
+    // field_link  visible if field_type value is 'link'.
     $element['subform']['field_link']['#states'] = [
       'visible' => [
         [
@@ -25,8 +25,17 @@ function nrgi_backend_field_widget_single_element_paragraphs_form_alter(&$elemen
       ],
     ];
 
-    // field_link only visible if field_type value is 'download'.
+    // field_file visible if field_type value is 'download'.
     $element['subform']['field_file']['#states'] = [
+      'visible' => [
+        [
+          '[name="field_page_builder[' . $delta . '][subform][field_type]"]' => ['value' => 'download'],
+        ],
+      ],
+    ];
+
+    // field_download_button_label visible if field_type value is 'download'.
+    $element['subform']['field_download_button_label']['#states'] = [
       'visible' => [
         [
           '[name="field_page_builder[' . $delta . '][subform][field_type]"]' => ['value' => 'download'],
@@ -35,3 +44,4 @@ function nrgi_backend_field_widget_single_element_paragraphs_form_alter(&$elemen
     ];
   }
 }
+

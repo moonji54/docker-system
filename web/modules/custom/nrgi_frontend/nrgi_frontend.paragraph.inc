@@ -9,9 +9,10 @@
  * Implements hook_preprocess_paragraph().
  */
 function nrgi_frontend_preprocess_paragraph(&$variables) {
+  // SBTODO - TODO: review and refactor function.
   /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
   $paragraph = $variables['paragraph'];
-  $node      = $paragraph->getParentEntity();
+  $node = $paragraph->getParentEntity();
 
   // Adding node information as a render variable to paragraphs.
   $variables['node'] = $node;
@@ -25,6 +26,19 @@ function nrgi_frontend_preprocess_paragraph(&$variables) {
     case 'featured_content':
       //  _nrgi_frontend_preprocess_featured_content($paragraph, $variables);
       break;
+
+    case 'call_to_action':
+      /** @var \Drupal\nrgi_frontend\NrgiParagraphButtonLinkHelperService $paragraph_button_link_helper_service */
+      $paragraph_button_link_helper_service = \Drupal::service('nrgi_frontend.paragraph_button_link_helper');
+
+      $variables['button_link'] = $paragraph_button_link_helper_service
+        ->getButtonLinkArray(
+          $paragraph,
+          'field_link',
+          'field_file',
+          'field_download_button_label',
+          'field_type'
+        );
   }
 }
 

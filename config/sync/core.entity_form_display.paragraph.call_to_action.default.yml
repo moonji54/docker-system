@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.call_to_action.field_background_colour
     - field.field.paragraph.call_to_action.field_description
+    - field.field.paragraph.call_to_action.field_download_button_label
     - field.field.paragraph.call_to_action.field_file
     - field.field.paragraph.call_to_action.field_image
     - field.field.paragraph.call_to_action.field_link
@@ -69,6 +70,7 @@ third_party_settings:
       children:
         - field_type
         - field_file
+        - field_download_button_label
         - field_link
       label: 'Link or File Download'
       region: content
@@ -101,6 +103,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_download_button_label:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_file:
     type: media_library_widget
     weight: 6
@@ -117,7 +127,7 @@ content:
     third_party_settings: {  }
   field_link:
     type: link_default
-    weight: 7
+    weight: 8
     region: content
     settings:
       placeholder_url: ''
