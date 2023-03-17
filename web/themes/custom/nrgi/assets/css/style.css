@@ -557,6 +557,12 @@ ul li a:hover {
     margin-top: var(--space-xl);
   }
 }
+@media (max-width: 48rem) {
+  .c-footer__logo svg {
+    height: 1.5rem;
+    width: 4.9375rem;
+  }
+}
 .c-footer__menu-wrapper {
   grid-area: top-right;
   max-width: 29.75rem;

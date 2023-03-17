@@ -87,6 +87,13 @@
       grid-area  : second;
       margin-top : var(--space-xl);
     }
+
+    svg {
+      @include media("<=tablet") {
+        height : 1.5rem;
+        width  : 4.9375rem;
+      }
+    }
   }
 
   &__menu-wrapper {
