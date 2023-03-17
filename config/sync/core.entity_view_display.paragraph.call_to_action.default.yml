@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.call_to_action.field_background_colour
     - field.field.paragraph.call_to_action.field_description
+    - field.field.paragraph.call_to_action.field_download_button_label
     - field.field.paragraph.call_to_action.field_file
     - field.field.paragraph.call_to_action.field_image
     - field.field.paragraph.call_to_action.field_link
@@ -33,6 +34,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_download_button_label:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
     region: content
   field_file:
     type: entity_reference_entity_view
