@@ -2,12 +2,13 @@
   'c-call-to-action',
   content.field_image|field_value ? 'c-call-to-action--with-image',
   'o-section',
-  'o-section--has-background',
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished'
 ] %}
+
+{{ kint(content.field_background_colour|field_raw['value']) }}
 
 <section{{ attributes.addClass(classes) }}>
   {# Image #}

@@ -1,0 +1,11 @@
+/** @define c-footer */
+.c-call-to-action {
+
+  &__container {
+    @include grid;
+  }
+
+  &__inner {
+    grid-column : 1 / 8;
+  }
+}
