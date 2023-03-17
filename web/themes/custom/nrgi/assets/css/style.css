@@ -101,7 +101,11 @@
 ================================================== */
 /* #Headings
 ================================================== */
+/* Cards
+================================================== */
 /* Buttons
+================================================== */
+/* Menu
 ================================================== */
 /* Labels
 ================================================== */
@@ -207,6 +211,10 @@ ul li a:hover {
 */
 /** @define o-button */
 .o-button {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1;
   align-items: center;
   border: 0.0625rem solid #2D2D32;
   color: #2D2D32;
@@ -215,6 +223,11 @@ ul li a:hover {
   padding: 0.625rem;
   transition: background-color 0.3s;
   border-radius: 2.75rem;
+}
+@media (max-width: 64rem) {
+  .o-button {
+    font-size: 1rem;
+  }
 }
 .o-button:focus, .o-button:hover {
   background: #EDEDEF;
@@ -248,17 +261,68 @@ ul li a:hover {
   ================================================== */
 }
 :where(.o-content-from-editor) p {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.75;
+  font-weight: 400;
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) p {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) p {
+    font-size: 1rem;
+  }
 }
 :where(.o-content-from-editor) h1 {
-  font-weight: 700;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 5rem;
+  line-height: 1.15;
+  font-weight: 500;
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) h1 {
+    font-size: 3.75rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) h1 {
+    font-size: 2rem;
+  }
 }
 :where(.o-content-from-editor) h2 {
-  font-weight: 700;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 4rem;
+  line-height: 1.2;
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) h2 {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) h2 {
+    font-size: 1.875rem;
+  }
 }
 :where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
-  font-weight: 700;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 2.875rem;
+  line-height: 1.2;
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
+    font-size: 2.25rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
+    font-size: 1.75rem;
+  }
 }
 :where(.o-content-from-editor) a {
   text-decoration: underline;
@@ -310,7 +374,16 @@ ul li a:hover {
   margin-bottom: 0;
 }
 :where(.o-content-from-editor) blockquote footer {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
   margin-top: var(--space-s);
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) blockquote footer {
+    font-size: 0.875rem;
+  }
 }
 :where(.o-content-from-editor) .alignleft, :where(.o-content-from-editor) .align-left {
   float: left;
@@ -364,9 +437,21 @@ ul li a:hover {
   list-style: decimal;
 }
 :where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.75;
+  font-weight: 400;
   margin: var(--space-s) 0 var(--space-m) var(--space-m);
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
+    font-size: 1rem;
+  }
 }
 @media (max-width: 48rem) {
   :where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
@@ -382,9 +467,21 @@ ul li a:hover {
   padding-left: var(--space-xs);
 }
 :where(.o-content-from-editor) address {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.75;
+  font-weight: 400;
   font-style: italic;
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) address {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) address {
+    font-size: 1rem;
+  }
 }
 :where(.o-content-from-editor) big {
   font-size: 120%;
@@ -603,8 +700,21 @@ ul li a:hover {
 
 /** @define c.form */
 .c-form label {
-  font-weight: 700;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 2rem;
+  line-height: 1.5;
   font-weight: 500;
+  font-weight: 500;
+}
+@media (max-width: 64rem) {
+  .c-form label {
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-form label {
+    font-size: 1.375rem;
+  }
 }
 .c-form input[type=text], .c-form input[type=email], .c-form input[type=password], .c-form input[type=date], .c-form input[type=number], .c-form select, .c-form textarea {
   border: 1px solid #2D2D32;
@@ -613,9 +723,21 @@ ul li a:hover {
   padding: var(--space-xs);
 }
 .c-form .description {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.75;
+  font-weight: 400;
   margin: var(--space-xs) 0;
+}
+@media (max-width: 64rem) {
+  .c-form .description {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-form .description {
+    font-size: 1rem;
+  }
 }
 .c-form .description a {
   font-weight: 500;
@@ -624,6 +746,10 @@ ul li a:hover {
   text-decoration: underline;
 }
 .c-form input[type=submit], .c-form input[type=button] {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1;
   align-items: center;
   border: 0.0625rem solid #2D2D32;
   color: #2D2D32;
@@ -634,6 +760,11 @@ ul li a:hover {
   border-radius: 2.75rem;
   background-color: #FFFFFF;
   margin: 0;
+}
+@media (max-width: 64rem) {
+  .c-form input[type=submit], .c-form input[type=button] {
+    font-size: 1rem;
+  }
 }
 .c-form input[type=submit]:focus, .c-form input[type=submit]:hover, .c-form input[type=button]:focus, .c-form input[type=button]:hover {
   background: #EDEDEF;
@@ -681,7 +812,20 @@ ul li a:hover {
   padding: var(--space-l) 0;
 }
 .c-login__title {
-  font-weight: 700;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 2.875rem;
+  line-height: 1.2;
+}
+@media (max-width: 64rem) {
+  .c-login__title {
+    font-size: 2.25rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-login__title {
+    font-size: 1.75rem;
+  }
 }
 .c-login .item-list li {
   margin-left: 0;
