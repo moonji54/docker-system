@@ -19,7 +19,7 @@
       <a class="c-footer__button o-button o-button--white" href="{{ newsletter_button.uri }}">
         {% include '@nrgi/svg/svg.html.twig' with {'svg': 'email'} %}
 
-        {{ newsletter_button.title ?: 'Sign up for email updates'|trans }}
+        <span>{{ newsletter_button.title ?: 'Sign up for email updates'|trans }}</span>
       </a>
     {% endif %}
 

@@ -2,7 +2,6 @@
 .c-footer {
   background : no-repeat center / cover url("../img/footer-bg.png");
   color      : $white;
-  height     : 75vh;
   padding    : var(--space-4xl) 0 var(--space-2xl) 0;
 
   @include media("<=tablet") {
@@ -13,16 +12,25 @@
   &__container {
     display         : flex;
     flex-direction  : column;
+    gap             : var(--space-4xl);
     height          : 100%;
     justify-content : space-between;
-
-    @include media("<=tablet") {
-      gap : var(--space-4xl);
-    }
   }
 
   &__top {
     @include grid;
+  }
+
+  &__bottom {
+    display             : grid;
+    grid-column-gap     : var(--space-2xl);
+    grid-row-gap        : var(--space-2xl);
+    grid-template-areas : "top-left top-right" "bottom-left bottom-right";
+
+    @include media("<=tablet") {
+      grid-row-gap        : 0;
+      grid-template-areas : "first" "second" "third";
+    }
   }
 
   &__content-wrapper {
@@ -33,15 +41,12 @@
     }
   }
 
-  &__buttons {
-    grid-column : 1 / -1;
-  }
-
-  &__inner {
-
+  &__title {
+    @include ts-heading-1;
   }
 
   &__description {
+    @include ts-body;
     margin-top : var(--space-m);
   }
 
@@ -49,6 +54,7 @@
     align-items : center;
     display     : flex;
     gap         : 0.25rem;
+    grid-column : 1 / -1;
     margin-top  : var(--space-xl);
 
     @include media("<=tablet") {
@@ -61,22 +67,6 @@
   &__divider {
     @include media("<=tablet") {
       display : none;
-    }
-  }
-
-  &__button {
-
-  }
-
-  &__bottom {
-    display             : grid;
-    grid-column-gap     : var(--space-2xl);
-    grid-row-gap        : var(--space-2xl);
-    grid-template-areas : "top-left top-right" "bottom-left bottom-right";
-
-    @include media("<=tablet") {
-      grid-row-gap        : 0;
-      grid-template-areas : "first" "second" "third";
     }
   }
 
@@ -109,6 +99,7 @@
   }
 
   &__menu {
+    @include ts-sub-menu;
     display         : flex;
     flex-wrap       : wrap;
     justify-content : flex-end;
@@ -122,6 +113,7 @@
   }
 
   &__credits-wrapper {
+    @include ts-card-tag;
     display         : flex;
     grid-column     : 1 / -1;
     justify-content : space-between;
