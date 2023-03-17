@@ -540,17 +540,36 @@ body {
     ===============================
 */
 /** @define c-breadcrumbs */ /** @define c-footer */
-.c-call-to-action__container {
+.c-call-to-action__inner {
   display: grid;
   grid-column-gap: var(--gutter);
   grid-template-columns: repeat(12, 1fr);
+  position: relative;
+  width: 100%;
 }
 @media (max-width: 48rem) {
-  .c-call-to-action__container {
+  .c-call-to-action__inner {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-.c-call-to-action__inner {
+.c-call-to-action__inner:before {
+  content: "";
+  height: 100%;
+  left: calc(var(--gutter) * -1);
+  position: absolute;
+  width: 63%;
+  z-index: -1;
+}
+.c-call-to-action__inner--ocean:before {
+  background-color: #00545A;
+}
+.c-call-to-action__inner--core:before {
+  background-color: #FF7D5F;
+}
+.c-call-to-action__inner--light-hydro:before {
+  background-color: #B3EFEF;
+}
+.c-call-to-action__content-wrapper {
   grid-column: 1/8;
 }
 

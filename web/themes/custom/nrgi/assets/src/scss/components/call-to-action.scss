@@ -1,11 +1,39 @@
 /** @define c-footer */
 .c-call-to-action {
-
-  &__container {
+  &__inner {
     @include grid;
+    position : relative;
+    width    : 100%;
+
+    &:before {
+      content  : "";
+      height   : 100%;
+      left     : calc(var(--gutter) * -1);
+      position : absolute;
+      width    : 63%;
+      z-index  : -1;
+    }
+
+    &--ocean {
+      &:before {
+        background-color : $secondary;
+      }
+    }
+
+    &--core {
+      &:before {
+        background-color : $tertiary;
+      }
+    }
+
+    &--light-hydro {
+      &:before {
+        background-color : $blue-light;
+      }
+    }
   }
 
-  &__inner {
+  &__content-wrapper {
     grid-column : 1 / 8;
   }
 }
