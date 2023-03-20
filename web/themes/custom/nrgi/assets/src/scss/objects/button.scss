@@ -1,18 +1,27 @@
 /** @define o-button */
 @mixin o-button {
   @include ts-button;
-  align-items   : center;
-  border        : 0.0625rem solid $primary;
-  color         : $primary;
-  display       : inline-flex;
-  gap           : var(--space-xs);
-  padding       : 0.625rem;
-  transition    : background-color 0.3s;
-  border-radius : 2.75rem;
+  align-items     : center;
+  border          : 0.0625rem solid $primary;
+  font-weight     : 500;
+  text-decoration : none;
+  color           : $primary;
+  height          : 2.5rem;
+  mix-blend-mode  : multiply;
+  display         : inline-flex;
+  gap             : var(--space-xs);
+  padding         : 0.625rem 1.125rem;
+  transition      : background-color 0.3s;
+  border-radius   : 2.75rem;
 
   &:focus,
   &:hover {
-    background : $grey-light;
+    background-color : $peach-2;
+  }
+
+  @include media("<=tablet") {
+    padding : 0.25rem 0.875rem;
+    height  : 2rem;
   }
 }
 

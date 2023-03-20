@@ -1,7 +1,7 @@
 /** @define c-call-to-action */
 .c-call-to-action {
   $c       : &;
-  height   : 100vh;
+  height   : 48rem;
   position : relative;
 
   @keyframes scrollToTop {
@@ -10,20 +10,30 @@
     }
   }
 
+  @include media("<=tablet") {
+    height : auto;
+  }
+
   &.is-visible {
-    #{$c}__block {
-      animation                 : scrollToTop 1.4s linear infinite;
-      animation-delay           : calc(var(--scroll) * -1s);
-      animation-iteration-count : 1;
-      animation-play-state      : paused;
-      animation-fill-mode       : both;
+    @include media(">=tablet") {
+      #{$c}__block {
+        animation                 : scrollToTop 1.2s linear infinite;
+        animation-delay           : calc(var(--scroll) * -1s);
+        animation-fill-mode       : both;
+        animation-iteration-count : 1;
+        animation-play-state      : paused;
+      }
     }
   }
 
   &__image-wrapper {
-    min-height : 100vh;
-    position   : relative;
-    width      : 100%;
+    height   : 100%;
+    position : relative;
+    width    : 100%;
+
+    @include media("<=tablet") {
+      aspect-ratio : 16 / 9;
+    }
   }
 
   img {
@@ -40,8 +50,13 @@
     left       : 0;
     object-fit : cover;
     position   : absolute;
-    top        : 40%;
+    top        : 60%;
     width      : 100%;
+
+    @include media("<=tablet") {
+      position : relative;
+      top      : 0;
+    }
   }
 
   &__container {
@@ -61,6 +76,12 @@
       position : absolute;
       width    : 63%;
       z-index  : -1;
+    }
+
+    @include media("<=tablet") {
+      &:before {
+        width : calc(100% + (var(--gutter) * 2));
+      }
     }
 
     &--ocean {
@@ -83,6 +104,28 @@
   }
 
   &__content-wrapper {
+    display     : block;
     grid-column : 1 / 8;
+    margin      : auto;
+    padding     : var(--space-2xl) 0;
+  }
+
+  &__title {
+    @include ts-heading-1;
+  }
+
+  &__description {
+    @include ts-heading-5;
+    margin-top : var(--space-s);
+  }
+
+  &__link {
+    margin-top : var(--space-m);
+
+    &:focus,
+    &:hover {
+      background-color : rgba($primary, 0.1);
+      mix-blend-mode   : multiply;
+    }
   }
 }

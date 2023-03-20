@@ -32,13 +32,12 @@
           {# On this component the editor can create a button link or a download file button link. #}
           {# Use button_link.type to see type of button to render #}
           {% if button_link.url %}
-            <div>[Link Type] {{ button_link.type }}</div>
-            <a class="c-call-to-action__link" href="{{ button_link.url }}" style="padding: 20px; border: 1px dotted black"
+            <a class="c-call-to-action__link o-button" href="{{ button_link.url }}"
                target="{{ button_link.is_external ? '_blank' : '_self' }}">
               {% if button_link.type == 'link' %}
-                [arrow icon] ->
+                {% include '@nrgi/svg/svg.html.twig' with {'svg' : 'arrow'} %}
               {% elseif button_link.type == 'download' %}
-                [download icon]
+                {% include '@nrgi/svg/svg.html.twig' with {'svg' : 'download'} %}
               {% endif %}
               <span class="c-call-to-action__link-title">{{ button_link.title }}</span>
             </a>
@@ -47,5 +46,4 @@
       </div>
     </div>
   </div>
-
 </section>
