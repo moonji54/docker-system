@@ -539,11 +539,54 @@ body {
     6. COMPONENTS
     ===============================
 */
-/** @define c-breadcrumbs */ /** @define c-footer */
+/** @define c-breadcrumbs */ /** @define c-call-to-action */
+.c-call-to-action {
+  height: 100vh;
+  position: relative;
+}
+@keyframes scrollToTop {
+  to {
+    top: 0;
+  }
+}
+.c-call-to-action.is-visible .c-call-to-action__block {
+  animation: scrollToTop 1.4s linear infinite;
+  animation-delay: calc(var(--scroll) * -1s);
+  animation-iteration-count: 1;
+  animation-play-state: paused;
+  animation-fill-mode: both;
+}
+.c-call-to-action__image-wrapper {
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+}
+.c-call-to-action img {
+  height: 100%;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+.c-call-to-action__block {
+  height: 100%;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 40%;
+  width: 100%;
+}
+.c-call-to-action__container {
+  height: 100%;
+}
 .c-call-to-action__inner {
   display: grid;
   grid-column-gap: var(--gutter);
   grid-template-columns: repeat(12, 1fr);
+  height: 100%;
   position: relative;
   width: 100%;
 }

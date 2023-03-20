@@ -2,22 +2,19 @@
   'c-call-to-action',
   content.field_image|field_value ? 'c-call-to-action--with-image',
   'o-section',
-  'paragraph',
-  'paragraph--type--' ~ paragraph.bundle|clean_class,
-  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  not paragraph.isPublished() ? 'paragraph--unpublished'
+  'js-parallax-container'
 ] %}
 {% set background_color = content.field_background_colour|field_raw('value')|replace({'_' : '-'}) %}
 
 <section{{ attributes.addClass(classes) }}>
-  <div class="c-call-to-action__wrapper">
-    {# Image #}
-    {% if content.field_image|field_value %}
-      <div class="c-call-to-action__image-wrapper">
-        {{ content.field_image }}
-      </div>
-    {% endif %}
+  {# Image #}
+  {% if content.field_image|field_value %}
+    <div class="c-call-to-action__image-wrapper">
+      {{ content.field_image }}
+    </div>
+  {% endif %}
 
+  <div class="c-call-to-action__block">
     <div class="c-call-to-action__container o-container">
       <div class="c-call-to-action__inner c-call-to-action__inner--{{ background_color }}">
         <div class="c-call-to-action__content-wrapper">
@@ -50,4 +47,5 @@
       </div>
     </div>
   </div>
+
 </section>
