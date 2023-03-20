@@ -8,19 +8,19 @@
     style="background-color: indianred; padding:20px; width: 100%; border: #0a7bc1 1px dotted;">
   <div class="c-embed__inner o-content-from-editor">
     {% if content.field_title|field_value %}
-      {{ content.field_title }}
+      <h2>{{ content.field_title }}</h2>
     {% endif %}
 
     {% if content.field_embed_media|field_value %}
-      {{ content.field_embed_media }}
+      <div>{{ content.field_embed_media }}</div>
     {% endif %}
 
     {% if content.field_caption|field_value %}
-      {{ content.field_caption }}
+      <spam>{{ content.field_caption }}</spam>
     {% endif %}
 
     {% if content.field_credit|field_value %}
-      {{ content.field_credit }}
+      <span>{{ content.field_credit }}</span>
     {% endif %}
   </div>
 </div>
