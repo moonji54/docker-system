@@ -1,0 +1,33 @@
+uuid: 6631cf8a-6b26-49b9-9960-64f482b5a4c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_embed_media
+    - media.type.data_visualisation
+    - media.type.remote_audio
+    - media.type.remote_video
+    - paragraphs.paragraphs_type.embed
+id: paragraph.embed.field_embed_media
+field_name: field_embed_media
+entity_type: paragraph
+bundle: embed
+label: 'Embed media'
+description: 'Add new or select from existing remote video (Vimeo or YouTube), remote audio (SoundCloud, Spotify or OmnyStudio) or remote data visualisation (Infogram or Flourish).'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      data_visualisation: data_visualisation
+      remote_audio: remote_audio
+      remote_video: remote_video
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: data_visualisation
+field_type: entity_reference

@@ -1,14 +1,14 @@
-uuid: 12e10e92-7558-4e2d-b1a0-d4e4edbe9c40
+uuid: 50bc821f-9802-486d-a89d-4ad3c2c7db7a
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_form_mode.media.media_library
-    - field.field.media.remote_audio.field_media_oembed_remote_audio
-    - media.type.remote_audio
-id: media.remote_audio.media_library
+    - field.field.media.data_visualisation.field_media_oembed_data_vis
+    - media.type.data_visualisation
+id: media.data_visualisation.media_library
 targetEntityType: media
-bundle: remote_audio
+bundle: data_visualisation
 mode: media_library
 content:
   name:
@@ -21,7 +21,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_media_oembed_remote_audio: true
+  field_media_oembed_data_vis: true
   langcode: true
   path: true
   status: true

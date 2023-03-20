@@ -10,7 +10,6 @@ dependencies:
     - media.type.audio
     - media.type.document
     - media.type.image
-    - media.type.remote_audio
     - media.type.remote_video
     - media.type.video
     - node.type.article
@@ -66,7 +65,6 @@ permissions:
   - 'create page content'
   - 'create person content'
   - 'create publication content'
-  - 'create remote_audio media'
   - 'create remote_video media'
   - 'create terms in tags'
   - 'create topic content'
@@ -87,7 +85,6 @@ permissions:
   - 'delete own page content'
   - 'delete own person content'
   - 'delete own publication content'
-  - 'delete own remote_audio media'
   - 'delete own remote_video media'
   - 'delete own topic content'
   - 'delete own video media'
@@ -106,7 +103,6 @@ permissions:
   - 'edit any page content'
   - 'edit any person content'
   - 'edit any publication content'
-  - 'edit any remote_audio media'
   - 'edit any remote_video media'
   - 'edit any topic content'
   - 'edit any video media'
@@ -124,7 +120,6 @@ permissions:
   - 'edit own page content'
   - 'edit own person content'
   - 'edit own publication content'
-  - 'edit own remote_audio media'
   - 'edit own remote_video media'
   - 'edit own topic content'
   - 'edit own video media'

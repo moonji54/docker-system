@@ -57,7 +57,6 @@ module:
   media: 0
   media_library: 0
   media_library_edit: 0
-  media_remote_audio: 0
   menu_block: 0
   menu_link_content: 0
   menu_ui: 0

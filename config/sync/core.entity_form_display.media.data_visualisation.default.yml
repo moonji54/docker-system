@@ -1,16 +1,16 @@
-uuid: b8ce698d-6796-471f-8a5d-59d2678a7c1a
+uuid: 02cdf87e-6aa1-412b-a37f-4a6f47161527
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.media.remote_audio.field_media_oembed_remote_audio
-    - media.type.remote_audio
+    - field.field.media.data_visualisation.field_media_oembed_data_vis
+    - media.type.data_visualisation
   module:
     - media
     - path
-id: media.remote_audio.default
+id: media.data_visualisation.default
 targetEntityType: media
-bundle: remote_audio
+bundle: data_visualisation
 mode: default
 content:
   created:
@@ -19,7 +19,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_media_oembed_remote_audio:
+  field_media_oembed_data_vis:
     type: oembed_textfield
     weight: 0
     region: content

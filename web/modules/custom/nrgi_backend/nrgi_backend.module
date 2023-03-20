@@ -15,10 +15,6 @@ use Drupal\Core\Field\WidgetBase;
 \Drupal::moduleHandler()
   ->loadInclude('nrgi_backend', 'inc', 'nrgi_backend.theme');
 
-// Add remote audio as a media type.
-\Drupal::moduleHandler()
-  ->loadInclude('nrgi_backend', 'inc', 'nrgi_backend.media_types');
-
 // Paragraph form.
 \Drupal::moduleHandler()
   ->loadInclude('nrgi_backend', 'inc', 'nrgi_backend.paragraph_form');

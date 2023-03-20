@@ -1,15 +1,16 @@
-uuid: 83f49c05-0037-424f-bc91-6b9c11f4f7b8
+uuid: afc3e1fe-4fa7-4d8f-945e-7de19d7681cd
 langcode: en
 status: true
 dependencies:
   module:
+    - media
     - paragraphs
-id: paragraph.field_credit
-field_name: field_credit
+id: paragraph.field_embed_media
+field_name: field_embed_media
 entity_type: paragraph
-type: string_long
+type: entity_reference
 settings:
-  case_sensitive: false
+  target_type: media
 module: core
 locked: false
 cardinality: 1
