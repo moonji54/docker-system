@@ -1,13 +1,10 @@
-{% set classes = [
-  'o-section',
-  'o-section--wysiwyg',
-  'c-wysiwyg',
-] %}
-
-{% set rendered = content|render %}
-{% if rendered|striptags|trim is not empty %}
+{% if content.field_media|field_value %}
   <div{{ attributes.addClass(classes) }}>
-    <div class="c-full_width_media__inner o-content-from-editor">
+    <div style="background-color: navajowhite; padding:20px; width: 100%; border: #0a7bc1 1px dotted;">
+      {% if content.field_media|field_value %}
+        {{ content.field_media }}
+      {% endif %}
+
       {% if content.field_caption|field_value %}
         {{ content.field_caption }}
       {% endif %}
@@ -16,9 +13,6 @@
         {{ content.field_credit }}
       {% endif %}
 
-      {% if content.field_media_image|field_value %}
-        {{ content.field_media_image }}
-      {% endif %}
     </div>
   </div>
 {% endif %}

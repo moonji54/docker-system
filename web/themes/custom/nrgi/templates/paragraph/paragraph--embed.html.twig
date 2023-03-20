@@ -1,26 +1,22 @@
-{% set classes = [
-  'o-section',
-  'o-section--wysiwyg',
-  'c-wysiwyg',
-] %}
+{% if content.field_embed_media|field_value %}
+  <div{{ attributes.addClass(classes) }}
+      style="background-color: indianred; padding:20px; width: 100%; border: #0a7bc1 1px dotted;">
+    <div class="c-embed__inner o-content-from-editor">
+      {% if content.field_title|field_value %}
+        <h2>{{ content.field_title }}</h2>
+      {% endif %}
 
-<div{{ attributes.addClass(classes) }}
-    style="background-color: indianred; padding:20px; width: 100%; border: #0a7bc1 1px dotted;">
-  <div class="c-embed__inner o-content-from-editor">
-    {% if content.field_title|field_value %}
-      <h2>{{ content.field_title }}</h2>
-    {% endif %}
+      {% if content.field_embed_media|field_value %}
+        <div>{{ content.field_embed_media }}</div>
+      {% endif %}
 
-    {% if content.field_embed_media|field_value %}
-      <div>{{ content.field_embed_media }}</div>
-    {% endif %}
+      {% if content.field_caption|field_value %}
+        <spam>{{ content.field_caption }}</spam>
+      {% endif %}
 
-    {% if content.field_caption|field_value %}
-      <spam>{{ content.field_caption }}</spam>
-    {% endif %}
-
-    {% if content.field_credit|field_value %}
-      <span>{{ content.field_credit }}</span>
-    {% endif %}
+      {% if content.field_credit|field_value %}
+        <span>{{ content.field_credit }}</span>
+      {% endif %}
+    </div>
   </div>
-</div>
+{% endif %}
