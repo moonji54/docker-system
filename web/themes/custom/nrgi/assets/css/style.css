@@ -289,6 +289,11 @@ ul li a:hover {
   line-height: 1.15;
   font-weight: 500;
 }
+@media (max-width: 88rem) {
+  :where(.o-content-from-editor) h1 {
+    font-size: 4.5rem;
+  }
+}
 @media (max-width: 64rem) {
   :where(.o-content-from-editor) h1 {
     font-size: 3.75rem;
@@ -305,6 +310,11 @@ ul li a:hover {
   font-size: 4rem;
   line-height: 1.2;
 }
+@media (max-width: 88rem) {
+  :where(.o-content-from-editor) h2 {
+    font-size: 4.1875rem;
+  }
+}
 @media (max-width: 64rem) {
   :where(.o-content-from-editor) h2 {
     font-size: 3rem;
@@ -318,8 +328,13 @@ ul li a:hover {
 :where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 500;
-  font-size: 2.875rem;
+  font-size: 3rem;
   line-height: 1.2;
+}
+@media (max-width: 88rem) {
+  :where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
+    font-size: 2.5rem;
+  }
 }
 @media (max-width: 64rem) {
   :where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
@@ -378,11 +393,16 @@ ul li a:hover {
 :where(.o-content-from-editor) blockquote p {
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 500;
-  font-size: 1.75rem;
+  font-size: 2rem;
   line-height: 1.5;
   font-style: italic;
   font-weight: 400;
   margin-bottom: 0;
+}
+@media (max-width: 88rem) {
+  :where(.o-content-from-editor) blockquote p {
+    font-size: 1.75rem;
+  }
 }
 @media (max-width: 64rem) {
   :where(.o-content-from-editor) blockquote p {
@@ -782,10 +802,15 @@ ul li a:hover {
 /** @define c.form */
 .c-form label {
   font-family: "Cabinet Grotesk", sans-serif;
-  font-size: 2rem;
+  font-size: 2.25rem;
   line-height: 1.5;
   font-weight: 500;
   font-weight: 500;
+}
+@media (max-width: 88rem) {
+  .c-form label {
+    font-size: 2rem;
+  }
 }
 @media (max-width: 64rem) {
   .c-form label {
@@ -902,8 +927,13 @@ ul li a:hover {
 .c-login__title {
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 500;
-  font-size: 2.875rem;
+  font-size: 3rem;
   line-height: 1.2;
+}
+@media (max-width: 88rem) {
+  .c-login__title {
+    font-size: 2.5rem;
+  }
 }
 @media (max-width: 64rem) {
   .c-login__title {
