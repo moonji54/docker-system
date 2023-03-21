@@ -644,8 +644,7 @@ ul li a:hover {
 }
 .c-footer__bottom {
   display: grid;
-  grid-column-gap: var(--space-2xl);
-  grid-row-gap: var(--space-2xl);
+  grid-gap: var(--space-2xl);
   grid-template-areas: "top-left top-right" "bottom-left bottom-right";
 }
 @media (max-width: 48rem) {
