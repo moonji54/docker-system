@@ -3,10 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.featured_pages.field_button_and_link
-    - field.field.paragraph.featured_pages.field_content_cards
-    - field.field.paragraph.featured_pages.field_layout
-    - field.field.paragraph.featured_pages.field_show_image
+    - field.field.paragraph.featured_pages.field_description
+    - field.field.paragraph.featured_pages.field_link
+    - field.field.paragraph.featured_pages.field_title
     - paragraphs.paragraphs_type.featured_pages
   module:
     - link
@@ -15,37 +14,29 @@ targetEntityType: paragraph
 bundle: featured_pages
 mode: default
 content:
-  field_button_and_link:
+  field_description:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_link:
     type: link_default
-    weight: 5
+    weight: 2
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-  field_content_cards:
-    type: entity_reference_autocomplete
-    weight: 2
+  field_title:
+    type: string_textfield
+    weight: 0
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_layout:
-    type: number
-    weight: 3
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_show_image:
-    type: boolean_checkbox
-    weight: 4
-    region: content
-    settings:
-      display_label: true
     third_party_settings: {  }
 hidden:
   created: true
