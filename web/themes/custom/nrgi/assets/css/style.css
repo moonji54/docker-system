@@ -668,6 +668,11 @@ ul li a:hover {
   line-height: 1.15;
   font-weight: 500;
 }
+@media (max-width: 88rem) {
+  .c-footer__title {
+    font-size: 4.5rem;
+  }
+}
 @media (max-width: 64rem) {
   .c-footer__title {
     font-size: 3.75rem;
