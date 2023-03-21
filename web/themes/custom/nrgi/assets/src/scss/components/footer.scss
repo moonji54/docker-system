@@ -15,6 +15,10 @@
     gap             : calc(var(--space-2xl) + var(--space-4xl));
     height          : 100%;
     justify-content : space-between;
+
+    @include media("<=tablet") {
+      gap : var(--space-4xl);
+    }
   }
 
   &__top {
@@ -48,6 +52,10 @@
   &__description {
     @include ts-body;
     margin-top : var(--space-m);
+
+    @include media("<=tablet") {
+      margin-top : 0;
+    }
   }
 
   &__buttons {
@@ -112,6 +120,15 @@
     }
   }
 
+  &__menu-item {
+    a {
+      &:focus,
+      &:hover {
+        text-decoration : underline;
+      }
+    }
+  }
+
   &__credits-wrapper {
     @include ts-card-tag;
     display         : flex;
@@ -121,6 +138,15 @@
     @include media("<=tablet") {
       display    : block;
       margin-top : var(--space-4xl);
+    }
+  }
+
+  &__credit {
+    a {
+      &:focus,
+      &:hover {
+        text-decoration : underline;
+      }
     }
   }
 }

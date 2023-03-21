@@ -19,6 +19,12 @@
     transition      : background-color 0.3s;
     width           : 2.5rem;
 
+    @include media("<=tablet") {
+      height  : 2rem;
+      padding : 0.5rem;
+      width   : 2rem;
+    }
+
     &--has-text {
       @include ts-button;
       border-radius : 2.75rem;
@@ -26,6 +32,11 @@
       height        : auto;
       padding       : 0.625rem;
       width         : auto;
+
+      @include media("<=tablet") {
+        height  : 2rem;
+        padding : 0.5rem;
+      }
     }
 
     &:focus,

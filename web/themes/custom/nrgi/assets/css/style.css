@@ -218,9 +218,10 @@ ul li a:hover {
   align-items: center;
   border: 0.0625rem solid #2D2D32;
   color: #2D2D32;
+  height: 2.5rem;
   display: inline-flex;
   gap: var(--space-xs);
-  padding: 0.625rem 1rem;
+  padding: 0.625rem 1.125rem;
   transition: background-color 0.3s;
   border-radius: 2.75rem;
 }
@@ -230,7 +231,13 @@ ul li a:hover {
   }
 }
 .o-button:focus, .o-button:hover {
-  background: #EDEDEF;
+  background-color: #ED7053;
+}
+@media (max-width: 48rem) {
+  .o-button {
+    padding: 0.25rem 0.875rem;
+    height: 2rem;
+  }
 }
 .o-button--white {
   border-color: #FFFFFF;
@@ -600,6 +607,11 @@ ul li a:hover {
   height: 100%;
   justify-content: space-between;
 }
+@media (max-width: 48rem) {
+  .c-footer__container {
+    gap: var(--space-4xl);
+  }
+}
 .c-footer__top {
   display: grid;
   grid-column-gap: var(--gutter);
@@ -661,6 +673,11 @@ ul li a:hover {
 @media (max-width: 48rem) {
   .c-footer__description {
     font-size: 1rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-footer__description {
+    margin-top: 0;
   }
 }
 .c-footer__buttons {
@@ -732,6 +749,9 @@ ul li a:hover {
     row-gap: var(--space-m);
   }
 }
+.c-footer__menu-item a:focus, .c-footer__menu-item a:hover {
+  text-decoration: underline;
+}
 .c-footer__credits-wrapper {
   font-family: "Noto Sans", sans-serif;
   font-size: 0.75rem;
@@ -754,6 +774,9 @@ ul li a:hover {
     display: block;
     margin-top: var(--space-4xl);
   }
+}
+.c-footer__credit a:focus, .c-footer__credit a:hover {
+  text-decoration: underline;
 }
 
 /** @define c.form */
@@ -811,9 +834,10 @@ ul li a:hover {
   align-items: center;
   border: 0.0625rem solid #2D2D32;
   color: #2D2D32;
+  height: 2.5rem;
   display: inline-flex;
   gap: var(--space-xs);
-  padding: 0.625rem 1rem;
+  padding: 0.625rem 1.125rem;
   transition: background-color 0.3s;
   border-radius: 2.75rem;
   background-color: #FFFFFF;
@@ -825,7 +849,13 @@ ul li a:hover {
   }
 }
 .c-form input[type=submit]:focus, .c-form input[type=submit]:hover, .c-form input[type=button]:focus, .c-form input[type=button]:hover {
-  background: #EDEDEF;
+  background-color: #ED7053;
+}
+@media (max-width: 48rem) {
+  .c-form input[type=submit], .c-form input[type=button] {
+    padding: 0.25rem 0.875rem;
+    height: 2rem;
+  }
 }
 .c-form input[type=submit]:hover, .c-form input[type=submit]:focus, .c-form input[type=button]:hover, .c-form input[type=button]:focus {
   background-color: #2D2D32;
@@ -914,6 +944,13 @@ ul li a:hover {
   transition: background-color 0.3s;
   width: 2.5rem;
 }
+@media (max-width: 48rem) {
+  .c-social-links__link {
+    height: 2rem;
+    padding: 0.5rem;
+    width: 2rem;
+  }
+}
 .c-social-links__link--has-text {
   font-family: "Noto Sans", sans-serif;
   font-size: 1.125rem;
@@ -928,6 +965,12 @@ ul li a:hover {
 @media (max-width: 64rem) {
   .c-social-links__link--has-text {
     font-size: 1rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-social-links__link--has-text {
+    height: 2rem;
+    padding: 0.5rem;
   }
 }
 .c-social-links__link:focus, .c-social-links__link:hover {
