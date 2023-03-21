@@ -7,6 +7,7 @@ dependencies:
     - node.type.homepage
     - paragraphs.paragraphs_type.call_to_action
     - paragraphs.paragraphs_type.embed
+    - paragraphs.paragraphs_type.featured_pages
     - paragraphs.paragraphs_type.full_width_media
     - paragraphs.paragraphs_type.learning_block
     - paragraphs.paragraphs_type.wysiwyg
@@ -27,6 +28,7 @@ settings:
   handler_settings:
     target_bundles:
       call_to_action: call_to_action
+      featured_pages: featured_pages
       embed: embed
       full_width_media: full_width_media
       learning_block: learning_block
@@ -44,7 +46,7 @@ settings:
         enabled: false
       featured_pages:
         weight: 11
-        enabled: false
+        enabled: true
       featured_people:
         weight: 12
         enabled: false
