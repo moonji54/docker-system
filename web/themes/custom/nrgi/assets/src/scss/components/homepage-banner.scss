@@ -7,6 +7,11 @@
   position    : relative;
   width       : 100%;
 
+  @include media("<=tablet") {
+    min-height  : 100%;
+    padding-top : 10.25rem;
+  }
+
   /* stylelint-disable-next-line */
   .c-media {
     @include z-index(homepage-image);
@@ -64,9 +69,23 @@
     padding-bottom : var(--space-3xl);
     padding-top    : var(--space-xs);
     position       : relative;
+
+    // SBTODO: to be checked
+    @include media("<=desktop") {
+      grid-column : 1 /10;
+    }
+
+    @include media("<=tablet") {
+      grid-column : 1 / -1;
+    }
+  }
+
+  &__title {
+    @include ts-heading-1;
   }
 
   &__description {
+    @include ts-body;
     margin-top : var(--space-s);
   }
 
@@ -77,5 +96,9 @@
   /* stylelint-disable-next-line */
   .user-logged-in & {
     min-height : calc(100vh - (var(--admin-height) + 3.5rem));
+
+    @include media("<=tablet") {
+      min-height : 100%;
+    }
   }
 }

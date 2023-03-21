@@ -21,13 +21,11 @@
       <div class="c-homepage-banner__text-wrapper">
 
         {# Title #}
-        <div class="c-homepage-banner__title">
-          <h2>{{ content.field_hero_title }}</h2>
-        </div>
+        <h1 class="c-homepage-banner__title">{{ content.field_hero_title }}</h1>
 
         {# Description #}
         {% if content.field_hero_description|field_value %}
-          <p class="c-homepage-banner__description">{{ content.field_hero_description }}</p>
+          <p class=" c-homepage-banner__description">{{ content.field_hero_description }}</p>
         {% endif %}
 
         {# Button link #}

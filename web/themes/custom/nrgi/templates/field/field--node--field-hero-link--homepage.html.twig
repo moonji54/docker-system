@@ -1,0 +1,7 @@
+{% for item in items %}
+  <a class="o-button"
+     href="{{ item.content['#url'] }}"
+     title="{{ item.content['#title'] }}">
+    {{ item.content['#title'] }}
+  </a>
+{% endfor %}

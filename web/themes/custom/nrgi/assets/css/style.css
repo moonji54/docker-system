@@ -122,6 +122,15 @@
     ===============================
 */
 /* Reset from: https://www.joshwcomeau.com/css/custom-css-reset/ */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
 /*
   Use a more-intuitive box-sizing model.
 */
@@ -170,6 +179,13 @@ input, button, textarea, select {
 */
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
+}
+
+/*
+  Remove default marker from lists
+*/
+ol, ul {
+  list-style: none;
 }
 
 /*
@@ -576,6 +592,10 @@ ul li a:focus {
   height: 0.813rem;
   width: 1.125rem;
 }
+.o-svg--arrow-right {
+  height: 13px;
+  width: 22px;
+}
 
 /*
     ===============================
@@ -693,6 +713,12 @@ ul li a:focus {
   /* stylelint-disable-next-line */
   /* stylelint-disable-next-line */
 }
+@media (max-width: 48rem) {
+  .c-homepage-banner {
+    min-height: 100%;
+    padding-top: 10.25rem;
+  }
+}
 .c-homepage-banner .c-media {
   z-index: 1;
   height: 100%;
@@ -755,8 +781,53 @@ ul li a:focus {
   padding-top: var(--space-xs);
   position: relative;
 }
+@media (max-width: 64rem) {
+  .c-homepage-banner__text-wrapper {
+    grid-column: 1/10;
+  }
+}
+@media (max-width: 48rem) {
+  .c-homepage-banner__text-wrapper {
+    grid-column: 1/-1;
+  }
+}
+.c-homepage-banner__title {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 5rem;
+  line-height: 1.15;
+  font-weight: 500;
+}
+@media (max-width: 88rem) {
+  .c-homepage-banner__title {
+    font-size: 4.5rem;
+  }
+}
+@media (max-width: 64rem) {
+  .c-homepage-banner__title {
+    font-size: 3.75rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-homepage-banner__title {
+    font-size: 2rem;
+  }
+}
 .c-homepage-banner__description {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.75;
+  font-weight: 400;
   margin-top: var(--space-s);
+}
+@media (max-width: 64rem) {
+  .c-homepage-banner__description {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-homepage-banner__description {
+    font-size: 1rem;
+  }
 }
 .c-homepage-banner__button-wrapper {
   margin-top: var(--space-m);
@@ -764,31 +835,83 @@ ul li a:focus {
 .user-logged-in .c-homepage-banner {
   min-height: calc(100vh - (var(--admin-height) + 3.5rem));
 }
+@media (max-width: 48rem) {
+  .user-logged-in .c-homepage-banner {
+    min-height: 100%;
+  }
+}
 
 /** @define c-language-bar */
 .c-language-bar {
   background-color: #FFD66D;
-  height: 56px;
+  color: #2D2D32;
 }
 .c-language-bar__inner {
+  align-items: center;
   display: flex;
-  flex-wrap: wrap;
   gap: 1.5rem;
+  padding: 0.875rem 0;
+}
+@media (max-width: 64rem) {
+  .c-language-bar__inner {
+    flex-wrap: wrap;
+  }
 }
 @media (max-width: 48rem) {
   .c-language-bar__inner {
+    align-items: flex-start;
     flex-direction: column;
     gap: 0.25rem;
+    padding: 0.5rem 0 1rem;
+  }
+}
+.c-language-bar__title {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.75;
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+  flex-shrink: 0;
+}
+@media (max-width: 48rem) {
+  .c-language-bar__title {
+    font-size: 0.875rem;
   }
 }
 .c-language-bar__links-list {
   display: flex;
-  gap: 1.5rem;
   flex-wrap: wrap;
+  gap: 1.5rem;
 }
 @media (max-width: 48rem) {
   .c-language-bar__links-list {
     gap: 2rem;
+    row-gap: 1rem;
+  }
+}
+.c-language-bar__link {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1;
+  align-items: center;
+  color: #2D2D32;
+  display: flex;
+  gap: 0.5rem;
+  transition: color 0.3s;
+}
+@media (max-width: 48rem) {
+  .c-language-bar__link {
+    font-size: 1rem;
+  }
+}
+.c-language-bar__link:hover, .c-language-bar__link:focus {
+  color: #FF7D5F;
+}
+@media (max-width: 48rem) {
+  .c-language-bar__link-svg {
+    display: none;
   }
 }
 

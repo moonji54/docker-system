@@ -1,26 +1,59 @@
 /** @define c-language-bar */
 .c-language-bar {
   background-color : $yellow-light;
-  height           : 56px;
+  color            : $primary;
 
   &__inner {
-    display   : flex;
-    flex-wrap : wrap;
-    gap       : 1.5rem;
+    align-items : center;
+    display     : flex;
+    gap         : 1.5rem;
+    padding     : 0.875rem 0;
+
+    @include media("<=desktop") {
+      flex-wrap : wrap;
+    }
 
     @include media("<=tablet") {
+      align-items    : flex-start;
       flex-direction : column;
       gap            : 0.25rem;
+      padding        : 0.5rem 0 1rem;
     }
+  }
+
+  &__title {
+    @include ts-section-header;
+    flex-shrink : 0;
   }
 
   &__links-list {
     display   : flex;
-    gap       : 1.5rem;
     flex-wrap : wrap;
+    gap       : 1.5rem;
 
     @include media("<=tablet") {
-      gap : 2rem;
+      gap     : 2rem;
+      row-gap : 1rem;
+    }
+  }
+
+  &__link {
+    @include ts-sub-menu;
+    align-items : center;
+    color       : $primary;
+    display     : flex;
+    gap         : 0.5rem;
+    transition  : color 0.3s;
+
+    &:hover,
+    &:focus {
+      color : $tertiary;
+    }
+  }
+
+  &__link-svg {
+    @include media("<=tablet") {
+      display : none;
     }
   }
 }
