@@ -61,6 +61,8 @@
   --space-3xl: 6rem;
   --space-4xl: 8rem;
   --gutter: 2rem;
+  --header-height: 12.25rem;
+  --admin-height: 6.75rem;
 }
 @media (max-width: 48rem) {
   :root {
@@ -73,6 +75,7 @@
     --space-3xl: 3.5rem;
     --space-4xl: 4.5rem;
     --gutter: 1rem;
+    --header-height: 4rem;
   }
 }
 
@@ -86,6 +89,8 @@
     COMMON CODE
     ===============================
 */
+/* Object fit polyfill
+================================================== */
 /*
     ===============================
     TYPOGRAPHY
@@ -170,6 +175,24 @@ p, h1, h2, h3, h4, h5, h6 {
 */
 body {
   font-size: 16px;
+}
+
+a,
+p a,
+ol li a,
+ul li a {
+  cursor: pointer;
+  text-decoration: none;
+  /* stylelint-disable-next-line */
+}
+a:hover, a:focus,
+p a:hover,
+p a:focus,
+ol li a:hover,
+ol li a:focus,
+ul li a:hover,
+ul li a:focus {
+  outline: 0;
 }
 
 /*
@@ -473,7 +496,133 @@ body {
   padding: var(--space-xs) var(--space-s);
 }
 
-/** @define c-header */ /** @define block-local-tasks-block */
+/** @define c-header */
+.c-header {
+  display: flex;
+  position: absolute;
+  z-index: 4;
+  background: rgba(255, 255, 255, 0.1);
+  height: 196px;
+}
+.c-header .c-main-menu {
+  display: flex;
+}
+.c-header .c-header__burger,
+.c-header .c-header__logo {
+  display: none;
+}
+
+/** @define c-homepage-banner */
+.c-homepage-banner {
+  box-sizing: border-box;
+  display: flex;
+  min-height: calc(100vh - 56px);
+  padding-top: var(--header-height);
+  position: relative;
+  width: 100%;
+  /* stylelint-disable-next-line */
+  /* stylelint-disable-next-line */
+}
+.c-homepage-banner .c-media {
+  z-index: 1;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  /* stylelint-disable-next-line */
+}
+.c-homepage-banner .c-media img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  font-family: "object-fit: cover";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.c-homepage-banner__overlay {
+  /* stylelint-disable-next-line */
+  background: linear-gradient(0deg, rgba(45, 45, 50, calc(var(--hero-opacity) * 0.01)), rgba(45, 45, 50, calc(var(--hero-opacity) * 0.01)));
+  background-blend-mode: multiply, normal;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.c-homepage-banner__image-placeholder {
+  -o-object-fit: cover;
+  object-fit: cover;
+  font-family: "object-fit: cover";
+  z-index: 1;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.c-homepage-banner__container {
+  display: grid;
+  grid-column-gap: var(--gutter);
+  grid-template-columns: repeat(12, 1fr);
+}
+@media (max-width: 48rem) {
+  .c-homepage-banner__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.c-homepage-banner__text-wrapper {
+  z-index: 2;
+  align-self: flex-end;
+  border-top: 1px solid #EDEDEF;
+  color: #FFFFFF;
+  grid-column: 1/9;
+  padding-bottom: var(--space-3xl);
+  padding-top: var(--space-xs);
+  position: relative;
+}
+.c-homepage-banner__description {
+  margin-top: var(--space-s);
+}
+.c-homepage-banner__button-wrapper {
+  margin-top: var(--space-m);
+}
+.user-logged-in .c-homepage-banner {
+  min-height: calc(100vh - (var(--admin-height) + 56px));
+}
+
+/** @define c-language-bar */
+.c-language-bar {
+  background-color: #FFD66D;
+  height: 56px;
+}
+.c-language-bar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+@media (max-width: 48rem) {
+  .c-language-bar__inner {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+.c-language-bar__links-list {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+@media (max-width: 48rem) {
+  .c-language-bar__links-list {
+    gap: 2rem;
+  }
+}
+
+/** @define block-local-tasks-block */
 .block-local-tasks-block {
   background-color: #333333;
   color: #CCCCCC;

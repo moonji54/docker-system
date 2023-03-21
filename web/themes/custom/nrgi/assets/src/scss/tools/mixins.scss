@@ -27,6 +27,8 @@
 $z-index : (
   footer: 10,
   header: 15,
+  homepage-image: 1,
+  homepage-image-inner: 2,
   menu: 2,
   localtasks: 3,
 );
@@ -37,6 +39,20 @@ $z-index : (
 
 @mixin z-index($key) {
   z-index : z-index($key);
+}
+
+/* Object fit polyfill
+================================================== */
+@mixin object-fit($fit: fill, $position: null) {
+  -o-object-fit : $fit;
+  object-fit    : $fit;
+  @if $position {
+    -o-object-position : $position;
+    object-position    : $position;
+    font-family        : 'object-fit: #{$fit}; object-position: #{$position}';
+  } @else {
+    font-family        : 'object-fit: #{$fit}';
+  }
 }
 
 /*

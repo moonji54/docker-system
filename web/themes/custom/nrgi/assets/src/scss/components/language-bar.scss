@@ -1,0 +1,26 @@
+/** @define c-language-bar */
+.c-language-bar {
+  background-color : $yellow-light;
+  height           : 56px;
+
+  &__inner {
+    display   : flex;
+    flex-wrap : wrap;
+    gap       : 1.5rem;
+
+    @include media("<=tablet") {
+      flex-direction : column;
+      gap            : 0.25rem;
+    }
+  }
+
+  &__links-list {
+    display   : flex;
+    gap       : 1.5rem;
+    flex-wrap : wrap;
+
+    @include media("<=tablet") {
+      gap : 2rem;
+    }
+  }
+}
