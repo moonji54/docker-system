@@ -1,16 +1,24 @@
 /* #General body
 ================================================== */
 @mixin ts-body($small : false) {
-  font-size   : 1rem;
-  line-height : 1.5;
+  @include sans-body;
+  font-size   : 1.375rem;
+  line-height : 1.75;
+  font-weight : 400;
+
+  @include media("<=desktop") {
+    font-size : 1.125rem;
+  }
 
   @include media("<=tablet") {
-
+    font-size : 1rem;
   }
 
   @if ($small) {
-    @include media("<=tablet") {
+    font-size : 1.125rem;
 
+    @include media("<=desktop") {
+      font-size : 1rem;
     }
   }
 }
@@ -18,90 +26,314 @@
 /* #Headings
 ================================================== */
 @mixin ts-heading-1 {
-  font-weight : 700;
+  @include sans-heading;
+  font-size   : 5rem;
+  line-height : 1.15;
+  font-weight : 500;
+
+  @include media("<=outer-container") {
+    font-size : 4.5rem;
+  }
+
+  @include media("<=desktop") {
+    font-size : 3.75rem;
+  }
 
   @include media("<=tablet") {
-
+    font-size : 2rem;
   }
 }
 
 @mixin ts-heading-2 {
-  font-weight : 700;
+  @include sans-heading;
+  font-weight : 500;
+  font-size   : 4rem;
+  line-height : 1.2;
+
+  @include media("<=outer-container") {
+    font-size : 4.1875rem;
+  }
+
+  @include media("<=desktop") {
+    font-size : 3rem;
+  }
 
   @include media("<=tablet") {
-
+    font-size : 1.875rem;
   }
 }
 
 @mixin ts-heading-3 {
-  font-weight : 700;
+  @include sans-heading;
+  font-weight : 500;
+  font-size   : 3rem;
+  line-height : 1.2;
+
+  @include media("<=outer-container") {
+    font-size : 2.5rem;
+  }
+
+  @include media("<=desktop") {
+    font-size : 2.25rem;
+  }
 
   @include media("<=tablet") {
-
+    font-size : 1.75rem;
   }
 }
 
 @mixin ts-heading-4 {
-  font-weight : 700;
+  @include sans-heading;
+  font-weight : 500;
+  font-size   : 2.5rem;
+  line-height : 1.5;
+
+  @include media("<=outer-container") {
+    font-size : 2.25rem;
+  }
+
+  @include media("<=desktop") {
+    font-size : 2rem;
+  }
 
   @include media("<=tablet") {
-
+    font-size : 1.5rem;
   }
 }
 
 @mixin ts-heading-5 {
-  font-weight : 700;
+  @include sans-heading;
+  font-size   : 2.25rem;
+  line-height : 1.5;
+  font-weight : 500;
+
+  @include media("<=outer-container") {
+    font-size : 2rem;
+  }
+
+  @include media("<=desktop") {
+    font-size : 1.75rem;
+  }
 
   @include media("<=tablet") {
-
+    font-size : 1.375rem;
   }
 }
 
 @mixin ts-heading-6 {
-  font-weight : 700;
+  @include sans-heading;
+  font-weight : 500;
+  font-size   : 2rem;
+  line-height : 1.5;
+
+  @include media("<=outer-container") {
+    font-size : 1.75rem;
+  }
+
+  @include media("<=desktop") {
+    font-size : 1.5rem;
+  }
 
   @include media("<=tablet") {
-
+    font-size : 1.125rem;
   }
 }
 
-@mixin ts-subtitle($small : false) {
+@mixin ts-sub-heading {
+  @include sans-heading;
+  font-weight : 700;
+  font-size   : 1.75rem;
+  line-height : 1.5;
+
+  @include media("<=outer-container") {
+    font-size : 1.5rem;
+  }
 
   @include media("<=tablet") {
+    font-size : 1.125rem;
+  }
+}
 
+/* Cards
+================================================== */
+// Large by default
+@mixin ts-card($medium : false, $small : false) {
+  @include sans-heading;
+  font-size   : 2.5rem;
+  font-weight : 500;
+  line-height : 1.25;
+
+  @include media("<=outer-container") {
+    font-size : 2.25rem;
+  }
+
+  @include media("<=desktop") {
+    font-size : 1.875rem;
+  }
+
+  @include media("<=tablet") {
+    font-size : 1.5rem;
+  }
+
+  @if $medium {
+    font-size   : 2rem;
+    line-height : 1.5;
+
+    @include media("<=outer-container") {
+      font-size : 1.75rem;
+    }
+
+    @include media("<=desktop") {
+      font-size : 1.5rem;
+    }
+
+    @include media("<=tablet") {
+      line-height : 1.25;
+    }
+  }
+
+  @if $small {
+    font-size : 1.5rem;
+
+    @include media("<=outer-container") {
+      font-size : 1.25rem;
+    }
+  }
+}
+
+@mixin ts-card-tag {
+  @include sans-body;
+  font-size      : 0.75rem;
+  line-height    : 1.75;
+  font-weight    : 500;
+  letter-spacing : 0.125rem;
+  text-transform : uppercase;
+
+  @include media("<=tablet") {
+    font-size      : 0.625rem;
+    letter-spacing : 0.0625rem;
   }
 }
 
 /* Buttons
 ================================================== */
-@mixin ts-button($small : false) {
+@mixin ts-button {
+  @include sans-body;
+  font-size   : 1.125rem;
+  font-weight : 500;
+  line-height : 1;
+
+  @include media("<=desktop") {
+    font-size : 1rem;
+  }
+}
+
+@mixin ts-breadcrumbs {
+  @include sans-body;
+  font-size   : 0.75rem;
+  font-weight : 400;
+  line-height : 1.75;
+}
+
+/* Menu
+================================================== */
+@mixin ts-main-menu {
+  @include sans-heading;
+  font-weight : 700;
+  font-size   : 1.25rem;
+  line-height : 1.75;
 
   @include media("<=tablet") {
+    font-size : 1.125rem;
+  }
+}
 
+@mixin ts-sub-menu {
+  @include sans-body;
+  font-weight : 400;
+  font-size   : 1.125rem;
+  line-height : 1;
+
+  @include media("<=tablet") {
+    font-size : 1rem;
   }
 }
 
 /* Labels
 ================================================== */
 @mixin ts-label {
+  @include sans-body;
+  font-weight : 400;
+  font-size   : 1.125rem;
+  line-height : 1.25;
 
-  @include media("<=tablet") {
-
+  @include media("<=desktop") {
+    font-size   : 1rem;
+    line-height : 1.5;
   }
 }
 
 /* Miscellaneous
 ================================================== */
-@mixin ts-pullquote {
+@mixin ts-single-meta($bold : false) {
+  @include sans-body;
+  font-size   : 1rem;
+  line-height : 1.5;
+  font-weight : 400;
 
   @include media("<=tablet") {
+    font-size : 0.875rem;
+  }
 
+  @if $bold {
+    font-weight : 600;
   }
 }
 
-@mixin ts-caption {
+@mixin ts-section-header {
+  @include sans-body;
+  font-size      : 1rem;
+  font-weight    : 500;
+  line-height    : 1.75;
+  text-transform : uppercase;
+  letter-spacing : 0.16rem;
 
   @include media("<=tablet") {
+    font-size : 0.875rem;
+  }
+}
 
+@mixin ts-tab {
+  @include sans-body;
+  font-weight    : 500;
+  font-size      : 0.75rem;
+  line-height    : 1.75;
+  text-transform : uppercase;
+  letter-spacing : 0.1563rem;
+}
+
+@mixin ts-tag {
+  @include sans-body;
+  font-size   : 1rem;
+  font-weight : 400;
+  line-height : 1;
+
+  @include media("<=tablet") {
+    font-size : 0.875rem;
+  }
+}
+
+@mixin ts-caption($bold : false) {
+  @include sans-body;
+  font-weight : 400;
+  font-size   : 1rem;
+  line-height : 1.5;
+
+  @include media("<=desktop") {
+    font-size : 0.875rem;
+  }
+
+  @if $bold {
+    font-weight : 600;
   }
 }

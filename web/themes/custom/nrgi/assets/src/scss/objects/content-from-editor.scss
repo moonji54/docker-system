@@ -75,7 +75,7 @@
     padding     : var(--space-xs) 0 var(--space-xs) var(--space-m);
 
     p {
-      @include ts-pullquote;
+      @include ts-heading-6;
       font-style    : italic;
       font-weight   : 400;
       margin-bottom : 0;
