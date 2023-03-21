@@ -1,4 +1,4 @@
-uuid: 464704f5-d906-4fa0-a48c-3cec11ced017
+uuid: 581ebe60-e737-4149-aa9d-12062b700596
 langcode: en
 status: true
 dependencies:
@@ -6,8 +6,8 @@ dependencies:
     - entity_reference_revisions
     - node
     - paragraphs
-id: node.field_partner_logo
-field_name: field_partner_logo
+id: node.field_acknowledgement_logo
+field_name: field_acknowledgement_logo
 entity_type: node
 type: entity_reference_revisions
 settings:

@@ -1,18 +1,18 @@
-uuid: 02945a9f-8a26-4b06-933a-f1094a29eb2f
+uuid: b32ba64d-6707-4130-b3a3-96d8e7399d86
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_partner_logo
+    - field.storage.node.field_acknowledgement_logo
     - node.type.article
     - paragraphs.paragraphs_type.logo
   module:
     - entity_reference_revisions
-id: node.article.field_partner_logo
-field_name: field_partner_logo
+id: node.article.field_acknowledgement_logo
+field_name: field_acknowledgement_logo
 entity_type: node
 bundle: article
-label: 'Partner logo'
+label: 'Acknowledgement donor logo'
 description: ''
 required: false
 translatable: false

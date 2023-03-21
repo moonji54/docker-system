@@ -4,30 +4,27 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.list_item
-    - field.field.node.article.field_acknowledgement
-    - field.field.node.article.field_acknowledgement_donor
+    - field.field.node.article.field_acknowledgement_logo
     - field.field.node.article.field_author
     - field.field.node.article.field_country
+    - field.field.node.article.field_downloads
     - field.field.node.article.field_expiration_date
-    - field.field.node.article.field_external_author_link
-    - field.field.node.article.field_external_author_name
     - field.field.node.article.field_featured_image
-    - field.field.node.article.field_key_messages
     - field.field.node.article.field_keywords
-    - field.field.node.article.field_languages
+    - field.field.node.article.field_link
     - field.field.node.article.field_link_from_external_card
     - field.field.node.article.field_link_to_external_item
-    - field.field.node.article.field_news_upload
     - field.field.node.article.field_page_builder
     - field.field.node.article.field_partner_logo
-    - field.field.node.article.field_partner_name
     - field.field.node.article.field_photo_caption
+    - field.field.node.article.field_publication_date
     - field.field.node.article.field_publisher
     - field.field.node.article.field_region
     - field.field.node.article.field_resource_type
+    - field.field.node.article.field_short_description
     - field.field.node.article.field_subtitle
     - field.field.node.article.field_topic
-    - field.field.node.article.field_transcript
+    - field.field.node.article.field_upload
     - node.type.article
   module:
     - user
@@ -56,28 +53,25 @@ content:
     region: content
 hidden:
   content_moderation_control: true
-  field_acknowledgement: true
-  field_acknowledgement_donor: true
+  field_acknowledgement_logo: true
   field_author: true
   field_country: true
+  field_downloads: true
   field_expiration_date: true
-  field_external_author_link: true
-  field_external_author_name: true
-  field_key_messages: true
   field_keywords: true
-  field_languages: true
+  field_link: true
   field_link_from_external_card: true
   field_link_to_external_item: true
-  field_news_upload: true
   field_page_builder: true
   field_partner_logo: true
-  field_partner_name: true
   field_photo_caption: true
+  field_publication_date: true
   field_publisher: true
   field_region: true
   field_resource_type: true
+  field_short_description: true
   field_topic: true
-  field_transcript: true
+  field_upload: true
   langcode: true
   layout_builder__layout: true
   links: true

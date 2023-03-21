@@ -1,17 +1,17 @@
-uuid: d99fc9ca-3bcc-4ed1-a7d3-8425da3018c3
+uuid: 7732b671-44f3-41c2-8183-28e89dcc3d48
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_news_upload
+    - field.storage.node.field_downloads
     - media.type.document
     - node.type.article
-id: node.article.field_news_upload
-field_name: field_news_upload
+id: node.article.field_downloads
+field_name: field_downloads
 entity_type: node
 bundle: article
-label: 'News upload'
-description: 'Upload the PDF version of a press release.'
+label: 'Additional downloads'
+description: ''
 required: false
 translatable: false
 default_value: {  }

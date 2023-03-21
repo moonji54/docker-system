@@ -12,29 +12,26 @@ dependencies:
     - field.field.node.publication.field_data_document
     - field.field.node.publication.field_data_document_label
     - field.field.node.publication.field_expiration_date
-    - field.field.node.publication.field_external_author_link
-    - field.field.node.publication.field_external_author_name
     - field.field.node.publication.field_featured_image
     - field.field.node.publication.field_key_messages
     - field.field.node.publication.field_keywords
-    - field.field.node.publication.field_languages
     - field.field.node.publication.field_learning_block
+    - field.field.node.publication.field_link
     - field.field.node.publication.field_link_from_external_card
     - field.field.node.publication.field_link_to_external_item
     - field.field.node.publication.field_page_builder
     - field.field.node.publication.field_page_to_pdf
-    - field.field.node.publication.field_partner_logo
     - field.field.node.publication.field_partner_name
     - field.field.node.publication.field_photo_caption
     - field.field.node.publication.field_publisher
     - field.field.node.publication.field_region
-    - field.field.node.publication.field_report_pdf
     - field.field.node.publication.field_resource_type
     - field.field.node.publication.field_subtitle
     - field.field.node.publication.field_supporting_document
     - field.field.node.publication.field_supporting_document_label
     - field.field.node.publication.field_topic
     - field.field.node.publication.field_transcript
+    - field.field.node.publication.field_upload
     - node.type.publication
   module:
     - link
@@ -48,14 +45,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
-    region: content
-  field_languages:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 3
     region: content
   field_link_from_external_card:
     type: link
@@ -91,25 +80,23 @@ hidden:
   field_data_document: true
   field_data_document_label: true
   field_expiration_date: true
-  field_external_author_link: true
-  field_external_author_name: true
   field_featured_image: true
   field_key_messages: true
   field_keywords: true
   field_learning_block: true
+  field_link: true
   field_link_to_external_item: true
   field_page_builder: true
   field_page_to_pdf: true
-  field_partner_logo: true
   field_partner_name: true
   field_photo_caption: true
   field_publisher: true
   field_region: true
-  field_report_pdf: true
   field_resource_type: true
   field_subtitle: true
   field_supporting_document: true
   field_supporting_document_label: true
   field_transcript: true
+  field_upload: true
   langcode: true
   search_api_excerpt: true

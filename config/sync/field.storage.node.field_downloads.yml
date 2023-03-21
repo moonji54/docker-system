@@ -1,17 +1,16 @@
-uuid: f2ed770a-62ec-45cd-b429-294c8a19be2a
+uuid: 88afe7b1-48e8-497e-a781-95ae246fb1af
 langcode: en
 status: true
 dependencies:
   module:
+    - media
     - node
-id: node.field_external_author_name
-field_name: field_external_author_name
+id: node.field_downloads
+field_name: field_downloads
 entity_type: node
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
+  target_type: media
 module: core
 locked: false
 cardinality: -1

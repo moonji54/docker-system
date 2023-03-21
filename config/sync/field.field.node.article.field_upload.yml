@@ -1,19 +1,19 @@
-uuid: 03a8c480-cce0-40b2-8ef8-4ec5508826cf
+uuid: 896302c5-c300-4df8-8d8a-4388be71aaed
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_report_pdf
+    - field.storage.node.field_upload
     - media.type.document
-    - node.type.publication
-id: node.publication.field_report_pdf
-field_name: field_report_pdf
+    - node.type.article
+id: node.article.field_upload
+field_name: field_upload
 entity_type: node
-bundle: publication
-label: 'Report PDF'
-description: 'The file of the report PDF'
+bundle: article
+label: 'News Upload'
+description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

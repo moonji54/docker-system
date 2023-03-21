@@ -29,7 +29,6 @@ dependencies:
     - field.field.node.event.field_open_registration
     - field.field.node.event.field_organizing_partner
     - field.field.node.event.field_page_builder
-    - field.field.node.event.field_partner_logo
     - field.field.node.event.field_partner_name
     - field.field.node.event.field_photo_caption
     - field.field.node.event.field_publisher
@@ -224,7 +223,6 @@ hidden:
   field_expertise_required: true
   field_featured_image: true
   field_page_builder: true
-  field_partner_logo: true
   field_partner_name: true
   field_photo_caption: true
   field_publisher: true

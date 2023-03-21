@@ -29,7 +29,6 @@ dependencies:
     - field.field.node.event.field_open_registration
     - field.field.node.event.field_organizing_partner
     - field.field.node.event.field_page_builder
-    - field.field.node.event.field_partner_logo
     - field.field.node.event.field_partner_name
     - field.field.node.event.field_photo_caption
     - field.field.node.event.field_publisher
@@ -255,14 +254,6 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 143
-    region: content
-  field_partner_logo:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 134
     region: content
   field_partner_name:
     type: string

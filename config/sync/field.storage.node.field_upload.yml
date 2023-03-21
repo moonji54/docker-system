@@ -1,15 +1,16 @@
-uuid: 915def52-df2b-4a3a-a58d-e211ed339273
+uuid: fea77b3b-3723-4402-b789-a0d4a4add1fb
 langcode: en
 status: true
 dependencies:
   module:
+    - media
     - node
-id: node.field_short_description
-field_name: field_short_description
+id: node.field_upload
+field_name: field_upload
 entity_type: node
-type: string_long
+type: entity_reference
 settings:
-  case_sensitive: false
+  target_type: media
 module: core
 locked: false
 cardinality: 1
