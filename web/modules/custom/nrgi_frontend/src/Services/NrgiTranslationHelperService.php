@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\nrgi_frontend;
+namespace Drupal\nrgi_frontend\Services;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Field\EntityReferenceFieldItemListInterface;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\nrgi_frontend;
+namespace Drupal\nrgi_frontend\Services;
 
 use Drupal\Core\Field\EntityReferenceFieldItemListInterface;
 use Drupal\Core\File\FileUrlGenerator;
@@ -83,7 +83,7 @@ class NrgiParagraphButtonLinkHelperService {
    * @return array|null
    *   Returns array if field is populated, NULL otherwise.
    */
-  private function getLinkFieldValues(
+  public function getLinkFieldValues(
     ParagraphInterface $paragraph,
     string $link_field_name
   ): ?array {
@@ -115,7 +115,7 @@ class NrgiParagraphButtonLinkHelperService {
    * @return array|null
    *   Returns array if field is populated, NULL otherwise.
    */
-  private function getDocumentMediaFieldValues(
+  public function getDocumentMediaFieldValues(
     ParagraphInterface $paragraph,
     string $media_field_name,
     string $media_button_link_label_field_name,
