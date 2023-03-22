@@ -2,7 +2,7 @@ uuid: 34f01108-7b73-4664-bafd-bd4fc90451e3
 langcode: en
 status: true
 dependencies: {  }
-name: 'Text and links'
+name: 'Simple text and links'
 format: text_and_links
 weight: -9
 filters:

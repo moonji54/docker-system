@@ -43,9 +43,20 @@ We call a macro which calls itself to render the full tree.
         item.in_active_trail ? 'c-main-menu__item--active-trail',
       ] %}
       <li{{ item.attributes.addClass(classes) }}>
-        {{ link(item.title, item.url) }}
-        {% if item.below %}
+        {% if menu_level == 1 and item.below %}
+          {# Menu Labels: can be added on second (menu_level = 1) level only:
+              - In case third level has links, ignore link on second
+                level item (evenn if it has been set by the editor).
+              - If no third level is set don't ignore link, as
+                this could be a normal menu link and not a label
+          #}
+          <span>{{ item.title }}</span>
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% else %}
+          {{ link(item.title, item.url) }}
+          {% if item.below %}
+            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+          {% endif %}
         {% endif %}
       </li>
     {% endfor %}

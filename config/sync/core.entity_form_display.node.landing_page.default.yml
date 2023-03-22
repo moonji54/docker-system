@@ -16,6 +16,7 @@ dependencies:
     - media_library_edit
     - paragraphs
     - path
+    - textfield_counter
 third_party_settings:
   field_group:
     group_page_builder:
@@ -96,12 +97,18 @@ content:
         duplicate: '0'
     third_party_settings: {  }
   field_short_description:
-    type: string_textfield
+    type: string_textfield_with_counter
     weight: 1
     region: content
     settings:
       size: 60
       placeholder: ''
+      use_field_maxlength: true
+      maxlength: 0
+      counter_position: after
+      js_prevent_submit: true
+      count_html_characters: true
+      textcount_status_message: 'Remaining characters: <span class="remaining_count">@remaining_count</span> / <span class="maxlength_count">@maxlength</span>'
     third_party_settings: {  }
   langcode:
     type: language_select

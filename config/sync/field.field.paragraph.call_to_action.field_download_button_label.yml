@@ -1,0 +1,21 @@
+uuid: 47dd3ce3-c4e6-452a-bacd-21da194952db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_download_button_label
+    - paragraphs.paragraphs_type.call_to_action
+id: paragraph.call_to_action.field_download_button_label
+field_name: field_download_button_label
+entity_type: paragraph
+bundle: call_to_action
+label: 'Download button label'
+description: 'The label for the download button, <em>Download</em> by default.'
+required: false
+translatable: false
+default_value:
+  -
+    value: Download
+default_value_callback: ''
+settings: {  }
+field_type: string

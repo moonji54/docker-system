@@ -10,7 +10,7 @@ field_name: field_short_description
 entity_type: node
 bundle: landing_page
 label: 'Short description'
-description: 'One-sentence highlight/overview of the item. For use in link descriptions, search results, or other places where a blurb might be needed.'
+description: "One-sentence highlight/overview of the item. For use in link descriptions, search results, or other places where a blurb might be needed.\r\n<em>255 characters, max.</em>"
 required: false
 translatable: true
 default_value: {  }

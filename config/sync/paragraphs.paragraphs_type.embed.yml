@@ -1,0 +1,10 @@
+uuid: 29bdf54a-e745-45e5-9bdf-021ee1012038
+langcode: en
+status: true
+dependencies: {  }
+id: embed
+label: Embed
+icon_uuid: null
+icon_default: null
+description: 'Use this component to add remote videos, external data visualisation items or remote audio.'
+behavior_plugins: {  }

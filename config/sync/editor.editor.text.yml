@@ -1,0 +1,27 @@
+uuid: 24c092eb-1349-4586-a164-1275cc0772b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.text
+  module:
+    - ckeditor
+format: text
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+  plugins: {  }
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

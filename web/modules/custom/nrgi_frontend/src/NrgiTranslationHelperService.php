@@ -7,7 +7,7 @@ use Drupal\Core\Field\EntityReferenceFieldItemListInterface;
 use Drupal\node\NodeInterface;
 
 /**
- * Helper methode for featured people.
+ * Helper methods for asymmetrical/symmetrical Translation.
  *
  * @package Drupal\ifg_frontend
  */

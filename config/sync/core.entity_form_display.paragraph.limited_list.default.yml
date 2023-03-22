@@ -3,34 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.limited_list.field_button
-    - field.field.paragraph.limited_list.field_content_selection
     - paragraphs.paragraphs_type.limited_list
-  module:
-    - link
 id: paragraph.limited_list.default
 targetEntityType: paragraph
 bundle: limited_list
 mode: default
-content:
-  field_button:
-    type: link_default
-    weight: 3
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-  field_content_selection:
-    type: entity_reference_autocomplete_tags
-    weight: 2
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
+content: {  }
 hidden:
   created: true
   status: true

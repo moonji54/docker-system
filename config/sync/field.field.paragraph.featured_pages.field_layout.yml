@@ -1,4 +1,4 @@
-uuid: d0444424-9149-4e1f-a34a-c00db8598f1a
+uuid: caba363f-938b-4cc8-b785-127f8300e258
 langcode: en
 status: true
 dependencies:
@@ -9,11 +9,13 @@ id: paragraph.featured_pages.field_layout
 field_name: field_layout
 entity_type: paragraph
 bundle: featured_pages
-label: Layout
-description: ''
-required: true
-translatable: false
-default_value: {  }
+label: 'Layout - items per row'
+description: 'Select the number of items per row.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 3
 default_value_callback: ''
 settings:
   min: 1
