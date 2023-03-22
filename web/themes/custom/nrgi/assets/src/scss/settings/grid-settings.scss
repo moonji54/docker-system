@@ -3,4 +3,5 @@ $max-width   : 82rem;
 
 // Breakpoints that are used by include-media.scss
 // SBTODO: If any of these values change, make sure to update the breakpoints.yml to match
+/* stylelint-disable-next-line */
 $breakpoints : (phone: 20rem, large-phone: 34.375rem, tablet: 48rem, desktop: 64rem, container: $max-width, outer-container: $max-width + 6rem, large-desktop: 94.5rem);
