@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.career_opportunity.field_apply
-    - field.field.node.career_opportunity.field_body
     - field.field.node.career_opportunity.field_career_opportunity_type
     - field.field.node.career_opportunity.field_city
     - field.field.node.career_opportunity.field_contact_for_queries
@@ -17,6 +16,9 @@ dependencies:
     - field.field.node.career_opportunity.field_photo_caption
     - field.field.node.career_opportunity.field_region
     - field.field.node.career_opportunity.field_salary
+    - field.field.node.career_opportunity.field_short_description
+    - field.field.node.career_opportunity.field_subtitle
+    - field.field.node.career_opportunity.field_supporting_document
     - node.type.career_opportunity
   module:
     - user
@@ -37,7 +39,6 @@ content:
     region: content
 hidden:
   field_apply: true
-  field_body: true
   field_career_opportunity_type: true
   field_city: true
   field_contact_for_queries: true
@@ -49,5 +50,8 @@ hidden:
   field_photo_caption: true
   field_region: true
   field_salary: true
+  field_short_description: true
+  field_subtitle: true
+  field_supporting_document: true
   langcode: true
   search_api_excerpt: true
