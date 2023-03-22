@@ -1,0 +1,23 @@
+uuid: de978862-8397-4dac-ac8a-9edc5cd885fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link
+    - paragraphs.paragraphs_type.featured_pages
+  module:
+    - link
+id: paragraph.featured_pages.field_link
+field_name: field_link
+entity_type: paragraph
+bundle: featured_pages
+label: 'Link & Label'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

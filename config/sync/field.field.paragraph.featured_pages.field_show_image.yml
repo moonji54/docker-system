@@ -1,4 +1,4 @@
-uuid: 588cdd9c-4f4a-4f68-a340-79c7e599c893
+uuid: b5750839-68f2-4bae-8665-19769c2730ea
 langcode: en
 status: true
 dependencies:
@@ -9,10 +9,10 @@ id: paragraph.featured_pages.field_show_image
 field_name: field_show_image
 entity_type: paragraph
 bundle: featured_pages
-label: 'Show Image'
-description: ''
+label: 'Show images'
+description: 'Whether to show images on Page cards.'
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: 0

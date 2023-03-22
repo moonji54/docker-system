@@ -1,0 +1,17 @@
+uuid: 6f99f4c8-2991-422b-85f3-17f81775665e
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: large_card_small_mobile
+label: 'Large card small mobile'
+effects:
+  bebe17a2-e8c1-47b5-b715-3504d46adfd8:
+    uuid: bebe17a2-e8c1-47b5-b715-3504d46adfd8
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 629
+      height: 351
+      crop_type: focal_point

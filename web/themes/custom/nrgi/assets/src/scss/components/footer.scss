@@ -1,6 +1,151 @@
 /** @define c-footer */
 .c-footer {
-  &__inner {
+  background : no-repeat center / cover url("../img/footer-bg.png");
+  color      : $white;
+  padding    : var(--space-4xl) 0 var(--space-2xl) 0;
 
+  @include media("<=tablet") {
+    height      : auto;
+    padding-top : var(--space-3xl);
+  }
+
+  &__container {
+    display         : flex;
+    flex-direction  : column;
+    gap             : calc(var(--space-2xl) + var(--space-4xl));
+    height          : 100%;
+    justify-content : space-between;
+
+    @include media("<=tablet") {
+      gap : var(--space-4xl);
+    }
+  }
+
+  &__top {
+    @include grid;
+  }
+
+  &__bottom {
+    display             : grid;
+    grid-gap            : var(--space-2xl);
+    grid-template-areas : "top-left top-right" "bottom-left bottom-right";
+
+    @include media("<=tablet") {
+      grid-row-gap        : 0;
+      grid-template-areas : "first" "second" "third";
+    }
+  }
+
+  &__content-wrapper {
+    grid-column : 1 / 8;
+
+    @include media("<=tablet") {
+      grid-column : 1 / -1;
+    }
+  }
+
+  &__title {
+    @include ts-heading-1;
+  }
+
+  &__description {
+    @include ts-body;
+    margin-top : var(--space-m);
+
+    @include media("<=tablet") {
+      margin-top : 0;
+    }
+  }
+
+  &__buttons {
+    align-items : center;
+    display     : flex;
+    gap         : 0.25rem;
+    grid-column : 1 / -1;
+    margin-top  : var(--space-xl);
+
+    @include media("<=tablet") {
+      align-items    : start;
+      flex-direction : column;
+      gap            : var(--space-m);
+    }
+  }
+
+  &__divider {
+    @include media("<=tablet") {
+      display : none;
+    }
+  }
+
+  &__logo {
+    grid-area : top-left;
+
+    @include media("<=tablet") {
+      grid-area  : second;
+      margin-top : var(--space-xl);
+    }
+
+    svg {
+      @include media("<=tablet") {
+        height : 1.5rem;
+        width  : 4.9375rem;
+      }
+    }
+  }
+
+  &__menu-wrapper {
+    grid-area    : top-right;
+    max-width    : 29.75rem;
+    justify-self : end;
+
+    @include media("<=tablet") {
+      grid-area    : first;
+      max-width    : 100%;
+      justify-self : start;
+    }
+  }
+
+  &__menu {
+    @include ts-sub-menu;
+    display         : flex;
+    flex-wrap       : wrap;
+    justify-content : flex-end;
+    column-gap      : var(--space-m);
+    row-gap         : var(--space-s);
+
+    @include media("<=tablet") {
+      flex-direction : column;
+      row-gap        : var(--space-m);
+    }
+  }
+
+  &__menu-item {
+    a {
+      &:focus,
+      &:hover {
+        text-decoration : underline;
+      }
+    }
+  }
+
+  &__credits-wrapper {
+    @include ts-card-tag;
+    display         : flex;
+    grid-column     : 1 / -1;
+    justify-content : space-between;
+
+    @include media("<=tablet") {
+      display    : block;
+      margin-top : var(--space-4xl);
+    }
+  }
+
+  &__credit {
+    a {
+      &:focus,
+      &:hover {
+        text-decoration : underline;
+      }
+    }
   }
 }

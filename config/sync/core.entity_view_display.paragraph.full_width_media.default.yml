@@ -1,38 +1,36 @@
-uuid: a18fdfad-4237-4b8c-b264-542c3df82bf4
+uuid: 14b1754e-d9b6-4226-8d0c-99bb19dab2ca
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.paragraph.full_width_media.field_caption
     - field.field.paragraph.full_width_media.field_credit
-    - field.field.paragraph.full_width_media.field_media_image
+    - field.field.paragraph.full_width_media.field_media
     - paragraphs.paragraphs_type.full_width_media
-  module:
-    - text
 id: paragraph.full_width_media.default
 targetEntityType: paragraph
 bundle: full_width_media
 mode: default
 content:
   field_caption:
-    type: text_default
-    label: hidden
+    type: basic_string
+    label: above
     settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
   field_credit:
-    type: text_default
-    label: hidden
+    type: basic_string
+    label: above
     settings: {  }
     third_party_settings: {  }
     weight: 2
     region: content
-  field_media_image:
+  field_media:
     type: entity_reference_entity_view
-    label: hidden
+    label: above
     settings:
-      view_mode: default
+      view_mode: full_width
       link: false
     third_party_settings: {  }
     weight: 0

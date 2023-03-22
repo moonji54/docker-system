@@ -5,6 +5,9 @@
  * Contains nrgi_frontend.node.inc.
  */
 
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Field\EntityReferenceFieldItemListInterface;
+use Drupal\media\MediaInterface;
 use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
 
@@ -44,10 +47,34 @@ function nrgi_frontend_preprocess_node(&$variables): void {
         break;
     }
 
+    $view_mode_responsive_image_style = [
+      'featured_page_with_image_1_per_row' => 'large_card',
+      'featured_page_with_image_2_per_row' => 'medium_card',
+      'featured_page_with_image_3_per_row' => 'small_card',
+      'featured_page_with_image_4_per_row' => 'small_card',
+    ];
+
     // Based on view mode.
     switch ($variables['view_mode']) {
-      case 'card':
+      case 'featured_page_with_image_1_per_row':
+      case 'featured_page_with_image_2_per_row':
+      case 'featured_page_with_image_3_per_row':
+      case 'featured_page_with_image_4_per_row':
+        if ($node->hasField('field_featured_image') && $node->get('field_featured_image') && $media = $node->get('field_featured_image')->entity) {
+          if ($media instanceof MediaInterface) {
+            /** @var  \Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService $responsive_image_style_service */
+            $responsive_image_style_service = \Drupal::service('nrgi_frontend.responsive_image_helper');
+            $responsive_image_style_service->preprocessResponsiveImage(
+              $media,
+              $view_mode_responsive_image_style[$variables['view_mode']],
+              $variables
+            );
+          }
+        }
+        break;
 
+      case
+      'card':
         break;
 
       case 'full':

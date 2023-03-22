@@ -31,6 +31,10 @@
   line-height : 1.15;
   font-weight : 500;
 
+  @include media("<=outer-container") {
+    font-size : 4.5rem;
+  }
+
   @include media("<=desktop") {
     font-size : 3.75rem;
   }
@@ -46,6 +50,10 @@
   font-size   : 4rem;
   line-height : 1.2;
 
+  @include media("<=outer-container") {
+    font-size : 4.1875rem;
+  }
+
   @include media("<=desktop") {
     font-size : 3rem;
   }
@@ -58,8 +66,12 @@
 @mixin ts-heading-3 {
   @include sans-heading;
   font-weight : 500;
-  font-size   : 2.875rem;
+  font-size   : 3rem;
   line-height : 1.2;
+
+  @include media("<=outer-container") {
+    font-size : 2.5rem;
+  }
 
   @include media("<=desktop") {
     font-size : 2.25rem;
@@ -73,8 +85,12 @@
 @mixin ts-heading-4 {
   @include sans-heading;
   font-weight : 500;
-  font-size   : 2.25rem;
+  font-size   : 2.5rem;
   line-height : 1.5;
+
+  @include media("<=outer-container") {
+    font-size : 2.25rem;
+  }
 
   @include media("<=desktop") {
     font-size : 2rem;
@@ -87,9 +103,13 @@
 
 @mixin ts-heading-5 {
   @include sans-heading;
-  font-size   : 2rem;
+  font-size   : 2.25rem;
   line-height : 1.5;
   font-weight : 500;
+
+  @include media("<=outer-container") {
+    font-size : 2rem;
+  }
 
   @include media("<=desktop") {
     font-size : 1.75rem;
@@ -103,10 +123,29 @@
 @mixin ts-heading-6 {
   @include sans-heading;
   font-weight : 500;
+  font-size   : 2rem;
+  line-height : 1.5;
+
+  @include media("<=outer-container") {
+    font-size : 1.75rem;
+  }
+
+  @include media("<=desktop") {
+    font-size : 1.5rem;
+  }
+
+  @include media("<=tablet") {
+    font-size : 1.125rem;
+  }
+}
+
+@mixin ts-sub-heading {
+  @include sans-heading;
+  font-weight : 700;
   font-size   : 1.75rem;
   line-height : 1.5;
 
-  @include media("<=desktop") {
+  @include media("<=outer-container") {
     font-size : 1.5rem;
   }
 
@@ -124,6 +163,10 @@
   font-weight : 500;
   line-height : 1.25;
 
+  @include media("<=outer-container") {
+    font-size : 2.25rem;
+  }
+
   @include media("<=desktop") {
     font-size : 1.875rem;
   }
@@ -135,6 +178,10 @@
   @if $medium {
     font-size   : 2rem;
     line-height : 1.5;
+
+    @include media("<=outer-container") {
+      font-size : 1.75rem;
+    }
 
     @include media("<=desktop") {
       font-size : 1.5rem;
@@ -148,7 +195,7 @@
   @if $small {
     font-size : 1.5rem;
 
-    @include media("<=desktop") {
+    @include media("<=outer-container") {
       font-size : 1.25rem;
     }
   }

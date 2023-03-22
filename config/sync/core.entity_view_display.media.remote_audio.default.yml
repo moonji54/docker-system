@@ -1,20 +1,18 @@
-uuid: be6d354d-16d2-4563-8552-dfa588dfc354
+uuid: d1ea8cdf-c36a-48a9-93e3-2018fc5f6ea4
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.media.remote_audio.field_media_oembed_audio
+    - field.field.media.remote_audio.field_media_oembed_remote_audio
     - media.type.remote_audio
   module:
     - media
-_core:
-  default_config_hash: xutQOAHcT8pQ9zK86II4rSxfYfLJhH53bpMeJuQ6nZw
 id: media.remote_audio.default
 targetEntityType: media
 bundle: remote_audio
 mode: default
 content:
-  field_media_oembed_audio:
+  field_media_oembed_remote_audio:
     type: oembed
     label: visually_hidden
     settings:

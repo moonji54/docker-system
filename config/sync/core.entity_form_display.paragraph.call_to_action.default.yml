@@ -16,6 +16,7 @@ dependencies:
     - field_group
     - link
     - media_library
+    - textfield_counter
 third_party_settings:
   field_group:
     group_cta:
@@ -37,8 +38,8 @@ third_party_settings:
     group_basic_information:
       children:
         - field_title
-        - field_description
         - field_background_colour
+        - field_description
       label: 'Basic information'
       region: content
       parent_name: group_cta
@@ -96,12 +97,17 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_description:
-    type: string_textfield
-    weight: 6
+    type: string_textarea_with_counter
+    weight: 9
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
+      maxlength: 300
+      counter_position: after
+      js_prevent_submit: true
+      count_html_characters: true
+      textcount_status_message: 'Remaining characters: <span class="remaining_count">@remaining_count</span> / <span class="maxlength_count">@maxlength</span>'
     third_party_settings: {  }
   field_download_button_label:
     type: string_textfield

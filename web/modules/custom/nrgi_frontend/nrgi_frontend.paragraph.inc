@@ -5,6 +5,9 @@
  * Contains nrgi_frontend.paragraph.inc.
  */
 
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+
 /**
  * Implements hook_preprocess_paragraph().
  */
@@ -17,17 +20,22 @@ function nrgi_frontend_preprocess_paragraph(&$variables) {
   // Adding node information as a render variable to paragraphs.
   $variables['node'] = $node;
 
-  if ($node->hasField('template')) {
-    $variables['template'] = $node->get('template')->getString();
-  }
-
   // Add details for specific paragraph types.
   switch ($paragraph->getType()) {
     case 'featured_content':
-      //  _nrgi_frontend_preprocess_featured_content($paragraph, $variables);
+      // nrgi_frontend_preprocess_featured_content($paragraph, $variables);
+      break;
+
+    case 'featured_pages':
+      /** @var \Drupal\nrgi_frontend\NrgiFeaturedPagesHelperService $paragraph_featured_pages_service */
+      $paragraph_featured_pages_service = \Drupal::service('nrgi_frontend.paragraph_featured_pages_helper');
+
+      // Preprocess featured pages.
+      $paragraph_featured_pages_service->preprocessFeaturedPages($variables);
       break;
 
     case 'call_to_action':
+    case 'learning_block':
       /** @var \Drupal\nrgi_frontend\NrgiParagraphButtonLinkHelperService $paragraph_button_link_helper_service */
       $paragraph_button_link_helper_service = \Drupal::service('nrgi_frontend.paragraph_button_link_helper');
 

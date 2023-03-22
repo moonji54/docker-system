@@ -23,7 +23,49 @@ grumphp:
         - web/themes/custom/nrgi/assets/css/
       triggered_by:
         - inc
-        - install
-        - test
-        - profile
         - info
+        - install
+        - php
+        - profile
+        - test
+    stylelint:
+      bin: web/themes/custom/nrgi/assets/src/node_modules/.bin/stylelint
+      # triggered_by: [ css, scss, sass, less, sss ]
+      triggered_by: [ scss ]
+      whitelist_patterns:
+        - /^web\/themes\/custom\/nrgi\/assets\/src\/scss\/(.*)/
+      config: web/themes/custom/nrgi/assets/src/stylelint.config.js
+      # config_basedir: ~
+      # ignore_path: ~
+      # ignore_pattern: ~
+      # syntax: ~
+      # custom_syntax: ~
+      # ignore_disables: ~
+      # disable_default_ignores: ~
+      # cache: ~
+      # cache_location: ~
+      # formatter: ~
+      # custom_formatter: ~
+      # quiet: ~
+      # color: ~
+      # report_needless_disables: ~
+      # report_invalid_scope_disables: ~
+      # report_descriptionless_disables: ~
+      # max_warnings: ~
+      # output_file: ~
+      # Ref: https://github.com/phpro/grumphp/blob/master/doc/tasks/stylelint.md
+    eslint:
+      bin: web/themes/custom/nrgi/assets/src/node_modules/.bin/eslint
+      # triggered_by: [js, jsx, ts, tsx, vue]
+      triggered_by: [ js, es6 ]
+      whitelist_patterns:
+        - /^web\/themes\/custom\/nrgi\/assets\/src\/es6/
+      config: web/themes/custom/nrgi/assets/src/.eslintrc.json
+      quiet: false
+      # ignore_path: .eslintignore
+      # debug: false
+      # format: ~
+      # max_warnings: ~
+      # no_eslintrc: false
+      # Ref: https://github.com/phpro/grumphp/blob/master/doc/tasks/eslint.md
+
