@@ -1,0 +1,50 @@
+{% set classes = [
+  'c-featured-pages',
+  'o-section',
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished'
+] %}
+
+{% if featured_pages %}
+  <section{{ attributes.addClass(classes) }}>
+    <div style="padding: 20px; border:1px indianred dotted">
+      [featured pages]
+      [view_mode] : {{ featured_pages.view_mode }}
+      [with_image] : {{ featured_pages.with_image ? 'true' : 'false' }}
+      [layout] : {{ featured_pages.layout }}
+      {% set has_grey_background = (content.field_show_background|field_raw('value') == '1') %}
+      [has_grey_background] : {{ has_grey_background ? 'true' : 'false' }}
+
+      {% if content.field_title|field_value %}
+        [title size]: {{ content.field_title_size|field_raw('value') }}
+        {% if content.field_title_size|field_raw('value') == 'small' %}
+          <h3>{{ content.field_title }}</h3>
+        {% else %}
+          <h5>{{ content.field_title }}</h5>
+        {% endif %}
+      {% endif %}
+
+      {% if content.field_description|field_value %}
+        <p>{{ content.field_description }}</p>
+      {% endif %}
+
+      <div style="padding: 20px; background-color: forestgreen">
+        {% for featured_page in featured_pages.items %}
+          {{ featured_page }}
+        {% endfor %}
+      </div>
+
+      {% if featured_pages.cta %}
+        <a class="c-call-to-action__link" href="{{ featured_pages.cta.url }}"
+           style="padding: 20px; border: 1px dotted black"
+           target="{{ featured_pages.cta.is_external ? '_blank' : '_self' }}">
+          [arrow icon] ->
+          <span class="c-call-to-action__link-title">{{ featured_pages.cta.title }}</span>
+        </a>
+      {% endif %}
+
+    </div>
+  </section>
+{% endif %}

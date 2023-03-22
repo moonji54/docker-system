@@ -1,0 +1,10 @@
+uuid: 8855869a-d3d9-43e9-ae8d-dafbacf99481
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.large_card
+label: 'Large card'
+targetEntityType: media
+cache: true

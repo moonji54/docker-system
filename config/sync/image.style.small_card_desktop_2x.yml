@@ -1,0 +1,17 @@
+uuid: a2f83071-132c-42dd-ab3a-8951f012c214
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: small_card_desktop_2x
+label: 'Small card desktop 2x'
+effects:
+  2ad13815-1883-4e1f-bb1e-367813211ce2:
+    uuid: 2ad13815-1883-4e1f-bb1e-367813211ce2
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 728
+      height: 408
+      crop_type: focal_point
