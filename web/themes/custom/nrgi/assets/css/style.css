@@ -172,6 +172,45 @@ ol, ul {
   padding: 0;
 }
 
+/* Reset styling on inputs */
+input {
+  margin: 0;
+}
+
+input[type=submit],
+input[type=button],
+input[type=search] {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  cursor: pointer;
+}
+
+button {
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+button:focus {
+  outline: none;
+}
+
 /*
     ===============================
     4. BASE
@@ -201,7 +240,6 @@ ol li a:hover,
 ul li a:focus,
 ul li a:hover {
   outline: 0;
-  text-decoration: none;
 }
 
 /*
@@ -569,14 +607,31 @@ ul li a:hover {
   /* #Social
   ================================================== */
 }
-.o-svg--search {
-  background-color: tomato;
-  height: 1.25rem;
-  width: 1.25rem;
+.o-svg--search-icon {
+  height: 22px;
+  width: 22px;
+}
+.o-svg--close-icon {
+  height: 22px;
+  width: 22px;
+}
+.o-svg--burger-icon {
+  height: 20px;
+  width: 20px;
 }
 .o-svg--email {
   height: 1.0625rem;
   width: 1.375rem;
+}
+.o-svg--header-logo {
+  height: 56px;
+  width: 381px;
+}
+@media (max-width: 48rem) {
+  .o-svg--header-logo {
+    height: 24px;
+    width: 164px;
+  }
 }
 .o-svg--nrgi-logo-condensed {
   height: 3.5rem;
@@ -894,7 +949,45 @@ ul li a:hover {
   padding: var(--space-xs) var(--space-s);
 }
 
-/** @define c-header */ /** @define block-local-tasks-block */
+/** @define c-header */
+.c-header {
+  background: lightskyblue;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  padding: 60px 0 16px;
+}
+.c-header__container {
+  display: grid;
+  grid-gap: 2.25rem;
+  grid-template-areas: "logo secondary-menu" "main-menu search";
+}
+.c-header__logo {
+  grid-area: logo;
+}
+.c-header__secondary-menu {
+  grid-area: secondary-menu;
+}
+.c-header__main-menu {
+  grid-area: main-menu;
+}
+.c-header__search {
+  grid-area: search;
+  justify-self: end;
+  max-width: 290px;
+}
+.c-header__search input {
+  width: 100%;
+}
+.c-header__burger-button {
+  display: none;
+}
+@media (max-width: 64rem) {
+  .c-header__burger-button {
+    display: block;
+  }
+}
+
+/** @define block-local-tasks-block */
 .block-local-tasks-block {
   background-color: #333333;
   color: #CCCCCC;
@@ -956,7 +1049,58 @@ ul li a:hover {
   text-decoration: underline;
 }
 
-/** @define c-main-menu */ /** @define c-share */ /** @define c-social-links */
+/** @define c-main-menu */
+.c-main-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-m);
+}
+.c-main-menu__sub-menu {
+  display: none;
+}
+.c-main-menu__item-link {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  text-decoration: underline;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
+  transition: -webkit-text-decoration-color 0.3s;
+  transition: text-decoration-color 0.3s;
+  transition: text-decoration-color 0.3s, -webkit-text-decoration-color 0.3s;
+}
+@media (max-width: 48rem) {
+  .c-main-menu__item-link {
+    font-size: 1.125rem;
+  }
+}
+.c-main-menu__item-link:hover, .c-main-menu__item-link:focus {
+  -webkit-text-decoration-color: #FFFFFF;
+          text-decoration-color: #FFFFFF;
+}
+
+/** @define c-secondary-menu */
+.c-secondary-menu {
+  color: red;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.c-secondary-menu__item-link {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1;
+  color: blue;
+}
+@media (max-width: 48rem) {
+  .c-secondary-menu__item-link {
+    font-size: 1rem;
+  }
+}
+
+/** @define c-share */ /** @define c-social-links */
 .c-social-links {
   display: flex;
   flex-wrap: wrap;

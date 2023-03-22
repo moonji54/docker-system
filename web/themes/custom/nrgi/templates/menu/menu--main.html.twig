@@ -30,9 +30,9 @@ We call a macro which calls itself to render the full tree.
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass('c-main-menu') }}>
+      <ul{{ attributes.addClass('c-main-menu js-main-menu') }}>
     {% else %}
-      <ul class="c-main-menu__sub-menu">
+      <ul class="c-main-menu__sub-menu js-sub-menu">
     {% endif %}
 
     {% for item in items %}
@@ -53,7 +53,7 @@ We call a macro which calls itself to render the full tree.
           <span>{{ item.title }}</span>
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% else %}
-          {{ link(item.title, item.url) }}
+          {{ link(item.title, item.url, { 'class':['c-main-menu__item-link']}) }}
           {% if item.below %}
             {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
           {% endif %}

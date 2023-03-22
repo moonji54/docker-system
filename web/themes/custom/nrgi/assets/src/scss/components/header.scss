@@ -1,4 +1,43 @@
 /** @define c-header */
 .c-header {
+  background : lightskyblue;
+  box-sizing : border-box;
+  color      : $white;
+  padding    : 60px 0 16px;
 
+  &__container {
+    display             : grid;
+    grid-gap            : 2.25rem; // 36px
+    grid-template-areas : "logo secondary-menu" "main-menu search";
+  }
+
+  &__logo {
+    grid-area : logo;
+  }
+
+  &__secondary-menu {
+    grid-area : secondary-menu;
+  }
+
+  &__main-menu {
+    grid-area : main-menu;
+  }
+
+  &__search {
+    grid-area    : search;
+    justify-self : end;
+    max-width    : 290px;
+
+    input {
+      width : 100%;
+    }
+  }
+
+  &__burger-button {
+    display : none;
+
+    @include media("<=desktop") {
+      display : block;
+    }
+  }
 }

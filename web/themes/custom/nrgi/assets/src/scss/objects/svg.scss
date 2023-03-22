@@ -1,9 +1,18 @@
 /** @define o-svg */
 .o-svg {
-  &--search {
-    background-color : tomato;
-    height           : 1.25rem;
-    width            : 1.25rem;
+  &--search-icon {
+    height : 22px;
+    width  : 22px;
+  }
+
+  &--close-icon {
+    height : 22px;
+    width  : 22px;
+  }
+
+  &--burger-icon {
+    height : 20px;
+    width  : 20px;
   }
 
   &--email {
@@ -13,6 +22,15 @@
 
   /* #Logos
   ================================================== */
+  &--header-logo {
+    height : 56px;
+    width  : 381px;
+
+    @include media("<=tablet") {
+      height : 24px;
+      width  : 164px;
+    }
+  }
 
   &--nrgi-logo-condensed {
     height : 3.5rem;

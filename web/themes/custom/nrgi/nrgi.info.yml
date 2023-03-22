@@ -18,3 +18,4 @@ regions:
 
 stylesheets-remove:
   - '@classy/css/components/form.css'
+  - '@classy/css/components/button.css'

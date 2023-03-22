@@ -1,0 +1,12 @@
+/** @define c-secondary-menu */
+.c-secondary-menu {
+  color     : red;
+  display   : flex;
+  flex-wrap : wrap;
+  gap       : 24px;
+
+  &__item-link {
+    @include ts-sub-menu;
+    color : blue;
+  }
+}

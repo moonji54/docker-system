@@ -1,6 +1,23 @@
 /** @define c-main-menu */
 .c-main-menu {
-  &__inner {
+  $c        : &;
+  display   : flex;
+  flex-wrap : wrap;
+  gap       : var(--space-m);
 
+  &__sub-menu {
+    display : none;
+  }
+
+  &__item-link {
+    @include ts-main-menu;
+    text-decoration       : underline;
+    text-decoration-color : transparent;
+    transition            : text-decoration-color 0.3s;
+
+    &:hover,
+    &:focus {
+      text-decoration-color : $white;
+    }
   }
 }
