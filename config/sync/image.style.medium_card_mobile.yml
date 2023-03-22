@@ -1,0 +1,17 @@
+uuid: a576a572-b85d-460c-b29b-5d4b0c0bd83c
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: medium_card_mobile
+label: 'Medium card mobile'
+effects:
+  21738a47-0e26-44e4-8c6a-d02731048fa6:
+    uuid: 21738a47-0e26-44e4-8c6a-d02731048fa6
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 914
+      height: 514
+      crop_type: focal_point
