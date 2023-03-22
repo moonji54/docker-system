@@ -221,7 +221,6 @@ ul li a:hover {
   text-decoration: none;
   color: #2D2D32;
   height: 2.5rem;
-  mix-blend-mode: multiply;
   display: inline-flex;
   gap: var(--space-xs);
   padding: 0.625rem 1.125rem;
@@ -1032,7 +1031,6 @@ ul li a:hover {
   text-decoration: none;
   color: #2D2D32;
   height: 2.5rem;
-  mix-blend-mode: multiply;
   display: inline-flex;
   gap: var(--space-xs);
   padding: 0.625rem 1.125rem;
