@@ -31,7 +31,7 @@
   line-height : 1.15;
   font-weight : 500;
 
-  @include media("<=outer-container") {
+  @include media("<=large-desktop") {
     font-size : 4.5rem;
   }
 
@@ -50,7 +50,7 @@
   font-size   : 4rem;
   line-height : 1.2;
 
-  @include media("<=outer-container") {
+  @include media("<=large-desktop") {
     font-size : 4.1875rem;
   }
 
@@ -69,7 +69,7 @@
   font-size   : 3rem;
   line-height : 1.2;
 
-  @include media("<=outer-container") {
+  @include media("<=large-desktop") {
     font-size : 2.5rem;
   }
 
@@ -88,7 +88,7 @@
   font-size   : 2.5rem;
   line-height : 1.5;
 
-  @include media("<=outer-container") {
+  @include media("<=large-desktop") {
     font-size : 2.25rem;
   }
 
@@ -107,7 +107,7 @@
   line-height : 1.5;
   font-weight : 500;
 
-  @include media("<=outer-container") {
+  @include media("<=large-desktop") {
     font-size : 2rem;
   }
 
@@ -126,7 +126,7 @@
   font-size   : 2rem;
   line-height : 1.5;
 
-  @include media("<=outer-container") {
+  @include media("<=large-desktop") {
     font-size : 1.75rem;
   }
 
@@ -145,7 +145,7 @@
   font-size   : 1.75rem;
   line-height : 1.5;
 
-  @include media("<=outer-container") {
+  @include media("<=large-desktop") {
     font-size : 1.5rem;
   }
 
@@ -163,7 +163,7 @@
   font-weight : 500;
   line-height : 1.25;
 
-  @include media("<=outer-container") {
+  @include media("<=large-desktop") {
     font-size : 2.25rem;
   }
 
@@ -179,7 +179,7 @@
     font-size   : 2rem;
     line-height : 1.5;
 
-    @include media("<=outer-container") {
+    @include media("<=large-desktop") {
       font-size : 1.75rem;
     }
 
@@ -195,7 +195,7 @@
   @if $small {
     font-size : 1.5rem;
 
-    @include media("<=outer-container") {
+    @include media("<=large-desktop") {
       font-size : 1.25rem;
     }
   }
