@@ -9,8 +9,6 @@ dependencies:
     - field.field.node.event.field_course_host
     - field.field.node.event.field_course_syilabus
     - field.field.node.event.field_course_training_contact
-    - field.field.node.event.field_data_document
-    - field.field.node.event.field_data_document_label
     - field.field.node.event.field_end_date
     - field.field.node.event.field_event_contact
     - field.field.node.event.field_event_location
@@ -36,8 +34,6 @@ dependencies:
     - field.field.node.event.field_speakers
     - field.field.node.event.field_speakers_external
     - field.field.node.event.field_start_date
-    - field.field.node.event.field_supporting_document
-    - field.field.node.event.field_supporting_document_label
     - field.field.node.event.field_time_commitment
     - field.field.node.event.field_time_zone
     - field.field.node.event.field_topic
@@ -108,22 +104,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 15
-    region: content
-  field_data_document:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 29
-    region: content
-  field_data_document_label:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 32
     region: content
   field_end_date:
     type: datetime_default
@@ -330,22 +310,6 @@ content:
       format_type: day_month_and_year
     third_party_settings: {  }
     weight: 41
-    region: content
-  field_supporting_document:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 30
-    region: content
-  field_supporting_document_label:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 31
     region: content
   field_time_commitment:
     type: number_integer

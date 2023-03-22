@@ -17,8 +17,6 @@ dependencies:
     - field.field.node.career_opportunity.field_photo_caption
     - field.field.node.career_opportunity.field_region
     - field.field.node.career_opportunity.field_salary
-    - field.field.node.career_opportunity.field_supporting_document
-    - field.field.node.career_opportunity.field_supporting_document_label
     - node.type.career_opportunity
   module:
     - datetime
@@ -145,22 +143,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 113
-    region: content
-  field_supporting_document:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 106
-    region: content
-  field_supporting_document_label:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 107
     region: content
   links:
     settings: {  }

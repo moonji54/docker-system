@@ -1,22 +1,23 @@
-uuid: d3aca508-3056-491b-95cb-a8bb78f9bfac
+uuid: 75ea0ce0-c3a0-48f3-840c-3f2c7f8c6e4c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_absctract
+    - field.storage.node.field_abstract
     - node.type.publication
   module:
     - allowed_formats
     - text
 third_party_settings:
   allowed_formats:
-    allowed_formats: {  }
-id: node.publication.field_absctract
-field_name: field_absctract
+    allowed_formats:
+      - wysiwyg
+id: node.publication.field_abstract
+field_name: field_abstract
 entity_type: node
 bundle: publication
-label: Absctract
-description: 'Enter a short, 3-4 sentence overview of the publication. Used in the standfirst text on a publication page.'
+label: Abstract
+description: ''
 required: false
 translatable: false
 default_value: {  }

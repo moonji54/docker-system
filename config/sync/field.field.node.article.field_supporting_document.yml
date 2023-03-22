@@ -1,21 +1,21 @@
-uuid: 7ab2f9bf-c3e8-4f11-9d69-805f87f2e7e1
+uuid: 2a537ed1-c865-45a4-aba2-e2a2cf971347
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_supporting_document
-    - node.type.publication
+    - node.type.article
     - paragraphs.paragraphs_type.file_upload
   module:
     - entity_reference_revisions
-id: node.publication.field_supporting_document
+id: node.article.field_supporting_document
 field_name: field_supporting_document
 entity_type: node
-bundle: publication
+bundle: article
 label: 'Supporting Document'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.article.field_acknowledgement_logo
     - field.field.node.article.field_author
     - field.field.node.article.field_country
-    - field.field.node.article.field_downloads
+    - field.field.node.article.field_data_document
     - field.field.node.article.field_expiration_date
     - field.field.node.article.field_featured_image
     - field.field.node.article.field_keywords
@@ -22,6 +22,7 @@ dependencies:
     - field.field.node.article.field_resource_type
     - field.field.node.article.field_short_description
     - field.field.node.article.field_subtitle
+    - field.field.node.article.field_supporting_document
     - field.field.node.article.field_topic
     - field.field.node.article.field_upload
     - node.type.article
@@ -67,14 +68,14 @@ content:
     third_party_settings: {  }
     weight: 9
     region: content
-  field_downloads:
-    type: entity_reference_entity_view
+  field_data_document:
+    type: entity_reference_revisions_entity_view
     label: above
     settings:
       view_mode: default
-      link: false
+      link: ''
     third_party_settings: {  }
-    weight: 34
+    weight: 36
     region: content
   field_expiration_date:
     type: datetime_time_ago
@@ -211,6 +212,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_supporting_document:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 37
     region: content
   field_topic:
     type: entity_reference_label

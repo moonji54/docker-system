@@ -9,8 +9,6 @@ dependencies:
     - field.field.node.event.field_course_host
     - field.field.node.event.field_course_syilabus
     - field.field.node.event.field_course_training_contact
-    - field.field.node.event.field_data_document
-    - field.field.node.event.field_data_document_label
     - field.field.node.event.field_end_date
     - field.field.node.event.field_event_contact
     - field.field.node.event.field_event_location
@@ -36,8 +34,6 @@ dependencies:
     - field.field.node.event.field_speakers
     - field.field.node.event.field_speakers_external
     - field.field.node.event.field_start_date
-    - field.field.node.event.field_supporting_document
-    - field.field.node.event.field_supporting_document_label
     - field.field.node.event.field_time_commitment
     - field.field.node.event.field_time_zone
     - field.field.node.event.field_topic
@@ -273,40 +269,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_data_document:
-    type: media_library_widget
-    weight: 50
-    region: content
-    settings:
-      media_types: {  }
-    third_party_settings: {  }
-  field_data_document_label:
-    type: string_textfield
-    weight: 53
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings:
-      conditional_fields:
-        7d864d6a-eded-4ceb-936b-b95021da08b6:
-          entity_type: node
-          bundle: event
-          dependee: field_data_document
-          settings:
-            state: visible
-            condition: '!empty'
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                target_id: null
-                _weight: '0'
-            effect: show
-            effect_options: {  }
-            selector: ''
   field_end_date:
     type: datetime_default
     weight: 116
@@ -529,40 +491,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_supporting_document:
-    type: media_library_widget
-    weight: 51
-    region: content
-    settings:
-      media_types: {  }
-    third_party_settings: {  }
-  field_supporting_document_label:
-    type: string_textfield
-    weight: 52
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings:
-      conditional_fields:
-        fadcb116-7bd1-4c2b-aed2-82ceebc05e16:
-          entity_type: node
-          bundle: event
-          dependee: field_supporting_document
-          settings:
-            state: visible
-            condition: '!empty'
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                target_id: null
-                _weight: '0'
-            effect: show
-            effect_options: {  }
-            selector: ''
   field_time_commitment:
     type: number
     weight: 130

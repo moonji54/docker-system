@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.article.field_acknowledgement_logo
     - field.field.node.article.field_author
     - field.field.node.article.field_country
-    - field.field.node.article.field_downloads
+    - field.field.node.article.field_data_document
     - field.field.node.article.field_expiration_date
     - field.field.node.article.field_featured_image
     - field.field.node.article.field_keywords
@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.article.field_resource_type
     - field.field.node.article.field_short_description
     - field.field.node.article.field_subtitle
+    - field.field.node.article.field_supporting_document
     - field.field.node.article.field_topic
     - field.field.node.article.field_upload
     - node.type.article
@@ -59,7 +60,7 @@ hidden:
   field_acknowledgement_logo: true
   field_author: true
   field_country: true
-  field_downloads: true
+  field_data_document: true
   field_expiration_date: true
   field_featured_image: true
   field_image: true
@@ -77,6 +78,7 @@ hidden:
   field_short_description: true
   field_subtitle: true
   field_summary: true
+  field_supporting_document: true
   field_topic: true
   field_upload: true
   langcode: true

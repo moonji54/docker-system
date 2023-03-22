@@ -1,12 +1,12 @@
-uuid: b32c212d-a8c5-4e8e-bd49-f0ca76f768bc
+uuid: 39233270-e768-4396-987d-5224a84f4cea
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - text
-id: node.field_key_messages
-field_name: field_key_messages
+id: node.field_abstract
+field_name: field_abstract
 entity_type: node
 type: text_long
 settings: {  }

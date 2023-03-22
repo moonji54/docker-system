@@ -16,8 +16,6 @@ dependencies:
     - field.field.node.career_opportunity.field_photo_caption
     - field.field.node.career_opportunity.field_region
     - field.field.node.career_opportunity.field_salary
-    - field.field.node.career_opportunity.field_supporting_document
-    - field.field.node.career_opportunity.field_supporting_document_label
     - node.type.career_opportunity
     - workflows.workflow.editorial
   module:
@@ -25,7 +23,6 @@ dependencies:
     - datetime
     - field_group
     - link
-    - media_library
     - paragraphs
     - path
     - text
@@ -266,21 +263,6 @@ content:
   field_salary:
     type: string_textfield
     weight: 29
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_supporting_document:
-    type: media_library_widget
-    weight: 22
-    region: content
-    settings:
-      media_types: {  }
-    third_party_settings: {  }
-  field_supporting_document_label:
-    type: string_textfield
-    weight: 23
     region: content
     settings:
       size: 60

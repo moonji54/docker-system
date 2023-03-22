@@ -1,18 +1,18 @@
-uuid: 7ab2f9bf-c3e8-4f11-9d69-805f87f2e7e1
+uuid: 6495a1c2-bcc9-436d-b653-1c284da6d484
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_supporting_document
+    - field.storage.node.field_acknowledgement_logo
     - node.type.publication
-    - paragraphs.paragraphs_type.file_upload
+    - paragraphs.paragraphs_type.logo
   module:
     - entity_reference_revisions
-id: node.publication.field_supporting_document
-field_name: field_supporting_document
+id: node.publication.field_acknowledgement_logo
+field_name: field_acknowledgement_logo
 entity_type: node
 bundle: publication
-label: 'Supporting Document'
+label: 'Acknowledgement donor logo'
 description: ''
 required: false
 translatable: true
@@ -22,43 +22,40 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      file_upload: file_upload
+      logo: logo
     negate: 0
     target_bundles_drag_drop:
       call_to_action:
-        weight: 13
+        weight: 12
         enabled: false
       embed:
-        weight: 14
+        weight: 13
         enabled: false
       featured_content:
-        weight: 15
+        weight: 14
         enabled: false
       featured_pages:
-        weight: 16
+        weight: 15
         enabled: false
       featured_people:
+        weight: 16
+        enabled: false
+      full_width_media:
         weight: 17
         enabled: false
-      file_upload:
-        weight: 18
-        enabled: true
-      full_width_media:
-        weight: 19
-        enabled: false
       learning_block:
-        weight: 20
+        weight: 18
         enabled: false
       limited_list:
-        weight: 21
+        weight: 19
         enabled: false
       listing:
-        weight: 22
+        weight: 20
         enabled: false
       logo:
-        weight: 23
-        enabled: false
+        weight: 21
+        enabled: true
       wysiwyg:
-        weight: 24
+        weight: 22
         enabled: false
 field_type: entity_reference_revisions

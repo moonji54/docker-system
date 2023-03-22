@@ -1,17 +1,17 @@
-uuid: f56ffa4a-d206-4d2f-8ef0-b79e0a3fde98
+uuid: 90db6383-2741-41ff-afc4-f9e6c0b87ad8
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_data_document
+    - field.storage.paragraph.field_file
     - media.type.document
-    - node.type.event
-id: node.event.field_data_document
-field_name: field_data_document
-entity_type: node
-bundle: event
-label: 'Data document'
-description: 'The Excel/csv file containing additional data'
+    - paragraphs.paragraphs_type.file_upload
+id: paragraph.file_upload.field_file
+field_name: field_file
+entity_type: paragraph
+bundle: file_upload
+label: File
+description: ''
 required: false
 translatable: true
 default_value: {  }

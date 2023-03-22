@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.article.field_acknowledgement_logo
     - field.field.node.article.field_author
     - field.field.node.article.field_country
-    - field.field.node.article.field_downloads
+    - field.field.node.article.field_data_document
     - field.field.node.article.field_expiration_date
     - field.field.node.article.field_featured_image
     - field.field.node.article.field_keywords
@@ -22,6 +22,7 @@ dependencies:
     - field.field.node.article.field_resource_type
     - field.field.node.article.field_short_description
     - field.field.node.article.field_subtitle
+    - field.field.node.article.field_supporting_document
     - field.field.node.article.field_topic
     - field.field.node.article.field_upload
     - node.type.article
@@ -187,11 +188,11 @@ third_party_settings:
         - group_featured_image
         - group_news_upload
         - group_logo
-        - group_downloads
+        - group_documents
       label: 'Uploads tabs'
       region: hidden
       parent_name: group_uploads
-      weight: 6
+      weight: 8
       format_type: tabs
       format_settings:
         classes: ''
@@ -230,21 +231,6 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-    group_downloads:
-      children:
-        - field_downloads
-      label: Downloads
-      region: content
-      parent_name: group_uploads_tabs
-      weight: 33
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        formatter: closed
-        description: ''
-        required_fields: true
     group_taxonomies_tabs:
       children:
         - group_topic
@@ -254,7 +240,7 @@ third_party_settings:
       label: 'Taxonomies tabs'
       region: hidden
       parent_name: group_taxonomies
-      weight: 4
+      weight: 6
       format_type: tabs
       format_settings:
         classes: ''
@@ -283,7 +269,7 @@ third_party_settings:
       label: Keywords
       region: content
       parent_name: group_taxonomies_tabs
-      weight: 22
+      weight: 21
       format_type: tab
       format_settings:
         classes: ''
@@ -298,7 +284,7 @@ third_party_settings:
       label: Country
       region: content
       parent_name: group_taxonomies_tabs
-      weight: 23
+      weight: 22
       format_type: tab
       format_settings:
         classes: ''
@@ -313,7 +299,23 @@ third_party_settings:
       label: Region
       region: content
       parent_name: group_taxonomies_tabs
-      weight: 24
+      weight: 23
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_documents:
+      children:
+        - field_data_document
+        - field_supporting_document
+      label: Documents
+      region: hidden
+      parent_name: group_uploads_tabs
+      weight: 33
       format_type: tab
       format_settings:
         classes: ''
@@ -374,12 +376,24 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_downloads:
-    type: media_library_widget
-    weight: 8
+  field_data_document:
+    type: paragraphs
+    weight: 13
     region: content
     settings:
-      media_types: {  }
+      title: Document
+      title_plural: Documents
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
     third_party_settings: {  }
   field_expiration_date:
     type: datetime_default
@@ -396,7 +410,7 @@ content:
     third_party_settings: {  }
   field_keywords:
     type: entity_reference_autocomplete_tags
-    weight: 7
+    weight: 5
     region: content
     settings:
       match_operator: CONTAINS
@@ -519,9 +533,28 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_supporting_document:
+    type: paragraphs
+    weight: 14
+    region: content
+    settings:
+      title: Document
+      title_plural: Documents
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
   field_topic:
     type: entity_reference_autocomplete_tags
-    weight: 6
+    weight: 25
     region: content
     settings:
       match_operator: CONTAINS
@@ -538,7 +571,7 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 6
+    weight: 5
     region: content
     settings:
       include_locked: true
@@ -603,7 +636,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
