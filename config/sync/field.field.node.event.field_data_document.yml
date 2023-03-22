@@ -1,0 +1,64 @@
+uuid: 523b4c46-00c8-475f-ad55-62b76d8e7029
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_document
+    - node.type.event
+    - paragraphs.paragraphs_type.file_upload
+  module:
+    - entity_reference_revisions
+id: node.event.field_data_document
+field_name: field_data_document
+entity_type: node
+bundle: event
+label: 'Data document'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      file_upload: file_upload
+    negate: 0
+    target_bundles_drag_drop:
+      call_to_action:
+        weight: 13
+        enabled: false
+      embed:
+        weight: 14
+        enabled: false
+      featured_content:
+        weight: 15
+        enabled: false
+      featured_pages:
+        weight: 16
+        enabled: false
+      featured_people:
+        weight: 17
+        enabled: false
+      file_upload:
+        weight: 18
+        enabled: true
+      full_width_media:
+        weight: 19
+        enabled: false
+      learning_block:
+        weight: 20
+        enabled: false
+      limited_list:
+        weight: 21
+        enabled: false
+      listing:
+        weight: 22
+        enabled: false
+      logo:
+        weight: 23
+        enabled: false
+      wysiwyg:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions

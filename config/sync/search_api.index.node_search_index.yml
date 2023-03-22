@@ -20,7 +20,6 @@ dependencies:
     - field.storage.node.field_job_title
     - field.storage.node.field_keywords
     - field.storage.node.field_organizing_partner
-    - field.storage.node.field_partner_name
     - field.storage.node.field_photo_caption
     - field.storage.node.field_region
     - field.storage.node.field_resource_type
@@ -177,14 +176,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_organizing_partner
-  field_partner_name:
-    label: 'Partner name'
-    datasource_id: 'entity:node'
-    property_path: field_partner_name
-    type: string
-    dependencies:
-      config:
-        - field.storage.node.field_partner_name
   field_photo_caption:
     label: 'Photo caption'
     datasource_id: 'entity:node'
@@ -387,7 +378,6 @@ processor_settings:
       - field_given_name
       - field_job_title
       - field_organizing_partner
-      - field_partner_name
       - field_photo_caption
       - field_salary
       - field_short_bio
@@ -421,7 +411,6 @@ processor_settings:
       - field_given_name
       - field_job_title
       - field_organizing_partner
-      - field_partner_name
       - field_photo_caption
       - field_salary
       - field_short_bio

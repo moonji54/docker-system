@@ -4,12 +4,13 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.sidebar_related_content
+    - field.field.node.event.field_acknowledgement_logo
     - field.field.node.event.field_address
-    - field.field.node.event.field_body
     - field.field.node.event.field_country
     - field.field.node.event.field_course_host
     - field.field.node.event.field_course_syilabus
     - field.field.node.event.field_course_training_contact
+    - field.field.node.event.field_data_document
     - field.field.node.event.field_end_date
     - field.field.node.event.field_event_contact
     - field.field.node.event.field_event_location
@@ -23,22 +24,22 @@ dependencies:
     - field.field.node.event.field_instructors
     - field.field.node.event.field_instructors_external
     - field.field.node.event.field_keywords
-    - field.field.node.event.field_languages
     - field.field.node.event.field_open_registration
     - field.field.node.event.field_organizing_partner
     - field.field.node.event.field_page_builder
-    - field.field.node.event.field_partner_name
+    - field.field.node.event.field_partner_logo
     - field.field.node.event.field_photo_caption
     - field.field.node.event.field_publisher
     - field.field.node.event.field_region
     - field.field.node.event.field_registration
+    - field.field.node.event.field_short_description
     - field.field.node.event.field_speakers
     - field.field.node.event.field_speakers_external
     - field.field.node.event.field_start_date
+    - field.field.node.event.field_supporting_document
     - field.field.node.event.field_time_commitment
     - field.field.node.event.field_time_zone
     - field.field.node.event.field_topic
-    - field.field.node.event.field_transcript
     - field.field.node.event.field_video_conferencing
     - node.type.event
   module:
@@ -65,13 +66,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 120
-    region: content
-  field_body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 104
     region: content
   field_country:
     type: entity_reference_label
@@ -203,14 +197,6 @@ content:
     third_party_settings: {  }
     weight: 136
     region: content
-  field_languages:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 115
-    region: content
   field_open_registration:
     type: list_default
     label: hidden
@@ -234,14 +220,6 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 143
-    region: content
-  field_partner_name:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 111
     region: content
   field_photo_caption:
     type: string
@@ -310,13 +288,6 @@ content:
     third_party_settings: {  }
     weight: 135
     region: content
-  field_transcript:
-    type: basic_string
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 105
-    region: content
   field_video_conferencing:
     type: link
     label: hidden
@@ -335,8 +306,13 @@ content:
     weight: 100
     region: content
 hidden:
+  field_acknowledgement_logo: true
+  field_data_document: true
   field_end_date: true
+  field_partner_logo: true
+  field_short_description: true
   field_start_date: true
+  field_supporting_document: true
   field_time_commitment: true
   langcode: true
   search_api_excerpt: true
