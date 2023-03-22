@@ -78,6 +78,13 @@
       z-index  : -1;
     }
 
+    @include media("<=large-desktop") {
+      &:before {
+        left  : -100vw;
+        width : calc(100vw + 63%);
+      }
+    }
+
     @include media("<=tablet") {
       &:before {
         width : calc(100% + (var(--gutter) * 2));

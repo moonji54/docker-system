@@ -702,6 +702,12 @@ ul li a:hover {
   width: 63%;
   z-index: -1;
 }
+@media (max-width: 94.5rem) {
+  .c-call-to-action__inner:before {
+    left: -100vw;
+    width: calc(100vw + 63%);
+  }
+}
 @media (max-width: 48rem) {
   .c-call-to-action__inner:before {
     width: calc(100% + var(--gutter) * 2);
