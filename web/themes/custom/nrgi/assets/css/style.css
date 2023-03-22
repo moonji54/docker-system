@@ -624,8 +624,11 @@ ul li a:hover {
 .c-call-to-action {
   height: 48rem;
   position: relative;
+  /* stylelint-disable */
+  /* stylelint-enable */
+  /* stylelint-disable-next-line */
 }
-@keyframes scrollToTop {
+@keyframes scroll-to-top {
   to {
     top: 0;
   }
