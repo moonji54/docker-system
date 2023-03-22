@@ -1,0 +1,35 @@
+uuid: f2047894-0828-4eb4-96f6-81a9a5a9bfd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - node.type.country
+    - node.type.landing_page
+    - node.type.page
+    - node.type.topic
+    - paragraphs.paragraphs_type.featured_pages
+id: paragraph.featured_pages.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: featured_pages
+label: Pages
+description: 'Manually select pages to feature.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      country: country
+      landing_page: landing_page
+      page: page
+      topic: topic
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: page
+field_type: entity_reference

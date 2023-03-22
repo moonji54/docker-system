@@ -1,0 +1,17 @@
+uuid: 40ba46ba-dff9-41d1-b8b6-f13d79c222cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: medium_card_desktop_2x
+label: 'Medium card desktop 2x'
+effects:
+  699fb4a8-094e-4104-ac81-59d6af782039:
+    uuid: 699fb4a8-094e-4104-ac81-59d6af782039
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1000
+      height: 563
+      crop_type: focal_point

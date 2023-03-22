@@ -1,0 +1,17 @@
+uuid: d89659dc-3d46-46e1-89bb-eec429926ede
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: small_card_tablet
+label: 'Small card tablet'
+effects:
+  898ef82e-317c-44dc-8df5-ac8a74ea33e2:
+    uuid: 898ef82e-317c-44dc-8df5-ac8a74ea33e2
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 627
+      height: 308
+      crop_type: focal_point

@@ -58,4 +58,23 @@ function nrgi_backend_field_widget_single_element_paragraphs_form_alter(
       ],
     ];
   }
+
+  $title_size_option_paragraphs = ['featured_pages'];
+
+  // Conditional title size field.
+  if (in_array($element['#paragraph_type'], $title_size_option_paragraphs)) {
+    // field_title_size visible if field_title has a value.
+    $element['subform']['field_title_size']['#states'] = [
+      'visible' => [
+        [
+          ':input[name="field_page_builder[' . $delta . '][subform][field_title][0][value]"]' =>
+            [
+              'filled' => TRUE,
+            ],
+        ],
+      ],
+    ];
+
+  }
+
 }

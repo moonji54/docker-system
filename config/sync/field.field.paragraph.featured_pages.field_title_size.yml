@@ -1,0 +1,23 @@
+uuid: fe70a712-df49-4ba3-a5e6-fc535a1e600c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_size
+    - paragraphs.paragraphs_type.featured_pages
+  module:
+    - options
+id: paragraph.featured_pages.field_title_size
+field_name: field_title_size
+entity_type: paragraph
+bundle: featured_pages
+label: 'Title size'
+description: 'Select the size of this section''s title.'
+required: true
+translatable: false
+default_value:
+  -
+    value: big
+default_value_callback: ''
+settings: {  }
+field_type: list_string
