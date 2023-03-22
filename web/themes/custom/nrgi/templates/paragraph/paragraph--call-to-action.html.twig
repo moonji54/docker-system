@@ -1,10 +1,16 @@
+{% set background_color = content.field_background_colour|field_raw('value')|replace({'_' : '-'}) %}
+
 {% set classes = [
   'c-call-to-action',
   content.field_image|field_value ? 'c-call-to-action--with-image',
+  'c-call-to-action--' ~ background_color,
   'o-section',
   'js-parallax-container'
 ] %}
-{% set background_color = content.field_background_colour|field_raw('value')|replace({'_' : '-'}) %}
+
+{% if background_color == 'ocean' %}
+  {% set is_white = true %}
+{% endif %}
 
 <section{{ attributes.addClass(classes) }}>
   {# Image #}
@@ -16,7 +22,7 @@
 
   <div class="c-call-to-action__block">
     <div class="c-call-to-action__container o-container">
-      <div class="c-call-to-action__inner c-call-to-action__inner--{{ background_color }}">
+      <div class="c-call-to-action__inner">
         <div class="c-call-to-action__content-wrapper">
           {# Title #}
           {% if content.field_title|field_value %}
@@ -32,7 +38,7 @@
           {# On this component the editor can create a button link or a download file button link. #}
           {# Use button_link.type to see type of button to render #}
           {% if button_link.url %}
-            <a class="c-call-to-action__link o-button" href="{{ button_link.url }}"
+            <a class="c-call-to-action__link o-button{{ is_white ? ' o-button--white' }}" href="{{ button_link.url }}"
                target="{{ button_link.is_external ? '_blank' : '_self' }}">
               {% if button_link.type == 'link' %}
                 {% include '@nrgi/svg/svg.html.twig' with {'svg' : 'arrow'} %}

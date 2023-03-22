@@ -1,24 +1,32 @@
 /** @define c-call-to-action */
 .c-call-to-action {
-  $c       : &;
-  height   : 48rem;
-  position : relative;
+  $c         : &;
+  min-height : 42rem;
+  position   : relative;
 
   @keyframes scroll-to-top {
-    to {
+    50% {
+      top : 60%;
+    }
+
+    75% {
+      top : 70%;
+    }
+
+    100% {
       top : 0;
     }
   }
 
   @include media("<=tablet") {
-    height : auto;
+    min-height : auto;
   }
 
   /* stylelint-disable */
   &.is-visible {
     @include media(">=tablet") {
       #{$c}__block {
-        animation                 : scrollToTop 1.2s linear infinite;
+        animation                 : scroll-to-top 1.3s linear infinite;
         animation-delay           : calc(var(--scroll) * -1s);
         animation-fill-mode       : both;
         animation-iteration-count : 1;
@@ -30,12 +38,15 @@
   /* stylelint-enable */
 
   &__image-wrapper {
-    height   : 100%;
-    position : relative;
-    width    : 100%;
+    aspect-ratio : 1.97;
+    height       : 100%;
+    min-height   : 42rem;
+    position     : relative;
+    width        : 100%;
 
     @include media("<=tablet") {
-      aspect-ratio : 16 / 9;
+      aspect-ratio : 1.39;
+      min-height   : auto;
     }
   }
 
@@ -54,7 +65,7 @@
     left       : 0;
     object-fit : cover;
     position   : absolute;
-    top        : 60%;
+    top        : 40%;
     width      : 100%;
 
     @include media("<=tablet") {
@@ -91,25 +102,8 @@
 
     @include media("<=tablet") {
       &:before {
+        left  : calc(var(--gutter) * -1);
         width : calc(100% + (var(--gutter) * 2));
-      }
-    }
-
-    &--ocean {
-      &:before {
-        background-color : $secondary;
-      }
-    }
-
-    &--core {
-      &:before {
-        background-color : $tertiary;
-      }
-    }
-
-    &--light-hydro {
-      &:before {
-        background-color : $blue-light;
       }
     }
   }
@@ -119,6 +113,10 @@
     grid-column : 1 / 8;
     margin      : auto;
     padding     : var(--space-2xl) 0;
+
+    @include media("<=tablet") {
+      padding : 8.375rem 0;
+    }
   }
 
   &__title {
@@ -137,6 +135,32 @@
     &:hover {
       background-color : rgba($primary, 0.1);
       mix-blend-mode   : multiply;
+    }
+  }
+
+  &--ocean {
+    color : $white;
+
+    #{$c}__inner {
+      &:before {
+        background-color : $secondary;
+      }
+    }
+  }
+
+  &--core {
+    #{$c}__inner {
+      &:before {
+        background-color : $tertiary;
+      }
+    }
+  }
+
+  &--light-hydro {
+    #{$c}__inner {
+      &:before {
+        background-color : $blue-light;
+      }
     }
   }
 }
