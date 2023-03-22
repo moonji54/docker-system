@@ -3,9 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.listing_page.field_components
-    - field.field.node.listing_page.field_intro
+    - field.field.node.listing_page.field_featured_image
+    - field.field.node.listing_page.field_hero_description
+    - field.field.node.listing_page.field_hero_title
     - field.field.node.listing_page.field_listing_block
+    - field.field.node.listing_page.field_overlay_opacity
+    - field.field.node.listing_page.field_page_builder
     - node.type.listing_page
   module:
     - entity_reference_revisions
@@ -20,21 +23,28 @@ content:
     third_party_settings: {  }
     weight: -20
     region: content
-  field_components:
-    type: entity_reference_revisions_entity_view
+  field_featured_image:
+    type: entity_reference_label
     label: above
     settings:
-      view_mode: default
-      link: ''
+      link: true
     third_party_settings: {  }
-    weight: 101
+    weight: 109
     region: content
-  field_intro:
+  field_hero_description:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 103
+    weight: 108
+    region: content
+  field_hero_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 107
     region: content
   field_listing_block:
     type: entity_reference_revisions_entity_view
@@ -44,6 +54,24 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 105
+    region: content
+  field_overlay_opacity:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_page_builder:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 106
     region: content
   links:
     settings: {  }

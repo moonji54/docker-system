@@ -1,22 +1,21 @@
-uuid: 70f0f662-1bcf-47a0-8a7c-a34d84f0cf10
+uuid: 862ce44e-ea99-4f68-a6bd-ff802d282180
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_components
+    - field.storage.node.field_page_builder
     - node.type.listing_page
     - paragraphs.paragraphs_type.featured_content
     - paragraphs.paragraphs_type.featured_pages
     - paragraphs.paragraphs_type.featured_people
-    - paragraphs.paragraphs_type.limited_list
     - paragraphs.paragraphs_type.wysiwyg
   module:
     - entity_reference_revisions
-id: node.listing_page.field_components
-field_name: field_components
+id: node.listing_page.field_page_builder
+field_name: field_page_builder
 entity_type: node
 bundle: listing_page
-label: Components
+label: 'Page builder'
 description: ''
 required: false
 translatable: true
@@ -26,38 +25,46 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      wysiwyg: wysiwyg
       featured_content: featured_content
       featured_pages: featured_pages
       featured_people: featured_people
-      limited_list: limited_list
+      wysiwyg: wysiwyg
     negate: 0
     target_bundles_drag_drop:
-      container:
-        weight: 4
-        enabled: false
-      cta_download:
-        weight: 11
+      call_to_action:
+        weight: 13
         enabled: false
       embed:
-        weight: 12
+        weight: 14
         enabled: false
       featured_content:
-        weight: 13
-        enabled: true
-      featured_pages:
-        weight: 14
-        enabled: true
-      featured_people:
         weight: 15
         enabled: true
-      full_width_media:
-        weight: 5
-        enabled: false
-      limited_list:
+      featured_pages:
+        weight: 16
+        enabled: true
+      featured_people:
         weight: 17
         enabled: true
+      file_upload:
+        weight: 18
+        enabled: false
+      full_width_media:
+        weight: 19
+        enabled: false
+      learning_block:
+        weight: 20
+        enabled: false
+      limited_list:
+        weight: 21
+        enabled: false
+      listing:
+        weight: 22
+        enabled: false
+      logo:
+        weight: 23
+        enabled: false
       wysiwyg:
-        weight: 6
+        weight: 24
         enabled: true
 field_type: entity_reference_revisions

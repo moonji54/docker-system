@@ -1,18 +1,18 @@
-uuid: 97b0470f-f81d-4fbd-aa99-e2af3df5cc08
+uuid: 70998b7b-842f-4fe0-b628-83e78128dafb
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_intro
+    - field.storage.node.field_hero_description
     - node.type.listing_page
-id: node.listing_page.field_intro
-field_name: field_intro
+id: node.listing_page.field_hero_description
+field_name: field_hero_description
 entity_type: node
 bundle: listing_page
-label: 'Intro text'
+label: 'Hero banner description'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
