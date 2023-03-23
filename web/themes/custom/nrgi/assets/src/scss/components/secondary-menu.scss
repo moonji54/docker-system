@@ -1,12 +1,17 @@
 /** @define c-secondary-menu */
 .c-secondary-menu {
-  color     : red;
-  display   : flex;
-  flex-wrap : wrap;
-  gap       : 24px;
+  display         : flex;
+  flex-wrap       : wrap;
+  gap             : 24px;
+  justify-content : flex-end;
+
+  @include media("<desktop") {
+    flex-direction  : column;
+    justify-content : flex-start;
+  }
 
   &__item-link {
     @include ts-sub-menu;
-    color : blue;
+    @include underlined;
   }
 }

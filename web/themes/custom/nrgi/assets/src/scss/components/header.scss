@@ -4,29 +4,55 @@
   box-sizing : border-box;
   color      : $white;
   padding    : 60px 0 16px;
+  position   : absolute;
+  width      : 100%;
 
   &__container {
-    display             : grid;
-    grid-gap            : 2.25rem; // 36px
-    grid-template-areas : "logo secondary-menu" "main-menu search";
+    @include grid;
+    grid-row-gap : 2.25rem; // 36px
   }
 
-  &__logo {
-    grid-area : logo;
+  /* #Logo
+================================================== */
+  &__logo-wrapper {
+    grid-column : 1 / 7;
   }
 
+  &__logo-link {
+    display    : inline-flex;
+    transition : opacity 0.3s;
+
+    &:hover,
+    &:focus {
+      opacity : 0.7;
+    }
+  }
+
+  /* #Secondary-menu
+================================================== */
   &__secondary-menu {
-    grid-area : secondary-menu;
+    grid-column : 7 / -1;
+
+    @include media("<=desktop") {
+      order       : 3;
+      grid-column : 1 / -1;
+    }
   }
 
+  /* #Main menu
+================================================== */
   &__main-menu {
-    grid-area : main-menu;
+    grid-column : 1 / 10;
+
+    @include media("<=desktop") {
+      order       : 2;
+      grid-column : 1 / -1;
+    }
   }
 
   &__search {
-    grid-area    : search;
-    justify-self : end;
-    max-width    : 290px;
+    grid-column : 10 / -1;
+    display     : none;
 
     input {
       width : 100%;

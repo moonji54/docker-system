@@ -1,8 +1,10 @@
 <header class="c-header" id="js-header">
   <div class="c-header__container o-container">
-    <a href="/" class="c-header__logo" title="{{ 'Return to the homepage'|t }}">
-      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'header-logo', 'extra_class': 'c-header__svg'} %}
-    </a>
+    <div class="c-header__logo-wrapper">
+      <a href="/" class="c-header__logo-link" title="{{ 'Return to the homepage'|t }}">
+        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'header-logo', 'extra_class': 'c-header__svg'} %}
+      </a>
+    </div>
 
     <div class="c-header__secondary-menu">
       {{ elements.topnavigation }}

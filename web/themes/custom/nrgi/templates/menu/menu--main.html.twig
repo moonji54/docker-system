@@ -24,46 +24,138 @@
 We call a macro which calls itself to render the full tree.
 @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
-{{ menus.menu_links(items, attributes, 0) }}
+{{ menus.menu_links(items, attributes, 0, base_path, directory) }}
 
-{% macro menu_links(items, attributes, menu_level) %}
-  {% import _self as menus %}
+{% macro menu_links(items, attributes, menu_level, base_path, directory) %}
+  {#  {% import _self as menus %} #}
+  {#  {% if items %} #}
+  {#    {% if menu_level == 0 %} #}
+  {#      <ul{{ attributes.addClass('c-main-menu js-main-menu') }}> #}
+  {#    {% else %} #}
+  {#      <ul class="c-main-menu__sub-menu js-sub-menu"> #}
+  {#    {% endif %} #}
+
+  {#    {% for item in items %} #}
+  {#      {% set classes = [ #}
+  {#        'c-main-menu__item', #}
+  {#        item.is_expanded ? 'c-main-menu__item--expanded', #}
+  {#        item.is_collapsed ? 'c-main-menu__item--collapsed', #}
+  {#        item.in_active_trail ? 'c-main-menu__item--active-trail', #}
+  {#      ] %} #}
+  {#      <li{{ item.attributes.addClass(classes) }}> #}
+  {#        {% if item.below %} #}
+  {#        <div class="c-main-menu__item-link-wrapper"> #}
+  {#          {% endif %} #}
+  {#          {% if menu_level == 1 and item.below %} #}
+  {#          #}{# Menu Labels: can be added on second (menu_level = 1) level only: #}
+  {#              - In case third level has links, ignore link on second #}
+  {#                level item (evenn if it has been set by the editor). #}
+  {#              - If no third level is set don't ignore link, as #}
+  {#                this could be a normal menu link and not a label #}
+  {#          #}
+  {#          <span class="c-main-menu__item-link-heading">{{ item.title }}</span> #}
+  {#          {{ menus.menu_links(item.below, attributes, menu_level + 1) }} #}
+  {#          {% else %} #}
+  {#          {{ link(item.title, item.url, { 'class':['c-main-menu__item-link']}) }} #}
+  {#          {% if item.below %} #}
+  {#            <button class="c-main-menu__sub-menu-button js-sub-menu-button" aria-label="{{ 'Click to reveal sub navigation'|t }}" aria-expanded="false" type="button"> #}
+  {#              {% include '@nrgi/svg/svg.html.twig' with {'svg': 'chevron-down', 'extra_class': 'c-main-menu__sub-menu-svg'} %} #}
+  {#            </button> #}
+  {#          {% endif %} #}
+  {#          {% if item.below %} #}
+  {#        </div> #}
+  {#        {% endif %} #}
+  {#      {% if item.below %} #}
+  {#        {{ menus.menu_links(item.below, attributes, menu_level + 1) }} #}
+  {#      {% endif %} #}
+  {#        {% endif %} #}
+  {#      </li> #}
+  {#    {% endfor %} #}
+
+  {#    {% if menu_level == 0 %} #}
+  {#      </ul> #}
+  {#    {% else %} #}
+  {#      </ul> #}
+  {#    {% endif %} #}
+  {#  {% endif %} #}
+  {# {% endmacro %} #}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass('c-main-menu js-main-menu') }}>
-    {% else %}
-      <ul class="c-main-menu__sub-menu js-sub-menu">
-    {% endif %}
+      {# Main menu #}
+      <ul class="c-main-menu">
+        {% for item in items %}
+          {% set classes = [
+            'c-main-menu__item',
+            item.is_expanded ? 'c-main-menu__item--expanded',
+            item.is_collapsed ? 'c-main-menu__item--collapsed',
+            item.in_active_trail ? 'c-main-menu__item--active-trail',
+          ] %}
+          <li{{ item.attributes.addClass(classes) }}>
+            {#          <li class="c-main-menu__item {% if item.in_active_trail %}is-active{% endif %}"> #}
+            {% if item.url %}
+              <div class="c-main-menu__item-link-wrapper">
+                {{ link(item.title, item.url, { 'class':['c-main-menu__item-link']}) }}
 
-    {% for item in items %}
-      {% set classes = [
-        'c-main-menu__item',
-        item.is_expanded ? 'c-main-menu__item--expanded',
-        item.is_collapsed ? 'c-main-menu__item--collapsed',
-        item.in_active_trail ? 'c-main-menu__item--active-trail',
-      ] %}
-      <li{{ item.attributes.addClass(classes) }}>
-        {% if menu_level == 1 and item.below %}
-          {# Menu Labels: can be added on second (menu_level = 1) level only:
-              - In case third level has links, ignore link on second
-                level item (evenn if it has been set by the editor).
-              - If no third level is set don't ignore link, as
-                this could be a normal menu link and not a label
-          #}
-          <span>{{ item.title }}</span>
-          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-        {% else %}
-          {{ link(item.title, item.url, { 'class':['c-main-menu__item-link']}) }}
-          {% if item.below %}
-            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-          {% endif %}
-        {% endif %}
-      </li>
-    {% endfor %}
+                {# Sub menu button #}
+                {% if item.below %}
+                  <button class="c-main-menu__sub-menu-button js-sub-menu-button" aria-label="{{ 'Click to reveal sub navigation'|t }}" aria-expanded="false" type="button"> #}
+                    {% include '@nrgi/svg/svg.html.twig' with {'svg': 'chevron-down', 'extra_class': 'c-main-menu__sub-menu-svg'} %}
+                  </button>
+                {% endif %}
+              </div>
+            {% endif %}
 
-    {% if menu_level == 0 %}
+            {# Sub menus #}
+            {% if item.below %}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            {% endif %}
+          </li>
+        {% endfor %}
       </ul>
+    {% elseif menu_level == 1 %}
+      <div class="c-mega-nav js-main-menu-sub-nav">
+        {% if items|first.below %}
+          {# Menu with sub items / groups #}
+          <ul class="c-main-menu__sub-menu js-sub-menu" role="menu">
+            {% for item in items %}
+              <li class="c-mega-nav__group-wrapper">
+                <div class="c-mega-nav__group-inner">
+                  {% if item.url|render|striptags %}
+                    <a class="c-mega-nav__heading" href="{{ item.url }}">{{ item.title }}</a>
+                  {% else %}
+                    <h3 class="c-mega-nav__heading">{{ item.title }}</h3>
+                  {% endif %}
+
+                  {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          {# Menu with no sub items #}
+          <div class="c-mega-nav__container">
+            <ul class="c-mega-nav__list" role="menu">
+              {% for item in items %}
+                <li class="c-mega-nav__item">
+                  <a class="c-mega-nav__link" href="{{ item.url }}">{{ item.title }}</a>
+                  {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </div>
     {% else %}
+      {# Level Three - Group sub menu #}
+      <ul class="c-mega-nav__list" role="menu">
+        {% for item in items %}
+          <li>
+            <a class="c-mega-nav__link" href="{{ item.url }}">{{ item.title }}</a>
+            {% if item.below %}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            {% endif %}
+          </li>
+        {% endfor %}
       </ul>
     {% endif %}
   {% endif %}

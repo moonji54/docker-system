@@ -5,19 +5,86 @@
   flex-wrap : wrap;
   gap       : var(--space-m);
 
-  &__sub-menu {
-    display : none;
+  @include media("<desktop") {
+    flex-direction : column;
+  }
+
+  &__item {
+    position  : relative;
+    font-size : 0;
+
+    @include media("<desktop") {
+      border-top : 1px solid blue;
+      padding    : 40px;
+    }
+
+    @include media(">desktop") {
+      &:hover,
+      &:focus {
+        > #{$c}__item-link-wrapper > #{$c}__item-link {
+          color : green;
+        }
+
+        #{$c}__sub-menu {
+          display : block;
+        }
+
+        #{$c}__sub-menu-svg {
+          transform : rotateX(180deg);
+        }
+      }
+    }
+  }
+
+  &__item-link-wrapper {
+    @include media("<desktop") {
+      align-items     : center;
+      display         : flex;
+      justify-content : space-between;
+    }
   }
 
   &__item-link {
     @include ts-main-menu;
-    text-decoration       : underline;
-    text-decoration-color : transparent;
-    transition            : text-decoration-color 0.3s;
+    @include underlined;
 
-    &:hover,
-    &:focus {
+    /* stylelint-disable-next-line */
+    &.is-active {
       text-decoration-color : $white;
+    }
+  }
+
+  &__sub-menu {
+    display : none;
+  }
+
+  &__sub-menu-button {
+    display : none;
+
+    @include media("<desktop") {
+      display    : block;
+      transition : all 0.3s;
+
+      &:not(.is-clicked) {
+        #{$c}__sub-menu-svg {
+          transform : rotateX(0) translateY(10px);
+        }
+      }
+
+      &:hover,
+      &:focus {
+
+        #{$c}__sub-menu-svg {
+          color : grey;
+        }
+      }
+    }
+
+    &.is-clicked {
+      /* stylelint-disable-next-line */
+      #{$c}__sub-menu-svg {
+        transform : rotateX(180deg) translateY(10px);
+      }
     }
   }
 }

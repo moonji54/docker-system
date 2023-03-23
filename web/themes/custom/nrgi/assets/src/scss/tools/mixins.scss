@@ -25,10 +25,10 @@
 }
 
 $z-index : (
-  footer: 10,
-  header: 15,
-  menu: 2,
-  localtasks: 3,
+    footer: 10,
+    header: 15,
+    menu: 2,
+    localtasks: 3,
 );
 
 @function z-index($key) {
@@ -84,5 +84,16 @@ $z-index : (
   }
   &::-moz-selection {
     background : $color;
+  }
+}
+
+@mixin underlined {
+  text-decoration       : underline;
+  text-decoration-color : transparent;
+  transition            : text-decoration-color 0.3s;
+
+  &:hover,
+  &:focus {
+    text-decoration-color : $white;
   }
 }
