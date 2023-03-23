@@ -1,18 +1,21 @@
 {% if content.field_media|field_value %}
-  <div{{ attributes.addClass(classes) }}>
-    <div style="background-color: navajowhite; padding:20px; width: 100%; border: #0a7bc1 1px dotted;">
-      {% if content.field_media|field_value %}
+  <figure class="c-full-width-media o-section">
+    <div class="o-container">
+      <div class="c-full-width-media__image-wrapper">
         {{ content.field_media }}
-      {% endif %}
+      </div>
 
       {% if content.field_caption|field_value %}
-        {{ content.field_caption }}
-      {% endif %}
+        <figcaption>
+          {% if content.field_caption|field_value %}
+            {{ content.field_caption }}
+          {% endif %}
 
-      {% if content.field_credit|field_value %}
-        {{ content.field_credit }}
+          {% if content.field_credit|field_value %}
+            {{ content.field_credit }}
+          {% endif %}
+        </figcaption>
       {% endif %}
-
     </div>
-  </div>
+  </figure>
 {% endif %}
