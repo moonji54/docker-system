@@ -13,7 +13,7 @@ class ParallaxScroll {
         this.$parallaxContainer = this.$('.js-parallax-container');
 
         this.$window.on('load scroll', debounce(() => {
-            if (this.$parallaxContainer.hasClass('js-has-image')) {
+            if (this.$parallaxContainer.hasClass('js-has-image') && this.$window.width() >= 768) {
                 this.applyClassOnScroll();
             }
         }));
