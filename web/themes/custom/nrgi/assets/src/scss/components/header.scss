@@ -1,6 +1,8 @@
 /** @define c-header */
 .c-header {
+  //background : linear-gradient(180deg, rgba($black, 30%) 0%, rgba($black, 0%) 93.27%);
   background : lightskyblue;
+  border     : 1px solid rgba($grey-light, 0.5);
   box-sizing : border-box;
   color      : $white;
   padding    : 60px 0 16px;
@@ -34,8 +36,8 @@
     grid-column : 7 / -1;
 
     @include media("<=desktop") {
-      order       : 3;
       grid-column : 1 / -1;
+      order       : 3;
     }
   }
 
@@ -45,25 +47,32 @@
     grid-column : 1 / 10;
 
     @include media("<=desktop") {
+      grid-column : 1 / -1;
       order       : 2;
+    }
+  }
+
+  /* #Search
+================================================== */
+  &__search {
+    align-self  : center;
+    grid-column : 10 / -1;
+    transform   : translateY(-1px);
+
+    @include media("<=desktop") {
       grid-column : 1 / -1;
     }
   }
 
-  &__search {
-    grid-column : 10 / -1;
-    display     : none;
-
-    input {
-      width : 100%;
-    }
-  }
-
+  /* #Burger button
+================================================== */
   &__burger-button {
     display : none;
 
     @include media("<=desktop") {
-      display : block;
+      display  : flex;
+      position : absolute;
+      right    : var(--gutter);
     }
   }
 }

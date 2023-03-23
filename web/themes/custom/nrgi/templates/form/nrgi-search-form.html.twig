@@ -7,12 +7,5 @@
       {{ search_form['#form']['form_token'] }}
       {{ search_form['#form']['form_id'] }}
     </div>
-
-    <button class="c-header-search__submit-button"
-            aria-label="{{ 'Search'|t }}"
-            title="Search all content"
-            type="submit">
-      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'search-icon', 'extra_class': 'c-header-search__svg'} %}
-    </button>
   </form>
 </div>

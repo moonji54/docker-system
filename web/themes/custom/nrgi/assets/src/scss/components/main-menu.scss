@@ -10,7 +10,6 @@
   }
 
   &__item {
-    position  : relative;
     font-size : 0;
 
     @include media("<desktop") {
@@ -18,22 +17,22 @@
       padding    : 40px;
     }
 
-    @include media(">desktop") {
-      &:hover,
-      &:focus {
-        > #{$c}__item-link-wrapper > #{$c}__item-link {
-          color : green;
-        }
-
-        #{$c}__sub-menu {
-          display : block;
-        }
-
-        #{$c}__sub-menu-svg {
-          transform : rotateX(180deg);
-        }
-      }
-    }
+    //@include media(">desktop") {
+    //  &:hover,
+    //  &:focus {
+    //    > #{$c}__item-link-wrapper > #{$c}__item-link {
+    //      color : green;
+    //    }
+    //
+    //    #{$c}__sub-menu {
+    //      display : block;
+    //    }
+    //
+    //    #{$c}__sub-menu-svg {
+    //      transform : rotateX(180deg);
+    //    }
+    //  }
+    //}
   }
 
   &__item-link-wrapper {
