@@ -1,12 +1,12 @@
 {% set classes = [
-  'c-featured-page',
+  'c-card',
 ] %}
 
   {% if title or responsive_image %}
     <article{{ attributes.addClass(classes) }}>
-      <div class="c-featured-page__content-wrapper">
+      <div class="c-card__content-wrapper">
         {% if responsive_image %}
-          <div class="c-featured-page__image-wrapper">
+          <div class="c-card__image-wrapper">
             {% if responsive_image %}
               {{ responsive_image }}
             {% else %}
@@ -15,14 +15,14 @@
           </div>
         {% endif %}
 
-        <h3 class="c-featured-page__title">
-          <a class="c-featured-page__link" href="{{ url }}">
+        <h3 class="c-card__title">
+          <a class="c-card__link" href="{{ url }}">
             {{ title }}
           </a>
         </h3>
 
         {% if description %}
-          <p class="c-featured-page__description">
+          <p class="c-card__description">
             {{ description }}
           </p>
         {% endif %}

@@ -1,36 +1,40 @@
+{% set has_grey_background = (content.field_show_background|field_raw('value') == '1') %}
+{{ has_grey_background ? 'true' : 'false' }}
+
 {% set classes = [
   'c-featured-pages',
   'o-section',
-  'paragraph',
-  'paragraph--type--' ~ paragraph.bundle|clean_class,
-  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  not paragraph.isPublished() ? 'paragraph--unpublished'
+  has_grey_background ? 'o-section--has-background'
 ] %}
+
+{% if featured_pages.layout == '1' %}
+  {% set layout = 'one-per-row' %}
+{% elseif featured_pages.layout == '2' %}
+  {% set layout = 'two-per-row' %}
+{% elseif featured_pages.layout == '3' %}
+  {% set layout = 'three-per-row' %}
+{% elseif featured_pages.layout == '4' %}
+  {% set layout = 'four-per-row' %}
+{% endif %}
 
 {% if featured_pages %}
   <section{{ attributes.addClass(classes) }}>
-    <div style="padding: 20px; border:1px indianred dotted">
-      [featured pages]
-      [view_mode] : {{ featured_pages.view_mode }}
-      [with_image] : {{ featured_pages.with_image ? 'true' : 'false' }}
-      [layout] : {{ featured_pages.layout }}
-      {% set has_grey_background = (content.field_show_background|field_raw('value') == '1') %}
-      [has_grey_background] : {{ has_grey_background ? 'true' : 'false' }}
-
-      {% if content.field_title|field_value %}
-        [title size]: {{ content.field_title_size|field_raw('value') }}
-        {% if content.field_title_size|field_raw('value') == 'small' %}
-          <h3>{{ content.field_title }}</h3>
-        {% else %}
-          <h5>{{ content.field_title }}</h5>
+    <div class="o-container">
+      <header class="o-section__header">
+        {% if content.field_title|field_value %}
+          {% if content.field_title_size|field_raw('value') != 'small' %}
+            <h2 class="o-section__heading">{{ content.field_title }}</h2>
+          {% else %}
+            <h5 class="o-section__heading o-section__heading--small">{{ content.field_title }}</h5>
+          {% endif %}
         {% endif %}
-      {% endif %}
 
-      {% if content.field_description|field_value %}
-        <p>{{ content.field_description }}</p>
-      {% endif %}
+        {% if content.field_description|field_value %}
+          <p class="o-section__description">{{ content.field_description }}</p>
+        {% endif %}
+      </header>
 
-      <div style="padding: 20px; background-color: forestgreen">
+      <div class="c-featured-pages__container o-card-container o-card-container--{{ layout }}">
         {% for featured_page in featured_pages.items %}
           {{ featured_page }}
         {% endfor %}
@@ -44,7 +48,6 @@
           <span class="c-call-to-action__link-title">{{ featured_pages.cta.title }}</span>
         </a>
       {% endif %}
-
     </div>
   </section>
 {% endif %}

@@ -5,6 +5,7 @@
     Author: Soapbox
     Version: 2.1
 */
+
 /*
     ===============================
     1. SETTINGS
@@ -45,6 +46,7 @@
     ===============================
 */
 @import "objects/button";
+@import "objects/card-container";
 @import "objects/container";
 @import "objects/content-from-editor";
 @import "objects/section";
@@ -56,6 +58,7 @@
     ===============================
 */
 @import "components/breadcrumbs";
+@import "components/card";
 @import "components/footer";
 @import "components/form";
 @import "components/header";

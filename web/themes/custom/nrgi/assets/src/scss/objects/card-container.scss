@@ -9,4 +9,12 @@
       grid-template-columns : 1fr;
     }
   }
+
+  &--three-per-row {
+    grid-template-columns : repeat(3, 1fr);
+
+    @include media("<=tablet") {
+      grid-template-columns : 1fr;
+    }
+  }
 }
