@@ -3,49 +3,48 @@
     1. SETTINGS
     ===============================
 */
-/*
- * Example @font-face done nicely:
-
+/* Core
+================================================== */
+/* Full Palette
+================================================== */
 @font-face {
-  font-family : "Founders Grotesk";
-  src         : url("../fonts/FoundersGroteskWeb-Regular.woff2") format("woff2"),
-  url("../fonts/FoundersGroteskWeb-Regular.woff") format("woff");
+  font-family: "Cabinet Grotesk";
+  src: url("../fonts/CabinetGrotesk-Light.woff2") format("woff2"), url("../fonts/CabinetGrotesk-Light.woff") format("woff");
   font-display: swap;
-  font-style  : normal;
-  font-weight : 400;
+  font-style: normal;
+  font-weight: 300;
 }
-
 @font-face {
-  font-family : "Founders Grotesk";
-  src         : url("../fonts/FoundersGroteskWeb-RegularItalic.woff2") format("woff2"),
-  url("../fonts/FoundersGroteskWeb-RegularItalic.woff") format("woff");
+  font-family: "Cabinet Grotesk";
+  src: url("../fonts/CabinetGrotesk-Regular.woff2") format("woff2"), url("../fonts/CabinetGrotesk-Regular.woff") format("woff");
   font-display: swap;
-  font-style  : italic;
-  font-weight : 400;
+  font-style: normal;
+  font-weight: 400;
 }
-
 @font-face {
-  font-family : "Founders Grotesk";
-  src         : url("../fonts/FoundersGroteskWeb-Medium.woff2") format("woff2"),
-  url("../fonts/FoundersGroteskWeb-Medium.woff") format("woff");
+  font-family: "Cabinet Grotesk";
+  src: url("../fonts/CabinetGrotesk-Medium.woff2") format("woff2"), url("../fonts/CabinetGrotesk-Medium.woff") format("woff");
   font-display: swap;
-  font-style  : normal;
-  font-weight : 700;
+  font-style: normal;
+  font-weight: 500;
 }
-
 @font-face {
-  font-family : "Heldane";
-  src         : url("../fonts/heldane-text-web-regular.woff2") format("woff2"),
-  url("../fonts/heldane-text-web-regular.woff") format("woff");
+  font-family: "Cabinet Grotesk";
+  src: url("../fonts/CabinetGrotesk-Bold.woff2") format("woff2"), url("../fonts/CabinetGrotesk-Bold.woff") format("woff");
   font-display: swap;
-  font-style  : normal;
-  font-weight : 400;
+  font-style: normal;
+  font-weight: 700;
 }
-*/
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../fonts/CabinetGrotesk-Extrabold.woff2") format("woff2"), url("../fonts/CabinetGrotesk-Extrabold.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 800;
+}
 /* Spacing
 ================================================== */
 :root {
-  --space-xxs: 0.25rem;
   --space-xs: 0.5rem;
   --space-s: 1rem;
   --space-m: 1.5rem;
@@ -53,10 +52,19 @@
   --space-xl: 3rem;
   --space-2xl: 4rem;
   --space-3xl: 6rem;
+  --space-4xl: 8rem;
   --gutter: 2rem;
 }
-@media (max-width: 46.25rem) {
+@media (max-width: 48rem) {
   :root {
+    --space-xs: 0.25rem;
+    --space-s: 0.5rem;
+    --space-m: 1rem;
+    --space-l: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 2.25rem;
+    --space-3xl: 3.5rem;
+    --space-4xl: 4.5rem;
     --gutter: 1rem;
   }
 }
@@ -86,7 +94,11 @@
 ================================================== */
 /* #Headings
 ================================================== */
+/* Cards
+================================================== */
 /* Buttons
+================================================== */
+/* Menu
 ================================================== */
 /* Labels
 ================================================== */
@@ -109,25 +121,47 @@
 */
 /** @define o-button */
 .o-button {
-  border: 1px solid #1e1e46;
-  color: #1e1e46;
-  display: inline-block;
-  overflow: hidden;
-  padding: var(--space-xs);
-  position: relative;
-  transition: background 0.1s linear;
-  z-index: 0;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1;
+  align-items: center;
+  border: 0.0625rem solid #2D2D32;
+  color: #2D2D32;
+  height: 2.5rem;
+  display: inline-flex;
+  gap: var(--space-xs);
+  padding: 0.625rem 1.125rem;
+  transition: background-color 0.3s;
+  border-radius: 2.75rem;
 }
-.o-button:hover, .o-button:focus {
-  background: #1e1e46;
-  color: #fff;
+@media (max-width: 64rem) {
+  .o-button {
+    font-size: 1rem;
+  }
+}
+.o-button:focus, .o-button:hover {
+  background-color: #ED7053;
+}
+@media (max-width: 48rem) {
+  .o-button {
+    padding: 0.25rem 0.875rem;
+    height: 2rem;
+  }
+}
+.o-button--white {
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+.o-button--white:focus, .o-button--white:hover {
+  background-color: rgba(45, 45, 50, 0.4);
 }
 
 .o-container {
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
-  max-width: calc(108.5rem + var(--gutter) * 2);
+  max-width: calc(82rem + var(--gutter) * 2);
   padding-left: var(--gutter);
   padding-right: var(--gutter);
   width: 100%;
@@ -144,23 +178,89 @@
   ================================================== */
 }
 :where(.o-content-from-editor) p {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.75;
+  font-weight: 400;
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) p {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) p {
+    font-size: 1rem;
+  }
 }
 :where(.o-content-from-editor) h1 {
-  font-weight: 700;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 5rem;
+  line-height: 1.15;
+  font-weight: 500;
+}
+@media (max-width: 88rem) {
+  :where(.o-content-from-editor) h1 {
+    font-size: 4.5rem;
+  }
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) h1 {
+    font-size: 3.75rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) h1 {
+    font-size: 2rem;
+  }
 }
 :where(.o-content-from-editor) h2 {
-  font-weight: 700;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 4rem;
+  line-height: 1.2;
+}
+@media (max-width: 88rem) {
+  :where(.o-content-from-editor) h2 {
+    font-size: 4.1875rem;
+  }
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) h2 {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) h2 {
+    font-size: 1.875rem;
+  }
 }
 :where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
-  font-weight: 700;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 1.2;
+}
+@media (max-width: 88rem) {
+  :where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
+    font-size: 2.25rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
+    font-size: 1.75rem;
+  }
 }
 :where(.o-content-from-editor) a {
   text-decoration: underline;
 }
 :where(.o-content-from-editor) a:hover, :where(.o-content-from-editor) a:focus {
-  color: #303046;
+  color: #ED7053;
   text-decoration: underline;
 }
 :where(.o-content-from-editor) > :last-child {
@@ -181,7 +281,6 @@
   margin-top: var(--space-s);
 }
 :where(.o-content-from-editor) figure figcaption {
-  background-color: #f6f6f6;
   box-sizing: border-box;
   display: inline-block;
   padding: var(--space-xs) var(--space-s);
@@ -197,17 +296,45 @@
   margin-top: var(--space-m);
 }
 :where(.o-content-from-editor) blockquote {
-  border-left: 3px solid #1e1e46;
+  border-left: 3px solid #2D2D32;
   margin: var(--space-l) 0 var(--space-l) var(--space-m);
   padding: var(--space-xs) 0 var(--space-xs) var(--space-m);
 }
 :where(.o-content-from-editor) blockquote p {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.5;
   font-style: italic;
   font-weight: 400;
   margin-bottom: 0;
 }
+@media (max-width: 88rem) {
+  :where(.o-content-from-editor) blockquote p {
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) blockquote p {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) blockquote p {
+    font-size: 1.125rem;
+  }
+}
 :where(.o-content-from-editor) blockquote footer {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
   margin-top: var(--space-s);
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) blockquote footer {
+    font-size: 0.875rem;
+  }
 }
 :where(.o-content-from-editor) .alignleft, :where(.o-content-from-editor) .align-left {
   float: left;
@@ -227,12 +354,12 @@
   margin: var(--space-l) 0;
   max-width: 100%;
 }
-@media (max-width: 46.25rem) {
+@media (max-width: 48rem) {
   :where(.o-content-from-editor) .alignnone {
     margin-top: var(--space-m);
   }
 }
-@media (max-width: 46.25rem) {
+@media (max-width: 48rem) {
   :where(.o-content-from-editor) .alignleft,
   :where(.o-content-from-editor) .alignright,
   :where(.o-content-from-editor) .alignnone {
@@ -261,11 +388,23 @@
   list-style: decimal;
 }
 :where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.75;
+  font-weight: 400;
   margin: var(--space-s) 0 var(--space-m) var(--space-m);
 }
-@media (max-width: 46.25rem) {
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 48rem) {
   :where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
     margin-bottom: var(--space-s);
     margin-top: var(--space-s);
@@ -279,9 +418,21 @@
   padding-left: var(--space-xs);
 }
 :where(.o-content-from-editor) address {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.75;
+  font-weight: 400;
   font-style: italic;
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) address {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) address {
+    font-size: 1rem;
+  }
 }
 :where(.o-content-from-editor) big {
   font-size: 120%;
@@ -304,6 +455,8 @@
 
 /** @define o-svg */
 .o-svg {
+  /* #Logos
+  ================================================== */
   /* #Social
   ================================================== */
 }
@@ -312,24 +465,34 @@
   height: 1.25rem;
   width: 1.25rem;
 }
+.o-svg--email {
+  height: 1.0625rem;
+  width: 1.375rem;
+}
+.o-svg--nrgi-logo-condensed {
+  height: 3.5rem;
+  width: 11.5625rem;
+}
 .o-svg--facebook {
-  height: 1rem;
-  width: 1rem;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+.o-svg--instagram {
+  height: 1.375rem;
+  width: 1.375rem;
 }
 .o-svg--linkedin {
-  height: 0.875rem;
-  width: 0.9375rem;
+  height: 1.125rem;
+  width: 1.125rem;
 }
 .o-svg--twitter {
-  height: 0.875rem;
-  width: 1.125rem;
+  height: 1.125rem;
+  width: 1.5rem;
 }
 .o-svg--youtube {
-  height: 0.813rem;
-  width: 1.125rem;
-}
-
-/*
+  height: 1.0313rem;
+  width: 1.5rem;
+} /*
     ===============================
     6. COMPONENTS
     ===============================
