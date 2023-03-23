@@ -1,40 +1,50 @@
 import debounce from './utils/debounce';
 
 class ParallaxScroll {
-  constructor(context, settings, $, Drupal) {
-// Values from Drupal
-    this.context = context;
-    this.settings = settings;
-    this.$ = $;
-    this.Drupal = Drupal;
+    constructor (context, settings, $, Drupal) {
+        // Values from Drupal
+        this.context = context;
+        this.settings = settings;
+        this.$ = $;
+        this.Drupal = Drupal;
 
-    this.$root = $(':root');
-    this.$window = this.$(window);
-    this.$parallaxContainer = this.$('.js-parallax-container');
+        this.$root = $(':root');
+        this.$window = this.$(window);
+        this.$parallaxContainer = this.$('.js-parallax-container');
 
-    this.$window.on('scroll', debounce(() => {
-      this.applyClassOnScroll();
-    }));
-  }
+        this.$window.on('load scroll', debounce(() => {
+            if (this.$parallaxContainer.hasClass('js-has-image')) {
+                this.applyClassOnScroll();
+            }
+        }));
+    }
 
-  applyClassOnScroll() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          this.$(entry.target).addClass('is-visible');
+    applyClassOnScroll () {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    this.translateCalc(entry);
+                }
+            });
+        });
 
-          this.$root.css({
-            "--scroll": window.scrollY / document.body.offsetHeight
-          });
+        this.$parallaxContainer.each((index, container) => {
+            observer.observe(container);
+        });
+    }
+
+    translateCalc (entry) {
+        const parallaxBlock = this.$(entry.target).find(this.$('.js-parallax-block'));
+
+        const entryRect = entry.target.getBoundingClientRect();
+        const progress = 80 * (entryRect.y / window.innerHeight);
+
+        if (progress <= 0) {
+            parallaxBlock[0].style.transform = 'translateY(0%)';
+        } else {
+            parallaxBlock[0].style.transform = `translateY(${progress}%)`;
         }
-        else {
-          this.$(entry.target).removeClass('is-visible');
-        }
-      });
-    });
-
-    observer.observe(this.$parallaxContainer[0]);
-  }
+    }
 }
 
 export default ParallaxScroll;

@@ -25,8 +25,10 @@ var ParallaxScroll = /*#__PURE__*/function () {
     this.$root = $(':root');
     this.$window = this.$(window);
     this.$parallaxContainer = this.$('.js-parallax-container');
-    this.$window.on('scroll', (0, _debounce["default"])(function () {
-      _this.applyClassOnScroll();
+    this.$window.on('load scroll', (0, _debounce["default"])(function () {
+      if (_this.$parallaxContainer.hasClass('js-has-image')) {
+        _this.applyClassOnScroll();
+      }
     }));
   }
   _createClass(ParallaxScroll, [{
@@ -36,16 +38,25 @@ var ParallaxScroll = /*#__PURE__*/function () {
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            _this2.$(entry.target).addClass('is-visible');
-            _this2.$root.css({
-              "--scroll": window.scrollY / document.body.offsetHeight
-            });
-          } else {
-            _this2.$(entry.target).removeClass('is-visible');
+            _this2.translateCalc(entry);
           }
         });
       });
-      observer.observe(this.$parallaxContainer[0]);
+      this.$parallaxContainer.each(function (index, container) {
+        observer.observe(container);
+      });
+    }
+  }, {
+    key: "translateCalc",
+    value: function translateCalc(entry) {
+      var parallaxBlock = this.$(entry.target).find(this.$('.js-parallax-block'));
+      var entryRect = entry.target.getBoundingClientRect();
+      var progress = 80 * (entryRect.y / window.innerHeight);
+      if (progress <= 0) {
+        parallaxBlock[0].style.transform = 'translateY(0%)';
+      } else {
+        parallaxBlock[0].style.transform = "translateY(".concat(progress, "%)");
+      }
     }
   }]);
   return ParallaxScroll;

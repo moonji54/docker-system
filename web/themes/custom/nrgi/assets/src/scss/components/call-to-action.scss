@@ -9,8 +9,8 @@
       top : 60%;
     }
 
-    75% {
-      top : 70%;
+    80% {
+      top : 0;
     }
 
     100% {
@@ -26,11 +26,13 @@
   &.is-visible {
     @include media(">=tablet") {
       #{$c}__block {
-        animation                 : scroll-to-top 1.3s linear infinite;
         animation-delay           : calc(var(--scroll) * -1s);
+        animation-duration        : calc(var(--scroll-duration) * 1s);
         animation-fill-mode       : both;
         animation-iteration-count : 1;
+        animation-name            : scroll-to-top;
         animation-play-state      : paused;
+        animation-timing-function : linear;
       }
     }
   }
@@ -65,7 +67,7 @@
     left       : 0;
     object-fit : cover;
     position   : absolute;
-    top        : 40%;
+    top        : 0;
     width      : 100%;
 
     @include media("<=tablet") {
@@ -109,10 +111,11 @@
   }
 
   &__content-wrapper {
-    display     : block;
-    grid-column : 1 / 8;
-    margin      : auto;
-    padding     : var(--space-2xl) 0;
+    display         : flex;
+    flex-direction  : column;
+    grid-column     : 1 / 8;
+    justify-content : center;
+    padding         : var(--space-2xl) 0;
 
     @include media("<=tablet") {
       padding : 8.375rem 0;
@@ -130,37 +133,67 @@
 
   &__link {
     margin-top : var(--space-m);
-
-    &:focus,
-    &:hover {
-      background-color : rgba($primary, 0.1);
-      mix-blend-mode   : multiply;
-    }
   }
 
+  /* stylelint-disable */
   &--ocean {
-    color : $white;
+    color         : $white;
+    --theme-color : #{$secondary};
 
     #{$c}__inner {
       &:before {
-        background-color : $secondary;
+        background-color : var(--theme-color);
       }
     }
   }
 
   &--core {
+    --theme-color : #{$tertiary};
+
     #{$c}__inner {
       &:before {
-        background-color : $tertiary;
+        background-color : var(--theme-color);
       }
     }
   }
 
   &--light-hydro {
+    --theme-color : #{$blue-light};
+
     #{$c}__inner {
       &:before {
-        background-color : $blue-light;
+        background-color : var(--theme-color);
       }
+    }
+  }
+
+  // White content
+  &:not(&--ocean) {
+    #{$c}__link {
+      &:focus,
+      &:hover {
+        background-color : rgba($primary, 0.1);
+        mix-blend-mode   : multiply;
+      }
+    }
+  }
+
+  &--no-image {
+    background-color : var(--theme-color);
+    min-height       : auto;
+
+    #{$c}__block {
+      position : static;
+    }
+
+    #{$c}__inner {
+      &:before {
+        display : none;
+      }
+    }
+
+    #{$c}__content-wrapper {
+      padding : var(--space-4xl) 0;
     }
   }
 }

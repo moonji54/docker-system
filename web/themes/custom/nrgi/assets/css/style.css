@@ -628,13 +628,14 @@ ul li a:hover {
   /* stylelint-disable */
   /* stylelint-enable */
   /* stylelint-disable-next-line */
+  /* stylelint-disable */
 }
 @keyframes scroll-to-top {
   50% {
     top: 60%;
   }
-  75% {
-    top: 70%;
+  80% {
+    top: 0;
   }
   100% {
     top: 0;
@@ -647,11 +648,13 @@ ul li a:hover {
 }
 @media (min-width: 48rem) {
   .c-call-to-action.is-visible .c-call-to-action__block {
-    animation: scroll-to-top 1.3s linear infinite;
     animation-delay: calc(var(--scroll) * -1s);
+    animation-duration: calc(var(--scroll-duration) * 1s);
     animation-fill-mode: both;
     animation-iteration-count: 1;
+    animation-name: scroll-to-top;
     animation-play-state: paused;
+    animation-timing-function: linear;
   }
 }
 .c-call-to-action__image-wrapper {
@@ -682,7 +685,7 @@ ul li a:hover {
   -o-object-fit: cover;
      object-fit: cover;
   position: absolute;
-  top: 40%;
+  top: 0;
   width: 100%;
 }
 @media (max-width: 48rem) {
@@ -728,9 +731,10 @@ ul li a:hover {
   }
 }
 .c-call-to-action__content-wrapper {
-  display: block;
+  display: flex;
+  flex-direction: column;
   grid-column: 1/8;
-  margin: auto;
+  justify-content: center;
   padding: var(--space-2xl) 0;
 }
 @media (max-width: 48rem) {
@@ -784,21 +788,41 @@ ul li a:hover {
 .c-call-to-action__link {
   margin-top: var(--space-m);
 }
-.c-call-to-action__link:focus, .c-call-to-action__link:hover {
+.c-call-to-action--ocean {
+  color: #FFFFFF;
+  --theme-color: #00545A;
+}
+.c-call-to-action--ocean .c-call-to-action__inner:before {
+  background-color: var(--theme-color);
+}
+.c-call-to-action--core {
+  --theme-color: #FF7D5F;
+}
+.c-call-to-action--core .c-call-to-action__inner:before {
+  background-color: var(--theme-color);
+}
+.c-call-to-action--light-hydro {
+  --theme-color: #B3EFEF;
+}
+.c-call-to-action--light-hydro .c-call-to-action__inner:before {
+  background-color: var(--theme-color);
+}
+.c-call-to-action:not(.c-call-to-action--ocean) .c-call-to-action__link:focus, .c-call-to-action:not(.c-call-to-action--ocean) .c-call-to-action__link:hover {
   background-color: rgba(45, 45, 50, 0.1);
   mix-blend-mode: multiply;
 }
-.c-call-to-action--ocean {
-  color: #FFFFFF;
+.c-call-to-action--no-image {
+  background-color: var(--theme-color);
+  min-height: auto;
 }
-.c-call-to-action--ocean .c-call-to-action__inner:before {
-  background-color: #00545A;
+.c-call-to-action--no-image .c-call-to-action__block {
+  position: static;
 }
-.c-call-to-action--core .c-call-to-action__inner:before {
-  background-color: #FF7D5F;
+.c-call-to-action--no-image .c-call-to-action__inner:before {
+  display: none;
 }
-.c-call-to-action--light-hydro .c-call-to-action__inner:before {
-  background-color: #B3EFEF;
+.c-call-to-action--no-image .c-call-to-action__content-wrapper {
+  padding: var(--space-4xl) 0;
 }
 
 /** @define c-footer */
