@@ -63,13 +63,24 @@
   --space-4xl: 8rem;
   --gutter: 2rem;
 }
+@media (max-width: 64rem) {
+  :root {
+    --space-xs: 0.5rem;
+    --space-s: 1rem;
+    --space-m: 1rem;
+    --space-l: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 2.5rem;
+    --space-3xl: 4rem;
+    --space-4xl: 6rem;
+    --gutter: 2rem;
+  }
+}
 @media (max-width: 48rem) {
   :root {
     --space-xs: 0.25rem;
     --space-s: 0.5rem;
-    --space-m: 1rem;
-    --space-l: 1.5rem;
-    --space-xl: 2rem;
+    --space-l: 1rem;
     --space-2xl: 2.25rem;
     --space-3xl: 3.5rem;
     --space-4xl: 4.5rem;
