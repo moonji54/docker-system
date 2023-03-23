@@ -1,10 +1,6 @@
 /** @define o-section */
 .o-section {
-  margin-top : var(--space-xl);
-
-  @include media("<=tablet") {
-    margin-top : var(--space-l);
-  }
+  margin-top : var(--space-3xl);
 
   /* Modifiers
   ================================================== */

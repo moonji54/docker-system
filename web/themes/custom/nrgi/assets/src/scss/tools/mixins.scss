@@ -24,11 +24,12 @@
   width    : 1px;
 }
 
+/* stylelint-disable */
 $z-index : (
-  footer: 10,
-  header: 15,
-  menu: 2,
-  localtasks: 3,
+    footer: 10,
+    header: 15,
+    menu: 2,
+    localtasks: 3,
 );
 
 @function z-index($key) {
@@ -76,6 +77,11 @@ $z-index : (
     color   : $color;
     opacity : 1;
   }
+}
+
+@mixin object-fit($size) {
+  font-family : "object-fit: #{$size};";
+  object-fit  : $size;
 }
 
 @mixin selection-background($color) {
