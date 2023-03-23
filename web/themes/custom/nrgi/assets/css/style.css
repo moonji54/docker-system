@@ -714,6 +714,13 @@ ul li a:hover {
   container: card/inline-size;
 }
 
+/* stylelint-disable */
+@container (max-width:300px) {
+  .c-card__title {
+    font-size: 30px;
+  }
+}
+/* stylelint-enable */
 /** @define c-footer */
 .c-footer {
   background: no-repeat center/cover url("../img/footer-bg.png");

@@ -2,3 +2,13 @@
 .c-card {
   container : card / inline-size;
 }
+
+/* stylelint-disable */
+//@formatter:off
+@container (max-width:300px) {
+  .c-card__title {
+    font-size : 30px;
+  }
+}
+//@formatter:on
+/* stylelint-enable */
