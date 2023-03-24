@@ -711,6 +711,7 @@ ul li a:hover {
 */
 /** @define c-breadcrumbs */ /** @define c-card */
 .c-card {
+  width: 250px;
   container: card/inline-size;
 }
 
