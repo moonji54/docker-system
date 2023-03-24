@@ -17,3 +17,13 @@ global-scripts:
     - core/drupalSettings
     - core/once
 
+parallax-scroll:
+  version: 1.0
+  js:
+    assets/js/parallax-scroll.js: { minified: false }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - core/drupalSetting
+

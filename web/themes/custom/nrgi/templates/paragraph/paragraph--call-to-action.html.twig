@@ -1,3 +1,5 @@
+{{ attach_library('nrgi/parallax-scroll') }}
+
 {% set background_color = content.field_background_colour|field_raw('value')|replace({'_' : '-'}) %}
 
 {% set classes = [
