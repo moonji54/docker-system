@@ -5,8 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.landing_page.field_featured_image
-    - field.field.node.landing_page.field_hero_description
-    - field.field.node.landing_page.field_hero_title
     - field.field.node.landing_page.field_overlay_opacity
     - field.field.node.landing_page.field_page_builder
     - field.field.node.landing_page.field_short_description
@@ -30,8 +28,6 @@ content:
     region: content
 hidden:
   field_featured_image: true
-  field_hero_description: true
-  field_hero_title: true
   field_overlay_opacity: true
   field_page_builder: true
   field_short_description: true
