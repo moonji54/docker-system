@@ -557,7 +557,7 @@ ul li a:hover {
 
 /** @define o-section */
 .o-section {
-  margin-top: var(--space-xl);
+  margin-top: var(--space-3xl);
   /* Modifiers
   ================================================== */
   /* stylelint-disable-next-line */
@@ -568,7 +568,7 @@ ul li a:hover {
   }
 }
 .o-section--has-background {
-  padding: var(--space-xl);
+  padding: var(--space-3xl) 0;
 }
 .o-section--has-background + .o-section--has-background {
   margin-top: 0;
