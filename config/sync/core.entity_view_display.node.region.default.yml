@@ -1,0 +1,30 @@
+uuid: 4faf5abe-45cb-446c-82a3-8ca5d4e1fb30
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.region.body
+    - node.type.region
+  module:
+    - text
+    - user
+id: node.region.default
+targetEntityType: node
+bundle: region
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

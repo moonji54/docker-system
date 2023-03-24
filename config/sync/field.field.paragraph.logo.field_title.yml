@@ -1,0 +1,19 @@
+uuid: 28e7813c-128d-4b4b-8852-f20e806e2bdf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.logo
+id: paragraph.logo.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: logo
+label: Label
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

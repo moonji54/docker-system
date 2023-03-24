@@ -9,6 +9,7 @@ dependencies:
     - paragraphs.paragraphs_type.embed
     - paragraphs.paragraphs_type.full_width_media
     - paragraphs.paragraphs_type.learning_block
+    - paragraphs.paragraphs_type.quote
   module:
     - entity_reference_revisions
 id: node.landing_page.field_page_builder
@@ -29,6 +30,7 @@ settings:
       embed: embed
       full_width_media: full_width_media
       learning_block: learning_block
+      quote: quote
     negate: 0
     target_bundles_drag_drop:
       call_to_action:
@@ -58,6 +60,9 @@ settings:
       listing:
         weight: 15
         enabled: false
+      quote:
+        weight: 21
+        enabled: true
       wysiwyg:
         weight: 16
         enabled: false

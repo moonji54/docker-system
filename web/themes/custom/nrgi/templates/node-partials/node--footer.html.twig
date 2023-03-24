@@ -1,0 +1,21 @@
+{% set classes = [
+  'c-node',
+  'c-node--type-' ~ node.bundle|clean_class,
+] %}
+
+<footer {{ attributes.addClass(classes) }}>
+  <div class="acknowledgement">
+    <p>{{ 'This content was produced with financial support from'|t }}</p>
+    {% if content.field_acknowledgement_logo|field_value %}
+      {{ content.field_acknowledgement_logo }}
+    {% endif %}
+  </div>
+
+  {% if content.field_country|field_value %}
+    {{ content.field_country }}
+  {% endif %}
+
+  {% if content.field_topic|field_value %}
+    {{ content.field_topic }}
+  {% endif %}
+</footer>

@@ -1,0 +1,33 @@
+uuid: ba6fb2fb-d252-4c40-8a3e-27e146214788
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.file_upload.field_file
+    - field.field.paragraph.file_upload.field_title
+    - paragraphs.paragraphs_type.file_upload
+  module:
+    - media_library
+id: paragraph.file_upload.default
+targetEntityType: paragraph
+bundle: file_upload
+mode: default
+content:
+  field_file:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

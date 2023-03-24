@@ -1,0 +1,31 @@
+uuid: 44b10781-538e-4ffb-bafd-9f46d7dd6adc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.file_upload.field_file
+    - field.field.paragraph.file_upload.field_title
+    - paragraphs.paragraphs_type.file_upload
+id: paragraph.file_upload.default
+targetEntityType: paragraph
+bundle: file_upload
+mode: default
+content:
+  field_file:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

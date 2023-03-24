@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_region
     - node.type.career_opportunity
-    - taxonomy.vocabulary.regions
+    - node.type.region
 id: node.career_opportunity.field_region
 field_name: field_region
 entity_type: node
@@ -17,13 +17,13 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:node'
   handler_settings:
     target_bundles:
-      regions: regions
+      region: region
     sort:
-      field: name
-      direction: asc
+      field: _none
+      direction: ASC
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference
