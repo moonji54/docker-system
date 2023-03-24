@@ -3,14 +3,17 @@
   'c-node--type-' ~ node.bundle|clean_class,
 ] %}
 <div class="c-node__content-header">
-  {% include 'node--content-header.html.twig' %}
-  {% if content.field_resource_type|field_value %}
-    {{ content.field_resource_type }}
-  {% endif %}
 
-  {% if content.field_author|field_value %}
-    {{ content.field_author }}
-  {% endif %}
+  {% include "@nrgi/node-partials/node--header.html.twig" %}
+
+{#  {% include 'node--content-header.html.twig' %}#}
+{#  {% if content.field_resource_type|field_value %}#}
+{#    {{ content.field_resource_type }}#}
+{#  {% endif %}#}
+
+{#  {% if content.field_author|field_value %}#}
+{#    {{ content.field_author }}#}
+{#  {% endif %}#}
 
   {% if content.cta_download %}
     {{ content.cta_download }}
@@ -22,10 +25,10 @@
 </div>
 <article{{ attributes.addClass(classes) }}>
 
-  <h5>CONTENT TYPE</h5>
-  <p>
-    {{ content.field_resource_type|field_value ? content.field_resource_type : node.type.entity.label }}
-  </p>
+{#  <h5>CONTENT TYPE</h5>#}
+{#  <p>#}
+{#    {{ content.field_resource_type|field_value ? content.field_resource_type : node.type.entity.label }}#}
+{#  </p>#}
 
   <div class="acknowledgement">
     <p>{{ 'This content was produced with financial support from'|t }}</p>
@@ -38,25 +41,25 @@
     {% endif %}
   </div>
 
-  <h5>DATE</h5>
-  <p>
-    {{ node.createdtime|format_date('day_month_and_year') }}
-  </p>
+{#  <h5>DATE</h5>#}
+{#  <p>#}
+{#    {{ node.createdtime|format_date('day_month_and_year') }}#}
+{#  </p>#}
 
-  <h5>AUTHORS:</h5>
-  <p>
-    {% if content.field_author|field_value %}
-      {{ content.field_author }}
-    {% endif %}
+{#  <h5>AUTHORS:</h5>#}
+{#  <p>#}
+{#    {% if content.field_author|field_value %}#}
+{#      {{ content.field_author }}#}
+{#    {% endif %}#}
 
-    {% if content.field_external_author_link|field_value %}
-      {{ content.field_external_author_link }}
-    {% endif %}
+{#    {% if content.field_external_author_link|field_value %}#}
+{#      {{ content.field_external_author_link }}#}
+{#    {% endif %}#}
 
-    {% if content.field_external_author_name|field_value %}
-      {{ content.field_external_author_name }}
-    {% endif %}
-  </p>
+{#    {% if content.field_external_author_name|field_value %}#}
+{#      {{ content.field_external_author_name }}#}
+{#    {% endif %}#}
+{#  </p>#}
 
   <h5>READ TIME</h5>
   <p>

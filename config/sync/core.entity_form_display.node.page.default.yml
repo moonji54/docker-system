@@ -8,6 +8,7 @@ dependencies:
     - workflows.workflow.editorial
   module:
     - content_moderation
+    - media_library
     - path
 _core:
   default_config_hash: TqOtEP2ga8asHRZzgaXsqob7kqhILlfAObeK4yXX8QE
@@ -23,14 +24,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_featured_image:
-    type: entity_reference_autocomplete
+    type: media_library_widget
     weight: 4
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      media_types: {  }
     third_party_settings: {  }
   langcode:
     type: language_select

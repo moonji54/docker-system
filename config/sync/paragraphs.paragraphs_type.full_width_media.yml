@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: full_width_media
-label: 'Full width media'
+label: 'Full width image'
 icon_uuid: null
 icon_default: null
 description: ''

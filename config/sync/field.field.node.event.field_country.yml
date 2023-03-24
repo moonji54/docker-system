@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_country
+    - node.type.country
     - node.type.event
 id: node.event.field_country
 field_name: field_country
@@ -16,12 +17,13 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:node'
   handler_settings:
-    target_bundles: {  }
+    target_bundles:
+      country: country
     sort:
-      field: name
-      direction: asc
+      field: _none
+      direction: ASC
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference
