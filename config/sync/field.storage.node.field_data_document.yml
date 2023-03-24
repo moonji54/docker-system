@@ -1,17 +1,18 @@
-uuid: 71037cc4-be0d-4fbd-9b7a-80547742a0ef
+uuid: 15ed9485-4365-4a47-ba59-aa56167c6c65
 langcode: en
 status: true
 dependencies:
   module:
-    - media
+    - entity_reference_revisions
     - node
+    - paragraphs
 id: node.field_data_document
 field_name: field_data_document
 entity_type: node
-type: entity_reference
+type: entity_reference_revisions
 settings:
-  target_type: media
-module: core
+  target_type: paragraph
+module: entity_reference_revisions
 locked: false
 cardinality: -1
 translatable: true

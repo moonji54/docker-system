@@ -1,4 +1,4 @@
-uuid: 361830cf-7c98-44fc-9773-dbed3b211ab8
+uuid: 915def52-df2b-4a3a-a58d-e211ed339273
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,9 @@ dependencies:
 id: node.field_short_description
 field_name: field_short_description
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
   case_sensitive: false
-  is_ascii: false
 module: core
 locked: false
 cardinality: 1
