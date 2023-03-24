@@ -558,7 +558,7 @@ ul li a:hover {
 
 /** @define o-section */
 .o-section {
-  margin-top: var(--space-xl);
+  margin-top: var(--space-3xl);
   /* Modifiers
   ================================================== */
   /* stylelint-disable-next-line */
