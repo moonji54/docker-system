@@ -1,15 +1,58 @@
 /** @define c-card */
 .c-card {
-  width     : 250px;
+  $c        : &;
+  position  : relative;
   container : card / inline-size;
-}
 
-/* stylelint-disable */
-//@formatter:off
+  &__description {
+    @include ts-body($small : true);
+    margin-top : var(--space-xs);
+  }
+
+  &__title {
+    @include ts-card($medium : true);
+  }
+
+  &__link {
+    &:before {
+      bottom   : 0;
+      content  : "";
+      left     : 0;
+      position : absolute;
+      right    : 0;
+      top      : 0;
+      z-index  : 1;
+    }
+  }
+
+  &__image-wrapper {
+    aspect-ratio : 16 / 9;
+    position     : relative;
+
+    /* stylelint-disable-next-line */
+    img {
+      @include object-fit(cover);
+      height   : 100%;
+      left     : 0;
+      position : absolute;
+      top      : 0;
+      width    : 100%;
+    }
+  }
+
+  /* stylelint-disable */
+  //@formatter:off
 @container (max-width:300px) {
-  .c-card__title {
+  &__title {
     font-size : 30px;
   }
 }
-//@formatter:on
-/* stylelint-enable */
+  //@formatter:on
+  /* stylelint-enable */
+
+  &--page {
+    #{$c}__image-wrapper {
+      margin-top : var(--space-l);
+    }
+  }
+}
