@@ -4,16 +4,23 @@
   align-items   : center;
   border        : 0.0625rem solid $primary;
   color         : $primary;
+  height        : 2.5rem;
   display       : inline-flex;
   gap           : var(--space-xs);
-  padding       : 0.625rem;
+  padding       : 0.625rem 1.125rem;
   transition    : background-color 0.3s;
   border-radius : 2.75rem;
 
   &:focus,
   &:hover {
-    background : $grey-light;
+    background-color : $peach-2;
   }
+
+  @include media("<=tablet") {
+    padding : 0.25rem 0.875rem;
+    height  : 2rem;
+  }
+
 }
 
 .o-button {

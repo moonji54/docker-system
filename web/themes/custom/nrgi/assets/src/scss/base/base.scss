@@ -1,3 +1,22 @@
 body {
   font-size : 16px;
 }
+
+a {
+  color           : inherit;
+  text-decoration : none;
+}
+
+a,
+p a,
+ol li a,
+ul li a {
+  cursor          : pointer;
+  text-decoration : none;
+
+  &:focus,
+  &:hover {
+    outline         : 0;
+    text-decoration : none;
+  }
+}
