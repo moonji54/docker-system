@@ -10,7 +10,6 @@ dependencies:
     - paragraphs.paragraphs_type.featured_pages
     - paragraphs.paragraphs_type.full_width_media
     - paragraphs.paragraphs_type.learning_block
-    - paragraphs.paragraphs_type.quote
     - paragraphs.paragraphs_type.wysiwyg
   module:
     - entity_reference_revisions
@@ -34,7 +33,6 @@ settings:
       full_width_media: full_width_media
       learning_block: learning_block
       wysiwyg: wysiwyg
-      quote: quote
     negate: 0
     target_bundles_drag_drop:
       call_to_action:
@@ -64,9 +62,6 @@ settings:
       listing:
         weight: 15
         enabled: false
-      quote:
-        weight: 21
-        enabled: true
       wysiwyg:
         weight: 16
         enabled: true

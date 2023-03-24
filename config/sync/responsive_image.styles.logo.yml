@@ -1,0 +1,18 @@
+uuid: 57715891-ba15-4157-a3b5-79ff80311004
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.thumbnail
+  theme:
+    - nrgi
+id: logo
+label: Logo
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: thumbnail
+    breakpoint_id: nrgi.desktop
+    multiplier: 2x
+breakpoint_group: nrgi
+fallback_image_style: thumbnail

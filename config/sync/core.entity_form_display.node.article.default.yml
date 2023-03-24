@@ -367,7 +367,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_country:
-    type: entity_reference_autocomplete_tags
+    type: entity_reference_autocomplete
     weight: 8
     region: content
     settings:
@@ -409,7 +409,7 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_keywords:
-    type: entity_reference_autocomplete_tags
+    type: entity_reference_autocomplete
     weight: 5
     region: content
     settings:
@@ -502,7 +502,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_region:
-    type: entity_reference_autocomplete_tags
+    type: entity_reference_autocomplete
     weight: 9
     region: content
     settings:
@@ -553,7 +553,7 @@ content:
         duplicate: duplicate
     third_party_settings: {  }
   field_topic:
-    type: entity_reference_autocomplete_tags
+    type: entity_reference_autocomplete
     weight: 25
     region: content
     settings:

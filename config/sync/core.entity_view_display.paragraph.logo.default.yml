@@ -15,10 +15,11 @@ bundle: logo
 mode: default
 content:
   field_image:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     label: above
     settings:
-      link: true
+      view_mode: logo
+      link: false
     third_party_settings: {  }
     weight: 1
     region: content

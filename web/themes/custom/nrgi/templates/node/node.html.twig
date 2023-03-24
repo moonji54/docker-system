@@ -2,13 +2,29 @@
   'c-node',
   'c-node--type-' ~ node.bundle|clean_class,
 ] %}
+<div class="c-node__content-header">
+  <div style="background-color: red">
+    <h1>Header:</h1>
+  {% include "@nrgi/node-partials/node--header.html.twig" %}
+  </div>
+</div>
 <article{{ attributes.addClass(classes) }}>
 
-  <h1 class="c-node__title">{{ label }}</h1>
 
-  <div class="c-node__contents">
-    {{ breadcrumbs }}
-    {{ content }}
-    {{ language_switcher }}
+  <div style="background-color: orange">
+    <h1>PAGE BUILDER:</h1>
+    {% if content.field_page_builder|field_value %}
+      {{ content.field_page_builder }}
+    {% endif %}
+  </div>
+
+  {% if content.field_page_builder|field_value %}
+    {{ content.field_page_builder }}
+  {% endif %}
+
+  {#  METADATA #}
+  <div style="background-color: green">
+    <h1>METADATA:</h1>
+  {% include '@nrgi/node-partials/node--metadata.html.twig' %}
   </div>
 </article>
