@@ -1,0 +1,112 @@
+/** @define c-mega-nav */
+.c-mega-nav {
+  $class           : &;
+  // transition       : opacity 0.2s, visibility 0.2s;
+
+  // SBTODO: background depending on image upload?
+  background-color : #00545A;
+  box-shadow       : 0 8px 16px rgba($black, 15%);
+  box-sizing       : border-box;
+  display          : none;
+  left             : 0;
+  padding          : 24px 0;
+  position         : absolute;
+  top              : calc(100% + 1px);
+  width            : 100%;
+  z-index          : 20;
+
+  @include media("<desktop") {
+    top : 6.813rem;
+  }
+
+  @include media("<tablet") {
+    border-top : 0;
+    box-shadow : none;
+    display    : none;
+    position   : relative;
+    top        : 0;
+  }
+
+  &__container {
+    @include o-container;
+  }
+
+  &__groups {
+    display        : flex;
+    flex-direction : column;
+    gap            : 24px;
+  }
+
+  &__group-wrapper {
+    //border-bottom : 1px solid $grey-light;
+    //padding-top   : 1rem;
+
+    @include media("<tablet") {
+      padding-top : 1.5rem;
+      position    : relative;
+
+      &:after {
+        background : $white;
+        bottom     : -0.125rem;
+        content    : "";
+        height     : 0.25rem;
+        position   : absolute;
+        right      : 0;
+        width      : 3.313rem;
+      }
+    }
+
+    //&:last-child {
+    //  border-bottom : 0;
+    //
+    //  &:after {
+    //    display : none;
+    //  }
+    //}
+  }
+
+  &__group-inner {
+    @include o-container;
+  }
+
+  &__heading {
+    @include ts-section-header;
+    margin-bottom : 8px;
+  }
+
+  //&__list-wrapper {
+  //  box-shadow : 0 8px 8px 0 rgb(0 0 0 / 5%);
+  //
+  //  @include media("<tablet") {
+  //    box-shadow : none;
+  //  }
+  //}
+
+  &__list {
+    column-gap : 1.5rem;
+    display    : flex;
+    flex-wrap  : wrap;
+    row-gap    : 16px;
+
+    //@include media("<desktop") {
+    //  margin-top : 0.25rem;
+    //}
+    //
+    //@include media("<tablet") {
+    //  flex-direction : column;
+    //  margin-top     : 0;
+    //  padding        : 0.75rem 0;
+    //}
+  }
+
+  &__link {
+    @include ts-sub-menu;
+    @include underlined($blue-light);
+    display : block;
+
+    &:hover,
+    &:focus {
+      color : $blue-light;
+    }
+  }
+}

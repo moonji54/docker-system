@@ -87,13 +87,13 @@ $z-index : (
   }
 }
 
-@mixin underlined {
+@mixin underlined($color) {
   text-decoration       : underline;
   text-decoration-color : transparent;
-  transition            : text-decoration-color 0.3s;
+  transition            : all 0.3s;
 
   &:hover,
   &:focus {
-    text-decoration-color : $white;
+    text-decoration-color : $color;
   }
 }

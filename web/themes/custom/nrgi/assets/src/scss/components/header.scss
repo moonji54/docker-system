@@ -1,13 +1,13 @@
 /** @define c-header */
 .c-header {
   //background : linear-gradient(180deg, rgba($black, 30%) 0%, rgba($black, 0%) 93.27%);
-  background : lightskyblue;
-  border     : 1px solid rgba($grey-light, 0.5);
-  box-sizing : border-box;
-  color      : $white;
-  padding    : 60px 0 16px;
-  position   : absolute;
-  width      : 100%;
+  background    : lightskyblue;
+  border-bottom : 1px solid rgba($grey-light, 0.5);
+  box-sizing    : border-box;
+  color         : $white;
+  padding       : 60px 0 16px;
+  position      : absolute;
+  width         : 100%;
 
   &__container {
     @include grid;

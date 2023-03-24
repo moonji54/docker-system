@@ -17,26 +17,54 @@
       padding    : 40px;
     }
 
-    //@include media(">desktop") {
-    //  &:hover,
-    //  &:focus {
-    //    > #{$c}__item-link-wrapper > #{$c}__item-link {
-    //      color : green;
-    //    }
-    //
-    //    #{$c}__sub-menu {
-    //      display : block;
-    //    }
-    //
-    //    #{$c}__sub-menu-svg {
-    //      transform : rotateX(180deg);
-    //    }
-    //  }
-    //}
+    &:hover {
+      @include media(">desktop") {
+        .c-mega-nav {
+          //display : block !important; // Important to override JS show/hide
+          display : block;
+        }
+
+        #{$c}__button-svg {
+          transform : rotate(180deg);
+        }
+      }
+    }
+
+    @include media(">desktop") {
+      &:hover,
+      &:focus {
+        > #{$c}__item-link-wrapper > #{$c}__item-link {
+          text-decoration-color : $white;
+        }
+
+        //#{$c}__sub-menu {
+        //  display : block;
+        //}
+        //
+        //#{$c}__sub-menu-svg {
+        //  transform : rotateX(180deg);
+        //}
+      }
+    }
+
+    &--expanded {
+      #{$c}__item-link {
+        position : relative;
+
+        &:before {
+          background : transparent;
+          content    : "";
+          height     : 17px;
+          position   : absolute;
+          top        : 100%;
+          width      : 100%;
+        }
+      }
+    }
   }
 
   &__item-link-wrapper {
-    @include media("<desktop") {
+    @include media(">=desktop") {
       align-items     : center;
       display         : flex;
       justify-content : space-between;
@@ -45,7 +73,7 @@
 
   &__item-link {
     @include ts-main-menu;
-    @include underlined;
+    @include underlined($white);
 
     /* stylelint-disable-next-line */
     &.is-active {
@@ -53,10 +81,10 @@
     }
   }
 
-  &__sub-menu {
-    display : none;
-  }
-
+  //&__sub-menu {
+  //  display : none;
+  //}
+  //
   &__sub-menu-button {
     display : none;
 

@@ -12,6 +12,6 @@
 
   &__item-link {
     @include ts-sub-menu;
-    @include underlined;
+    @include underlined($white);
   }
 }

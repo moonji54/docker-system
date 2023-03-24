@@ -116,7 +116,7 @@ We call a macro which calls itself to render the full tree.
       <div class="c-mega-nav js-main-menu-sub-nav">
         {% if items|first.below %}
           {# Menu with sub items / groups #}
-          <ul class="c-main-menu__sub-menu js-sub-menu" role="menu">
+          <ul class="c-mega-nav__groups" role="menu">
             {% for item in items %}
               <li class="c-mega-nav__group-wrapper">
                 <div class="c-mega-nav__group-inner">
