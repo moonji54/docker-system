@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2fe75066a5fa36c06914b283dbceae0",
+    "content-hash": "dcdb7ab78bd175dc7d79024e2012d84e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -113,6 +113,15 @@
                 "source": "https://github.com/Chi-teck/drupal-code-generator/tree/1.33.1"
             },
             "time": "2020-12-05T05:59:11+00:00"
+        },
+        {
+            "name": "ckeditor-plugin/pagebreak",
+            "version": "4.20.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://download.ckeditor.com/pagebreak/releases/pagebreak_4.20.0.zip"
+            },
+            "type": "drupal-library"
         },
         {
             "name": "ckeditor/fakeobjects",
@@ -3971,6 +3980,75 @@
                 "source": "https://cgit.drupalcode.org/focal_point",
                 "issues": "https://drupal.org/project/issues/focal_point",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/footnotes",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/footnotes.git",
+                "reference": "3.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/footnotes-3.0.1.zip",
+                "reference": "3.0.1",
+                "shasum": "2b85c7e7a8c318af2b7d15248a5c58027e5b9ba4"
+            },
+            "require": {
+                "drupal/core": ">=8.6",
+                "drupal/fakeobjects": "^1.0"
+            },
+            "require-dev": {
+                "drupal/fakeobjects": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.1",
+                    "datestamp": "1639328597",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Andrii Aleksandrov (id.aleks)",
+                    "homepage": "https://www.drupal.org/u/idaleks",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Oleksandr Dekhteruk (pifagor)",
+                    "homepage": "https://www.drupal.org/u/pifagor",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Fernando Conceição (yukare)",
+                    "homepage": "https://www.drupal.org/u/yukare",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Henrik Ingo (hingo)",
+                    "homepage": "https://www.drupal.org/u/hingo",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "yukare",
+                    "homepage": "https://www.drupal.org/user/889254"
+                }
+            ],
+            "description": "Add automatically numbered footnotes to your posts.",
+            "homepage": "https://drupal.org/project/footnotes",
+            "support": {
+                "source": "https://cgit.drupalcode.org/footnotes",
+                "issues": "https://drupal.org/project/issues/footnotes"
             }
         },
         {

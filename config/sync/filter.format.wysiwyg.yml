@@ -2,7 +2,10 @@ uuid: c5991b88-e593-4662-a5a6-06d3f97079bd
 langcode: en
 status: true
 dependencies:
+  config:
+    - core.entity_view_mode.media.wysiwyg_full_width
   module:
+    - footnotes
     - linkit
     - media
     - nrgi_backend
@@ -23,7 +26,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol type start> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <img src alt data-entity-type data-entity-uuid> <u> <p> <h1> <pre> <address> <div> <drupal-media data-entity-type data-entity-uuid data-view-mode data-align data-caption alt title> <a href hreflang data-entity-substitution data-entity-type data-entity-uuid title> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr>'
+      allowed_html: '<br> <p> <h1> <h2> <h3> <h4> <h5> <h6> <strong> <em> <u> <code> <blockquote> <a href title data-entity-type data-entity-uuid data-entity-substitution> <ul> <ol start> <li> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption> <drupal-media data-entity-type data-entity-uuid alt data-caption data-align data-entity-type data-entity-uuid data-view-mode data-align data-caption alt title> <div> <fn>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_align:
@@ -45,10 +48,12 @@ filters:
     status: true
     weight: 100
     settings:
-      default_view_mode: default
-      allowed_view_modes: {  }
+      default_view_mode: wysiwyg_full_width
+      allowed_view_modes:
+        wysiwyg_full_width: wysiwyg_full_width
       allowed_media_types:
         audio: audio
+        data_visualisation: data_visualisation
         document: document
         image: image
         remote_audio: remote_audio
@@ -59,3 +64,24 @@ filters:
     status: true
     weight: 0
     settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }
+  filter_footnotes:
+    id: filter_footnotes
+    provider: footnotes
+    status: false
+    weight: 0
+    settings:
+      footnotes_collapse: '0'
+      footnotes_html: '0'
+      footnotes_footer_disable: '0'
