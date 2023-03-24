@@ -4,40 +4,13 @@
   min-height : 42rem;
   position   : relative;
 
-  @keyframes scroll-to-top {
-    50% {
-      top : 60%;
-    }
-
-    80% {
-      top : 0;
-    }
-
-    100% {
-      top : 0;
-    }
+  & + & {
+    margin-top : 0;
   }
 
   @include media("<=tablet") {
     min-height : auto;
   }
-
-  /* stylelint-disable */
-  &.is-visible {
-    @include media(">=tablet") {
-      #{$c}__block {
-        animation-delay           : calc(var(--scroll) * -1s);
-        animation-duration        : calc(var(--scroll-duration) * 1s);
-        animation-fill-mode       : both;
-        animation-iteration-count : 1;
-        animation-name            : scroll-to-top;
-        animation-play-state      : paused;
-        animation-timing-function : linear;
-      }
-    }
-  }
-
-  /* stylelint-enable */
 
   &__image-wrapper {
     aspect-ratio : 1.97;
@@ -193,7 +166,18 @@
     }
 
     #{$c}__content-wrapper {
-      padding : var(--space-4xl) 0;
+      grid-column : 1 / 9;
+      padding     : var(--space-4xl) 0;
+    }
+  }
+
+  &--with-image {
+    #{$c}__block {
+      --scroll : translateY(80%);
+
+      @include media("<=tablet") {
+        --scroll : translateY(0);
+      }
     }
   }
 }

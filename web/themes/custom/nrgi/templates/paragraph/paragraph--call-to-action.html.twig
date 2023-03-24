@@ -3,9 +3,8 @@
 {% set classes = [
   'c-call-to-action',
   'c-call-to-action--' ~ background_color,
-  content.field_image|field_value ? 'c-call-to-action--with-image js-has-image' : 'c-call-to-action--no-image',
+  content.field_image|field_value ? 'c-call-to-action--with-image js-parallax-container' : 'c-call-to-action--no-image',
   'o-section',
-  'js-parallax-container'
 ] %}
 
 {% if background_color == 'ocean' %}

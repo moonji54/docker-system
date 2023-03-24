@@ -22,11 +22,10 @@ var ParallaxScroll = /*#__PURE__*/function () {
     this.settings = settings;
     this.$ = $;
     this.Drupal = Drupal;
-    this.$root = $(':root');
     this.$window = this.$(window);
     this.$parallaxContainer = this.$('.js-parallax-container');
     this.$window.on('load scroll', (0, _debounce["default"])(function () {
-      if (_this.$parallaxContainer.hasClass('js-has-image') && _this.$window.width() >= 768) {
+      if (_this.$parallaxContainer.length && _this.$window.width() >= 768) {
         _this.applyClassOnScroll();
       }
     }));
@@ -51,7 +50,7 @@ var ParallaxScroll = /*#__PURE__*/function () {
     value: function translateCalc(entry) {
       var parallaxBlock = this.$(entry.target).find(this.$('.js-parallax-block'));
       var entryRect = entry.target.getBoundingClientRect();
-      var progress = 80 * (entryRect.y / window.innerHeight);
+      var progress = 80 * ((entryRect.y - 200) / window.innerHeight);
       if (progress <= 0) {
         parallaxBlock[0].style.transform = 'translateY(0%)';
       } else {

@@ -8,12 +8,11 @@ class ParallaxScroll {
         this.$ = $;
         this.Drupal = Drupal;
 
-        this.$root = $(':root');
         this.$window = this.$(window);
         this.$parallaxContainer = this.$('.js-parallax-container');
 
         this.$window.on('load scroll', debounce(() => {
-            if (this.$parallaxContainer.hasClass('js-has-image') && this.$window.width() >= 768) {
+            if (this.$parallaxContainer.length && this.$window.width() >= 768) {
                 this.applyClassOnScroll();
             }
         }));
@@ -37,7 +36,7 @@ class ParallaxScroll {
         const parallaxBlock = this.$(entry.target).find(this.$('.js-parallax-block'));
 
         const entryRect = entry.target.getBoundingClientRect();
-        const progress = 80 * (entryRect.y / window.innerHeight);
+        const progress = 80 * ((entryRect.y - 200) / window.innerHeight);
 
         if (progress <= 0) {
             parallaxBlock[0].style.transform = 'translateY(0%)';
