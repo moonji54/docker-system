@@ -130,6 +130,9 @@ class MetadataHelperService {
       $variables['sidebar_data'][] = $metadata;
     }
 
+    /** @TODO  Language switched */
+    /** @TODO Share link */
+
   }
 
   /**
