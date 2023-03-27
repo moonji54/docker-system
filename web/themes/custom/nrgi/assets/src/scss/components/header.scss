@@ -1,5 +1,6 @@
 /** @define c-header */
 .c-header {
+  $c            : &;
   //background : linear-gradient(180deg, rgba($black, 30%) 0%, rgba($black, 0%) 93.27%);
   background    : lightskyblue;
   border-bottom : 1px solid rgba($grey-light, 0.5);
@@ -9,6 +10,11 @@
   position      : absolute;
   width         : 100%;
 
+  @include media("<=desktop") {
+    padding       : 20px 0;
+    border-bottom : 1px solid $grey-light;
+  }
+
   &__container {
     @include grid;
     grid-row-gap : 2.25rem; // 36px
@@ -17,6 +23,7 @@
   /* #Logo
 ================================================== */
   &__logo-wrapper {
+    font-size   : 0;
     grid-column : 1 / 7;
   }
 
@@ -38,6 +45,7 @@
     @include media("<=desktop") {
       grid-column : 1 / -1;
       order       : 3;
+      display     : none;
     }
   }
 
@@ -49,6 +57,7 @@
     @include media("<=desktop") {
       grid-column : 1 / -1;
       order       : 2;
+      display     : none;
     }
   }
 
@@ -61,18 +70,85 @@
 
     @include media("<=desktop") {
       grid-column : 1 / -1;
+      display     : none;
+    }
+  }
+
+  &__search-button {
+    display    : none;
+    transition : opacity 0.3s;
+
+    &:hover,
+    &:focus {
+      opacity : 0.7;
+    }
+
+    @include media("<=desktop") {
+      display  : flex;
+      position : absolute;
+      right    : var(--gutter);
+      top      : 21px;
+    }
+  }
+
+  &__search-svg {
+    height : 21px;
+    width  : 21px;
+  }
+
+  &__search-svg--close {
+    display : none;
+  }
+
+  &.is-open {
+    display : flex;
+
+    #{$c}__search-svg--open {
+      display : none;
+    }
+
+    #{$c}__search-svg--close {
+      display : block;
     }
   }
 
   /* #Burger button
 ================================================== */
   &__burger-button {
-    display : none;
+    display    : none;
+    transition : opacity 0.3s;
+
+    &:hover,
+    &:focus {
+      opacity : 0.7;
+    }
 
     @include media("<=desktop") {
       display  : flex;
       position : absolute;
-      right    : var(--gutter);
+      right    : 52px;
+      top      : 22px;
+    }
+  }
+
+  //&__burger-svg {
+  //  height : 22px;
+  //  width  : 22px;
+  //}
+
+  &__burger-svg--close {
+    display : none;
+  }
+
+  &.is-open {
+    display : flex;
+
+    #{$c}__burger-svg--open {
+      display : none;
+    }
+
+    #{$c}__burger-svg--close {
+      display : block;
     }
   }
 }

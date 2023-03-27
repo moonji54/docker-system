@@ -19,8 +19,16 @@
             aria-label="{{ 'Toggle mobile menu'|t }}"
             aria-expanded="false"
             type="button">
-      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'burger-icon', 'extra_class': 'c-header__burger-open'} %}
-      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'close-icon','extra_class': 'c-header__burger-close'} %}
+      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'burger-icon', 'extra_class': 'c-header__burger-svg c-header__burger-svg--open'} %}
+      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'close-icon','extra_class': 'c-header__burger-svg c-header__burger-svg--close'} %}
+    </button>
+
+    <button class="c-header__search-button js-search-button"
+            aria-label="{{ 'Toggle mobile search'|t }}"
+            aria-expanded="false"
+            type="button">
+      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'search-icon', 'extra_class': 'c-header__search-svg c-header__search-svg--open'} %}
+      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'close-icon','extra_class': 'c-header__search-svg c-header__search-svg--close'} %}
     </button>
 
     <div class="c-header__search">

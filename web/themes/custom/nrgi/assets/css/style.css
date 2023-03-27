@@ -985,6 +985,12 @@ ul li a:hover {
   /* #Burger button
   ================================================== */
 }
+@media (max-width: 64rem) {
+  .c-header {
+    padding: 20px 0;
+    border-bottom: 1px solid #EDEDEF;
+  }
+}
 .c-header__container {
   display: grid;
   grid-column-gap: var(--gutter);
@@ -997,6 +1003,7 @@ ul li a:hover {
   }
 }
 .c-header__logo-wrapper {
+  font-size: 0;
   grid-column: 1/7;
 }
 .c-header__logo-link {
@@ -1013,6 +1020,7 @@ ul li a:hover {
   .c-header__secondary-menu {
     grid-column: 1/-1;
     order: 3;
+    display: none;
   }
 }
 .c-header__main-menu {
@@ -1022,6 +1030,7 @@ ul li a:hover {
   .c-header__main-menu {
     grid-column: 1/-1;
     order: 2;
+    display: none;
   }
 }
 .c-header__search {
@@ -1032,17 +1041,66 @@ ul li a:hover {
 @media (max-width: 64rem) {
   .c-header__search {
     grid-column: 1/-1;
+    display: none;
   }
+}
+.c-header__search-button {
+  display: none;
+  transition: opacity 0.3s;
+}
+.c-header__search-button:hover, .c-header__search-button:focus {
+  opacity: 0.7;
+}
+@media (max-width: 64rem) {
+  .c-header__search-button {
+    display: flex;
+    position: absolute;
+    right: var(--gutter);
+    top: 21px;
+  }
+}
+.c-header__search-svg {
+  height: 21px;
+  width: 21px;
+}
+.c-header__search-svg--close {
+  display: none;
+}
+.c-header.is-open {
+  display: flex;
+}
+.c-header.is-open .c-header__search-svg--open {
+  display: none;
+}
+.c-header.is-open .c-header__search-svg--close {
+  display: block;
 }
 .c-header__burger-button {
   display: none;
+  transition: opacity 0.3s;
+}
+.c-header__burger-button:hover, .c-header__burger-button:focus {
+  opacity: 0.7;
 }
 @media (max-width: 64rem) {
   .c-header__burger-button {
     display: flex;
     position: absolute;
-    right: var(--gutter);
+    right: 52px;
+    top: 22px;
   }
+}
+.c-header__burger-svg--close {
+  display: none;
+}
+.c-header.is-open {
+  display: flex;
+}
+.c-header.is-open .c-header__burger-svg--open {
+  display: none;
+}
+.c-header.is-open .c-header__burger-svg--close {
+  display: block;
 }
 
 /** @define c-header-search */
@@ -1201,6 +1259,10 @@ ul li a:hover {
   position: absolute;
   top: 100%;
   width: 100%;
+}
+.c-main-menu__item--active-trail .c-main-menu__item-link {
+  -webkit-text-decoration-color: #FFFFFF;
+          text-decoration-color: #FFFFFF;
 }
 @media (min-width: 64rem) {
   .c-main-menu__item-link-wrapper {

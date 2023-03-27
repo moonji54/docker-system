@@ -61,6 +61,12 @@
         }
       }
     }
+
+    &--active-trail {
+      #{$c}__item-link {
+        text-decoration-color : $white;
+      }
+    }
   }
 
   &__item-link-wrapper {
