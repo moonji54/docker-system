@@ -1,6 +1,8 @@
 import Ps from 'perfect-scrollbar';
 import debounce from './utils/debounce';
 
+console.log('running');
+
 class Header {
     constructor (context, settings, $, Drupal) {
         // Values from Drupal
@@ -34,19 +36,6 @@ class Header {
                 this.closeBurgerMenu();
             }
         });
-
-        this.$window.on('scroll', debounce(() => {
-            const scroll = this.$window.scrollTop();
-            if (scroll >= 250) {
-                this.$header.addClass('is-fixed');
-                this.$mainMenu.addClass('is-fixed');
-                this.$body.addClass('has-padding-top');
-            } else {
-                this.$header.removeClass('is-fixed');
-                this.$mainMenu.removeClass('is-fixed');
-                this.$body.removeClass('has-padding-top');
-            }
-        }, 10));
 
         this.$window.on('resize', debounce(() => {
             if (this.$window.width() > this.tabletBreakpoint) {

@@ -5,13 +5,27 @@
   gap             : 24px;
   justify-content : flex-end;
 
-  @include media("<desktop") {
+  @include media("<=desktop") {
     flex-direction  : column;
     justify-content : flex-start;
+    gap             : 0;
+  }
+
+  &__item {
+    @include media("<desktop") {
+      border-top   : 1px solid $grey-light;
+      padding-left : var(--gutter);
+    }
   }
 
   &__item-link {
     @include ts-sub-menu;
     @include underlined($white);
+
+    @include media("<=desktop") {
+      @include ts-main-menu;
+      padding : 8px 0;
+      display : block;
+    }
   }
 }

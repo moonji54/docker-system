@@ -98,7 +98,7 @@ We call a macro which calls itself to render the full tree.
 
                 {# Sub menu button #}
                 {% if item.below %}
-                  <button class="c-main-menu__sub-menu-button js-sub-menu-button" aria-label="{{ 'Click to reveal sub navigation'|t }}" aria-expanded="false" type="button"> #}
+                  <button class="c-main-menu__sub-menu-button js-sub-menu-button" aria-label="{{ 'Click to reveal sub navigation'|t }}" aria-expanded="false" type="button">
                     {% include '@nrgi/svg/svg.html.twig' with {'svg': 'chevron-down', 'extra_class': 'c-main-menu__sub-menu-svg'} %}
                   </button>
                 {% endif %}
@@ -113,7 +113,7 @@ We call a macro which calls itself to render the full tree.
         {% endfor %}
       </ul>
     {% elseif menu_level == 1 %}
-      <div class="c-mega-nav js-main-menu-sub-nav">
+      <div class="c-mega-nav js-sub-menu">
         {% if items|first.below %}
           {# Menu with sub items / groups #}
           <ul class="c-mega-nav__groups" role="menu">

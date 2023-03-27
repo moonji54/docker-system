@@ -1,5 +1,9 @@
 body {
   font-size : 16px;
+
+  &.is-scroll-locked {
+    overflow : hidden;
+  }
 }
 
 a {
