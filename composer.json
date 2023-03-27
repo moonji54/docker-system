@@ -240,7 +240,8 @@
                 "Calling static trait method getLengthOfSubmittedValue is deprecated": "https://www.drupal.org/files/issues/2022-04-27/deprecated-static-function-call-in-trait-3272128.patch"
             },
             "drupal/footnotes": {
-                "All footnotes available as block for Paragraph": "https://www.drupal.org/files/issues/2023-03-23/footnotes-3098138-72.patch"
+                "All footnotes available as block for Paragraph": "https://www.drupal.org/files/issues/2023-03-23/footnotes-3098138-72.patch",
+                "Enable basic editor on footnotes": "https://www.drupal.org/files/issues/2021-11-16/footnotes-basic-styles-for-footnote-text-field-3204959-4.patch"
             }
         },
         "patchLevel": {
