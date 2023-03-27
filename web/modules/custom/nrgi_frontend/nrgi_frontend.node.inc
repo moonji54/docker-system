@@ -48,9 +48,8 @@ function nrgi_frontend_preprocess_node(&$variables): void {
       case 'article':
       case 'publication':
       case 'event':
-      case 'person':
         if (in_array($variables['view_mode'], ['full', 'default'])) {
-          /** @var \Drupal\ifg_frontend\MetadataHelperService $metadata_helper_service */
+          /** @var \Drupal\nrgi_frontend\MetadataHelperService $metadata_helper_service */
           $metadata_helper_service = \Drupal::service('nrgi_frontend.metadata_helper');
           $metadata_helper_service->preprocessMetadata($node, $variables);
           break;

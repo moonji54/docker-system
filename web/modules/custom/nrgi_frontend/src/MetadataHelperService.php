@@ -46,6 +46,13 @@ class MetadataHelperService {
         'field_partner_logo',
       ],
     ],
+    'event' => [
+      'event_details' => [
+        'field_address',
+        'field_expertise_required',
+        'field_time_commitment',
+      ],
+    ]
   ];
 
   /**
@@ -71,6 +78,11 @@ class MetadataHelperService {
     $this->preprocessDownloads(
       $node,
       $this->metadataFieldNames['all']['downloads'],
+      $variables
+    );
+    $this->preprocessEventDetails(
+      $node,
+      $this->metadataFieldNames['event']['event_details'],
       $variables
     );
     $this->preprocessGeneralMetadata(
@@ -107,32 +119,9 @@ class MetadataHelperService {
             ->getLabel();
           $items = [];
           foreach ($entities as $entity) {
-
             if ($entity instanceof EntityInterface) {
-              $bundle = $entity->bundle();
+              $url = $entity->toUrl()->toString();
 
-              if ($bundle == 'node' || $bundle == 'topic') {
-                $url = $entity->toUrl()->toString();
-              }
-
-              if ($bundle == 'tracker' &&
-                  ($entity->hasField('field_listing') && $tracker_listing = $entity->get('field_listing')
-                    ->first())) {
-                if ($tracker_listing instanceof EntityReferenceItem) {
-                  $url = $tracker_listing->get('entity')
-                    ->getTarget()
-                    ->getValue()
-                    ->toUrl()
-                    ->toString();
-                }
-              }
-
-              else {
-                $url = match ($bundle) {
-                  'keyword' => "/search/?" . $bundle . '=' . $entity->label() . '%20(' . $entity->id() . ')',
-                  default => "/search/?" . $bundle . '[' . $entity->id() . ']=' . $entity->id(),
-                };
-              }
               $items[] = [
                 'title' => $entity->label(),
                 'url' => $url,
@@ -169,7 +158,6 @@ class MetadataHelperService {
     array $download_field_names,
     array &$variables,
   ): void {
-    $metadata = [];
     $items = [];
     foreach ($download_field_names as $download_field_name) {
       if ($node->hasField($download_field_name) && $field = $node->get($download_field_name)) {
@@ -201,6 +189,19 @@ class MetadataHelperService {
     }
   }
 
+  /**
+   * Preprocess logos.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   Node.
+   * @param String[] $logo_field_names
+   *   Array of logo field names.
+   * @param array $variables
+   *   The variables array.
+   *
+   * @throws \Drupal\Core\Entity\EntityMalformedException
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+   */
   protected function preprocessLogos(
     NodeInterface $node,
     array $logo_field_names,
@@ -242,6 +243,41 @@ class MetadataHelperService {
         'label' => t('Produced with financial support from'),
         'sections' => $metadata
       ];
+    }
+  }
+
+  /**
+   * Preprocess Event meta.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   Node.
+   * @param String[] $field_names
+   *   Array of event field names.
+   * @param array $variables
+   *   The variables array.
+   *
+   * @throws \Drupal\Core\Entity\EntityMalformedException
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+   */
+  protected function preprocessEventDetails(
+    NodeInterface $node,
+    array $field_names,
+    array &$variables,
+  ): void {
+    foreach ($field_names as $field_name) {
+      if ($node->hasField($field_name) && $field = $node->get($field_name)) {
+        if (!$field instanceof FieldItemList | $field->isEmpty()) {
+          continue;
+        }
+        $label = $node->get($field_name)
+          ->getFieldDefinition()
+          ->getLabel();
+        $variables['meta_data'][] = [
+          'label' => $label,
+          'type' => 'text',
+          'items' => ['title' => $node->get($field_name)->first()->value],
+        ];
+      }
     }
   }
 
