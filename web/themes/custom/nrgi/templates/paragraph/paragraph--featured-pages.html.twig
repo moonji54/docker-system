@@ -41,11 +41,11 @@
       </div>
 
       {% if featured_pages.cta %}
-        <a class="c-call-to-action__link o-button" href="{{ featured_pages.cta.url }}"
+        <a class="c-featured-pages__link o-button" href="{{ featured_pages.cta.url }}"
            target="{{ featured_pages.cta.is_external ? '_blank' : '_self' }}">
           {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'arrow'} %}
-          
-          <span class="c-call-to-action__link-title">{{ featured_pages.cta.title }}</span>
+
+          <span class="c-featured-pages__link-title">{{ featured_pages.cta.title }}</span>
         </a>
       {% endif %}
     </div>

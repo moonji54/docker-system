@@ -14,6 +14,10 @@
     grid-template-columns : repeat(3, 1fr);
 
     @include media("<=tablet") {
+      grid-template-columns : repeat(2, 1fr);
+    }
+
+    @include media("<=large-phone") {
       grid-template-columns : 1fr;
     }
   }
