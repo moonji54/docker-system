@@ -46,6 +46,10 @@ class MetadataHelperService {
       'logo' => [
         'field_partner_logo',
       ],
+      'sidebar_logo' => [
+        'field_acknowledgement_logo',
+      ]
+
     ],
     'event' => [
       'event_details' => [
@@ -74,11 +78,16 @@ class MetadataHelperService {
     NodeInterface $node,
     array &$variables
   ): void {
-    $this->preprocessLogos(
+    $metadata = $this->preprocessLogos(
       $node,
       $this->metadataFieldNames['all']['logo'],
-      $variables
     );
+    if (!empty($metadata)) {
+      $metadata['label'] = t('Produced with financial support from');
+      $variables['meta_data'][] = $metadata;
+    }
+
+
     $this->preprocessEventDetails(
       $node,
       $this->metadataFieldNames['event']['event_details'],
@@ -94,6 +103,33 @@ class MetadataHelperService {
       $this->metadataFieldNames['all']['taxonomies'],
       $variables
     );
+  }
+
+  /**
+   * Preprocess metadata.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   Node.
+   * @param array &$variables
+   *   The variables array.
+   *
+   * @throws \Drupal\Core\Entity\EntityMalformedException
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+   */
+  public function preprocessSidebarMetadata(
+    NodeInterface $node,
+    array &$variables
+  ): void {
+    $metadata = $this->preprocessLogos(
+      $node,
+      $this->metadataFieldNames['all']['sidebar_logo'],
+    );
+
+    if (!empty($metadata)) {
+      $metadata['label'] = t('Produced in partnership with');
+      $variables['sidebar_data'][] = $metadata;
+    }
+
   }
 
   /**
@@ -212,8 +248,6 @@ class MetadataHelperService {
    *   Node.
    * @param String[] $logo_field_names
    *   Array of logo field names.
-   * @param array $variables
-   *   The variables array.
    *
    * @throws \Drupal\Core\Entity\EntityMalformedException
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
@@ -221,8 +255,7 @@ class MetadataHelperService {
   protected function preprocessLogos(
     NodeInterface $node,
     array $logo_field_names,
-    array &$variables,
-  ): void {
+  ): array {
     $metadata = [];
     foreach ($logo_field_names as $logo_field_name) {
       if ($node->hasField($logo_field_name) && $field = $node->get($logo_field_name)) {
@@ -254,12 +287,13 @@ class MetadataHelperService {
       }
     }
     if ($metadata) {
-      $variables['meta_data'][] = [
+      return [
         'type' => 'logo',
         'label' => t('Produced with financial support from'),
         'sections' => $metadata
       ];
     }
+    return [];
   }
 
   /**

@@ -52,6 +52,8 @@ function nrgi_frontend_preprocess_node(&$variables): void {
           /** @var \Drupal\nrgi_frontend\MetadataHelperService $metadata_helper_service */
           $metadata_helper_service = \Drupal::service('nrgi_frontend.metadata_helper');
           $metadata_helper_service->preprocessMetadata($node, $variables);
+          $metadata_helper_service->preprocessSidebarMetadata($node, $variables);
+          dsm($variables);
           break;
         }
     }
