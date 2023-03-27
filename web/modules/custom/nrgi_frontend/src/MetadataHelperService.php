@@ -115,7 +115,7 @@ class MetadataHelperService {
   ): void {
     $metadata = [];
     foreach ($metadata_field_names as $metadata_field_name) {
-      if ($node->hasField($metadata_field_name) && $field = $node->get($metadata_field_name)) {dsm($field->getFieldDefinition()->getType());
+      if ($node->hasField($metadata_field_name) && $field = $node->get($metadata_field_name)) {
         $items = [];
         switch ($field->getFieldDefinition()->getType()) {
           case 'entity_reference':
