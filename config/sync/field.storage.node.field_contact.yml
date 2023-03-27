@@ -1,18 +1,20 @@
-uuid: b42de7cf-28b3-47fc-886d-c82320b50cc9
+uuid: 6279d11f-c660-499d-b05a-a6d2e7575cc8
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_course_training_contact
-field_name: field_course_training_contact
+id: node.field_contact
+field_name: field_contact
 entity_type: node
-type: entity_reference
+type: string
 settings:
-  target_type: node
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

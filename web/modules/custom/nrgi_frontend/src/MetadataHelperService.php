@@ -37,6 +37,7 @@ class MetadataHelperService {
         'field_city',
         'field_event_type',
         'field_role_type',
+        'field_photo_caption',
       ],
       'downloads' => [
         'field_data_document',
@@ -48,9 +49,12 @@ class MetadataHelperService {
     ],
     'event' => [
       'event_details' => [
-        'field_address',
-        'field_expertise_required',
+        'field_contact',
+        'field_course_information',
+        'field_days_of_the_week',
         'field_time_commitment',
+        'field_expertise_required',
+        'field_address',
       ],
     ]
   ];
@@ -75,14 +79,14 @@ class MetadataHelperService {
       $this->metadataFieldNames['all']['logo'],
       $variables
     );
-    $this->preprocessDownloads(
-      $node,
-      $this->metadataFieldNames['all']['downloads'],
-      $variables
-    );
     $this->preprocessEventDetails(
       $node,
       $this->metadataFieldNames['event']['event_details'],
+      $variables
+    );
+    $this->preprocessDownloads(
+      $node,
+      $this->metadataFieldNames['all']['downloads'],
       $variables
     );
     $this->preprocessGeneralMetadata(
@@ -111,33 +115,45 @@ class MetadataHelperService {
   ): void {
     $metadata = [];
     foreach ($metadata_field_names as $metadata_field_name) {
-      if ($node->hasField($metadata_field_name) && $field = $node->get($metadata_field_name)) {
-        if ($field instanceof EntityReferenceFieldItemListInterface) {
-          $entities = $node->get($metadata_field_name)->referencedEntities();
-          $label = $node->get($metadata_field_name)
-            ->getFieldDefinition()
-            ->getLabel();
-          $items = [];
-          foreach ($entities as $entity) {
-            if ($entity instanceof EntityInterface) {
-              $url = $entity->toUrl()->toString();
+      if ($node->hasField($metadata_field_name) && $field = $node->get($metadata_field_name)) {dsm($field->getFieldDefinition()->getType());
+        $items = [];
+        switch ($field->getFieldDefinition()->getType()) {
+          case 'entity_reference':
+            if ($field instanceof EntityReferenceFieldItemListInterface) {
+              $entities = $node->get($metadata_field_name)->referencedEntities();
+              $label = $node->get($metadata_field_name)
+                ->getFieldDefinition()
+                ->getLabel();
+              foreach ($entities as $entity) {
+                if ($entity instanceof EntityInterface) {
+                  $url = $entity->toUrl()->toString();
 
-              $items[] = [
-                'title' => $entity->label(),
-                'url' => $url,
-              ];
+                  $items[] = [
+                    'title' => $entity->label(),
+                    'url' => $url,
+                  ];
+                }
+              }
+              if ($items) {
+                $metadata[] = [
+                  'label' => $label,
+                  'items' => $items,
+                ];
+              }
             }
-          }
-          if ($items) {
-            $metadata[] = [
-              'label' => $label,
-              'items' => $items,
+            break;
+          case 'string':
+            $meta_items = [
+              'label' => t('Top image'),
+              'type' => 'text',
+              'items' => ['title' => $node->get($metadata_field_name)->first()->value],
             ];
-          }
+            break;
         }
       }
     }
     $variables['meta_data'][] = $metadata;
+    $variables['meta_data'][] = $meta_items;
   }
 
   /**
@@ -269,14 +285,39 @@ class MetadataHelperService {
         if (!$field instanceof FieldItemList | $field->isEmpty()) {
           continue;
         }
-        $label = $node->get($field_name)
-          ->getFieldDefinition()
-          ->getLabel();
-        $variables['meta_data'][] = [
-          'label' => $label,
-          'type' => 'text',
-          'items' => ['title' => $node->get($field_name)->first()->value],
-        ];
+        switch ($field->getFieldDefinition()->getType()) {
+          case 'string':
+            $label = $node->get($field_name)
+              ->getFieldDefinition()
+              ->getLabel();
+            $variables['meta_data'][] = [
+              'label' => $label,
+              'type' => 'text',
+              'items' => ['title' => $node->get($field_name)->first()->value],
+            ];
+            break;
+          case 'entity_reference_revisions':
+            $entity_fields = $field->referencedEntities();
+            foreach ($entity_fields as $paragraph) {
+              if ($paragraph instanceof ParagraphInterface) {
+                $media = $paragraph->get('field_file')->entity;
+                if ($media instanceof MediaInterface) {
+                  $items[] = $this->getFileFromMediaDocument($media);
+                }
+              }
+            }
+            if ($items) {
+              $label = $node->get($field_name)
+                ->getFieldDefinition()
+                ->getLabel();
+              $metadata = [
+                'label' => $label,
+                'items' => $items
+              ];
+              $variables['meta_data'][] = [$metadata];
+            }
+          break;
+        }
       }
     }
   }

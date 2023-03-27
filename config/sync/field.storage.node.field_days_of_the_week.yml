@@ -1,11 +1,11 @@
-uuid: 73e1c6a3-ccd6-4112-8b15-a3c3351e97d6
+uuid: 94929d7a-a54d-4494-99e4-15e2d5f3a43d
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_time_commitment
-field_name: field_time_commitment
+id: node.field_days_of_the_week
+field_name: field_days_of_the_week
 entity_type: node
 type: string
 settings:

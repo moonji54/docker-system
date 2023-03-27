@@ -5,11 +5,12 @@ dependencies:
   config:
     - field.field.node.event.field_acknowledgement_logo
     - field.field.node.event.field_address
+    - field.field.node.event.field_contact
     - field.field.node.event.field_country
     - field.field.node.event.field_course_host
     - field.field.node.event.field_course_syilabus
-    - field.field.node.event.field_course_training_contact
     - field.field.node.event.field_data_document
+    - field.field.node.event.field_days_of_the_week
     - field.field.node.event.field_end_date
     - field.field.node.event.field_event_contact
     - field.field.node.event.field_event_location
@@ -75,6 +76,14 @@ content:
     third_party_settings: {  }
     weight: 21
     region: content
+  field_contact:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 50
+    region: content
   field_country:
     type: entity_reference_label
     label: hidden
@@ -100,14 +109,6 @@ content:
     third_party_settings: {  }
     weight: 24
     region: content
-  field_course_training_contact:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 15
-    region: content
   field_data_document:
     type: entity_reference_revisions_entity_view
     label: above
@@ -116,6 +117,14 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 47
+    region: content
+  field_days_of_the_week:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 51
     region: content
   field_end_date:
     type: datetime_default
@@ -333,13 +342,12 @@ content:
     weight: 48
     region: content
   field_time_commitment:
-    type: number_integer
+    type: string
     label: above
     settings:
-      thousand_separator: ''
-      prefix_suffix: true
+      link_to_entity: false
     third_party_settings: {  }
-    weight: 43
+    weight: 49
     region: content
   field_time_zone:
     type: string

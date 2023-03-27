@@ -81,7 +81,6 @@ module:
   save_edit: 0
   scheduled_transitions: 0
   schema_article: 0
-  schema_article_example: 0
   schema_event: 0
   schema_job_posting: 0
   schema_metatag: 0
