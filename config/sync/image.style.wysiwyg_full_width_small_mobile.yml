@@ -1,0 +1,15 @@
+uuid: b3cc6594-60a2-4944-b8f9-38aa8dface1e
+langcode: en
+status: true
+dependencies: {  }
+name: wysiwyg_full_width_small_mobile
+label: 'WYSIWYG full-width small mobile'
+effects:
+  c8c61589-970d-4f3d-aeff-4548aa90dc36:
+    uuid: c8c61589-970d-4f3d-aeff-4548aa90dc36
+    id: image_scale
+    weight: 1
+    data:
+      width: 624
+      height: null
+      upscale: false

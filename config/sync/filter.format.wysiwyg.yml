@@ -26,7 +26,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<br> <p> <h1> <h2> <h3> <h4> <h5> <h6> <strong> <em> <u> <code> <blockquote> <a href title data-entity-type data-entity-uuid data-entity-substitution> <ul> <ol start> <li> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption> <drupal-media data-entity-type data-entity-uuid alt data-caption data-align data-entity-type data-entity-uuid data-view-mode data-align data-caption alt title> <div> <fn>'
+      allowed_html: '<br> <p> <h1> <h2> <h3> <h4> <h5> <h6> <strong> <em> <u> <code> <blockquote> <a href title data-entity-type data-entity-uuid data-entity-substitution> <ul> <ol start> <li> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption> <drupal-media data-entity-type data-entity-uuid alt data-caption data-align data-view-mode title> <fn> <div class="boxed-text">'
       filter_html_help: true
       filter_html_nofollow: false
   filter_align:
@@ -52,7 +52,6 @@ filters:
       allowed_view_modes:
         wysiwyg_full_width: wysiwyg_full_width
       allowed_media_types:
-        audio: audio
         data_visualisation: data_visualisation
         document: document
         image: image

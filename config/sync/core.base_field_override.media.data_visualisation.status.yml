@@ -1,0 +1,22 @@
+uuid: b688c26b-88a4-429c-ba7d-db2865829e5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.data_visualisation
+id: media.data_visualisation.status
+field_name: status
+entity_type: media
+bundle: data_visualisation
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

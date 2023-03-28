@@ -3,9 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.landing_page.field_attached_translated_items
     - field.field.node.landing_page.field_featured_image
-    - field.field.node.landing_page.field_hero_description
-    - field.field.node.landing_page.field_hero_title
     - field.field.node.landing_page.field_overlay_opacity
     - field.field.node.landing_page.field_page_builder
     - field.field.node.landing_page.field_short_description
@@ -23,6 +22,14 @@ content:
     third_party_settings: {  }
     weight: -20
     region: content
+  field_attached_translated_items:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 114
+    region: content
   field_featured_image:
     type: entity_reference_entity_view
     label: above
@@ -31,21 +38,6 @@ content:
       link: false
     third_party_settings: {  }
     weight: 111
-    region: content
-  field_hero_description:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 115
-    region: content
-  field_hero_title:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 114
     region: content
   field_overlay_opacity:
     type: number_integer
