@@ -83,4 +83,4 @@ filters:
     settings:
       footnotes_collapse: '0'
       footnotes_html: '1'
-      footnotes_footer_disable: '0'
+      footnotes_footer_disable: '1'
