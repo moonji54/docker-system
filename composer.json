@@ -94,6 +94,57 @@
                     "type": "zip"
                 }
             }
+        },
+        "8": {
+            "type": "package",
+            "package": {
+                "name": "kenwheeler/slick",
+                "version": "1.8.0",
+                "type": "drupal-library",
+                "source": {
+                    "url": "https://github.com/kenwheeler/slick",
+                    "type": "git",
+                    "reference": "1.8.0"
+                }
+            }
+        },
+        "9": {
+            "type": "package",
+            "package": {
+                "name": "mreq/slick-lightbox",
+                "version": "v0.2.12",
+                "type": "drupal-library",
+                "source": {
+                    "url": "https://github.com/mreq/slick-lightbox",
+                    "type": "git",
+                    "reference": "v0.2.12"
+                }
+            }
+        },
+        "10": {
+            "type": "package",
+            "package": {
+                "name": "dinbror/blazy",
+                "version": "1.8.2",
+                "type": "drupal-library",
+                "source": {
+                    "url": "https://github.com/dinbror/blazy",
+                    "type": "git",
+                    "reference": "1.8.2"
+                }
+            }
+        },
+        "11": {
+            "type": "package",
+            "package": {
+                "name": "jackmoore/colorbox",
+                "version": "1.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/jackmoore/colorbox/archive/1.x.zip",
+                    "type": "zip"
+                }
+            }
         }
     },
     "require": {
@@ -104,12 +155,14 @@
         "cweagans/composer-patches": "^1.6.5",
         "desandro/imagesloaded": "3.1.8",
         "desandro/masonry": "3.3.1",
+        "dinbror/blazy": "^1.8",
         "drupal/adminimal_admin_toolbar": "^1.8",
         "drupal/adminimal_theme": "^1.6",
         "drupal/allowed_formats": "^1.2",
         "drupal/anchor_link": "^2.5",
         "drupal/better_exposed_filters": "^5.0@beta|^5.0@RC|^5.0",
         "drupal/bugherd": "^1.0@beta",
+        "drupal/colorbox": "^2.0",
         "drupal/conditional_fields": "^4.0@alpha",
         "drupal/context": "^4.0@beta|^4.0@RC|^4.0",
         "drupal/context_active_trail": "^2.0@beta|^2.0@RC|^2.0",
@@ -120,7 +173,7 @@
         "drupal/core-recommended": "^9.1",
         "drupal/devel": "^4.0",
         "drupal/dropzonejs": "^2.3",
-        "drupal/editor_advanced_link": "^2.0",
+        "drupal/editor_advanced_link": "^2.1",
         "drupal/entity_usage": "^2.0@beta",
         "drupal/field_group": "^3.1",
         "drupal/field_tools": "^1.0@alpha|^1.0@RC|^1.0",
@@ -152,6 +205,7 @@
         "drupal/simple_user_management": "^1.0",
         "drupal/site_settings": "^1.13",
         "drupal/sitemap": "^2.0@beta|^2.0@RC|^2.0",
+        "drupal/slick_lightbox": "^1.5",
         "drupal/stage_file_proxy": "^1.0",
         "drupal/svg_image": "^1.16",
         "drupal/symfony_mailer": "^1.1@beta|^1.0@RC|^1.0",
@@ -167,6 +221,9 @@
         "drupal/webp": "1.x-dev",
         "drush/drush": "^10",
         "enyo/dropzone": "4.2.0",
+        "kenwheeler/slick": "^1.8",
+        "mreq/slick-lightbox": "^0.2.12",
+        "jackmoore/colorbox": "^1.0",
         "oomphinc/composer-installers-extender": "^2.0",
         "sb-dev-team/drupal_modules": "dev-master",
         "vlucas/phpdotenv": "^2.4",
@@ -227,6 +284,9 @@
                 "#2700667: Notice: Undefined index: #type in Drupal\\Core\\Form\\FormHelper::processStates()": "https://www.drupal.org/files/issues/2021-05-12/2700667-133b.patch",
                 "#3278959: oEmbed resource version as float throws exception\n": "https://www.drupal.org/files/issues/2022-09-30/3278959-13.patch",
                 "#3331771: OEmbed fails to save if thumbnail fails to download\n": "https://www.drupal.org/files/issues/2023-03-20/3331771-6.patch"
+            },
+            "drupal/colorbox": {
+                "Support responsive images": "https://www.drupal.org/files/issues/2022-10-27/colorbox-responsive-image-2808883-46.patch"
             },
             "drupal/field_group": {
                 "Ensure visibility of invalid fields (JS)": "https://www.drupal.org/files/issues/2020-05-28/2787179-highlight-html5-validation-53.patch",
