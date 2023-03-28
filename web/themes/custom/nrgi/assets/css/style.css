@@ -932,7 +932,77 @@ ul li a:hover {
   padding: var(--space-xs) var(--space-s);
 }
 
-/** @define c-header */ /** @define block-local-tasks-block */
+/** @define c-header */
+.c-learning-block {
+  background-color: #00545A;
+  color: #FFFFFF;
+}
+.c-learning-block__container {
+  display: grid;
+  grid-column-gap: var(--gutter);
+  grid-template-columns: repeat(12, 1fr);
+}
+@media (max-width: 48rem) {
+  .c-learning-block__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.c-learning-block__inner {
+  grid-column: 1/9;
+}
+@media (max-width: 48rem) {
+  .c-learning-block__inner {
+    grid-column: 1/-1;
+  }
+}
+.c-learning-block__title {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 1.2;
+}
+@media (max-width: 94.5rem) {
+  .c-learning-block__title {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 64rem) {
+  .c-learning-block__title {
+    font-size: 2.25rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-learning-block__title {
+    font-size: 1.75rem;
+  }
+}
+.c-learning-block__description {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.75;
+  font-weight: 400;
+  margin-top: var(--space-s);
+}
+@media (max-width: 64rem) {
+  .c-learning-block__description {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-learning-block__description {
+    font-size: 1rem;
+  }
+}
+.c-learning-block__button {
+  margin-top: var(--space-m);
+}
+@media (max-width: 48rem) {
+  .c-learning-block__button {
+    margin-top: var(--space-s);
+  }
+}
+
+/** @define block-local-tasks-block */
 .block-local-tasks-block {
   background-color: #333333;
   color: #CCCCCC;
