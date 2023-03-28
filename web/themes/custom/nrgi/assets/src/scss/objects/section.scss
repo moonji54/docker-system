@@ -29,6 +29,10 @@
     }
   }
 
+  &__button {
+    margin-top : var(--space-2xl);
+  }
+
   /* Modifiers
   ================================================== */
   &--has-background {

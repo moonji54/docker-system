@@ -1,5 +1,4 @@
 {% set has_grey_background = (content.field_show_background|field_raw('value') == '1') %}
-{{ has_grey_background ? 'true' : 'false' }}
 
 {% set classes = [
   'c-featured-pages',
@@ -41,11 +40,11 @@
       </div>
 
       {% if featured_pages.cta %}
-        <a class="c-featured-pages__link o-button" href="{{ featured_pages.cta.url }}"
+        <a class="o-section__button o-button" href="{{ featured_pages.cta.url }}"
            target="{{ featured_pages.cta.is_external ? '_blank' : '_self' }}">
           {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'arrow'} %}
 
-          <span class="c-featured-pages__link-title">{{ featured_pages.cta.title }}</span>
+          <span>{{ featured_pages.cta.title }}</span>
         </a>
       {% endif %}
     </div>

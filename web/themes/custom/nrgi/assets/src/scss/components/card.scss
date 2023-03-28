@@ -42,11 +42,16 @@
 
   /* stylelint-disable */
   //@formatter:off
-//@container (max-width:230px) {
-//  &__title {
-//    font-size : 30px;
-//  }
-//}
+  // Experimental
+@container (max-width:260px) {
+  &__title {
+    @include ts-card($small : true);
+  }
+
+  &__description {
+    font-size:0.875rem;
+  }
+}
   //@formatter:on
   /* stylelint-enable */
 

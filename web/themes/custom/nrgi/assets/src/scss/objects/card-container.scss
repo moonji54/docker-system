@@ -21,4 +21,20 @@
       grid-template-columns : 1fr;
     }
   }
+
+  &--four-per-row {
+    grid-template-columns : repeat(4, 1fr);
+
+    @include media("<=desktop") {
+      grid-template-columns : repeat(3, 1fr);
+    }
+
+    @include media("<=tablet") {
+      grid-template-columns : repeat(2, 1fr);
+    }
+
+    @include media("<=large-phone") {
+      grid-template-columns : 1fr;
+    }
+  }
 }
