@@ -1,16 +1,17 @@
 /** @define o-button */
 @mixin o-button {
   @include ts-button;
-  align-items   : center;
-  border        : 0.0625rem solid $primary;
-  color         : $primary;
-  height        : 2.5rem;
-  display       : inline-flex;
-  gap           : var(--space-xs);
-  padding       : 0.625rem 1.125rem;
-  transition    : background-color 0.3s;
-  border-radius : 2.75rem;
+  align-items      : center;
+  color            : $primary;
+  height           : 2.5rem;
+  display          : inline-flex;
+  gap              : var(--space-xs);
+  background-color : $tertiary;
+  padding          : 0.625rem 1.125rem;
+  transition       : background-color 0.3s;
+  border-radius    : 2.75rem;
 
+  /* stylelint-disable */
   &:focus,
   &:hover {
     background-color : $peach-2;
@@ -20,19 +21,38 @@
     padding : 0.25rem 0.875rem;
     height  : 2rem;
   }
-
 }
 
 .o-button {
   @include o-button;
 
   &--white {
-    border-color : $white;
-    color        : $white;
+    background-color : transparent;
+    border           : 0.0625rem solid $white;
+    color            : $white;
 
     &:focus,
     &:hover {
       background-color : rgba($primary, 0.4);
+    }
+  }
+
+  &--secondary {
+    background-color : $turquoise-light;
+
+    &:focus,
+    &:hover {
+      background-color : $turquoise-dark;
+    }
+  }
+
+  &--tertiary {
+    background-color : $white;
+    border           : 0.0625rem solid $primary;
+
+    &:focus,
+    &:hover {
+      background-color : $grey-light;
     }
   }
 }
