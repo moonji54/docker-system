@@ -1,17 +1,10 @@
 {% set classes = [
   'c-learning-block',
-  content.field_image|field_value ? 'c-learning-block--with-image',
   'o-section',
   'o-section--has-background',
-  'paragraph',
-  'paragraph--type--' ~ paragraph.bundle|clean_class,
-  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  not paragraph.isPublished() ? 'paragraph--unpublished'
 ] %}
 
-<section{{ attributes.addClass(classes) }} style="border: 3px dotted mediumvioletred; background-color: darkolivegreen">
-  Learning block
-
+<section{{ attributes.addClass(classes) }}>
   <div class="c-learning-block__container o-container">
     <div class="c-learning-block__inner">
       {# Title #}
@@ -29,7 +22,7 @@
       {# Use button_link.type to see type of button to render #}
       {% if button_link.url %}
         <div>[Link Type] {{ button_link.type }}</div>
-        <a class="c-learning-block__link" href="{{ button_link.url }}" style="padding: 20px; border: 1px dotted black"
+        <a class="c-learning-block__link" href="{{ button_link.url }}"
            target="{{ button_link.is_external ? '_blank' : '_self' }}">
           {% if button_link.type == 'link' %}
             [arrow icon] ->
