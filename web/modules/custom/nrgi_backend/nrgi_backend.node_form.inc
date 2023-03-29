@@ -20,7 +20,8 @@ function nrgi_backend_form_node_form_alter(&$form, &$form_state, $form_id) {
   if ($node->bundle() === 'article') {
     // If resource type is 'Course materials' make Publication date optional.
     $course_material_input = _nrgi_backend_get_term_reference_id(
-      'Course Materials', 'resource_type'
+      'Course Materials',
+      'resource_type'
     );
 
     $form['field_publication_date']['widget'][0]['value']['#states'] = [
@@ -36,6 +37,49 @@ function nrgi_backend_form_node_form_alter(&$form, &$form_state, $form_id) {
       ],
     ];
   }
+
+  /*
+   * If resource type is 'External news' or 'Tool':
+   *    - make field_disable visible.
+   *    - make field_link required if field_disable is checked.
+   */
+  $external_news_input = _nrgi_backend_get_term_reference_id(
+    'External news',
+    'resource_type'
+  );
+  $tool_input = _nrgi_backend_get_term_reference_id(
+    'Tool',
+    'resource_type'
+  );
+
+  $external_item_condition = [
+    [
+      ':input[name="field_resource_type"]' => [
+        ['value' => $external_news_input],
+        'or',
+        ['value' => $tool_input],
+      ],
+    ],
+  ];
+
+  $form['field_disable']['#states'] = [
+    'visible' => $external_item_condition,
+  ];
+
+  /* Make URL required if field_disable is checked.
+   *
+   * Also adding initial Drupal's default field required conditional
+   * as we are overriding the existing states attribute values
+   * array (need to be required if link text is provided).
+   */
+  $form['field_link']['widget'][0]['uri']['#states'] = [
+    'required' => [
+      [':input[name="field_link[0][title]"]' => ['filled' => TRUE]],
+      'or',
+      [':input[name="field_disable[value]"]' => ['checked' => TRUE]],
+    ],
+  ];
+
 }
 
 /**
