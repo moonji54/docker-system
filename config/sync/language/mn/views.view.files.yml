@@ -1,0 +1,13 @@
+display:
+  default:
+    display_title: Default
+    display_options:
+      fields:
+        filename:
+          label: Name
+  page_2:
+    display_options:
+      arguments:
+        fid:
+          exception:
+            title: All

@@ -4,17 +4,34 @@ status: true
 dependencies:
   config:
     - field.field.media.image.field_media_image
+    - image.style.thumbnail
     - media.type.image
+  module:
+    - svg_image
 _core:
   default_config_hash: xOjhrwlN3e_AAKpoTyaIXolQOpOCwgBJeV-84FmrbsQ
 id: media.image.default
 targetEntityType: media
 bundle: image
 mode: default
-content: {  }
+content:
+  field_media_image:
+    type: image
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: thumbnail
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   created: true
-  field_media_image: true
   langcode: true
   name: true
   search_api_excerpt: true
