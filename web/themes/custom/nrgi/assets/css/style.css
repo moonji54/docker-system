@@ -191,6 +191,7 @@ ol, ul {
     ===============================
 */
 body {
+  color: #2D2D32;
   font-size: 16px;
 }
 
@@ -199,6 +200,7 @@ a {
   text-decoration: none;
 }
 
+/* stylelint-disable */
 a,
 p a,
 ol li a,
