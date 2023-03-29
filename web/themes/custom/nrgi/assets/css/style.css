@@ -335,49 +335,87 @@ ul li a:hover {
 :where(.o-content-from-editor) h2 {
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 500;
-  font-size: 4rem;
-  line-height: 1.2;
+  font-size: 2.5rem;
+  line-height: 1.5;
 }
 @media (max-width: 94.5rem) {
   :where(.o-content-from-editor) h2 {
-    font-size: 3.5rem;
-  }
-}
-@media (max-width: 64rem) {
-  :where(.o-content-from-editor) h2 {
-    font-size: 3rem;
-  }
-}
-@media (max-width: 48rem) {
-  :where(.o-content-from-editor) h2 {
-    font-size: 1.875rem;
-  }
-}
-:where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
-  font-family: "Cabinet Grotesk", sans-serif;
-  font-weight: 500;
-  font-size: 3rem;
-  line-height: 1.2;
-}
-@media (max-width: 94.5rem) {
-  :where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
-    font-size: 2.5rem;
-  }
-}
-@media (max-width: 64rem) {
-  :where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
     font-size: 2.25rem;
   }
 }
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) h2 {
+    font-size: 2rem;
+  }
+}
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
+  :where(.o-content-from-editor) h2 {
+    font-size: 1.5rem;
+  }
+}
+:where(.o-content-from-editor) h3,
+:where(.o-content-from-editor) h4 {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 2.25rem;
+  line-height: 1.5;
+  font-weight: 500;
+  font-weight: 700;
+}
+@media (max-width: 94.5rem) {
+  :where(.o-content-from-editor) h3,
+  :where(.o-content-from-editor) h4 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) h3,
+  :where(.o-content-from-editor) h4 {
     font-size: 1.75rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) h3,
+  :where(.o-content-from-editor) h4 {
+    font-size: 1.375rem;
+  }
+}
+:where(.o-content-from-editor) h5 {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.5;
+}
+@media (max-width: 94.5rem) {
+  :where(.o-content-from-editor) h5 {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) h5 {
+    font-size: 1.125rem;
+  }
+}
+:where(.o-content-from-editor) h6 {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.75;
+  font-weight: 400;
+  font-weight: 700;
+}
+@media (max-width: 64rem) {
+  :where(.o-content-from-editor) h6 {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 48rem) {
+  :where(.o-content-from-editor) h6 {
+    font-size: 1rem;
   }
 }
 :where(.o-content-from-editor) a {
   text-decoration: underline;
 }
-:where(.o-content-from-editor) a:hover, :where(.o-content-from-editor) a:focus {
+:where(.o-content-from-editor) a:focus, :where(.o-content-from-editor) a:hover {
   color: #ED7053;
   text-decoration: underline;
 }
@@ -454,15 +492,18 @@ ul li a:hover {
     font-size: 0.875rem;
   }
 }
-:where(.o-content-from-editor) .alignleft, :where(.o-content-from-editor) .align-left {
+:where(.o-content-from-editor) .alignleft,
+:where(.o-content-from-editor) .align-left {
   float: left;
   margin: var(--space-s) var(--space-m) var(--space-s) 0;
 }
-:where(.o-content-from-editor) .aligncenter, :where(.o-content-from-editor) .align-center {
+:where(.o-content-from-editor) .aligncenter,
+:where(.o-content-from-editor) .align-center {
   display: block;
   margin: var(--space-m) auto;
 }
-:where(.o-content-from-editor) .alignright, :where(.o-content-from-editor) .align-right {
+:where(.o-content-from-editor) .alignright,
+:where(.o-content-from-editor) .align-right {
   float: right;
   margin: var(--space-s) 0 var(--space-m) var(--space-s);
 }
@@ -1047,6 +1088,25 @@ ul li a:hover {
 }
 .c-social-links__link:focus, .c-social-links__link:hover {
   background-color: rgba(45, 45, 50, 0.4);
+}
+
+.c-text-block__container {
+  display: grid;
+  grid-column-gap: var(--gutter);
+  grid-template-columns: repeat(12, 1fr);
+}
+@media (max-width: 48rem) {
+  .c-text-block__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.c-text-block__inner {
+  grid-column: 1/9;
+}
+@media (max-width: 48rem) {
+  .c-text-block__inner {
+    grid-column: 1/-1;
+  }
 }
 
 /*

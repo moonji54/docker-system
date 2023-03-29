@@ -8,17 +8,29 @@
   }
 
   h2 {
-    @include ts-heading-2;
+    @include ts-heading-4;
   }
 
-  h3, h4, h5, h6 {
-    @include ts-heading-3;
+  h3,
+  h4 {
+    @include ts-heading-5;
+    font-weight : 700;
+  }
+
+  h5 {
+    @include ts-sub-heading;
+  }
+
+  h6 {
+    @include ts-body;
+    font-weight : 700;
   }
 
   a {
     text-decoration : underline;
 
-    &:hover, &:focus {
+    &:focus,
+    &:hover {
       color           : $peach-2;
       text-decoration : underline;
     }
@@ -89,17 +101,20 @@
 
   /* Aligned Images
   ================================================== */
-  .alignleft, .align-left {
+  .alignleft,
+  .align-left {
     float  : left;
     margin : var(--space-s) var(--space-m) var(--space-s) 0;
   }
 
-  .aligncenter, .align-center {
+  .aligncenter,
+  .align-center {
     display : block;
     margin  : var(--space-m) auto;
   }
 
-  .alignright, .align-right {
+  .alignright,
+  .align-right {
     float  : right;
     margin : var(--space-s) 0 var(--space-m) var(--space-s);
   }
