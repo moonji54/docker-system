@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.article.field_country
     - field.field.node.article.field_data_document
     - field.field.node.article.field_disable
-    - field.field.node.article.field_expiration_date
     - field.field.node.article.field_external_authors
     - field.field.node.article.field_featured_image
     - field.field.node.article.field_keywords
@@ -87,16 +86,6 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 39
-    region: content
-  field_expiration_date:
-    type: datetime_time_ago
-    label: above
-    settings:
-      future_format: '@interval hence'
-      past_format: '@interval ago'
-      granularity: 2
-    third_party_settings: {  }
-    weight: 26
     region: content
   field_external_authors:
     type: entity_reference_revisions_entity_view

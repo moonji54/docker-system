@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.publication.field_author
     - field.field.node.publication.field_country
     - field.field.node.publication.field_data_document
-    - field.field.node.publication.field_expiration_date
     - field.field.node.publication.field_featured_image
     - field.field.node.publication.field_keywords
     - field.field.node.publication.field_link
@@ -406,12 +405,6 @@ content:
         add_above: '0'
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
-    third_party_settings: {  }
-  field_expiration_date:
-    type: datetime_default
-    weight: 9
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_featured_image:
     type: media_library_widget

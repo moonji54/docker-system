@@ -289,7 +289,15 @@
                 "Support responsive images": "https://www.drupal.org/files/issues/2022-10-27/colorbox-responsive-image-2808883-46.patch"
             },
             "drupal/field_group": {
-                "Ensure visibility of invalid fields (JS)": "https://www.drupal.org/files/issues/2021-09-03/2787179-highlight-html5-validation-74.patch"
+                "Ensure visibility of invalid fields (JS)": "https://www.drupal.org/files/issues/2021-09-03/2787179-highlight-html5-validation-74.patch",
+                "Field groups are added to the scheduled transitions add form": "https://www.drupal.org/files/issues/2023-01-12/3098550-17.patch"
+            },
+            "drupal/footnotes": {
+                "All footnotes available as block for Paragraph": "https://www.drupal.org/files/issues/2023-03-23/footnotes-3098138-72.patch",
+                "Enable basic editor on footnotes": "https://www.drupal.org/files/issues/2021-11-16/footnotes-basic-styles-for-footnote-text-field-3204959-4.patch"
+            },
+            "drupal/scheduled_transitions": {
+                "Field groups are added to the scheduled transitions add form": "https://www.drupal.org/files/issues/2022-02-16/scheduled_transitions-field_groups_add_form-3264674-2.patch"
             },
             "drupal/menu_admin_per_menu": {
                 "Menu edit form is not visible on the node edit page": "https://www.drupal.org/files/issues/2018-11-30/2900957-default-menu-items.patch"
@@ -297,10 +305,6 @@
             "drupal/textfield_counter": {
                 "Incompatibilities with Claro": "https://www.drupal.org/files/issues/2022-08-04/textfield-counter-incompatible-with-claro-3182675-10.patch",
                 "Calling static trait method getLengthOfSubmittedValue is deprecated": "https://www.drupal.org/files/issues/2022-04-27/deprecated-static-function-call-in-trait-3272128.patch"
-            },
-            "drupal/footnotes": {
-                "All footnotes available as block for Paragraph": "https://www.drupal.org/files/issues/2023-03-23/footnotes-3098138-72.patch",
-                "Enable basic editor on footnotes": "https://www.drupal.org/files/issues/2021-11-16/footnotes-basic-styles-for-footnote-text-field-3204959-4.patch"
             }
         },
         "patchLevel": {

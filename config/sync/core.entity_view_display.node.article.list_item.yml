@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.article.field_country
     - field.field.node.article.field_data_document
     - field.field.node.article.field_disable
-    - field.field.node.article.field_expiration_date
     - field.field.node.article.field_external_authors
     - field.field.node.article.field_featured_image
     - field.field.node.article.field_keywords
@@ -60,7 +59,6 @@ hidden:
   field_country: true
   field_data_document: true
   field_disable: true
-  field_expiration_date: true
   field_external_authors: true
   field_keywords: true
   field_link: true
