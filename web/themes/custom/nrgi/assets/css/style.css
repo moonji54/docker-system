@@ -287,76 +287,78 @@ ul li a:hover {
   width: 100%;
 }
 
-:where(.o-content-from-editor) {
+.o-content-from-editor {
   /* Block Quotes
   ================================================== */
   /* Aligned Images
   ================================================== */
   /* Lists
   ================================================== */
+  /* stylelint-disable-next-line */
+  /* stylelint-disable-next-line */
   /* Miscellaneous
   ================================================== */
 }
-:where(.o-content-from-editor) p {
+.o-content-from-editor p {
   font-family: "Noto Sans", sans-serif;
   font-size: 1.375rem;
   line-height: 1.75;
   font-weight: 400;
 }
 @media (max-width: 64rem) {
-  :where(.o-content-from-editor) p {
+  .o-content-from-editor p {
     font-size: 1.125rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) p {
+  .o-content-from-editor p {
     font-size: 1rem;
   }
 }
-:where(.o-content-from-editor) h1 {
+.o-content-from-editor h1 {
   font-family: "Cabinet Grotesk", sans-serif;
   font-size: 5rem;
   line-height: 1.15;
   font-weight: 500;
 }
 @media (max-width: 94.5rem) {
-  :where(.o-content-from-editor) h1 {
+  .o-content-from-editor h1 {
     font-size: 4.5rem;
   }
 }
 @media (max-width: 64rem) {
-  :where(.o-content-from-editor) h1 {
+  .o-content-from-editor h1 {
     font-size: 3.75rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) h1 {
+  .o-content-from-editor h1 {
     font-size: 2rem;
   }
 }
-:where(.o-content-from-editor) h2 {
+.o-content-from-editor h2 {
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 500;
   font-size: 2.5rem;
   line-height: 1.5;
 }
 @media (max-width: 94.5rem) {
-  :where(.o-content-from-editor) h2 {
+  .o-content-from-editor h2 {
     font-size: 2.25rem;
   }
 }
 @media (max-width: 64rem) {
-  :where(.o-content-from-editor) h2 {
+  .o-content-from-editor h2 {
     font-size: 2rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) h2 {
+  .o-content-from-editor h2 {
     font-size: 1.5rem;
   }
 }
-:where(.o-content-from-editor) h3,
-:where(.o-content-from-editor) h4 {
+.o-content-from-editor h3,
+.o-content-from-editor h4 {
   font-family: "Cabinet Grotesk", sans-serif;
   font-size: 2.25rem;
   line-height: 1.5;
@@ -364,40 +366,40 @@ ul li a:hover {
   font-weight: 700;
 }
 @media (max-width: 94.5rem) {
-  :where(.o-content-from-editor) h3,
-  :where(.o-content-from-editor) h4 {
+  .o-content-from-editor h3,
+  .o-content-from-editor h4 {
     font-size: 2rem;
   }
 }
 @media (max-width: 64rem) {
-  :where(.o-content-from-editor) h3,
-  :where(.o-content-from-editor) h4 {
+  .o-content-from-editor h3,
+  .o-content-from-editor h4 {
     font-size: 1.75rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) h3,
-  :where(.o-content-from-editor) h4 {
+  .o-content-from-editor h3,
+  .o-content-from-editor h4 {
     font-size: 1.375rem;
   }
 }
-:where(.o-content-from-editor) h5 {
+.o-content-from-editor h5 {
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 700;
   font-size: 1.75rem;
   line-height: 1.5;
 }
 @media (max-width: 94.5rem) {
-  :where(.o-content-from-editor) h5 {
+  .o-content-from-editor h5 {
     font-size: 1.5rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) h5 {
+  .o-content-from-editor h5 {
     font-size: 1.125rem;
   }
 }
-:where(.o-content-from-editor) h6 {
+.o-content-from-editor h6 {
   font-family: "Noto Sans", sans-serif;
   font-size: 1.375rem;
   line-height: 1.75;
@@ -405,180 +407,182 @@ ul li a:hover {
   font-weight: 700;
 }
 @media (max-width: 64rem) {
-  :where(.o-content-from-editor) h6 {
+  .o-content-from-editor h6 {
     font-size: 1.125rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) h6 {
+  .o-content-from-editor h6 {
     font-size: 1rem;
   }
 }
-:where(.o-content-from-editor) a {
+.o-content-from-editor a {
+  color: #007078;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+.o-content-from-editor a:focus, .o-content-from-editor a:hover {
+  color: #2D2D32;
   text-decoration: underline;
 }
-:where(.o-content-from-editor) a:focus, :where(.o-content-from-editor) a:hover {
-  color: #ED7053;
-  text-decoration: underline;
-}
-:where(.o-content-from-editor) > :last-child {
+.o-content-from-editor > :last-child {
   margin-bottom: 0;
 }
-:where(.o-content-from-editor) img {
+.o-content-from-editor img {
   display: block;
   height: auto;
   max-width: 100%;
   width: auto;
 }
-:where(.o-content-from-editor) img.size-large {
+.o-content-from-editor img.size-large {
   margin-left: 0;
   margin-right: 0;
   width: 100%;
 }
-:where(.o-content-from-editor) figure {
+.o-content-from-editor figure {
   margin-top: var(--space-s);
 }
-:where(.o-content-from-editor) figure figcaption {
+.o-content-from-editor figure figcaption {
   box-sizing: border-box;
   display: inline-block;
   padding: var(--space-xs) var(--space-s);
   width: 100%;
 }
-:where(.o-content-from-editor) h1 + p,
-:where(.o-content-from-editor) h2 + p,
-:where(.o-content-from-editor) h3 + p,
-:where(.o-content-from-editor) h4 + p,
-:where(.o-content-from-editor) h5 + p,
-:where(.o-content-from-editor) h6 + p,
-:where(.o-content-from-editor) p + p {
+.o-content-from-editor h1 + p,
+.o-content-from-editor h2 + p,
+.o-content-from-editor h3 + p,
+.o-content-from-editor h4 + p,
+.o-content-from-editor h5 + p,
+.o-content-from-editor h6 + p,
+.o-content-from-editor p + p {
   margin-top: var(--space-m);
 }
-:where(.o-content-from-editor) blockquote {
-  border-left: 3px solid #2D2D32;
-  margin: var(--space-l) 0 var(--space-l) var(--space-m);
-  padding: var(--space-xs) 0 var(--space-xs) var(--space-m);
+.o-content-from-editor blockquote {
+  margin: var(--space-2xl) 0 var(--space-2xl) var(--space-s);
 }
-:where(.o-content-from-editor) blockquote p {
+.o-content-from-editor blockquote p {
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 500;
   font-size: 2rem;
   line-height: 1.5;
-  font-style: italic;
-  font-weight: 400;
+  color: #00545A;
   margin-bottom: 0;
 }
 @media (max-width: 94.5rem) {
-  :where(.o-content-from-editor) blockquote p {
+  .o-content-from-editor blockquote p {
     font-size: 1.75rem;
   }
 }
 @media (max-width: 64rem) {
-  :where(.o-content-from-editor) blockquote p {
+  .o-content-from-editor blockquote p {
     font-size: 1.5rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) blockquote p {
+  .o-content-from-editor blockquote p {
     font-size: 1.125rem;
   }
 }
-:where(.o-content-from-editor) blockquote footer {
-  font-family: "Noto Sans", sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-top: var(--space-s);
-}
-@media (max-width: 64rem) {
-  :where(.o-content-from-editor) blockquote footer {
-    font-size: 0.875rem;
-  }
-}
-:where(.o-content-from-editor) .alignleft,
-:where(.o-content-from-editor) .align-left {
+.o-content-from-editor .alignleft,
+.o-content-from-editor .align-left {
   float: left;
   margin: var(--space-s) var(--space-m) var(--space-s) 0;
 }
-:where(.o-content-from-editor) .aligncenter,
-:where(.o-content-from-editor) .align-center {
+.o-content-from-editor .aligncenter,
+.o-content-from-editor .align-center {
   display: block;
   margin: var(--space-m) auto;
 }
-:where(.o-content-from-editor) .alignright,
-:where(.o-content-from-editor) .align-right {
+.o-content-from-editor .alignright,
+.o-content-from-editor .align-right {
   float: right;
   margin: var(--space-s) 0 var(--space-m) var(--space-s);
 }
-:where(.o-content-from-editor) .alignnone {
+.o-content-from-editor .alignnone {
   display: block;
   height: auto;
   margin: var(--space-l) 0;
   max-width: 100%;
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) .alignnone {
+  .o-content-from-editor .alignnone {
     margin-top: var(--space-m);
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) .alignleft,
-  :where(.o-content-from-editor) .alignright,
-  :where(.o-content-from-editor) .alignnone {
+  .o-content-from-editor .alignleft,
+  .o-content-from-editor .alignright,
+  .o-content-from-editor .alignnone {
     display: block;
     float: none;
     margin-bottom: var(--space-s);
     margin-left: 0;
   }
 }
-:where(.o-content-from-editor) ol {
+.o-content-from-editor ol {
   list-style: decimal;
 }
-:where(.o-content-from-editor) ol ul {
+.o-content-from-editor ol ul {
   list-style: disc;
 }
-:where(.o-content-from-editor) ol ol {
+.o-content-from-editor ol ol {
   list-style: lower-latin;
 }
-:where(.o-content-from-editor) ul {
+.o-content-from-editor ul {
   list-style: disc;
 }
-:where(.o-content-from-editor) ul ul {
-  list-style: circle;
-}
-:where(.o-content-from-editor) ul ol {
+.o-content-from-editor ul ol {
   list-style: decimal;
 }
-:where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
+.o-content-from-editor ul,
+.o-content-from-editor ol {
   font-family: "Noto Sans", sans-serif;
   font-size: 1.375rem;
   line-height: 1.75;
   font-weight: 400;
-  margin: var(--space-s) 0 var(--space-m) var(--space-m);
+  margin: var(--space-s) 0 var(--space-s) var(--space-xl);
 }
 @media (max-width: 64rem) {
-  :where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
+  .o-content-from-editor ul,
+  .o-content-from-editor ol {
     font-size: 1.125rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
+  .o-content-from-editor ul,
+  .o-content-from-editor ol {
     font-size: 1rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
-    margin-bottom: var(--space-s);
-    margin-top: var(--space-s);
+  .o-content-from-editor ul,
+  .o-content-from-editor ol {
+    margin-left: var(--space-l);
   }
 }
-:where(.o-content-from-editor) ol ul, :where(.o-content-from-editor) ol ol, :where(.o-content-from-editor) ul ul, :where(.o-content-from-editor) ul ol {
-  margin: 0.25rem 0 0.375rem var(--space-s);
+.o-content-from-editor ul ul,
+.o-content-from-editor ul ol,
+.o-content-from-editor ol ul,
+.o-content-from-editor ol ol {
+  margin: var(--space-s) 0 var(--space-s) var(--space-xl);
 }
-:where(.o-content-from-editor) ol li, :where(.o-content-from-editor) ul li {
-  margin-bottom: var(--space-xs);
-  padding-left: var(--space-xs);
+@media (max-width: 48rem) {
+  .o-content-from-editor ul ul,
+  .o-content-from-editor ul ol,
+  .o-content-from-editor ol ul,
+  .o-content-from-editor ol ol {
+    margin-left: var(--space-l);
+  }
 }
-:where(.o-content-from-editor) address {
+.o-content-from-editor ul li,
+.o-content-from-editor ol li {
+  margin-bottom: var(--space-s);
+}
+.o-content-from-editor ul li::marker,
+.o-content-from-editor ol li::marker {
+  color: #00C9C8;
+}
+.o-content-from-editor address {
   font-family: "Noto Sans", sans-serif;
   font-size: 1.375rem;
   line-height: 1.75;
@@ -586,31 +590,32 @@ ul li a:hover {
   font-style: italic;
 }
 @media (max-width: 64rem) {
-  :where(.o-content-from-editor) address {
+  .o-content-from-editor address {
     font-size: 1.125rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) address {
+  .o-content-from-editor address {
     font-size: 1rem;
   }
 }
-:where(.o-content-from-editor) big {
+.o-content-from-editor big {
   font-size: 120%;
 }
-:where(.o-content-from-editor) small {
+.o-content-from-editor small {
   font-size: 80%;
 }
-:where(.o-content-from-editor) cite {
+.o-content-from-editor cite {
   font-weight: 700;
 }
-:where(.o-content-from-editor) q {
+.o-content-from-editor q {
   font-style: italic;
 }
-:where(.o-content-from-editor) code, :where(.o-content-from-editor) var {
+.o-content-from-editor code,
+.o-content-from-editor var {
   font-family: Consolas, monospace;
 }
-:where(.o-content-from-editor) div {
+.o-content-from-editor div {
   margin-top: var(--space-m);
 }
 
