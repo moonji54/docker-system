@@ -289,8 +289,7 @@
                 "Support responsive images": "https://www.drupal.org/files/issues/2022-10-27/colorbox-responsive-image-2808883-46.patch"
             },
             "drupal/field_group": {
-                "Ensure visibility of invalid fields (JS)": "https://www.drupal.org/files/issues/2020-05-28/2787179-highlight-html5-validation-53.patch",
-                "Undefined index name in form display": "https://www.drupal.org/files/issues/2020-08-10/field_group-undefined-index-name-3064890-16.patch"
+                "Ensure visibility of invalid fields (JS)": "https://www.drupal.org/files/issues/2021-09-03/2787179-highlight-html5-validation-74.patch"
             },
             "drupal/menu_admin_per_menu": {
                 "Menu edit form is not visible on the node edit page": "https://www.drupal.org/files/issues/2018-11-30/2900957-default-menu-items.patch"

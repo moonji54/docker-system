@@ -8,12 +8,12 @@ dependencies:
     - field.field.node.article.field_author
     - field.field.node.article.field_country
     - field.field.node.article.field_data_document
+    - field.field.node.article.field_disable
     - field.field.node.article.field_expiration_date
+    - field.field.node.article.field_external_authors
     - field.field.node.article.field_featured_image
     - field.field.node.article.field_keywords
     - field.field.node.article.field_link
-    - field.field.node.article.field_link_from_external_card
-    - field.field.node.article.field_link_to_external_item
     - field.field.node.article.field_page_builder
     - field.field.node.article.field_partner_logo
     - field.field.node.article.field_photo_caption
@@ -22,6 +22,7 @@ dependencies:
     - field.field.node.article.field_region
     - field.field.node.article.field_resource_type
     - field.field.node.article.field_short_description
+    - field.field.node.article.field_slug
     - field.field.node.article.field_subtitle
     - field.field.node.article.field_supporting_document
     - field.field.node.article.field_topic
@@ -58,11 +59,11 @@ hidden:
   field_author: true
   field_country: true
   field_data_document: true
+  field_disable: true
   field_expiration_date: true
+  field_external_authors: true
   field_keywords: true
   field_link: true
-  field_link_from_external_card: true
-  field_link_to_external_item: true
   field_page_builder: true
   field_partner_logo: true
   field_photo_caption: true
@@ -71,6 +72,7 @@ hidden:
   field_region: true
   field_resource_type: true
   field_short_description: true
+  field_slug: true
   field_supporting_document: true
   field_topic: true
   field_upload: true

@@ -1,11 +1,11 @@
-uuid: f210270c-a81d-4748-9068-7315361d5490
+uuid: 3ea8da28-4669-4dc2-a4ed-cf590dc30fc7
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_photo_caption
-field_name: field_photo_caption
+id: node.field_slug
+field_name: field_slug
 entity_type: node
 type: string
 settings:

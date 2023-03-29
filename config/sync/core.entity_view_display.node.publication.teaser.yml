@@ -13,8 +13,6 @@ dependencies:
     - field.field.node.publication.field_featured_image
     - field.field.node.publication.field_keywords
     - field.field.node.publication.field_link
-    - field.field.node.publication.field_link_from_external_card
-    - field.field.node.publication.field_link_to_external_item
     - field.field.node.publication.field_page_builder
     - field.field.node.publication.field_page_to_pdf
     - field.field.node.publication.field_partner_logo
@@ -56,8 +54,6 @@ hidden:
   field_featured_image: true
   field_keywords: true
   field_link: true
-  field_link_from_external_card: true
-  field_link_to_external_item: true
   field_page_builder: true
   field_page_to_pdf: true
   field_partner_logo: true

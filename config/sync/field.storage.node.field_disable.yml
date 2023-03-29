@@ -1,16 +1,15 @@
-uuid: c02b973a-17a2-4188-883a-d4cf42c32d29
+uuid: 3d9a71ab-9df5-4ed8-8624-1abeddc120d1
 langcode: en
 status: true
 dependencies:
   module:
-    - link
     - node
-id: node.field_link_from_external_card
-field_name: field_link_from_external_card
+id: node.field_disable
+field_name: field_disable
 entity_type: node
-type: link
+type: boolean
 settings: {  }
-module: link
+module: core
 locked: false
 cardinality: 1
 translatable: true

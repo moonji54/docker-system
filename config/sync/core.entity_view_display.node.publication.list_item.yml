@@ -13,8 +13,6 @@ dependencies:
     - field.field.node.publication.field_featured_image
     - field.field.node.publication.field_keywords
     - field.field.node.publication.field_link
-    - field.field.node.publication.field_link_from_external_card
-    - field.field.node.publication.field_link_to_external_item
     - field.field.node.publication.field_page_builder
     - field.field.node.publication.field_page_to_pdf
     - field.field.node.publication.field_partner_logo
@@ -32,7 +30,6 @@ dependencies:
   module:
     - datetime
     - entity_reference_revisions
-    - link
     - user
 id: node.publication.list_item
 targetEntityType: node
@@ -84,30 +81,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 3
-    region: content
-  field_link_from_external_card:
-    type: link
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 10
-    region: content
-  field_link_to_external_item:
-    type: link
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 26
     region: content
   field_page_builder:
     type: entity_reference_revisions_entity_view
