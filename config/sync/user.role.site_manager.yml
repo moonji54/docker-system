@@ -39,6 +39,7 @@ dependencies:
     - block_content
     - content_moderation
     - content_translation
+    - eu_cookie_compliance
     - file
     - file_delete
     - filter
@@ -186,6 +187,7 @@ permissions:
   - 'delete terms in resource_type'
   - 'delete terms in series'
   - 'delete topic revisions'
+  - 'display eu cookie compliance popup'
   - 'edit any article content'
   - 'edit any audio media'
   - 'edit any career_opportunity content'
