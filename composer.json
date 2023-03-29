@@ -283,7 +283,8 @@
                 "PoStreamReader::readLine() throws an error on module install": "https://www.drupal.org/files/issues/2023-01-17/drupal_core-PoStreamReader_readLine_throws_an_error_on_module_install-3301239-7.patch",
                 "#2700667: Notice: Undefined index: #type in Drupal\\Core\\Form\\FormHelper::processStates()": "https://www.drupal.org/files/issues/2021-05-12/2700667-133b.patch",
                 "#3278959: oEmbed resource version as float throws exception\n": "https://www.drupal.org/files/issues/2022-09-30/3278959-13.patch",
-                "#3331771: OEmbed fails to save if thumbnail fails to download\n": "https://www.drupal.org/files/issues/2023-03-20/3331771-6.patch"
+                "#3331771: OEmbed fails to save if thumbnail fails to download\n": "https://www.drupal.org/files/issues/2023-03-20/3331771-6.patch",
+                "#2419131: [PP-1] #states attribute does not work on #type datetime": "https://www.drupal.org/files/issues/2023-03-27/2419131-datetime-states-163-claro.patch"
             },
             "drupal/colorbox": {
                 "Support responsive images": "https://www.drupal.org/files/issues/2022-10-27/colorbox-responsive-image-2808883-46.patch"

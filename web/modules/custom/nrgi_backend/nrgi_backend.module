@@ -4,18 +4,17 @@
  * Contains nrgi_backend.module.
  */
 
-use Drupal\block\Entity\Block;
-use Drupal\Core\Block\BlockPluginInterface;
-use Drupal\Core\Cache\Cache;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\editor\Entity\Editor;
-use Drupal\Core\Field\WidgetBase;
+// Includes.
 
-// Custom admin css.
+// Custom admin css preprocess.
 \Drupal::moduleHandler()
   ->loadInclude('nrgi_backend', 'inc', 'nrgi_backend.theme');
 
-// Paragraph form.
+// Node form alter.
+\Drupal::moduleHandler()
+  ->loadInclude('nrgi_backend', 'inc', 'nrgi_backend.node_form');
+
+// Paragraph form alter.
 \Drupal::moduleHandler()
   ->loadInclude('nrgi_backend', 'inc', 'nrgi_backend.paragraph_form');
 
