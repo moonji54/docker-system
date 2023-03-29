@@ -24,7 +24,6 @@ module:
   context: 0
   context_active_trail: 0
   context_ui: 0
-  cookiepro: 0
   crop: 0
   ctools: 0
   datetime: 0
