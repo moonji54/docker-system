@@ -3,27 +3,48 @@
     @include ts-body;
   }
 
-  h1 {
-    @include ts-heading-1;
+  h2 {
+    @include ts-heading-3;
+    margin-top : var(--space-3xl);
   }
 
-  h2 {
+  h3 {
     @include ts-heading-4;
   }
 
-  h3,
-  h4 {
+  h4,
+  h5 {
     @include ts-heading-5;
     font-weight : 700;
   }
 
-  h5 {
+  h6 {
     @include ts-sub-heading;
+    font-weight : 700;
   }
 
+  h3,
+  h4,
+  h5,
   h6 {
-    @include ts-body;
-    font-weight : 700;
+    margin-top : var(--space-2xl);
+  }
+
+  h2 + p {
+    margin-top : var(--space-xl);
+  }
+
+  h3 + p {
+    margin-top : var(--space-l);
+  }
+
+  h4 + p {
+    margin-top : var(--space-m);
+  }
+
+  h5 + p,
+  h6 + p {
+    margin-top : var(--space-s);
   }
 
   a {
@@ -86,6 +107,10 @@
   ================================================== */
   blockquote {
     margin : var(--space-2xl) 0 var(--space-2xl) var(--space-s);
+
+    @include media("<=tablet") {
+      margin-left : var(--space-m);
+    }
 
     p {
       @include ts-heading-6;

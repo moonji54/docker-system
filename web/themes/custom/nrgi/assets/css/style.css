@@ -315,50 +315,51 @@ ul li a:hover {
     font-size: 1rem;
   }
 }
-.o-content-from-editor h1 {
+.o-content-from-editor h2 {
   font-family: "Cabinet Grotesk", sans-serif;
-  font-size: 5rem;
-  line-height: 1.15;
   font-weight: 500;
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-top: var(--space-3xl);
 }
 @media (max-width: 94.5rem) {
-  .o-content-from-editor h1 {
-    font-size: 4.5rem;
+  .o-content-from-editor h2 {
+    font-size: 2.5rem;
   }
 }
 @media (max-width: 64rem) {
-  .o-content-from-editor h1 {
-    font-size: 3.75rem;
+  .o-content-from-editor h2 {
+    font-size: 2.25rem;
   }
 }
 @media (max-width: 48rem) {
-  .o-content-from-editor h1 {
-    font-size: 2rem;
+  .o-content-from-editor h2 {
+    font-size: 1.75rem;
   }
 }
-.o-content-from-editor h2 {
+.o-content-from-editor h3 {
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 500;
   font-size: 2.5rem;
   line-height: 1.5;
 }
 @media (max-width: 94.5rem) {
-  .o-content-from-editor h2 {
+  .o-content-from-editor h3 {
     font-size: 2.25rem;
   }
 }
 @media (max-width: 64rem) {
-  .o-content-from-editor h2 {
+  .o-content-from-editor h3 {
     font-size: 2rem;
   }
 }
 @media (max-width: 48rem) {
-  .o-content-from-editor h2 {
+  .o-content-from-editor h3 {
     font-size: 1.5rem;
   }
 }
-.o-content-from-editor h3,
-.o-content-from-editor h4 {
+.o-content-from-editor h4,
+.o-content-from-editor h5 {
   font-family: "Cabinet Grotesk", sans-serif;
   font-size: 2.25rem;
   line-height: 1.5;
@@ -366,55 +367,58 @@ ul li a:hover {
   font-weight: 700;
 }
 @media (max-width: 94.5rem) {
-  .o-content-from-editor h3,
-  .o-content-from-editor h4 {
+  .o-content-from-editor h4,
+  .o-content-from-editor h5 {
     font-size: 2rem;
   }
 }
 @media (max-width: 64rem) {
-  .o-content-from-editor h3,
-  .o-content-from-editor h4 {
+  .o-content-from-editor h4,
+  .o-content-from-editor h5 {
     font-size: 1.75rem;
   }
 }
 @media (max-width: 48rem) {
-  .o-content-from-editor h3,
-  .o-content-from-editor h4 {
+  .o-content-from-editor h4,
+  .o-content-from-editor h5 {
     font-size: 1.375rem;
   }
 }
-.o-content-from-editor h5 {
+.o-content-from-editor h6 {
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 700;
   font-size: 1.75rem;
   line-height: 1.5;
+  font-weight: 700;
 }
 @media (max-width: 94.5rem) {
-  .o-content-from-editor h5 {
+  .o-content-from-editor h6 {
     font-size: 1.5rem;
   }
 }
 @media (max-width: 48rem) {
-  .o-content-from-editor h5 {
+  .o-content-from-editor h6 {
     font-size: 1.125rem;
   }
 }
+.o-content-from-editor h3,
+.o-content-from-editor h4,
+.o-content-from-editor h5,
 .o-content-from-editor h6 {
-  font-family: "Noto Sans", sans-serif;
-  font-size: 1.375rem;
-  line-height: 1.75;
-  font-weight: 400;
-  font-weight: 700;
+  margin-top: var(--space-2xl);
 }
-@media (max-width: 64rem) {
-  .o-content-from-editor h6 {
-    font-size: 1.125rem;
-  }
+.o-content-from-editor h2 + p {
+  margin-top: var(--space-xl);
 }
-@media (max-width: 48rem) {
-  .o-content-from-editor h6 {
-    font-size: 1rem;
-  }
+.o-content-from-editor h3 + p {
+  margin-top: var(--space-l);
+}
+.o-content-from-editor h4 + p {
+  margin-top: var(--space-m);
+}
+.o-content-from-editor h5 + p,
+.o-content-from-editor h6 + p {
+  margin-top: var(--space-s);
 }
 .o-content-from-editor a {
   color: #007078;
@@ -459,6 +463,11 @@ ul li a:hover {
 }
 .o-content-from-editor blockquote {
   margin: var(--space-2xl) 0 var(--space-2xl) var(--space-s);
+}
+@media (max-width: 48rem) {
+  .o-content-from-editor blockquote {
+    margin-left: var(--space-m);
+  }
 }
 .o-content-from-editor blockquote p {
   font-family: "Cabinet Grotesk", sans-serif;
