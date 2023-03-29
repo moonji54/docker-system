@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f230eeeb3a284af43eedb1c2c3d4de71",
+    "content-hash": "505678b4e811fd2501df068a50358ae9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2654,85 +2654,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/colorbox",
                 "issues": "https://www.drupal.org/project/issues/colorbox"
-            }
-        },
-        {
-            "name": "drupal/conditional_fields",
-            "version": "4.0.0-alpha2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/conditional_fields.git",
-                "reference": "4.0.0-alpha2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/conditional_fields-4.0.0-alpha2.zip",
-                "reference": "4.0.0-alpha2",
-                "shasum": "acc5658cb370583449d119a4172b7e0c2d81c86a"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9 || ^10"
-            },
-            "require-dev": {
-                "drupal/paragraphs": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "4.0.0-alpha2",
-                    "datestamp": "1677271425",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "colan",
-                    "homepage": "https://www.drupal.org/user/58704"
-                },
-                {
-                    "name": "ergonlogic",
-                    "homepage": "https://www.drupal.org/user/368613"
-                },
-                {
-                    "name": "geek-merlin",
-                    "homepage": "https://www.drupal.org/user/229048"
-                },
-                {
-                    "name": "heddn",
-                    "homepage": "https://www.drupal.org/user/1463982"
-                },
-                {
-                    "name": "itsekhmistro",
-                    "homepage": "https://www.drupal.org/user/928152"
-                },
-                {
-                    "name": "mparker17",
-                    "homepage": "https://www.drupal.org/user/536298"
-                },
-                {
-                    "name": "OlgaRabodzei",
-                    "homepage": "https://www.drupal.org/user/3389198"
-                },
-                {
-                    "name": "peterpoe",
-                    "homepage": "https://www.drupal.org/user/55674"
-                },
-                {
-                    "name": "thalles",
-                    "homepage": "https://www.drupal.org/user/3589086"
-                }
-            ],
-            "description": "Define dependencies between fields based on their states and values.",
-            "homepage": "https://www.drupal.org/project/conditional_fields",
-            "support": {
-                "source": "https://git.drupalcode.org/project/conditional_fields"
             }
         },
         {
@@ -16252,7 +16173,6 @@
     "stability-flags": {
         "drupal/better_exposed_filters": 10,
         "drupal/bugherd": 10,
-        "drupal/conditional_fields": 15,
         "drupal/context": 10,
         "drupal/context_active_trail": 10,
         "drupal/entity_usage": 10,
