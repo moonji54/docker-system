@@ -1,8 +1,6 @@
 import Ps from 'perfect-scrollbar';
 import debounce from './utils/debounce';
 
-console.log('running');
-
 class Header {
     constructor (context, settings, $, Drupal) {
         // Values from Drupal
@@ -16,12 +14,15 @@ class Header {
         this.tabletBreakpoint = 1024;
         this.speed = 300;
 
+        // Menu elements
         this.$header = this.$('.js-header', this.context);
-        this.$mainMenu = this.$('.js-main-menu', this.context);
+        this.$mainMenu = this.$('.js-main-menu-content', this.context);
         this.$burgerButton = this.$('.js-burger-button', this.context).once();
         this.$subMenuButton = this.$('.js-sub-menu-button', this.context).once();
         this.$subMenu = this.$('.js-sub-menu', this.context);
-        this.$itemToExpand = this.$('.js-menu-expand', this.context);
+
+        // Search elements
+        this.$searchButton = this.$('.js-search-button', this.context).once();
 
         // Scrollbars
         //----------------------------------------
@@ -29,11 +30,13 @@ class Header {
 
         this.$burgerButton.on('click', this.$.proxy(this.openBurgerMenu, this));
         this.$subMenuButton.on('click', this.$.proxy(this.toggleSubMenu, this));
+        this.$searchButton.on('click', this.$.proxy(this.openSearch, this));
 
         // Escape Key
         this.$document.keyup((e) => {
             if (e.keyCode === 27) {
                 this.closeBurgerMenu();
+                this.closeSearch();
             }
         });
 
@@ -70,9 +73,13 @@ class Header {
 
     openBurgerMenu (e) {
         const $elem = this.$(e.currentTarget);
-        this.$header.addClass('has-overlay');
-        this.$mainMenu.addClass('has-overlay');
+        this.$header.addClass('has-menu-overlay');
         this.$body.addClass('is-scroll-locked');
+
+        if (this.$header.hasClass('has-search-overlay')) {
+            this.closeSearch();
+            this.$body.addClass('is-scroll-locked');
+        }
 
         if (!$elem.hasClass('is-open')) {
             $elem.toggleClass('is-open').attr('aria-expanded', 'true');
@@ -83,14 +90,12 @@ class Header {
 
     closeBurgerMenu () {
         this.$burgerButton.removeClass('is-open').attr('aria-expanded', 'false');
-        this.$header.removeClass('has-overlay');
-        this.$mainMenu.removeClass('has-overlay');
+        this.$header.removeClass('has-menu-overlay');
         this.$body.removeClass('is-scroll-locked');
     }
 
     toggleSubMenu (e) {
         const $elem = this.$(e.currentTarget);
-        this.$itemToExpand.toggleClass('is-clicked');
         const $elemToToggle = $elem.parent().next(this.$subMenu);
         if (!$elem.hasClass('is-clicked')) {
             this.closeSubMenu();
@@ -102,6 +107,29 @@ class Header {
         }
     }
 
+    openSearch (e) {
+        const $elem = this.$(e.currentTarget);
+        this.$header.addClass('has-search-overlay');
+        this.$body.addClass('is-scroll-locked');
+
+        if (this.$header.hasClass('has-menu-overlay')) {
+            this.closeBurgerMenu();
+            this.$body.addClass('is-scroll-locked');
+        }
+
+        if (!$elem.hasClass('is-open')) {
+            $elem.toggleClass('is-open').attr('aria-expanded', 'true');
+        } else {
+            this.closeSearch();
+        }
+    }
+
+    closeSearch () {
+        this.$searchButton.removeClass('is-open').attr('aria-expanded', 'false');
+        this.$header.removeClass('has-search-overlay');
+        this.$body.removeClass('is-scroll-locked');
+    }
+
     closeSubMenu () {
         this.$subMenuButton.removeClass('is-clicked')
             .attr('aria-expanded', 'false');
@@ -109,6 +137,7 @@ class Header {
     }
 
     resetHeader () {
+        this.closeSearch();
         this.closeBurgerMenu();
         this.closeSubMenu();
         this.$body.removeClass('is-scroll-locked');

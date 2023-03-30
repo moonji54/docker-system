@@ -5,7 +5,7 @@ var _header = _interopRequireDefault(require("./modules/header"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 /* global jQuery Drupal */
 
-(function ($, Drupal) {
+(function ($, Drupal, once) {
   // eslint-disable-next-line no-param-reassign
   Drupal.behaviors.Header = {
     attach: function attach(context, settings) {
@@ -30,7 +30,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-console.log('running');
 var Header = /*#__PURE__*/function () {
   function Header(context, settings, $, Drupal) {
     var _this = this;
@@ -45,23 +44,29 @@ var Header = /*#__PURE__*/function () {
     this.$body = this.$('body', this.context).once();
     this.tabletBreakpoint = 1024;
     this.speed = 300;
+
+    // Menu elements
     this.$header = this.$('.js-header', this.context);
-    this.$mainMenu = this.$('.js-main-menu', this.context);
+    this.$mainMenu = this.$('.js-main-menu-content', this.context);
     this.$burgerButton = this.$('.js-burger-button', this.context).once();
     this.$subMenuButton = this.$('.js-sub-menu-button', this.context).once();
     this.$subMenu = this.$('.js-sub-menu', this.context);
-    this.$itemToExpand = this.$('.js-menu-expand', this.context);
+
+    // Search elements
+    this.$searchButton = this.$('.js-search-button', this.context).once();
 
     // Scrollbars
     //----------------------------------------
     this.scrollbars = [];
     this.$burgerButton.on('click', this.$.proxy(this.openBurgerMenu, this));
     this.$subMenuButton.on('click', this.$.proxy(this.toggleSubMenu, this));
+    this.$searchButton.on('click', this.$.proxy(this.openSearch, this));
 
     // Escape Key
     this.$document.keyup(function (e) {
       if (e.keyCode === 27) {
         _this.closeBurgerMenu();
+        _this.closeSearch();
       }
     });
     this.$window.on('resize', (0, _debounce["default"])(function () {
@@ -104,9 +109,12 @@ var Header = /*#__PURE__*/function () {
     key: "openBurgerMenu",
     value: function openBurgerMenu(e) {
       var $elem = this.$(e.currentTarget);
-      this.$header.addClass('has-overlay');
-      this.$mainMenu.addClass('has-overlay');
+      this.$header.addClass('has-menu-overlay');
       this.$body.addClass('is-scroll-locked');
+      if (this.$header.hasClass('has-search-overlay')) {
+        this.closeSearch();
+        this.$body.addClass('is-scroll-locked');
+      }
       if (!$elem.hasClass('is-open')) {
         $elem.toggleClass('is-open').attr('aria-expanded', 'true');
       } else {
@@ -117,15 +125,13 @@ var Header = /*#__PURE__*/function () {
     key: "closeBurgerMenu",
     value: function closeBurgerMenu() {
       this.$burgerButton.removeClass('is-open').attr('aria-expanded', 'false');
-      this.$header.removeClass('has-overlay');
-      this.$mainMenu.removeClass('has-overlay');
+      this.$header.removeClass('has-menu-overlay');
       this.$body.removeClass('is-scroll-locked');
     }
   }, {
     key: "toggleSubMenu",
     value: function toggleSubMenu(e) {
       var $elem = this.$(e.currentTarget);
-      this.$itemToExpand.toggleClass('is-clicked');
       var $elemToToggle = $elem.parent().next(this.$subMenu);
       if (!$elem.hasClass('is-clicked')) {
         this.closeSubMenu();
@@ -136,6 +142,29 @@ var Header = /*#__PURE__*/function () {
       }
     }
   }, {
+    key: "openSearch",
+    value: function openSearch(e) {
+      var $elem = this.$(e.currentTarget);
+      this.$header.addClass('has-search-overlay');
+      this.$body.addClass('is-scroll-locked');
+      if (this.$header.hasClass('has-menu-overlay')) {
+        this.closeBurgerMenu();
+        this.$body.addClass('is-scroll-locked');
+      }
+      if (!$elem.hasClass('is-open')) {
+        $elem.toggleClass('is-open').attr('aria-expanded', 'true');
+      } else {
+        this.closeSearch();
+      }
+    }
+  }, {
+    key: "closeSearch",
+    value: function closeSearch() {
+      this.$searchButton.removeClass('is-open').attr('aria-expanded', 'false');
+      this.$header.removeClass('has-search-overlay');
+      this.$body.removeClass('is-scroll-locked');
+    }
+  }, {
     key: "closeSubMenu",
     value: function closeSubMenu() {
       this.$subMenuButton.removeClass('is-clicked').attr('aria-expanded', 'false');
@@ -144,6 +173,7 @@ var Header = /*#__PURE__*/function () {
   }, {
     key: "resetHeader",
     value: function resetHeader() {
+      this.closeSearch();
       this.closeBurgerMenu();
       this.closeSubMenu();
       this.$body.removeClass('is-scroll-locked');

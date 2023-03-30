@@ -1,36 +1,26 @@
 /** @define c-mega-nav */
 .c-mega-nav {
   $class           : &;
-  // transition       : opacity 0.2s, visibility 0.2s;
-
-  // SBTODO: background depending on image upload?
-  background-color : #00545A;
-  box-shadow       : 0 8px 16px rgba($black, 15%);
+  /* stylelint-disable-next-line */
+  @include z-index(mega-nav);
+  background-color : $secondary;
+  box-shadow       : 0 0.5rem 1rem rgba($black, 15%);
   box-sizing       : border-box;
   display          : none;
   left             : 0;
-  padding          : 24px 0;
+  padding          : var(--space-m) 0;
   position         : absolute;
   top              : calc(100% + 1px);
   width            : 100%;
-  z-index          : 20;
 
-  @include media("<desktop") {
+  @include media("<=desktop") {
     box-shadow  : none;
     margin-left : calc((var(--gutter)) * -1);
+    padding     : 1rem 0 2rem;
     position    : relative;
     top         : 0;
     width       : 100vw;
-    padding     : 16px 0 32px;
   }
-
-  //@include media("<tablet") {
-  //  border-top : 0;
-  //  box-shadow : none;
-  //  display    : none;
-  //  position   : relative;
-  //  top        : 0;
-  //}
 
   &__container {
     @include o-container;
@@ -39,30 +29,12 @@
   &__groups {
     display        : flex;
     flex-direction : column;
-    gap            : 24px;
+    gap            : 1.5rem;
 
-    @include media("<tablet") {
-      gap : 32px;
+    @include media("<=desktop") {
+      gap : 2rem;
     }
   }
-
-  //&__group-wrapper {
-  //  //border-bottom : 1px solid $grey-light;
-  //  //padding-top   : 1rem;
-  //
-  //  @include media("<tablet") {
-  //    padding-top : 1.5rem;
-  //    position    : relative;
-  //  }
-  //
-  //  //&:last-child {
-  //  //  border-bottom : 0;
-  //  //
-  //  //  &:after {
-  //  //    display : none;
-  //  //  }
-  //  //}
-  //}
 
   &__group-inner {
     @include o-container;
@@ -70,46 +42,28 @@
 
   &__heading {
     @include ts-section-header;
-    margin-bottom : 8px;
+    margin-bottom : 0.5rem;
 
     @include media("<=desktop") {
-      margin-bottom : 32px;
+      margin-bottom : 2rem;
     }
   }
-
-  //&__list-wrapper {
-  //  box-shadow : 0 8px 8px 0 rgb(0 0 0 / 5%);
-  //
-  //  @include media("<tablet") {
-  //    box-shadow : none;
-  //  }
-  //}
 
   &__list {
     column-gap : 1.5rem;
     display    : flex;
     flex-wrap  : wrap;
-    row-gap    : 16px;
+    row-gap    : 1rem;
 
     @include media("<=desktop") {
       flex-direction : column;
-      row-gap        : 32px;
+      row-gap        : 2rem;
     }
-
-    //@include media("<desktop") {
-    //  margin-top : 0.25rem;
-    //}
-    //
-    //@include media("<tablet") {
-    //  flex-direction : column;
-    //  margin-top     : 0;
-    //  padding        : 0.75rem 0;
-    //}
   }
 
   &__link {
     @include ts-sub-menu;
-    @include underlined($blue-light);
+    @include underlined($color : $blue-light);
     display : block;
 
     &:hover,

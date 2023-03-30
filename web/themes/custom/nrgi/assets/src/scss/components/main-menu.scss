@@ -5,7 +5,7 @@
   flex-wrap : wrap;
   gap       : var(--space-m);
 
-  @include media("<desktop") {
+  @include media("<=desktop") {
     flex-direction : column;
     gap            : 0;
   }
@@ -13,7 +13,7 @@
   &__item {
     font-size : 0;
 
-    @include media("<desktop") {
+    @include media("<=desktop") {
       border-top   : 1px solid $grey-light;
       padding-left : var(--gutter);
     }
@@ -21,7 +21,6 @@
     &:hover {
       @include media(">desktop") {
         .c-mega-nav {
-          //display : block !important; // Important to override JS show/hide
           display : block;
         }
 
@@ -37,14 +36,6 @@
         > #{$c}__item-link-wrapper > #{$c}__item-link {
           text-decoration-color : $white;
         }
-
-        //#{$c}__sub-menu {
-        //  display : block;
-        //}
-        //
-        //#{$c}__sub-menu-svg {
-        //  transform : rotateX(180deg);
-        //}
       }
     }
 
@@ -55,7 +46,7 @@
         &:before {
           background : transparent;
           content    : "";
-          height     : 17px;
+          height     : 100%;
           position   : absolute;
           top        : 100%;
           width      : 100%;
@@ -65,16 +56,6 @@
           &:before {
             content : none;
           }
-
-          //&:after {
-          //  background : $grey-light;
-          //  content    : "";
-          //  height     : calc(100% - 4px);
-          //  right      : -1px;
-          //  position   : absolute;
-          //  top        : 2px;
-          //  width      : 1px;
-          //}
         }
       }
     }
@@ -88,7 +69,6 @@
 
   &__item-link-wrapper {
     @include media("<=desktop") {
-      align-items     : center;
       display         : flex;
       justify-content : space-between;
     }
@@ -96,10 +76,10 @@
 
   &__item-link {
     @include ts-main-menu;
-    @include underlined($white);
+    @include underlined;
 
     @include media("<desktop") {
-      padding : 8px 8px 8px 0;
+      padding : 0.5rem 0.5rem 0.5rem 0;
       width   : 100%;
     }
 
@@ -109,29 +89,25 @@
     }
   }
 
-  //&__sub-menu {
-  //  display : none;
-  //}
-  //
   &__sub-menu-button {
     display : none;
 
     @include media("<=desktop") {
+      align-items : center;
       display     : flex;
       flex-shrink : 0;
-      transition  : all 0.3s;
-      padding     : 18px var(--gutter);
+      padding     : 1.125rem var(--gutter);
       position    : relative;
+      transition  : all 0.3s;
 
       &:not(.is-clicked) {
         #{$c}__sub-menu-svg {
-          transform : rotateX(0);
+          transform : rotate(0);
         }
       }
 
       &:hover,
       &:focus {
-
         #{$c}__sub-menu-svg {
           opacity : 0.7;
         }
@@ -140,23 +116,28 @@
       &:before {
         background : $grey-light;
         content    : "";
-        height     : calc(100% - 4px);
-        left       : 0;
+        height     : calc(100% - 0.5rem);
+        left       : -0.063rem;
         position   : absolute;
-        top        : 2px;
-        width      : 1px;
+        top        : 0.25rem;
+        width      : 0.063rem;
       }
     }
 
     &.is-clicked {
       /* stylelint-disable-next-line */
       #{$c}__sub-menu-svg {
-        transform : rotateX(180deg);
+        transform : rotate(180deg);
       }
 
+      /* stylelint-disable-next-line */
       &:before {
         content : none;
       }
     }
+  }
+
+  &__sub-menu-svg {
+    transition : all 0.3s;
   }
 }

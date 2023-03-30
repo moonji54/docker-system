@@ -2,13 +2,13 @@
 .c-secondary-menu {
   display         : flex;
   flex-wrap       : wrap;
-  gap             : 24px;
+  gap             : var(--space-m);
   justify-content : flex-end;
 
   @include media("<=desktop") {
     flex-direction  : column;
-    justify-content : flex-start;
     gap             : 0;
+    justify-content : flex-start;
   }
 
   &__item {
@@ -20,12 +20,12 @@
 
   &__item-link {
     @include ts-sub-menu;
-    @include underlined($white);
+    @include underlined;
 
     @include media("<=desktop") {
       @include ts-main-menu;
-      padding : 8px 0;
       display : block;
+      padding : 0.5rem 0;
     }
   }
 }
