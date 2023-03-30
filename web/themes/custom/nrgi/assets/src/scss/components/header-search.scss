@@ -11,6 +11,7 @@
     @include ts-sub-menu;
     background    : transparent;
     border        : 0;
+    color         : $white;
     padding-right : 2rem;
     position      : relative;
     width         : 100%;
@@ -21,6 +22,7 @@
   }
 
   &__submit {
+    cursor     : pointer;
     position   : absolute;
     right      : 0;
     transition : opacity 0.3s;

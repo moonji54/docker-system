@@ -94,6 +94,7 @@
 
     @include media("<=desktop") {
       align-items : center;
+      cursor      : pointer;
       display     : flex;
       flex-shrink : 0;
       padding     : 1.125rem var(--gutter);

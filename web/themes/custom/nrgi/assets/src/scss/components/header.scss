@@ -105,6 +105,7 @@
   }
 
   &__search-button {
+    cursor     : pointer;
     display    : none;
     transition : opacity 0.3s;
 
@@ -145,6 +146,7 @@
   /* #Burger button
 ================================================== */
   &__burger-button {
+    cursor     : pointer;
     display    : none;
     transition : opacity 0.3s;
 

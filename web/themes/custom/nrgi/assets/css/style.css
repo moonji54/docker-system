@@ -258,7 +258,6 @@ ol li a:hover,
 ul li a:focus,
 ul li a:hover {
   outline: 0;
-  text-decoration: none;
 }
 
 /*
@@ -644,16 +643,16 @@ ul li a:hover {
   ================================================== */
 }
 .o-svg--burger-icon {
-  height: 20px;
-  width: 20px;
+  height: 1.25rem;
+  width: 1.25rem;
 }
 .o-svg--chevron-down {
-  height: 10px;
-  width: 18px;
+  height: 0.625rem;
+  width: 1.125rem;
 }
 .o-svg--close-icon {
-  height: 20px;
-  width: 20px;
+  height: 1.25rem;
+  width: 1.25rem;
 }
 .o-svg--email {
   height: 1.0625rem;
@@ -672,13 +671,13 @@ ul li a:hover {
   width: 18px;
 }
 .o-svg--header-logo {
-  height: 56px;
-  width: 381px;
+  height: 3.5rem;
+  width: 23.813rem;
 }
 @media (max-width: 64rem) {
   .o-svg--header-logo {
-    height: 24px;
-    width: 164px;
+    height: 1.5rem;
+    width: 10.25rem;
   }
 }
 .o-svg--nrgi-logo-condensed {
@@ -1114,6 +1113,7 @@ ul li a:hover {
   }
 }
 .c-header__search-button {
+  cursor: pointer;
   display: none;
   transition: opacity 0.3s;
 }
@@ -1145,6 +1145,7 @@ ul li a:hover {
   display: none;
 }
 .c-header__burger-button {
+  cursor: pointer;
   display: none;
   transition: opacity 0.3s;
 }
@@ -1224,6 +1225,7 @@ ul li a:hover {
   line-height: 1;
   background: transparent;
   border: 0;
+  color: #FFFFFF;
   padding-right: 2rem;
   position: relative;
   width: 100%;
@@ -1253,6 +1255,7 @@ ul li a:hover {
   outline: none;
 }
 .c-header-search__submit {
+  cursor: pointer;
   position: absolute;
   right: 0;
   transition: opacity 0.3s;
@@ -1421,6 +1424,7 @@ ul li a:hover {
 @media (max-width: 64rem) {
   .c-main-menu__sub-menu-button {
     align-items: center;
+    cursor: pointer;
     display: flex;
     flex-shrink: 0;
     padding: 1.125rem var(--gutter);
