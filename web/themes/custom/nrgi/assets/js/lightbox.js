@@ -48,6 +48,7 @@ var Lightbox = /*#__PURE__*/function () {
       if (this.$('#cboxTitle:empty').length === true) {
         this.$('#cboxTitle').hide();
       }
+      this.$('body').addClass('is-scroll-locked');
     }
   }, {
     key: "lightboxClosed",
