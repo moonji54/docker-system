@@ -1,6 +1,15 @@
 .o-content-from-editor {
+  @include ts-body; // Fallback in case there are no <p> tags
+  color    : $primary;
+  position : relative;
+
+  :is(.responsive-table, figure, blockquote, .c-media) + * {
+    margin-top : var(--space-2xl);
+  }
+
   p {
     @include ts-body;
+    margin-top : var(--space-m);
   }
 
   h2 {
@@ -52,6 +61,7 @@
     color           : $ocean-2;
     text-decoration : underline;
     transition      : color 0.3s;
+    overflow-wrap   : break-word;
 
     &:focus,
     &:hover {
@@ -64,35 +74,6 @@
     margin-bottom : 0;
   }
 
-  img {
-    display   : block;
-    height    : auto;
-    max-width : 100%;
-    width     : auto;
-
-    &.size-large {
-      margin-left  : 0;
-      margin-right : 0;
-      width        : 100%;
-    }
-
-    &.size-full-width,
-    &.size-full-width-retina {
-      // SBTODO: Full width images breaking out?
-    }
-  }
-
-  figure {
-    margin-top : var(--space-s);
-
-    figcaption {
-      box-sizing : border-box;
-      display    : inline-block;
-      padding    : var(--space-xs) var(--space-s);
-      width      : 100%;
-    }
-  }
-
   h1 + p,
   h2 + p,
   h3 + p,
@@ -103,10 +84,56 @@
     margin-top : var(--space-m);
   }
 
+  /* Media
+  ================================================== */
+
+  iframe,
+  img {
+    display : block;
+    width   : 100%;
+  }
+
+  .c-media {
+    margin-top : var(--space-2xl);
+
+    &--remote-video {
+      iframe {
+        aspect-ratio : 16 / 9;
+        height       : 100%;
+        width        : 100%;
+      }
+    }
+  }
+
+  figure {
+    margin-top : var(--space-2xl);
+
+    figcaption {
+      @include ts-caption;
+      box-sizing : border-box;
+      display    : inline-block;
+      margin-top : var(--space-m);
+      width      : 100%;
+    }
+
+    > .c-media {
+      margin : 0;
+    }
+
+    > .c-media + figcaption {
+      margin-top : var(--space-m);
+    }
+  }
+
+  // overriding core Drupal css - remove
+  .caption {
+    display : block;
+  }
+
   /* Block Quotes
   ================================================== */
   blockquote {
-    margin : var(--space-2xl) 0 var(--space-2xl) var(--space-s);
+    margin : var(--space-2xl) 0 0 var(--space-s);
 
     @include media("<=tablet") {
       margin-left : var(--space-m);
@@ -116,48 +143,6 @@
       @include ts-heading-6;
       color         : $secondary;
       margin-bottom : 0;
-    }
-  }
-
-  /* Aligned Images
-  ================================================== */
-  .alignleft,
-  .align-left {
-    float  : left;
-    margin : var(--space-s) var(--space-m) var(--space-s) 0;
-  }
-
-  .aligncenter,
-  .align-center {
-    display : block;
-    margin  : var(--space-m) auto;
-  }
-
-  .alignright,
-  .align-right {
-    float  : right;
-    margin : var(--space-s) 0 var(--space-m) var(--space-s);
-  }
-
-  .alignnone {
-    display   : block;
-    height    : auto;
-    margin    : var(--space-l) 0;
-    max-width : 100%;
-
-    @include media("<=tablet") {
-      margin-top : var(--space-m);
-    }
-  }
-
-  .alignleft,
-  .alignright,
-  .alignnone {
-    @include media("<=tablet") {
-      display       : block;
-      float         : none;
-      margin-bottom : var(--space-s);
-      margin-left   : 0;
     }
   }
 
@@ -212,6 +197,86 @@
     }
   }
 
+  /* Tables
+  ================================================== */
+  .responsive-table {
+    margin-top : var(--space-2xl);
+    overflow-x : auto;
+  }
+
+  table {
+    @include ts-caption;
+    border-collapse : collapse;
+    border-spacing  : 0;
+    text-align      : left;
+    width           : 100%;
+
+    caption {
+      caption-side : bottom;
+      display      : table-caption;
+      margin-top   : var(--space-m);
+      text-align   : left;
+    }
+
+    td,
+    th {
+      box-sizing : border-box;
+    }
+
+    th {
+      @include ts-caption($bold : true);
+      padding-bottom : var(--space-s);
+    }
+
+    td {
+      min-width : 5rem;
+      padding   : var(--space-s) var(--space-s) var(--space-m) 0;
+
+      *:first-child {
+        margin-top : 0;
+      }
+
+      ul,
+      ol {
+        li {
+          margin-top : 0.75rem;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-top : 1px solid $grey-light;
+
+        &:last-child {
+          border-bottom : 1px solid $grey-light;
+        }
+      }
+    }
+
+    /* stylelint-disable-next-line */
+    a {
+      overflow-wrap : break-word;
+    }
+  }
+
+  /* Box
+  ================================================== */
+  .boxed-text {
+    background-color : $blue-light;
+    padding          : var(--space-xl) var(--space-m);
+  }
+
+  /* Footnotes
+  ================================================== */
+  .see-footnote {
+    font-size       : 70%;
+    font-weight     : 700;
+    text-decoration : none;
+    top             : 0;
+    vertical-align  : top;
+  }
+
   /* Miscellaneous
   ================================================== */
   address {
@@ -241,6 +306,6 @@
   }
 
   div {
-    margin-top : var(--space-m);
+    margin-top : var(--space-2xl);
   }
 }
