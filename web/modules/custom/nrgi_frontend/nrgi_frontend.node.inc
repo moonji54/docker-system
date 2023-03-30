@@ -5,8 +5,6 @@
  * Contains nrgi_frontend.node.inc.
  */
 
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Field\EntityReferenceFieldItemListInterface;
 use Drupal\media\MediaInterface;
 use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
@@ -36,10 +34,9 @@ function nrgi_frontend_preprocess_node(&$variables): void {
         break;
 
       case 'landing_page':
-        // SBTODO - TODO: asymmetrical on landing pages TBC
-        // $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
-        //          $node, TRUE, 'field_attached_translated_items'
-        //        );
+        $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
+          $node, TRUE, 'field_attached_translated_items'
+        );
         break;
 
       case 'person':
@@ -121,58 +118,6 @@ function _nrgi_frontend_preprocess_node_type_label(array &$variables, NodeInterf
     }
   }
 }
-
-// /**
-// * @param array $variables
-// *   The variables from template_preprocess_node().
-// * @param \Drupal\node\NodeInterface $node
-// *   Node to preprocess.
-// */
-// function _nrgi_frontend_preprocess_node_date(array &$variables, NodeInterface $node) {
-//  /** @var \Drupal\Core\Field\FieldItemList $unified_date_field */
-//  $unified_date_field = $node->get('unified_date');
-//  $date_timestamp     = $unified_date_field->getString();
-//  $date_string        = FALSE;
-//
-//  $bundle   = $node->bundle();
-//  $template = $node->get('template')->getString();
-//
-//  if ($template === 'external_item') {
-//    if ($node->hasField('field_date')) {
-//      if (!empty($node->get('field_date')->getString())) {
-//        $date_field = $node->get('field_date');
-//
-//        /** @var DrupalDateTime $date */
-//        $date           = $date_field->date;
-//        $date_timestamp = $date->getTimestamp();
-//      }
-//    }
-//  }
-//
-//  if ($template === 'collection_item' || $bundle === 'event') {
-//    if ($node->hasField('field_start_date')) {
-//      if (!empty($node->get('field_start_date')->getString())) {
-//        $date_field = $node->get('field_start_date');
-//
-//        /** @var DrupalDateTime $date */
-//        $date           = $date_field->date;
-//        $date_timestamp = $date->getTimestamp();
-//      }
-//    }
-//  }
-//
-//  if (!empty($date_timestamp)) {
-//    if (is_string($date_timestamp)) {
-//      $date_timestamp = intval($date_timestamp);
-//    }
-//
-//    $date_string     = \Drupal::service('date.formatter')->format($date_timestamp, 'project_date');
-//    $date_string_ymd = \Drupal::service('date.formatter')->format($date_timestamp, 'html_date');
-//  }
-//
-//  $variables['node_date']      = $date_string;
-//  $variables['node_html_date'] = $date_string_ymd;
-// }
 
 /**
  * Preprocess related content.
@@ -266,8 +211,8 @@ function _nrgi_frontend_preprocess_node_person_featured_work(array &$variables, 
 
     $fields = ['field_author'];
 
-    if ($node->hasField('field_limit') && !empty($node->get('field_limit')
-        ->getValue()[0])) {
+    if ($node->hasField('field_limit')
+        && !empty($node->get('field_limit')->getValue()[0])) {
       $limit = (int) $node->get('field_limit')->getValue()['0']['value'];
     }
 

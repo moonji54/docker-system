@@ -10,7 +10,7 @@ field_name: field_hero_description
 entity_type: node
 bundle: homepage
 label: 'Hero banner description'
-description: ''
+description: "One-sentence highlight/overview of the item. For use in link descriptions, search results, or other places where a blurb might be needed.\r\n<em>150 characters, max.</em>"
 required: false
 translatable: false
 default_value: {  }

@@ -1,0 +1,19 @@
+uuid: 7de6f1b9-4754-4f6c-b71c-308070630dab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subtitle
+    - node.type.career_opportunity
+id: node.career_opportunity.field_subtitle
+field_name: field_subtitle
+entity_type: node
+bundle: career_opportunity
+label: Subtitle
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

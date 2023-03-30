@@ -1,29 +1,61 @@
-uuid: 9be976e0-6278-43c9-9d90-b90e237ea971
+uuid: 85de3994-cc40-4e8c-873d-05a55713a1bf
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_partner_logo
-    - media.type.image
     - node.type.publication
+    - paragraphs.paragraphs_type.logo
+  module:
+    - entity_reference_revisions
 id: node.publication.field_partner_logo
 field_name: field_partner_logo
 entity_type: node
 bundle: publication
 label: 'Partner logo'
-description: 'Upload a high resolution image of the partner''s official logo'
+description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:media'
+  handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      image: image
-    sort:
-      field: _none
-      direction: ASC
-    auto_create: false
-    auto_create_bundle: ''
-field_type: entity_reference
+      logo: logo
+    negate: 0
+    target_bundles_drag_drop:
+      call_to_action:
+        weight: 12
+        enabled: false
+      embed:
+        weight: 13
+        enabled: false
+      featured_content:
+        weight: 14
+        enabled: false
+      featured_pages:
+        weight: 15
+        enabled: false
+      featured_people:
+        weight: 16
+        enabled: false
+      full_width_media:
+        weight: 17
+        enabled: false
+      learning_block:
+        weight: 18
+        enabled: false
+      limited_list:
+        weight: 19
+        enabled: false
+      listing:
+        weight: 20
+        enabled: false
+      logo:
+        weight: 21
+        enabled: true
+      wysiwyg:
+        weight: 22
+        enabled: false
+field_type: entity_reference_revisions

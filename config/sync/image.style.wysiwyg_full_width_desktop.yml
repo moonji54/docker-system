@@ -1,0 +1,15 @@
+uuid: af279440-ad67-4d71-a027-cf8ce60e33ae
+langcode: en
+status: true
+dependencies: {  }
+name: wysiwyg_full_width_desktop
+label: 'WYSIWYG full width desktop'
+effects:
+  b1678c49-9d96-4984-ab4f-e404f2329ace:
+    uuid: b1678c49-9d96-4984-ab4f-e404f2329ace
+    id: image_scale
+    weight: 1
+    data:
+      width: 1044
+      height: null
+      upscale: false

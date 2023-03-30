@@ -1,0 +1,20 @@
+uuid: cbb7678a-f2fc-452d-b080-dcec01cc5fd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.data_visualisation
+id: media.data_visualisation.name
+field_name: name
+entity_type: media
+bundle: data_visualisation
+label: Name
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string
