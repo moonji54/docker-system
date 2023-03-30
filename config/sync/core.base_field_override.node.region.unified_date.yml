@@ -1,0 +1,18 @@
+uuid: 87e55ef7-e485-46ba-956f-8e8c16e08924
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.region
+id: node.region.unified_date
+field_name: unified_date
+entity_type: node
+bundle: region
+label: 'Unified date'
+description: 'The unified date field.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

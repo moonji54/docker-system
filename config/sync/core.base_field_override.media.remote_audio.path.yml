@@ -1,0 +1,20 @@
+uuid: 76197ed0-518e-4f8e-a589-fa2152076a17
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.remote_audio
+  module:
+    - path
+id: media.remote_audio.path
+field_name: path
+entity_type: media
+bundle: remote_audio
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

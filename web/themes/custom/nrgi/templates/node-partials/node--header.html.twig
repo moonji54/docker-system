@@ -1,0 +1,33 @@
+{% set classes = [
+  'c-node',
+  'c-node--type-' ~ node.bundle|clean_class,
+] %}
+
+<header {{ attributes.addClass(classes) }}>
+  <h1 class="c-node__title">{{ label }}</h1>
+
+  {% if content.field_subtitle|field_value %}
+    <div>{{ content.field_subtitle }}</div>
+  {% endif %}
+
+  {% if content.field_resource_type|field_value %}
+    <h5>CONTENT TYPE</h5>
+    <div>{{ content.field_resource_type }}</div>
+  {% endif %}
+
+  {% if content.field_publication_date|field_value %}
+    <div>{{ content.field_publication_date }}</div>
+  {% endif %}
+
+  {% if content.field_author|field_value %}
+    {{ content.field_author }}
+  {% endif %}
+
+  {% if content.field_link|field_value %}
+    {{ content.field_link }}
+  {% endif %}
+
+  {% if content.field_upload|field_value %}
+    <div>{{ content.field_upload }}</div>
+  {% endif %}
+</header>

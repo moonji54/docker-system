@@ -1,0 +1,20 @@
+uuid: 3a7c3c8e-d107-4c14-ba30-b3e66424c33e
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.remote_audio
+id: media.remote_audio.uid
+field_name: uid
+entity_type: media
+bundle: remote_audio
+label: 'Authored by'
+description: 'The user ID of the author.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\media\Entity\Media::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

@@ -1,0 +1,21 @@
+display:
+  default:
+    display_title: Default
+    display_options:
+      pager:
+        options:
+          expose:
+            offset_label: Offset
+      fields:
+        filename:
+          label: Name
+  page_2:
+    display_options:
+      pager:
+        options:
+          expose:
+            offset_label: Offset
+      arguments:
+        fid:
+          exception:
+            title: All

@@ -1,0 +1,8 @@
+display:
+  default:
+    display_options:
+      pager:
+        options:
+          expose:
+            offset_label: Offset
+    display_title: Default

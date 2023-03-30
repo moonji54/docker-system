@@ -1,0 +1,47 @@
+uuid: 4aad9d25-1245-490a-9540-4d6b0d1eb056
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.wysiwyg_full_width_desktop
+    - image.style.wysiwyg_full_width_desktop_2x
+    - image.style.wysiwyg_full_width_mobile
+    - image.style.wysiwyg_full_width_small_mobile
+    - image.style.wysiwyg_full_width_tablet
+  theme:
+    - nrgi
+id: wysiwyg_full_width_
+label: "WYSIWYG full-width\t"
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: wysiwyg_full_width_small_mobile
+    breakpoint_id: nrgi.smallmobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: wysiwyg_full_width_mobile
+    breakpoint_id: nrgi.mobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: wysiwyg_full_width_tablet
+    breakpoint_id: nrgi.tablet
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: wysiwyg_full_width_desktop
+    breakpoint_id: nrgi.smalldesktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: wysiwyg_full_width_desktop
+    breakpoint_id: nrgi.desktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: wysiwyg_full_width_desktop_2x
+    breakpoint_id: nrgi.desktop
+    multiplier: 2x
+breakpoint_group: nrgi
+fallback_image_style: wysiwyg_full_width_desktop

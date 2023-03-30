@@ -24,6 +24,7 @@
   width    : 1px;
 }
 
+/* stylelint-disable */
 $z-index : (
     footer: 10,
     header: 15,
@@ -77,6 +78,11 @@ $z-index : (
     color   : $color;
     opacity : 1;
   }
+}
+
+@mixin object-fit($size) {
+  font-family : "object-fit: #{$size};";
+  object-fit  : $size;
 }
 
 @mixin selection-background($color) {

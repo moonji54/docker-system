@@ -6,7 +6,6 @@ dependencies:
     - field.field.paragraph.embed.field_caption
     - field.field.paragraph.embed.field_credit
     - field.field.paragraph.embed.field_embed_media
-    - field.field.paragraph.embed.field_title
     - paragraphs.paragraphs_type.embed
   module:
     - media_library
@@ -37,14 +36,6 @@ content:
     region: content
     settings:
       media_types: {  }
-    third_party_settings: {  }
-  field_title:
-    type: string_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true

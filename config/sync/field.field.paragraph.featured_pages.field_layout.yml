@@ -12,7 +12,7 @@ bundle: featured_pages
 label: 'Layout - items per row'
 description: 'Select the number of items per row.'
 required: false
-translatable: true
+translatable: false
 default_value:
   -
     value: 3

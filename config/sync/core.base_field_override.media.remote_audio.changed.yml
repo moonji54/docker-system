@@ -1,0 +1,18 @@
+uuid: 8a2288d3-ba42-4c53-9077-8464f722601a
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.remote_audio
+id: media.remote_audio.changed
+field_name: changed
+entity_type: media
+bundle: remote_audio
+label: Changed
+description: 'The time the media item was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed
