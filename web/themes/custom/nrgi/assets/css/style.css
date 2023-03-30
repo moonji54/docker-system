@@ -1215,6 +1215,58 @@ ul li a:hover {
     7. TRUMPS
     ===============================
 */
+/* stylelint-disable */
+#cboxOverlay {
+  background-color: #00545A !important;
+}
+
+#colorbox {
+  overflow: visible !important;
+}
+#colorbox #cboxWrapper {
+  overflow: visible;
+}
+#colorbox #cboxContent {
+  border-radius: 0;
+  overflow: visible;
+}
+#colorbox #cboxLoadedContent {
+  overflow: visible;
+}
+#colorbox .cboxPhoto {
+  border-radius: 0;
+}
+#colorbox #cboxTitle {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  background: none;
+  bottom: unset;
+  color: #FFFFFF;
+  padding: 0;
+  top: calc(var(--space-m) * -1);
+  transform: translateY(-100%);
+}
+@media (max-width: 64rem) {
+  #colorbox #cboxTitle {
+    font-size: 0.875rem;
+  }
+}
+#colorbox #cboxClose {
+  background: none;
+  border-radius: 0;
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  height: auto;
+  line-height: 1;
+  padding: 0;
+  right: 0;
+  top: calc(var(--space-m) * -1);
+  transform: translateY(-100%);
+  width: auto;
+}
+
 /* #Miscellaneous
 ================================================== */
 .u-hidden {
