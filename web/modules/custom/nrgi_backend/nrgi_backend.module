@@ -4,8 +4,10 @@
  * Contains nrgi_backend.module.
  */
 
-// Includes.
+use Drupal\editor\Entity\Editor;
 
+
+// Includes.
 // Custom admin css preprocess.
 \Drupal::moduleHandler()
   ->loadInclude('nrgi_backend', 'inc', 'nrgi_backend.theme');
