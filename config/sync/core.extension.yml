@@ -16,6 +16,7 @@ module:
   breakpoint: 0
   bugherd: 0
   ckeditor: 0
+  ckeditor_div_manager: 0
   colorbox: 0
   config: 0
   config_translation: 0

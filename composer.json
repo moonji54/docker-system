@@ -145,10 +145,26 @@
                     "type": "zip"
                 }
             }
+        },
+        "12": {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/div",
+                "version": "4.10.1",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "ckeditor/plugins/div"
+                },
+                "dist": {
+                    "url": "https://download.ckeditor.com/div/releases/div_4.10.1.zip",
+                    "type": "zip"
+                }
+            }
         }
     },
     "require": {
         "ckeditor-plugin/pagebreak": "4.20.0",
+        "ckeditor/div": "4.10.1",
         "ckeditor/fakeobjects": "4.16.0",
         "ckeditor/link": "4.16.0",
         "composer/installers": "^2.0",
@@ -162,6 +178,7 @@
         "drupal/anchor_link": "^2.5",
         "drupal/better_exposed_filters": "^5.0@beta|^5.0@RC|^5.0",
         "drupal/bugherd": "^1.0@beta",
+        "drupal/ckeditor_div_manager": "^2.0",
         "drupal/colorbox": "^2.0",
         "drupal/context": "^4.0@beta|^4.0@RC|^4.0",
         "drupal/context_active_trail": "^2.0@beta|^2.0@RC|^2.0",
