@@ -34,10 +34,28 @@ var Lightbox = /*#__PURE__*/function () {
     this.settings = settings;
     this.Drupal = Drupal;
     this.context = context;
+    this.$window = this.$(window);
+    this.$image = this.$('.js-text-block').find(this.$('.cboxElement')).once();
     this.$(context).on('cbox_complete', this.$.proxy(this.lightboxComplete, this));
     this.$(context).on('cbox_closed', this.$.proxy(this.lightboxClosed, this));
+    this.$image.on('click', this.$.proxy(this.createCaption, this));
   }
   _createClass(Lightbox, [{
+    key: "createCaption",
+    value: function createCaption(e) {
+      this.$('#cboxTitle').hide();
+      var target = this.$(e.currentTarget);
+      var targetCaption = this.$(target).closest(this.$('.c-media--image')).next('figcaption')[0];
+      var targetCaptionText = this.$(targetCaption).text();
+      var createCaption = '<p class="cboxCaption"></p>';
+      var newCaption = this.$(createCaption).text(targetCaptionText);
+      if (this.$('.cboxCaption').length === 0) {
+        this.$('#cboxContent').prepend(newCaption);
+      } else {
+        this.$('.cboxCaption').text(targetCaptionText);
+      }
+    }
+  }, {
     key: "lightboxComplete",
     value: function lightboxComplete() {
       // Make all the controls invisible.
@@ -45,15 +63,14 @@ var Lightbox = /*#__PURE__*/function () {
       // Replace "Close" with "×" and show.
       this.$('#cboxClose').html("\xD7").addClass('cbox-close-plain');
       // Hide empty title.
-      if (this.$('#cboxTitle:empty').length === true) {
-        this.$('#cboxTitle').hide();
-      }
+      this.$('#cboxTitle').hide();
       this.$('body').addClass('is-scroll-locked');
     }
   }, {
     key: "lightboxClosed",
     value: function lightboxClosed() {
       this.$('#cboxClose').removeClass('cbox-close-plain');
+      this.$('body').removeClass('is-scroll-locked');
     }
   }]);
   return Lightbox;

@@ -3,6 +3,15 @@
   background-color : $secondary !important;
 }
 
+.cboxCaption {
+  @include ts-caption;
+  color     : $white;
+  padding   : 0;
+  position  : absolute;
+  top       : calc(var(--space-m) * -1);
+  transform : translateY(-100%);
+}
+
 #colorbox {
   overflow : visible !important;
 
