@@ -12,7 +12,7 @@ bundle: event
 label: 'Time zone'
 description: 'Add the timezone in which the event/course/training will take place. Use the 3-letter abbreviation, with no punctuation (e.g., BST, GMT, EAT, CET)'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

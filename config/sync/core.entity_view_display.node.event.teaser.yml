@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.event.field_course_syilabus
     - field.field.node.event.field_course_training_contact
     - field.field.node.event.field_data_document
+    - field.field.node.event.field_days_of_the_week
     - field.field.node.event.field_end_date
     - field.field.node.event.field_event_contact
     - field.field.node.event.field_event_location
@@ -66,6 +67,7 @@ hidden:
   field_course_syilabus: true
   field_course_training_contact: true
   field_data_document: true
+  field_days_of_the_week: true
   field_end_date: true
   field_event_contact: true
   field_event_location: true

@@ -14,8 +14,10 @@ bundle: event
 label: 'Open registration'
 description: 'Select if event will have open registration throughout the course of its duration. If selected add "open registration" label to event page. (If not selected, event will be treated as past event if start date has passed and, once start date has past it will have an "Applications closed" label).'
 required: true
-translatable: false
-default_value: {  }
+translatable: true
+default_value:
+  -
+    value: open
 default_value_callback: ''
 settings: {  }
 field_type: list_string

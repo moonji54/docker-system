@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.event.field_course_syilabus
     - field.field.node.event.field_course_training_contact
     - field.field.node.event.field_data_document
+    - field.field.node.event.field_days_of_the_week
     - field.field.node.event.field_end_date
     - field.field.node.event.field_event_contact
     - field.field.node.event.field_event_location
@@ -115,6 +116,13 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 47
+    region: content
+  field_days_of_the_week:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 49
     region: content
   field_end_date:
     type: datetime_default
