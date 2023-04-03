@@ -6,7 +6,6 @@ dependencies:
     - field.field.node.country.field_featured_image
     - field.field.node.country.field_overlay_opacity
     - field.field.node.country.field_page_builder
-    - field.field.node.country.field_region
     - field.field.node.country.field_short_description
     - node.type.country
     - workflows.workflow.editorial
@@ -128,16 +127,6 @@ content:
         add_above: '0'
         collapse_edit_all: collapse_edit_all
         duplicate: '0'
-    third_party_settings: {  }
-  field_region:
-    type: entity_reference_autocomplete
-    weight: 18
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_short_description:
     type: string_textarea_with_counter
