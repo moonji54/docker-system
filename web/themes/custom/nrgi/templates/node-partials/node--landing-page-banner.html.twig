@@ -2,7 +2,7 @@
   'c-' ~ node.bundle|clean_class ~ '-banner',
 ] %}
 
-<section {{ attributes.addClass(classes) }} style="border: 1px dotted red; padding: 20px; background-color: darkgray">
+<section {{ attributes.addClass(classes) }}>
   <div class="{{ classes.0 }}__container">
     <div class="{{ classes.0 }}__inner">
 
@@ -20,7 +20,7 @@
 
   {# Image #}
   {% if content.field_featured_image|field_value %}
-    <div class=" c-landing-page-banner__image-wrapper">
+    <div class="c-landing-page-banner__image-wrapper">
       {% if content.field_overlay_opacity|field_value %}
         [overlay]: {{ content.field_overlay_opacity }}
       {% endif %}
