@@ -1,19 +1,19 @@
-uuid: 2c0f5c02-94a7-471e-9aea-0836de7855da
+uuid: c05299af-51ae-46fb-85e5-f0714df8f1a1
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_featured_image
     - media.type.image
-    - node.type.topic
-id: node.topic.field_featured_image
+    - node.type.region
+id: node.region.field_featured_image
 field_name: field_featured_image
 entity_type: node
-bundle: topic
+bundle: region
 label: 'Hero banner image'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

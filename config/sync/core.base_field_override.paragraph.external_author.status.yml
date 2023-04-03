@@ -1,17 +1,17 @@
-uuid: ae9576d1-193a-4740-b30c-ecfb8903a838
+uuid: f0e29304-fb56-4d7d-b559-02a98fa1e2ab
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.glossary_term
-id: node.glossary_term.status
+    - paragraphs.paragraphs_type.external_author
+id: paragraph.external_author.status
 field_name: status
-entity_type: node
-bundle: glossary_term
+entity_type: paragraph
+bundle: external_author
 label: Published
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value:
   -
     value: 1
