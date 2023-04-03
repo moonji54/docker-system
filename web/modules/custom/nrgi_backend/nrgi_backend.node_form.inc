@@ -20,8 +20,10 @@ function nrgi_backend_form_node_form_alter(
   /** @var \Drupal\node\NodeInterface $node */
   $node = $form_state->getFormObject()->getEntity();
 
-  // Article node form conditional fields.
-  if ($node->bundle() === 'article') {
+  $resources_content_types = ['article', 'publication'];
+
+  // 'Resources' content types (Articles, Publications) form conditional fields.
+  if (in_array($node->bundle(), $resources_content_types)) {
     // If resource type is 'Course materials' make Publication date optional.
     $course_material_input = _nrgi_backend_get_term_reference_id(
       'Course Materials',

@@ -152,7 +152,6 @@ third_party_settings:
     group_date:
       children:
         - field_publication_date
-        - field_expiration_date
       label: Date
       region: content
       parent_name: group_general
@@ -184,6 +183,7 @@ third_party_settings:
     group_uploads_tabs:
       children:
         - group_featured_image
+        - group_report_pdf
         - group_news_upload
         - group_documents
         - group_logo
@@ -204,7 +204,7 @@ third_party_settings:
       label: 'News Upload'
       region: content
       parent_name: group_uploads_tabs
-      weight: 31
+      weight: 32
       format_type: tab
       format_settings:
         classes: ''
@@ -220,7 +220,7 @@ third_party_settings:
       label: 'Partners and Donors logos'
       region: content
       parent_name: group_uploads_tabs
-      weight: 33
+      weight: 34
       format_type: tab
       format_settings:
         classes: ''
@@ -313,7 +313,7 @@ third_party_settings:
       label: Documents
       region: content
       parent_name: group_uploads_tabs
-      weight: 32
+      weight: 33
       format_type: tab
       format_settings:
         classes: ''

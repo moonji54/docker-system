@@ -1,18 +1,18 @@
-uuid: 85de3994-cc40-4e8c-873d-05a55713a1bf
+uuid: 0eb84117-67e3-44a1-a0c9-3eeb1ae3a60f
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_partner_logo
+    - field.storage.node.field_external_authors
     - node.type.publication
-    - paragraphs.paragraphs_type.logo
+    - paragraphs.paragraphs_type.external_author
   module:
     - entity_reference_revisions
-id: node.publication.field_partner_logo
-field_name: field_partner_logo
+id: node.publication.field_external_authors
+field_name: field_external_authors
 entity_type: node
 bundle: publication
-label: 'Partners logos'
+label: 'External authors'
 description: ''
 required: false
 translatable: true
@@ -22,49 +22,49 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      logo: logo
+      external_author: external_author
     negate: 0
     target_bundles_drag_drop:
       call_to_action:
-        weight: 12
+        weight: 15
         enabled: false
       embed:
-        weight: 13
+        weight: 16
         enabled: false
       external_author:
         weight: 17
-        enabled: false
+        enabled: true
       featured_content:
-        weight: 14
+        weight: 18
         enabled: false
       featured_pages:
-        weight: 15
+        weight: 19
         enabled: false
       featured_people:
-        weight: 16
+        weight: 20
         enabled: false
       file_upload:
         weight: 21
         enabled: false
       full_width_media:
-        weight: 17
+        weight: 22
         enabled: false
       learning_block:
-        weight: 18
+        weight: 23
         enabled: false
       limited_list:
-        weight: 19
+        weight: 24
         enabled: false
       listing:
-        weight: 20
+        weight: 25
         enabled: false
       logo:
-        weight: 21
-        enabled: true
+        weight: 26
+        enabled: false
       quote:
         weight: 27
         enabled: false
       wysiwyg:
-        weight: 22
+        weight: 28
         enabled: false
 field_type: entity_reference_revisions
