@@ -308,10 +308,15 @@ ul li a:hover {
   /* stylelint-disable-next-line */
   /* Tables
   ================================================== */
-  /* Box
-  ================================================== */
   /* Footnotes
   ================================================== */
+  /* Standfirst/key messages
+  ================================================== */
+  /* Boxed content
+  ================================================== */
+  /* Spacing rules
+  ================================================== */
+  /* stylelint-disable-next-line */
   /* Miscellaneous
   ================================================== */
 }
@@ -324,9 +329,6 @@ ul li a:hover {
   .o-content-from-editor {
     font-size: 1rem;
   }
-}
-.o-content-from-editor :is(.responsive-table, figure, blockquote, .c-media) + * {
-  margin-top: var(--space-2xl);
 }
 .o-content-from-editor p {
   font-family: "Noto Sans", sans-serif;
@@ -669,16 +671,65 @@ ul li a:hover {
 .o-content-from-editor table a {
   overflow-wrap: break-word;
 }
-.o-content-from-editor .boxed-text {
-  background-color: #B3EFEF;
-  padding: var(--space-xl) var(--space-m);
-}
 .o-content-from-editor .see-footnote {
   font-size: 70%;
   font-weight: 700;
   text-decoration: none;
   top: 0;
   vertical-align: top;
+}
+.o-content-from-editor .standfirst {
+  color: #00545A;
+  margin-top: var(--space-3xl);
+  /* stylelint-disable-next-line */
+}
+.o-content-from-editor .standfirst > * {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.5;
+}
+@media (max-width: 94.5rem) {
+  .o-content-from-editor .standfirst > * {
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 64rem) {
+  .o-content-from-editor .standfirst > * {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 48rem) {
+  .o-content-from-editor .standfirst > * {
+    font-size: 1.125rem;
+  }
+}
+.o-content-from-editor .standfirst li::marker {
+  color: #00545A;
+}
+.o-content-from-editor .boxed-text {
+  background-color: #B3EFEF;
+  padding: var(--space-xl) var(--space-m);
+  /* stylelint-disable-next-line */
+}
+.o-content-from-editor .boxed-text > *:first-child {
+  margin-top: 0;
+}
+.o-content-from-editor .boxed-text h2,
+.o-content-from-editor .boxed-text h3,
+.o-content-from-editor .boxed-text h4,
+.o-content-from-editor .boxed-text h5,
+.o-content-from-editor .boxed-text h6 {
+  margin-top: var(--space-l);
+}
+.o-content-from-editor > :first-child {
+  margin-top: 0;
+}
+.o-content-from-editor :is(.responsive-table, figure, blockquote, .c-media, .standfirst) + * {
+  margin-top: var(--space-2xl);
+}
+.o-content-from-editor * :last-child {
+  margin-bottom: 0;
 }
 .o-content-from-editor address {
   font-family: "Noto Sans", sans-serif;

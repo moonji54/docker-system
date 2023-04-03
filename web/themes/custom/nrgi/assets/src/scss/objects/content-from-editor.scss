@@ -3,10 +3,6 @@
   color    : $primary;
   position : relative;
 
-  :is(.responsive-table, figure, blockquote, .c-media) + * {
-    margin-top : var(--space-2xl);
-  }
-
   p {
     @include ts-body;
     margin-top : var(--space-m);
@@ -260,13 +256,6 @@
     }
   }
 
-  /* Box
-  ================================================== */
-  .boxed-text {
-    background-color : $blue-light;
-    padding          : var(--space-xl) var(--space-m);
-  }
-
   /* Footnotes
   ================================================== */
   .see-footnote {
@@ -275,6 +264,61 @@
     text-decoration : none;
     top             : 0;
     vertical-align  : top;
+  }
+
+  /* Standfirst/key messages
+  ================================================== */
+
+  .standfirst {
+    color      : $secondary;
+    margin-top : var(--space-3xl);
+    /* stylelint-disable-next-line */
+    > * {
+      @include ts-heading-6;
+    }
+
+    li {
+      &::marker {
+        color : $secondary;
+      }
+    }
+  }
+
+  /* Boxed content
+  ================================================== */
+  .boxed-text {
+    background-color : $blue-light;
+    padding          : var(--space-xl) var(--space-m);
+    /* stylelint-disable-next-line */
+    > * {
+      &:first-child {
+        margin-top : 0;
+      }
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top : var(--space-l);
+    }
+  }
+
+  /* Spacing rules
+  ================================================== */
+
+  > :first-child {
+    margin-top : 0;
+  }
+
+  /* stylelint-disable-next-line */
+  :is(.responsive-table, figure, blockquote, .c-media, .standfirst) + * {
+    margin-top : var(--space-2xl);
+  }
+
+  * :last-child {
+    margin-bottom : 0;
   }
 
   /* Miscellaneous
