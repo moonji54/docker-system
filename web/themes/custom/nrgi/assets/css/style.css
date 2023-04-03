@@ -942,23 +942,7 @@ ul li a:hover {
   padding: var(--space-xs) var(--space-s);
 }
 
-/** @define c-header */
-.c-header {
-  display: flex;
-  position: absolute;
-  z-index: 4;
-  background: rgba(255, 255, 255, 0.1);
-  height: 196px;
-}
-.c-header .c-main-menu {
-  display: flex;
-}
-.c-header .c-header__burger,
-.c-header .c-header__logo {
-  display: none;
-}
-
-/** @define c-homepage-banner */
+/** @define c-header */ /** @define c-homepage-banner */
 .c-homepage-banner {
   box-sizing: border-box;
   display: flex;
