@@ -12,7 +12,7 @@
       <div class="c-landing-page-banner__overlay" style="--hero-opacity: {{ content.field_overlay_opacity[0]['#markup'] }}"></div>
     {% endif %}
   {% else %}
-    <img class="c-landing-page-banner__image-placeholder" src="/{{ base_path ~ directory }}/assets/img/ocean-4.svg"
+    <img class="c-landing-page-banner__image-placeholder" src="/{{ base_path ~ directory }}/assets/img/hero-banner-placeholder.svg"
          alt="Image placeholder"/>
   {% endif %}
 
@@ -32,13 +32,17 @@
 
     {# Language switcher #}
     {% if language_switcher_links %}
-      {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
-        'text' :  "Other languages"|t,
-        'links' : language_switcher_links
-      } %}
+      <div class="c-landing-page-banner__language-switcher-links">
+        {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
+          'text' :  "Other languages"|t,
+          'links' : language_switcher_links
+        } %}
+      </div>
     {% endif %}
 
     {# Share buttons #}
-    {% include '@nrgi/node-partials/node--share-links.html.twig' %}
+    <div class="c-landing-page-banner__share-links">
+      {% include '@nrgi/node-partials/node--share-links.html.twig' %}
+    </div>
   </div>
 </section>
