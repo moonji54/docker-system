@@ -29,6 +29,7 @@ dependencies:
     - block_content
     - content_moderation
     - content_translation
+    - eu_cookie_compliance
     - filter
     - media
     - node
@@ -88,6 +89,7 @@ permissions:
   - 'delete own topic content'
   - 'delete own video media'
   - 'delete terms in tags'
+  - 'display eu cookie compliance popup'
   - 'edit any article content'
   - 'edit any audio media'
   - 'edit any career_opportunity content'
@@ -200,5 +202,17 @@ permissions:
   - 'view page revisions'
   - 'view person revisions'
   - 'view publication revisions'
+  - 'view scheduled transitions node article'
+  - 'view scheduled transitions node career_opportunity'
+  - 'view scheduled transitions node country'
+  - 'view scheduled transitions node event'
+  - 'view scheduled transitions node glossary_term'
+  - 'view scheduled transitions node homepage'
+  - 'view scheduled transitions node landing_page'
+  - 'view scheduled transitions node listing_page'
+  - 'view scheduled transitions node page'
+  - 'view scheduled transitions node person'
+  - 'view scheduled transitions node publication'
+  - 'view scheduled transitions node topic'
   - 'view the administration theme'
   - 'view topic revisions'

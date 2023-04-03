@@ -8,12 +8,9 @@ dependencies:
     - field.field.node.publication.field_author
     - field.field.node.publication.field_country
     - field.field.node.publication.field_data_document
-    - field.field.node.publication.field_expiration_date
     - field.field.node.publication.field_featured_image
     - field.field.node.publication.field_keywords
     - field.field.node.publication.field_link
-    - field.field.node.publication.field_link_from_external_card
-    - field.field.node.publication.field_link_to_external_item
     - field.field.node.publication.field_page_builder
     - field.field.node.publication.field_page_to_pdf
     - field.field.node.publication.field_partner_logo
@@ -409,12 +406,6 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings: {  }
-  field_expiration_date:
-    type: datetime_default
-    weight: 9
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_featured_image:
     type: media_library_widget
     weight: 64
@@ -435,22 +426,6 @@ content:
   field_link:
     type: link_default
     weight: 22
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-  field_link_from_external_card:
-    type: link_default
-    weight: 23
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-  field_link_to_external_item:
-    type: link_default
-    weight: 24
     region: content
     settings:
       placeholder_url: ''
