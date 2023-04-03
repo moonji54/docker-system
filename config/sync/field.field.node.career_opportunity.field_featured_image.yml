@@ -1,26 +1,26 @@
-uuid: f733fd85-5d89-4eaa-b602-1d23cfd3373a
+uuid: 568b4946-15de-4e41-a7f5-a842cfafea5e
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_region
+    - field.storage.node.field_featured_image
+    - media.type.image
     - node.type.career_opportunity
-    - node.type.region
-id: node.career_opportunity.field_region
-field_name: field_region
+id: node.career_opportunity.field_featured_image
+field_name: field_featured_image
 entity_type: node
 bundle: career_opportunity
-label: Regions
-description: 'Select the region(s) discussed in this item. Leave blank if the work is applicable everywhere.'
+label: 'Featured image'
+description: ''
 required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: 'default:media'
   handler_settings:
     target_bundles:
-      region: region
+      image: image
     sort:
       field: _none
       direction: ASC

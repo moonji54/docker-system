@@ -183,7 +183,6 @@ third_party_settings:
     group_uploads_tabs:
       children:
         - group_featured_image
-        - group_report_pdf
         - group_news_upload
         - group_documents
         - group_logo
@@ -364,7 +363,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 12
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -558,7 +557,7 @@ content:
     weight: 105
     region: content
     settings:
-      rows: 5
+      rows: 2
       placeholder: ''
       maxlength: 150
       counter_position: after
@@ -627,22 +626,15 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 13
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 9
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
     weight: 7
     region: content
-    settings:
-      display_label: true
+    settings: {  }
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp
@@ -658,14 +650,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 11
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    weight: 8
+    weight: 9
     region: content
     settings:
       display_label: true
@@ -706,9 +691,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 10
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  promote: true
+  sticky: true
   template: true

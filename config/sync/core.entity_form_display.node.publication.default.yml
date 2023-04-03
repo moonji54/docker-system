@@ -361,7 +361,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 14
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -555,7 +555,7 @@ content:
     weight: 35
     region: content
     settings:
-      rows: 5
+      rows: 2
       placeholder: ''
       maxlength: 150
       counter_position: after
@@ -624,22 +624,15 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 15
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 11
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
     weight: 7
     region: content
-    settings:
-      display_label: true
+    settings: {  }
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp
@@ -655,14 +648,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 12
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    weight: 9
+    weight: 8
     region: content
     settings:
       display_label: true
@@ -676,7 +662,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 8
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -703,7 +689,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 13
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -713,10 +699,12 @@ hidden:
   content_translation_source: true
   default_langcode: true
   nid: true
+  promote: true
   revision_default: true
   revision_timestamp: true
   revision_translation_affected: true
   revision_uid: true
+  sticky: true
   template: true
   type: true
   unified_date: true
