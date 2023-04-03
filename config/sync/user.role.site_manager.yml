@@ -30,7 +30,6 @@ dependencies:
     - taxonomy.vocabulary.event_type
     - taxonomy.vocabulary.keyword
     - taxonomy.vocabulary.person_type
-    - taxonomy.vocabulary.regions
     - taxonomy.vocabulary.resource_type
     - taxonomy.vocabulary.series
     - workflows.workflow.editorial
@@ -125,7 +124,6 @@ permissions:
   - 'create terms in event_type'
   - 'create terms in keyword'
   - 'create terms in person_type'
-  - 'create terms in regions'
   - 'create terms in resource_type'
   - 'create terms in series'
   - 'create topic content'
@@ -195,7 +193,6 @@ permissions:
   - 'delete terms in event_type'
   - 'delete terms in keyword'
   - 'delete terms in person_type'
-  - 'delete terms in regions'
   - 'delete terms in resource_type'
   - 'delete terms in series'
   - 'delete topic revisions'
@@ -246,7 +243,6 @@ permissions:
   - 'edit terms in event_type'
   - 'edit terms in keyword'
   - 'edit terms in person_type'
-  - 'edit terms in regions'
   - 'edit terms in resource_type'
   - 'edit terms in series'
   - 'enter all revision log entry'

@@ -11,7 +11,6 @@ dependencies:
     - field.storage.node.field_event_contact
     - field.storage.node.field_event_location
     - field.storage.node.field_event_type
-    - field.storage.node.field_expertise_required
     - field.storage.node.field_full_bio
     - field.storage.node.field_full_name
     - field.storage.node.field_given_name
@@ -102,14 +101,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_event_type
-  field_expertise_required:
-    label: 'Expertise required'
-    datasource_id: 'entity:node'
-    property_path: field_expertise_required
-    type: string
-    dependencies:
-      config:
-        - field.storage.node.field_expertise_required
   field_full_bio:
     label: 'Full bio'
     datasource_id: 'entity:node'
@@ -353,7 +344,6 @@ processor_settings:
     fields:
       - field_course_host
       - field_event_location
-      - field_expertise_required
       - field_full_bio
       - field_full_name
       - field_given_name
@@ -385,7 +375,6 @@ processor_settings:
     fields:
       - field_course_host
       - field_event_location
-      - field_expertise_required
       - field_full_bio
       - field_full_name
       - field_given_name

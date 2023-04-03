@@ -1,17 +1,17 @@
-uuid: d3c221d5-7d4b-402d-8c3a-6af2daf726fb
+uuid: 48cf318a-4e2d-4155-9e6b-99492eb24d1d
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_course_syilabus
+    - field.storage.node.field_course_syllabus
     - media.type.document
     - node.type.event
-id: node.event.field_course_syilabus
-field_name: field_course_syilabus
+id: node.event.field_course_syllabus
+field_name: field_course_syllabus
 entity_type: node
 bundle: event
-label: 'Course syilabus'
-description: 'Upload a course/training/event syllabus if available'
+label: 'Course syllabus'
+description: ' Upload a course/training/event syllabus if available'
 required: false
 translatable: true
 default_value: {  }

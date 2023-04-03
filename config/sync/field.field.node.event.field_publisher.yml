@@ -9,7 +9,7 @@ id: node.event.field_publisher
 field_name: field_publisher
 entity_type: node
 bundle: event
-label: Publishers
+label: Publisher
 description: 'The name of the organization(s) that published the content item'
 required: false
 translatable: true
