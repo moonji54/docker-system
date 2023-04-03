@@ -1,0 +1,23 @@
+uuid: 3b294115-9fe0-491c-99ce-919e16f85eb9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_disable
+    - node.type.article
+id: node.article.field_disable
+field_name: field_disable
+entity_type: node
+bundle: article
+label: 'Disable page and use for cards and listing items only'
+description: "Select if you do not want to create a page for this item and want to link out externally to it directly from the content card or listing item.\r\n<p><strong><em>If selected, this item will only render as a content card/list item that will link out directly to the item published externally.</em></strong></p>"
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.career_opportunity.field_contact_for_queries
     - field.field.node.career_opportunity.field_country
     - field.field.node.career_opportunity.field_disclaimer
-    - field.field.node.career_opportunity.field_expiration_date
     - field.field.node.career_opportunity.field_offer_deadline
     - field.field.node.career_opportunity.field_page_builder
     - field.field.node.career_opportunity.field_photo_caption
@@ -44,7 +43,6 @@ hidden:
   field_contact_for_queries: true
   field_country: true
   field_disclaimer: true
-  field_expiration_date: true
   field_offer_deadline: true
   field_page_builder: true
   field_photo_caption: true
