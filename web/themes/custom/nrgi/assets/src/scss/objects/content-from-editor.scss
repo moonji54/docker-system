@@ -1,4 +1,4 @@
-.o-content-from-editor {
+@mixin content-from-editor {
   @include ts-body; // Fallback in case there are no <p> tags
   color    : $primary;
   position : relative;
@@ -352,4 +352,8 @@
   div {
     margin-top : var(--space-2xl);
   }
+}
+
+.o-content-from-editor {
+  @include content-from-editor;
 }
