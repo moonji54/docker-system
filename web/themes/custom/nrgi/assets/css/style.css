@@ -899,20 +899,29 @@ ul li a:focus {
   color: #2D2D32;
   display: flex;
   gap: 0.5rem;
-  transition: color 0.3s;
 }
 @media (max-width: 48rem) {
   .c-language-bar__link {
     font-size: 1rem;
   }
 }
-.c-language-bar__link:hover, .c-language-bar__link:focus {
-  color: #FF7D5F;
+.c-language-bar__link:hover .c-language-bar__link-label, .c-language-bar__link:focus .c-language-bar__link-label {
+  -webkit-text-decoration-color: #2D2D32;
+          text-decoration-color: #2D2D32;
 }
 @media (max-width: 48rem) {
   .c-language-bar__link-svg {
     display: none;
   }
+}
+.c-language-bar__link-label {
+  text-decoration: underline;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
+  text-underline-offset: 0.313rem;
+  transition: -webkit-text-decoration-color 0.3s;
+  transition: text-decoration-color 0.3s;
+  transition: text-decoration-color 0.3s, -webkit-text-decoration-color 0.3s;
 }
 
 /** @define block-local-tasks-block */
@@ -922,8 +931,10 @@ ul li a:focus {
   display: block;
   font-family: "Source Sans Pro", "Lucida Grande", Verdana, sans-serif;
   font-size: 12px;
+  height: 30px;
   position: relative;
   width: 100%;
+  z-index: 20;
 }
 .block-local-tasks-block .tabs {
   display: block;

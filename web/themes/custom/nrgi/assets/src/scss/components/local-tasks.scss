@@ -5,8 +5,10 @@
   display          : block;
   font-family      : "Source Sans Pro", "Lucida Grande", Verdana, sans-serif;
   font-size        : 12px;
+  height           : 30px;
   position         : relative;
   width            : 100%;
+  z-index          : 20;
 
   .tabs {
     display : block;

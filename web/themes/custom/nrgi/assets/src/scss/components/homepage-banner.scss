@@ -45,7 +45,6 @@
     z-index               : 1;
   }
 
-  // SBTODO: change class name
   &__image-placeholder {
     @include object-fit(cover);
     @include z-index(homepage-image);
@@ -70,7 +69,6 @@
     padding-top    : var(--space-xs);
     position       : relative;
 
-    // SBTODO: to be checked
     @include media("<=desktop") {
       grid-column : 1 /10;
     }
