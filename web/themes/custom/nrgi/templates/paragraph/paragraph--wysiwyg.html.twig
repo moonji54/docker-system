@@ -1,14 +1,13 @@
 {% set classes = [
   'c-text-block',
   'o-section',
-  'js-text-block'
 ] %}
 
 {% set rendered = content|render %}
 {% if rendered|striptags|trim is not empty %}
   <section{{ attributes.addClass(classes) }}>
     <div class="c-text-block__container o-container">
-      <div class="c-text-block__inner o-content-from-editor">
+      <div class="c-text-block__inner o-content-from-editor js-text-block">
         {{ rendered }}
       </div>
     </div>
