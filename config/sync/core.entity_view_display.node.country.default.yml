@@ -57,12 +57,11 @@ content:
     weight: 101
     region: content
   field_short_description:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 115
+    weight: 113
     region: content
   links:
     settings: {  }
