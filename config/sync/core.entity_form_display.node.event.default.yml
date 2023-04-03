@@ -17,7 +17,6 @@ dependencies:
     - field.field.node.event.field_event_role_type
     - field.field.node.event.field_event_type
     - field.field.node.event.field_expertise_required
-    - field.field.node.event.field_expiration_date
     - field.field.node.event.field_featured_image
     - field.field.node.event.field_format
     - field.field.node.event.field_instructors
@@ -591,12 +590,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_expiration_date:
-    type: datetime_default
-    weight: 2
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_featured_image:
     type: media_library_widget

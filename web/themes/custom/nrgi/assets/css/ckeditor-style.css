@@ -525,3 +525,14 @@
   position: absolute;
   visibility: hidden;
 }
+
+.cke_editable .standfirst {
+  color: #00545a;
+  padding: 12px;
+  font-size: 1.5rem;
+}
+
+.cke_editable .boxed-text {
+  background-color: #b3efef;
+  padding: 12px;
+}

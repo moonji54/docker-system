@@ -1,13 +1,13 @@
-uuid: ccf69d49-73c7-452e-ad84-c5b438fa398c
+uuid: f89c7ee7-0271-4019-a4d7-eeb5012433ab
 langcode: en
 status: true
 dependencies:
   module:
     - link
-    - node
-id: node.field_link_to_external_item
-field_name: field_link_to_external_item
-entity_type: node
+    - paragraphs
+id: paragraph.field_external_author_link
+field_name: field_external_author_link
+entity_type: paragraph
 type: link
 settings: {  }
 module: link

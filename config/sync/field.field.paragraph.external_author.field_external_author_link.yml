@@ -1,0 +1,23 @@
+uuid: 4f8039cc-774f-404d-8ef7-327d005fe7a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_external_author_link
+    - paragraphs.paragraphs_type.external_author
+  module:
+    - link
+id: paragraph.external_author.field_external_author_link
+field_name: field_external_author_link
+entity_type: paragraph
+bundle: external_author
+label: 'External author link'
+description: 'A link to the bio for the external author.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.career_opportunity.field_contact_for_queries
     - field.field.node.career_opportunity.field_country
     - field.field.node.career_opportunity.field_disclaimer
-    - field.field.node.career_opportunity.field_expiration_date
     - field.field.node.career_opportunity.field_offer_deadline
     - field.field.node.career_opportunity.field_page_builder
     - field.field.node.career_opportunity.field_photo_caption
@@ -245,12 +244,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_expiration_date:
-    type: datetime_default
-    weight: 23
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_offer_deadline:
     type: datetime_default

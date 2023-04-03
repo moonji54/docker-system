@@ -6,7 +6,6 @@ dependencies:
     - field.field.node.person.field_additional_profiles
     - field.field.node.person.field_board_member_type
     - field.field.node.person.field_country
-    - field.field.node.person.field_expiration_date
     - field.field.node.person.field_focus_areas
     - field.field.node.person.field_full_bio
     - field.field.node.person.field_full_name
@@ -23,7 +22,6 @@ dependencies:
     - workflows.workflow.editorial
   module:
     - content_moderation
-    - datetime
     - field_group
     - link
     - media_library
@@ -275,12 +273,6 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_expiration_date:
-    type: datetime_default
-    weight: 24
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_focus_areas:
     type: entity_reference_autocomplete_tags

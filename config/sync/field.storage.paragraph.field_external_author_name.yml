@@ -1,12 +1,12 @@
-uuid: f210270c-a81d-4748-9068-7315361d5490
+uuid: 8220821f-163e-46bf-b8f5-3b4d1e198cd6
 langcode: en
 status: true
 dependencies:
   module:
-    - node
-id: node.field_photo_caption
-field_name: field_photo_caption
-entity_type: node
+    - paragraphs
+id: paragraph.field_external_author_name
+field_name: field_external_author_name
+entity_type: paragraph
 type: string
 settings:
   max_length: 255
