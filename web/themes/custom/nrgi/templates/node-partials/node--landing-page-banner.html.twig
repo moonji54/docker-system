@@ -30,19 +30,21 @@
       {% endif %}
     </div>
 
-    {# Language switcher #}
-    {% if language_switcher_links %}
-      <div class="c-landing-page-banner__language-switcher-links">
-        {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
-          'text' :  "Other languages"|t,
-          'links' : language_switcher_links
-        } %}
-      </div>
-    {% endif %}
+    <aside class="c-landing-page-banner__aside">
+      {# Language switcher #}
+      {% if language_switcher_links %}
+        <div class="c-landing-page-banner__language-switcher-links">
+          {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
+            'text' :  "Other languages"|t,
+            'links' : language_switcher_links
+          } %}
+        </div>
+      {% endif %}
 
-    {# Share buttons #}
-    <div class="c-landing-page-banner__share-links">
-      {% include '@nrgi/node-partials/node--share-links.html.twig' %}
-    </div>
+      {# Share buttons #}
+      <div class="c-landing-page-banner__share-links">
+        {% include '@nrgi/node-partials/node--share-links.html.twig' %}
+      </div>
+    </aside>
   </div>
 </section>
