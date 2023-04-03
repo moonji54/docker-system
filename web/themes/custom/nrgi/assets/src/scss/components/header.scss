@@ -1,19 +1,4 @@
 /** @define c-header */
 .c-header {
-  display    : flex;
-  position   : absolute;
-  z-index    : 4;
-  background : rgba(256, 256, 256, 0.1);
-  height     : 196px;
-
-  .c-main-menu {
-    display : flex;
-  }
-
-  .c-header__burger,
-  .c-header__logo {
-    display : none
-  }
-
-  // SBTODO: remove dummy styles
+  background : red;
 }
