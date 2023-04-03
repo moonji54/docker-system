@@ -1,0 +1,12 @@
+uuid: 3bfe77f5-0b39-4905-b27f-48664b2006ec
+langcode: en
+status: true
+dependencies: {  }
+id: remote_audio
+label: 'Remote audio'
+description: ''
+providers:
+  - Audioboom
+  - 'Omny Studio'
+  - SoundCloud
+  - Spotify

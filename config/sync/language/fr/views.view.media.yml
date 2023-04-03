@@ -1,0 +1,18 @@
+label: Média
+display:
+  default:
+    display_title: Default
+    display_options:
+      pager:
+        options:
+          expose:
+            offset_label: Offset
+      fields:
+        thumbnail__target_id:
+          label: Thumbnail
+      title: Média
+  media_page_list:
+    display_title: Média
+    display_options:
+      menu:
+        title: Média

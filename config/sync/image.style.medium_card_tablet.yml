@@ -1,0 +1,7 @@
+uuid: 7d4009c9-9d0a-4582-8678-6073df0555df
+langcode: en
+status: true
+dependencies: {  }
+name: medium_card_tablet
+label: 'Medium card tablet'
+effects: {  }

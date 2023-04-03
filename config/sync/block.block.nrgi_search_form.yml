@@ -1,0 +1,40 @@
+uuid: 8737b8a2-1623-4483-aa79-9c21de07ff0f
+langcode: en
+status: true
+dependencies:
+  module:
+    - context
+    - nrgi_frontend
+  theme:
+    - nrgi
+id: nrgi_search_form
+theme: nrgi
+region: header
+weight: -2
+provider: null
+plugin: search_block
+settings:
+  id: search_block
+  label: 'NRGI search form'
+  label_display: '0'
+  provider: nrgi_frontend
+visibility:
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''

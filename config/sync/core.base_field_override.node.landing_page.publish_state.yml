@@ -1,0 +1,20 @@
+uuid: 118c89ff-18b8-4e39-929e-ed6aadcc3057
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.landing_page
+  module:
+    - options
+id: node.landing_page.publish_state
+field_name: publish_state
+entity_type: node
+bundle: landing_page
+label: 'Publish state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

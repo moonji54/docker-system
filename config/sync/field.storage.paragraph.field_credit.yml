@@ -1,0 +1,19 @@
+uuid: 83f49c05-0037-424f-bc91-6b9c11f4f7b8
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_credit
+field_name: field_credit
+entity_type: paragraph
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

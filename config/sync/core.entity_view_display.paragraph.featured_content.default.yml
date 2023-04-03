@@ -1,0 +1,34 @@
+uuid: 450483d0-094b-4316-90e5-c4de920917c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.featured_content.field_layout
+    - field.field.paragraph.featured_content.field_show_image
+    - paragraphs.paragraphs_type.featured_content
+id: paragraph.featured_content.default
+targetEntityType: paragraph
+bundle: featured_content
+mode: default
+content:
+  field_layout:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_show_image:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  search_api_excerpt: true

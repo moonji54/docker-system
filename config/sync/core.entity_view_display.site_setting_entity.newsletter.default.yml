@@ -1,0 +1,70 @@
+uuid: 03539ff6-99ee-4cf2-ab23-9faec04d7bb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.newsletter.field_button
+    - field.field.site_setting_entity.newsletter.field_description
+    - field.field.site_setting_entity.newsletter.field_title
+    - site_settings.site_setting_entity_type.newsletter
+  module:
+    - link
+id: site_setting_entity.newsletter.default
+targetEntityType: site_setting_entity
+bundle: newsletter
+mode: default
+content:
+  field_button:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_description:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  fieldset:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  user_id:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  search_api_excerpt: true

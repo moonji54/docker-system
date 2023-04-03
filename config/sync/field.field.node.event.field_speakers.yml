@@ -1,0 +1,29 @@
+uuid: 780d0c61-2ff6-4207-a65a-3124753e6f33
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_speakers
+    - node.type.event
+    - node.type.person
+id: node.event.field_speakers
+field_name: field_speakers
+entity_type: node
+bundle: event
+label: Speakers
+description: 'Select people who will be speaking at the event'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

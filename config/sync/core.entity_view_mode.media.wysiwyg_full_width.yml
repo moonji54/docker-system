@@ -1,0 +1,12 @@
+uuid: 0c43f320-d822-481b-b0fa-46ab9387fd81
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: pxNeIha2ubVvZLgb9u6Q7-d-tT2khfiJ5jhZ2AsjVLE
+id: media.wysiwyg_full_width
+label: 'WYSIWYG full-width'
+targetEntityType: media
+cache: true

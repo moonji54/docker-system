@@ -1,0 +1,12 @@
+uuid: 36fe2497-80cd-4fb9-a123-785570289d7a
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_link_content
+_core:
+  default_config_hash: WBSgGunCe98TRAaGGPxOWbB2U5vzu6qKMdEWQbz77kc
+id: menu_link_content.token
+label: Token
+targetEntityType: menu_link_content
+cache: true

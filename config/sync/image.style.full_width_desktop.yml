@@ -1,0 +1,17 @@
+uuid: 2251a61d-7360-4875-9969-cbba3c3d0afa
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: full_width_desktop
+label: 'Full width Desktop'
+effects:
+  a94a1b58-1a51-4a5f-9c9d-232b13e76fea:
+    uuid: a94a1b58-1a51-4a5f-9c9d-232b13e76fea
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1276
+      height: 675
+      crop_type: focal_point

@@ -1,0 +1,19 @@
+uuid: 4e9e8c17-8df1-418a-8eba-c829a587708f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_description
+    - node.type.homepage
+id: node.homepage.field_hero_description
+field_name: field_hero_description
+entity_type: node
+bundle: homepage
+label: 'Hero banner description'
+description: "One-sentence highlight/overview of the item. For use in link descriptions, search results, or other places where a blurb might be needed.\r\n<em>150 characters, max.</em>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

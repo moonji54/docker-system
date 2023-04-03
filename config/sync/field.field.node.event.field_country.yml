@@ -1,0 +1,29 @@
+uuid: 1e0cecd4-e997-4375-8b93-ab39b4d4b56a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_country
+    - node.type.country
+    - node.type.event
+id: node.event.field_country
+field_name: field_country
+entity_type: node
+bundle: event
+label: Country
+description: 'Select the country or countries discussed in this item. Leave blank if the work is applicable everywhere.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      country: country
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,45 @@
+uuid: d7e3ebf6-48c6-4745-8f9f-7676bd92d428
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.remote_audio.field_media_oembed_remote_audio
+    - image.style.medium
+    - media.type.remote_audio
+  module:
+    - svg_image
+id: media.remote_audio.media_library
+targetEntityType: media
+bundle: remote_audio
+mode: media_library
+content:
+  field_media_oembed_remote_audio:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  uid: true

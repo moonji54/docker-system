@@ -1,0 +1,30 @@
+uuid: d1ea8cdf-c36a-48a9-93e3-2018fc5f6ea4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.remote_audio.field_media_oembed_remote_audio
+    - media.type.remote_audio
+  module:
+    - media
+id: media.remote_audio.default
+targetEntityType: media
+bundle: remote_audio
+mode: default
+content:
+  field_media_oembed_remote_audio:
+    type: oembed
+    label: visually_hidden
+    settings:
+      max_width: 0
+      max_height: 0
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

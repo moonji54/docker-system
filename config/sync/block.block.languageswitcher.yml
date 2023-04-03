@@ -1,0 +1,45 @@
+uuid: 3c0abac5-7fd6-4441-8ac5-30e94a6ce001
+langcode: en
+status: false
+dependencies:
+  module:
+    - context
+    - language
+    - system
+  theme:
+    - nrgi
+id: languageswitcher
+theme: nrgi
+region: content
+weight: -2
+provider: null
+plugin: 'language_block:language_interface'
+settings:
+  id: 'language_block:language_interface'
+  label: 'Explore content in '
+  label_display: visible
+  provider: language
+visibility:
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/*'

@@ -1,0 +1,10 @@
+uuid: ed7c64a4-a28b-4cb4-8532-02647c91d066
+langcode: en
+status: true
+dependencies: {  }
+id: data_vis
+label: 'Data visualisation'
+description: ''
+providers:
+  - Flourish
+  - Infogram

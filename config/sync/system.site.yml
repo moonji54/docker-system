@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: 6ExL4IlTm3h5aC6M85RTufhNBiz8rTCuuWSBa3neUe0
+langcode: en
+uuid: 55cb5301-0c22-4832-8ff4-d61975077903
+name: 'Natural Resource Governance Institute'
+mail: support@designbysoapbox.com
+slogan: ''
+page:
+  403: /node/3
+  404: /node/2
+  front: /node/1
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en

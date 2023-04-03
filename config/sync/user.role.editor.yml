@@ -1,0 +1,218 @@
+uuid: a182c459-b8eb-443b-94b5-0649e3b3e81c
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.text
+    - filter.format.text_and_links
+    - filter.format.wysiwyg
+    - media.type.audio
+    - media.type.document
+    - media.type.image
+    - media.type.remote_video
+    - media.type.video
+    - node.type.article
+    - node.type.career_opportunity
+    - node.type.country
+    - node.type.event
+    - node.type.glossary_term
+    - node.type.homepage
+    - node.type.landing_page
+    - node.type.listing_page
+    - node.type.page
+    - node.type.person
+    - node.type.publication
+    - node.type.topic
+    - workflows.workflow.editorial
+  module:
+    - admin_toolbar_search
+    - block_content
+    - content_moderation
+    - content_translation
+    - eu_cookie_compliance
+    - filter
+    - media
+    - node
+    - override_node_options
+    - save_edit
+    - scheduled_transitions
+    - system
+    - toolbar
+_core:
+  default_config_hash: ynT9nh1WETdnbj8jkDnvrpDTHun8boxO9TgXrxSWCTk
+id: editor
+label: Editor
+weight: -8
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content'
+  - 'access content overview'
+  - 'access media overview'
+  - 'access toolbar'
+  - 'create article content'
+  - 'create audio media'
+  - 'create career_opportunity content'
+  - 'create content translations'
+  - 'create country content'
+  - 'create document media'
+  - 'create event content'
+  - 'create glossary_term content'
+  - 'create homepage content'
+  - 'create image media'
+  - 'create landing_page content'
+  - 'create listing_page content'
+  - 'create page content'
+  - 'create person content'
+  - 'create publication content'
+  - 'create remote_video media'
+  - 'create terms in tags'
+  - 'create topic content'
+  - 'create video media'
+  - 'delete content translations'
+  - 'delete media'
+  - 'delete own article content'
+  - 'delete own audio media'
+  - 'delete own career_opportunity content'
+  - 'delete own country content'
+  - 'delete own document media'
+  - 'delete own event content'
+  - 'delete own glossary_term content'
+  - 'delete own homepage content'
+  - 'delete own image media'
+  - 'delete own landing_page content'
+  - 'delete own listing_page content'
+  - 'delete own page content'
+  - 'delete own person content'
+  - 'delete own publication content'
+  - 'delete own remote_video media'
+  - 'delete own topic content'
+  - 'delete own video media'
+  - 'delete terms in tags'
+  - 'display eu cookie compliance popup'
+  - 'edit any article content'
+  - 'edit any audio media'
+  - 'edit any career_opportunity content'
+  - 'edit any country content'
+  - 'edit any document media'
+  - 'edit any event content'
+  - 'edit any glossary_term content'
+  - 'edit any homepage content'
+  - 'edit any image media'
+  - 'edit any landing_page content'
+  - 'edit any listing_page content'
+  - 'edit any page content'
+  - 'edit any person content'
+  - 'edit any publication content'
+  - 'edit any remote_video media'
+  - 'edit any topic content'
+  - 'edit any video media'
+  - 'edit own article content'
+  - 'edit own audio media'
+  - 'edit own career_opportunity content'
+  - 'edit own country content'
+  - 'edit own document media'
+  - 'edit own event content'
+  - 'edit own glossary_term content'
+  - 'edit own homepage content'
+  - 'edit own image media'
+  - 'edit own landing_page content'
+  - 'edit own listing_page content'
+  - 'edit own page content'
+  - 'edit own person content'
+  - 'edit own publication content'
+  - 'edit own remote_video media'
+  - 'edit own topic content'
+  - 'edit own video media'
+  - 'edit terms in tags'
+  - 'enter all revision log entry'
+  - 'enter article revision log entry'
+  - 'enter career_opportunity revision log entry'
+  - 'enter collection revision log entry'
+  - 'enter country revision log entry'
+  - 'enter event revision log entry'
+  - 'enter external_publication revision log entry'
+  - 'enter glossary_term revision log entry'
+  - 'enter homepage revision log entry'
+  - 'enter landing_page revision log entry'
+  - 'enter listing_page revision log entry'
+  - 'enter page revision log entry'
+  - 'enter person revision log entry'
+  - 'enter publication revision log entry'
+  - 'enter topic revision log entry'
+  - 'revert all revisions'
+  - 'revert article revisions'
+  - 'revert career_opportunity revisions'
+  - 'revert country revisions'
+  - 'revert event revisions'
+  - 'revert glossary_term revisions'
+  - 'revert homepage revisions'
+  - 'revert landing_page revisions'
+  - 'revert listing_page revisions'
+  - 'revert page revisions'
+  - 'revert person revisions'
+  - 'revert publication revisions'
+  - 'revert topic revisions'
+  - 'translate any entity'
+  - 'translate article node'
+  - 'translate block_content'
+  - 'translate career_opportunity node'
+  - 'translate country node'
+  - 'translate editable entities'
+  - 'translate event node'
+  - 'translate glossary_term node'
+  - 'translate homepage node'
+  - 'translate landing_page node'
+  - 'translate listing_page node'
+  - 'translate page node'
+  - 'translate person node'
+  - 'translate publication node'
+  - 'translate topic node'
+  - 'update any media'
+  - 'update content translations'
+  - 'update media'
+  - 'use admin toolbar search'
+  - 'use editorial transition archive'
+  - 'use editorial transition archived_draft'
+  - 'use editorial transition archived_published'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition needs_review'
+  - 'use editorial transition publish'
+  - 'use save and edit'
+  - 'use text format restricted_html'
+  - 'use text format text'
+  - 'use text format text_and_links'
+  - 'use text format wysiwyg'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view all scheduled transitions'
+  - 'view any unpublished content'
+  - 'view article revisions'
+  - 'view career_opportunity revisions'
+  - 'view country revisions'
+  - 'view event revisions'
+  - 'view glossary_term revisions'
+  - 'view homepage revisions'
+  - 'view landing_page revisions'
+  - 'view latest version'
+  - 'view listing_page revisions'
+  - 'view media'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view page revisions'
+  - 'view person revisions'
+  - 'view publication revisions'
+  - 'view scheduled transitions node article'
+  - 'view scheduled transitions node career_opportunity'
+  - 'view scheduled transitions node country'
+  - 'view scheduled transitions node event'
+  - 'view scheduled transitions node glossary_term'
+  - 'view scheduled transitions node homepage'
+  - 'view scheduled transitions node landing_page'
+  - 'view scheduled transitions node listing_page'
+  - 'view scheduled transitions node page'
+  - 'view scheduled transitions node person'
+  - 'view scheduled transitions node publication'
+  - 'view scheduled transitions node topic'
+  - 'view the administration theme'
+  - 'view topic revisions'

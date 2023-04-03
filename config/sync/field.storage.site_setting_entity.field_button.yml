@@ -1,0 +1,19 @@
+uuid: 9bc6a928-d9b7-4c27-a0dd-4a8b8b8b182e
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - site_settings
+id: site_setting_entity.field_button
+field_name: field_button
+entity_type: site_setting_entity
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

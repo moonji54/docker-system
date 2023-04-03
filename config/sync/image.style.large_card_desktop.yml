@@ -1,0 +1,17 @@
+uuid: d5a31bb1-2961-4359-bf21-8ce9bd401164
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: large_card_desktop
+label: 'Large card desktop'
+effects:
+  f620652b-a517-441e-a5f8-5baa8f59d993:
+    uuid: f620652b-a517-441e-a5f8-5baa8f59d993
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 840
+      height: 473
+      crop_type: focal_point

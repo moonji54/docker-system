@@ -1,0 +1,20 @@
+uuid: f689a5bf-8c0a-49b5-bdff-d77007c46634
+langcode: en
+status: true
+dependencies:
+  config:
+    - site_settings.site_setting_entity_type.social_media_links
+id: site_setting_entity.social_media_links.user_id
+field_name: user_id
+entity_type: site_setting_entity
+bundle: social_media_links
+label: 'Authored by'
+description: 'The user ID of author of the Site Setting entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\site_settings\Entity\SiteSettingEntity::getDefaultUserId'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

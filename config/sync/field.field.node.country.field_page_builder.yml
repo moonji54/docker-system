@@ -1,0 +1,64 @@
+uuid: 58e59a15-6d30-4800-8326-a2b87821b69d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_builder
+    - node.type.country
+    - paragraphs.paragraphs_type.featured_content
+    - paragraphs.paragraphs_type.featured_pages
+    - paragraphs.paragraphs_type.featured_people
+    - paragraphs.paragraphs_type.limited_list
+    - paragraphs.paragraphs_type.listing
+    - paragraphs.paragraphs_type.wysiwyg
+  module:
+    - entity_reference_revisions
+id: node.country.field_page_builder
+field_name: field_page_builder
+entity_type: node
+bundle: country
+label: 'Page builder'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      featured_content: featured_content
+      featured_pages: featured_pages
+      featured_people: featured_people
+      limited_list: limited_list
+      listing: listing
+      wysiwyg: wysiwyg
+    negate: 0
+    target_bundles_drag_drop:
+      container:
+        weight: 10
+      cta_download:
+        weight: 11
+        enabled: true
+      featured_content:
+        weight: 12
+        enabled: true
+      featured_pages:
+        weight: 13
+        enabled: true
+      featured_people:
+        weight: 14
+        enabled: true
+      full_width_media:
+        weight: 15
+        enabled: true
+      limited_list:
+        weight: 16
+        enabled: true
+      listing:
+        weight: 17
+        enabled: true
+      wysiwyg:
+        weight: 18
+        enabled: true
+field_type: entity_reference_revisions

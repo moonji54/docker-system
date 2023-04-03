@@ -1,0 +1,47 @@
+uuid: 3cee8cda-a1fd-4374-9d32-8211aa31f696
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.full_width_desktop
+    - image.style.full_width_desktop_2x
+    - image.style.full_width_mobile
+    - image.style.full_width_small_mobile
+    - image.style.full_width_tablet
+  theme:
+    - nrgi
+id: full_width
+label: 'Full width'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: full_width_small_mobile
+    breakpoint_id: nrgi.smallmobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: full_width_mobile
+    breakpoint_id: nrgi.mobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: full_width_tablet
+    breakpoint_id: nrgi.tablet
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: full_width_desktop
+    breakpoint_id: nrgi.smalldesktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: full_width_desktop
+    breakpoint_id: nrgi.desktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: full_width_desktop_2x
+    breakpoint_id: nrgi.desktop
+    multiplier: 2x
+breakpoint_group: nrgi
+fallback_image_style: full_width_desktop

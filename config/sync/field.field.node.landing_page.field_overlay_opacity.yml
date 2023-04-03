@@ -1,0 +1,25 @@
+uuid: 7ee8beca-4524-46d0-bd00-7d3de6281341
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_overlay_opacity
+    - node.type.landing_page
+id: node.landing_page.field_overlay_opacity
+field_name: field_overlay_opacity
+entity_type: node
+bundle: landing_page
+label: 'Overlay opacity'
+description: "The opacity of the dark overlay to be applied to the hero image. \r\nThis field allows you to set the opacity of the dark layer as an integer value between 0 and 100. A value of 0 (applied by default) means the layer is completely transparent (invisible), while a value of 100 means it is completely opaque (fully visible)."
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: 0
+  max: 100
+  prefix: ''
+  suffix: ''
+field_type: integer

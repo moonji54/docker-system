@@ -1,0 +1,17 @@
+uuid: 4a71911b-fae1-4173-b828-9a0880671139
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: large_card_tablet
+label: 'Large card tablet'
+effects:
+  4ecdf9a7-cc4c-4372-9f15-c53ae7246150:
+    uuid: 4ecdf9a7-cc4c-4372-9f15-c53ae7246150
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 644
+      height: 363
+      crop_type: focal_point

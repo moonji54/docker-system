@@ -1,0 +1,19 @@
+uuid: f1d17995-c325-4a53-8b9b-fe4802159b14
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.call_to_action
+id: paragraph.call_to_action.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: call_to_action
+label: Description
+description: 'Used to add text context to the CTA. <em>300 characters, max.</em>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

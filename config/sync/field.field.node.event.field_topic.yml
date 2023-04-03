@@ -1,0 +1,29 @@
+uuid: 06be5de7-048b-4ae4-9f44-351df9b17e59
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_topic
+    - node.type.event
+    - node.type.topic
+id: node.event.field_topic
+field_name: field_topic
+entity_type: node
+bundle: event
+label: Topic
+description: 'Select the topic this work falls under'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      topic: topic
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

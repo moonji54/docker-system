@@ -1,0 +1,17 @@
+uuid: e52b4146-a6ab-4cf6-8636-88bf6a28554c
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: homepage_banner_mobile
+label: 'Homepage banner Mobile'
+effects:
+  826b2e7b-f88c-4ae0-a87a-91e06b5b4dbe:
+    uuid: 826b2e7b-f88c-4ae0-a87a-91e06b5b4dbe
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 767
+      height: 520
+      crop_type: focal_point

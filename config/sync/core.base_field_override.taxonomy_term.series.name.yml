@@ -1,0 +1,18 @@
+uuid: 49b6bec6-a3b0-4d0a-98d4-cf4a74523b18
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.series
+id: taxonomy_term.series.name
+field_name: name
+entity_type: taxonomy_term
+bundle: series
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

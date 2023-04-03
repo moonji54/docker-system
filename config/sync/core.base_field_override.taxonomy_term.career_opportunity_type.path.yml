@@ -1,0 +1,20 @@
+uuid: 15bc6c09-3711-44f3-9859-a15a6854b9d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.career_opportunity_type
+  module:
+    - path
+id: taxonomy_term.career_opportunity_type.path
+field_name: path
+entity_type: taxonomy_term
+bundle: career_opportunity_type
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

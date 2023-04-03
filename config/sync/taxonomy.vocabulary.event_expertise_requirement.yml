@@ -1,0 +1,8 @@
+uuid: a60ff884-b6ca-4ebe-8806-2a8001ab7cd7
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event Expertise Requirement'
+vid: event_expertise_requirement
+description: ''
+weight: 0

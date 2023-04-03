@@ -1,0 +1,29 @@
+uuid: 2f00bbc5-4fbf-40de-b727-4e196f117808
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_country
+    - node.type.career_opportunity
+    - node.type.country
+id: node.career_opportunity.field_country
+field_name: field_country
+entity_type: node
+bundle: career_opportunity
+label: Country
+description: 'Select the country or countries discussed in this item. Leave blank if the work is applicable everywhere.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      country: country
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

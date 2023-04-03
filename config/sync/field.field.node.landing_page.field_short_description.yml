@@ -1,0 +1,19 @@
+uuid: 9605b4df-5175-4f73-8477-54bbb0ba432b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_short_description
+    - node.type.landing_page
+id: node.landing_page.field_short_description
+field_name: field_short_description
+entity_type: node
+bundle: landing_page
+label: 'Short Description'
+description: "One-sentence highlight/overview of the item. For use in link descriptions, search results, or other places where a blurb might be needed.\r\n<em>150 characters, max.</em>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

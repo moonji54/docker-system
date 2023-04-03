@@ -1,0 +1,72 @@
+uuid: 2cc77ba3-00b4-482e-aa9d-7f211d2efc78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.featured_content.field_layout
+    - field.field.paragraph.featured_content.field_show_image
+    - paragraphs.paragraphs_type.featured_content
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_content_cards:
+      children:
+        - field_show_image
+        - field_layout
+        - field_items_selection
+        - field_content_cards
+        - field_dynamic_listing
+      label: 'Content Cards'
+      region: content
+      parent_name: group_featured_content
+      weight: 3
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        formatter: closed
+    group_featured_content:
+      children:
+        - field_title
+        - field_description
+        - group_content_cards
+        - field_button_text_and_link
+      label: 'Featured Content'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+id: paragraph.featured_content.default
+targetEntityType: paragraph
+bundle: featured_content
+mode: default
+content:
+  field_layout:
+    type: number
+    weight: 9
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_show_image:
+    type: boolean_checkbox
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

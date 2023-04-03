@@ -1,0 +1,10 @@
+uuid: 670f2132-8347-4cf4-acca-1968ef454553
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: GRT1iFeJeCig2IHzkJX9eEFdqpp-gp9zmkUVhcbmKQc
+id: html_datetime
+label: 'HTML Datetime'
+locked: true
+pattern: 'Y-m-d\TH:i:sO'

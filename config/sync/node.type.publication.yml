@@ -1,0 +1,17 @@
+uuid: 71b9b180-85eb-401f-a76c-be7a2e82b29b
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Publication
+type: publication
+description: 'Use this to create Publication content items.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

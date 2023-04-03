@@ -1,0 +1,25 @@
+uuid: caba363f-938b-4cc8-b785-127f8300e258
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_layout
+    - paragraphs.paragraphs_type.featured_pages
+id: paragraph.featured_pages.field_layout
+field_name: field_layout
+entity_type: paragraph
+bundle: featured_pages
+label: 'Layout - items per row'
+description: 'Select the number of items per row.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 3
+default_value_callback: ''
+settings:
+  min: 1
+  max: 4
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,74 @@
+uuid: d7060ade-b60b-4cb5-b12d-30e8caedd76f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_builder
+    - node.type.article
+    - paragraphs.paragraphs_type.call_to_action
+    - paragraphs.paragraphs_type.full_width_media
+    - paragraphs.paragraphs_type.wysiwyg
+  module:
+    - entity_reference_revisions
+id: node.article.field_page_builder
+field_name: field_page_builder
+entity_type: node
+bundle: article
+label: 'Page builder'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      full_width_media: full_width_media
+      wysiwyg: wysiwyg
+      call_to_action: call_to_action
+    negate: 0
+    target_bundles_drag_drop:
+      call_to_action:
+        weight: 15
+        enabled: true
+      embed:
+        weight: 16
+        enabled: false
+      external_author:
+        weight: 17
+        enabled: false
+      featured_content:
+        weight: 12
+        enabled: false
+      featured_pages:
+        weight: 8
+        enabled: false
+      featured_people:
+        weight: 14
+        enabled: false
+      file_upload:
+        weight: 21
+        enabled: false
+      full_width_media:
+        weight: 9
+        enabled: true
+      learning_block:
+        weight: 23
+        enabled: false
+      limited_list:
+        weight: 16
+        enabled: false
+      listing:
+        weight: 17
+        enabled: false
+      logo:
+        weight: 26
+        enabled: false
+      quote:
+        weight: 27
+        enabled: false
+      wysiwyg:
+        weight: 10
+        enabled: true
+field_type: entity_reference_revisions

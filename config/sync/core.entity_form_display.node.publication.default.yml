@@ -1,0 +1,662 @@
+uuid: 968e878f-ec59-4ca2-b416-4426fb0daf39
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.publication.field_abstract
+    - field.field.node.publication.field_acknowledgement_logo
+    - field.field.node.publication.field_author
+    - field.field.node.publication.field_country
+    - field.field.node.publication.field_data_document
+    - field.field.node.publication.field_featured_image
+    - field.field.node.publication.field_keywords
+    - field.field.node.publication.field_link
+    - field.field.node.publication.field_page_builder
+    - field.field.node.publication.field_page_to_pdf
+    - field.field.node.publication.field_partner_logo
+    - field.field.node.publication.field_photo_caption
+    - field.field.node.publication.field_publication_date
+    - field.field.node.publication.field_publisher
+    - field.field.node.publication.field_region
+    - field.field.node.publication.field_resource_type
+    - field.field.node.publication.field_short_description
+    - field.field.node.publication.field_subtitle
+    - field.field.node.publication.field_supporting_document
+    - field.field.node.publication.field_topic
+    - field.field.node.publication.field_upload
+    - node.type.publication
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - datetime
+    - field_group
+    - link
+    - media_library
+    - paragraphs
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_body:
+      children:
+        - field_page_builder
+      label: Body
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        formatter: closed
+        weight: 0
+    group_uploads:
+      children:
+        - group_uploads_tabs
+      label: Uploads
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        weight: 0
+    group_taxonomies:
+      children:
+        - group_taxonomies_tabs
+      label: Taxonomies
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        weight: 0
+    group_general:
+      children:
+        - group_headline
+        - group_description
+        - group_item_information
+        - group_date
+      label: General
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: vertical
+        width_breakpoint: 640
+    group_headline:
+      children:
+        - title
+        - field_subtitle
+      label: Headline
+      region: content
+      parent_name: group_general
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_description:
+      children:
+        - field_short_description
+        - field_abstract
+        - field_photo_caption
+      label: Description
+      region: content
+      parent_name: group_general
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_item_information:
+      children:
+        - field_resource_type
+        - field_page_to_pdf
+        - field_publisher
+        - field_author
+        - field_link
+        - field_link_from_external_card
+        - field_link_to_external_item
+      label: 'Item Information'
+      region: content
+      parent_name: group_general
+      weight: 22
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_date:
+      children:
+        - field_expiration_date
+        - field_publication_date
+      label: Date
+      region: content
+      parent_name: group_general
+      weight: 24
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_uploads_tabs:
+      children:
+        - group_featured_image
+        - group_report_pdf
+        - group_logo
+        - group_documents
+      label: 'Uploads tabs'
+      region: hidden
+      parent_name: group_uploads
+      weight: 63
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: horizontal
+        width_breakpoint: 640
+    group_featured_image:
+      children:
+        - field_featured_image
+      label: 'Featured Image'
+      region: content
+      parent_name: group_uploads_tabs
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_report_pdf:
+      children:
+        - field_upload
+      label: 'Report PDF'
+      region: content
+      parent_name: group_uploads_tabs
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_documents:
+      children:
+        - field_data_document
+        - field_supporting_document
+      label: Documents
+      region: content
+      parent_name: group_uploads_tabs
+      weight: 23
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_logo:
+      children:
+        - field_partner_logo
+        - field_acknowledgement_logo
+      label: Logo
+      region: content
+      parent_name: group_uploads_tabs
+      weight: 22
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_taxonomies_tabs:
+      children:
+        - group_topic
+        - group_keywords
+        - group_country
+        - group_region
+      label: 'Taxonomies tabs'
+      region: hidden
+      parent_name: group_taxonomies
+      weight: 51
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: vertical
+        width_breakpoint: 640
+    group_topic:
+      children:
+        - field_topic
+      label: Topic
+      region: content
+      parent_name: group_taxonomies_tabs
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_keywords:
+      children:
+        - field_keywords
+      label: Keywords
+      region: content
+      parent_name: group_taxonomies_tabs
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_country:
+      children:
+        - field_country
+      label: Country
+      region: content
+      parent_name: group_taxonomies_tabs
+      weight: 22
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_region:
+      children:
+        - field_region
+      label: Region
+      region: content
+      parent_name: group_taxonomies_tabs
+      weight: 23
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+id: node.publication.default
+targetEntityType: node
+bundle: publication
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_abstract:
+    type: text_textarea
+    weight: 35
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_acknowledgement_logo:
+    type: paragraphs
+    weight: 68
+    region: content
+    settings:
+      title: Logo
+      title_plural: Logos
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_author:
+    type: entity_reference_autocomplete
+    weight: 21
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_country:
+    type: entity_reference_autocomplete
+    weight: 54
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_data_document:
+    type: paragraphs
+    weight: 68
+    region: content
+    settings:
+      title: Document
+      title_plural: Documents
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_featured_image:
+    type: media_library_widget
+    weight: 64
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_keywords:
+    type: entity_reference_autocomplete
+    weight: 53
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_link:
+    type: link_default
+    weight: 22
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_page_builder:
+    type: paragraphs
+    weight: 11
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_page_to_pdf:
+    type: boolean_checkbox
+    weight: 19
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_partner_logo:
+    type: paragraphs
+    weight: 67
+    region: content
+    settings:
+      title: Logo
+      title_plural: Logos
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_photo_caption:
+    type: string_textfield
+    weight: 36
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_publication_date:
+    type: datetime_default
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_publisher:
+    type: string_textfield
+    weight: 20
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_region:
+    type: entity_reference_autocomplete
+    weight: 55
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_resource_type:
+    type: options_select
+    weight: 18
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_short_description:
+    type: string_textarea
+    weight: 34
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_subtitle:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_supporting_document:
+    type: paragraphs
+    weight: 69
+    region: content
+    settings:
+      title: Document
+      title_plural: Documents
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_topic:
+    type: entity_reference_autocomplete
+    weight: 52
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_upload:
+    type: media_library_widget
+    weight: 65
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 13
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp
+    weight: 58
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  publish_state:
+    type: options_select
+    weight: 56
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 12
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp
+    weight: 59
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  unpublish_state:
+    type: options_select
+    weight: 57
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  url_redirects:
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  template: true

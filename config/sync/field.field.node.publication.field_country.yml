@@ -1,0 +1,29 @@
+uuid: f966b5ae-a1ab-4e82-82b7-3bc298259063
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_country
+    - node.type.country
+    - node.type.publication
+id: node.publication.field_country
+field_name: field_country
+entity_type: node
+bundle: publication
+label: Country
+description: 'Select the country or countries discussed in this item. Leave blank if the work is applicable everywhere.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      country: country
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,20 @@
+uuid: d32cbec5-cd12-45b5-aa74-e54ae4540baf
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.glossary_term
+  module:
+    - path
+id: node.glossary_term.path
+field_name: path
+entity_type: node
+bundle: glossary_term
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

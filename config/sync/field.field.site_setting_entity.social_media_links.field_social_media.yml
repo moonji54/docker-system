@@ -1,0 +1,21 @@
+uuid: 2c269ab1-feb7-4ce9-823c-95ae6d775f26
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.site_setting_entity.field_social_media
+    - site_settings.site_setting_entity_type.social_media_links
+  module:
+    - options
+id: site_setting_entity.social_media_links.field_social_media
+field_name: field_social_media
+entity_type: site_setting_entity
+bundle: social_media_links
+label: 'Social media'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

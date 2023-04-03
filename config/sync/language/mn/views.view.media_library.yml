@@ -1,0 +1,39 @@
+display:
+  default:
+    display_title: Default
+    display_options:
+      filters:
+        name:
+          expose:
+            label: Name
+      title: 'Дуу дүрслэл'
+  page:
+    display_options:
+      fields:
+        edit_media:
+          text: Edit
+        delete_media:
+          text: Delete
+  widget:
+    display_options:
+      filters:
+        name:
+          expose:
+            label: Name
+      arguments:
+        bundle:
+          exception:
+            title: All
+  widget_table:
+    display_options:
+      fields:
+        name:
+          label: Name
+      filters:
+        name:
+          expose:
+            label: Name
+      arguments:
+        bundle:
+          exception:
+            title: All

@@ -1,0 +1,22 @@
+uuid: 0927dc1b-3c09-4628-af2f-75529a0018a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.career_opportunity_type
+id: taxonomy_term.career_opportunity_type.status
+field_name: status
+entity_type: taxonomy_term
+bundle: career_opportunity_type
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

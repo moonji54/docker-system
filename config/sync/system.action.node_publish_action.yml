@@ -1,0 +1,13 @@
+uuid: 5983e59d-6cd3-4114-8dff-a5d6987450df
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: jqsPmtXr0GSmtgkrLjzUdLklRXLKSRhhxxv41CxEpdE
+id: node_publish_action
+label: 'Publish content'
+type: node
+plugin: 'entity:publish_action:node'
+configuration: {  }

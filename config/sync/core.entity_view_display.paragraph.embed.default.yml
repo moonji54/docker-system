@@ -1,0 +1,39 @@
+uuid: 9ad8d1e3-4d53-4834-915d-5850492d7a1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.embed.field_caption
+    - field.field.paragraph.embed.field_credit
+    - field.field.paragraph.embed.field_embed_media
+    - paragraphs.paragraphs_type.embed
+id: paragraph.embed.default
+targetEntityType: paragraph
+bundle: embed
+mode: default
+content:
+  field_caption:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_credit:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_embed_media:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: full_width
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

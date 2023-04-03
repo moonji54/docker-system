@@ -1,0 +1,15 @@
+uuid: 0041dcb4-7a45-429b-aeee-e5ad8e9132d8
+langcode: en
+status: true
+dependencies: {  }
+name: wysiwyg_full_width_desktop_2x
+label: 'WYSIWYG full width desktop 2x'
+effects:
+  887df4ae-7fe1-4eb1-a6e7-48f84e38384b:
+    uuid: 887df4ae-7fe1-4eb1-a6e7-48f84e38384b
+    id: image_scale
+    weight: 1
+    data:
+      width: 2088
+      height: null
+      upscale: false

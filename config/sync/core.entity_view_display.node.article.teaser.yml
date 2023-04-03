@@ -1,0 +1,72 @@
+uuid: 2beb136d-ae90-4a2a-b82d-b3a932512091
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.article.field_acknowledgement_logo
+    - field.field.node.article.field_author
+    - field.field.node.article.field_country
+    - field.field.node.article.field_data_document
+    - field.field.node.article.field_disable
+    - field.field.node.article.field_external_authors
+    - field.field.node.article.field_featured_image
+    - field.field.node.article.field_keywords
+    - field.field.node.article.field_link
+    - field.field.node.article.field_page_builder
+    - field.field.node.article.field_partner_logo
+    - field.field.node.article.field_photo_caption
+    - field.field.node.article.field_publication_date
+    - field.field.node.article.field_publisher
+    - field.field.node.article.field_region
+    - field.field.node.article.field_resource_type
+    - field.field.node.article.field_short_description
+    - field.field.node.article.field_slug
+    - field.field.node.article.field_subtitle
+    - field.field.node.article.field_supporting_document
+    - field.field.node.article.field_topic
+    - field.field.node.article.field_upload
+    - node.type.article
+  module:
+    - user
+_core:
+  default_config_hash: BiY_ZuR3lbE52OgSz_XZY68kUQBoH2JNkbo-Ay9XhcQ
+id: node.article.teaser
+targetEntityType: node
+bundle: article
+mode: teaser
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  comment: true
+  field_acknowledgement_logo: true
+  field_author: true
+  field_country: true
+  field_data_document: true
+  field_disable: true
+  field_external_authors: true
+  field_featured_image: true
+  field_keywords: true
+  field_link: true
+  field_page_builder: true
+  field_partner_logo: true
+  field_photo_caption: true
+  field_publication_date: true
+  field_publisher: true
+  field_region: true
+  field_resource_type: true
+  field_short_description: true
+  field_slug: true
+  field_subtitle: true
+  field_supporting_document: true
+  field_topic: true
+  field_upload: true
+  langcode: true
+  search_api_excerpt: true

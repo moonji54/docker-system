@@ -1,0 +1,73 @@
+uuid: 803a69c8-ce92-4a0d-b362-4dd2379ba0e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_builder
+    - node.type.homepage
+    - paragraphs.paragraphs_type.call_to_action
+    - paragraphs.paragraphs_type.embed
+    - paragraphs.paragraphs_type.featured_pages
+    - paragraphs.paragraphs_type.full_width_media
+    - paragraphs.paragraphs_type.learning_block
+    - paragraphs.paragraphs_type.quote
+    - paragraphs.paragraphs_type.wysiwyg
+  module:
+    - entity_reference_revisions
+id: node.homepage.field_page_builder
+field_name: field_page_builder
+entity_type: node
+bundle: homepage
+label: 'Page builder'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      call_to_action: call_to_action
+      featured_pages: featured_pages
+      embed: embed
+      full_width_media: full_width_media
+      learning_block: learning_block
+      wysiwyg: wysiwyg
+      quote: quote
+    negate: 0
+    target_bundles_drag_drop:
+      call_to_action:
+        weight: 9
+        enabled: true
+      embed:
+        weight: 12
+        enabled: true
+      featured_content:
+        weight: 10
+        enabled: false
+      featured_pages:
+        weight: 11
+        enabled: true
+      featured_people:
+        weight: 12
+        enabled: false
+      full_width_media:
+        weight: 13
+        enabled: true
+      learning_block:
+        weight: 15
+        enabled: true
+      limited_list:
+        weight: 14
+        enabled: false
+      listing:
+        weight: 15
+        enabled: false
+      quote:
+        weight: 21
+        enabled: true
+      wysiwyg:
+        weight: 16
+        enabled: true
+field_type: entity_reference_revisions

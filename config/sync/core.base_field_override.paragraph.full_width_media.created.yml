@@ -1,0 +1,18 @@
+uuid: c0ea4cac-2894-4d46-8b31-f9783b83a518
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.full_width_media
+id: paragraph.full_width_media.created
+field_name: created
+entity_type: paragraph
+bundle: full_width_media
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

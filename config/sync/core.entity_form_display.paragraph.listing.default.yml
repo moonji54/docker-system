@@ -1,0 +1,23 @@
+uuid: 0f8c9440-bbd4-4c4b-874d-c7a2b98c05da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.listing.field_listing
+    - paragraphs.paragraphs_type.listing
+  module:
+    - viewsreference
+id: paragraph.listing.default
+targetEntityType: paragraph
+bundle: listing
+mode: default
+content:
+  field_listing:
+    type: viewsreference_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

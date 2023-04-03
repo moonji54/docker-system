@@ -1,0 +1,78 @@
+uuid: da3e5873-d22d-4998-aec6-3475275a54f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.wysiwyg
+  module:
+    - ckeditor
+format: wysiwyg
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Undo
+          items:
+            - Undo
+            - Redo
+        -
+          name: 'Copy Paste'
+          items:
+            - Copy
+            - Cut
+            - PasteText
+            - PasteFromWord
+        -
+          name: Heading
+          items:
+            - Format
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+            - Underline
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+            - footnotes
+        -
+          name: Blockquotes
+          items:
+            - Blockquote
+        -
+          name: 'Embeded content'
+          items:
+            - DrupalMediaLibrary
+        -
+          name: Tables
+          items:
+            - Table
+        -
+          name: 'Styled containers'
+          items:
+            - CreateDiv
+            - Styles
+  plugins:
+    stylescombo:
+      styles: "div.standfirst|Standfirst & Key messages\r\ndiv.boxed-text|Boxed text"
+    drupallink:
+      linkit_enabled: true
+      linkit_profile: default
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

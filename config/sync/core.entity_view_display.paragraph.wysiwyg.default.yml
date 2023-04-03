@@ -1,0 +1,25 @@
+uuid: 72dd4321-44dc-4969-a834-be1ae73e43af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.wysiwyg.field_wysiwyg
+    - paragraphs.paragraphs_type.wysiwyg
+  module:
+    - text
+_core:
+  default_config_hash: g61804MFKgtsj0opxGmXOPBrFC3JybkHcx0d7LYCjdQ
+id: paragraph.wysiwyg.default
+targetEntityType: paragraph
+bundle: wysiwyg
+mode: default
+content:
+  field_wysiwyg:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

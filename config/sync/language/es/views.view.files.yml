@@ -1,0 +1,24 @@
+display:
+  default:
+    display_title: Default
+    display_options:
+      pager:
+        options:
+          expose:
+            offset_label: Offset
+      fields:
+        filename:
+          label: Name
+        status:
+          settings:
+            format_custom_true: Permanent
+  page_2:
+    display_options:
+      pager:
+        options:
+          expose:
+            offset_label: Offset
+      arguments:
+        fid:
+          exception:
+            title: All

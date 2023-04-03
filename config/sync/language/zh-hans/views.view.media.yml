@@ -1,0 +1,18 @@
+label: 媒体
+display:
+  default:
+    display_title: Default
+    display_options:
+      pager:
+        options:
+          expose:
+            offset_label: Offset
+      fields:
+        thumbnail__target_id:
+          label: Thumbnail
+      title: 媒体
+  media_page_list:
+    display_title: 媒体
+    display_options:
+      menu:
+        title: 媒体

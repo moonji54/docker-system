@@ -1,0 +1,30 @@
+uuid: 46f48793-3e5f-4851-80fa-c33c33196193
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.data_visualisation.field_media_oembed_data_vis
+    - media.type.data_visualisation
+  module:
+    - media
+id: media.data_visualisation.default
+targetEntityType: media
+bundle: data_visualisation
+mode: default
+content:
+  field_media_oembed_data_vis:
+    type: oembed
+    label: visually_hidden
+    settings:
+      max_width: 0
+      max_height: 0
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

@@ -1,0 +1,21 @@
+uuid: 5703e3fa-55a0-4c52-81c9-5ad867ed1fbc
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.glossary_term
+  module:
+    - user
+id: node.glossary_term.default
+targetEntityType: node
+bundle: glossary_term
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

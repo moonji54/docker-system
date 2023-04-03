@@ -1,0 +1,10 @@
+uuid: bdc2c472-0cf4-4e30-a93b-670fffedde82
+langcode: en
+status: true
+dependencies: {  }
+id: limited_list
+label: 'Limited list'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

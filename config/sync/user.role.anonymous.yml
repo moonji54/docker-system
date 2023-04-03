@@ -1,0 +1,21 @@
+uuid: 6b045422-f9c4-4c7b-8b7b-34ff476c7675
+langcode: en
+status: true
+dependencies:
+  module:
+    - eu_cookie_compliance
+    - media
+    - system
+_core:
+  default_config_hash: HtzYd_PgaSx9G8183qxPnSUPMz8txnC-QOQv-mZ2x64
+id: anonymous
+label: 'Anonymous user'
+weight: -10
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'display eu cookie compliance popup'
+  - 'use text format restricted_html'
+  - 'view media'
+  - 'view the administration theme'

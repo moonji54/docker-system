@@ -1,0 +1,18 @@
+uuid: db5a96f1-b681-44d7-bd10-b7048e1012ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.listing_page
+id: node.listing_page.metatag
+field_name: metatag
+entity_type: node
+bundle: listing_page
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The meta tags for the entity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

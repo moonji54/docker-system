@@ -1,0 +1,55 @@
+uuid: 017bfc3d-9b8e-4266-961d-6fe8b367f5e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_listing_block
+    - node.type.listing_page
+    - paragraphs.paragraphs_type.listing
+  module:
+    - entity_reference_revisions
+id: node.listing_page.field_listing_block
+field_name: field_listing_block
+entity_type: node
+bundle: listing_page
+label: 'Listing block'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      listing: listing
+    negate: 0
+    target_bundles_drag_drop:
+      container:
+        weight: 10
+        enabled: false
+      cta_download:
+        weight: 11
+        enabled: false
+      featured_content:
+        weight: 12
+        enabled: false
+      featured_pages:
+        weight: 13
+        enabled: false
+      featured_people:
+        weight: 14
+        enabled: false
+      full_width_media:
+        weight: 15
+        enabled: false
+      limited_list:
+        weight: 16
+        enabled: false
+      listing:
+        weight: 17
+        enabled: true
+      wysiwyg:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

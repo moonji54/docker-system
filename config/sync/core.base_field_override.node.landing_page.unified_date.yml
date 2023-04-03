@@ -1,0 +1,22 @@
+uuid: 4d4f9e7a-47c5-402d-944a-dd9f9af6ebe8
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.landing_page
+id: node.landing_page.unified_date
+field_name: unified_date
+entity_type: node
+bundle: landing_page
+label: 'Unified date'
+description: 'The unified date field.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

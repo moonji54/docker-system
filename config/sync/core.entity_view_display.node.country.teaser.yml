@@ -1,0 +1,37 @@
+uuid: a177bef1-9758-472e-89ac-60541583863d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.country.field_featured_image
+    - field.field.node.country.field_overlay_opacity
+    - field.field.node.country.field_page_builder
+    - field.field.node.country.field_region
+    - field.field.node.country.field_short_description
+    - node.type.country
+  module:
+    - user
+id: node.country.teaser
+targetEntityType: node
+bundle: country
+mode: teaser
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_featured_image: true
+  field_overlay_opacity: true
+  field_page_builder: true
+  field_region: true
+  field_short_description: true
+  langcode: true
+  search_api_excerpt: true

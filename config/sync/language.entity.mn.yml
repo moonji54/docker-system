@@ -1,0 +1,9 @@
+uuid: 40c83b3f-0dc9-4623-957b-bef9352db3c9
+langcode: mn
+status: true
+dependencies: {  }
+id: mn
+label: 'Монгол Хэл'
+direction: ltr
+weight: 4
+locked: false

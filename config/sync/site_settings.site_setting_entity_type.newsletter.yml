@@ -1,0 +1,8 @@
+uuid: 0e969a6a-ce73-4006-8bba-9e33e8ebd573
+langcode: en
+status: true
+dependencies: {  }
+id: newsletter
+label: 'Newsletter sign up call to action'
+fieldset: Footer
+multiple: false

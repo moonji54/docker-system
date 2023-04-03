@@ -1,0 +1,22 @@
+uuid: 6e9c9fe1-c446-47cd-9eb8-9bc355b329b5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: career_opportunity
+label: 'Career Opportunity'
+type: 'canonical_entities:node'
+pattern: 'carreer-opportunities/[node:title]'
+selection_criteria:
+  7000088f-5c3c-47f3-b54e-da6a4a027c00:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 7000088f-5c3c-47f3-b54e-da6a4a027c00
+    context_mapping:
+      node: node
+    bundles:
+      career_opportunity: career_opportunity
+selection_logic: and
+weight: -9
+relationships: {  }

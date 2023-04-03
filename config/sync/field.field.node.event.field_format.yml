@@ -1,0 +1,21 @@
+uuid: 30d94d73-6527-4e09-892f-3997f9d7e349
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_format
+    - node.type.event
+  module:
+    - options
+id: node.event.field_format
+field_name: field_format
+entity_type: node
+bundle: event
+label: Format
+description: 'Select whether the event/course/training is in-person on online'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

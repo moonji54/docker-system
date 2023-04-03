@@ -1,0 +1,29 @@
+uuid: e153be84-3bdc-46b1-b2f3-0bdbded62b9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_career_opportunity_type
+    - node.type.career_opportunity
+    - taxonomy.vocabulary.career_opportunity_type
+id: node.career_opportunity.field_career_opportunity_type
+field_name: field_career_opportunity_type
+entity_type: node
+bundle: career_opportunity
+label: 'Career opportunity type'
+description: 'Select the function this piece of content is performing'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      career_opportunity_type: career_opportunity_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,55 @@
+uuid: c2ee31b3-2b58-4ed7-903b-f7b772d79824
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_builder
+    - node.type.person
+    - paragraphs.paragraphs_type.listing
+  module:
+    - entity_reference_revisions
+id: node.person.field_page_builder
+field_name: field_page_builder
+entity_type: node
+bundle: person
+label: 'Page builder'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      listing: listing
+    negate: 0
+    target_bundles_drag_drop:
+      container:
+        weight: 6
+        enabled: false
+      cta_download:
+        weight: 7
+        enabled: false
+      featured_content:
+        weight: 12
+        enabled: false
+      featured_pages:
+        weight: 8
+        enabled: false
+      featured_people:
+        weight: 14
+        enabled: false
+      full_width_media:
+        weight: 9
+        enabled: false
+      limited_list:
+        weight: 16
+        enabled: false
+      listing:
+        weight: 17
+        enabled: true
+      wysiwyg:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

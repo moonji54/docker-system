@@ -1,0 +1,14 @@
+uuid: 773f9480-0703-4ae5-93ac-50afb9f086d2
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+id: searchapi_server
+name: 'Searchapi server'
+description: ''
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 1
+  matching: words

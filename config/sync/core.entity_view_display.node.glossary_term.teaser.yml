@@ -1,0 +1,22 @@
+uuid: eefea81a-ad58-48e0-9b50-359b0f8d5c21
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.glossary_term
+  module:
+    - user
+id: node.glossary_term.teaser
+targetEntityType: node
+bundle: glossary_term
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

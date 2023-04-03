@@ -1,0 +1,20 @@
+uuid: 042386b7-c0a0-44f3-9d1d-7a41284f52fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.person
+  module:
+    - options
+id: node.person.unpublish_state
+field_name: unpublish_state
+entity_type: node
+bundle: person
+label: 'Unpublish state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

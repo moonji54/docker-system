@@ -1,0 +1,36 @@
+uuid: 00e2cd3b-171a-460f-a4d1-4da3f27a7957
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - site_settings
+id: site_setting_entity.field_social_media
+field_name: field_social_media
+entity_type: site_setting_entity
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: twitter
+      label: Twitter
+    -
+      value: linkedin
+      label: Linkedin
+    -
+      value: facebook
+      label: Facebook
+    -
+      value: youtube
+      label: Youtube
+    -
+      value: instagram
+      label: Instagram
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

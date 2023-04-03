@@ -1,0 +1,31 @@
+uuid: 441db9a5-0084-41b5-8c7d-a1c850642f05
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.topic.field_featured_image
+    - field.field.node.topic.field_page_builder
+    - node.type.topic
+  module:
+    - user
+id: node.topic.teaser
+targetEntityType: node
+bundle: topic
+mode: teaser
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_featured_image: true
+  field_page_builder: true
+  langcode: true
+  search_api_excerpt: true

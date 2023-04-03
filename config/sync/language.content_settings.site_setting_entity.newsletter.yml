@@ -1,0 +1,18 @@
+uuid: 78f26e6e-dfaa-4625-b8e6-fe6823faa3fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - site_settings.site_setting_entity_type.newsletter
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: site_setting_entity.newsletter
+target_entity_type_id: site_setting_entity
+target_bundle: newsletter
+default_langcode: site_default
+language_alterable: false
