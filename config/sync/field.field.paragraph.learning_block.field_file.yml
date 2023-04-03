@@ -1,0 +1,29 @@
+uuid: b492c613-4eae-4b34-a8c1-7e5191defd10
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_file
+    - media.type.document
+    - paragraphs.paragraphs_type.learning_block
+id: paragraph.learning_block.field_file
+field_name: field_file
+entity_type: paragraph
+bundle: learning_block
+label: File
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,48 @@
+uuid: 685414ac-d78d-4c33-8f8f-3fc26c77db10
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.large_card_desktop
+    - image.style.large_card_desktop_2x
+    - image.style.large_card_mobile
+    - image.style.large_card_small_desktop
+    - image.style.large_card_small_mobile
+    - image.style.large_card_tablet
+  theme:
+    - nrgi
+id: large_card
+label: 'Large card'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: large_card_small_mobile
+    breakpoint_id: nrgi.smallmobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: large_card_mobile
+    breakpoint_id: nrgi.mobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: large_card_tablet
+    breakpoint_id: nrgi.tablet
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: large_card_small_desktop
+    breakpoint_id: nrgi.smalldesktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: large_card_desktop
+    breakpoint_id: nrgi.desktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: large_card_desktop_2x
+    breakpoint_id: nrgi.desktop
+    multiplier: 2x
+breakpoint_group: nrgi
+fallback_image_style: large_card_desktop

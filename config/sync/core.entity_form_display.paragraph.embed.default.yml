@@ -1,0 +1,42 @@
+uuid: 400e6d1d-cc5b-4f5d-a30d-b407fe476851
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.embed.field_caption
+    - field.field.paragraph.embed.field_credit
+    - field.field.paragraph.embed.field_embed_media
+    - paragraphs.paragraphs_type.embed
+  module:
+    - media_library
+id: paragraph.embed.default
+targetEntityType: paragraph
+bundle: embed
+mode: default
+content:
+  field_caption:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_credit:
+    type: string_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_embed_media:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

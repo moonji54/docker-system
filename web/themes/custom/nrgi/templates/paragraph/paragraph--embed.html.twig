@@ -1,31 +1,21 @@
-{% set classes = [
-  'o-section',
-  'o-section--wysiwyg',
-  'c-wysiwyg',
-] %}
-
-{% set rendered = content|render %}
-{% if rendered|striptags|trim is not empty %}
-  <div{{ attributes.addClass(classes) }}>
+{% if content.field_embed_media|field_value %}
+  <div{{ attributes.addClass(classes) }}
+      style="background-color: indianred; padding:20px; width: 100%; border: #0a7bc1 1px dotted;">
     <div class="c-embed__inner o-content-from-editor">
-      {% if content.field_title|field_title %}
-        {{ content.field_title }}
+      {% if content.field_title|field_value %}
+        <h2>{{ content.field_title }}</h2>
       {% endif %}
 
-      {% if content.field_media_library_selection|field_media_library_selection %}
-        {{ content.field_media_library_selection }}
+      {% if content.field_embed_media|field_value %}
+        <div>{{ content.field_embed_media }}</div>
       {% endif %}
 
-      {% if content.field_caption|field_caption %}
-        {{ content.field_caption }}
+      {% if content.field_caption|field_value %}
+        <spam>{{ content.field_caption }}</spam>
       {% endif %}
 
-      {% if content.field_credit|field_credit %}
-        {{ content.field_credit }}
-      {% endif %}
-
-      {% if content.field_sharing|field_sharing %}
-        {{ content.field_sharing }}
+      {% if content.field_credit|field_value %}
+        <span>{{ content.field_credit }}</span>
       {% endif %}
     </div>
   </div>

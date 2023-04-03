@@ -3,36 +3,33 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.article.field_acknowledgement
-    - field.field.node.article.field_acknowledgement_donor
+    - field.field.node.article.field_acknowledgement_logo
     - field.field.node.article.field_author
     - field.field.node.article.field_country
-    - field.field.node.article.field_expiration_date
-    - field.field.node.article.field_external_author_link
-    - field.field.node.article.field_external_author_name
+    - field.field.node.article.field_data_document
+    - field.field.node.article.field_disable
+    - field.field.node.article.field_external_authors
     - field.field.node.article.field_featured_image
-    - field.field.node.article.field_key_messages
     - field.field.node.article.field_keywords
-    - field.field.node.article.field_languages
-    - field.field.node.article.field_link_from_external_card
-    - field.field.node.article.field_link_to_external_item
-    - field.field.node.article.field_news_upload
+    - field.field.node.article.field_link
     - field.field.node.article.field_page_builder
     - field.field.node.article.field_partner_logo
-    - field.field.node.article.field_partner_name
     - field.field.node.article.field_photo_caption
+    - field.field.node.article.field_publication_date
     - field.field.node.article.field_publisher
     - field.field.node.article.field_region
     - field.field.node.article.field_resource_type
+    - field.field.node.article.field_short_description
+    - field.field.node.article.field_slug
     - field.field.node.article.field_subtitle
+    - field.field.node.article.field_supporting_document
     - field.field.node.article.field_topic
-    - field.field.node.article.field_transcript
+    - field.field.node.article.field_upload
     - node.type.article
   module:
     - datetime
     - entity_reference_revisions
     - link
-    - text
     - user
 _core:
   default_config_hash: zjCP_ca9pMZvhD1Z2mp3NNm3ecDh3LiWqfUKs8Ncogs
@@ -46,19 +43,14 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_acknowledgement:
-    type: basic_string
+  field_acknowledgement_logo:
+    type: entity_reference_revisions_entity_view
     label: above
-    settings: {  }
+    settings:
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 4
-    region: content
-  field_acknowledgement_donor:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 5
+    weight: 31
     region: content
   field_author:
     type: entity_reference_label
@@ -76,35 +68,33 @@ content:
     third_party_settings: {  }
     weight: 9
     region: content
-  field_expiration_date:
-    type: datetime_time_ago
+  field_data_document:
+    type: entity_reference_revisions_entity_view
     label: above
     settings:
-      future_format: '@interval hence'
-      past_format: '@interval ago'
-      granularity: 2
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 26
+    weight: 36
     region: content
-  field_external_author_link:
-    type: link
+  field_disable:
+    type: boolean
     label: above
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
-    weight: 8
+    weight: 39
     region: content
-  field_external_author_name:
-    type: string
+  field_external_authors:
+    type: entity_reference_revisions_entity_view
     label: above
     settings:
-      link_to_entity: false
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 10
+    weight: 40
     region: content
   field_featured_image:
     type: entity_reference_label
@@ -114,13 +104,6 @@ content:
     third_party_settings: {  }
     weight: 12
     region: content
-  field_key_messages:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 11
-    region: content
   field_keywords:
     type: entity_reference_label
     label: above
@@ -129,15 +112,7 @@ content:
     third_party_settings: {  }
     weight: 13
     region: content
-  field_languages:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 14
-    region: content
-  field_link_from_external_card:
+  field_link:
     type: link
     label: above
     settings:
@@ -147,27 +122,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 15
-    region: content
-  field_link_to_external_item:
-    type: link
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 16
-    region: content
-  field_news_upload:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 21
+    weight: 29
     region: content
   field_page_builder:
     type: entity_reference_revisions_entity_view
@@ -179,20 +134,13 @@ content:
     weight: 17
     region: content
   field_partner_logo:
-    type: entity_reference_label
+    type: entity_reference_revisions_entity_view
     label: above
     settings:
-      link: true
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 18
-    region: content
-  field_partner_name:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 19
+    weight: 32
     region: content
   field_photo_caption:
     type: string
@@ -201,6 +149,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 20
+    region: content
+  field_publication_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: day_month_and_year
+    third_party_settings: {  }
+    weight: 28
     region: content
   field_publisher:
     type: string
@@ -226,6 +183,21 @@ content:
     third_party_settings: {  }
     weight: 24
     region: content
+  field_short_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 35
+    region: content
+  field_slug:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 38
+    region: content
   field_subtitle:
     type: string
     label: hidden
@@ -233,6 +205,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_supporting_document:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 37
     region: content
   field_topic:
     type: entity_reference_label
@@ -242,12 +223,13 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-  field_transcript:
-    type: basic_string
+  field_upload:
+    type: entity_reference_label
     label: above
-    settings: {  }
+    settings:
+      link: true
     third_party_settings: {  }
-    weight: 27
+    weight: 30
     region: content
   langcode:
     type: language

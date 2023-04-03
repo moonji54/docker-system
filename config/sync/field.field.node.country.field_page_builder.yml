@@ -8,7 +8,6 @@ dependencies:
     - paragraphs.paragraphs_type.featured_content
     - paragraphs.paragraphs_type.featured_pages
     - paragraphs.paragraphs_type.featured_people
-    - paragraphs.paragraphs_type.full_width_media
     - paragraphs.paragraphs_type.limited_list
     - paragraphs.paragraphs_type.listing
     - paragraphs.paragraphs_type.wysiwyg
@@ -31,7 +30,6 @@ settings:
       featured_content: featured_content
       featured_pages: featured_pages
       featured_people: featured_people
-      full_width_media: full_width_media
       limited_list: limited_list
       listing: listing
       wysiwyg: wysiwyg

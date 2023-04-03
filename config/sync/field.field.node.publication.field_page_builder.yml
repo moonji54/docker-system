@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_page_builder
     - node.type.publication
-    - paragraphs.paragraphs_type.full_width_media
     - paragraphs.paragraphs_type.limited_list
     - paragraphs.paragraphs_type.wysiwyg
   module:
@@ -24,7 +23,6 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      full_width_media: full_width_media
       wysiwyg: wysiwyg
       limited_list: limited_list
     negate: 0

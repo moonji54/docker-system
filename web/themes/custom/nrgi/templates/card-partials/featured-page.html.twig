@@ -1,0 +1,32 @@
+{% set classes = [
+  'c-featured-page',
+] %}
+
+  {% if title or responsive_image %}
+    <article{{ attributes.addClass(classes) }}>
+      <div class="c-featured-page__content-wrapper">
+        {% if responsive_image %}
+          <div class="c-featured-page__image-wrapper">
+            {% if responsive_image %}
+              {{ responsive_image }}
+            {% else %}
+              <img src="/{{ base_path ~ directory }}/assets/img/fallback-default.svg" alt="{{ 'Fallback image'|t }}"/>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        <h3 class="c-featured-page__title">
+          <a class="c-featured-page__link" href="{{ url }}">
+            {{ title }}
+          </a>
+        </h3>
+
+        {% if description %}
+          <p class="c-featured-page__description">
+            {{ description }}
+          </p>
+        {% endif %}
+      </div>
+
+    </article>
+  {% endif %}

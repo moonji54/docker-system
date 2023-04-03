@@ -1,0 +1,20 @@
+uuid: fea77b3b-3723-4402-b789-a0d4a4add1fb
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - node
+id: node.field_upload
+field_name: field_upload
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

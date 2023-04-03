@@ -1,0 +1,19 @@
+uuid: 0bf6f866-0e13-4ce0-8969-741fdec3585c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_title
+    - node.type.listing_page
+id: node.listing_page.field_hero_title
+field_name: field_hero_title
+entity_type: node
+bundle: listing_page
+label: 'Hero banner title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

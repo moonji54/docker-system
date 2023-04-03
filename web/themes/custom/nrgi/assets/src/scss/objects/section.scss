@@ -1,6 +1,6 @@
 /** @define o-section */
 .o-section {
-  margin-top : var(--space-xl);
+  margin-top : var(--space-3xl);
 
   @include media("<=tablet") {
     margin-top : var(--space-l);
@@ -9,7 +9,7 @@
   /* Modifiers
   ================================================== */
   &--has-background {
-    padding : var(--space-xl);
+    padding : var(--space-3xl) 0;
   }
 
   /* stylelint-disable-next-line */

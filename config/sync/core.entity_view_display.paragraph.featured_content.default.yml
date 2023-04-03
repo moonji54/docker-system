@@ -3,40 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.featured_content.field_button_text_and_link
-    - field.field.paragraph.featured_content.field_content_cards
-    - field.field.paragraph.featured_content.field_items_selection
     - field.field.paragraph.featured_content.field_layout
     - field.field.paragraph.featured_content.field_show_image
     - paragraphs.paragraphs_type.featured_content
-  module:
-    - link
 id: paragraph.featured_content.default
 targetEntityType: paragraph
 bundle: featured_content
 mode: default
 content:
-  field_button_text_and_link:
-    type: link
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_content_cards:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: true
-    third_party_settings: {  }
-    weight: 2
-    region: content
   field_layout:
     type: number_integer
     label: above
@@ -57,5 +31,4 @@ content:
     weight: 5
     region: content
 hidden:
-  field_items_selection: true
   search_api_excerpt: true

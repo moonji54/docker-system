@@ -1,0 +1,11 @@
+label: မီဒီယာ
+display:
+  default:
+    display_title: Default
+    display_options:
+      title: မီဒီယာ
+  media_page_list:
+    display_title: မီဒီယာ
+    display_options:
+      menu:
+        title: မီဒီယာ

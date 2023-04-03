@@ -1,0 +1,44 @@
+{% set classes = [
+  'c-learning-block',
+  content.field_image|field_value ? 'c-learning-block--with-image',
+  'o-section',
+  'o-section--has-background',
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished'
+] %}
+
+<section{{ attributes.addClass(classes) }} style="border: 3px dotted mediumvioletred; background-color: darkolivegreen">
+  Learning block
+
+  <div class="c-learning-block__container o-container">
+    <div class="c-learning-block__inner">
+      {# Title #}
+      {% if content.field_title|field_value %}
+        <h2 class="c-learning-block__title">{{ content.field_title|field_value }}</h2>
+      {% endif %}
+
+      {# Description #}
+      {% if content.field_formatted_description|field_value %}
+        <p class="c-learning-block__description">{{ content.field_formatted_description|field_value }}</p>
+      {% endif %}
+
+      {# Button link #}
+      {# On this component the editor can create a button link or a download file button link. #}
+      {# Use button_link.type to see type of button to render #}
+      {% if button_link.url %}
+        <div>[Link Type] {{ button_link.type }}</div>
+        <a class="c-learning-block__link" href="{{ button_link.url }}" style="padding: 20px; border: 1px dotted black"
+           target="{{ button_link.is_external ? '_blank' : '_self' }}">
+          {% if button_link.type == 'link' %}
+            [arrow icon] ->
+          {% elseif button_link.type == 'download' %}
+            [download icon]
+          {% endif %}
+          <span class="c-learning-block__link-title">{{ button_link.title }}</span>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>

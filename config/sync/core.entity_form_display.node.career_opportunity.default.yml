@@ -4,20 +4,19 @@ status: true
 dependencies:
   config:
     - field.field.node.career_opportunity.field_apply
-    - field.field.node.career_opportunity.field_body
     - field.field.node.career_opportunity.field_career_opportunity_type
     - field.field.node.career_opportunity.field_city
     - field.field.node.career_opportunity.field_contact_for_queries
     - field.field.node.career_opportunity.field_country
     - field.field.node.career_opportunity.field_disclaimer
-    - field.field.node.career_opportunity.field_expiration_date
     - field.field.node.career_opportunity.field_offer_deadline
     - field.field.node.career_opportunity.field_page_builder
     - field.field.node.career_opportunity.field_photo_caption
     - field.field.node.career_opportunity.field_region
     - field.field.node.career_opportunity.field_salary
+    - field.field.node.career_opportunity.field_short_description
+    - field.field.node.career_opportunity.field_subtitle
     - field.field.node.career_opportunity.field_supporting_document
-    - field.field.node.career_opportunity.field_supporting_document_label
     - node.type.career_opportunity
     - workflows.workflow.editorial
   module:
@@ -25,32 +24,48 @@ dependencies:
     - datetime
     - field_group
     - link
-    - media_library
     - paragraphs
     - path
-    - text
 third_party_settings:
   field_group:
     group_headline:
       children:
         - title
+        - field_subtitle
       label: Headline
       region: content
-      parent_name: ''
-      weight: 0
-      format_type: details
+      parent_name: group_general
+      weight: 1
+      format_type: tab
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
-        open: false
+        formatter: closed
         description: ''
         required_fields: true
+        open: false
     group_description:
       children:
         - field_short_description
         - field_photo_caption
       label: Description
+      region: content
+      parent_name: group_general
+      weight: 2
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+        open: false
+    group_body:
+      children:
+        - field_page_builder
+      label: Body
       region: content
       parent_name: ''
       weight: 1
@@ -62,31 +77,13 @@ third_party_settings:
         open: false
         description: ''
         required_fields: true
-    group_body:
-      children:
-        - field_body
-        - field_page_builder
-        - field_apply
-      label: Body
-      region: content
-      parent_name: ''
-      weight: 4
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: true
     group_uploads:
       children:
         - field_supporting_document
-        - field_supporting_document_label
       label: Uploads
       region: content
       parent_name: ''
-      weight: 5
+      weight: 3
       format_type: details
       format_settings:
         classes: ''
@@ -104,7 +101,7 @@ third_party_settings:
       label: Taxonomies
       region: content
       parent_name: ''
-      weight: 6
+      weight: 4
       format_type: details
       format_settings:
         classes: ''
@@ -121,29 +118,64 @@ third_party_settings:
         - field_disclaimer
       label: 'Offer details'
       region: content
-      parent_name: ''
-      weight: 7
-      format_type: details
+      parent_name: group_general
+      weight: 4
+      format_type: tab
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
-        open: false
+        formatter: closed
         description: ''
         required_fields: true
+        open: false
     group_date:
       children:
         - field_expiration_date
       label: Date
       region: content
-      parent_name: ''
-      weight: 2
-      format_type: details
+      parent_name: group_general
+      weight: 3
+      format_type: tab
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
         open: false
+    group_general:
+      children:
+        - group_headline
+        - group_description
+        - group_date
+        - group_offer_details
+        - group_apply
+      label: General
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: vertical
+        width_breakpoint: 640
+    group_apply:
+      children:
+        - field_apply
+      label: Apply
+      region: hidden
+      parent_name: group_general
+      weight: 5
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
         description: ''
         required_fields: true
 id: node.career_opportunity.default
@@ -153,25 +185,17 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_apply:
     type: link_default
-    weight: 22
+    weight: 13
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
-    third_party_settings: {  }
-  field_body:
-    type: text_textarea
-    weight: 20
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
     third_party_settings: {  }
   field_career_opportunity_type:
     type: entity_reference_autocomplete_tags
@@ -185,7 +209,7 @@ content:
     third_party_settings: {  }
   field_city:
     type: entity_reference_autocomplete_tags
-    weight: 27
+    weight: 28
     region: content
     settings:
       match_operator: CONTAINS
@@ -195,7 +219,7 @@ content:
     third_party_settings: {  }
   field_contact_for_queries:
     type: entity_reference_autocomplete
-    weight: 28
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS
@@ -215,21 +239,15 @@ content:
     third_party_settings: {  }
   field_disclaimer:
     type: string_textfield
-    weight: 31
+    weight: 14
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_expiration_date:
-    type: datetime_default
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_offer_deadline:
     type: datetime_default
-    weight: 30
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -247,7 +265,7 @@ content:
     third_party_settings: {  }
   field_photo_caption:
     type: string_textfield
-    weight: 8
+    weight: 107
     region: content
     settings:
       size: 60
@@ -265,49 +283,69 @@ content:
     third_party_settings: {  }
   field_salary:
     type: string_textfield
-    weight: 29
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_short_description:
+    type: string_textarea
+    weight: 106
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_subtitle:
+    type: string_textfield
+    weight: 7
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_supporting_document:
-    type: media_library_widget
-    weight: 22
+    type: paragraphs
+    weight: 15
     region: content
     settings:
-      media_types: {  }
-    third_party_settings: {  }
-  field_supporting_document_label:
-    type: string_textfield
-    weight: 23
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
+      title: Document
+      title_plural: Documents
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 8
+    weight: 5
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 100
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 14
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 11
+    weight: 9
     region: content
     settings:
       display_label: true
@@ -326,14 +364,14 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 19
+    weight: 13
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 12
+    weight: 10
     region: content
     settings:
       display_label: true
@@ -347,13 +385,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 10
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 9
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -374,7 +412,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 18
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }

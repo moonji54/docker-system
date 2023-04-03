@@ -1,6 +1,18 @@
 services:
+  nrgi_frontend.responsive_image_helper:
+    class: Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService
+    arguments: [ '@entity_type.manager', '@renderer' ]
+
+  nrgi_frontend.paragraph_button_link_helper:
+    class: Drupal\nrgi_frontend\Services\NrgiParagraphButtonLinkHelperService
+    arguments: [ '@file_url_generator' ]
+
+  nrgi_frontend.paragraph_featured_pages_helper:
+    class: Drupal\nrgi_frontend\Services\NrgiFeaturedPagesHelperService
+    arguments: [ '@entity_type.manager', '@renderer', '@nrgi_frontend.paragraph_button_link_helper' ]
+
   nrgi_frontend.translation_helper:
-    class: Drupal\nrgi_frontend\NrgiTranslationHelperService
+    class: Drupal\nrgi_frontend\Services\NrgiTranslationHelperService
     arguments: [ '@entity_type.manager' ]
 
   nrgi_frontend.person_featured_work:

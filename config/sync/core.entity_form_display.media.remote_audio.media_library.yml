@@ -1,25 +1,16 @@
-uuid: 554f92a1-8e38-489e-a18b-ae5571df062f
+uuid: 12e10e92-7558-4e2d-b1a0-d4e4edbe9c40
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_form_mode.media.media_library
-    - field.field.media.remote_audio.field_media_oembed_audio
+    - field.field.media.remote_audio.field_media_oembed_remote_audio
     - media.type.remote_audio
-_core:
-  default_config_hash: IVuJ0JCHasOKWvYtAGijuYJ-l7sx3ANPruacP3FXSmk
 id: media.remote_audio.media_library
 targetEntityType: media
 bundle: remote_audio
 mode: media_library
 content:
-  langcode:
-    type: language_select
-    weight: 2
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0
@@ -30,7 +21,8 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_media_oembed_audio: true
+  field_media_oembed_remote_audio: true
+  langcode: true
   path: true
   status: true
   uid: true

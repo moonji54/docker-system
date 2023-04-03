@@ -3,15 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.featured_content.field_button_text_and_link
-    - field.field.paragraph.featured_content.field_content_cards
-    - field.field.paragraph.featured_content.field_items_selection
     - field.field.paragraph.featured_content.field_layout
     - field.field.paragraph.featured_content.field_show_image
     - paragraphs.paragraphs_type.featured_content
   module:
     - field_group
-    - link
 third_party_settings:
   field_group:
     group_content_cards:
@@ -57,30 +53,6 @@ targetEntityType: paragraph
 bundle: featured_content
 mode: default
 content:
-  field_button_text_and_link:
-    type: link_default
-    weight: 4
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-  field_content_cards:
-    type: entity_reference_autocomplete
-    weight: 11
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 4
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_items_selection:
-    type: options_buttons
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_layout:
     type: number
     weight: 9

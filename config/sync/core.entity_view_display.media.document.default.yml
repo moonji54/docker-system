@@ -7,6 +7,7 @@ dependencies:
     - media.type.document
   module:
     - file
+    - svg_image
 _core:
   default_config_hash: ughKFYeFqqCMa69nNHD29n2D0ysTowMN8PDl-vS6rlY
 id: media.document.default
@@ -17,14 +18,29 @@ content:
   field_media_document:
     type: file_default
     label: visually_hidden
-    settings: {  }
+    settings:
+      use_description_as_link_text: true
     third_party_settings: {  }
     weight: 1
+    region: content
+  thumbnail:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   created: true
   langcode: true
   name: true
   search_api_excerpt: true
-  thumbnail: true
   uid: true

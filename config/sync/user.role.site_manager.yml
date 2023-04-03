@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.full_html
+    - filter.format.text
+    - filter.format.text_and_links
     - filter.format.wysiwyg
     - media.type.audio
     - media.type.document
     - media.type.image
-    - media.type.remote_audio
     - media.type.remote_video
     - media.type.video
     - node.type.article
@@ -39,6 +39,7 @@ dependencies:
     - block_content
     - content_moderation
     - content_translation
+    - eu_cookie_compliance
     - file
     - file_delete
     - filter
@@ -72,6 +73,18 @@ permissions:
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'access user profiles'
+  - 'add scheduled transitions node article'
+  - 'add scheduled transitions node career_opportunity'
+  - 'add scheduled transitions node country'
+  - 'add scheduled transitions node event'
+  - 'add scheduled transitions node glossary_term'
+  - 'add scheduled transitions node homepage'
+  - 'add scheduled transitions node landing_page'
+  - 'add scheduled transitions node listing_page'
+  - 'add scheduled transitions node page'
+  - 'add scheduled transitions node person'
+  - 'add scheduled transitions node publication'
+  - 'add scheduled transitions node topic'
   - 'add site setting entities'
   - 'administer image styles'
   - 'administer languages'
@@ -103,7 +116,6 @@ permissions:
   - 'create page content'
   - 'create person content'
   - 'create publication content'
-  - 'create remote_audio media'
   - 'create remote_video media'
   - 'create social_media_links site setting'
   - 'create terms in career_opportunity_type'
@@ -137,7 +149,6 @@ permissions:
   - 'delete any page content'
   - 'delete any person content'
   - 'delete any publication content'
-  - 'delete any remote_audio media'
   - 'delete any remote_video media'
   - 'delete any topic content'
   - 'delete any video media'
@@ -169,7 +180,6 @@ permissions:
   - 'delete own page content'
   - 'delete own person content'
   - 'delete own publication content'
-  - 'delete own remote_audio media'
   - 'delete own remote_video media'
   - 'delete own topic content'
   - 'delete own video media'
@@ -189,6 +199,7 @@ permissions:
   - 'delete terms in resource_type'
   - 'delete terms in series'
   - 'delete topic revisions'
+  - 'display eu cookie compliance popup'
   - 'edit any article content'
   - 'edit any audio media'
   - 'edit any career_opportunity content'
@@ -203,7 +214,6 @@ permissions:
   - 'edit any page content'
   - 'edit any person content'
   - 'edit any publication content'
-  - 'edit any remote_audio media'
   - 'edit any remote_video media'
   - 'edit any topic content'
   - 'edit any video media'
@@ -224,7 +234,6 @@ permissions:
   - 'edit own page content'
   - 'edit own person content'
   - 'edit own publication content'
-  - 'edit own remote_audio media'
   - 'edit own remote_video media'
   - 'edit own topic content'
   - 'edit own video media'
@@ -297,6 +306,18 @@ permissions:
   - 'override topic authored by option'
   - 'override topic authored on option'
   - 'override topic revision option'
+  - 'reschedule scheduled transitions node article'
+  - 'reschedule scheduled transitions node career_opportunity'
+  - 'reschedule scheduled transitions node country'
+  - 'reschedule scheduled transitions node event'
+  - 'reschedule scheduled transitions node glossary_term'
+  - 'reschedule scheduled transitions node homepage'
+  - 'reschedule scheduled transitions node landing_page'
+  - 'reschedule scheduled transitions node listing_page'
+  - 'reschedule scheduled transitions node page'
+  - 'reschedule scheduled transitions node person'
+  - 'reschedule scheduled transitions node publication'
+  - 'reschedule scheduled transitions node topic'
   - 'revert all revisions'
   - 'revert article revisions'
   - 'revert career_opportunity revisions'
@@ -336,7 +357,8 @@ permissions:
   - 'use editorial transition needs_review'
   - 'use editorial transition publish'
   - 'use save and edit'
-  - 'use text format full_html'
+  - 'use text format text'
+  - 'use text format text_and_links'
   - 'use text format wysiwyg'
   - 'view all media revisions'
   - 'view all revisions'
@@ -361,6 +383,18 @@ permissions:
   - 'view published newsletter site setting entities'
   - 'view published site setting entities'
   - 'view published social_media_links site setting entities'
+  - 'view scheduled transitions node article'
+  - 'view scheduled transitions node career_opportunity'
+  - 'view scheduled transitions node country'
+  - 'view scheduled transitions node event'
+  - 'view scheduled transitions node glossary_term'
+  - 'view scheduled transitions node homepage'
+  - 'view scheduled transitions node landing_page'
+  - 'view scheduled transitions node listing_page'
+  - 'view scheduled transitions node page'
+  - 'view scheduled transitions node person'
+  - 'view scheduled transitions node publication'
+  - 'view scheduled transitions node topic'
   - 'view topic revisions'
   - 'view unpublished copyright site setting entities'
   - 'view unpublished footer_logo site setting entities'

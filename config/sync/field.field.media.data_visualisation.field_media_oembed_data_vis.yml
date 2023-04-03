@@ -1,0 +1,19 @@
+uuid: 43354f7b-4b97-4b8a-8cc5-e06c7d6b8b15
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_oembed_data_vis
+    - media.type.data_visualisation
+id: media.data_visualisation.field_media_oembed_data_vis
+field_name: field_media_oembed_data_vis
+entity_type: media
+bundle: data_visualisation
+label: 'Data visualisation URL'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

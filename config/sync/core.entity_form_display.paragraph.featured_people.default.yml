@@ -3,16 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.featured_people.field_button_text_and_link
-    - field.field.paragraph.featured_people.field_content_cards
-    - field.field.paragraph.featured_people.field_items_selection
     - field.field.paragraph.featured_people.field_layout
     - field.field.paragraph.featured_people.field_show_image
     - field.field.paragraph.featured_people.field_subtitle
     - paragraphs.paragraphs_type.featured_people
   module:
     - field_group
-    - link
     - text
 third_party_settings:
   field_group:
@@ -43,30 +39,6 @@ targetEntityType: paragraph
 bundle: featured_people
 mode: default
 content:
-  field_button_text_and_link:
-    type: link_default
-    weight: 8
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-  field_content_cards:
-    type: entity_reference_autocomplete
-    weight: 7
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_items_selection:
-    type: options_buttons
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_layout:
     type: number
     weight: 4

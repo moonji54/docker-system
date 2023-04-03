@@ -1,0 +1,23 @@
+uuid: 8ad456bc-ab95-4068-a245-0ddbd34aa2af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_type
+    - paragraphs.paragraphs_type.learning_block
+  module:
+    - options
+id: paragraph.learning_block.field_type
+field_name: field_type
+entity_type: paragraph
+bundle: learning_block
+label: Type
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: link
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,10 @@
+uuid: 9f0e69f8-311a-4d0f-9873-dba6a1969925
+langcode: en
+status: true
+dependencies: {  }
+id: learning_block
+label: 'Learning block'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

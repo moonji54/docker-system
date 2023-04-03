@@ -1,0 +1,28 @@
+uuid: 50bc821f-9802-486d-a89d-4ad3c2c7db7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.data_visualisation.field_media_oembed_data_vis
+    - media.type.data_visualisation
+id: media.data_visualisation.media_library
+targetEntityType: media
+bundle: data_visualisation
+mode: media_library
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_media_oembed_data_vis: true
+  langcode: true
+  path: true
+  status: true
+  uid: true
