@@ -7,7 +7,7 @@
 {% set rendered = content|render %}
 {% if rendered|striptags|trim is not empty %}
   <div{{ attributes.addClass(classes) }}>
-    <div class="c-wysiwyg__inner o-content-from-editor">
+    <div class="c-wysiwyg__inner o-content-from-editor js-text-block">
       {{ rendered }}
     </div>
   </div>

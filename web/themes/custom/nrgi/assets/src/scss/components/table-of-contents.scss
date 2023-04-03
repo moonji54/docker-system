@@ -1,0 +1,117 @@
+.c-table-of-contents {
+  @include z-index(toc);
+  /* stylelint-disable-next-line */
+  $c               : &;
+  background-color : $secondary;
+  color            : $white;
+  display          : none;
+  height           : 3.5rem;
+  position         : sticky;
+  top              : 0;
+  width            : 100%;
+
+  @include media("<=tablet") {
+    top : 5rem;
+  }
+
+  &.is-visible {
+    display : block;
+  }
+
+  .user-logged-in & {
+    top : 4.9375rem;
+
+    @include media("<967px") {
+      top : 7.4375rem;
+    }
+  }
+
+  &.follows-header {
+    top : 4rem; // fixed header height
+
+    .user-logged-in & {
+      top : 8.875rem;
+    }
+
+    #{$c}__expanded-content {
+      height : calc(100vh - 8.125rem);
+    }
+  }
+
+  &__button-wrapper {
+    align-items     : center;
+    cursor          : pointer;
+    display         : flex;
+    justify-content : space-between;
+    padding-bottom  : 0.875rem;
+    padding-top     : 0.875rem;
+
+    &.is-clicked {
+      #{$c}__icon {
+        transform : rotate(180deg);
+      }
+    }
+  }
+
+  &__heading {
+    @include ts-section-header;
+  }
+
+  &__icon {
+    transition : transform 0.3s;
+  }
+
+  &__expanded-content {
+    background-color : $secondary;
+    box-sizing       : border-box;
+    display          : none;
+    left             : 0;
+    padding-bottom   : var(--space-l);
+    padding-top      : var(--space-s);
+    position         : absolute;
+    top              : var(--toc-height);
+    width            : 100%;
+    /* stylelint-disable-next-line */
+    .ps__rail-y {
+      right : 1.5rem;
+      width : 1rem;
+    }
+
+    /* stylelint-disable-next-line */
+    .ps__thumb-y {
+      border-radius : 0.5rem;
+      width         : 1rem;
+    }
+  }
+
+  &__list {
+    padding-right : var(--space-m);
+
+    @include media("<=tablet") {
+      margin-top    : var(--space-l);
+      padding-right : 0;
+    }
+
+    a {
+      @include underlined($blue-light);
+    }
+  }
+
+  &__nested-list {
+    margin-left : var(--space-l);
+  }
+
+  &__item-heading {
+    @include ts-heading-6;
+    margin-top : var(--space-s);
+
+    &:first-child {
+      margin-top : 0;
+    }
+  }
+
+  &__item-sub-heading {
+    @include ts-label;
+    margin-top : var(--space-s);
+  }
+}

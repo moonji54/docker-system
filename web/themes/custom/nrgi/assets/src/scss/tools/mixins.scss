@@ -30,6 +30,7 @@ $z-index : (
     header: 15,
     menu: 2,
     localtasks: 3,
+    toc: 3,
 );
 
 @function z-index($key) {
@@ -90,5 +91,19 @@ $z-index : (
   }
   &::-moz-selection {
     background : $color;
+  }
+}
+
+@mixin underlined($color) {
+  text-decoration       : underline;
+  text-decoration-color : transparent;
+  transition            : all 0.3s;
+  text-underline-offset : 0.125rem;
+
+  &:hover,
+  &:focus {
+    color                 : $color;
+    text-decoration-color : $color;
+    text-decoration       : underline;
   }
 }

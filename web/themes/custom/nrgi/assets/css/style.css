@@ -618,6 +618,10 @@ ul li a:hover {
   height: 0.6875rem;
   width: 1.3125rem;
 }
+.o-svg--chevron-down {
+  height: 0.5rem;
+  width: 1rem;
+}
 .o-svg--nrgi-logo-condensed {
   height: 3.5rem;
   width: 11.5625rem;
@@ -1051,6 +1055,152 @@ ul li a:hover {
   background-color: rgba(45, 45, 50, 0.4);
 }
 
+.c-table-of-contents {
+  z-index: 3;
+  /* stylelint-disable-next-line */
+  background-color: #00545A;
+  color: #FFFFFF;
+  display: none;
+  height: 3.5rem;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+@media (max-width: 48rem) {
+  .c-table-of-contents {
+    top: 5rem;
+  }
+}
+.c-table-of-contents.is-visible {
+  display: block;
+}
+.user-logged-in .c-table-of-contents {
+  top: 4.9375rem;
+}
+@media (max-width: 966px) {
+  .user-logged-in .c-table-of-contents {
+    top: 7.4375rem;
+  }
+}
+.c-table-of-contents.follows-header {
+  top: 4rem;
+}
+.user-logged-in .c-table-of-contents.follows-header {
+  top: 8.875rem;
+}
+.c-table-of-contents.follows-header .c-table-of-contents__expanded-content {
+  height: calc(100vh - 8.125rem);
+}
+.c-table-of-contents__button-wrapper {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.875rem;
+  padding-top: 0.875rem;
+}
+.c-table-of-contents__button-wrapper.is-clicked .c-table-of-contents__icon {
+  transform: rotate(180deg);
+}
+.c-table-of-contents__heading {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.75;
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+}
+@media (max-width: 48rem) {
+  .c-table-of-contents__heading {
+    font-size: 0.875rem;
+  }
+}
+.c-table-of-contents__icon {
+  transition: transform 0.3s;
+}
+.c-table-of-contents__expanded-content {
+  background-color: #00545A;
+  box-sizing: border-box;
+  display: none;
+  left: 0;
+  padding-bottom: var(--space-l);
+  padding-top: var(--space-s);
+  position: absolute;
+  top: var(--toc-height);
+  width: 100%;
+  /* stylelint-disable-next-line */
+  /* stylelint-disable-next-line */
+}
+.c-table-of-contents__expanded-content .ps__rail-y {
+  right: 1.5rem;
+  width: 1rem;
+}
+.c-table-of-contents__expanded-content .ps__thumb-y {
+  border-radius: 0.5rem;
+  width: 1rem;
+}
+.c-table-of-contents__list {
+  padding-right: var(--space-m);
+}
+@media (max-width: 48rem) {
+  .c-table-of-contents__list {
+    margin-top: var(--space-l);
+    padding-right: 0;
+  }
+}
+.c-table-of-contents__list a {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: all 0.3s;
+  text-underline-offset: 0.125rem;
+}
+.c-table-of-contents__list a:hover, .c-table-of-contents__list a:focus {
+  color: #B3EFEF;
+  text-decoration-color: #B3EFEF;
+  text-decoration: underline;
+}
+.c-table-of-contents__nested-list {
+  margin-left: var(--space-l);
+}
+.c-table-of-contents__item-heading {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.5;
+  margin-top: var(--space-s);
+}
+@media (max-width: 94.5rem) {
+  .c-table-of-contents__item-heading {
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 64rem) {
+  .c-table-of-contents__item-heading {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-table-of-contents__item-heading {
+    font-size: 1.125rem;
+  }
+}
+.c-table-of-contents__item-heading:first-child {
+  margin-top: 0;
+}
+.c-table-of-contents__item-sub-heading {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.25;
+  margin-top: var(--space-s);
+}
+@media (max-width: 64rem) {
+  .c-table-of-contents__item-sub-heading {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
 /*
     ===============================
     7. TRUMPS
@@ -1078,4 +1228,15 @@ ul li a:hover {
   margin-top: -8.75rem;
   position: absolute;
   visibility: hidden;
+}
+
+.cke_editable .standfirst {
+  color: #00545a;
+  padding: 12px;
+  font-size: 1.5rem;
+}
+
+.cke_editable .boxed-text {
+  background-color: #b3efef;
+  padding: 12px;
 }
