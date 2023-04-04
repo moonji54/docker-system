@@ -8,7 +8,7 @@
     {% if content.field_featured_image|field_value %}
       {{ content.field_featured_image }}
 
-      {% if content.field_overlay_opacity|field_value %}
+      {% if content.field_overlay_opacity|field_value is not empty and content.field_overlay_opacity[0]['#markup'] > 0 %}
         <div class="c-homepage-banner__overlay" style="--hero-opacity: {{ content.field_overlay_opacity[0]['#markup'] }}">{{ content.field_overlay_opacity }}</div>
       {% endif %}
     {% else %}

@@ -26,12 +26,12 @@
 
 /* stylelint-disable */
 $z-index : (
-  footer: 10,
-  header: 15,
-  homepage-image: 1,
-  homepage-image-inner: 2,
-  menu: 2,
-  localtasks: 3,
+    footer: 10,
+    header: 15,
+    hero-image: 1,
+    hero-text-wrapper: 2,
+    menu: 2,
+    localtasks: 3,
 );
 
 @function z-index($key) {
