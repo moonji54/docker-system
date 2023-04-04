@@ -1,0 +1,23 @@
+uuid: 58144c3d-ce04-45a8-a1d0-fe040455bda1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_number_of_automatic_conten
+    - paragraphs.paragraphs_type.featured_people
+id: paragraph.featured_people.field_number_of_automatic_conten
+field_name: field_number_of_automatic_conten
+entity_type: paragraph
+bundle: featured_people
+label: 'Number of automatic content to show'
+description: 'Enter the quantity of automated content to load below any manually curated content. Leave the default 0 for no automated content. Maximum limit is 20.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 20
+  prefix: ''
+  suffix: ''
+field_type: integer

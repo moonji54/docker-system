@@ -1,0 +1,36 @@
+uuid: 52d7ace5-ec62-411c-befe-c18d56b1ef5b
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_role_types
+field_name: field_role_types
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: advisory
+      label: Advisory
+    -
+      value: 'Board member'
+      label: 'Board member'
+    -
+      value: external_contributor
+      label: 'External contributor'
+    -
+      value: leardership
+      label: Leadership
+    -
+      value: staff
+      label: Staff
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
