@@ -48,7 +48,6 @@ class NrgiFeaturedContentHelperService extends NrgiFeaturedCardsBase {
     $this->setDateFilter($date_filter);
     $this->setDateFields($date_fields);
 
-
     $content_nids_manually_excluded = $this->getManualExclusions();
     $content_nids_excluded = array_merge($content_nids_manually_excluded, $this->getExclusions());
     $content_nids_automated = $this->getAutomatedSelections($content_nids_excluded);
