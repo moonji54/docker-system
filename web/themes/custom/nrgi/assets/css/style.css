@@ -216,7 +216,6 @@ ol li a:hover,
 ul li a:focus,
 ul li a:hover {
   outline: 0;
-  text-decoration: none;
 }
 
 /*
@@ -705,6 +704,7 @@ ul li a:hover {
 }
 .o-section--has-background + .o-section--has-background {
   margin-top: 0;
+  padding-top: 0;
 }
 
 /** @define o-svg */
@@ -835,6 +835,15 @@ ul li a:hover {
     line-height: 1.25;
   }
 }
+.c-card__link {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.313rem;
+  transition: all 0.3s;
+}
+.c-card__link:hover, .c-card__link:focus {
+  text-decoration-color: #FF7D5F;
+}
 .c-card__link:before {
   bottom: 0;
   content: "";
@@ -891,8 +900,60 @@ ul li a:hover {
     font-size: 0.875rem;
   }
 }
+.c-card__job-title {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: var(--space-xs);
+}
+@media (max-width: 64rem) {
+  .c-card__job-title {
+    font-size: 0.875rem;
+  }
+}
 .c-card--page .c-card__image-wrapper {
   margin-top: var(--space-l);
+}
+.c-card--person {
+  display: flex;
+  gap: var(--space-m);
+}
+.c-card--person .c-card__image-wrapper {
+  aspect-ratio: 1;
+  height: 7rem;
+  width: 7rem;
+  /* stylelint-disable-next-line */
+}
+.c-card--person .c-card__image-wrapper img {
+  position: static;
+}
+.c-card--person .c-card__title {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 1.25;
+  font-size: 1.5rem;
+}
+@media (max-width: 94.5rem) {
+  .c-card--person .c-card__title {
+    font-size: 2.25rem;
+  }
+}
+@media (max-width: 64rem) {
+  .c-card--person .c-card__title {
+    font-size: 1.875rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-card--person .c-card__title {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 94.5rem) {
+  .c-card--person .c-card__title {
+    font-size: 1.25rem;
+  }
 }
 
 /** @define c-footer */

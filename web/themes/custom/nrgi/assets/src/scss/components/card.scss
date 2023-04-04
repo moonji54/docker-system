@@ -14,6 +14,8 @@
   }
 
   &__link {
+    @include underlined($tertiary);
+
     &:before {
       bottom   : 0;
       content  : "";
@@ -55,9 +57,34 @@
   //@formatter:on
   /* stylelint-enable */
 
+  &__job-title {
+    @include ts-caption;
+    margin-top : var(--space-xs);
+  }
+
   &--page {
     #{$c}__image-wrapper {
       margin-top : var(--space-l);
+    }
+  }
+
+  &--person {
+    display : flex;
+    gap     : var(--space-m);
+
+    #{$c}__image-wrapper {
+      aspect-ratio : 1;
+      height       : 7rem;
+      width        : 7rem;
+
+      /* stylelint-disable-next-line */
+      img {
+        position : static;
+      }
+    }
+
+    #{$c}__title {
+      @include ts-card($small : true);
     }
   }
 }
