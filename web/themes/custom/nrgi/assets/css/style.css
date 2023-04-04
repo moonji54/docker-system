@@ -216,7 +216,6 @@ ol li a:hover,
 ul li a:focus,
 ul li a:hover {
   outline: 0;
-  text-decoration: none;
 }
 
 /*
@@ -1062,8 +1061,10 @@ ul li a:hover {
   color: #FFFFFF;
   display: none;
   height: 3.5rem;
-  position: sticky;
+  position: fixed;
   top: 0;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
   width: 100%;
 }
 @media (max-width: 48rem) {
@@ -1073,6 +1074,9 @@ ul li a:hover {
 }
 .c-table-of-contents.is-visible {
   display: block;
+}
+.c-table-of-contents.is-fixed {
+  transform: translateY(0);
 }
 .user-logged-in .c-table-of-contents {
   top: 4.9375rem;
@@ -1123,6 +1127,7 @@ ul li a:hover {
   box-sizing: border-box;
   display: none;
   left: 0;
+  max-height: 25.3125rem;
   padding-bottom: var(--space-l);
   padding-top: var(--space-s);
   position: absolute;
@@ -1151,13 +1156,14 @@ ul li a:hover {
 .c-table-of-contents__list a {
   text-decoration: underline;
   text-decoration-color: transparent;
+  text-underline-offset: 0.25rem;
   transition: all 0.3s;
-  text-underline-offset: 0.125rem;
+}
+.c-table-of-contents__list a:hover, .c-table-of-contents__list a:focus {
+  text-decoration-color: #B3EFEF;
 }
 .c-table-of-contents__list a:hover, .c-table-of-contents__list a:focus {
   color: #B3EFEF;
-  text-decoration-color: #B3EFEF;
-  text-decoration: underline;
 }
 .c-table-of-contents__nested-list {
   margin-left: var(--space-l);

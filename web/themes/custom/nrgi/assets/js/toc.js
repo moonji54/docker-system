@@ -49,6 +49,7 @@ var Toc = /*#__PURE__*/function () {
 
     // Format headings and build TOC
     this.buildTableOfContents();
+    this.showToc();
   }
   _createClass(Toc, [{
     key: "assignTocHeight",
@@ -77,9 +78,26 @@ var Toc = /*#__PURE__*/function () {
       }
     }
   }, {
+    key: "showToc",
+    value: function showToc() {
+      var _this = this;
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            _this.$tocWrapper.addClass('is-fixed');
+          } else {
+            _this.$tocWrapper.removeClass('is-fixed');
+          }
+        });
+      });
+      this.$('.js-text-block').each(function (index, container) {
+        observer.observe(container);
+      });
+    }
+  }, {
     key: "buildTableOfContents",
     value: function buildTableOfContents() {
-      var _this = this;
+      var _this2 = this;
       // Only show the TOC if there are more any headings
       if (this.$headings.length) {
         this.$tocWrapper.addClass('is-visible');
@@ -87,22 +105,22 @@ var Toc = /*#__PURE__*/function () {
         // Loop through each of the headings
         this.$headings.each(function (index, element) {
           // Find the text in each
-          var headingText = _this.$(element).text();
+          var headingText = _this2.$(element).text();
 
           // Create an ID for use on each heading
           var headingID = headingText.toLowerCase().replace(/\s/g, '-');
-          _this.$(element).attr('id', headingID);
-          if (_this.$(element).is('h2')) {
+          _this2.$(element).attr('id', headingID);
+          if (_this2.$(element).is('h2')) {
             var isTopLevel = true;
 
             // Create a list item with the correct URL and ID
-            _this.$toc.append(_this.buildListItem(headingID, headingText, index, isTopLevel));
+            _this2.$toc.append(_this2.buildListItem(headingID, headingText, index, isTopLevel));
           }
 
           // if h3
           else {
             // Find the previous heading (i.e the 'parent').
-            var parentListItem = _this.$toc.find('> li').last();
+            var parentListItem = _this2.$toc.find('> li').last();
 
             // If it doesn't already have a sub nav appended, add one.
             if (!parentListItem.find('> ul').length) {
@@ -110,7 +128,7 @@ var Toc = /*#__PURE__*/function () {
             }
 
             // Find the sub nav and append our list item to it.
-            parentListItem.find('> ul').append(_this.buildListItem(headingID, headingText, index));
+            parentListItem.find('> ul').append(_this2.buildListItem(headingID, headingText, index));
           }
         });
       }

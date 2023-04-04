@@ -38,6 +38,8 @@ class Toc {
 
         // Format headings and build TOC
         this.buildTableOfContents();
+
+        this.showToc();
     }
 
     assignTocHeight () {
@@ -65,6 +67,22 @@ class Toc {
                 $toc.addClass('is-open');
             });
         }
+    }
+
+    showToc () {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    this.$tocWrapper.addClass('is-fixed');
+                } else {
+                    this.$tocWrapper.removeClass('is-fixed');
+                }
+            });
+        });
+
+        this.$('.js-text-block').each((index, container) => {
+            observer.observe(container);
+        });
     }
 
     buildTableOfContents () {
