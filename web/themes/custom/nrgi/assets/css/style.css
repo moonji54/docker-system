@@ -452,6 +452,16 @@ ul li a:hover {
 .o-content-from-editor h6 + p {
   margin-top: var(--space-s);
 }
+.o-content-from-editor h2,
+.o-content-from-editor h3 {
+  scroll-margin-top: 5rem;
+}
+@media (max-width: 48rem) {
+  .o-content-from-editor h2,
+  .o-content-from-editor h3 {
+    scroll-margin-top: 4rem;
+  }
+}
 .o-content-from-editor a {
   color: #007078;
   text-decoration: underline;

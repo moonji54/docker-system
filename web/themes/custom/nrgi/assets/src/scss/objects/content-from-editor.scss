@@ -52,6 +52,15 @@
     margin-top : var(--space-s);
   }
 
+  h2,
+  h3 {
+    scroll-margin-top : 5rem;
+
+    @include media("<=tablet") {
+      scroll-margin-top : 4rem;
+    }
+  }
+
   a {
     // replace with link mixin when merged with frontend
     color           : $ocean-2;
