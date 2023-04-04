@@ -13,7 +13,6 @@ use Drupal\taxonomy\Entity\Term;
  * Implements hook_preprocess_node().
  */
 function nrgi_frontend_preprocess_node(&$variables): void {
-  // SBTODO - TODO: review and refactor function.
   /** @var Drupal\node\NodeInterface $node */
   $node = $variables['node'];
 
@@ -49,6 +48,10 @@ function nrgi_frontend_preprocess_node(&$variables): void {
       'featured_page_with_image_2_per_row' => 'medium_card',
       'featured_page_with_image_3_per_row' => 'small_card',
       'featured_page_with_image_4_per_row' => 'small_card',
+      'featured_people_with_image_1_per_row' => 'square_small',
+      'featured_people_with_image_2_per_row' => 'square_small',
+      'featured_people_with_image_3_per_row' => 'square_small',
+      'featured_people_with_image_4_per_row' => 'square_small',
     ];
 
     // Based on view mode.
@@ -57,7 +60,13 @@ function nrgi_frontend_preprocess_node(&$variables): void {
       case 'featured_page_with_image_2_per_row':
       case 'featured_page_with_image_3_per_row':
       case 'featured_page_with_image_4_per_row':
-        if ($node->hasField('field_featured_image') && $node->get('field_featured_image') && $media = $node->get('field_featured_image')->entity) {
+      case 'featured_people_with_image_1_per_row':
+      case 'featured_people_with_image_2_per_row':
+      case 'featured_people_with_image_3_per_row':
+      case 'featured_people_with_image_4_per_row':
+        if ($node->hasField('field_featured_image')
+            && $node->get('field_featured_image')
+            && $media = $node->get('field_featured_image')->entity) {
           if ($media instanceof MediaInterface) {
             /** @var  \Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService $responsive_image_style_service */
             $responsive_image_style_service = \Drupal::service('nrgi_frontend.responsive_image_helper');

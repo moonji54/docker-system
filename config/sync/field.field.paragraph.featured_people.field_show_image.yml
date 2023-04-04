@@ -10,7 +10,7 @@ field_name: field_show_image
 entity_type: paragraph
 bundle: featured_people
 label: 'Show Image'
-description: ''
+description: 'Whether to show images on People cards.'
 required: false
 translatable: false
 default_value:

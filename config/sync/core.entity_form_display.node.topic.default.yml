@@ -4,51 +4,25 @@ status: true
 dependencies:
   config:
     - field.field.node.topic.field_featured_image
+    - field.field.node.topic.field_overlay_opacity
     - field.field.node.topic.field_page_builder
+    - field.field.node.topic.field_short_description
     - node.type.topic
     - workflows.workflow.editorial
   module:
     - content_moderation
     - field_group
     - media_library
+    - media_library_edit
     - paragraphs
     - path
+    - textfield_counter
 third_party_settings:
   field_group:
-    group_uploads:
-      children:
-        - field_featured_image
-      label: Uploads
-      region: content
-      parent_name: ''
-      weight: 4
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: true
     group_page_builder:
       children:
         - field_page_builder
       label: 'Page builder'
-      region: content
-      parent_name: ''
-      weight: 3
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: true
-    group_description:
-      children:
-        - field_short_description
-      label: Description
       region: content
       parent_name: ''
       weight: 2
@@ -60,6 +34,41 @@ third_party_settings:
         open: false
         description: ''
         required_fields: true
+    group_hero_banner_image:
+      children:
+        - field_featured_image
+        - field_overlay_opacity
+      label: 'Hero banner image'
+      region: content
+      parent_name: group_general
+      weight: 6
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        formatter: closed
+    group_general:
+      children:
+        - title
+        - field_short_description
+        - group_hero_banner_image
+      label: 'Hero banner'
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        required_fields: true
+        direction: vertical
+        width_breakpoint: '640'
 id: node.topic.default
 targetEntityType: node
 bundle: topic
@@ -67,20 +76,29 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_featured_image:
     type: media_library_widget
-    weight: 20
+    weight: 13
     region: content
     settings:
       media_types: {  }
+    third_party_settings:
+      media_library_edit:
+        show_edit: '1'
+  field_overlay_opacity:
+    type: number
+    weight: 14
+    region: content
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   field_page_builder:
     type: paragraphs
-    weight: 19
+    weight: 5
     region: content
     settings:
       title: Paragraph
@@ -97,31 +115,37 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: '0'
     third_party_settings: {  }
-  langcode:
-    type: language_select
-    weight: 2
+  field_short_description:
+    type: string_textarea_with_counter
+    weight: 5
     region: content
     settings:
-      include_locked: true
+      rows: 2
+      placeholder: ''
+      maxlength: 150
+      counter_position: after
+      js_prevent_submit: true
+      count_html_characters: false
+      textcount_status_message: 'Remaining characters: <span class="remaining_count">@remaining_count</span> / <span class="maxlength_count">@maxlength</span>'
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 0
+    region: content
+    settings:
+      include_locked: false
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 100
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 7
     region: content
     settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    weight: 15
-    region: content
-    settings:
-      display_label: true
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp
@@ -137,34 +161,27 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 120
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    weight: 16
+    weight: 5
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 4
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 10
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -185,9 +202,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  promote: true
+  sticky: true
   template: true

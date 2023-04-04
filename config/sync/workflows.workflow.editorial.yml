@@ -7,7 +7,6 @@ dependencies:
     - node.type.career_opportunity
     - node.type.country
     - node.type.event
-    - node.type.glossary_term
     - node.type.homepage
     - node.type.landing_page
     - node.type.listing_page
@@ -95,7 +94,6 @@ type_settings:
       - career_opportunity
       - country
       - event
-      - glossary_term
       - homepage
       - landing_page
       - listing_page

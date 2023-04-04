@@ -1,0 +1,23 @@
+uuid: 0af23a8a-2abb-4a17-96c9-c77f8f7e93b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_show_background
+    - paragraphs.paragraphs_type.featured_people
+id: paragraph.featured_people.field_show_background
+field_name: field_show_background
+entity_type: paragraph
+bundle: featured_people
+label: 'With background'
+description: 'Whether to apply a grey background to the featured pages section.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
