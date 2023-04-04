@@ -23,7 +23,7 @@ class NrgiFeaturedPagesHelperService extends NrgiFeaturedCardsBase {
     $this->setParagraph($variables['paragraph']);
 
     if (!empty($this->getNodeIds()) && $page_nids = $this->getNodeIds()) {
-      $this->setViewMode('featured_pages');
+      $this->setViewMode('featured_page');
       // Get node storage instance.
       $storage = $this->entityTypeManager->getStorage('node');
       $page_nodes = $storage->loadMultiple($page_nids);
