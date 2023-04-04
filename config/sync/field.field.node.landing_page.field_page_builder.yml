@@ -7,9 +7,13 @@ dependencies:
     - node.type.landing_page
     - paragraphs.paragraphs_type.call_to_action
     - paragraphs.paragraphs_type.embed
+    - paragraphs.paragraphs_type.featured_content
+    - paragraphs.paragraphs_type.featured_pages
+    - paragraphs.paragraphs_type.featured_people
     - paragraphs.paragraphs_type.full_width_media
     - paragraphs.paragraphs_type.learning_block
     - paragraphs.paragraphs_type.quote
+    - paragraphs.paragraphs_type.wysiwyg
   module:
     - entity_reference_revisions
 id: node.landing_page.field_page_builder
@@ -19,7 +23,7 @@ bundle: landing_page
 label: 'Page builder'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -27,9 +31,13 @@ settings:
   handler_settings:
     target_bundles:
       call_to_action: call_to_action
+      featured_content: featured_content
+      featured_pages: featured_pages
       embed: embed
+      featured_people: featured_people
       full_width_media: full_width_media
       learning_block: learning_block
+      wysiwyg: wysiwyg
       quote: quote
     negate: 0
     target_bundles_drag_drop:
@@ -39,14 +47,20 @@ settings:
       embed:
         weight: 12
         enabled: true
+      external_author:
+        weight: 17
+        enabled: false
       featured_content:
         weight: 10
-        enabled: false
+        enabled: true
       featured_pages:
         weight: 11
-        enabled: false
+        enabled: true
       featured_people:
         weight: 12
+        enabled: true
+      file_upload:
+        weight: 19
         enabled: false
       full_width_media:
         weight: 13
@@ -60,10 +74,13 @@ settings:
       listing:
         weight: 15
         enabled: false
+      logo:
+        weight: 24
+        enabled: false
       quote:
         weight: 21
         enabled: true
       wysiwyg:
         weight: 16
-        enabled: false
+        enabled: true
 field_type: entity_reference_revisions

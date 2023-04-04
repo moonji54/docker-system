@@ -9,14 +9,14 @@ dependencies:
     - field.field.node.career_opportunity.field_city
     - field.field.node.career_opportunity.field_contact_for_queries
     - field.field.node.career_opportunity.field_country
-    - field.field.node.career_opportunity.field_disclaimer
-    - field.field.node.career_opportunity.field_expiration_date
+    - field.field.node.career_opportunity.field_featured_image
     - field.field.node.career_opportunity.field_offer_deadline
     - field.field.node.career_opportunity.field_page_builder
     - field.field.node.career_opportunity.field_photo_caption
     - field.field.node.career_opportunity.field_region
     - field.field.node.career_opportunity.field_salary
     - field.field.node.career_opportunity.field_short_description
+    - field.field.node.career_opportunity.field_slug
     - field.field.node.career_opportunity.field_subtitle
     - field.field.node.career_opportunity.field_supporting_document
     - node.type.career_opportunity
@@ -43,14 +43,14 @@ hidden:
   field_city: true
   field_contact_for_queries: true
   field_country: true
-  field_disclaimer: true
-  field_expiration_date: true
+  field_featured_image: true
   field_offer_deadline: true
   field_page_builder: true
   field_photo_caption: true
   field_region: true
   field_salary: true
   field_short_description: true
+  field_slug: true
   field_subtitle: true
   field_supporting_document: true
   langcode: true

@@ -10,10 +10,10 @@ id: node.career_opportunity.field_region
 field_name: field_region
 entity_type: node
 bundle: career_opportunity
-label: Region
+label: Regions
 description: 'Select the region(s) discussed in this item. Leave blank if the work is applicable everywhere.'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

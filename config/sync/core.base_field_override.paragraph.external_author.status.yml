@@ -1,0 +1,22 @@
+uuid: f0e29304-fb56-4d7d-b559-02a98fa1e2ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.external_author
+id: paragraph.external_author.status
+field_name: status
+entity_type: paragraph
+bundle: external_author
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

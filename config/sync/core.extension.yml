@@ -16,14 +16,14 @@ module:
   breakpoint: 0
   bugherd: 0
   ckeditor: 0
-  conditional_fields: 0
+  ckeditor_div_manager: 0
+  colorbox: 0
   config: 0
   config_translation: 0
   content_moderation: 0
   context: 0
   context_active_trail: 0
   context_ui: 0
-  cookiepro: 0
   crop: 0
   ctools: 0
   datetime: 0
@@ -56,6 +56,7 @@ module:
   linkit: 0
   locale: 0
   media: 0
+  media_file_delete: 0
   media_library: 0
   media_library_edit: 0
   menu_block: 0
@@ -132,6 +133,7 @@ module:
   views: 10
   paragraphs: 11
   soapbox: 1000
+  eu_cookie_compliance: 1001
 theme:
   stable: 0
   classy: 0

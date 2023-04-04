@@ -1,0 +1,12 @@
+display:
+  default:
+    display_title: Default
+    display_options:
+      pager:
+        options:
+          expose:
+            offset_label: Offset
+      arguments:
+        tid:
+          exception:
+            title: All
