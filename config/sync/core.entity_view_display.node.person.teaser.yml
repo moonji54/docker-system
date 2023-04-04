@@ -4,12 +4,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.person.field_additional_profiles
     - field.field.node.person.field_board_member_type
     - field.field.node.person.field_country
-    - field.field.node.person.field_focus_areas
-    - field.field.node.person.field_full_bio
-    - field.field.node.person.field_full_name
+    - field.field.node.person.field_email
     - field.field.node.person.field_given_name
     - field.field.node.person.field_headshot
     - field.field.node.person.field_job_title
@@ -18,6 +15,7 @@ dependencies:
     - field.field.node.person.field_role_type
     - field.field.node.person.field_short_bio
     - field.field.node.person.field_surname
+    - field.field.node.person.field_topic
     - field.field.node.person.field_twitter
     - node.type.person
   module:
@@ -38,12 +36,9 @@ content:
     weight: 100
     region: content
 hidden:
-  field_additional_profiles: true
   field_board_member_type: true
   field_country: true
-  field_focus_areas: true
-  field_full_bio: true
-  field_full_name: true
+  field_email: true
   field_given_name: true
   field_headshot: true
   field_job_title: true
@@ -52,6 +47,7 @@ hidden:
   field_role_type: true
   field_short_bio: true
   field_surname: true
+  field_topic: true
   field_twitter: true
   langcode: true
   search_api_excerpt: true

@@ -3,12 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.person.field_additional_profiles
     - field.field.node.person.field_board_member_type
     - field.field.node.person.field_country
-    - field.field.node.person.field_focus_areas
-    - field.field.node.person.field_full_bio
-    - field.field.node.person.field_full_name
+    - field.field.node.person.field_email
     - field.field.node.person.field_given_name
     - field.field.node.person.field_headshot
     - field.field.node.person.field_job_title
@@ -17,13 +14,12 @@ dependencies:
     - field.field.node.person.field_role_type
     - field.field.node.person.field_short_bio
     - field.field.node.person.field_surname
+    - field.field.node.person.field_topic
     - field.field.node.person.field_twitter
     - node.type.person
   module:
     - entity_reference_revisions
     - link
-    - options
-    - text
     - user
 id: node.person.default
 targetEntityType: node
@@ -35,24 +31,13 @@ content:
     third_party_settings: {  }
     weight: -20
     region: content
-  field_additional_profiles:
-    type: link
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 109
-    region: content
   field_board_member_type:
-    type: list_default
-    label: hidden
-    settings: {  }
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
     third_party_settings: {  }
-    weight: 103
+    weight: 118
     region: content
   field_country:
     type: entity_reference_label
@@ -62,28 +47,13 @@ content:
     third_party_settings: {  }
     weight: 113
     region: content
-  field_focus_areas:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 104
-    region: content
-  field_full_bio:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 111
-    region: content
-  field_full_name:
+  field_email:
     type: string
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 105
+    weight: 119
     region: content
   field_given_name:
     type: string
@@ -150,6 +120,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 107
+    region: content
+  field_topic:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 117
     region: content
   field_twitter:
     type: link

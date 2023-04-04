@@ -5,14 +5,14 @@ dependencies:
   config:
     - field.storage.node.field_page_builder
     - node.type.person
-    - paragraphs.paragraphs_type.listing
+    - paragraphs.paragraphs_type.wysiwyg
   module:
     - entity_reference_revisions
 id: node.person.field_page_builder
 field_name: field_page_builder
 entity_type: node
 bundle: person
-label: 'Page builder'
+label: 'Full bio'
 description: ''
 required: false
 translatable: true
@@ -22,14 +22,17 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      listing: listing
+      wysiwyg: wysiwyg
     negate: 0
     target_bundles_drag_drop:
-      container:
-        weight: 6
+      call_to_action:
+        weight: 15
         enabled: false
-      cta_download:
-        weight: 7
+      embed:
+        weight: 16
+        enabled: false
+      external_author:
+        weight: 17
         enabled: false
       featured_content:
         weight: 12
@@ -40,16 +43,28 @@ settings:
       featured_people:
         weight: 14
         enabled: false
+      file_upload:
+        weight: 21
+        enabled: false
       full_width_media:
         weight: 9
+        enabled: false
+      learning_block:
+        weight: 23
         enabled: false
       limited_list:
         weight: 16
         enabled: false
       listing:
         weight: 17
-        enabled: true
+        enabled: false
+      logo:
+        weight: 26
+        enabled: false
+      quote:
+        weight: 27
+        enabled: false
       wysiwyg:
         weight: 10
-        enabled: false
+        enabled: true
 field_type: entity_reference_revisions
