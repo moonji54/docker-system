@@ -11,6 +11,10 @@ services:
     class: Drupal\nrgi_frontend\Services\NrgiFeaturedPagesHelperService
     arguments: [ '@entity_type.manager', '@renderer', '@nrgi_frontend.paragraph_button_link_helper' ]
 
+  nrgi_frontend.paragraph_featured_people_helper:
+    class: Drupal\nrgi_frontend\Services\NrgiFeaturedPeopleHelperService
+    arguments: [ '@entity_type.manager', '@renderer', '@nrgi_frontend.paragraph_button_link_helper' ]
+
   nrgi_frontend.translation_helper:
     class: Drupal\nrgi_frontend\Services\NrgiTranslationHelperService
     arguments: [ '@entity_type.manager' ]

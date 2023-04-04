@@ -1,0 +1,29 @@
+uuid: 9f94a47f-1e89-4ce3-8a13-09b8e9cc6aa0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_exclusions
+    - node.type.person
+    - paragraphs.paragraphs_type.featured_people
+id: paragraph.featured_people.field_exclusions
+field_name: field_exclusions
+entity_type: paragraph
+bundle: featured_people
+label: Exclusions
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

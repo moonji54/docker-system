@@ -15,7 +15,6 @@ dependencies:
     - node.type.career_opportunity
     - node.type.country
     - node.type.event
-    - node.type.glossary_term
     - node.type.homepage
     - node.type.landing_page
     - node.type.listing_page
@@ -29,6 +28,7 @@ dependencies:
     - block_content
     - content_moderation
     - content_translation
+    - eu_cookie_compliance
     - filter
     - media
     - node
@@ -56,7 +56,6 @@ permissions:
   - 'create country content'
   - 'create document media'
   - 'create event content'
-  - 'create glossary_term content'
   - 'create homepage content'
   - 'create image media'
   - 'create landing_page content'
@@ -76,7 +75,6 @@ permissions:
   - 'delete own country content'
   - 'delete own document media'
   - 'delete own event content'
-  - 'delete own glossary_term content'
   - 'delete own homepage content'
   - 'delete own image media'
   - 'delete own landing_page content'
@@ -88,13 +86,13 @@ permissions:
   - 'delete own topic content'
   - 'delete own video media'
   - 'delete terms in tags'
+  - 'display eu cookie compliance popup'
   - 'edit any article content'
   - 'edit any audio media'
   - 'edit any career_opportunity content'
   - 'edit any country content'
   - 'edit any document media'
   - 'edit any event content'
-  - 'edit any glossary_term content'
   - 'edit any homepage content'
   - 'edit any image media'
   - 'edit any landing_page content'
@@ -111,7 +109,6 @@ permissions:
   - 'edit own country content'
   - 'edit own document media'
   - 'edit own event content'
-  - 'edit own glossary_term content'
   - 'edit own homepage content'
   - 'edit own image media'
   - 'edit own landing_page content'
@@ -143,7 +140,6 @@ permissions:
   - 'revert career_opportunity revisions'
   - 'revert country revisions'
   - 'revert event revisions'
-  - 'revert glossary_term revisions'
   - 'revert homepage revisions'
   - 'revert landing_page revisions'
   - 'revert listing_page revisions'
@@ -158,7 +154,6 @@ permissions:
   - 'translate country node'
   - 'translate editable entities'
   - 'translate event node'
-  - 'translate glossary_term node'
   - 'translate homepage node'
   - 'translate landing_page node'
   - 'translate listing_page node'
@@ -189,7 +184,6 @@ permissions:
   - 'view career_opportunity revisions'
   - 'view country revisions'
   - 'view event revisions'
-  - 'view glossary_term revisions'
   - 'view homepage revisions'
   - 'view landing_page revisions'
   - 'view latest version'
@@ -200,5 +194,17 @@ permissions:
   - 'view page revisions'
   - 'view person revisions'
   - 'view publication revisions'
+  - 'view scheduled transitions node article'
+  - 'view scheduled transitions node career_opportunity'
+  - 'view scheduled transitions node country'
+  - 'view scheduled transitions node event'
+  - 'view scheduled transitions node glossary_term'
+  - 'view scheduled transitions node homepage'
+  - 'view scheduled transitions node landing_page'
+  - 'view scheduled transitions node listing_page'
+  - 'view scheduled transitions node page'
+  - 'view scheduled transitions node person'
+  - 'view scheduled transitions node publication'
+  - 'view scheduled transitions node topic'
   - 'view the administration theme'
   - 'view topic revisions'

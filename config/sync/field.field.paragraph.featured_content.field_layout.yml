@@ -1,4 +1,4 @@
-uuid: e2179093-0b8f-481a-8331-fbfaa9b353b9
+uuid: 8d9ace8c-86cd-4511-8f23-04d835bf0668
 langcode: en
 status: true
 dependencies:
@@ -9,9 +9,9 @@ id: paragraph.featured_content.field_layout
 field_name: field_layout
 entity_type: paragraph
 bundle: featured_content
-label: Layout
-description: ''
-required: true
+label: 'Layout - items per row'
+description: 'Select the number of items per row.'
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

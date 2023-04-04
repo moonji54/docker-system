@@ -9,9 +9,9 @@ id: paragraph.featured_people.field_layout
 field_name: field_layout
 entity_type: paragraph
 bundle: featured_people
-label: Layout
-description: ''
-required: true
+label: 'Layout - items per row'
+description: 'Select the number of items per row.'
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

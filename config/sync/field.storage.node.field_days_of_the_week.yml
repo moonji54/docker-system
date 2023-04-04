@@ -1,20 +1,41 @@
-uuid: 94929d7a-a54d-4494-99e4-15e2d5f3a43d
+uuid: bc96519c-a333-4f17-80cb-90b6788978ab
 langcode: en
 status: true
 dependencies:
   module:
     - node
+    - options
 id: node.field_days_of_the_week
 field_name: field_days_of_the_week
 entity_type: node
-type: string
+type: list_string
 settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
-module: core
+  allowed_values:
+    -
+      value: monday
+      label: Monday
+    -
+      value: tuesday
+      label: Tuesday
+    -
+      value: wednesday
+      label: Wednesday
+    -
+      value: thursday
+      label: Thursday
+    -
+      value: friday
+      label: Friday
+    -
+      value: saturday
+      label: Saturday
+    -
+      value: sunday
+      label: Sunday
+  allowed_values_function: ''
+module: options
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

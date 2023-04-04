@@ -5,14 +5,13 @@ dependencies:
   config:
     - field.storage.paragraph.field_media
     - media.type.image
-    - media.type.remote_video
     - paragraphs.paragraphs_type.full_width_media
 id: paragraph.full_width_media.field_media
 field_name: field_media
 entity_type: paragraph
 bundle: full_width_media
 label: Media
-description: 'Media (Image or remote video) item, the full width of the user''s screen.'
+description: 'Image media item, the full width of the user''s screen.'
 required: false
 translatable: false
 default_value: {  }
@@ -22,7 +21,6 @@ settings:
   handler_settings:
     target_bundles:
       image: image
-      remote_video: remote_video
     sort:
       field: _none
       direction: ASC

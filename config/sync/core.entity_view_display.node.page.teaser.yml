@@ -5,6 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.field_featured_image
+    - field.field.node.page.field_overlay_opacity
+    - field.field.node.page.field_page_builder
+    - field.field.node.page.field_short_description
     - node.type.page
   module:
     - user
@@ -25,5 +28,8 @@ content:
     region: content
 hidden:
   field_featured_image: true
+  field_overlay_opacity: true
+  field_page_builder: true
+  field_short_description: true
   langcode: true
   search_api_excerpt: true
