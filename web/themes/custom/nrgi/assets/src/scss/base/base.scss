@@ -1,6 +1,10 @@
 body {
   color     : $primary;
   font-size : 16px;
+
+  &.has-overlay {
+    overflow : hidden;
+  }
 }
 
 a {

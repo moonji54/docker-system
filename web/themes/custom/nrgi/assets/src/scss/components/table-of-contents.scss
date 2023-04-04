@@ -80,24 +80,18 @@
     width            : 100%;
     /* stylelint-disable-next-line */
     .ps__rail-y {
-      right : 1.5rem;
-      width : 1rem;
+      right : 0.5rem;
+      width : 0.375rem;
     }
 
     /* stylelint-disable-next-line */
     .ps__thumb-y {
-      border-radius : 0.5rem;
-      width         : 1rem;
+      width : 0.375rem;
     }
   }
 
   &__list {
     padding-right : var(--space-m);
-
-    @include media("<=tablet") {
-      margin-top    : var(--space-l);
-      padding-right : 0;
-    }
 
     a {
       @include underlined($blue-light);
