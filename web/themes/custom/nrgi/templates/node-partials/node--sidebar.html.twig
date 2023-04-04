@@ -1,0 +1,52 @@
+{% if sidebar_data %}
+  <section class="c-meta-rows{{ content_type == 'collection' ? ' c-meta-rows--full-width' }} o-section">
+    <div class="c-meta-rows__container o-container">
+      <dl class="c-meta-rows__inner">
+        {% for data in sidebar_data %}
+          {% if data.type == 'text' %}
+            <div class="c-meta-rows__row">
+              <dt class="c-meta-rows__label">
+                {{ data.label }}
+              </dt>
+
+              <dd class="c-meta-rows__items">
+                {{ data.items.title }}
+              </dd>
+            </div>
+          {% elseif data.type == 'logo' %}
+              <div class="c-meta-rows__row">
+                <dt class="c-meta-rows__label">
+                  {{ data.label }}
+                </dt>
+                {% for section in data.sections %}
+                  <dd class="c-meta-rows__row">
+                    <a href="{{ section.link }}">{{ section.view }}</a>
+                  </dd>
+                {% endfor %}
+              </div>
+          {% else %}
+            {% for section in data %}
+              <div class="c-meta-rows__row">
+                <dt class="c-meta-rows__label">
+                  {{ section.label }}
+                </dt>
+                <dd class="c-meta-rows__items{{ section.items[0]['type'] == 'file' ? ' c-meta-rows__items--downloads' }}">
+                  {% for item in section.items %}
+                    <a href="{{ item.url }}">{{ item.title|trim }}
+                      {% if item.type == 'file' %}
+                        <span class="c-meta-rows__icon-wrapper">
+                      </span>
+                      {% endif %}
+                    </a>
+                  {% endfor %}
+                </dd>
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </dl>
+    </div>
+  </section>
+{% endif %}
+
+

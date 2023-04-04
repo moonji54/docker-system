@@ -41,6 +41,17 @@ function nrgi_frontend_preprocess_node(&$variables): void {
       case 'person':
 
         break;
+
+      case 'article':
+      case 'publication':
+      case 'event':
+        if (in_array($variables['view_mode'], ['full', 'default'])) {
+          /** @var \Drupal\nrgi_frontend\MetadataHelperService $metadata_helper_service */
+          $metadata_helper_service = \Drupal::service('nrgi_frontend.metadata_helper');
+          $metadata_helper_service->preprocessMetadata($node, $variables);
+          $metadata_helper_service->preprocessSidebarMetadata($node, $variables);
+          break;
+        }
     }
 
     $view_mode_responsive_image_style = [
@@ -79,19 +90,11 @@ function nrgi_frontend_preprocess_node(&$variables): void {
         }
         break;
 
-      case
-      'card':
-        break;
-
       case 'full':
         // Functions only for full view mode.
         _nrgi_frontend_preprocess_node_meta($variables, $node);
         _nrgi_frontend_preprocess_node_person_featured_work($variables, $node);
         _nrgi_frontend_preprocess_node_related_content($variables);
-        break;
-
-      case 'person_card':
-        // Function for person_card.
         break;
     }
   }
