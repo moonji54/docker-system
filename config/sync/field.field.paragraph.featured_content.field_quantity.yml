@@ -1,14 +1,14 @@
-uuid: 4d5db2c0-bea1-48ef-8bf4-01ff94fc00c0
+uuid: 9681271e-c9e2-47b7-8234-a601e8b18758
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_quantity
-    - paragraphs.paragraphs_type.featured_people
-id: paragraph.featured_people.field_quantity
+    - paragraphs.paragraphs_type.featured_content
+id: paragraph.featured_content.field_quantity
 field_name: field_quantity
 entity_type: paragraph
-bundle: featured_people
+bundle: featured_content
 label: 'Number of automated content to show'
 description: 'Enter the number of automated content to show (additionally to any manually selected content). Leave the default 0 for no automated content. Maximum limit is 20.'
 required: false

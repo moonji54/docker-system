@@ -1,0 +1,33 @@
+uuid: 39030a46-67c7-4cc7-a62c-27b6bf438555
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_types
+field_name: field_types
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: article
+      label: Article
+    -
+      value: carreer_opportunity
+      label: 'Carrer Opportunity'
+    -
+      value: event
+      label: Event
+    -
+      value: publication
+      label: Publication
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
