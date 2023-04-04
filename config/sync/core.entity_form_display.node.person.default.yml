@@ -33,7 +33,7 @@ third_party_settings:
       label: Body
       region: content
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: details
       format_settings:
         classes: ''
@@ -64,7 +64,6 @@ third_party_settings:
       children:
         - field_twitter
         - field_email
-        - field_additional_profiles
       label: 'Contact details'
       region: content
       parent_name: group_general
@@ -81,7 +80,6 @@ third_party_settings:
     group_bios:
       children:
         - field_short_bio
-        - field_full_bio
       label: Bios
       region: content
       parent_name: group_general
@@ -101,7 +99,7 @@ third_party_settings:
       label: Uploads
       region: content
       parent_name: ''
-      weight: 2
+      weight: 3
       format_type: details
       format_settings:
         classes: ''
@@ -116,7 +114,7 @@ third_party_settings:
       label: Taxonomies
       region: content
       parent_name: ''
-      weight: 3
+      weight: 4
       format_type: details
       format_settings:
         classes: ''
@@ -134,7 +132,7 @@ third_party_settings:
       label: General
       region: content
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: tabs
       format_settings:
         classes: ''
@@ -349,7 +347,7 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 4
+    weight: 0
     region: content
     settings:
       include_locked: true
