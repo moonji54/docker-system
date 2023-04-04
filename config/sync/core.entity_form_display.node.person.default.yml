@@ -6,8 +6,8 @@ dependencies:
     - field.field.node.person.field_board_member_type
     - field.field.node.person.field_country
     - field.field.node.person.field_email
+    - field.field.node.person.field_featured_image
     - field.field.node.person.field_given_name
-    - field.field.node.person.field_headshot
     - field.field.node.person.field_job_title
     - field.field.node.person.field_page_builder
     - field.field.node.person.field_region
@@ -95,7 +95,7 @@ third_party_settings:
         open: false
     group_uploads:
       children:
-        - field_headshot
+        - field_featured_image
       label: Uploads
       region: content
       parent_name: ''
@@ -253,6 +253,13 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_featured_image:
+    type: media_library_widget
+    weight: 30
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
   field_given_name:
     type: string_textfield
     weight: 2
@@ -260,13 +267,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_headshot:
-    type: media_library_widget
-    weight: 11
-    region: content
-    settings:
-      media_types: {  }
     third_party_settings: {  }
   field_job_title:
     type: string_textfield

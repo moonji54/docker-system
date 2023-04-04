@@ -1,19 +1,19 @@
-uuid: e31132de-3131-4aa1-96bc-f560d08187bc
+uuid: 9e2338dd-f1f0-4c94-8e8c-a530b347dd75
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-id: paragraph.field_number_of_automatic_conten
-field_name: field_number_of_automatic_conten
+    - taxonomy
+id: paragraph.field_role_type
+field_name: field_role_type
 entity_type: paragraph
-type: integer
+type: entity_reference
 settings:
-  unsigned: false
-  size: normal
+  target_type: taxonomy_term
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

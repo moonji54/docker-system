@@ -4,6 +4,7 @@ namespace Drupal\nrgi_frontend;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Render\RendererInterface;
+use Drupal\node\NodeInterface;
 use Drupal\nrgi_frontend\Services\NrgiParagraphButtonLinkHelperService;
 use Drupal\paragraphs\ParagraphInterface;
 
@@ -69,11 +70,18 @@ class NrgiFeaturedCardsBase {
   protected string $itemsPerRowField = 'field_layout';
 
   /**
-   * The page content items field name.
+   * The manually selected content items field name.
    *
    * @var string
    */
   protected string $contentField = 'field_content';
+
+  /**
+   * The manually selected exclustions.
+   *
+   * @var string
+   */
+  protected string $manualExlcusionsField = 'field_exclusions';
 
   /**
    * The link field name.
@@ -83,11 +91,75 @@ class NrgiFeaturedCardsBase {
   protected string $linkField = 'field_link';
 
   /**
+   * Field name used for page builder components.
+   *
+   * @var string
+   */
+  protected string $pageBuilderField = 'field_page_builder';
+
+  /**
+   * The field name to indicated allowed node types in automated contents.
+   *
+   * @var string
+   */
+  protected string $typesField;
+
+  /**
+   * The fields to indicated allowed taxonomy filters in automated contents.
+   *
+   * @var array
+   */
+  protected array $taxonomyFields;
+
+  /**
+   * The field name to indicate the limit in automated contents.
+   *
+   * @var string
+   */
+  protected string $quantityField = 'field_quantity';
+
+  /**
+   * The field names to indicate the sorting in automated contents.
+   *
+   * @var array
+   */
+  protected array $sortFields;
+
+  /**
+   * The field name to indicate the sorting order in automated contents.
+   *
+   * @var string
+   */
+  protected $sortOrder;
+
+  /**
+   * Set if date filter should be applied i.e. upcoming/past/both.
+   *
+   * @var string
+   */
+  protected string $dateFilter;
+
+  /**
+   * The date fields to check the content's recency by.
+   *
+   * @var array
+   */
+  protected array $dateFields;
+
+
+  /**
    * Whether to render images on featured pages.
    *
    * @var bool
    */
   protected bool $withImage = FALSE;
+
+  /**
+   * Allowed types for automated nodes.
+   *
+   * @var array
+   */
+  protected array $types;
 
   /**
    * Constructs a new NrgiFeaturedPageService object.
@@ -114,6 +186,44 @@ class NrgiFeaturedCardsBase {
   }
 
   /**
+   * Set page builder field name.
+   *
+   * @param string $page_builder_field
+   *   The page builder field name.
+   */
+  public function setPageBuilderFieldName(string $page_builder_field): void {
+    $this->pageBuilderField = $page_builder_field;
+  }
+
+  /**
+   * Set manual exclusions field name.
+   *
+   * @param string $manual_exclusions_field
+   *   The manual exclusions field name.
+   */
+  public function setManualExclusionsFieldName(string $manual_exclusions_field): void {
+    $this->manualExlcusionsField = $manual_exclusions_field;
+  }
+
+  /**
+   * Set allowed types.
+   *
+   * @param array $types
+   *   The node types.
+   */
+  public function setAllowedTypes(array $types): void {
+    if ($types) {
+      $this->types = $types;
+    }
+
+    elseif ($this->typesField && $this->paragraph->hasField($this->typesField)) {
+      foreach ($this->paragraph->get($this->typesField) as $type) {
+        $this->types[] = $type->value;
+      }
+    }
+  }
+
+  /**
    * Set image toggle field name.
    *
    * @param string $image_toggle_field
@@ -121,6 +231,26 @@ class NrgiFeaturedCardsBase {
    */
   public function setImageToggleField(string $image_toggle_field): void {
     $this->imageToggleField = $image_toggle_field;
+  }
+
+  /**
+   * Set taxonomy conditions field name.
+   *
+   * @param array $taxonomies_field_names
+   *   The taxonomy conditions field names.
+   */
+  public function setTaxonomyFields(array $taxonomies_field_names): void {
+    $this->taxonomyFields = $taxonomies_field_names;
+  }
+
+  /**
+   * Set quantity field name.
+   *
+   * @param string $quantity_field_name
+   *   The quantity field name.
+   */
+  public function setQuantity(string $quantity_field_name): void {
+    $this->taxonomyFields = $quantity_field_name;
   }
 
   /**
@@ -195,21 +325,24 @@ class NrgiFeaturedCardsBase {
    * Get array of selected node ids.
    *
    * @return array
-   *   The array of page node ids.
+   *   The array of node ids.
    */
-  protected function getNodeIds(): array {
-    $page_nids = [];
+  protected function getNodeIds(ParagraphInterface $paragraph = NULL): array {
+    $nids = [];
+    if (!$paragraph) {
+      $paragraph = $this->paragraph;
+    }
 
-    if ($this->paragraph->hasField($this->contentField)
-        && $page_items = $this->paragraph->get($this->contentField)) {
+    if ($paragraph->hasField($this->contentField)
+        && $node_items = $this->paragraph->get($this->contentField)) {
 
-      foreach ($page_items as $page_item) {
-        $page_nids[] = $page_item->get('entity')->getTargetIdentifier();
+      foreach ($node_items as $page_item) {
+        $nids[] = $page_item->get('entity')->getTargetIdentifier();
       }
 
     }
 
-    return $page_nids;
+    return $nids;
   }
 
   /**
@@ -235,6 +368,89 @@ class NrgiFeaturedCardsBase {
       }
     }
     return $render_arrays;
+  }
+
+  /**
+   * Get node nids already selected by the site editor.
+   *
+   * @return array
+   *   An array of NIDs.
+   */
+  protected function getExclusions(): array {
+
+    $exclusions = $components = [];
+    $node = $this->paragraph->getParentEntity();
+    if (!$node) {
+      return $exclusions;
+    }
+
+    if ($node->hasField($this->pageBuilderField)) {
+      $components = $node->get($this->pageBuilderField);
+    }
+    if ($components) {
+      $found_current = FALSE;
+      foreach ($components as $component) {
+
+        // Only consider items before self as pre-selections.
+        if ($component->entity->id() == $this->paragraph->id()) {
+          $found_current = TRUE;
+        }
+
+        // If the bundle is featured cards, get the selections.
+        if (!$found_current && $component->entity->bundle() == $this->paragraph->bundle()) {
+          $exclusions = $this->getPreSelectionsFromFeaturedCardsParagraph($exclusions,
+            $component->entity);
+        }
+      }
+    }
+
+    // Add self.
+    return $this->getPreSelectionsFromFeaturedCardsParagraph($exclusions, $this->paragraph);
+  }
+
+  /**
+   * Get pre-selections from featured cards paragraph.
+   *
+   * @param array $exclusions
+   *   Exclusions array.
+   * @param \Drupal\paragraphs\ParagraphInterface $paragraph
+   *   A paragraph.
+   *
+   * @return array
+   *   Exclusions merged with pre selections on the same node.
+   */
+  protected function getPreSelectionsFromFeaturedCardsParagraph(
+    array $exclusions,
+    ParagraphInterface $paragraph,
+  ): array {
+
+    $selections = $this->getNodeIds($paragraph);
+    if ($selections) {
+      $exclusions = array_merge($exclusions, $selections);
+    }
+
+    return $exclusions;
+  }
+
+  /**
+   * Get the manually selected exclusions.
+   *
+   * @return array
+   *   The manual exclusions node ids.
+   */
+  protected function getManualExclusions(): array {
+    $manual_exclusions_nids = [];
+
+    if ($this->paragraph->hasField($this->manualExlcusionsField)
+        && $exclusions = $this->paragraph->get($this->manualExlcusionsField)) {
+      foreach ($exclusions as $exclusion) {
+        if ($exclusion->entity instanceof NodeInterface) {
+          $manual_exclusions_nids[] = $exclusion->entity->id();
+        }
+      }
+    }
+
+    return $manual_exclusions_nids;
   }
 
 }

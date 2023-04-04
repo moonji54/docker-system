@@ -7,8 +7,8 @@ dependencies:
     - field.field.node.person.field_board_member_type
     - field.field.node.person.field_country
     - field.field.node.person.field_email
+    - field.field.node.person.field_featured_image
     - field.field.node.person.field_given_name
-    - field.field.node.person.field_headshot
     - field.field.node.person.field_job_title
     - field.field.node.person.field_page_builder
     - field.field.node.person.field_region
@@ -39,8 +39,8 @@ hidden:
   field_board_member_type: true
   field_country: true
   field_email: true
+  field_featured_image: true
   field_given_name: true
-  field_headshot: true
   field_job_title: true
   field_page_builder: true
   field_region: true

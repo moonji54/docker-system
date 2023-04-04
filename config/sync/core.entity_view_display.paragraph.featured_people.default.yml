@@ -4,10 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.featured_people.field_content
+    - field.field.paragraph.featured_people.field_exclusions
     - field.field.paragraph.featured_people.field_layout
     - field.field.paragraph.featured_people.field_link
-    - field.field.paragraph.featured_people.field_number_of_automatic_conten
-    - field.field.paragraph.featured_people.field_role_types
+    - field.field.paragraph.featured_people.field_quantity
+    - field.field.paragraph.featured_people.field_role_type
     - field.field.paragraph.featured_people.field_show_background
     - field.field.paragraph.featured_people.field_show_image
     - field.field.paragraph.featured_people.field_title
@@ -28,6 +29,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 5
+    region: content
+  field_exclusions:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 14
     region: content
   field_layout:
     type: number_integer
@@ -50,21 +59,22 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_number_of_automatic_conten:
+  field_quantity:
     type: number_integer
     label: above
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 13
+    weight: 15
     region: content
-  field_role_types:
-    type: list_default
+  field_role_type:
+    type: entity_reference_label
     label: above
-    settings: {  }
+    settings:
+      link: true
     third_party_settings: {  }
-    weight: 12
+    weight: 16
     region: content
   field_show_background:
     type: boolean

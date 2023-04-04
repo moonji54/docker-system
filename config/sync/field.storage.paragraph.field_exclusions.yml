@@ -1,16 +1,16 @@
-uuid: b2f322d1-cce9-4a70-8439-a6c8f75f01c6
+uuid: b124e18d-f7f9-44d1-983e-dafe8c6ad8b4
 langcode: en
 status: true
 dependencies:
   module:
-    - media
     - node
-id: node.field_headshot
-field_name: field_headshot
-entity_type: node
+    - paragraphs
+id: paragraph.field_exclusions
+field_name: field_exclusions
+entity_type: paragraph
 type: entity_reference
 settings:
-  target_type: media
+  target_type: node
 module: core
 locked: false
 cardinality: 1

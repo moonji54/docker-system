@@ -6,8 +6,8 @@ dependencies:
     - field.field.node.person.field_board_member_type
     - field.field.node.person.field_country
     - field.field.node.person.field_email
+    - field.field.node.person.field_featured_image
     - field.field.node.person.field_given_name
-    - field.field.node.person.field_headshot
     - field.field.node.person.field_job_title
     - field.field.node.person.field_page_builder
     - field.field.node.person.field_region
@@ -55,6 +55,14 @@ content:
     third_party_settings: {  }
     weight: 119
     region: content
+  field_featured_image:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 120
+    region: content
   field_given_name:
     type: string
     label: hidden
@@ -62,15 +70,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 106
-    region: content
-  field_headshot:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 112
     region: content
   field_job_title:
     type: string

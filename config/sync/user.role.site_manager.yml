@@ -25,7 +25,6 @@ dependencies:
     - taxonomy.vocabulary.career_opportunity_type
     - taxonomy.vocabulary.cities
     - taxonomy.vocabulary.event_expertise_requirement
-    - taxonomy.vocabulary.event_role_label
     - taxonomy.vocabulary.event_type
     - taxonomy.vocabulary.keyword
     - taxonomy.vocabulary.person_type
@@ -118,7 +117,6 @@ permissions:
   - 'create terms in career_opportunity_type'
   - 'create terms in cities'
   - 'create terms in event_expertise_requirement'
-  - 'create terms in event_role_label'
   - 'create terms in event_type'
   - 'create terms in keyword'
   - 'create terms in person_type'
@@ -184,7 +182,6 @@ permissions:
   - 'delete terms in career_opportunity_type'
   - 'delete terms in cities'
   - 'delete terms in event_expertise_requirement'
-  - 'delete terms in event_role_label'
   - 'delete terms in event_type'
   - 'delete terms in keyword'
   - 'delete terms in person_type'
@@ -232,7 +229,6 @@ permissions:
   - 'edit terms in career_opportunity_type'
   - 'edit terms in cities'
   - 'edit terms in event_expertise_requirement'
-  - 'edit terms in event_role_label'
   - 'edit terms in event_type'
   - 'edit terms in keyword'
   - 'edit terms in person_type'
