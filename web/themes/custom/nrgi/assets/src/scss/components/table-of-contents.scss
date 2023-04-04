@@ -5,7 +5,6 @@
   background-color : $secondary;
   color            : $white;
   display          : none;
-  height           : 3.5rem;
   position         : fixed;
   top              : 0;
   transform        : translateY(-100%);
@@ -22,6 +21,15 @@
 
   &.is-fixed {
     transform : translateY(0);
+  }
+
+  &.is-open {
+    #{$c}__expanded-content {
+      &:before {
+        border-top : 1px solid $white;
+        transform  : translateX(0);
+      }
+    }
   }
 
   .user-logged-in & {
@@ -71,13 +79,29 @@
     background-color : $secondary;
     box-sizing       : border-box;
     display          : none;
-    left             : 0;
-    max-height       : 25.3125rem;
-    padding-bottom   : var(--space-l);
-    padding-top      : var(--space-s);
-    position         : absolute;
-    top              : var(--toc-height);
+    overflow         : hidden;
+    padding          : var(--space-xs) 0;
+    position         : relative;
     width            : 100%;
+
+    &:before {
+      border-top : 1px solid transparent;
+      content    : "";
+      left       : 0;
+      position   : absolute;
+      top        : 0;
+      transform  : translateX(100%);
+      transition : transform 0.6s;
+      width      : 100%;
+    }
+  }
+  
+  // Scroll wrapper
+  &__list-wrapper {
+    max-height : 25.3125rem;
+    overflow   : hidden;
+    position   : relative;
+
     /* stylelint-disable-next-line */
     .ps__rail-y {
       right : 0.5rem;

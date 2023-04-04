@@ -83,20 +83,18 @@
       <h2 class="c-table-of-contents__heading">
         {{ 'Table of Contents'|t }}
       </h2>
-
-
+      
       {% include '@nrgi/svg/svg.html.twig' with {'svg' : 'chevron-down', 'extra_class' : 'c-table-of-contents__icon' } %}
-
     </div>
 
-    <nav class="c-table-of-contents__expanded-content js-toggle-content"
+    <div class="c-table-of-contents__expanded-content js-toggle-content"
          id="table-of-contents"
          aria-label="{{ 'Table of contents'|t }}">
-      <div class="o-container">
-        <ul class="c-table-of-contents__list js-toc-list">
+      <div class="c-table-of-contents__list-wrapper js-scroll-wrapper">
+        <ul class="c-table-of-contents__list o-container js-toc-list">
         </ul>
       </div>
-    </nav>
+    </div>
   </nav>
 
   {# Body #}

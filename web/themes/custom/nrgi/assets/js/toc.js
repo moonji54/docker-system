@@ -28,6 +28,7 @@ var Toc = /*#__PURE__*/function () {
     // Elements
     this.$toggleButton = this.$('.js-toggle-button', this.context).once();
     this.$toggleContent = this.$('.js-toggle-content', this.context).once();
+    this.$scrollWrapper = this.$('.js-scroll-wrapper', this.context).once();
     this.$wysiwyg = this.$('.js-text-block', this.context);
     this.$tocWrapper = this.$('.js-table-of-contents-wrapper', this.context);
     this.$toc = this.$('.js-toc-list', this.context);
@@ -44,7 +45,6 @@ var Toc = /*#__PURE__*/function () {
 
     // On load init the scrollbars
     this.$window.on('load', this.$.proxy(this.addScrollbars, this));
-    this.$window.on('load resize', this.$.proxy(this.assignTocHeight, this));
     this.$window.on('resize', this.$.proxy(this.updateScrollbars, this));
 
     // Format headings and build TOC
@@ -52,14 +52,6 @@ var Toc = /*#__PURE__*/function () {
     this.showToc();
   }
   _createClass(Toc, [{
-    key: "assignTocHeight",
-    value: function assignTocHeight() {
-      var $tocWrapperHeight = this.$tocWrapper.height();
-      this.$(':root').css({
-        '--toc-height': $tocWrapperHeight + 'px'
-      });
-    }
-  }, {
     key: "toggleToc",
     value: function toggleToc(e) {
       var $elem = this.$(e.currentTarget);
@@ -163,8 +155,8 @@ var Toc = /*#__PURE__*/function () {
   }, {
     key: "addScrollbars",
     value: function addScrollbars() {
-      for (var i = 0; i < this.$toggleContent.length; i++) {
-        this.scrollbars.push(new _perfectScrollbar["default"](this.$toggleContent[0], {
+      for (var i = 0; i < this.$scrollWrapper.length; i++) {
+        this.scrollbars.push(new _perfectScrollbar["default"](this.$scrollWrapper[0], {
           suppressScrollX: true,
           maxScrollbarLength: 180,
           wheelSpeed: 0.5

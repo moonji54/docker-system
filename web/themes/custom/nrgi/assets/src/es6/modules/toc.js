@@ -14,6 +14,7 @@ class Toc {
         // Elements
         this.$toggleButton = this.$('.js-toggle-button', this.context).once();
         this.$toggleContent = this.$('.js-toggle-content', this.context).once();
+        this.$scrollWrapper = this.$('.js-scroll-wrapper', this.context).once();
         this.$wysiwyg = this.$('.js-text-block', this.context);
         this.$tocWrapper = this.$('.js-table-of-contents-wrapper', this.context);
         this.$toc = this.$('.js-toc-list', this.context);
@@ -32,20 +33,12 @@ class Toc {
         // On load init the scrollbars
         this.$window.on('load', this.$.proxy(this.addScrollbars, this));
 
-        this.$window.on('load resize', this.$.proxy(this.assignTocHeight, this));
-
         this.$window.on('resize', this.$.proxy(this.updateScrollbars, this));
 
         // Format headings and build TOC
         this.buildTableOfContents();
 
         this.showToc();
-    }
-
-    assignTocHeight () {
-        const $tocWrapperHeight = this.$tocWrapper.height();
-
-        this.$(':root').css({'--toc-height': $tocWrapperHeight + 'px'});
     }
 
     toggleToc (e) {
@@ -153,8 +146,8 @@ class Toc {
     }
 
     addScrollbars () {
-        for (let i = 0; i < this.$toggleContent.length; i++) {
-            this.scrollbars.push(new Ps(this.$toggleContent[0], {
+        for (let i = 0; i < this.$scrollWrapper.length; i++) {
+            this.scrollbars.push(new Ps(this.$scrollWrapper[0], {
                 suppressScrollX: true,
                 maxScrollbarLength: 180,
                 wheelSpeed: 0.5
