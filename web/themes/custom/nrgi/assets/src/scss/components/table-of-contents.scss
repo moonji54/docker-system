@@ -11,10 +11,6 @@
   transition       : transform 0.3s;
   width            : 100%;
 
-  @include media("<=tablet") {
-    top : 5rem;
-  }
-
   &.is-visible {
     display : block;
   }
@@ -36,19 +32,7 @@
     top : 4.9375rem;
 
     @include media("<967px") {
-      top : 7.4375rem;
-    }
-  }
-
-  &.follows-header {
-    top : 4rem; // fixed header height
-
-    .user-logged-in & {
-      top : 8.875rem;
-    }
-
-    #{$c}__expanded-content {
-      height : calc(100vh - 8.125rem);
+      top : 2.4375rem;
     }
   }
 
@@ -59,6 +43,11 @@
     justify-content : space-between;
     padding-bottom  : 0.875rem;
     padding-top     : 0.875rem;
+
+    @include media("<=tablet") {
+      padding-bottom : 0.75rem;
+      padding-top    : 0.75rem;
+    }
 
     &.is-clicked {
       #{$c}__icon {
@@ -80,7 +69,8 @@
     box-sizing       : border-box;
     display          : none;
     overflow         : hidden;
-    padding          : var(--space-xs) 0;
+    padding-bottom   : var(--space-l);
+    padding-top      : var(--space-xs);
     position         : relative;
     width            : 100%;
 
@@ -94,8 +84,13 @@
       transition : transform 0.6s;
       width      : 100%;
     }
+
+    /* stylelint-disable-next-line */
+    &:has(.ps--active-y) {
+      padding-bottom : var(--space-xs);
+    }
   }
-  
+
   // Scroll wrapper
   &__list-wrapper {
     max-height : 25.3125rem;
@@ -115,10 +110,10 @@
   }
 
   &__list {
-    padding-right : var(--space-m);
+    padding-bottom : var(--space-xs);
 
     a {
-      @include underlined($blue-light);
+      @include underlined($blue-light, 0.4375rem);
 
       &:hover,
       &:focus {
