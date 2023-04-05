@@ -3,12 +3,14 @@
   'o-section'
 ] %}
 <section{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {% if label %}
-    <h2{{ title_attributes }}>{{ label }}</h2>
-  {% endif %}
-  {{ title_suffix }}
-  {% block content %}
-    {{ content }}
-  {% endblock %}
+  <div class="o-container">
+    <header class="o-section__header">
+      <h2 class="o-section__heading">{{ 'Notes'|t }}</h2>
+    </header>
+    {% block content %}
+      <div class="c-footnotes__container">
+        {{ content }}
+      </div>
+    {% endblock %}
+  </div>
 </section>
