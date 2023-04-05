@@ -1,12 +1,12 @@
-uuid: b124e18d-f7f9-44d1-983e-dafe8c6ad8b4
+uuid: 5bc07ae8-98cc-4137-81d2-b944b1dc6bfc
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - paragraphs
-id: paragraph.field_exclusions
-field_name: field_exclusions
+id: paragraph.field_topic
+field_name: field_topic
 entity_type: paragraph
 type: entity_reference
 settings:

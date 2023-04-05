@@ -1,5 +1,5 @@
 {% set classes = [
-  'c-featured-people',
+  'c-featured-content',
   'o-section',
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
@@ -7,13 +7,13 @@
   not paragraph.isPublished() ? 'paragraph--unpublished'
 ] %}
 
-{% if featured_people %}
+{% if featured_content %}
   <section{{ attributes.addClass(classes) }}>
     <div style="padding: 20px; border:1px indianred dotted">
-      [featured people]
-      [view_mode] : {{ featured_people.view_mode }}
-      [with_image] : {{ featured_people.with_image ? 'true' : 'false' }}
-      [layout] : {{ featured_people.layout }}
+      [featured content]
+      [view_mode] : {{ featured_content.view_mode }}
+      [with_image] : {{ featured_content.with_image ? 'true' : 'false' }}
+      [layout] : {{ featured_content.layout }}
       {% set has_grey_background = (content.field_show_background|field_raw('value') == '1') %}
       [has_grey_background] : {{ has_grey_background ? 'true' : 'false' }}
 
@@ -26,18 +26,22 @@
         {% endif %}
       {% endif %}
 
+      {% if content.field_description|field_value %}
+        <p>{{ content.field_description }}</p>
+      {% endif %}
+
       <div style="padding: 20px; background-color: forestgreen">
-        {% for featured_person in featured_people.items %}
-          {{ featured_person }}
+        {% for featured_item in featured_content.items %}
+          {{ featured_item }}
         {% endfor %}
       </div>
 
-      {% if featured_people.cta %}
-        <a class="c-call-to-action__link" href="{{ featured_people.cta.url }}"
+      {% if featured_content.cta %}
+        <a class="c-call-to-action__link" href="{{ featured_content.cta.url }}"
            style="padding: 20px; border: 1px dotted black"
-           target="{{ featured_people.cta.is_external ? '_blank' : '_self' }}">
+           target="{{ featured_content.cta.is_external ? '_blank' : '_self' }}">
           [arrow icon] ->
-          <span class="c-call-to-action__link-title">{{ featured_people.cta.title }}</span>
+          <span class="c-call-to-action__link-title">{{ featured_content.cta.title }}</span>
         </a>
       {% endif %}
 

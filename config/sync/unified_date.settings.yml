@@ -1,7 +1,7 @@
-article: 'base-field:created'
+article: field_publication_date
 career_opportunity: 'base-field:created'
 country: 'base-field:created'
-event: 'base-field:created'
+event: field_start_date
 homepage: 'base-field:created'
 landing_page: 'base-field:created'
 listing_page: 'base-field:created'
