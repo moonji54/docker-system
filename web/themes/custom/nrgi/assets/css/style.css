@@ -620,6 +620,27 @@ ul li a:hover {
     font-size: 1.875rem;
   }
 }
+.o-section__heading--small {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 1.2;
+}
+@media (max-width: 94.5rem) {
+  .o-section__heading--small {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 64rem) {
+  .o-section__heading--small {
+    font-size: 2.25rem;
+  }
+}
+@media (max-width: 48rem) {
+  .o-section__heading--small {
+    font-size: 1.75rem;
+  }
+}
 .o-section__description {
   font-family: "Noto Sans", sans-serif;
   font-size: 1.375rem;
