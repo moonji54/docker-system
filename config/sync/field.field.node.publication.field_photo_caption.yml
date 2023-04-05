@@ -9,10 +9,10 @@ id: node.publication.field_photo_caption
 field_name: field_photo_caption
 entity_type: node
 bundle: publication
-label: 'Photo caption'
+label: 'Featured image caption'
 description: 'Add caption for photo/image '
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

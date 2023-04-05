@@ -8,13 +8,14 @@ dependencies:
     - field.field.node.career_opportunity.field_city
     - field.field.node.career_opportunity.field_contact_for_queries
     - field.field.node.career_opportunity.field_country
-    - field.field.node.career_opportunity.field_disclaimer
+    - field.field.node.career_opportunity.field_featured_image
     - field.field.node.career_opportunity.field_offer_deadline
     - field.field.node.career_opportunity.field_page_builder
     - field.field.node.career_opportunity.field_photo_caption
     - field.field.node.career_opportunity.field_region
     - field.field.node.career_opportunity.field_salary
     - field.field.node.career_opportunity.field_short_description
+    - field.field.node.career_opportunity.field_slug
     - field.field.node.career_opportunity.field_subtitle
     - field.field.node.career_opportunity.field_supporting_document
     - node.type.career_opportunity
@@ -77,13 +78,13 @@ content:
     third_party_settings: {  }
     weight: 108
     region: content
-  field_disclaimer:
-    type: string
-    label: hidden
+  field_featured_image:
+    type: entity_reference_label
+    label: above
     settings:
-      link_to_entity: false
+      link: true
     third_party_settings: {  }
-    weight: 115
+    weight: 122
     region: content
   field_offer_deadline:
     type: datetime_default
@@ -133,6 +134,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 119
+    region: content
+  field_slug:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 121
     region: content
   field_subtitle:
     type: string

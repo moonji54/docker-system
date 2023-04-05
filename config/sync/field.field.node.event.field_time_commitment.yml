@@ -10,9 +10,9 @@ field_name: field_time_commitment
 entity_type: node
 bundle: event
 label: 'Time commitment'
-description: ''
+description: 'Add the number of hours users will be expected to commit to for the course, training, event, etc.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
