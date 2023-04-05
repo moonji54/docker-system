@@ -1,0 +1,46 @@
+{% set classes = [
+  'c-featured-content',
+] %}
+  {% if title or responsive_image %}
+    <article{{ attributes.addClass(classes) }}>
+      <div class="c-featured-content__content-wrapper">
+
+        {% if format == 'online' %}
+          {# On events only #}
+          <p>
+            {{ 'Online'|t|upper }}
+          </p>
+        {% endif %}
+
+        {% if recording %}
+          {# On events only - will show on past event & with available recording #}
+          <p>
+            {{ 'Recording available'|t|upper }}
+          </p>
+        {% endif %}
+
+        <h3 class="c-featured-content__title">
+          <a class="c-featured-content__link" href="{{ url }}">
+            {{ title }}
+          </a>
+        </h3>
+
+        {% if date %}
+          <p>{{ date }}</p>
+        {% endif %}
+
+        {% if responsive_image %}
+          <div class="c-featured-content__image-wrapper">
+            {% if responsive_image %}
+              {{ responsive_image }}
+            {% else %}
+              <img src="/{{ base_path ~ directory }}/assets/img/fallback-default.svg" alt="{{ 'Fallback image'|t }}"/>
+            {% endif %}
+          </div>
+        {% endif %}
+
+      </div>
+
+
+    </article>
+  {% endif %}

@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_page_builder
     - node.type.publication
-    - paragraphs.paragraphs_type.limited_list
     - paragraphs.paragraphs_type.wysiwyg
   module:
     - entity_reference_revisions
@@ -24,7 +23,6 @@ settings:
   handler_settings:
     target_bundles:
       wysiwyg: wysiwyg
-      limited_list: limited_list
     negate: 0
     target_bundles_drag_drop:
       container:

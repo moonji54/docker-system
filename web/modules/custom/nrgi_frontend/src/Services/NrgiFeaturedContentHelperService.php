@@ -21,10 +21,9 @@ class NrgiFeaturedContentHelperService extends NrgiFeaturedCardsBase {
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Exception
    */
-  public function preprocessFeaturedPeople(array &$variables): void {
+  public function preprocessFeaturedContent(array &$variables): void {
     $this->setParagraph($variables['paragraph']);
     $this->setTaxonomyFields([
-      'field_topic',
       'field_country',
       'field_region',
       'field_topic',
@@ -49,13 +48,21 @@ class NrgiFeaturedContentHelperService extends NrgiFeaturedCardsBase {
     $this->setDateFields($date_fields);
 
     $content_nids_manually_excluded = $this->getManualExclusions();
-    $content_nids_excluded = array_merge($content_nids_manually_excluded, $this->getExclusions());
-    $content_nids_automated = $this->getAutomatedSelections($content_nids_excluded);
+    $content_nids_excluded = array_merge(
+      $content_nids_manually_excluded,
+      $this->getExclusions()
+    );
+    $content_nids_automated = $this->getAutomatedSelections(
+      $content_nids_excluded
+    );
     $content_nids_selected = $this->getNodeIds();
 
     if ($content_nids_automated) {
       $content_nids_automated = $content_nids_automated['node_ids'];
-      $content_nids = array_merge($content_nids_selected, $content_nids_automated);
+      $content_nids = array_merge(
+        $content_nids_selected,
+        $content_nids_automated
+      );
     }
     else {
       $content_nids = $content_nids_selected;
@@ -98,7 +105,10 @@ class NrgiFeaturedContentHelperService extends NrgiFeaturedCardsBase {
     $nodes = &drupal_static(__FUNCTION__);
     $previous_exclusions = [];
     if ($nodes) {
-      $previous_exclusions = array_merge($nodes['node_ids'], $nodes['previous_exclusions']);
+      $previous_exclusions = array_merge(
+        $nodes['node_ids'],
+        $nodes['previous_exclusions']
+      );
       $exclusions = array_merge($exclusions, $previous_exclusions);
     }
     $storage = $this->entityTypeManager->getStorage('node');
@@ -116,7 +126,7 @@ class NrgiFeaturedContentHelperService extends NrgiFeaturedCardsBase {
     }
 
     // Filter by person type.
-    $query->condition('type', ['person'], 'IN');
+    $query->condition('type', $this->types, 'IN');
 
     // Date filter.
     // Upcoming/past contents only.
@@ -135,7 +145,11 @@ class NrgiFeaturedContentHelperService extends NrgiFeaturedCardsBase {
       $date_format = DateTimeItemInterface::DATETIME_STORAGE_FORMAT;
       $date_to_compare = $now->format($date_format);
       if (empty($this->dateFields)) {
-        $query->condition('unified_date', $date_to_compare, $date_condition);
+        $query->condition(
+          'unified_date',
+          $date_to_compare,
+          $date_condition
+        );
       }
       else {
         // Array date fields.

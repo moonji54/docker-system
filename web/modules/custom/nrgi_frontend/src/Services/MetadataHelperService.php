@@ -1,10 +1,12 @@
 <?php
 
-namespace Drupal\nrgi_frontend;
+namespace Drupal\nrgi_frontend\Services;
 
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Field\EntityReferenceFieldItemListInterface;
 use Drupal\Core\Field\FieldItemList;
+use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\file\FileInterface;
 use Drupal\media\MediaInterface;
 use Drupal\node\NodeInterface;
@@ -13,9 +15,9 @@ use Drupal\paragraphs\ParagraphInterface;
 /**
  * Class Metadata Helper service.
  *
- * Service providing preprocessing methods for nodes metadata,
+ * Service providing preprocessing methods for nodes metadata.
  *
- * @package Drupal\ifg_frontend
+ * @package Drupal\nrgi_frontend
  */
 class MetadataHelperService {
 
@@ -46,7 +48,7 @@ class MetadataHelperService {
       ],
       'sidebar_logo' => [
         'field_acknowledgement_logo',
-      ]
+      ],
 
     ],
     'event' => [
@@ -58,7 +60,7 @@ class MetadataHelperService {
         'field_expertise_required',
         'field_address',
       ],
-    ]
+    ],
   ];
 
   /**
@@ -85,7 +87,6 @@ class MetadataHelperService {
       $variables['meta_data'][] = $metadata;
     }
 
-
     $this->preprocessEventDetails(
       $node,
       $this->metadataFieldNames['event']['event_details'],
@@ -101,6 +102,30 @@ class MetadataHelperService {
       $this->metadataFieldNames['all']['taxonomies'],
       $variables
     );
+  }
+
+  /**
+   * Preprocess cards metadata.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   Node.
+   * @param array &$variables
+   *   The variables array.
+   *
+   * @throws \Drupal\Core\Entity\EntityMalformedException
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+   */
+  public function preprocessCardMetadata(
+    NodeInterface $node,
+    array &$variables
+  ): void {
+
+    switch ($node->bundle()) {
+      case 'event':
+        $this->preprocessEventCardMetadata($node, $variables);
+        break;
+    }
+
   }
 
   /**
@@ -127,10 +152,6 @@ class MetadataHelperService {
       $metadata['label'] = t('Produced in partnership with');
       $variables['sidebar_data'][] = $metadata;
     }
-
-    /** @TODO  Language switched */
-    /** @TODO Share link */
-
   }
 
   /**
@@ -157,7 +178,8 @@ class MetadataHelperService {
         switch ($field->getFieldDefinition()->getType()) {
           case 'entity_reference':
             if ($field instanceof EntityReferenceFieldItemListInterface) {
-              $entities = $node->get($metadata_field_name)->referencedEntities();
+              $entities = $node->get($metadata_field_name)
+                ->referencedEntities();
               $label = $node->get($metadata_field_name)
                 ->getFieldDefinition()
                 ->getLabel();
@@ -179,11 +201,15 @@ class MetadataHelperService {
               }
             }
             break;
+
           case 'string':
             $meta_items = [
               'label' => t('Top image'),
               'type' => 'text',
-              'items' => ['title' => $node->get($metadata_field_name)->first()->value],
+              'items' => [
+                'title' => $node->get($metadata_field_name)
+                  ->first()->value,
+              ],
             ];
             break;
         }
@@ -236,7 +262,7 @@ class MetadataHelperService {
     if ($items) {
       $metadata = [
         'label' => 'Additional downloads',
-        'items' => $items
+        'items' => $items,
       ];
       $variables['meta_data'][] = [$metadata];
     }
@@ -272,10 +298,14 @@ class MetadataHelperService {
               if ($paragraph instanceof ParagraphInterface) {
                 $media = $paragraph->get('field_image')->entity;
                 if ($media instanceof MediaInterface) {
-                  $view_builder = \Drupal::entityTypeManager()->getViewBuilder('media');
+                  $view_builder = \Drupal::entityTypeManager()
+                    ->getViewBuilder('media');
                   $items[] = [
                     'view' => $view_builder->view($paragraph->get('field_image')->entity, 'logo'),
-                    'link' => $paragraph->get('field_link')->first()->getUrl()->toString(),
+                    'link' => $paragraph->get('field_link')
+                      ->first()
+                      ->getUrl()
+                      ->toString(),
                   ];
                 }
               }
@@ -291,7 +321,7 @@ class MetadataHelperService {
       return [
         'type' => 'logo',
         'label' => t('Produced with financial support from'),
-        'sections' => $metadata
+        'sections' => $metadata,
       ];
     }
     return [];
@@ -331,6 +361,7 @@ class MetadataHelperService {
               'items' => ['title' => $node->get($field_name)->first()->value],
             ];
             break;
+
           case 'entity_reference_revisions':
             $entity_fields = $field->referencedEntities();
             foreach ($entity_fields as $paragraph) {
@@ -347,14 +378,77 @@ class MetadataHelperService {
                 ->getLabel();
               $metadata = [
                 'label' => $label,
-                'items' => $items
+                'items' => $items,
               ];
               $variables['meta_data'][] = [$metadata];
             }
-          break;
+            break;
         }
       }
     }
+  }
+
+  /**
+   * Preprocess Event card meta.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   Node.
+   * @param array $variables
+   *   The variables array.
+   */
+  protected function preprocessEventCardMetadata(
+    NodeInterface $node,
+    array &$variables,
+  ): void {
+
+    // Dates.
+    $date = '';
+    if ($node->hasField('field_start_date')
+        && $start_date_field = $node->get('field_start_date')) {
+      $start_date = new DrupalDateTime($start_date_field->value);
+      $start_day = $start_date->format('d');
+      $start_month = $start_date->format('F');
+      $start_year = $start_date->format(('Y'));
+
+      $date .= $start_day . ' ' . $start_month;
+
+      if ($node->hasField('field_end_date')
+          && $end_date_field = $node->get('field_end_date')) {
+        $end_date = new DrupalDateTime($end_date_field->value);
+        $end_day = $end_date->format('d');
+        $end_month = $end_date->format('F');
+        $end_year = $end_date->format(('Y'));
+
+        if ($end_year > $start_year) {
+          $date .= ' ' . $start_year . '-' . $end_day . ' ' . $end_month . ' ' . $end_year;
+        }
+        else {
+          $date .= '-' . $end_day . ' ' . $end_month . ' ' . $end_year;
+        }
+
+        $variables['date'] = $date;
+      }
+    }
+
+    // Format.
+    if ($node->hasField('field_format')
+        && $format_field = $node->get('field_format')) {
+      $format = $format_field->value;
+
+      $variables['format'] = $format;
+    }
+
+    // Recording available.
+    if ($node->hasField('field_event_recording')
+        && $recording_field = $node->get('field_event_recording')) {
+      $has_recording = $recording_field->value;
+      $now = new DrupalDateTime('now');
+      $now->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
+      if ($has_recording && $end_date < $now) {
+        $variables['recording'] = TRUE;
+      }
+    }
+
   }
 
   /**

@@ -6,11 +6,8 @@ dependencies:
     - field.storage.paragraph.field_content
     - node.type.article
     - node.type.career_opportunity
-    - node.type.country
     - node.type.event
     - node.type.publication
-    - node.type.region
-    - node.type.topic
     - paragraphs.paragraphs_type.featured_content
 id: paragraph.featured_content.field_content
 field_name: field_content
@@ -28,11 +25,8 @@ settings:
     target_bundles:
       article: article
       career_opportunity: career_opportunity
-      country: country
       event: event
       publication: publication
-      region: region
-      topic: topic
     sort:
       field: _none
       direction: ASC
