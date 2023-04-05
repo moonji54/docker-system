@@ -4,8 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.page.field_featured_image
+    - field.field.node.page.field_overlay_opacity
+    - field.field.node.page.field_page_builder
+    - field.field.node.page.field_short_description
     - node.type.page
   module:
+    - entity_reference_revisions
     - user
 _core:
   default_config_hash: 1wQaXuVb9u-z3eYzDxMBpmCCzyi6zJZKhbNyDtuWbPM
@@ -20,12 +24,38 @@ content:
     weight: -20
     region: content
   field_featured_image:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     label: above
     settings:
-      link: true
+      view_mode: full_width
+      link: false
     third_party_settings: {  }
-    weight: 1
+    weight: 111
+    region: content
+  field_overlay_opacity:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_page_builder:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_short_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 113
     region: content
 hidden:
   content_moderation_control: true
