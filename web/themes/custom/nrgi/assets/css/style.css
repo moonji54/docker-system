@@ -590,7 +590,7 @@ ul li a:hover {
   grid-column-gap: var(--gutter);
   grid-template-columns: repeat(12, 1fr);
   border-top: 1px solid #EDEDEF;
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
   padding-top: var(--space-xs);
 }
 @media (max-width: 48rem) {

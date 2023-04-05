@@ -10,7 +10,7 @@
   &__header {
     @include grid;
     border-top    : 1px solid $grey-light;
-    margin-bottom : var(--space-2xl);
+    margin-bottom : var(--space-xl);
     padding-top   : var(--space-xs);
   }
 
