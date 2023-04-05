@@ -69,6 +69,17 @@ class MetadataHelperService {
   ];
 
   /**
+   * Associative array of subtype field names by content type.
+   *
+   * @var array|string[]
+   */
+  protected array $nodeSubtypeFields = [
+    'article' => 'field_resource_type',
+    'publication' => 'field_resource_type',
+    'event' => 'field_event_type',
+  ];
+
+  /**
    * The path matcher service. Provides a path matcher.
    *
    * @var \Drupal\Core\Path\PathMatcherInterface
@@ -114,6 +125,12 @@ class MetadataHelperService {
     NodeInterface $node,
     array &$variables
   ): void {
+
+    /* All node types meta. */
+
+    $variables['subtype'] = $this->getFirstTermLabel($node, $this->nodeSubtypeFields[$node->bundle()]);
+
+    // Node footer meta.
     $metadata = $this->preprocessLogos(
       $node,
       $this->metadataFieldNames['all']['logo'],
@@ -123,11 +140,6 @@ class MetadataHelperService {
       $variables['meta_data'][] = $metadata;
     }
 
-    $this->preprocessEventDetails(
-      $node,
-      $this->metadataFieldNames['event']['event_details'],
-      $variables
-    );
     $this->preprocessDownloads(
       $node,
       $this->metadataFieldNames['all']['downloads'],
@@ -138,6 +150,29 @@ class MetadataHelperService {
       $this->metadataFieldNames['all']['taxonomies'],
       $variables
     );
+
+    /* Content type specific meta. */
+
+    // Node header meta temporary array.
+    $header_meta = [];
+
+    switch ($node->bundle()) {
+      case 'article':
+      case 'publication':
+        // Header download report PDF .
+        $this->preprocessDownloads($node, ['field_upload'], $header_meta, TRUE);
+        $variables['report_pdf'] = $header_meta['files'][0];
+        break;
+
+      case 'event':
+        $this->preprocessEventDetails(
+          $node,
+          $this->metadataFieldNames['event']['event_details'],
+          $variables
+        );
+        break;
+    }
+
   }
 
   /**
@@ -313,6 +348,8 @@ class MetadataHelperService {
    *   Array of download field names.
    * @param array $variables
    *   The variables array.
+   * @param bool $items_only
+   *   Whether to add items only to variables array, FALSE by default.
    *
    * @throws \Drupal\Core\Entity\EntityMalformedException
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
@@ -321,8 +358,10 @@ class MetadataHelperService {
     NodeInterface $node,
     array $download_field_names,
     array &$variables,
+    bool $items_only = FALSE,
   ): void {
     $items = [];
+
     foreach ($download_field_names as $download_field_name) {
       if ($node->hasField($download_field_name) && $field = $node->get($download_field_name)) {
         if (!$field instanceof FieldItemList | $field->isEmpty()) {
@@ -332,12 +371,15 @@ class MetadataHelperService {
           case 'entity_reference':
           case 'entity_reference_revisions':
             $entity_fields = $field->referencedEntities();
-            foreach ($entity_fields as $paragraph) {
-              if ($paragraph instanceof ParagraphInterface) {
-                $media = $paragraph->get('field_file')->entity;
+            foreach ($entity_fields as $entity) {
+              if ($entity instanceof ParagraphInterface) {
+                $media = $entity->get('field_file')->entity;
                 if ($media instanceof MediaInterface) {
                   $items[] = $this->getFileFromMediaDocument($media);
                 }
+              }
+              elseif ($entity instanceof MediaInterface) {
+                $items[] = $this->getFileFromMediaDocument($entity);
               }
             }
             break;
@@ -345,11 +387,16 @@ class MetadataHelperService {
       }
     }
     if ($items) {
-      $metadata = [
-        'label' => 'Additional downloads',
-        'items' => $items,
-      ];
-      $variables['meta_data'][] = [$metadata];
+      if (!$items_only) {
+        $metadata = [
+          'label' => 'Additional downloads',
+          'items' => $items,
+        ];
+        $variables['meta_data'][] = [$metadata];
+      }
+      else {
+        $variables['files'] = $items;
+      }
     }
   }
 
@@ -547,6 +594,8 @@ class MetadataHelperService {
    *   Node.
    * @param array $variables
    *   The variables array.
+   *
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   protected function preprocessResourceCardMetadata(
     NodeInterface $node,
@@ -602,7 +651,7 @@ class MetadataHelperService {
   public function getFirstTermLabel(
     NodeInterface $node,
     string $taxonomy_field_name
-  ) {
+  ): string {
     if ($node->hasField($taxonomy_field_name)
         && $taxonomy_field = $node->get($taxonomy_field_name)) {
       if ($entity_ref = $taxonomy_field->first()
