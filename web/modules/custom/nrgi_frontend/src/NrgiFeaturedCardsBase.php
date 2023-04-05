@@ -212,14 +212,18 @@ class NrgiFeaturedCardsBase {
    *   The node types.
    */
   public function setAllowedTypes(array $types): void {
-    if ($types) {
-      $this->types = $types;
-    }
 
-    elseif ($this->typesField && $this->paragraph->hasField($this->typesField)) {
-      foreach ($this->paragraph->get($this->typesField) as $type) {
-        $this->types[] = $type->value;
+    if ($this->typesField && $this->paragraph->hasField($this->typesField)
+        && $this->paragraph->get($this->typesField)
+        && $setting_types = $this->paragraph->get($this->typesField)
+          ->getValue()) {
+      foreach ($setting_types as $type) {
+        $this->types[] = $type['value'];
       }
+    }
+    elseif ($types) {
+      // Default to provided values if not set by the editor.
+      $this->types = $types;
     }
   }
 

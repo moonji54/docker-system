@@ -28,7 +28,13 @@ class NrgiFeaturedContentHelperService extends NrgiFeaturedCardsBase {
       'field_region',
       'field_topic',
     ]);
-    $this->setAllowedTypes([]);
+
+    $this->setAllowedTypes([
+      'article',
+      'career_opportunity',
+      'event',
+      'publication',
+    ]);
 
     $upcoming_events_only = (bool) $this->paragraph->get('field_upcoming')
       ->getString();
@@ -125,7 +131,7 @@ class NrgiFeaturedContentHelperService extends NrgiFeaturedCardsBase {
       $query->condition('nid', $exclusions, 'NOT IN');
     }
 
-    // Filter by person type.
+    // Filter by content type(s).
     $query->condition('type', $this->types, 'IN');
 
     // Date filter.

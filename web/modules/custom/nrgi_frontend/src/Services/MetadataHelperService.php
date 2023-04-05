@@ -2,15 +2,20 @@
 
 namespace Drupal\nrgi_frontend\Services;
 
+use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Plugin\DataType\EntityReference;
 use Drupal\Core\Field\EntityReferenceFieldItemListInterface;
 use Drupal\Core\Field\FieldItemList;
+use Drupal\Core\Path\PathMatcherInterface;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\file\FileInterface;
+use Drupal\link\LinkItemInterface;
 use Drupal\media\MediaInterface;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\ParagraphInterface;
+use Drupal\taxonomy\TermInterface;
 
 /**
  * Class Metadata Helper service.
@@ -64,6 +69,37 @@ class MetadataHelperService {
   ];
 
   /**
+   * The path matcher service. Provides a path matcher.
+   *
+   * @var \Drupal\Core\Path\PathMatcherInterface
+   */
+  protected PathMatcherInterface $pathMatcher;
+
+  /**
+   * The date formatter service. Provides service to handle date formatting.
+   *
+   * @var \Drupal\Core\Datetime\DateFormatterInterface
+   */
+  protected DateFormatterInterface $dateFormatter;
+
+  /**
+   * Constructs a new MetadataHelperService.
+   *
+   * @param \Drupal\Core\Path\PathMatcherInterface $path_matcher
+   *   The path matcher interface.
+   * @param \Drupal\Core\Datetime\DateFormatterInterface $date_formatter
+   *   The date formatter interface.
+   */
+  public function __construct(
+    PathMatcherInterface $path_matcher,
+    DateFormatterInterface $date_formatter
+  ) {
+    $this->pathMatcher = $path_matcher;
+    $this->dateFormatter = $date_formatter;
+
+  }
+
+  /**
    * Preprocess metadata.
    *
    * @param \Drupal\node\NodeInterface $node
@@ -112,7 +148,6 @@ class MetadataHelperService {
    * @param array &$variables
    *   The variables array.
    *
-   * @throws \Drupal\Core\Entity\EntityMalformedException
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   public function preprocessCardMetadata(
@@ -120,10 +155,60 @@ class MetadataHelperService {
     array &$variables
   ): void {
 
+    // Content type.
+    $variables['content_type'] = $node->bundle();
+
+    // Slug - on homepage only.
+    if ($node->hasField('field_slug')
+        && $slug_field = $node->get('field_slug')) {
+      $slug = $slug_field->value;
+
+      if ($this->pathMatcher->isFrontPage()) {
+        $variables['slug'] = $slug;
+      }
+    }
+
+    // Date.
+    if ($date = $node->get('unified_date')) {
+      $card_date = $this->dateFormatter->format($date->value, 'card_date');
+      $variables['date'] = $card_date;
+    }
+
+    // Available translations.
+    $available_translations_string = '';
+    $languages = $node->getTranslationLanguages();
+    $available_langcodes = count(array_keys($languages)) > 1 ? array_keys($languages) : [];
+
+    if ($available_langcodes) {
+      $available_translations_string .= t('Also in');
+      $i = 0;
+      foreach ($available_langcodes as $available_langcode) {
+        if ($i > 0) {
+          $available_translations_string .= ',';
+        }
+        if ($available_langcode != $node->language()->getId()) {
+          $available_translations_string .= ' ' . $available_langcode;
+          $i++;
+        }
+
+      }
+      $variables['translations'] = $available_translations_string;
+    }
+
+    // First Topic.
+    $variables['first_topic'] = $this->getFirstTermLabel($node, 'field_topic');
+
+    // Content type specific card meta.
     switch ($node->bundle()) {
       case 'event':
         $this->preprocessEventCardMetadata($node, $variables);
         break;
+
+      case 'article':
+      case 'publication':
+        $this->preprocessResourceCardMetadata($node, $variables);
+        break;
+
     }
 
   }
@@ -401,6 +486,10 @@ class MetadataHelperService {
     array &$variables,
   ): void {
 
+    if ($event_type = $this->getFirstTermLabel($node, 'field_event_type')) {
+      $variables['subtype'] = $event_type;
+    }
+
     // Dates.
     $date = '';
     if ($node->hasField('field_start_date')
@@ -449,6 +538,90 @@ class MetadataHelperService {
       }
     }
 
+  }
+
+  /**
+   * Preprocess Resource card meta.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   Node.
+   * @param array $variables
+   *   The variables array.
+   */
+  protected function preprocessResourceCardMetadata(
+    NodeInterface $node,
+    array &$variables,
+  ): void {
+
+    // Resource type.
+    if ($resource_type = $this->getFirstTermLabel(
+      $node,
+      'field_resource_type')
+    ) {
+      $variables['subtype'] = $resource_type;
+    }
+
+    // External link - node page disabled - card title to link to external item.
+    if ($node->hasField('field_link')
+        && $external_link_field = $node->get('field_link')) {
+      if ($external_link = $external_link_field->first()) {
+        if ($external_link instanceof LinkItemInterface) {
+          $external_link_uri = $external_link->get('uri')->getValue();
+          $external_link_title = $external_link->get('title')->getValue();
+
+          if ($external_link_uri) {
+            if ($node->hasField('field_disable')
+                && $disable_field = $node->get('field_disable')) {
+              if ($disable_field->value) {
+                $variables['external_link'] = [
+                  'uri' => $external_link_uri,
+                  'title' => $external_link_title,
+                ];
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  /**
+   * Get first selected term label.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   The node.
+   * @param string $taxonomy_field_name
+   *   The taxonomy field name.
+   *
+   * @return string
+   *   The first term's selected label, empty string if not found.
+   *
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+   */
+  public function getFirstTermLabel(
+    NodeInterface $node,
+    string $taxonomy_field_name
+  ) {
+    if ($node->hasField($taxonomy_field_name)
+        && $taxonomy_field = $node->get($taxonomy_field_name)) {
+      if ($entity_ref = $taxonomy_field->first()
+        ->get('entity')) {
+        if ($entity_ref instanceof EntityReference) {
+          if ($entity_ref->getTarget()) {
+            $entity = $entity_ref->getTarget()
+              ->getValue();
+            if ($entity instanceof TermInterface) {
+              return $entity->getName();
+            }
+            elseif ($entity instanceof NodeInterface) {
+              return $entity->label();
+            }
+          }
+        }
+      }
+    }
+    return '';
   }
 
   /**

@@ -1,12 +1,14 @@
 {% include '@nrgi/card-partials/featured-content.html.twig' with {
-  description : description,
   content_type: content_type,
-  slug: slug
   url : url,
-  format: format,
+  slug: slug,
+  external_link: external_link,
+  subtype: subtype ?: content_type,
+  date: date|upper,
+  translations: translations|upper,
+  first_topic: first_topic,
   title : label,
-  date: date
-  recording_available: recording_available,
-  external_link| external_link
+  format: format,
+  recording: recording,
   layout : '1-per-row',
 } %}
