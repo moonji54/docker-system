@@ -1141,6 +1141,31 @@ ul li a:hover {
   text-decoration: underline;
 }
 
+.c-footnotes ul {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  -moz-columns: 2;
+       columns: 2;
+  -moz-column-gap: var(--space-l);
+       column-gap: var(--space-l);
+}
+@media (max-width: 64rem) {
+  .c-footnotes ul {
+    font-size: 0.875rem;
+  }
+}
+.c-footnotes ul li {
+  margin-bottom: var(--space-s);
+}
+.c-footnotes ul li:last-child {
+  margin-bottom: 0;
+}
+.c-footnotes ul li .footnote-label {
+  margin-right: var(--space-s);
+}
+
 /** @define c.form */
 .c-form label {
   font-family: "Cabinet Grotesk", sans-serif;

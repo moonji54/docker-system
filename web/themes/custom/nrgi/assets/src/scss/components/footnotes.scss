@@ -1,0 +1,19 @@
+.c-footnotes {
+  ul {
+    @include ts-caption;
+    columns    : 2;
+    column-gap : var(--space-l);
+
+    li {
+      margin-bottom : var(--space-s);
+
+      &:last-child {
+        margin-bottom : 0;
+      }
+
+      .footnote-label {
+        margin-right : var(--space-s);
+      }
+    }
+  }
+}
