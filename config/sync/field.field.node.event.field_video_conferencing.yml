@@ -11,7 +11,7 @@ id: node.event.field_video_conferencing
 field_name: field_video_conferencing
 entity_type: node
 bundle: event
-label: 'Video conferencing platform'
+label: 'Video conferencing platform / Recording'
 description: 'Add button linking to event if hosted on Zoom or another video conferencing platform.'
 required: false
 translatable: true

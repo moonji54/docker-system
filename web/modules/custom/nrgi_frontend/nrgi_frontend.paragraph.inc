@@ -19,6 +19,11 @@ function nrgi_frontend_preprocess_paragraph(&$variables) {
   // Add details for specific paragraph types.
   switch ($paragraph->getType()) {
     case 'featured_content':
+      /** @var \Drupal\nrgi_frontend\Services\NrgiFeaturedContentHelperService $paragraph_featured_content_service */
+      $paragraph_featured_content_service = \Drupal::service('nrgi_frontend.paragraph_featured_content_helper');
+
+      // Preprocess featured pages.
+      $paragraph_featured_content_service->preprocessFeaturedContent($variables);
       break;
 
     case 'featured_pages':

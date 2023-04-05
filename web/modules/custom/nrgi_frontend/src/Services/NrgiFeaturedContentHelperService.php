@@ -2,12 +2,14 @@
 
 namespace Drupal\nrgi_frontend\Services;
 
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\nrgi_frontend\NrgiFeaturedCardsBase;
 
 /**
- * Class NrgiFeaturedPeopleHelperService - service for featured people.
+ * Class NrgiFeaturedContentHelperService - service for featured content.
  */
-class NrgiFeaturedPeopleHelperService extends NrgiFeaturedCardsBase {
+class NrgiFeaturedContentHelperService extends NrgiFeaturedCardsBase {
 
   /**
    * Handle preprocess Paragraph for featured cards.
@@ -19,36 +21,67 @@ class NrgiFeaturedPeopleHelperService extends NrgiFeaturedCardsBase {
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Exception
    */
-  public function preprocessFeaturedPeople(array &$variables): void {
+  public function preprocessFeaturedContent(array &$variables): void {
     $this->setParagraph($variables['paragraph']);
-    $this->setTaxonomyFields(['field_role_type']);
+    $this->setTaxonomyFields([
+      'field_country',
+      'field_region',
+      'field_topic',
+    ]);
 
-    $people_nids_manually_excluded = $this->getManualExclusions();
-    $people_nids_excluded = array_merge(
-      $people_nids_manually_excluded,
+    $this->setAllowedTypes([
+      'article',
+      'career_opportunity',
+      'event',
+      'publication',
+    ]);
+
+    $upcoming_events_only = (bool) $this->paragraph->get('field_upcoming')
+      ->getString();
+    $date_filter = '';
+    $date_fields = [];
+
+    // If upcoming events only is flagged, we want to put a date
+    // condition but for events only.
+    if ($upcoming_events_only) {
+      $date_filter = 'upcoming';
+      $date_fields = [
+        'event' => 'field_start_date',
+      ];
+    }
+
+    $this->setDateFilter($date_filter);
+    $this->setDateFields($date_fields);
+
+    $content_nids_manually_excluded = $this->getManualExclusions();
+    $content_nids_excluded = array_merge(
+      $content_nids_manually_excluded,
       $this->getExclusions()
     );
-    $people_nids_automated = $this->getAutomatedSelections(
-      $people_nids_excluded
+    $content_nids_automated = $this->getAutomatedSelections(
+      $content_nids_excluded
     );
-    $people_nids_selected = $this->getNodeIds();
+    $content_nids_selected = $this->getNodeIds();
 
-    if ($people_nids_automated) {
-      $people_nids_automated = $people_nids_automated['node_ids'];
-      $people_nids = array_merge($people_nids_selected, $people_nids_automated);
+    if ($content_nids_automated) {
+      $content_nids_automated = $content_nids_automated['node_ids'];
+      $content_nids = array_merge(
+        $content_nids_selected,
+        $content_nids_automated
+      );
     }
     else {
-      $people_nids = $people_nids_selected;
+      $content_nids = $content_nids_selected;
     }
 
-    if (!empty($people_nids)) {
-      $this->setViewMode('featured_people');
+    if (!empty($content_nids)) {
+      $this->setViewMode('featured_content');
       // Get node storage instance.
       $storage = $this->entityTypeManager->getStorage('node');
-      $people_nodes = $storage->loadMultiple($people_nids);
+      $content_nodes = $storage->loadMultiple($content_nids);
 
-      $variables['featured_people'] = [
-        'items' => $this->renderFeaturedCards($people_nodes),
+      $variables['featured_content'] = [
+        'items' => $this->renderFeaturedCards($content_nodes),
         'with_image' => $this->withImage,
         'view_mode' => $this->viewMode,
         'layout' => $this->paragraph->get($this->itemsPerRowField)->getString(),
@@ -98,13 +131,54 @@ class NrgiFeaturedPeopleHelperService extends NrgiFeaturedCardsBase {
       $query->condition('nid', $exclusions, 'NOT IN');
     }
 
-    // Filter by person type.
-    $query->condition('type', ['person'], 'IN');
+    // Filter by content type(s).
+    $query->condition('type', $this->types, 'IN');
 
     // Date filter.
     // Upcoming/past contents only.
+    // Date filter.
+    // Upcoming/past contents only.
     $this->sortOrder = 'DESC';
+    if ($this->dateFilter === 'upcoming') {
+      $this->sortOrder = 'ASC';
+      $date_condition = '>';
+    }
+    elseif ($this->dateFilter === 'past') {
+      $date_condition = '<';
+    }
+    if (isset($date_condition)) {
+      $now = new DrupalDateTime('now');
+      $date_format = DateTimeItemInterface::DATETIME_STORAGE_FORMAT;
+      $date_to_compare = $now->format($date_format);
+      if (empty($this->dateFields)) {
+        $query->condition(
+          'unified_date',
+          $date_to_compare,
+          $date_condition
+        );
+      }
+      else {
+        // Array date fields.
+        $types = [];
+        foreach ($this->dateFields as $type => $field) {
+          if ($this->types && in_array($type, $this->types)) {
+            $or_group = $query->orConditionGroup()
+              ->condition($field, $date_to_compare, $date_condition);
+            $types[] = $type;
+          }
+        }
 
+        if ($types) {
+          $other_type_or_group = $query->orConditionGroup()
+            ->condition('type', $types, 'NOT IN')
+            ->condition($or_group);
+
+          $query->condition($other_type_or_group);
+        }
+      }
+    }
+
+    // Taxonomy filters.
     foreach ($this->taxonomyFields as $taxonomy_field) {
       $term_ids = [];
 

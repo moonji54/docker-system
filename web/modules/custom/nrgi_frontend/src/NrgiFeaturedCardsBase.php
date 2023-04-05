@@ -102,7 +102,7 @@ class NrgiFeaturedCardsBase {
    *
    * @var string
    */
-  protected string $typesField;
+  protected string $typesField = 'field_types';
 
   /**
    * The fields to indicated allowed taxonomy filters in automated contents.
@@ -212,14 +212,18 @@ class NrgiFeaturedCardsBase {
    *   The node types.
    */
   public function setAllowedTypes(array $types): void {
-    if ($types) {
-      $this->types = $types;
-    }
 
-    elseif ($this->typesField && $this->paragraph->hasField($this->typesField)) {
-      foreach ($this->paragraph->get($this->typesField) as $type) {
-        $this->types[] = $type->value;
+    if ($this->typesField && $this->paragraph->hasField($this->typesField)
+        && $this->paragraph->get($this->typesField)
+        && $setting_types = $this->paragraph->get($this->typesField)
+          ->getValue()) {
+      foreach ($setting_types as $type) {
+        $this->types[] = $type['value'];
       }
+    }
+    elseif ($types) {
+      // Default to provided values if not set by the editor.
+      $this->types = $types;
     }
   }
 
@@ -291,6 +295,26 @@ class NrgiFeaturedCardsBase {
    */
   public function setContentField(string $content_field): void {
     $this->contentField = $content_field;
+  }
+
+  /**
+   * Set date filter.
+   *
+   * @param string $date_filter
+   *   The date filter.
+   */
+  public function setDateFilter(string $date_filter): void {
+    $this->dateFilter = $date_filter;
+  }
+
+  /**
+   * Set date field.
+   *
+   * @param array $date_fields
+   *   The date filter.
+   */
+  public function setDateFields(array $date_fields): void {
+    $this->dateFields = $date_fields;
   }
 
   /**

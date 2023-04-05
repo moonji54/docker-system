@@ -1,16 +1,15 @@
-uuid: 3a87b409-ecc4-48aa-9825-53a8df87ab4f
+uuid: 1ee20a40-678d-43ec-af07-dfbb6a993379
 langcode: en
 status: true
 dependencies:
   module:
-    - link
-    - node
-id: node.field_video_conferencing
-field_name: field_video_conferencing
-entity_type: node
-type: link
+    - paragraphs
+id: paragraph.field_upcoming
+field_name: field_upcoming
+entity_type: paragraph
+type: boolean
 settings: {  }
-module: link
+module: core
 locked: false
 cardinality: 1
 translatable: true
