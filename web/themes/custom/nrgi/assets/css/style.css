@@ -920,7 +920,7 @@ ul li a:hover {
 .c-card__external-icon {
   color: #FF7D5F;
   display: inline-block;
-  margin: 0.5rem 0 0 0.25rem;
+  margin: var(--space-xs) 0 0 0.25rem;
   vertical-align: top;
 }
 .c-card__image-wrapper {

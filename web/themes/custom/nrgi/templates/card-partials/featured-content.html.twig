@@ -70,6 +70,10 @@
       {% if date and content_type == 'event' %}
         <span class="c-card__meta-item">{{ date }}</span>
       {% endif %}
+
+      {% if publisher and content_type == 'article' %}
+        <span class="c-card__meta-item">{{ publisher }}</span>
+      {% endif %}
     </div>
 
     {% if show_image %}

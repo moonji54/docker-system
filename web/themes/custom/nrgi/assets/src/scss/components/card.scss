@@ -100,7 +100,7 @@
   &__external-icon {
     color          : $tertiary;
     display        : inline-block;
-    margin         : 0.5rem 0 0 0.25rem;
+    margin         : var(--space-xs) 0 0 0.25rem;
     vertical-align : top;
   }
 

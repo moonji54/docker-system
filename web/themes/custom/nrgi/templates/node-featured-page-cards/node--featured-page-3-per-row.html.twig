@@ -1,5 +1,5 @@
 {% include '@nrgi/card-partials/featured-page.html.twig' with {
-  description : content.field_short_description,
+  description : content.field_short_description|field_raw['value'],
   url : url,
   title : label,
   layout : '3-per-row',
