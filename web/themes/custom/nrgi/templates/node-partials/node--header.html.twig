@@ -20,8 +20,24 @@
     <div>{{ content.field_publication_date }}</div>
   {% endif %}
 
-  {% if content.field_author|field_value %}
-    {{ content.field_author }}
+  {% if authors %}
+    <div>
+      <ul>
+        {% for author in authors %}
+          <li>
+            {% if author.url %}
+              <a href="{{ author.url }}"
+                 title="{{ 'Visit '|t ~ author.firstname ~ ' ' ~ author.surname ~ '\'s profile'|t }}"
+                 target="{{ author.is_external ? '_blank' : '' }}">
+                {{ author.firstname ~ ' ' ~ author.surname }}
+              </a>
+            {% else %}
+              {{ author.firstname ~ ' ' ~ author.surname }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   {% endif %}
 
   {% if content.field_link|field_value %}

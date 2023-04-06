@@ -11,6 +11,8 @@ use Drupal\Core\Field\FieldItemList;
 use Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem;
 use Drupal\Core\Path\PathMatcherInterface;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
+use Drupal\entity_reference_revisions\Plugin\DataType\EntityReferenceRevisions;
+use Drupal\entity_reference_revisions\Plugin\Field\FieldType\EntityReferenceRevisionsItem;
 use Drupal\file\FileInterface;
 use Drupal\link\LinkItemInterface;
 use Drupal\media\MediaInterface;
@@ -95,20 +97,30 @@ class MetadataHelperService {
   protected DateFormatterInterface $dateFormatter;
 
   /**
+   * The NRGI responsive image helper service.
+   *
+   * @var \Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService
+   */
+  protected NrgiResponsiveImageHelperService $responsiveImageService;
+
+  /**
    * Constructs a new MetadataHelperService.
    *
    * @param \Drupal\Core\Path\PathMatcherInterface $path_matcher
    *   The path matcher interface.
    * @param \Drupal\Core\Datetime\DateFormatterInterface $date_formatter
    *   The date formatter interface.
+   * @param \Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService $responsive_image_service
+   *   The NRGI responsive image style helper service.
    */
   public function __construct(
     PathMatcherInterface $path_matcher,
-    DateFormatterInterface $date_formatter
+    DateFormatterInterface $date_formatter,
+    NrgiResponsiveImageHelperService $responsive_image_service,
   ) {
     $this->pathMatcher = $path_matcher;
     $this->dateFormatter = $date_formatter;
-
+    $this->responsiveImageService = $responsive_image_service;
   }
 
   /**
@@ -160,8 +172,22 @@ class MetadataHelperService {
       case 'article':
       case 'publication':
         // Header download report PDF .
-        $this->preprocessDownloads($node, ['field_upload'], $header_meta, TRUE);
+        $this->preprocessDownloads(
+          $node,
+          ['field_upload'],
+          $header_meta,
+          TRUE
+        );
         $variables['report_pdf'] = $header_meta['files'][0];
+
+        // Authors (internal and external)
+        $this->preprocessResourcesAuthors(
+          $node,
+          'field_author',
+          'field_external_authors',
+          $variables
+        );
+
         break;
 
       case 'event':
@@ -635,7 +661,131 @@ class MetadataHelperService {
         }
       }
     }
+  }
 
+  /**
+   * Get the resource authors array.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   The resource node.
+   * @param string $internal_people_field_name
+   *   The person reference(s) field name.
+   * @param string $external_people_field_name
+   *   The people paragraph(s) field name.
+   * @param array $variables
+   *   The variable array.
+   *
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+   * @throws \Drupal\Core\Entity\EntityMalformedException
+   */
+  protected function preprocessResourcesAuthors(
+    NodeInterface $node,
+    string $internal_people_field_name,
+    string $external_people_field_name,
+    array &$variables
+  ): void {
+
+    $authors = [];
+
+    /* Internal authors - reference to Person content type */
+    if ($node->hasField($internal_people_field_name)
+        && $person_field = $node->get($internal_people_field_name)) {
+      if ($person_field instanceof EntityReferenceFieldItemListInterface) {
+        foreach ($person_field as $person_reference_item) {
+          $person = [];
+          if ($person_reference_item instanceof EntityReferenceItem) {
+            if ($person_reference = $person_reference_item->get('entity')) {
+              if ($person_reference instanceof EntityReference) {
+                if ($person_reference->getTarget()) {
+                  $person_entity = $person_reference->getTarget()->getValue();
+                  if ($person_entity instanceof NodeInterface
+                      && $person_entity->bundle() == 'person') {
+                    // Link to person.
+                    $person['url'] = $person_entity->toUrl()->toString();
+
+                    // Firstname & Surname.
+                    if ($person_entity->hasField('field_given_name')
+                        && $firstname = $person_entity->get('field_given_name')) {
+                      $person['firstname'] = $firstname->value;
+                    }
+                    if ($person_entity->hasField('field_surname')
+                        && $surname = $person_entity->get('field_surname')) {
+                      $person['surname'] = $surname->value;
+                    }
+
+                    // Job title.
+                    if ($person_entity->hasField('field_job_title')
+                        && $job_title = $person_entity->get('field_job_title')) {
+                      $person['job_title'] = $job_title->value;
+                    }
+
+                    // Headshot.
+                    if ($node->hasField('field_featured_image')
+                        && $node->get('field_featured_image')
+                        && $media = $node->get('field_featured_image')->entity) {
+                      if ($media instanceof MediaInterface) {
+                        /** @var  \Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService $responsive_image_style_service */
+                        $responsive_image_style_service = \Drupal::service('nrgi_frontend.responsive_image_helper');
+                        $responsive_image_style_service->preprocessResponsiveImage(
+                          $media,
+                          'square_small',
+                          $person
+                        );
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          $authors[] = $person;
+        }
+      }
+    }
+
+    /* External authors - Paragraph */
+    if ($node->hasField($external_people_field_name)
+        && $external_person_field = $node->get($external_people_field_name)) {
+      foreach ($external_person_field as $external_person_reference_item) {
+        $external_person = [];
+        if ($external_person_reference_item instanceof EntityReferenceRevisionsItem) {
+          if ($external_person_reference = $external_person_reference_item->get('entity')) {
+            if ($external_person_reference instanceof EntityReferenceRevisions) {
+              if ($external_person_reference->getTarget()) {
+                $external_person_paragraph = $external_person_reference->getTarget()
+                  ->getValue();
+                if ($external_person_paragraph instanceof ParagraphInterface) {
+                  if ($external_person_paragraph->bundle() == 'external_author') {
+                    // Link to external profile.
+                    if ($external_person_paragraph->hasField('field_external_author_link')
+                        && $link_field = $external_person_paragraph->get('field_external_author_link')) {
+                      if ($link_field->first() instanceof LinkItemInterface) {
+                        $external_person['url'] = $link_field->first()->uri;
+                        $external_person['is_external'] = TRUE;
+                      }
+                    }
+
+                    // Firstname & Surname.
+                    if ($external_person_paragraph->hasField('field_given_name')
+                        && $firstname = $external_person_paragraph->get('field_given_name')) {
+                      $external_person['firstname'] = $firstname->value;
+                    }
+                    if ($external_person_paragraph->hasField('field_surname')
+                        && $surname = $external_person_paragraph->get('field_surname')) {
+                      $external_person['surname'] = $surname->value;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        $authors[] = $external_person;
+      }
+    }
+    if (!empty($authors)) {
+      $variables['authors'] = $authors;
+    }
   }
 
   /**
@@ -651,7 +801,7 @@ class MetadataHelperService {
    *
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
-  public function getTermLabels(
+  protected function getTermLabels(
     NodeInterface $node,
     string $taxonomy_field_name,
   ): array {
