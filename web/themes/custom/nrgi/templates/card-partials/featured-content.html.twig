@@ -5,23 +5,41 @@
 {% if title or responsive_image %}
   <article{{ attributes.addClass(classes) }}>
     <div class="c-card__content-wrapper">
-      {% if subtype %}
-        {{ subtype }}
-      {% endif %}
+      <div class="c-card__meta-wrapper">
+        {% if subtype %}
+          <small class="c-card__tag">
+            {{ subtype }}
+          </small>
+        {% endif %}
 
-      {% if format == 'online' %}
-        {# On events only #}
-        <p>
-          {{ 'Online'|t|upper }}
-        </p>
-      {% endif %}
+        {% spaceless %}
+          {% if format == 'online' %}
+            {# On events only #}
+            <span class="c-card__meta-item">
+                {{ 'Online'|t|upper }}
+              </span>
+          {% endif %}
 
-      {% if recording %}
-        {# On events only - will show on past event & with available recording #}
-        <p>
-          {{ 'Recording available'|t|upper }}
-        </p>
-      {% endif %}
+          {% if recording %}
+            {# On events only - will show on past event & with available recording #}
+            <span class="c-card__meta-item">
+                {{ 'Recording available'|t|upper }}
+              </span>
+          {% endif %}
+
+          {% if date and content_type != 'event' %}
+            <span class="c-card__meta-item">{{ date }}</span>
+          {% endif %}
+
+          {% if translations %}
+            <span class="c-card__meta-item">{{ translations }}</span>
+          {% endif %}
+
+          {% if first_topic %}
+            <span class="c-card__meta-item c-card__meta-item--topics">{{ first_topic }}</span>
+          {% endif %}
+        {% endspaceless %}
+      </div>
 
       <h3 class="c-card__title">
         {% if external_link %}
@@ -45,18 +63,6 @@
           </a>
         {% endif %}
       </h3>
-
-      {% if date %}
-        <p>{{ date }}</p>
-      {% endif %}
-
-      {% if translations %}
-        {{ translations }}
-      {% endif %}
-
-      {% if first_topic %}
-        [topic]{{ first_topic }}
-      {% endif %}
 
       {% if responsive_image %}
         <div class="c-card__image-wrapper">

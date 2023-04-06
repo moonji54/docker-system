@@ -4,6 +4,71 @@
   position  : relative;
   container : card / inline-size;
 
+  &:not(&--page, &--person) {
+    &:focus,
+    &:hover {
+      #{$c}__tag {
+        background-color : $tertiary;
+      }
+
+      #{$c}__image-wrapper {
+        img {
+          filter : brightness(1.1);
+        }
+      }
+    }
+
+    #{$c}__image-wrapper {
+      img {
+        transition : filter 0.3s;
+      }
+    }
+  }
+
+  &__tag {
+    @include ts-card-tag;
+    border        : 1px solid $tertiary;
+    border-radius : 1.25rem;
+    display       : inline-block;
+    padding       : 0.125rem 0.625rem;
+    transition    : background-color 0.3s;
+
+    &:has(+ *) {
+      margin-right : var(--space-xs);
+    }
+  }
+
+  &__meta-wrapper {
+    align-items   : center;
+    display       : flex;
+    flex-wrap     : wrap;
+    margin-bottom : var(--space-m);
+    row-gap       : var(--space-xs);
+  }
+
+  &__meta-item {
+    @include ts-card-tag;
+    display      : inline-block;
+    margin-right : var(--space-xs);
+
+    &:after {
+      content     : "•";
+      margin-left : var(--space-xs);
+    }
+
+    &:last-child {
+      margin-right : 0;
+
+      &:after {
+        content : none;
+      }
+    }
+
+    &--topics {
+      display : inline;
+    }
+  }
+
   &__description {
     @include ts-body($small : true);
     margin-top : var(--space-xs);
@@ -29,6 +94,7 @@
 
   &__image-wrapper {
     aspect-ratio : 16 / 9;
+    margin-top   : var(--space-m);
     position     : relative;
 
     /* stylelint-disable-next-line */
@@ -75,6 +141,7 @@
     #{$c}__image-wrapper {
       aspect-ratio : 1;
       height       : 7rem;
+      margin-top   : 0;
       width        : 7rem;
 
       /* stylelint-disable-next-line */
