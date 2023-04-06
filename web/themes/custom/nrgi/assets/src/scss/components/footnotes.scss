@@ -1,19 +1,27 @@
 .c-footnotes {
-  ul {
+  &__list {
     @include ts-caption;
     columns    : 2;
     column-gap : var(--space-l);
 
-    li {
-      margin-bottom : var(--space-s);
+    @include media("<=tablet") {
+      columns : 1;
+    }
+  }
 
-      &:last-child {
-        margin-bottom : 0;
-      }
+  &__list-item {
+    display       : flex;
+    gap           : var(--space-s);
+    margin-bottom : var(--space-s);
 
-      .footnote-label {
-        margin-right : var(--space-s);
-      }
+    &:last-child {
+      margin-bottom : 0;
+    }
+  }
+
+  &__list-content {
+    a {
+      word-break : break-all;
     }
   }
 }

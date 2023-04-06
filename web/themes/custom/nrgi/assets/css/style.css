@@ -1141,7 +1141,7 @@ ul li a:hover {
   text-decoration: underline;
 }
 
-.c-footnotes ul {
+.c-footnotes__list {
   font-family: "Noto Sans", sans-serif;
   font-weight: 400;
   font-size: 1rem;
@@ -1152,18 +1152,26 @@ ul li a:hover {
        column-gap: var(--space-l);
 }
 @media (max-width: 64rem) {
-  .c-footnotes ul {
+  .c-footnotes__list {
     font-size: 0.875rem;
   }
 }
-.c-footnotes ul li {
+@media (max-width: 48rem) {
+  .c-footnotes__list {
+    -moz-columns: 1;
+         columns: 1;
+  }
+}
+.c-footnotes__list-item {
+  display: flex;
+  gap: var(--space-s);
   margin-bottom: var(--space-s);
 }
-.c-footnotes ul li:last-child {
+.c-footnotes__list-item:last-child {
   margin-bottom: 0;
 }
-.c-footnotes ul li .footnote-label {
-  margin-right: var(--space-s);
+.c-footnotes__list-content a {
+  word-break: break-all;
 }
 
 /** @define c.form */

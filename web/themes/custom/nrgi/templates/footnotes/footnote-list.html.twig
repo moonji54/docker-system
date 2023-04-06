@@ -1,5 +1,5 @@
 {# footnotes/footnote-list.html.twig #}
-<ul class="footnotes">
+<ul class="c-footnotes__list">
   {% for fn in footnotes %}
     {% if fn.ref_id is iterable %}
       {#
@@ -9,15 +9,30 @@
       #}
       {% set abc = "abcdefghijklmnopqrstuvwxyz"|split('') %}
       {% set i = 0 %}
-      <li class="footnote" id="{{ fn.fn_id }}"><a href="#{{ fn.ref_id.0 }}" class="footnote-label">{{ fn.value }}</a>
+      <li class="c-footnotes__list-item" id="{{ fn.fn_id }}">
+        <a href="#{{ fn.ref_id.0 }}" class="c-footnotes__list-label">
+          {{ fn.value }}
+        </a>
         {% for ref in fn.ref_id %}
-          <a class="footnote-multi" href="#{{ ref }}">{{ attribute(abc, i) }}</a>
+          <a class="c-footnotes__list-multi" href="#{{ ref }}">{{ attribute(abc, i) }}</a>
           {% set i = i + 1 %}
         {% endfor %}
-        {{ fn.text|raw }}</li>
+
+        <div class="c-footnotes__list-content">
+          {{ fn.text|raw }}
+        </div>
+      </li>
     {% else %}
       {# Output normal footnote. #}
-      <li class="footnote" id="{{ fn.fn_id }}"><a class="footnote-label" href="#{{ fn.ref_id }}">{{ fn.value }}</a>{{ fn.text|raw }}</li>
+      <li class="c-footnotes__list-item" id="{{ fn.fn_id }}">
+        <a class="c-footnotes__list-label" href="#{{ fn.ref_id }}">
+          {{ fn.value }}
+        </a>
+
+        <div class="c-footnotes__list-content">
+          {{ fn.text|raw }}
+        </div>
+      </li>
     {% endif %}
   {% endfor %}
 </ul>
