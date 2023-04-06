@@ -10,12 +10,13 @@
     <div>{{ content.field_subtitle }}</div>
   {% endif %}
 
-  {% if content.field_resource_type|field_value %}
-    <h5>CONTENT TYPE</h5>
-    <div>{{ content.field_resource_type }}</div>
+  {% if subtype %}
+    <h5>SUBTYPE</h5>
+    <p>{{ subtype }}</p>
   {% endif %}
 
   {% if content.field_publication_date|field_value %}
+    {#  TODO: date format #}
     <div>{{ content.field_publication_date }}</div>
   {% endif %}
 
@@ -27,7 +28,10 @@
     {{ content.field_link }}
   {% endif %}
 
-  {% if content.field_upload|field_value %}
-    <div>{{ content.field_upload }}</div>
+  {% if report_pdf %}
+    {% set file_label =  'Download PDF'|t %}
+    <span class="c-meta-rows__icon-wrapper"></span>
+    <a href="{{ report_pdf.url }}" title="{{ file_label }}">{{ file_label }}</a>
   {% endif %}
+
 </header>

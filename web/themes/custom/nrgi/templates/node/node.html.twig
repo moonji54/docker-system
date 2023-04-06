@@ -5,11 +5,15 @@
 <div class="c-node__content-header">
   <div style="background-color: red">
     <h1>Header:</h1>
-  {% include "@nrgi/node-partials/node--header.html.twig" %}
+    {% include "@nrgi/node-partials/node--header.html.twig" %}
   </div>
 </div>
 <article{{ attributes.addClass(classes) }}>
-
+  {#  SIDEBAR #}
+  <div style="background-color: yellow">
+    <h1>SIDEBAR:</h1>
+    {% include '@nrgi/node-partials/node--sidebar.html.twig' %}
+  </div>
 
   <div style="background-color: orange">
     <h1>PAGE BUILDER:</h1>
@@ -18,19 +22,9 @@
     {% endif %}
   </div>
 
-  {% if content.field_page_builder|field_value %}
-    {{ content.field_page_builder }}
-  {% endif %}
-
-  {#  METADATA #}
-  <div style="background-color: yellow">
-    <h1>SIDEBAR:</h1>
-    {% include '@nrgi/node-partials/node--sidebar.html.twig' %}
-  </div>
-
   {#  METADATA #}
   <div style="background-color: green">
     <h1>METADATA:</h1>
-  {% include '@nrgi/node-partials/node--metadata.html.twig' %}
+    {% include '@nrgi/node-partials/node--metadata.html.twig' %}
   </div>
 </article>
