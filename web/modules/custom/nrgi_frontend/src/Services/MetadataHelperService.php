@@ -8,6 +8,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Plugin\DataType\EntityReference;
 use Drupal\Core\Field\EntityReferenceFieldItemListInterface;
 use Drupal\Core\Field\FieldItemList;
+use Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem;
 use Drupal\Core\Path\PathMatcherInterface;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\file\FileInterface;
@@ -127,8 +128,7 @@ class MetadataHelperService {
   ): void {
 
     /* All node types meta. */
-
-    $variables['subtype'] = $this->getFirstTermLabel($node, $this->nodeSubtypeFields[$node->bundle()]);
+    $variables['subtype'] = $this->getTermLabels($node, $this->nodeSubtypeFields[$node->bundle()])[0];
 
     // Node footer meta.
     $metadata = $this->preprocessLogos(
@@ -192,6 +192,7 @@ class MetadataHelperService {
 
     // Content type.
     $variables['content_type'] = $node->bundle();
+    $variables['content_type_label'] = $node->type->entity->label();
 
     // Slug - on homepage only.
     if ($node->hasField('field_slug')
@@ -230,8 +231,10 @@ class MetadataHelperService {
       $variables['translations'] = $available_translations_string;
     }
 
-    // First Topic.
-    $variables['first_topic'] = $this->getFirstTermLabel($node, 'field_topic');
+    // Topics.
+    if ($topic = $this->getTermLabels($node, 'field_topic')) {
+      $variables['topics'] = $this->getTermLabels($node, 'field_topic');
+    }
 
     // Content type specific card meta.
     switch ($node->bundle()) {
@@ -533,8 +536,8 @@ class MetadataHelperService {
     array &$variables,
   ): void {
 
-    if ($event_type = $this->getFirstTermLabel($node, 'field_event_type')) {
-      $variables['subtype'] = $event_type;
+    if ($event_type = $this->getTermLabels($node, 'field_event_type')) {
+      $variables['subtype'] = $event_type[0];
     }
 
     // Dates.
@@ -603,7 +606,7 @@ class MetadataHelperService {
   ): void {
 
     // Resource type.
-    if ($resource_type = $this->getFirstTermLabel(
+    if ($resource_type = $this->getTermLabels(
       $node,
       'field_resource_type')
     ) {
@@ -636,41 +639,45 @@ class MetadataHelperService {
   }
 
   /**
-   * Get first selected term label.
+   * Get selected term (entity) labels.
    *
    * @param \Drupal\node\NodeInterface $node
    *   The node.
    * @param string $taxonomy_field_name
    *   The taxonomy field name.
    *
-   * @return string
-   *   The first term's selected label, empty string if not found.
+   * @return array
+   *   The terms selected labels, empty if not found.
    *
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
-  public function getFirstTermLabel(
+  public function getTermLabels(
     NodeInterface $node,
-    string $taxonomy_field_name
-  ): string {
+    string $taxonomy_field_name,
+  ): array {
+    $labels = [];
     if ($node->hasField($taxonomy_field_name)
         && $taxonomy_field = $node->get($taxonomy_field_name)) {
-      if ($entity_ref = $taxonomy_field->first()
-        ->get('entity')) {
-        if ($entity_ref instanceof EntityReference) {
-          if ($entity_ref->getTarget()) {
-            $entity = $entity_ref->getTarget()
-              ->getValue();
-            if ($entity instanceof TermInterface) {
-              return $entity->getName();
-            }
-            elseif ($entity instanceof NodeInterface) {
-              return $entity->label();
+      foreach ($taxonomy_field as $entity_reference_item) {
+        if ($entity_reference_item instanceof EntityReferenceItem) {
+          if ($entity_reference = $entity_reference_item->get('entity')) {
+            if ($entity_reference instanceof EntityReference) {
+              if ($entity_reference->getTarget()) {
+                $entity = $entity_reference->getTarget()
+                  ->getValue();
+                if ($entity instanceof TermInterface) {
+                  $labels[] = $entity->getName();
+                }
+                elseif ($entity instanceof NodeInterface) {
+                  $labels[] = $entity->label();
+                }
+              }
             }
           }
         }
       }
     }
-    return '';
+    return $labels;
   }
 
   /**
