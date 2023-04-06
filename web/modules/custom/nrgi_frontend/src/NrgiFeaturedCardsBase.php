@@ -148,7 +148,7 @@ class NrgiFeaturedCardsBase {
 
 
   /**
-   * Whether to render images on featured pages.
+   * Whether to render images on featured cards.
    *
    * @var bool
    */
@@ -254,7 +254,7 @@ class NrgiFeaturedCardsBase {
    *   The quantity field name.
    */
   public function setQuantity(string $quantity_field_name): void {
-    $this->taxonomyFields = $quantity_field_name;
+    $this->quantityField = $quantity_field_name;
   }
 
   /**
@@ -330,6 +330,9 @@ class NrgiFeaturedCardsBase {
       $this->withImage =
         $this->paragraph->get($this->imageToggleField)->value === '1';
     }
+    else {
+      $this->withImage = TRUE;
+    }
 
     if ($this->withImage) {
       $this->viewMode .= '_with_image';
@@ -341,7 +344,7 @@ class NrgiFeaturedCardsBase {
       $this->viewMode .= '_' . $layout . '_per_row';
     }
     else {
-      $this->viewMode .= '_4_per_row';
+      $this->viewMode .= '_3_per_row';
     }
   }
 
