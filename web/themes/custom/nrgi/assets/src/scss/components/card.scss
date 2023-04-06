@@ -1,26 +1,19 @@
 /** @define c-card */
 .c-card {
   $c        : &;
+  display   : flex;
   position  : relative;
   container : card / inline-size;
 
-  &:not(&--page, &--person) {
-    &:focus,
-    &:hover {
-      #{$c}__tag {
-        background-color : $tertiary;
-      }
-
-      #{$c}__image-wrapper {
-        img {
-          filter : brightness(1.1);
-        }
-      }
+  &:focus,
+  &:hover {
+    #{$c}__tag {
+      background-color : $tertiary;
     }
 
     #{$c}__image-wrapper {
       img {
-        transition : filter 0.3s;
+        filter : brightness(1.1);
       }
     }
   }
@@ -34,16 +27,13 @@
     transition    : background-color 0.3s;
 
     &:has(+ *) {
-      margin-right : var(--space-xs);
+      margin-bottom : var(--space-xs);
+      margin-right  : var(--space-xs);
     }
   }
 
   &__meta-wrapper {
-    align-items   : center;
-    display       : flex;
-    flex-wrap     : wrap;
     margin-bottom : var(--space-m);
-    row-gap       : var(--space-xs);
   }
 
   &__meta-item {
@@ -66,6 +56,11 @@
 
     &--topics {
       display : inline;
+
+      &:after {
+        content     : ",";
+        margin-left : 0;
+      }
     }
   }
 
@@ -78,8 +73,14 @@
     @include ts-card($medium : true);
   }
 
+  // Event dates
+  &__title + &__meta-item {
+    margin-bottom : 0;
+    margin-top    : var(--space-m);
+  }
+
   &__link {
-    @include underlined($tertiary);
+    @include underlined($tertiary, 0.4375rem);
 
     &:before {
       bottom   : 0;
@@ -92,6 +93,17 @@
     }
   }
 
+  &__link-slug {
+    font-weight : 700;
+  }
+
+  &__external-icon {
+    color          : $tertiary;
+    display        : inline-block;
+    margin         : 0.5rem 0 0 0.25rem;
+    vertical-align : top;
+  }
+
   &__image-wrapper {
     aspect-ratio : 16 / 9;
     margin-top   : var(--space-m);
@@ -100,11 +112,12 @@
     /* stylelint-disable-next-line */
     img {
       @include object-fit(cover);
-      height   : 100%;
-      left     : 0;
-      position : absolute;
-      top      : 0;
-      width    : 100%;
+      height     : 100%;
+      left       : 0;
+      position   : absolute;
+      top        : 0;
+      transition : filter 0.3s;
+      width      : 100%;
     }
   }
 
@@ -128,15 +141,25 @@
     margin-top : var(--space-xs);
   }
 
+  &--fc {
+    flex-direction  : column;
+    justify-content : space-between;
+
+    #{$c}__title {
+      margin-top : calc(var(--space-xs) * -1);
+    }
+  }
+
   &--page {
+    flex-direction : column;
+
     #{$c}__image-wrapper {
       margin-top : var(--space-l);
     }
   }
 
   &--person {
-    display : flex;
-    gap     : var(--space-m);
+    gap : var(--space-m);
 
     #{$c}__image-wrapper {
       aspect-ratio : 1;

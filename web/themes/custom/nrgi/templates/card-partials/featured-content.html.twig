@@ -1,10 +1,9 @@
 {% set classes = [
   'c-card',
+  'c-card--fc'
 ] %}
 
-{% set subtype = subtype|replace({'_' : ' '}) %}
-
-{% if title or responsive_image %}
+{% if title %}
   <article{{ attributes.addClass(classes) }}>
     <div class="c-card__content-wrapper">
       <div class="c-card__meta-wrapper">
@@ -18,14 +17,14 @@
           {% if format == 'online' %}
             {# On events only #}
             <span class="c-card__meta-item">
-                {{ 'Online'|t|upper }}
+                {{- 'Online' -}}
               </span>
           {% endif %}
 
           {% if recording %}
             {# On events only - will show on past event & with available recording #}
             <span class="c-card__meta-item">
-                {{ 'Recording available'|t|upper }}
+                {{- 'Recording available' -}}
               </span>
           {% endif %}
 
@@ -37,45 +36,50 @@
             <span class="c-card__meta-item">{{ translations }}</span>
           {% endif %}
 
-          {% if first_topic %}
-            <span class="c-card__meta-item c-card__meta-item--topics">{{ first_topic }}</span>
+          {% if topics %}
+            {% for topic in topics %}
+              <span class="c-card__meta-item c-card__meta-item--topics">{{ topic }}</span>
+            {% endfor %}
           {% endif %}
         {% endspaceless %}
       </div>
 
       <h3 class="c-card__title">
         {% if external_link %}
-          {# 'Disabled' pages, cards link to exteranl item. #}
           <a class="c-card__link" href="{{ external_link.uri }}" target="_blank"
              title="{{ external_link.title }}">
             {% if slug %}
-              {# If avaliable, showing on ceatured ccntent added on homepage only. #}
-              [slug]{{ slug }} /
+              <span class="c-card__link-slug">{{ slug }} /</span>
             {% endif %}
-            {{ title }}
-            [ add external link icon]
+
+            <span>{{ title|field_value }}</span>
+
+            {% include '@nrgi/svg/svg.html.twig' with { 'svg' :  'external', 'extra_class' : 'c-card__external-icon' } %}
           </a>
         {% else %}
           <a class="c-card__link" href="{{ url }}">
             {% if slug %}
-              {# If avaliable, showing on ceatured ccntent added on homepage only. #}
-              [slug]{{ slug }} /
+              <span class="c-card__link-slug">{{ slug }} /</span>
             {% endif %}
-            {{ title }}
+
+            <span>{{ title|field_value }}</span>
           </a>
         {% endif %}
       </h3>
 
-      {% if responsive_image %}
-        <div class="c-card__image-wrapper">
-          {% if responsive_image %}
-            {{ responsive_image }}
-          {% else %}
-            <img src="/{{ base_path ~ directory }}/assets/img/fallback-default.svg" alt="{{ 'Fallback image'|t }}"/>
-          {% endif %}
-        </div>
+      {% if date and content_type == 'event' %}
+        <span class="c-card__meta-item">{{ date }}</span>
       {% endif %}
-
     </div>
+
+    {% if show_image %}
+      <div class="c-card__image-wrapper">
+        {% if responsive_image %}
+          {{ responsive_image }}
+        {% else %}
+          <img src="/{{ base_path ~ directory }}/assets/img/fallback-default.svg" alt="{{ 'Fallback image'|t }}"/>
+        {% endif %}
+      </div>
+    {% endif %}
   </article>
 {% endif %}
