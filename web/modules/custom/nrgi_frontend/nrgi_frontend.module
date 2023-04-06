@@ -10,8 +10,6 @@ use Drupal\Core\Routing\RouteMatchInterface;
 \Drupal::moduleHandler()
   ->loadInclude('nrgi_frontend', 'inc', 'nrgi_frontend.form');
 \Drupal::moduleHandler()
-  ->loadInclude('nrgi_frontend', 'inc', 'nrgi_frontend.meta');
-\Drupal::moduleHandler()
   ->loadInclude('nrgi_frontend', 'inc', 'nrgi_frontend.metatag');
 \Drupal::moduleHandler()
   ->loadInclude('nrgi_frontend', 'inc', 'nrgi_frontend.node');

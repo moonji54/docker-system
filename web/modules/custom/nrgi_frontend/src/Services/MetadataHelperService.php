@@ -155,12 +155,6 @@ class MetadataHelperService {
         );
         $variables['report_pdf'] = $header_meta['files'][0];
 
-        // Header date.
-        if ($date = $node->get('unified_date')) {
-          $card_date = $this->dateFormatter->format($date->value, 'resource_header_date');
-          $variables['date'] = $card_date;
-        }
-
         // Authors (internal and external)
         $this->preprocessResourcesAuthors(
           $node,
@@ -168,6 +162,12 @@ class MetadataHelperService {
           'field_external_authors',
           $variables
         );
+
+        // Header date.
+        if ($date = $node->get('unified_date')) {
+          $card_date = $this->dateFormatter->format($date->value, 'resource_header_date');
+          $variables['date'] = $card_date;
+        }
 
         break;
 
