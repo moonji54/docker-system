@@ -2,6 +2,8 @@
   'c-card',
 ] %}
 
+{% set subtype = subtype|replace({'_' : ' '}) %}
+
 {% if title or responsive_image %}
   <article{{ attributes.addClass(classes) }}>
     <div class="c-card__content-wrapper">
