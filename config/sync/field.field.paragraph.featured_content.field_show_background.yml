@@ -1,16 +1,16 @@
-uuid: a0b40f7b-a6ef-4c0a-9043-5f72e8c1d8a6
+uuid: 47aa9d3c-f048-478f-9084-38a24bece82a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_show_image
+    - field.storage.paragraph.field_show_background
     - paragraphs.paragraphs_type.featured_content
-id: paragraph.featured_content.field_show_image
-field_name: field_show_image
+id: paragraph.featured_content.field_show_background
+field_name: field_show_background
 entity_type: paragraph
 bundle: featured_content
-label: 'Show Image'
-description: 'Whether to show images on People cards.'
+label: 'With background'
+description: 'Whether to apply a grey background to the featured pages section.'
 required: false
 translatable: false
 default_value:

@@ -21,9 +21,10 @@ function nrgi_frontend_preprocess_node(&$variables): void {
     // Based on content type (applied to all view modes).
     _nrgi_frontend_preprocess_node_type_label($variables, $node);
     // _nrgi_frontend_preprocess_node_date($variables, $node);
-
-    /** @var \Drupal\nrgi_frontend\NrgiTranslationHelperService $translation_helper_service */
+    /** @var \Drupal\nrgi_frontend\Services\NrgiTranslationHelperService $translation_helper_service */
     $translation_helper_service = \Drupal::service('nrgi_frontend.translation_helper');
+    /** @var \Drupal\nrgi_frontend\Services\MetadataHelperService $metadata_helper_service */
+    $metadata_helper_service = \Drupal::service('nrgi_frontend.metadata_helper');
 
     switch ($node->bundle()) {
       case 'homepage':
@@ -41,9 +42,22 @@ function nrgi_frontend_preprocess_node(&$variables): void {
       case 'person':
 
         break;
+
+      case 'article':
+      case 'publication':
+      case 'event':
+        if (in_array($variables['view_mode'], ['full', 'default'])) {
+          $metadata_helper_service->preprocessMetadata($node, $variables);
+          $metadata_helper_service->preprocessSidebarMetadata($node, $variables);
+          break;
+        }
     }
 
     $view_mode_responsive_image_style = [
+      'featured_content_with_image_1_per_row' => 'large_card',
+      'featured_content_with_image_2_per_row' => 'medium_card',
+      'featured_content_with_image_3_per_row' => 'small_card',
+      'featured_content_with_image_4_per_row' => 'small_card',
       'featured_page_with_image_1_per_row' => 'large_card',
       'featured_page_with_image_2_per_row' => 'medium_card',
       'featured_page_with_image_3_per_row' => 'small_card',
@@ -56,6 +70,10 @@ function nrgi_frontend_preprocess_node(&$variables): void {
 
     // Based on view mode.
     switch ($variables['view_mode']) {
+      case 'featured_content_with_image_1_per_row':
+      case 'featured_content_with_image_2_per_row':
+      case 'featured_content_with_image_3_per_row':
+      case 'featured_content_with_image_4_per_row':
       case 'featured_page_with_image_1_per_row':
       case 'featured_page_with_image_2_per_row':
       case 'featured_page_with_image_3_per_row':
@@ -77,21 +95,26 @@ function nrgi_frontend_preprocess_node(&$variables): void {
             );
           }
         }
+
+        $content_types_to_preprocess = [
+          'article',
+          'career_opportunity',
+          'event',
+          'publication',
+        ];
+
+        // Preprocess card metadata.
+        if (in_array($node->bundle(), $content_types_to_preprocess)) {
+          $metadata_helper_service->preprocessCardMetadata($node, $variables);
+        }
         break;
 
       case
-      'card':
-        break;
-
-      case 'full':
+      'full':
         // Functions only for full view mode.
         _nrgi_frontend_preprocess_node_meta($variables, $node);
         _nrgi_frontend_preprocess_node_person_featured_work($variables, $node);
         _nrgi_frontend_preprocess_node_related_content($variables);
-        break;
-
-      case 'person_card':
-        // Function for person_card.
         break;
     }
   }
