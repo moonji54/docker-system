@@ -138,6 +138,47 @@ class MetadataHelperService {
     NodeInterface $node,
     array &$variables
   ): void {
+    /* Content type specific meta. */
+
+    // Node header meta temporary array.
+    $header_meta = [];
+
+    switch ($node->bundle()) {
+      case 'article':
+      case 'publication':
+        // Header download report PDF .
+        $this->preprocessDownloads(
+          $node,
+          ['field_upload'],
+          $header_meta,
+          TRUE
+        );
+        $variables['report_pdf'] = $header_meta['files'][0];
+
+        // Header date.
+        if ($date = $node->get('unified_date')) {
+          $card_date = $this->dateFormatter->format($date->value, 'resource_header_date');
+          $variables['date'] = $card_date;
+        }
+
+        // Authors (internal and external)
+        $this->preprocessResourcesAuthors(
+          $node,
+          'field_author',
+          'field_external_authors',
+          $variables
+        );
+
+        break;
+
+      case 'event':
+        $this->preprocessEventDetails(
+          $node,
+          $this->metadataFieldNames['event']['event_details'],
+          $variables
+        );
+        break;
+    }
 
     /* All node types meta. */
     $variables['subtype'] = $this->getTermLabels($node, $this->nodeSubtypeFields[$node->bundle()])[0];
@@ -162,43 +203,6 @@ class MetadataHelperService {
       $this->metadataFieldNames['all']['taxonomies'],
       $variables
     );
-
-    /* Content type specific meta. */
-
-    // Node header meta temporary array.
-    $header_meta = [];
-
-    switch ($node->bundle()) {
-      case 'article':
-      case 'publication':
-        // Header download report PDF .
-        $this->preprocessDownloads(
-          $node,
-          ['field_upload'],
-          $header_meta,
-          TRUE
-        );
-        $variables['report_pdf'] = $header_meta['files'][0];
-
-        // Authors (internal and external)
-        $this->preprocessResourcesAuthors(
-          $node,
-          'field_author',
-          'field_external_authors',
-          $variables
-        );
-
-        break;
-
-      case 'event':
-        $this->preprocessEventDetails(
-          $node,
-          $this->metadataFieldNames['event']['event_details'],
-          $variables
-        );
-        break;
-    }
-
   }
 
   /**

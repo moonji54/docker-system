@@ -15,9 +15,8 @@
     <p>{{ subtype }}</p>
   {% endif %}
 
-  {% if content.field_publication_date|field_value %}
-    {#  TODO: date format #}
-    <div>{{ content.field_publication_date }}</div>
+  {% if date %}
+    <div>{{ date }}</div>
   {% endif %}
 
   {% if authors %}
