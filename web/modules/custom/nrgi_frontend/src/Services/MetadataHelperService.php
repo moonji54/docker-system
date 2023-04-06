@@ -610,7 +610,7 @@ class MetadataHelperService {
       $node,
       'field_resource_type')
     ) {
-      $variables['subtype'] = $resource_type;
+      $variables['subtype'] = $resource_type[0];
     }
 
     // External link - node page disabled - card title to link to external item.
