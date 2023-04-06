@@ -5,7 +5,7 @@
   external_link: external_link,
   subtype: subtype ?: content_type_label,
   date: date|upper,
-  translations: translations|upper,
+  translations: translations? translations|upper : '',
   topics: topics,
   title : label,
   format: format,
