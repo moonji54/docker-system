@@ -8,6 +8,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Plugin\DataType\EntityReference;
 use Drupal\Core\Field\EntityReferenceFieldItemListInterface;
 use Drupal\Core\Field\FieldItemList;
+use Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem;
 use Drupal\Core\Path\PathMatcherInterface;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\file\FileInterface;
@@ -69,6 +70,17 @@ class MetadataHelperService {
   ];
 
   /**
+   * Associative array of subtype field names by content type.
+   *
+   * @var array|string[]
+   */
+  protected array $nodeSubtypeFields = [
+    'article' => 'field_resource_type',
+    'publication' => 'field_resource_type',
+    'event' => 'field_event_type',
+  ];
+
+  /**
    * The path matcher service. Provides a path matcher.
    *
    * @var \Drupal\Core\Path\PathMatcherInterface
@@ -114,6 +126,11 @@ class MetadataHelperService {
     NodeInterface $node,
     array &$variables
   ): void {
+
+    /* All node types meta. */
+    $variables['subtype'] = $this->getTermLabels($node, $this->nodeSubtypeFields[$node->bundle()])[0];
+
+    // Node footer meta.
     $metadata = $this->preprocessLogos(
       $node,
       $this->metadataFieldNames['all']['logo'],
@@ -123,11 +140,6 @@ class MetadataHelperService {
       $variables['meta_data'][] = $metadata;
     }
 
-    $this->preprocessEventDetails(
-      $node,
-      $this->metadataFieldNames['event']['event_details'],
-      $variables
-    );
     $this->preprocessDownloads(
       $node,
       $this->metadataFieldNames['all']['downloads'],
@@ -138,6 +150,29 @@ class MetadataHelperService {
       $this->metadataFieldNames['all']['taxonomies'],
       $variables
     );
+
+    /* Content type specific meta. */
+
+    // Node header meta temporary array.
+    $header_meta = [];
+
+    switch ($node->bundle()) {
+      case 'article':
+      case 'publication':
+        // Header download report PDF .
+        $this->preprocessDownloads($node, ['field_upload'], $header_meta, TRUE);
+        $variables['report_pdf'] = $header_meta['files'][0];
+        break;
+
+      case 'event':
+        $this->preprocessEventDetails(
+          $node,
+          $this->metadataFieldNames['event']['event_details'],
+          $variables
+        );
+        break;
+    }
+
   }
 
   /**
@@ -157,6 +192,7 @@ class MetadataHelperService {
 
     // Content type.
     $variables['content_type'] = $node->bundle();
+    $variables['content_type_label'] = $node->type->entity->label();
 
     // Slug - on homepage only.
     if ($node->hasField('field_slug')
@@ -190,13 +226,14 @@ class MetadataHelperService {
           $available_translations_string .= ' ' . $available_langcode;
           $i++;
         }
-
       }
       $variables['translations'] = $available_translations_string;
     }
 
-    // First Topic.
-    $variables['first_topic'] = $this->getFirstTermLabel($node, 'field_topic');
+    // Topics.
+    if ($topic = $this->getTermLabels($node, 'field_topic')) {
+      $variables['topics'] = $this->getTermLabels($node, 'field_topic');
+    }
 
     // Content type specific card meta.
     switch ($node->bundle()) {
@@ -250,6 +287,7 @@ class MetadataHelperService {
    *   The variables array.
    *
    * @throws \Drupal\Core\Entity\EntityMalformedException
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   protected function preprocessGeneralMetadata(
     NodeInterface $node,
@@ -313,6 +351,8 @@ class MetadataHelperService {
    *   Array of download field names.
    * @param array $variables
    *   The variables array.
+   * @param bool $items_only
+   *   Whether to add items only to variables array, FALSE by default.
    *
    * @throws \Drupal\Core\Entity\EntityMalformedException
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
@@ -321,8 +361,10 @@ class MetadataHelperService {
     NodeInterface $node,
     array $download_field_names,
     array &$variables,
+    bool $items_only = FALSE,
   ): void {
     $items = [];
+
     foreach ($download_field_names as $download_field_name) {
       if ($node->hasField($download_field_name) && $field = $node->get($download_field_name)) {
         if (!$field instanceof FieldItemList | $field->isEmpty()) {
@@ -332,12 +374,15 @@ class MetadataHelperService {
           case 'entity_reference':
           case 'entity_reference_revisions':
             $entity_fields = $field->referencedEntities();
-            foreach ($entity_fields as $paragraph) {
-              if ($paragraph instanceof ParagraphInterface) {
-                $media = $paragraph->get('field_file')->entity;
+            foreach ($entity_fields as $entity) {
+              if ($entity instanceof ParagraphInterface) {
+                $media = $entity->get('field_file')->entity;
                 if ($media instanceof MediaInterface) {
                   $items[] = $this->getFileFromMediaDocument($media);
                 }
+              }
+              elseif ($entity instanceof MediaInterface) {
+                $items[] = $this->getFileFromMediaDocument($entity);
               }
             }
             break;
@@ -345,11 +390,16 @@ class MetadataHelperService {
       }
     }
     if ($items) {
-      $metadata = [
-        'label' => 'Additional downloads',
-        'items' => $items,
-      ];
-      $variables['meta_data'][] = [$metadata];
+      if (!$items_only) {
+        $metadata = [
+          'label' => 'Additional downloads',
+          'items' => $items,
+        ];
+        $variables['meta_data'][] = [$metadata];
+      }
+      else {
+        $variables['files'] = $items;
+      }
     }
   }
 
@@ -486,8 +536,8 @@ class MetadataHelperService {
     array &$variables,
   ): void {
 
-    if ($event_type = $this->getFirstTermLabel($node, 'field_event_type')) {
-      $variables['subtype'] = $event_type;
+    if ($event_type = $this->getTermLabels($node, 'field_event_type')) {
+      $variables['subtype'] = $event_type[0];
     }
 
     // Dates.
@@ -547,6 +597,8 @@ class MetadataHelperService {
    *   Node.
    * @param array $variables
    *   The variables array.
+   *
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   protected function preprocessResourceCardMetadata(
     NodeInterface $node,
@@ -554,11 +606,11 @@ class MetadataHelperService {
   ): void {
 
     // Resource type.
-    if ($resource_type = $this->getFirstTermLabel(
+    if ($resource_type = $this->getTermLabels(
       $node,
       'field_resource_type')
     ) {
-      $variables['subtype'] = $resource_type;
+      $variables['subtype'] = $resource_type[0];
     }
 
     // External link - node page disabled - card title to link to external item.
@@ -587,41 +639,45 @@ class MetadataHelperService {
   }
 
   /**
-   * Get first selected term label.
+   * Get selected term (entity) labels.
    *
    * @param \Drupal\node\NodeInterface $node
    *   The node.
    * @param string $taxonomy_field_name
    *   The taxonomy field name.
    *
-   * @return string
-   *   The first term's selected label, empty string if not found.
+   * @return array
+   *   The terms selected labels, empty if not found.
    *
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
-  public function getFirstTermLabel(
+  public function getTermLabels(
     NodeInterface $node,
-    string $taxonomy_field_name
-  ) {
+    string $taxonomy_field_name,
+  ): array {
+    $labels = [];
     if ($node->hasField($taxonomy_field_name)
         && $taxonomy_field = $node->get($taxonomy_field_name)) {
-      if ($entity_ref = $taxonomy_field->first()
-        ->get('entity')) {
-        if ($entity_ref instanceof EntityReference) {
-          if ($entity_ref->getTarget()) {
-            $entity = $entity_ref->getTarget()
-              ->getValue();
-            if ($entity instanceof TermInterface) {
-              return $entity->getName();
-            }
-            elseif ($entity instanceof NodeInterface) {
-              return $entity->label();
+      foreach ($taxonomy_field as $entity_reference_item) {
+        if ($entity_reference_item instanceof EntityReferenceItem) {
+          if ($entity_reference = $entity_reference_item->get('entity')) {
+            if ($entity_reference instanceof EntityReference) {
+              if ($entity_reference->getTarget()) {
+                $entity = $entity_reference->getTarget()
+                  ->getValue();
+                if ($entity instanceof TermInterface) {
+                  $labels[] = $entity->getName();
+                }
+                elseif ($entity instanceof NodeInterface) {
+                  $labels[] = $entity->label();
+                }
+              }
             }
           }
         }
       }
     }
-    return '';
+    return $labels;
   }
 
   /**

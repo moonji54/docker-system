@@ -10,7 +10,7 @@ field_name: field_show_image
 entity_type: paragraph
 bundle: featured_content
 label: 'Show Image'
-description: 'Whether to show images on People cards.'
+description: 'Whether to show images on content cards.'
 required: false
 translatable: false
 default_value:

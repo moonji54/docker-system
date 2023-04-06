@@ -14,16 +14,16 @@
               </dd>
             </div>
           {% elseif data.type == 'logo' %}
-              <div class="c-meta-rows__row">
-                <dt class="c-meta-rows__label">
-                  {{ data.label }}
-                </dt>
-                {% for section in data.sections %}
-                  <dd class="c-meta-rows__row">
-                    <a href="{{ section.link }}">{{ section.view }}</a>
-                  </dd>
-                {% endfor %}
-              </div>
+            <div class="c-meta-rows__row">
+              <dt class="c-meta-rows__label">
+                {{ data.label }}
+              </dt>
+              {% for section in data.sections %}
+                <dd class="c-meta-rows__row">
+                  <a href="{{ section.link }}">{{ section.view }}</a>
+                </dd>
+              {% endfor %}
+            </div>
           {% else %}
             {% for section in data %}
               <div class="c-meta-rows__row">
@@ -32,11 +32,11 @@
                 </dt>
                 <dd class="c-meta-rows__items{{ section.items[0]['type'] == 'file' ? ' c-meta-rows__items--downloads' }}">
                   {% for item in section.items %}
-                    <a href="{{ item.url }}">{{ item.title|trim }}
-                      {% if item.type == 'file' %}
-                        <span class="c-meta-rows__icon-wrapper">
+                    {% if item.type == 'file' %}
+                      <span class="c-meta-rows__icon-wrapper">
                       </span>
-                      {% endif %}
+                    {% endif %}
+                    <a href="{{ item.url }}">{{ item.title|trim }}
                     </a>
                   {% endfor %}
                 </dd>
