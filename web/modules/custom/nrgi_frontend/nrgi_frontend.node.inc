@@ -74,6 +74,10 @@ function nrgi_frontend_preprocess_node(&$variables): void {
       case 'featured_content_with_image_2_per_row':
       case 'featured_content_with_image_3_per_row':
       case 'featured_content_with_image_4_per_row':
+      case 'featured_content_1_per_row':
+      case 'featured_content_2_per_row':
+      case 'featured_content_3_per_row':
+      case 'featured_content_4_per_row':
       case 'featured_page_with_image_1_per_row':
       case 'featured_page_with_image_2_per_row':
       case 'featured_page_with_image_3_per_row':
@@ -85,7 +89,7 @@ function nrgi_frontend_preprocess_node(&$variables): void {
         if ($node->hasField('field_featured_image')
             && $node->get('field_featured_image')
             && $media = $node->get('field_featured_image')->entity) {
-          if ($media instanceof MediaInterface) {
+          if ($media instanceof MediaInterface && isset($view_mode_responsive_image_style[$variables['view_mode']])) {
             /** @var  \Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService $responsive_image_style_service */
             $responsive_image_style_service = \Drupal::service('nrgi_frontend.responsive_image_helper');
             $responsive_image_style_service->preprocessResponsiveImage(

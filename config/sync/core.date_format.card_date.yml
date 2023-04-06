@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: card_date
-label: 'Card date'
+label: 'NRGI card date '
 locked: false
 pattern: 'd M Y'
