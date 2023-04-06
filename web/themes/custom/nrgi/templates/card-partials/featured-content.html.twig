@@ -7,7 +7,7 @@
         [content type] : {{ content_type }}
 
         {% if subtype %}
-          {{ subtype }}
+          {#          {{ subtype }} #}
         {% endif %}
 
         {% if format == 'online' %}
@@ -55,8 +55,11 @@
           {{ translations }}
         {% endif %}
 
-        {% if first_topic %}
-          [topic]{{ first_topic }}
+        {% if topics %}
+          [topics]
+          {% for topic in topics %}
+            {{ topic }}
+          {% endfor %}
         {% endif %}
 
         {% if responsive_image %}
