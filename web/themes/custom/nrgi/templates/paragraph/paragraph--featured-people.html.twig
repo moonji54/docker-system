@@ -6,16 +6,6 @@
   has_grey_background ? 'o-section--has-background'
 ] %}
 
-{% if featured_people.layout == '1' %}
-  {% set layout = 'one-per-row' %}
-{% elseif featured_people.layout == '2' %}
-  {% set layout = 'two-per-row' %}
-{% elseif featured_people.layout == '3' %}
-  {% set layout = 'three-per-row' %}
-{% elseif featured_people.layout == '4' %}
-  {% set layout = 'four-per-row' %}
-{% endif %}
-
 {% if featured_people %}
   <section{{ attributes.addClass(classes) }}>
     <div class="o-container">
@@ -33,7 +23,7 @@
         {% endif %}
       </header>
 
-      <div class="c-featured-pages__container o-card-container o-card-container--{{ layout }}">
+      <div class="c-featured-pages__container o-card-container o-card-container--three-per-row">
         {% for featured_page in featured_people.items %}
           {{ featured_page }}
         {% endfor %}
