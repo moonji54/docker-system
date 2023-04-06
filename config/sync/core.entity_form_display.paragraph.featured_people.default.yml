@@ -5,12 +5,10 @@ dependencies:
   config:
     - field.field.paragraph.featured_people.field_content
     - field.field.paragraph.featured_people.field_exclusions
-    - field.field.paragraph.featured_people.field_layout
     - field.field.paragraph.featured_people.field_link
     - field.field.paragraph.featured_people.field_quantity
     - field.field.paragraph.featured_people.field_role_type
     - field.field.paragraph.featured_people.field_show_background
-    - field.field.paragraph.featured_people.field_show_image
     - field.field.paragraph.featured_people.field_title
     - field.field.paragraph.featured_people.field_title_size
     - paragraphs.paragraphs_type.featured_people
@@ -142,13 +140,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_layout:
-    type: number
-    weight: 4
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
   field_link:
     type: link_default
     weight: 4
@@ -173,13 +164,6 @@ content:
   field_show_background:
     type: boolean_checkbox
     weight: 6
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_show_image:
-    type: boolean_checkbox
-    weight: 5
     region: content
     settings:
       display_label: true

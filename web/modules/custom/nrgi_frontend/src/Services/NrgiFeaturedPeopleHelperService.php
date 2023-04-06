@@ -51,7 +51,7 @@ class NrgiFeaturedPeopleHelperService extends NrgiFeaturedCardsBase {
         'items' => $this->renderFeaturedCards($people_nodes),
         'with_image' => $this->withImage,
         'view_mode' => $this->viewMode,
-        'layout' => $this->paragraph->get($this->itemsPerRowField)->getString(),
+        'layout' => '3_per_row',
         'cta' => $this->paragraph->hasField($this->linkField)
           ? $this->paragraphButtonLinkHelperService->getLinkFieldValues(
             $this->paragraph,
