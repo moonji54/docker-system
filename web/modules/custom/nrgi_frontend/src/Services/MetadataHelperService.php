@@ -226,7 +226,6 @@ class MetadataHelperService {
           $available_translations_string .= ' ' . $available_langcode;
           $i++;
         }
-
       }
       $variables['translations'] = $available_translations_string;
     }
@@ -288,6 +287,7 @@ class MetadataHelperService {
    *   The variables array.
    *
    * @throws \Drupal\Core\Entity\EntityMalformedException
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   protected function preprocessGeneralMetadata(
     NodeInterface $node,
