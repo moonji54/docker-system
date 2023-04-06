@@ -1,9 +1,8 @@
 /** @define c-card */
 .c-card {
-  $c        : &;
-  display   : flex;
-  position  : relative;
-  container : card / inline-size;
+  $c       : &;
+  display  : flex;
+  position : relative;
 
   &:focus,
   &:hover {
@@ -108,6 +107,7 @@
     aspect-ratio : 16 / 9;
     margin-top   : var(--space-m);
     position     : relative;
+    width        : 100%;
 
     /* stylelint-disable-next-line */
     img {
@@ -120,21 +120,6 @@
       width      : 100%;
     }
   }
-
-  /* stylelint-disable */
-  //@formatter:off
-  // Experimental
-@container (max-width:260px) {
-  &__title {
-    @include ts-card($small : true);
-  }
-
-  &__description {
-    font-size:0.875rem;
-  }
-}
-  //@formatter:on
-  /* stylelint-enable */
 
   &__job-title {
     @include ts-caption;
@@ -175,6 +160,19 @@
 
     #{$c}__title {
       @include ts-card($small : true);
+    }
+  }
+
+  &--one-col {
+    #{$c}__image-wrapper {
+      @include media(">=tablet") {
+        margin-top : 0;
+      }
+    }
+
+    @include media(">=tablet") {
+      flex-direction : row-reverse;
+      gap            : var(--gutter);
     }
   }
 }

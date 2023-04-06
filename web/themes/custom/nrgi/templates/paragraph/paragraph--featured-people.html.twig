@@ -9,19 +9,19 @@
 {% if featured_people %}
   <section{{ attributes.addClass(classes) }}>
     <div class="o-container">
-      <header class="o-section__header">
-        {% if content.field_title|field_value %}
+      {% if content.field_title|field_value %}
+        <header class="o-section__header">
           {% if content.field_title_size|field_raw('value') != 'small' %}
             <h2 class="o-section__heading">{{ content.field_title }}</h2>
           {% else %}
             <h5 class="o-section__heading o-section__heading--small">{{ content.field_title }}</h5>
           {% endif %}
-        {% endif %}
 
-        {% if content.field_description|field_value %}
-          <p class="o-section__description">{{ content.field_description }}</p>
-        {% endif %}
-      </header>
+          {% if content.field_description|field_value %}
+            <p class="o-section__description">{{ content.field_description }}</p>
+          {% endif %}
+        </header>
+      {% endif %}
 
       <div class="c-featured-pages__container o-card-container o-card-container--three-per-row">
         {% for featured_page in featured_people.items %}

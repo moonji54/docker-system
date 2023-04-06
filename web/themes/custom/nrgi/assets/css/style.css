@@ -614,11 +614,6 @@ ul li a:hover {
   ================================================== */
   /* stylelint-disable-next-line */
 }
-@media (max-width: 48rem) {
-  .o-section {
-    margin-top: var(--space-l);
-  }
-}
 .o-section__header {
   display: grid;
   grid-column-gap: var(--gutter);
@@ -762,9 +757,6 @@ ul li a:hover {
 .c-card {
   display: flex;
   position: relative;
-  container: card/inline-size;
-  /* stylelint-disable */
-  /* stylelint-enable */
 }
 .c-card:focus .c-card__tag, .c-card:hover .c-card__tag {
   background-color: #FF7D5F;
@@ -927,6 +919,7 @@ ul li a:hover {
   aspect-ratio: 16/9;
   margin-top: var(--space-m);
   position: relative;
+  width: 100%;
   /* stylelint-disable-next-line */
 }
 .c-card__image-wrapper img {
@@ -939,38 +932,6 @@ ul li a:hover {
   top: 0;
   transition: filter 0.3s;
   width: 100%;
-}
-@container (max-width:260px) {
-  .c-card__title {
-    font-family: "Cabinet Grotesk", sans-serif;
-    font-size: 2.5rem;
-    font-weight: 500;
-    line-height: 1.25;
-    font-size: 1.5rem;
-  }
-  @media (max-width: 94.5rem) {
-    .c-card__title {
-      font-size: 2.25rem;
-    }
-  }
-  @media (max-width: 64rem) {
-    .c-card__title {
-      font-size: 1.875rem;
-    }
-  }
-  @media (max-width: 48rem) {
-    .c-card__title {
-      font-size: 1.5rem;
-    }
-  }
-  @media (max-width: 94.5rem) {
-    .c-card__title {
-      font-size: 1.25rem;
-    }
-  }
-  .c-card__description {
-    font-size: 0.875rem;
-  }
 }
 .c-card__job-title {
   font-family: "Noto Sans", sans-serif;
@@ -1035,6 +996,17 @@ ul li a:hover {
 @media (max-width: 94.5rem) {
   .c-card--person .c-card__title {
     font-size: 1.25rem;
+  }
+}
+@media (min-width: 48rem) {
+  .c-card--one-col .c-card__image-wrapper {
+    margin-top: 0;
+  }
+}
+@media (min-width: 48rem) {
+  .c-card--one-col {
+    flex-direction: row-reverse;
+    gap: var(--gutter);
   }
 }
 
