@@ -27,9 +27,8 @@ class NrgiTranslationHelperService {
    *   The entity type manager.
    */
   public function __construct(
-    EntityTypeManagerInterface $entity_type_manager,
+    EntityTypeManagerInterface $entity_type_manager
   ) {
-
     $this->entityTypeManager = $entity_type_manager;
   }
 
@@ -46,6 +45,8 @@ class NrgiTranslationHelperService {
    *
    * @return array
    *   The array of language switch links.
+   *
+   * @throws \Drupal\Core\Entity\EntityMalformedException
    */
   public function getLanguageSwitcherLinks(
     NodeInterface $node,
@@ -69,10 +70,25 @@ class NrgiTranslationHelperService {
               ];
             }
           }
-
         }
       }
     }
+    else {
+      // Symmetrical - Drupal default node translation.
+      $languages = $node->getTranslationLanguages();
+
+      foreach ($languages as $language) {
+        if ($language->getId() != $node->language()->getId()) {
+          $links[] = [
+            'title' => $language->getName(),
+            'url' => $node->getTranslation($language->getId())
+              ->toUrl()
+              ->toString(),
+          ];
+        }
+      }
+    }
+
     return $links;
   }
 

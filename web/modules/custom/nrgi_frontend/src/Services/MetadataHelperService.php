@@ -164,7 +164,7 @@ class MetadataHelperService {
           $header_meta,
           TRUE
         );
-        $variables['report_pdf'] = $header_meta['files'][0];
+        $variables['report_pdf'] = $header_meta['files'][0] ?? NULL;
 
         // Authors (internal and external)
         $this->preprocessResourcesAuthors(
@@ -176,10 +176,16 @@ class MetadataHelperService {
 
         // Header date.
         if ($date = $node->get('unified_date')) {
-          $card_date = $this->dateFormatter->format($date->value, 'resource_header_date');
+          $card_date = $this->dateFormatter
+            ->format($date->value, 'resource_header_date');
           $variables['date'] = $card_date;
         }
 
+        // Language switcher.
+        $variables['language_switcher_links'] = $this
+          ->nrgiTranslationHelperService->getLanguageSwitcherLinks(
+            $node, FALSE
+          );
         break;
 
       case 'event':
@@ -355,7 +361,7 @@ class MetadataHelperService {
               'type' => 'text',
               'items' => [
                 'title' => $node->get($metadata_field_name)
-                  ->first()->value,
+                  ->first()->value ?? NULL,
               ],
             ];
             break;
