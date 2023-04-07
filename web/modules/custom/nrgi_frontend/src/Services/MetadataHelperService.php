@@ -463,14 +463,34 @@ class MetadataHelperService {
               if ($paragraph instanceof ParagraphInterface) {
                 $media = $paragraph->get('field_image')->entity;
                 if ($media instanceof MediaInterface) {
-                  $view_builder = \Drupal::entityTypeManager()
-                    ->getViewBuilder('media');
+
+                  $logo = [];
+
+                  $this->responsiveImageService->preprocessResponsiveImage(
+                    $media,
+                    'square_small',
+                    $logo);
+
+                  if ($paragraph->hasField('field_link')
+                      && $link_field = $paragraph->get('field_link')) {
+                    $link_item = $link_field->first();
+                    if ($link_item instanceof LinkItemInterface) {
+                      $link = $link_item->getUrl()->toString();
+                      $is_external = $link_item->getUrl()->isExternal();
+                    }
+                  }
+
+                  if ($paragraph->hasField('field_title')
+                      && $title_field = $paragraph->get('field_title')) {
+                    $title = $title_field->getValue()[0]['value'];
+
+                  }
+
                   $items[] = [
-                    'view' => $view_builder->view($paragraph->get('field_image')->entity, 'logo'),
-                    'link' => $paragraph->get('field_link')
-                      ->first()
-                      ->getUrl()
-                      ->toString(),
+                    'title' => $title ?? NULL,
+                    'link' => $link ?? NULL,
+                    'is_external' => $is_external ?? NULL,
+                    'logo' => $logo['responsive_image'] ?? NULL,
                   ];
                 }
               }
