@@ -76,4 +76,34 @@ class NrgiTranslationHelperService {
     return $links;
   }
 
+  /**
+   * Get the available (symmetrical) translations string for node cards.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   The node.
+   *
+   * @return string|void
+   *   The generated string, empty if no translations.
+   */
+  public function getCardAvailableLanguagesString(NodeInterface $node) {
+    $available_translations_string = '';
+    $languages = $node->getTranslationLanguages();
+    $available_langcodes = count(array_keys($languages)) > 1 ? array_keys($languages) : [];
+
+    if ($available_langcodes) {
+      $available_translations_string .= t('Also in');
+      $i = 0;
+      foreach ($available_langcodes as $available_langcode) {
+        if ($i > 0) {
+          $available_translations_string .= ',';
+        }
+        if ($available_langcode != $node->language()->getId()) {
+          $available_translations_string .= ' ' . $available_langcode;
+          $i++;
+        }
+      }
+    }
+    return $available_translations_string;
+  }
+
 }

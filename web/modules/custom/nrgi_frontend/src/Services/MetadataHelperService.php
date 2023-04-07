@@ -104,6 +104,13 @@ class MetadataHelperService {
   protected NrgiResponsiveImageHelperService $responsiveImageService;
 
   /**
+   * The NRGI translation helper service.
+   *
+   * @var \Drupal\nrgi_frontend\Services\NrgiTranslationHelperService
+   */
+  protected NrgiTranslationHelperService $nrgiTranslationHelperService;
+
+  /**
    * Constructs a new MetadataHelperService.
    *
    * @param \Drupal\Core\Path\PathMatcherInterface $path_matcher
@@ -112,15 +119,19 @@ class MetadataHelperService {
    *   The date formatter interface.
    * @param \Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService $responsive_image_service
    *   The NRGI responsive image style helper service.
+   * @param \Drupal\nrgi_frontend\Services\NrgiTranslationHelperService $nrgi_translation_helper_service
+   *   The NRGI translation helper service.
    */
   public function __construct(
     PathMatcherInterface $path_matcher,
     DateFormatterInterface $date_formatter,
     NrgiResponsiveImageHelperService $responsive_image_service,
+    NrgiTranslationHelperService $nrgi_translation_helper_service
   ) {
     $this->pathMatcher = $path_matcher;
     $this->dateFormatter = $date_formatter;
     $this->responsiveImageService = $responsive_image_service;
+    $this->nrgiTranslationHelperService = $nrgi_translation_helper_service;
   }
 
   /**
@@ -241,24 +252,8 @@ class MetadataHelperService {
     }
 
     // Available translations.
-    $available_translations_string = '';
-    $languages = $node->getTranslationLanguages();
-    $available_langcodes = count(array_keys($languages)) > 1 ? array_keys($languages) : [];
-
-    if ($available_langcodes) {
-      $available_translations_string .= t('Also in');
-      $i = 0;
-      foreach ($available_langcodes as $available_langcode) {
-        if ($i > 0) {
-          $available_translations_string .= ',';
-        }
-        if ($available_langcode != $node->language()->getId()) {
-          $available_translations_string .= ' ' . $available_langcode;
-          $i++;
-        }
-      }
-      $variables['translations'] = $available_translations_string;
-    }
+    $variables['translations'] = $this->nrgiTranslationHelperService
+      ->getCardAvailableLanguagesString($node);
 
     // Topics.
     if ($topic = $this->getTermLabels($node, 'field_topic')) {
@@ -277,7 +272,6 @@ class MetadataHelperService {
         break;
 
     }
-
   }
 
   /**

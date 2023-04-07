@@ -1,5 +1,13 @@
 <section class="c-meta-rows o-section">
 
+  {# Language switcher #}
+  {% if language_switcher_links %}
+    {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
+      'text' :  "Other languages"|t,
+      'links' : language_switcher_links
+    } %}
+  {% endif %}
+
   {# Share buttons #}
   {% include '@nrgi/node-partials/node--share-links.html.twig' %}
 
@@ -11,7 +19,7 @@
           {% if data.type == 'logo' %}
             <div class="c-meta-rows__row">
               <dt class="c-meta-rows__label">
-                {{ data.label }}
+                <h3>{{ data.label }}</h3>
               </dt>
               {% for section in data.sections %}
                 <dd class="c-meta-rows__row">

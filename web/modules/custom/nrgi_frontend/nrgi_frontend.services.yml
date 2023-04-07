@@ -1,7 +1,7 @@
 services:
   nrgi_frontend.metadata_helper:
     class: Drupal\nrgi_frontend\Services\MetadataHelperService
-    arguments: [ '@path.matcher', '@date.formatter', '@nrgi_frontend.responsive_image_helper' ]
+    arguments: [ '@path.matcher', '@date.formatter', '@nrgi_frontend.responsive_image_helper', '@nrgi_frontend.translation_helper' ]
 
   nrgi_frontend.paragraph_button_link_helper:
     class: Drupal\nrgi_frontend\Services\NrgiParagraphButtonLinkHelperService
