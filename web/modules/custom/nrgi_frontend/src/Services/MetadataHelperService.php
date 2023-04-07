@@ -206,7 +206,6 @@ class MetadataHelperService {
       $this->metadataFieldNames['all']['logo'],
     );
     if (!empty($metadata)) {
-      $metadata['label'] = t('Produced with financial support from');
       $variables['meta_data'][] = $metadata;
     }
 
@@ -406,9 +405,14 @@ class MetadataHelperService {
             $entity_fields = $field->referencedEntities();
             foreach ($entity_fields as $entity) {
               if ($entity instanceof ParagraphInterface) {
+                if ($entity->hasField('field_title')
+                    && $document_label = $entity->get('field_title')) {
+                  $document_label = $document_label->first()->value;
+                }
+
                 $media = $entity->get('field_file')->entity;
                 if ($media instanceof MediaInterface) {
-                  $items[] = $this->getFileFromMediaDocument($media);
+                  $items[] = $this->getFileFromMediaDocument($media, $document_label ?: '');
                 }
               }
               elseif ($entity instanceof MediaInterface) {
@@ -859,13 +863,15 @@ class MetadataHelperService {
    *
    * @param \Drupal\media\MediaInterface $media
    *   Media item to get file from.
+   * @param string $document_label
+   *   The document label, empty string by default.
    *
    * @return array|null
    *   File array.
    *
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
-  protected function getFileFromMediaDocument(MediaInterface $media): ?array {
+  protected function getFileFromMediaDocument(MediaInterface $media, string $document_label = ''): ?array {
 
     /** @var \Drupal\file\Entity\File $file */
     $file = $media->hasField('field_media_document')
@@ -876,13 +882,15 @@ class MetadataHelperService {
       $file_size = format_size($file->getSize());
       $file_type = $file->getMimeType();
       $file_type = strtoupper(explode('/', $file_type,)[1]);
-      $document_label =
-        $media->hasField('field_media_label')
-        && !$media->get('field_media_label')->isEmpty()
-        && ($media->get('field_media_label')
-            && $file_label = $media->get('field_media_label')->first()->value)
-          ? $file_label
-          : $file->getFilename();
+      if (!$document_label) {
+        $document_label =
+          $media->hasField('field_media_label')
+          && !$media->get('field_media_label')->isEmpty()
+          && ($media->get('field_media_label')
+              && $file_label = $media->get('field_media_label')->first()->value)
+            ? $file_label
+            : $file->getFilename();
+      }
       return [
         'type' => 'file',
         'file_type' => $file_type,

@@ -3,32 +3,46 @@
     <div class="c-meta-rows__container o-container">
       <dl class="c-meta-rows__inner">
         {% for data in meta_data %}
+
           {% if data.type == 'text' %}
             <div class="c-meta-rows__row">
               <dt class="c-meta-rows__label">
-                {{ data.label }}
+                <h3>{{ data.label }}</h3>
               </dt>
 
               <dd class="c-meta-rows__items">
                 {{ data.items.title }}
               </dd>
             </div>
+
           {% elseif data.type == 'logo' %}
             <div class="c-meta-rows__row">
               <dt class="c-meta-rows__label">
-                {{ data.label }}
+                <h3>{{ data.label }}</h3>
               </dt>
               {% for section in data.sections %}
                 <dd class="c-meta-rows__row">
-                  <a href="{{ section.link }}">{{ section.view }}</a>
+                  {# Footer Oraganisation logos #}
+                  {% if section.link %}
+                    <a href="{{ section.link }}"
+                       title="{{ 'Visit'|t ~ ' ' ~ section.title ?: 'organisation'|t }}"
+                       target="{{ section.is_external ? '_blank' : '' }}">
+                      {% if section.logo %}
+                        {{ section.logo }}
+                      {% else %}
+                        [FALLBACK PLACEHOLDER LOGO]
+                      {% endif %}
+                    </a>
+                  {% endif %}
                 </dd>
               {% endfor %}
             </div>
+
           {% else %}
             {% for section in data %}
               <div class="c-meta-rows__row">
                 <dt class="c-meta-rows__label">
-                  {{ section.label }}
+                  <h3>{{ section.label }}</h3>
                 </dt>
                 <dd class="c-meta-rows__items{{ section.items[0]['type'] == 'file' ? ' c-meta-rows__items--downloads' }}">
                   {% for item in section.items %}
@@ -43,6 +57,7 @@
               </div>
             {% endfor %}
           {% endif %}
+
         {% endfor %}
       </dl>
     </div>
