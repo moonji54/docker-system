@@ -40,10 +40,12 @@
   {% endif %}
 
   {% if content.field_link|field_value %}
+    {# External item #}
     {{ content.field_link }}
   {% endif %}
 
   {% if report_pdf %}
+    {# Reprot PDF #}
     {% set file_label =  'Download PDF'|t %}
     <span class="c-meta-rows__icon-wrapper"></span>
     <a href="{{ report_pdf.url }}" title="{{ file_label }}">{{ file_label }}</a>
