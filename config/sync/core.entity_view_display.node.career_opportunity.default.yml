@@ -72,11 +72,11 @@ content:
     region: content
   field_country:
     type: entity_reference_label
-    label: hidden
+    label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 108
+    weight: 9
     region: content
   field_featured_image:
     type: entity_reference_label
@@ -84,7 +84,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 122
+    weight: 12
     region: content
   field_offer_deadline:
     type: datetime_default
@@ -97,28 +97,28 @@ content:
     region: content
   field_page_builder:
     type: entity_reference_revisions_entity_view
-    label: hidden
+    label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 117
+    weight: 17
     region: content
   field_photo_caption:
     type: string
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 102
+    weight: 20
     region: content
   field_region:
     type: entity_reference_label
-    label: hidden
+    label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 109
+    weight: 23
     region: content
   field_salary:
     type: string
@@ -133,7 +133,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 119
+    weight: 35
     region: content
   field_slug:
     type: string
@@ -141,15 +141,15 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 121
+    weight: 38
     region: content
   field_subtitle:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 118
+    weight: 2
     region: content
   field_supporting_document:
     type: entity_reference_revisions_entity_view
@@ -158,7 +158,16 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 120
+    weight: 37
+    region: content
+  langcode:
+    type: language
+    label: above
+    settings:
+      link_to_entity: false
+      native_language: false
+    third_party_settings: {  }
+    weight: 7
     region: content
   links:
     settings: {  }
@@ -166,5 +175,4 @@ content:
     weight: 100
     region: content
 hidden:
-  langcode: true
   search_api_excerpt: true

@@ -10,6 +10,9 @@ use Drupal\node\NodeInterface;
 
 /**
  * Implements hook_preprocess_node().
+ *
+ * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+ * @throws \Drupal\Core\Entity\EntityMalformedException
  */
 function nrgi_frontend_preprocess_node(&$variables): void {
   /** @var Drupal\node\NodeInterface $node */
@@ -44,6 +47,7 @@ function nrgi_frontend_preprocess_node(&$variables): void {
         if (in_array($variables['view_mode'], ['full', 'default'])) {
           $metadata_helper_service->preprocessMetadata($node, $variables);
           $metadata_helper_service->preprocessSidebarMetadata($node, $variables);
+          _nrgi_frontend_preprocess_related_content($variables);
           break;
         }
     }
@@ -109,5 +113,80 @@ function nrgi_frontend_preprocess_node(&$variables): void {
         break;
 
     }
+  }
+}
+
+/**
+ * Preprocess related content.
+ *
+ * @param array $variables
+ *   The variables array.
+ *
+ * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+ */
+function _nrgi_frontend_preprocess_related_content(array &$variables): void {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+
+  $disable_related_content = FALSE;
+
+  if ($node->hasField('field_disable_related_content') && $disable_field = $node->get('field_disable_related_content')) {
+    $disable_related_content = ((bool) $disable_field->first()->value);
+  }
+
+  if (!$disable_related_content) {
+
+    /** @var \Drupal\soapbox_related_content\RelatedContentHelperService $related_content_helper */
+    $related_content_helper = Drupal::service('soapbox_related_content.related_content');
+
+    // Which node types are allowed as related content results?
+    $related_content_helper->setAllowedTargetNodeTypes([
+      'article',
+      'event',
+      'publication',
+    ]);
+
+    // Which fields should be compared?
+    $related_content_helper->setFieldsToCheck([
+      'field_topic',
+      'field_country',
+      'field_region',
+    ]);
+
+    // Which view mode should be used to render the contents?
+    $related_content_helper->setViewMode('featured_content_3_per_row');
+
+    // Add manual selections.
+    $manual_selections = [];
+    if ($node->hasField('field_related_manual_content')) {
+      $selections = $node->get('field_related_manual_content');
+
+      foreach ($selections as $selection) {
+        $manual_selections[] = $selection->target_id;
+      }
+
+      // Add manual selections.
+      $related_content_helper->setManualSelections($manual_selections);
+    }
+
+    // Set the return limit.
+    // A maximum of 4 automated related items, no limit for manual.
+    // (flexibility to accommodate migrated manual related content)
+    $return_limit = max(3, count($manual_selections));
+
+    // Set the sort order. Unified date descending is default,
+    // so this can be skipped unless you need something specific.
+    $related_content_helper->setSortOrders([
+      [
+        'field' => 'unified_date',
+        'direction' => 'DESC',
+      ],
+    ]);
+
+    // How many related contents should we find?
+    $related_content_helper->setReturnLimit($return_limit);
+
+    // Run preprocess.
+    $related_content_helper->preprocessNode($variables);
   }
 }

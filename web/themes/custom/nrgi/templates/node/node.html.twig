@@ -35,4 +35,10 @@
     <h1>METADATA:</h1>
     {% include '@nrgi/node-partials/node--metadata.html.twig' %}
   </div>
+
+  {#  RELATED CONTENT #}
+  {% if related_nodes is not empty %}
+    {% include 'node--related-content-block.html.twig' %}
+  {% endif %}
+
 </article>
