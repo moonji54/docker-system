@@ -10,6 +10,7 @@ use Drupal\Core\Field\EntityReferenceFieldItemListInterface;
 use Drupal\Core\Field\FieldItemList;
 use Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem;
 use Drupal\Core\Path\PathMatcherInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\entity_reference_revisions\Plugin\DataType\EntityReferenceRevisions;
 use Drupal\entity_reference_revisions\Plugin\Field\FieldType\EntityReferenceRevisionsItem;
@@ -201,13 +202,12 @@ class MetadataHelperService {
     $variables['subtype'] = $this->getTermLabels($node, $this->nodeSubtypeFields[$node->bundle()])[0];
 
     // Node footer meta.
-    $metadata = $this->preprocessLogos(
+    $this->preprocessLogos(
       $node,
       $this->metadataFieldNames['all']['logo'],
+      t('Produced with financial support from'),
+      $variables
     );
-    if (!empty($metadata)) {
-      $variables['meta_data'][] = $metadata;
-    }
 
     $this->preprocessDownloads(
       $node,
@@ -294,15 +294,13 @@ class MetadataHelperService {
     NodeInterface $node,
     array &$variables
   ): void {
-    $metadata = $this->preprocessLogos(
+    $this->preprocessLogos(
       $node,
       $this->metadataFieldNames['all']['sidebar_logo'],
+      t('Produced in partnership with'),
+      $variables,
+      TRUE,
     );
-
-    if (!empty($metadata)) {
-      $metadata['label'] = t('Produced in partnership with');
-      $variables['sidebar_data'][] = $metadata;
-    }
   }
 
   /**
@@ -355,20 +353,22 @@ class MetadataHelperService {
             break;
 
           case 'string':
-            $meta_items = [
-              'label' => t('Top image'),
-              'type' => 'text',
-              'items' => [
-                'title' => $node->get($metadata_field_name)
-                  ->first()->value ?? NULL,
-              ],
-            ];
+            if ($title_field = $node->get($metadata_field_name)->first()) {
+              $metadata[] = [
+                'label' => t('Top image'),
+                'items' => [
+                  [
+                    'type' => 'text',
+                    'title' => $title_field->value,
+                  ],
+                ],
+              ];
+            }
             break;
         }
       }
     }
     $variables['meta_data'][] = $metadata;
-    $variables['meta_data'][] = $meta_items;
   }
 
   /**
@@ -426,7 +426,7 @@ class MetadataHelperService {
     if ($items) {
       if (!$items_only) {
         $metadata = [
-          'label' => 'Additional downloads',
+          'label' => t('Additional downloads'),
           'items' => $items,
         ];
         $variables['meta_data'][] = [$metadata];
@@ -444,21 +444,29 @@ class MetadataHelperService {
    *   Node.
    * @param String[] $logo_field_names
    *   Array of logo field names.
+   * @param \Drupal\Core\StringTranslation\TranslatableMarkup $section_label
+   *   The metadata section label.
+   * @param array $variables
+   *   The variables array.
+   * @param bool $sidebar
+   *   Whether to add on metadata sidebar sub array, FALSE by default.
    *
-   * @throws \Drupal\Core\Entity\EntityMalformedException
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   protected function preprocessLogos(
     NodeInterface $node,
     array $logo_field_names,
-  ): array {
-    $metadata = [];
+    TranslatableMarkup $section_label,
+    array &$variables,
+    bool $sidebar = FALSE
+  ): void {
+    $items = [];
+
     foreach ($logo_field_names as $logo_field_name) {
       if ($node->hasField($logo_field_name) && $field = $node->get($logo_field_name)) {
         if (!$field instanceof FieldItemList | $field->isEmpty()) {
           continue;
         }
-        $items = [];
         switch ($field->getFieldDefinition()->getType()) {
           case 'entity_reference':
           case 'entity_reference_revisions':
@@ -491,6 +499,7 @@ class MetadataHelperService {
                   }
 
                   $items[] = [
+                    'type' => 'logo',
                     'title' => $title ?? NULL,
                     'link' => $link ?? NULL,
                     'is_external' => $is_external ?? NULL,
@@ -499,21 +508,24 @@ class MetadataHelperService {
                 }
               }
             }
-            if ($items) {
-              $metadata = $items;
-            }
             break;
         }
       }
     }
-    if ($metadata) {
-      return [
-        'type' => 'logo',
-        'label' => t('Produced with financial support from'),
-        'sections' => $metadata,
+    if ($items) {
+      $metadata = [
+        'label' => $section_label,
+        'items' => $items,
       ];
+
+      if ($sidebar) {
+        $variables['sidebar_data'][] = [$metadata];
+      }
+      else {
+        $variables['meta_data'][] = [$metadata];
+
+      }
     }
-    return [];
   }
 
   /**
@@ -546,8 +558,10 @@ class MetadataHelperService {
               ->getLabel();
             $variables['meta_data'][] = [
               'label' => $label,
-              'type' => 'text',
-              'items' => ['title' => $node->get($field_name)->first()->value],
+              'items' => [
+                'type' => 'text',
+                'title' => $node->get($field_name)->first()->value,
+              ],
             ];
             break;
 

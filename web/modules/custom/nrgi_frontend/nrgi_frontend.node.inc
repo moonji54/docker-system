@@ -130,8 +130,10 @@ function _nrgi_frontend_preprocess_related_content(array &$variables): void {
 
   $disable_related_content = FALSE;
 
-  if ($node->hasField('field_disable_related_content') && $disable_field = $node->get('field_disable_related_content')) {
-    $disable_related_content = ((bool) $disable_field->first()->value);
+  if ($node->hasField('field_disable_related_content')
+      && $disable_field = $node->get('field_disable_related_content')) {
+    $disable_related_content = $disable_field->first()
+                               && (bool) $disable_field->first()->value;
   }
 
   if (!$disable_related_content) {
