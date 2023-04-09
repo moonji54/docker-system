@@ -5,8 +5,12 @@
  * Contains nrgi_frontend.node.inc.
  */
 
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\link\LinkItemInterface;
 use Drupal\media\MediaInterface;
 use Drupal\node\NodeInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Implements hook_preprocess_node().
@@ -112,6 +116,46 @@ function nrgi_frontend_preprocess_node(&$variables): void {
         }
         break;
 
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ *
+ * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+ */
+function nrgi_frontend_node_view(
+  array &$build,
+  EntityInterface $entity,
+  EntityViewDisplayInterface $display,
+  $view_mode
+) {
+  $resource_types = ['article', 'publication'];
+
+  if ($entity instanceof NodeInterface
+      && in_array($entity->bundle(), $resource_types)
+      && in_array($view_mode, ['full', 'default'])) {
+
+    // External link - node view disabled.
+    if ($entity->hasField('field_link')
+        && $external_link_field = $entity->get('field_link')) {
+      if ($external_link = $external_link_field->first()) {
+        if ($external_link instanceof LinkItemInterface) {
+          $external_link_uri = $external_link->get('uri')->getValue();
+
+          if ($external_link_uri) {
+            if ($entity->hasField('field_disable')
+                && $disable_field = $entity->get('field_disable')) {
+              if ($disable_field->value) {
+                // Redirect to the link.
+                $response = new RedirectResponse($external_link_uri);
+                $response->send();
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
