@@ -134,12 +134,12 @@ function nrgi_frontend_preprocess_node(&$variables): void {
         if ($node->hasField('field_featured_image')
             && $node->get('field_featured_image')
             && $media = $node->get('field_featured_image')->entity) {
-          if ($media instanceof MediaInterface && isset($view_mode_responsive_image_style[$variables['view_mode']])) {
+          if ($media instanceof MediaInterface) {
             /** @var  \Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService $responsive_image_style_service */
             $responsive_image_style_service = \Drupal::service('nrgi_frontend.responsive_image_helper');
             $responsive_image_style_service->preprocessResponsiveImage(
               $media,
-              $view_mode_responsive_image_style[$variables['view_mode']],
+              'small_card',
               $variables
             );
           }
