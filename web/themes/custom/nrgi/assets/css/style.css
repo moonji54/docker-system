@@ -1101,8 +1101,25 @@ ul li a:hover {
 .c-language-links--aside .c-language-links__links-list {
   gap: 0.5rem;
 }
+@media (max-width: 48rem) {
+  .c-language-links--aside .c-language-links__links-list {
+    gap: 0;
+    width: 100%;
+  }
+}
+@media (max-width: 48rem) {
+  .c-language-links--aside .c-language-links__links-item {
+    width: 100%;
+  }
+}
 .c-language-links--aside .c-language-links__link {
   font-weight: 500;
+}
+@media (max-width: 48rem) {
+  .c-language-links--aside .c-language-links__link {
+    border-radius: 0;
+    padding: 24px 16px;
+  }
 }
 .c-language-links--aside .c-language-links__link svg {
   display: none;
@@ -1346,7 +1363,6 @@ ul li a:hover {
 @media (max-width: 48rem) {
   .c-page-header__language-switcher-links {
     background: red;
-    display: block;
     left: 0;
     position: absolute;
     top: 0;

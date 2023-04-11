@@ -124,7 +124,6 @@
   &__language-switcher-links {
     @include media("<=tablet") {
       background : red;
-      display    : block;
       left       : 0;
       position   : absolute;
       top        : 0;

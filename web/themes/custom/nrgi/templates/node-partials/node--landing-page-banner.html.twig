@@ -38,7 +38,7 @@
     <aside class="c-page-header__aside">
       {# Language switcher #}
       {% if language_switcher_links %}
-        <div class="c-page-header__language-switcher-links">
+        <div class="c-page-header__language-switcher-links js-languages-overlay">
           {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
             'text' :  "Other languages"|t,
             'links' : language_switcher_links,
@@ -53,7 +53,9 @@
         {% include '@nrgi/node-partials/node--share-links.html.twig' %}
       </div>
 
-      <button class="c-page-header__languages-button">
+      <button class="c-page-header__languages-button js-languages-button"
+              aria-label="{{ 'Toggle language links'|trans }}"
+              aria-expanded="false">
         {% include '@nrgi/svg/svg.html.twig' with {'svg': 'languages-icon', 'extra_class': 'c-page-header__languages-svg' } %}
       </button>
 

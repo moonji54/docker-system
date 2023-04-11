@@ -103,10 +103,26 @@
 
     #{$c}__links-list {
       gap : 0.5rem;
+
+      @include media("<=tablet") {
+        gap   : 0;
+        width : 100%;
+      }
+    }
+
+    #{$c}__links-item {
+      @include media("<=tablet") {
+        width : 100%;
+      }
     }
 
     #{$c}__link {
       font-weight : 500;
+
+      @include media("<=tablet") {
+        border-radius : 0;
+        padding       : 24px 16px;
+      }
 
       svg {
         display : none;

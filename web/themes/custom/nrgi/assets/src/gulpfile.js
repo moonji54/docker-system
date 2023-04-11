@@ -111,6 +111,7 @@ gulp.task('build-js', gulp.series((done) => {
     // Add your js files here (we're doing them separately so they can be loaded
     // via libraries.yml)
     themejs('example');
+    themejs('languages-overlay');
 
     done();
 }));
