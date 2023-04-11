@@ -1,6 +1,7 @@
 {% set classes = [
   'c-card',
-  'c-card--page'
+  'c-card--page',
+  'c-card--' ~ layout
 ] %}
 
   {% if title or responsive_image %}
@@ -19,7 +20,7 @@
         {% endif %}
       </div>
 
-      {% if responsive_image %}
+      {% if show_image %}
         <div class="c-card__image-wrapper">
           {% if responsive_image %}
             {{ responsive_image }}

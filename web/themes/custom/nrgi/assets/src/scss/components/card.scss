@@ -136,7 +136,8 @@
   }
 
   &--page {
-    flex-direction : column;
+    flex-direction  : column;
+    justify-content : space-between;
 
     #{$c}__image-wrapper {
       margin-top : var(--space-l);
@@ -164,6 +165,12 @@
   }
 
   &--one-col {
+    > * {
+      @include media(">=tablet") {
+        flex : 1;
+      }
+    }
+
     #{$c}__image-wrapper {
       @include media(">=tablet") {
         margin-top : 0;

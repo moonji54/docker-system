@@ -954,6 +954,7 @@ ul li a:hover {
 }
 .c-card--page {
   flex-direction: column;
+  justify-content: space-between;
 }
 .c-card--page .c-card__image-wrapper {
   margin-top: var(--space-l);
@@ -996,6 +997,11 @@ ul li a:hover {
 @media (max-width: 94.5rem) {
   .c-card--person .c-card__title {
     font-size: 1.25rem;
+  }
+}
+@media (min-width: 48rem) {
+  .c-card--one-col > * {
+    flex: 1;
   }
 }
 @media (min-width: 48rem) {
