@@ -280,6 +280,50 @@ class MetadataHelperService {
   }
 
   /**
+   * Preprocess list item metadata.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   Node.
+   * @param array &$variables
+   *   The variables array.
+   *
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+   */
+  public function preprocessListItemMetadata(
+    NodeInterface $node,
+    array &$variables
+  ): void {
+    // Content type.
+    $variables['content_type'] = $node->bundle();
+    $variables['content_type_label'] = $node->type->entity->label();
+
+    // Date.
+    if ($date = $node->get('unified_date')) {
+      $card_date = $this->dateFormatter->format($date->value, 'card_date');
+      $variables['date'] = $card_date;
+    }
+
+    // Content type specific list item meta.
+    switch ($node->bundle()) {
+      case 'event':
+        $this->preprocessEventCardMetadata($node, $variables);
+        break;
+
+      case 'article':
+      case 'publication':
+        // Resource type.
+        if ($resource_type = $this->getTermLabels(
+          $node,
+          'field_resource_type')
+        ) {
+          $variables['subtype'] = $resource_type[0];
+        }
+        break;
+    }
+
+  }
+
+  /**
    * Preprocess metadata.
    *
    * @param \Drupal\node\NodeInterface $node
@@ -598,6 +642,8 @@ class MetadataHelperService {
    *   Node.
    * @param array $variables
    *   The variables array.
+   *
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   protected function preprocessEventCardMetadata(
     NodeInterface $node,
@@ -762,9 +808,9 @@ class MetadataHelperService {
                     }
 
                     // Headshot.
-                    if ($node->hasField('field_featured_image')
-                        && $node->get('field_featured_image')
-                        && $media = $node->get('field_featured_image')->entity) {
+                    if ($person_entity->hasField('field_featured_image')
+                        && $person_entity->get('field_featured_image')
+                        && $media = $person_entity->get('field_featured_image')->entity) {
                       if ($media instanceof MediaInterface) {
                         /** @var  \Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService $responsive_image_style_service */
                         $responsive_image_style_service = \Drupal::service('nrgi_frontend.responsive_image_helper');
