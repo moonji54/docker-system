@@ -1,12 +1,12 @@
 {% if meta_data %}
-  <section class="c-meta-rows o-section">
+  <section class="c-meta-rows o-section o-section--has-background">
     <div class="c-meta-rows__container o-container">
       <dl class="c-meta-rows__inner">
         {% for data in meta_data %}
           {% for section in data %}
             <div class="c-meta-rows__row">
               <dt class="c-meta-rows__label">
-                <h3>{{ section.label }}</h3>
+                <span>{{ section.label }}</span>
               </dt>
               <dd class="c-meta-rows__items">
                 {% for item in section.items %}
