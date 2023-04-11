@@ -745,34 +745,94 @@ ul li a:hover {
     6. COMPONENTS
     ===============================
 */
-/** @define c-breadcrumbs */
-.c-filter__items {
-  display: none;
-}
-.c-filter__legend {
+/** @define c-breadcrumbs */ /* stylelint-disable */
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) legend,
+.views-exposed-form .form-type-entity-autocomplete legend {
   font-family: "Noto Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1;
   background-color: #EDEDEF;
+  cursor: pointer;
   padding: 1rem;
   position: relative;
+  transition: background-color 0.3s;
   width: 100%;
 }
 @media (max-width: 64rem) {
-  .c-filter__legend {
+  .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) legend,
+  .views-exposed-form .form-type-entity-autocomplete legend {
     font-size: 1rem;
   }
 }
 @media (max-width: 48rem) {
-  .c-filter__legend {
+  .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) legend,
+  .views-exposed-form .form-type-entity-autocomplete legend {
     padding: 0.75rem 1rem;
   }
 }
-.c-filter__legend:after {
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) legend:after,
+.views-exposed-form .form-type-entity-autocomplete legend:after {
   content: url("../img/chevron-down.svg");
   position: absolute;
   right: 1rem;
+  transition: transform 0.3s;
+}
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) legend.is-clicked,
+.views-exposed-form .form-type-entity-autocomplete legend.is-clicked {
+  background-color: #ED7053;
+}
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) legend.is-clicked:after,
+.views-exposed-form .form-type-entity-autocomplete legend.is-clicked:after {
+  transform: rotate(180deg);
+}
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) label,
+.views-exposed-form .form-type-entity-autocomplete label {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1;
+  background-color: #EDEDEF;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  padding: 1rem;
+  position: relative;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+@media (max-width: 64rem) {
+  .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) label,
+  .views-exposed-form .form-type-entity-autocomplete label {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 48rem) {
+  .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) label,
+  .views-exposed-form .form-type-entity-autocomplete label {
+    padding: 0.75rem 1rem;
+  }
+}
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) input,
+.views-exposed-form .form-type-entity-autocomplete input {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) input:checked + label,
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) input:focus + label,
+.views-exposed-form .form-type-entity-autocomplete input:checked + label,
+.views-exposed-form .form-type-entity-autocomplete input:focus + label {
+  background-color: #FF7D5F;
+}
+
+.c-filter__items {
+  display: none;
 }
 
 /** @define c-footer */

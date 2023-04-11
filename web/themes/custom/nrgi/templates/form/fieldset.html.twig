@@ -16,7 +16,7 @@
   ] %}
 
   {% if legend.title is not empty %}
-    <legend{{ legend.attributes.addClass(legend_span_classes) }}>
+    <legend{{ legend.attributes.addClass(legend_span_classes) }} tabindex="0" aria-expanded="false">
       {{ legend.title }}
 
       {# Output the chevron if filter is not publication status or sorter #}
