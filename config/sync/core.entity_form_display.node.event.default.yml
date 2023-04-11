@@ -45,6 +45,7 @@ dependencies:
     - field_group
     - link
     - media_library
+    - media_library_edit
     - paragraphs
     - path
     - textfield_counter
@@ -248,9 +249,9 @@ third_party_settings:
         required_fields: true
     group_documents:
       children:
-        - field_course_syllabus
         - field_data_document
         - field_supporting_document
+        - field_course_syllabus
       label: Documents
       region: content
       parent_name: group_uploads_tabs
@@ -628,7 +629,9 @@ content:
     region: content
     settings:
       media_types: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      media_library_edit:
+        show_edit: '1'
   field_format:
     type: options_buttons
     weight: 120

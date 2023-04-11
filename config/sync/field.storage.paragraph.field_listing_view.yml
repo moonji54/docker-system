@@ -1,4 +1,4 @@
-uuid: 6b20a845-6b5c-4c1b-8d2a-bf9ac55c7187
+uuid: eb6f7f6c-9f58-4950-b589-78fbc2013903
 langcode: en
 status: true
 dependencies:
@@ -6,8 +6,8 @@ dependencies:
     - paragraphs
     - views
     - viewsreference
-id: paragraph.field_listing
-field_name: field_listing
+id: paragraph.field_listing_view
+field_name: field_listing_view
 entity_type: paragraph
 type: viewsreference
 settings:

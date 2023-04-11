@@ -1,9 +1,9 @@
-uuid: 8da6bfb9-095c-4dea-9390-347150f4b8a4
+uuid: 180eec5a-ac7d-495e-8bfb-c8e0b1633a61
 langcode: en
 status: false
 dependencies:
   config:
-    - core.entity_view_mode.node.list_item
+    - core.entity_view_mode.node.list_item_with_image
     - field.field.node.publication.field_acknowledgement_logo
     - field.field.node.publication.field_author
     - field.field.node.publication.field_country
@@ -32,11 +32,20 @@ dependencies:
   module:
     - link
     - user
-id: node.publication.list_item
+id: node.publication.list_item_with_image
 targetEntityType: node
 bundle: publication
-mode: list_item
+mode: list_item_with_image
 content:
+  field_featured_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: '16'
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
   field_link:
     type: link
     label: above
@@ -47,15 +56,15 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_resource_type:
     type: entity_reference_label
-    label: hidden
+    label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
 hidden:
   content_moderation_control: true
@@ -66,7 +75,6 @@ hidden:
   field_disable: true
   field_disable_related_content: true
   field_external_authors: true
-  field_featured_image: true
   field_keywords: true
   field_page_builder: true
   field_partner_logo: true

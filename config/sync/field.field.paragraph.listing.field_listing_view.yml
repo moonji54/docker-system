@@ -1,17 +1,17 @@
-uuid: 28707850-002f-41c5-86c4-740b277c1e30
+uuid: 4714fd11-6ffe-48a7-a3f5-d5457bae9ecf
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_listing
+    - field.storage.paragraph.field_listing_view
     - paragraphs.paragraphs_type.listing
   module:
     - viewsreference
-id: paragraph.listing.field_listing
-field_name: field_listing
+id: paragraph.listing.field_listing_view
+field_name: field_listing_view
 entity_type: paragraph
 bundle: listing
-label: Listing
+label: 'Listing view'
 description: ''
 required: false
 translatable: false
@@ -28,14 +28,7 @@ settings:
     page: 0
     feed: 0
   preselect_views:
-    blog: blog
-    learning_and_events: learning_and_events
     library: library
-    news: news
-    our_people: our_people
-    overshight: overshight
-    topic: topic
-    where_we_work: where_we_work
     block_content: 0
     content: 0
     content_recent: 0
@@ -44,19 +37,19 @@ settings:
     media: 0
     media_library: 0
     moderated_content: 0
+    overshight: 0
     redirect: 0
-    scheduler_scheduled_content: 0
+    scheduled_transitions: 0
     taxonomy_term: 0
     user_admin_people: 0
     watchdog: 0
+    where_we_work: 0
     who_s_new: 0
     who_s_online: 0
   enabled_settings:
-    featured_content_type: 0
-    featured_term: 0
-    argument: 0
-    pager: 0
-    limit: 0
-    offset: 0
     title: 0
+    pager: 0
+    offset: 0
+    limit: 0
+    argument: 0
 field_type: viewsreference
