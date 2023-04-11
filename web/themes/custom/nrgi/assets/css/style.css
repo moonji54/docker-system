@@ -646,8 +646,8 @@ ul li a:hover {
   width: 1.5rem;
 }
 .o-svg--arrow-right {
-  height: 13px;
-  width: 22px;
+  height: 0.8125rem;
+  width: 1.375rem;
 }
 
 /*
@@ -1078,31 +1078,40 @@ ul li a:hover {
   }
 }
 
-/** @define c-language-bar */
-.c-language-bar {
+/** @define c-language-links */
+.c-language-links {
   background-color: #FFD66D;
   color: #2D2D32;
 }
-.c-language-bar__inner {
+.c-language-links__container {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: calc(82rem + var(--gutter) * 2);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  width: 100%;
+}
+.c-language-links__inner {
   align-items: center;
   display: flex;
   gap: 1.5rem;
   padding: 0.875rem 0;
 }
 @media (max-width: 64rem) {
-  .c-language-bar__inner {
+  .c-language-links__inner {
     flex-wrap: wrap;
   }
 }
 @media (max-width: 48rem) {
-  .c-language-bar__inner {
+  .c-language-links__inner {
     align-items: flex-start;
     flex-direction: column;
     gap: 0.25rem;
     padding: 0.5rem 0 1rem;
   }
 }
-.c-language-bar__title {
+.c-language-links__title {
   font-family: "Noto Sans", sans-serif;
   font-size: 1rem;
   font-weight: 500;
@@ -1112,22 +1121,22 @@ ul li a:hover {
   flex-shrink: 0;
 }
 @media (max-width: 48rem) {
-  .c-language-bar__title {
+  .c-language-links__title {
     font-size: 0.875rem;
   }
 }
-.c-language-bar__links-list {
+.c-language-links__links-list {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
 }
 @media (max-width: 48rem) {
-  .c-language-bar__links-list {
+  .c-language-links__links-list {
     gap: 2rem;
     row-gap: 1rem;
   }
 }
-.c-language-bar__link {
+.c-language-links__link {
   font-family: "Noto Sans", sans-serif;
   font-weight: 400;
   font-size: 1.125rem;
@@ -1138,20 +1147,20 @@ ul li a:hover {
   gap: 0.5rem;
 }
 @media (max-width: 48rem) {
-  .c-language-bar__link {
+  .c-language-links__link {
     font-size: 1rem;
   }
 }
-.c-language-bar__link:hover .c-language-bar__link-label, .c-language-bar__link:focus .c-language-bar__link-label {
+.c-language-links__link:hover .c-language-links__link-label, .c-language-links__link:focus .c-language-links__link-label {
   -webkit-text-decoration-color: #2D2D32;
           text-decoration-color: #2D2D32;
 }
 @media (max-width: 48rem) {
-  .c-language-bar__link-svg {
+  .c-language-links__link-svg {
     display: none;
   }
 }
-.c-language-bar__link-label {
+.c-language-links__link-label {
   text-decoration: underline;
   -webkit-text-decoration-color: transparent;
           text-decoration-color: transparent;

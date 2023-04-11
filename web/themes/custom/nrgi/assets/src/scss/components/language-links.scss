@@ -1,8 +1,12 @@
-/** @define c-language-bar */
-.c-language-bar {
+/** @define c-language-links */
+.c-language-links {
   $c               : &;
   background-color : $yellow-light;
   color            : $primary;
+
+  &__container {
+    @include o-container;
+  }
 
   &__inner {
     align-items : center;
