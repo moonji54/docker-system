@@ -1,11 +1,11 @@
-uuid: 8220821f-163e-46bf-b8f5-3b4d1e198cd6
+uuid: da385d42-ec90-47a2-9b3d-e625e709c444
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-id: paragraph.field_external_author_name
-field_name: field_external_author_name
+id: paragraph.field_given_name
+field_name: field_given_name
 entity_type: paragraph
 type: string
 settings:
