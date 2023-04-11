@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.list_item
+    - core.entity_view_mode.node.list_item_with_image
     - node.type.article
     - node.type.publication
     - taxonomy.vocabulary.keyword
@@ -310,7 +311,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: list_item
+          view_mode: list_item_with_image
       query:
         type: views_query
         options:
@@ -366,6 +367,17 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      style:
+        type: default
+        options: {  }
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: list_item
+      defaults:
+        style: false
+        row: false
       display_description: ''
       display_extenders:
         ajax_history: {  }
@@ -1352,8 +1364,18 @@ display:
         operator: AND
         groups:
           1: AND
+      style:
+        type: default
+        options: {  }
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: list_item
       defaults:
         exposed_form: false
+        style: false
+        row: false
         filters: false
         filter_groups: false
       display_description: ''
