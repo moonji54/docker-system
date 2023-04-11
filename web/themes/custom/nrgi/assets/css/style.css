@@ -711,6 +711,10 @@ ul li a:hover {
   height: 0.6875rem;
   width: 1.3125rem;
 }
+.o-svg--chevron-down {
+  height: 0.5rem;
+  width: 1rem;
+}
 .o-svg--nrgi-logo-condensed {
   height: 3.5rem;
   width: 11.5625rem;
@@ -741,7 +745,37 @@ ul li a:hover {
     6. COMPONENTS
     ===============================
 */
-/** @define c-breadcrumbs */ /** @define c-footer */
+/** @define c-breadcrumbs */
+.c-filter__items {
+  display: none;
+}
+.c-filter__legend {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1;
+  background-color: #EDEDEF;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+}
+@media (max-width: 64rem) {
+  .c-filter__legend {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-filter__legend {
+    padding: 0.75rem 1rem;
+  }
+}
+.c-filter__legend:after {
+  content: url("../img/chevron-down.svg");
+  position: absolute;
+  right: 1rem;
+}
+
+/** @define c-footer */
 .c-footer {
   background: no-repeat center/cover url("../img/footer-bg.png");
   color: #FFFFFF;

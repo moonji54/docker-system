@@ -1,0 +1,23 @@
+.c-filter {
+  &__items {
+    display : none;
+  }
+
+  &__legend {
+    @include ts-button;
+    background-color : $grey-light;
+    padding          : 1rem;
+    position         : relative;
+    width            : 100%;
+
+    @include media("<=tablet") {
+      padding : 0.75rem 1rem;
+    }
+
+    &:after {
+      content  : url("../img/chevron-down.svg");
+      position : absolute;
+      right    : 1rem;
+    }
+  }
+}
