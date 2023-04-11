@@ -16,12 +16,18 @@
   {% endif %}
 
   <div class="c-page-header__container o-container">
+
+    {#      SBTODO: to be added once backend is done #}
+    <div class="c-page-header__breadcrumbs c-breadcrumbs">
+      <div class="c-breadcrumbs__list">
+        breadcrumb / breadcrumb
+      </div>
+    </div>
+
     <div class="c-page-header__text-wrapper">
 
       {# Title #}
-      <div class="c-page-header__title">
-        <h1>{{ label }}</h1>
-      </div>
+      <h1 class="c-page-header__title">{{ label }}</h1>
 
       {# Description #}
       {% if content.field_short_description|field_value %}
@@ -35,7 +41,9 @@
         <div class="c-page-header__language-switcher-links">
           {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
             'text' :  "Other languages"|t,
-            'links' : language_switcher_links
+            'links' : language_switcher_links,
+            'layout_modifier': 'c-language-links--aside',
+            'link_modifier': 'o-button o-button--secondary',
           } %}
         </div>
       {% endif %}
@@ -44,6 +52,14 @@
       <div class="c-page-header__share-links">
         {% include '@nrgi/node-partials/node--share-links.html.twig' %}
       </div>
+
+      <button class="c-page-header__languages-button">
+        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'languages-icon', 'extra_class': 'c-page-header__languages-svg' } %}
+      </button>
+
+      <button class="c-page-header__share-button">
+        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'share-icon', 'extra_class': 'c-page-header__share-svg' } %}
+      </button>
     </aside>
   </div>
 </section>

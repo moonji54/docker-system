@@ -2,19 +2,18 @@
 .c-page-header {
   box-sizing  : border-box;
   display     : flex;
-  min-height  : calc(75vh - 3.5rem); // 3.5rem = language bar height
+  min-height  : 75vh;
   padding-top : var(--header-height);
   position    : relative;
   width       : 100%;
 
   @include media("<=tablet") {
-    min-height  : 100%;
-    padding-top : 10.25rem;
+    min-height : 100%;
   }
 
   /* stylelint-disable-next-line */
   .c-media {
-    @include z-index(homepage-image);
+    @include z-index(hero-image);
     height   : 100%;
     left     : 0;
     position : absolute;
@@ -47,7 +46,7 @@
 
   &__image-placeholder {
     @include object-fit(cover);
-    @include z-index(homepage-image);
+    @include z-index(hero-image);
     height   : 100%;
     left     : 0;
     position : absolute;
@@ -57,24 +56,32 @@
 
   &__container {
     @include grid;
+    @include z-index(hero-content);
+  }
+
+  &__breadcrumbs {
+    grid-column : 1 / -1;
+    margin      : 3rem 0;
+
+    @include media("<=desktop") {
+      margin-top : 2rem;
+    }
   }
 
   &__text-wrapper {
-    @include z-index(homepage-image-inner);
     align-self     : flex-end;
-    border-top     : 1px solid $grey-light;
     color          : $white;
-    grid-column    : 1 / 9;
+    grid-column    : 1 / 8;
     padding-bottom : var(--space-3xl);
-    padding-top    : var(--space-xs);
     position       : relative;
 
     @include media("<=desktop") {
-      grid-column : 1 /10;
+      grid-column : 1 / 9;
     }
 
     @include media("<=tablet") {
-      grid-column : 1 / -1;
+      grid-column    : 1 / -1;
+      padding-bottom : 1rem;
     }
   }
 
@@ -83,20 +90,88 @@
   }
 
   &__description {
-    @include ts-body;
+    @include ts-heading-6;
     margin-top : var(--space-s);
   }
 
-  &__button-wrapper {
-    margin-top : var(--space-m);
-  }
+  &__aside {
+    align-self     : flex-end;
+    display        : flex;
+    flex-direction : column;
+    gap            : 3rem;
+    grid-column    : 10 / -1;
+    padding-bottom : var(--space-3xl);
 
-  /* stylelint-disable-next-line */
-  .user-logged-in & {
-    min-height : calc(75vh - (var(--admin-height) + 3.5rem));
+    @include media("<=desktop") {
+      grid-column : 9 / -1;
+    }
 
     @include media("<=tablet") {
-      min-height : 100%;
+      flex-direction : row;
+      gap            : 0.5rem;
+      grid-column    : 1 / -1;
+      padding-bottom : 2.25rem;
     }
+  }
+
+  &__language-switcher-links,
+  &__share-links {
+    @include media("<=tablet") {
+      display : none;
+    }
+  }
+
+  &__language-switcher-links {
+    @include media("<=tablet") {
+      background : red;
+      display    : block;
+      left       : 0;
+      position   : absolute;
+      top        : 0;
+      width      : 100%;
+      z-index    : 10;
+    }
+  }
+
+  &__languages-button,
+  &__share-button {
+    align-items     : center;
+    border-radius   : 2rem;
+    cursor          : pointer;
+    display         : none;
+    height          : 2rem;
+    justify-content : center;
+    transition      : background-color 0.3s;
+    width           : 2rem;
+
+    @include media("<=tablet") {
+      display : flex;
+    }
+  }
+
+  &__languages-button {
+    background : $yellow-light;
+    border     : none;
+    color      : $primary;
+
+    &:hover,
+    &:focus {
+      background-color : $yellow-dark;
+    }
+  }
+
+  &__share-button {
+    background-color : transparent;
+    border           : 1px solid $white;
+    color            : $white;
+
+    &:focus,
+    &:hover {
+      background-color : rgba($primary, 0.4);
+    }
+  }
+
+  &__share-svg {
+    transform : translateX(-1px);
   }
 }

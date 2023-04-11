@@ -40,7 +40,7 @@
 
   {# Manual language bar #}
   {% if language_bar_links %}
-    {% include '@nrgi/node-partials/node--language-bar-links.html.twig' with {
+    {% include '@nrgi/node-partials/node--language-links.scss-links.html.twig' with {
       'text' : content.field_language_bar_text|field_value ?
       content.field_language_bar_text|field_raw('value') : "Explore content in",
       'links' : language_bar_links
