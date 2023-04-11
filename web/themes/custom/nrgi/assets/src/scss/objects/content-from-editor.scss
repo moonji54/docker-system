@@ -230,7 +230,7 @@
 
     th {
       @include ts-caption($bold : true);
-      padding-bottom : var(--space-s);
+      padding : 0 var(--space-s) var(--space-s) 0;
     }
 
     td {
