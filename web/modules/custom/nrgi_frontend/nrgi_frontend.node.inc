@@ -48,6 +48,7 @@ function nrgi_frontend_preprocess_node(&$variables): void {
 
       case 'article':
       case 'publication':
+      case 'career_opportunity':
       case 'event':
         if (in_array($variables['view_mode'], ['full', 'default'])) {
           $metadata_helper_service->preprocessMetadata($node, $variables);
