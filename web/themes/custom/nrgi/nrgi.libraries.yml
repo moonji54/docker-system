@@ -21,13 +21,13 @@ global-scripts:
     - core/drupalSettings
     - core/once
 
-  # Script for the languages-overlay
-#languages-overlay:
-#  version: 1.0
-#  js:
-#    assets/js/languages-overlay.js: { }
-#  dependencies:
-#    - core/jquery
-#    - core/drupal
-#    - core/jquery.once
-#    - core/drupalSetting
+# Share links
+share-links:
+  version: 1.0
+  js:
+    assets/js/share-links.js: { minified: false }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - core/drupalSetting

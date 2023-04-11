@@ -46,22 +46,18 @@
             'link_modifier': 'o-button o-button--secondary',
           } %}
         </div>
+
+        <button class="c-page-header__languages-button js-languages-button"
+                aria-label="{{ 'Toggle language links'|trans }}"
+                aria-expanded="false">
+          {% include '@nrgi/svg/svg.html.twig' with {'svg': 'languages-icon', 'extra_class': 'c-page-header__languages-svg' } %}
+        </button>
       {% endif %}
 
-      {# Share buttons #}
+      {# Share links #}
       <div class="c-page-header__share-links">
         {% include '@nrgi/node-partials/node--share-links.html.twig' %}
       </div>
-
-      <button class="c-page-header__languages-button js-languages-button"
-              aria-label="{{ 'Toggle language links'|trans }}"
-              aria-expanded="false">
-        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'languages-icon', 'extra_class': 'c-page-header__languages-svg' } %}
-      </button>
-
-      <button class="c-page-header__share-button">
-        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'share-icon', 'extra_class': 'c-page-header__share-svg' } %}
-      </button>
     </aside>
   </div>
 </section>

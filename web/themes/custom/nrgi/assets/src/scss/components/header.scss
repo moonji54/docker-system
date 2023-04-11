@@ -1,17 +1,4 @@
 /** @define c-header */
 .c-header {
-  height     : 196px;
-  background : transparent;
-  position   : absolute;
-  z-index    : 3;
-  width      : 100%;
-  border     : 1px solid red;
 
-  .c-main-menu {
-    display : none;
-  }
-
-  .c-header__inner {
-    display : none;
-  }
 }

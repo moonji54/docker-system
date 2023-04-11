@@ -16,7 +16,7 @@ class LanguagesOverlay {
         const $elem = this.$(e.currentTarget);
 
         $elem.attr('aria-expanded', 'true');
-        $elem.toggleClass('is-clicked').siblings('.js-languages-overlay').addClass('is-open').slideToggle(this.speed);
+        $elem.toggleClass('is-clicked').prev().toggleClass('is-open').slideToggle(this.speed);
 
         if (!$elem.hasClass('is-clicked')) {
             $elem.attr('aria-expanded', 'false');

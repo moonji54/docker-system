@@ -33,6 +33,7 @@
   }
 
   &__overlay {
+    @include z-index(hero-overlay);
     /* stylelint-disable-next-line */
     background            : linear-gradient(0deg, rgba(45, 45, 50, calc(var(--hero-opacity) * 0.01)), rgba(45, 45, 50, calc(var(--hero-opacity) * 0.01)));
     background-blend-mode : multiply, normal;
@@ -41,7 +42,6 @@
     position              : absolute;
     top                   : 0;
     width                 : 100%;
-    z-index               : 1;
   }
 
   &__image-placeholder {
@@ -114,28 +114,23 @@
     }
   }
 
-  &__language-switcher-links,
-  &__share-links {
-    @include media("<=tablet") {
-      display : none;
-    }
-  }
-
   &__language-switcher-links {
     @include media("<=tablet") {
-      background : red;
-      left       : 0;
-      position   : absolute;
-      top        : 0;
-      width      : 100%;
-      z-index    : 10;
+      @include z-index(languages-overlay);
+      left     : 0;
+      position : absolute;
+      top      : 0;
+      width    : 100%;
+      display  : none;
     }
   }
 
-  &__languages-button,
-  &__share-button {
+  &__languages-button {
     align-items     : center;
+    background      : $yellow-light;
+    border          : none;
     border-radius   : 2rem;
+    color           : $primary;
     cursor          : pointer;
     display         : none;
     height          : 2rem;
@@ -146,31 +141,10 @@
     @include media("<=tablet") {
       display : flex;
     }
-  }
-
-  &__languages-button {
-    background : $yellow-light;
-    border     : none;
-    color      : $primary;
 
     &:hover,
     &:focus {
       background-color : $yellow-dark;
     }
-  }
-
-  &__share-button {
-    background-color : transparent;
-    border           : 1px solid $white;
-    color            : $white;
-
-    &:focus,
-    &:hover {
-      background-color : rgba($primary, 0.4);
-    }
-  }
-
-  &__share-svg {
-    transform : translateX(-1px);
   }
 }
