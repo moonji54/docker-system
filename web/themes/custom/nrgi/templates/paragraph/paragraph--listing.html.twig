@@ -1,4 +1,4 @@
-<section class="o-section">
+<section class="c-listing o-section">
   {% if content.field_title|field_value %}
     <div class="o-container">
       <div class="o-section__header-container">
@@ -12,10 +12,10 @@
           </p>
         {% endif %}
       </div>
+
+      {{ content.field_listing_view }}
     </div>
   {% endif %}
-
-  {{ content.field_listing_view }}
 </section>
 
 
