@@ -621,6 +621,10 @@ ul li a:hover {
   height: 0.6875rem;
   width: 1.3125rem;
 }
+.o-svg--arrow-right {
+  height: 0.8125rem;
+  width: 1.375rem;
+}
 .o-svg--nrgi-logo-condensed {
   height: 3.5rem;
   width: 11.5625rem;
@@ -644,10 +648,6 @@ ul li a:hover {
 .o-svg--youtube {
   height: 1.0313rem;
   width: 1.5rem;
-}
-.o-svg--arrow-right {
-  height: 0.8125rem;
-  width: 1.375rem;
 }
 
 /*
