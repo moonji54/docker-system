@@ -762,9 +762,9 @@ class MetadataHelperService {
                     }
 
                     // Headshot.
-                    if ($node->hasField('field_featured_image')
-                        && $node->get('field_featured_image')
-                        && $media = $node->get('field_featured_image')->entity) {
+                    if ($person_entity->hasField('field_featured_image')
+                        && $person_entity->get('field_featured_image')
+                        && $media = $person_entity->get('field_featured_image')->entity) {
                       if ($media instanceof MediaInterface) {
                         /** @var  \Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService $responsive_image_style_service */
                         $responsive_image_style_service = \Drupal::service('nrgi_frontend.responsive_image_helper');

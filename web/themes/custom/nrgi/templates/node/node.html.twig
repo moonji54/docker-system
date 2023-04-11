@@ -24,9 +24,17 @@
   </div>
 
   <div style="background-color: orange">
-    <h1>PAGE BUILDER:</h1>
     {% if content.field_page_builder|field_value %}
+      <h1>PAGE BUILDER:</h1>
       {{ content.field_page_builder }}
+    {% endif %}
+  </div>
+
+  {# AUTHORS SECTION on resources only (publication/article) #}
+  <div style="background-color: blue ">
+    {% if authors %}
+      <h1>{{ "Authors"|t }}:</h1>
+      {% include '@nrgi/node-partials/node--authors-bottom.html.twig' %}
     {% endif %}
   </div>
 
