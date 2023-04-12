@@ -246,12 +246,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_email:
-    type: string_textfield
+    type: email_default
     weight: 32
     region: content
     settings:
-      size: 60
       placeholder: ''
+      size: 60
     third_party_settings: {  }
   field_featured_image:
     type: media_library_widget

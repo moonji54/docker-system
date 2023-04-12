@@ -47,18 +47,18 @@ content:
     weight: 113
     region: content
   field_email:
-    type: string
+    type: email_mailto
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 119
+    weight: 122
     region: content
   field_featured_image:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     label: above
     settings:
-      link: true
+      view_mode: square_large
+      link: false
     third_party_settings: {  }
     weight: 120
     region: content

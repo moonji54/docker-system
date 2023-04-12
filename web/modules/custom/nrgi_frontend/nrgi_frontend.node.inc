@@ -43,7 +43,7 @@ function nrgi_frontend_preprocess_node(&$variables): void {
         break;
 
       case 'person':
-
+        $metadata_helper_service->preprocessMetadata($node, $variables);
         break;
 
       case 'article':

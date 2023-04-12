@@ -4,9 +4,77 @@
 ] %}
 
 <header {{ attributes.addClass(classes) }}>
+  <div class="c-node__content-header">
+    <div style="background-color: red">
+      <h1>Header:</h1>
 
-  {% if field_ %}
-  <h1 class="c-node__title">{{ label }}</h1>
+      {# Headshot #}
+      {% if content.field_featured_image|field_value %}
+        {{ content.field_featured_image }}
+      {% endif %}
 
+      {# Firstname and lastname #}
+      <h2>
+        {% if content.field_given_name|field_value %}
+          {{ content.field_given_name }}
+        {% endif %}
+        {% if content.field_surname|field_value %}
+          {{ content.field_surname }}
+        {% endif %}
+      </h2>
 
+      {# Job title #}
+      {% if content.field_job_title|field_value %}
+        <h3>
+          {{ content.field_job_title }}
+        </h3>
+      {% endif %}
+
+      <p>
+        {% if subtype %}
+          <span>
+          {{ subtype }}
+          </span>
+        {% endif %}
+
+        {% if content.field_board_member_type|field_value %}
+          {# Board member is available only if role is 'Board member' #}
+          <span>
+            {{ content.field_board_member_type|field_value.0['#title'] }}
+          </span>
+        {% endif %}
+
+        {% if content.field_twitter_handle|field_value %}
+          <span>
+            {% set twitter_handle = content.field_twitter_handle|field_raw('value') %}
+            <a href='{{ "https://twitter.com/#{twitter_handle}" }}'
+               title='{{ "Visit #{content.field_given_name|field_raw('value')} #{content.field_surname|field_raw('value')} twitter profile"|t }}'
+               target='_blank'>
+              {{ twitter_handle }}
+            </a>
+          </span>
+        {% endif %}
+
+        {% if content.field_email|field_value %}
+          {{ content.field_email }}
+        {% endif %}
+      </p>
+
+    </div>
+  </div>
 </header>
+
+<div>
+  {# PERSON SIDEBAR META #}
+  <h1>PERSON SIDEBAR META:</h1>
+  {% include '@nrgi/node-partials/node--metadata.html.twig' %}
+</div>
+
+<article{{ attributes.addClass(classes) }}>
+  <div style="background-color: orange">
+    {% if content.field_page_builder|field_value %}
+      <h1>FULL BIO:</h1>
+      {{ content.field_page_builder }}
+    {% endif %}
+  </div>
+</article>

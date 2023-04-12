@@ -81,6 +81,7 @@ class MetadataHelperService {
     'publication' => 'field_resource_type',
     'event' => 'field_event_type',
     'career_opportunity' => 'field_career_opportunity_type',
+    'person' => 'field_role_type',
   ];
 
   /**
