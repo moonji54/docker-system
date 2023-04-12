@@ -83,6 +83,14 @@
 
       label {
         @include o-button;
+        padding-right : 2rem;
+        position      : relative;
+
+        &:after {
+          content  : url("../img/cross.svg");
+          position : absolute;
+          right    : 0.625rem;
+        }
       }
     }
 

@@ -230,6 +230,7 @@ ul li a:hover {
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1;
+  cursor: pointer;
   align-items: center;
   color: #2D2D32;
   height: 2.5rem;
@@ -843,6 +844,7 @@ ul li a:hover {
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1;
+  cursor: pointer;
   align-items: center;
   color: #2D2D32;
   height: 2.5rem;
@@ -853,6 +855,8 @@ ul li a:hover {
   transition: background-color 0.3s;
   border-radius: 2.75rem;
   /* stylelint-disable */
+  padding-right: 2rem;
+  position: relative;
 }
 @media (max-width: 64rem) {
   .views-exposed-form .c-filter--active-filters label {
@@ -868,6 +872,11 @@ ul li a:hover {
     height: 2rem;
   }
 }
+.views-exposed-form .c-filter--active-filters label:after {
+  content: url("../img/cross.svg");
+  position: absolute;
+  right: 0.625rem;
+}
 .views-exposed-form .c-filter__submit-buttons {
   display: flex;
   gap: var(--space-xs);
@@ -878,6 +887,7 @@ ul li a:hover {
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1;
+  cursor: pointer;
   align-items: center;
   color: #2D2D32;
   height: 2.5rem;
@@ -1157,6 +1167,7 @@ ul li a:hover {
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1;
+  cursor: pointer;
   align-items: center;
   color: #2D2D32;
   height: 2.5rem;
