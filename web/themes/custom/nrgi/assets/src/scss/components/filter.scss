@@ -1,7 +1,10 @@
 /* stylelint-disable */
 .views-exposed-form {
-  .fieldgroup:not(.c-filter--field-active-filters),
-  .form-type-entity-autocomplete {
+  .fieldgroup:not(.c-filter--field-active-filters, .form-type-entity-autocomplete) {
+    .c-filter__items {
+      display : none;
+    }
+
     legend {
       @include ts-button;
       background-color : $grey-light;
@@ -33,17 +36,30 @@
 
     label {
       @include ts-button;
-      background-color : $grey-light;
+      align-items      : center;
+      background-color : $tertiary;
       box-sizing       : border-box;
       cursor           : pointer;
-      display          : block;
-      padding          : 1rem;
+      display          : flex;
+      padding          : 1rem 1rem 1rem 2.5rem;
       position         : relative;
       transition       : background-color 0.3s;
       width            : 100%;
 
       @include media("<=tablet") {
         padding : 0.75rem 1rem;
+      }
+
+      &:before {
+        background-color : transparent;
+        box-sizing       : border-box;
+        content          : "";
+        display          : block;
+        height           : 0.5rem;
+        left             : var(--space-s);
+        position         : absolute;
+        transition       : background-color 0.3s;
+        width            : 0.5rem;
       }
     }
 
@@ -52,15 +68,42 @@
       @include accessible-hide;
     }
 
-    input:checked + label,
+    input:checked + label:before {
+      background-color : $primary;
+    }
+
     input:focus + label {
-      background-color : $tertiary;
+      background-color : $peach-2;
     }
   }
-}
 
-.c-filter {
-  &__items {
-    display : none;
+  .c-filter {
+    &--active-filters {
+      margin-top : var(--space-l);
+
+      label {
+        @include o-button;
+      }
+    }
+
+    &__submit-buttons {
+      display    : flex;
+      gap        : var(--space-xs);
+      margin-top : var(--space-l);
+    }
+
+    &__button {
+      @include o-button;
+      border : 0;
+      margin : 0;
+
+      &--submit {
+
+      }
+
+      &--clear {
+
+      }
+    }
   }
 }
