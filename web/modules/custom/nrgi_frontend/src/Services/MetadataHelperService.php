@@ -46,6 +46,7 @@ class MetadataHelperService {
         'field_event_type',
         'field_role_type',
         'field_photo_caption',
+        'field_publisher',
       ],
       'downloads' => [
         'field_data_document',
@@ -412,15 +413,22 @@ class MetadataHelperService {
 
           case 'string':
             if ($title_field = $node->get($metadata_field_name)->first()) {
-              $metadata[] = [
-                'label' => t('Top image'),
-                'items' => [
-                  [
-                    'type' => 'text',
-                    'title' => $title_field->value,
+              if ($title_field instanceof StringItem) {
+                $label = match ($title_field->getFieldDefinition()->getName()) {
+                  'field_photo_caption' => t('Top image'),
+                  'field_publisher' => t('Publisher'),
+                  default => $title_field->getFieldDefinition()->getLabel(),
+                };
+                $metadata[] = [
+                  'label' => $label,
+                  'items' => [
+                    [
+                      'type' => 'text',
+                      'title' => $title_field->value,
+                    ],
                   ],
-                ],
-              ];
+                ];
+              }
             }
             break;
         }
