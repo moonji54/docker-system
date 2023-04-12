@@ -79,10 +79,11 @@ content:
     weight: 9
     region: content
   field_featured_image:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     label: above
     settings:
-      link: true
+      view_mode: '16'
+      link: false
     third_party_settings: {  }
     weight: 12
     region: content
