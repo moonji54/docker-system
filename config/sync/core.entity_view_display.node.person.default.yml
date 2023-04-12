@@ -15,11 +15,10 @@ dependencies:
     - field.field.node.person.field_short_bio
     - field.field.node.person.field_surname
     - field.field.node.person.field_topic
-    - field.field.node.person.field_twitter
+    - field.field.node.person.field_twitter_handle
     - node.type.person
   module:
     - entity_reference_revisions
-    - link
     - user
 id: node.person.default
 targetEntityType: node
@@ -128,17 +127,13 @@ content:
     third_party_settings: {  }
     weight: 117
     region: content
-  field_twitter:
-    type: link
-    label: hidden
+  field_twitter_handle:
+    type: string
+    label: above
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      link_to_entity: false
     third_party_settings: {  }
-    weight: 108
+    weight: 121
     region: content
   links:
     settings: {  }

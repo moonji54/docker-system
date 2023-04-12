@@ -16,7 +16,7 @@ dependencies:
     - field.field.node.person.field_short_bio
     - field.field.node.person.field_surname
     - field.field.node.person.field_topic
-    - field.field.node.person.field_twitter
+    - field.field.node.person.field_twitter_handle
     - node.type.person
   module:
     - user
@@ -48,6 +48,6 @@ hidden:
   field_short_bio: true
   field_surname: true
   field_topic: true
-  field_twitter: true
+  field_twitter_handle: true
   langcode: true
   search_api_excerpt: true
