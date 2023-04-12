@@ -61,8 +61,8 @@ class MetadataHelperService {
     ],
     'event' => [
       'event_details' => [
-        'field_contact',
-        'field_course_information',
+        'field_course_host',
+        'field_organizing_partner',
         'field_days_of_the_week',
         'field_time_commitment',
         'field_expertise_required',
@@ -193,7 +193,9 @@ class MetadataHelperService {
         // Application deadline.
         if ($date = $node->get('field_offer_deadline')) {
           $date = new DrupalDateTime($date->value);
-          $date->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
+          $date->setTimezone(new \DateTimeZone(
+              DateTimeItemInterface::STORAGE_TIMEZONE)
+          );
           $formatted_date = $this->dateFormatter
             ->format($date->getTimestamp(), 'resource_header_date');
           $variables['deadline'] = $formatted_date;
@@ -376,7 +378,8 @@ class MetadataHelperService {
   ): void {
     $metadata = [];
     foreach ($metadata_field_names as $metadata_field_name) {
-      if ($node->hasField($metadata_field_name) && $field = $node->get($metadata_field_name)) {
+      if ($node->hasField($metadata_field_name)
+          && $field = $node->get($metadata_field_name)) {
         $items = [];
         switch ($field->getFieldDefinition()->getType()) {
           case 'entity_reference':
@@ -428,6 +431,56 @@ class MetadataHelperService {
               }
             }
             break;
+
+          case 'integer':
+            // Time commitment (used for events only)
+            if ($field instanceof FieldItemList) {
+              $label = $field->getFieldDefinition()->getLabel();
+              $metadata[] = [
+                'label' => $label,
+                'items' => [
+                  [
+                    'type' => 'int',
+                    'title' => $field->value . ' ' . t('hours per week'),
+                  ],
+                ],
+              ];
+            }
+
+            break;
+
+          case 'list_string':
+            // List of days (used for events only)
+            if ($field instanceof FieldItemList) {
+              $days_string = '';
+              $values = $field->getValue();
+              $total_days = count($values);
+              $separator = $total_days < 3 ? ' and ' : ', ';
+
+              $label = $field->getFieldDefinition()->getLabel();
+
+              foreach ($values as $i => $value) {
+                if ($i > 0) {
+                  $days_string .= $separator . $value['value'] . 's';
+                }
+                else {
+                  $days_string .= $value['value'] . 's';
+                }
+              }
+              if ($days_string) {
+                $metadata[] = [
+                  'label' => $label,
+                  'items' => [
+                    [
+                      'type' => 'string_list',
+                      'title' => $days_string,
+                    ],
+                  ],
+                ];
+              }
+            }
+
+            break;
         }
       }
     }
@@ -463,7 +516,8 @@ class MetadataHelperService {
     $items = [];
 
     foreach ($download_field_names as $download_field_name) {
-      if ($node->hasField($download_field_name) && $field = $node->get($download_field_name)) {
+      if ($node->hasField($download_field_name)
+          && $field = $node->get($download_field_name)) {
         if (!$field instanceof FieldItemList | $field->isEmpty()) {
           continue;
         }
@@ -480,7 +534,9 @@ class MetadataHelperService {
 
                 $media = $entity->get('field_file')->entity;
                 if ($media instanceof MediaInterface) {
-                  $items[] = $this->getFileFromMediaDocument($media, $document_label ?: '');
+                  $items[] = $this->getFileFromMediaDocument(
+                    $media,
+                    $document_label ?: '');
                 }
               }
               elseif ($entity instanceof MediaInterface) {
@@ -537,7 +593,8 @@ class MetadataHelperService {
     $items = [];
 
     foreach ($logo_field_names as $logo_field_name) {
-      if ($node->hasField($logo_field_name) && $field = $node->get($logo_field_name)) {
+      if ($node->hasField($logo_field_name)
+          && $field = $node->get($logo_field_name)) {
         if (!$field instanceof FieldItemList | $field->isEmpty()) {
           continue;
         }
@@ -626,7 +683,9 @@ class MetadataHelperService {
         && $start_date_field = $node->get('field_start_date')) {
       $start_date = new DrupalDateTime($start_date_field->value);
       $now = new DrupalDateTime('now');
-      $now->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
+      $now->setTimezone(new \DateTimeZone(
+          DateTimeItemInterface::STORAGE_TIMEZONE)
+      );
 
       if ($start_date < $now) {
         $past_event = TRUE;
@@ -644,7 +703,9 @@ class MetadataHelperService {
     if ($node->hasField('field_open_registration')
         && $registration_field = $node->get('field_open_registration')) {
       $now = new DrupalDateTime('now');
-      $now->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
+      $now->setTimezone(new \DateTimeZone(
+          DateTimeItemInterface::STORAGE_TIMEZONE)
+      );
 
       if ($registration_field->value) {
         if (!$past_event) {
@@ -679,7 +740,9 @@ class MetadataHelperService {
     array &$variables,
   ): void {
 
-    if ($event_type = $this->getTermLabels($node, 'field_event_type')) {
+    if ($event_type = $this->getTermLabels(
+      $node,
+      'field_event_type')) {
       $variables['subtype'] = $event_type[0];
     }
 
@@ -754,7 +817,9 @@ class MetadataHelperService {
         && $recording_field = $node->get('field_event_recording')) {
       $has_recording = $recording_field->value;
       $now = new DrupalDateTime('now');
-      $now->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
+      $now->setTimezone(new \DateTimeZone(
+          DateTimeItemInterface::STORAGE_TIMEZONE)
+      );
       if ($has_recording && $end_date < $now) {
         $variables['recording'] = TRUE;
       }
@@ -990,7 +1055,10 @@ class MetadataHelperService {
    *
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
-  protected function getFileFromMediaDocument(MediaInterface $media, string $document_label = ''): ?array {
+  protected function getFileFromMediaDocument(
+    MediaInterface $media,
+    string $document_label = ''
+  ): ?array {
 
     /** @var \Drupal\file\Entity\File $file */
     $file = $media->hasField('field_media_document')
