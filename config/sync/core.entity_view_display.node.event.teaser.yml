@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.event.field_country
     - field.field.node.event.field_course_host
     - field.field.node.event.field_course_syllabus
-    - field.field.node.event.field_course_training_contact
     - field.field.node.event.field_data_document
     - field.field.node.event.field_days_of_the_week
     - field.field.node.event.field_disable_related_content
@@ -62,7 +61,6 @@ hidden:
   field_country: true
   field_course_host: true
   field_course_syllabus: true
-  field_course_training_contact: true
   field_data_document: true
   field_days_of_the_week: true
   field_disable_related_content: true
