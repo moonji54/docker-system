@@ -5,35 +5,33 @@
 ] %}
 
 <article{{ attributes.addClass(classes) }}>
-  <div class="c-card__tag-wrapper">
-    
-    {% if responsive_image %}
-      <div class="c-featured-content__image-wrapper">
-        {% if responsive_image %}
-          {{ responsive_image }}
-        {% else %}
-          <img src="/{{ base_path ~ directory }}/assets/img/fallback-default.svg" alt="{{ 'Fallback image'|t }}"/>
-        {% endif %}
-      </div>
-    {% endif %}
-
-    {% if subtype %}
-      <small class="c-card__tag o-tag">
-        {{ subtype }}
-      </small>
-    {% endif %}
-
-    {% if date %}
-      <small class="c-card__tag o-tag">
-        {{ date|upper }}
-      </small>
-    {% endif %}
-  </div>
-
   <div class="c-card__content-wrapper">
+    <div class="c-card__meta-wrapper">
+      {% if subtype %}
+        <small class="c-card__tag">
+          {{ subtype }}
+        </small>
+      {% endif %}
+
+      {% if date %}
+        <span class="c-card__meta-item">
+          {{ date|upper }}
+        </span>
+      {% endif %}
+    </div>
+
     <h3 class="c-card__title">
       <a class="c-card__link" href={{ url }}>{{ label }}</a>
     </h3>
-
   </div>
+
+  {% if responsive_image %}
+    <div class="c-card__image-wrapper">
+      {% if responsive_image %}
+        {{ responsive_image }}
+      {% else %}
+        <img src="/{{ base_path ~ directory }}/assets/img/fallback-default.svg" alt="{{ 'Fallback image'|t }}"/>
+      {% endif %}
+    </div>
+  {% endif %}
 </article>

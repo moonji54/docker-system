@@ -747,10 +747,12 @@ ul li a:hover {
     ===============================
 */
 /** @define c-breadcrumbs */ /* stylelint-disable */
-.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters, .form-type-entity-autocomplete) .c-filter__items {
-  display: none;
+.views-exposed-form > * + * {
+  margin-top: var(--space-s);
 }
-.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters, .form-type-entity-autocomplete) legend {
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) legend, .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .autocomplete-button,
+.views-exposed-form .form-type-entity-autocomplete legend,
+.views-exposed-form .form-type-entity-autocomplete .autocomplete-button {
   font-family: "Noto Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 500;
@@ -763,28 +765,48 @@ ul li a:hover {
   width: 100%;
 }
 @media (max-width: 64rem) {
-  .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters, .form-type-entity-autocomplete) legend {
+  .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) legend, .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .autocomplete-button,
+  .views-exposed-form .form-type-entity-autocomplete legend,
+  .views-exposed-form .form-type-entity-autocomplete .autocomplete-button {
     font-size: 1rem;
   }
 }
 @media (max-width: 48rem) {
-  .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters, .form-type-entity-autocomplete) legend {
+  .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) legend, .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .autocomplete-button,
+  .views-exposed-form .form-type-entity-autocomplete legend,
+  .views-exposed-form .form-type-entity-autocomplete .autocomplete-button {
     padding: 0.75rem 1rem;
   }
 }
-.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters, .form-type-entity-autocomplete) legend:after {
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) legend:after, .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .autocomplete-button:after,
+.views-exposed-form .form-type-entity-autocomplete legend:after,
+.views-exposed-form .form-type-entity-autocomplete .autocomplete-button:after {
   content: url("../img/chevron-down.svg");
   position: absolute;
   right: 1rem;
   transition: transform 0.3s;
 }
-.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters, .form-type-entity-autocomplete) legend.is-clicked {
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) legend:hover, .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .autocomplete-button:hover,
+.views-exposed-form .form-type-entity-autocomplete legend:hover,
+.views-exposed-form .form-type-entity-autocomplete .autocomplete-button:hover {
+  background-color: #E1E1E3;
+}
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) legend.is-clicked, .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .autocomplete-button.is-clicked,
+.views-exposed-form .form-type-entity-autocomplete legend.is-clicked,
+.views-exposed-form .form-type-entity-autocomplete .autocomplete-button.is-clicked {
   background-color: #ED7053;
 }
-.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters, .form-type-entity-autocomplete) legend.is-clicked:after {
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) legend.is-clicked:after, .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .autocomplete-button.is-clicked:after,
+.views-exposed-form .form-type-entity-autocomplete legend.is-clicked:after,
+.views-exposed-form .form-type-entity-autocomplete .autocomplete-button.is-clicked:after {
   transform: rotate(180deg);
 }
-.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters, .form-type-entity-autocomplete) label {
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .c-filter__items,
+.views-exposed-form .form-type-entity-autocomplete .c-filter__items {
+  display: none;
+}
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .c-filter__items label,
+.views-exposed-form .form-type-entity-autocomplete .c-filter__items label {
   font-family: "Noto Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 500;
@@ -800,16 +822,19 @@ ul li a:hover {
   width: 100%;
 }
 @media (max-width: 64rem) {
-  .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters, .form-type-entity-autocomplete) label {
+  .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .c-filter__items label,
+  .views-exposed-form .form-type-entity-autocomplete .c-filter__items label {
     font-size: 1rem;
   }
 }
 @media (max-width: 48rem) {
-  .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters, .form-type-entity-autocomplete) label {
+  .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .c-filter__items label,
+  .views-exposed-form .form-type-entity-autocomplete .c-filter__items label {
     padding: 0.75rem 1rem;
   }
 }
-.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters, .form-type-entity-autocomplete) label:before {
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .c-filter__items label:before,
+.views-exposed-form .form-type-entity-autocomplete .c-filter__items label:before {
   background-color: transparent;
   box-sizing: border-box;
   content: "";
@@ -820,7 +845,8 @@ ul li a:hover {
   transition: background-color 0.3s;
   width: 0.5rem;
 }
-.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters, .form-type-entity-autocomplete) input {
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .c-filter__items input,
+.views-exposed-form .form-type-entity-autocomplete .c-filter__items input {
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
           clip-path: inset(50%);
@@ -830,11 +856,24 @@ ul li a:hover {
   white-space: nowrap;
   width: 1px;
 }
-.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters, .form-type-entity-autocomplete) input:checked + label:before {
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .c-filter__items input:checked + label:before,
+.views-exposed-form .form-type-entity-autocomplete .c-filter__items input:checked + label:before {
   background-color: #2D2D32;
 }
-.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters, .form-type-entity-autocomplete) input:focus + label {
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .c-filter__items input:focus + label,
+.views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .c-filter__items input:hover + label,
+.views-exposed-form .form-type-entity-autocomplete .c-filter__items input:focus + label,
+.views-exposed-form .form-type-entity-autocomplete .c-filter__items input:hover + label {
   background-color: #ED7053;
+}
+.views-exposed-form .autocomplete-content {
+  background-color: #FF7D5F;
+  display: none;
+  padding: 1rem;
+}
+.views-exposed-form .autocomplete-content input {
+  border: 1px solid #2D2D32;
+  width: 100%;
 }
 .views-exposed-form .c-filter--active-filters {
   display: flex;
@@ -862,6 +901,7 @@ ul li a:hover {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1;
+  height: 2rem;
   padding: 0.5rem 2rem 0.5rem 0.75rem;
   position: relative;
 }
@@ -927,6 +967,14 @@ ul li a:hover {
     height: 2rem;
   }
 }
+.views-exposed-form .c-filter__button--reset {
+  background-color: #FFFFFF;
+  border: 0.0625rem solid #2D2D32;
+}
+.views-exposed-form .c-filter__button--reset:focus, .views-exposed-form .c-filter__button--reset:hover {
+  background-color: #EDEDEF;
+}
+
 /** @define c-footer */
 .c-footer {
   background: no-repeat center/cover url("../img/footer-bg.png");

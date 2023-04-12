@@ -20,7 +20,7 @@
 ] %}
 <div{{ attributes.addClass(classes) }}>
   {% if label_display in ['before', 'invisible'] and type == 'entity_autocomplete' %}
-    <div class="c-filter__button-toggle js-filter-button" role="button">
+    <div class="c-filter__button-toggle autocomplete-button js-filter-button" role="button">
       {{ label }}
 
       <span class="c-filter__chevron js-filter-chevron">
@@ -50,7 +50,7 @@
       {{ 'Refine search'|trans }}
     </button>
   {% else %}
-    <div class="c-filter__item-content">
+    <div class="c-filter__item-content autocomplete-content">
       {{ children }}
     </div>
   {% endif %}

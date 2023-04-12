@@ -1,11 +1,12 @@
 /* stylelint-disable */
 .views-exposed-form {
-  .fieldgroup:not(.c-filter--field-active-filters, .form-type-entity-autocomplete) {
-    .c-filter__items {
-      display : none;
-    }
+  > * + * {
+    margin-top : var(--space-s);
+  }
 
-    legend {
+  .fieldgroup:not(.c-filter--field-active-filters),
+  .form-type-entity-autocomplete {
+    legend, .autocomplete-button {
       @include ts-button;
       background-color : $grey-light;
       cursor           : pointer;
@@ -25,6 +26,10 @@
         transition : transform 0.3s;
       }
 
+      &:hover {
+        background-color : $grey-light-2;
+      }
+
       &.is-clicked {
         background-color : $peach-2;
 
@@ -34,46 +39,67 @@
       }
     }
 
-    label {
-      @include ts-button;
-      align-items      : center;
-      background-color : $tertiary;
-      box-sizing       : border-box;
-      cursor           : pointer;
-      display          : flex;
-      padding          : 1rem 1rem 1rem 2.5rem;
-      position         : relative;
-      transition       : background-color 0.3s;
-      width            : 100%;
+    .c-filter__items {
+      display : none;
 
-      @include media("<=tablet") {
-        padding : 0.75rem 1rem;
-      }
-
-      &:before {
-        background-color : transparent;
+      label {
+        @include ts-button;
+        align-items      : center;
+        background-color : $tertiary;
         box-sizing       : border-box;
-        content          : "";
-        display          : block;
-        height           : 0.5rem;
-        left             : var(--space-s);
-        position         : absolute;
+        cursor           : pointer;
+        display          : flex;
+        padding          : 1rem 1rem 1rem 2.5rem;
+        position         : relative;
         transition       : background-color 0.3s;
-        width            : 0.5rem;
+        width            : 100%;
+
+        @include media("<=tablet") {
+          padding : 0.75rem 1rem;
+        }
+
+        &:before {
+          background-color : transparent;
+          box-sizing       : border-box;
+          content          : "";
+          display          : block;
+          height           : 0.5rem;
+          left             : var(--space-s);
+          position         : absolute;
+          transition       : background-color 0.3s;
+          width            : 0.5rem;
+        }
       }
-    }
 
-    // Input
+      // Input
+      input {
+        @include accessible-hide;
+      }
+
+      input:checked + label:before {
+        background-color : $primary;
+      }
+
+      input:focus + label,
+      input:hover + label {
+        background-color : $peach-2;
+      }
+
+    }
+  }
+
+  .autocomplete-content {
+    background-color : $tertiary;
+    display          : none;
+    padding          : 1rem;
+
     input {
-      @include accessible-hide;
+      border : 1px solid $primary;
+      width  : 100%;
     }
 
-    input:checked + label:before {
-      background-color : $primary;
-    }
+    &.is-visible {
 
-    input:focus + label {
-      background-color : $peach-2;
     }
   }
 
@@ -87,6 +113,7 @@
       label {
         @include o-button;
         @include ts-tag;
+        height   : 2rem;
         padding  : 0.5rem 2rem 0.5rem 0.75rem;
         position : relative;
 
@@ -109,12 +136,14 @@
       border : 0;
       margin : 0;
 
-      &--submit {
+      &--reset {
+        background-color : $white;
+        border           : 0.0625rem solid $primary;
 
-      }
-
-      &--clear {
-
+        &:focus,
+        &:hover {
+          background-color : $grey-light;
+        }
       }
     }
   }

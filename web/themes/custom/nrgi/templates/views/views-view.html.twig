@@ -67,8 +67,7 @@
         {{ attachment_before }}
       </div>
     {% endif %}
-
-    {{ id|clean_class }}
+    
     {% if id|clean_class == 'search-view' %}
       <div class="c-listing__top">
         <form class="c-listing__form" action="/search" method="get" role="search" aria-label="Sitewide search">
