@@ -1,9 +1,5 @@
 /* stylelint-disable */
 .views-exposed-form {
-  > * + * {
-    margin-top : var(--space-s);
-  }
-
   .fieldgroup:not(.c-filter--field-active-filters),
   .form-type-entity-autocomplete {
     legend, .autocomplete-button {
@@ -54,17 +50,13 @@
         transition       : background-color 0.3s;
         width            : 100%;
 
-        @include media("<=tablet") {
-          padding : 0.75rem 1rem;
-        }
-
         &:before {
           background-color : transparent;
           box-sizing       : border-box;
           content          : "";
           display          : block;
           height           : 0.5rem;
-          left             : var(--space-s);
+          left             : 1rem;
           position         : absolute;
           transition       : background-color 0.3s;
           width            : 0.5rem;
@@ -117,6 +109,10 @@
         padding  : 0.5rem 2rem 0.5rem 0.75rem;
         position : relative;
 
+        @include media("<=tablet") {
+          padding : 0.5rem 2rem 0.5rem 0.75rem;
+        }
+
         &:after {
           content  : url("../img/cross.svg");
           position : absolute;
@@ -127,7 +123,7 @@
 
     &__submit-buttons {
       display    : flex;
-      gap        : var(--space-xs);
+      gap        : 0.5rem;
       margin-top : var(--space-l);
     }
 

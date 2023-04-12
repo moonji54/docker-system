@@ -5,25 +5,26 @@
     {{ attribute(form, 'keywords') }}
   {% endif %}
 
-  {% for key in form['#filters'] %}
-    {% if attribute(form, key) is defined and key not in ['active_filters', 'search-term'] %}
-      {{ attribute(form, key) }}
-    {% endif %}
-  {% endfor %}
-
-  {% for key in form['#submit_buttons'] %}
-    {% if attribute(form, key) is defined %}
-      <div class="c-filter__submit-buttons">
+  <div class="c-listing__filters-dropdowns js-filter-dropdowns">
+    {% for key in form['#filters'] %}
+      {% if attribute(form, key) is defined and key not in ['active_filters', 'search-term'] %}
         {{ attribute(form, key) }}
-      </div>
+      {% endif %}
+    {% endfor %}
+
+    {% for key in form['#submit_buttons'] %}
+      {% if attribute(form, key) is defined %}
+        <div class="c-filter__submit-buttons">
+          {{ attribute(form, key) }}
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    {# Active filters are configured using BEF #}
+    {% if form.active_filters is not empty %}
+      {{ attribute(form, 'active_filters') }}
     {% endif %}
-  {% endfor %}
-
-  {# Active filters are configured using BEF #}
-  {% if form.active_filters is not empty %}
-    {{ attribute(form, 'active_filters') }}
-  {% endif %}
-
+  </div>
 {% endif %}
 
 {# Sorters #}

@@ -31,13 +31,13 @@
     {{ title_suffix }}
 
     <div class="c-listing__filters js-filters">
-      {% if header is not empty %}
-        <h5 class="c-listing__caption ts-filter-item">{{ 'Filter  by:'|t }}</h5>
+      <h5 class="c-listing__caption">{{ 'Filter  by'|t }}</h5>
 
-        {% if exposed['#sorters'] %}
-          <span class="c-listing__sorted-title">• Sorted</span>
-        {% endif %}
-      {% endif %}
+      <div class="c-listing__filters-button js-toggle-filters-button" aria-expanded="true">
+        <h5>{{ 'Filter content'|t }}</h5>
+
+        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'chevron-down', 'extra_class' : 'c-listing__filters-button-icon'} %}
+      </div>
 
       {{ exposed }}
     </div>
@@ -67,7 +67,7 @@
         {{ attachment_before }}
       </div>
     {% endif %}
-    
+
     {% if id|clean_class == 'search-view' %}
       <div class="c-listing__top">
         <form class="c-listing__form" action="/search" method="get" role="search" aria-label="Sitewide search">
@@ -86,11 +86,13 @@
         {{ attachment_after }}
       </div>
     {% endif %}
-  </div>
 
-  {% if pager %}
-    {{ pager }}
-  {% endif %}
+    <div class="c-listing__pagination">
+      {% if pager %}
+        {{ pager }}
+      {% endif %}
+    </div>
+  </div>
 
   {% if more %}
     {{ more }}

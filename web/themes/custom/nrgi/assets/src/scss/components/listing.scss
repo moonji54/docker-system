@@ -1,6 +1,14 @@
 .c-listing {
+  $c : &;
+
   &__container {
     @include grid;
+  }
+
+  &__caption {
+    @include ts-card-tag;
+    display       : block;
+    margin-bottom : var(--space-xl);
   }
 
   &__filters {
@@ -10,6 +18,40 @@
 
     @include media("<=tablet") {
       grid-column : 1 / -1;
+    }
+
+    > #{$c}__caption {
+      @include media("<=tablet") {
+        display : none;
+      }
+    }
+  }
+
+  &__filters-button {
+    @include ts-tab;
+    align-items     : center;
+    display         : none;
+    justify-content : space-between;
+    margin-bottom   : var(--space-xl);
+
+    @include media("<=tablet") {
+      display : flex;
+    }
+
+    &.is-clicked {
+      svg {
+        transform : rotate(180deg);
+      }
+    }
+  }
+
+  &__filters-button-icon {
+    transition : transform 0.3s;
+  }
+
+  &__filters-dropdowns {
+    > * + * {
+      margin-top : var(--space-s);
     }
   }
 
@@ -23,9 +65,12 @@
     }
   }
 
-  &__caption {
-    @include ts-card-tag;
-    display       : block;
-    margin-bottom : var(--space-xl);
+  &__pagination {
+    grid-column : 5 / -1;
+    margin-top  : var(--space-xl);
+
+    @include media("<=tablet") {
+      grid-column : 1 / -1;
+    }
   }
 }

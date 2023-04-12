@@ -21,6 +21,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
+var _debounce = _interopRequireDefault(require("./utils/debounce"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -35,21 +37,50 @@ var Filters = /*#__PURE__*/function () {
     this.settings = settings;
     this.Drupal = Drupal;
     this.$ = $;
+    this.$window = this.$(window);
     this.$document = this.$(document);
     this.$filterButton = this.$('.js-filter-button', this.context).once();
     this.$filterItems = this.$('.js-filter-items', this.context).once();
+    this.$toggleFiltersButton = this.$('.js-toggle-filters-button', this.context).once();
+    this.$exposedFilters = this.$('.views-exposed-form', this.context).once();
+    this.$filterDropdowns = this.$('.js-filter-dropdowns', this.context).once();
     this.$filterButton.on('click', this.$.proxy(this.toggleFilterItems, this));
+    this.$toggleFiltersButton.on('click', this.$.proxy(this.toggleFilters, this));
+    this.$window.on('resize', (0, _debounce["default"])(function () {
+      if (_this.$window.width() >= 768) {
+        _this.resetFilters();
+      }
+    }));
     this.$document.keyup(function (e) {
-      if (e.key === "Escape") {
+      if (e.key === 'Escape') {
         _this.closeDropdown();
       }
-      if (e.key === "Enter") {
+      if (e.key === 'Enter') {
         _this.toggleOnFocus();
       }
     });
     this.addTabindex();
   }
   _createClass(Filters, [{
+    key: "resetFilters",
+    value: function resetFilters() {
+      this.$filterDropdowns.removeAttr('style');
+      this.$toggleFiltersButton.removeClass('is-hidden');
+      this.$toggleFiltersButton.attr('aria-expanded', 'true');
+    }
+  }, {
+    key: "toggleFilters",
+    value: function toggleFilters(e) {
+      var $elem = this.$(e.currentTarget);
+      var $filters = $elem.next(this.$exposedFilters).find(this.$filterDropdowns);
+      $elem.toggleClass('is-clicked');
+      $filters.slideToggle();
+      if ($elem.hasClass('is-clicked')) {
+        return $elem.removeAttr('aria-expanded');
+      }
+      return $elem.attr('aria-expanded', 'true');
+    }
+  }, {
     key: "toggleFilterItems",
     value: function toggleFilterItems(e) {
       var $elem = this.$(e.currentTarget);
@@ -86,6 +117,35 @@ var Filters = /*#__PURE__*/function () {
 }();
 var _default = Filters;
 exports["default"] = _default;
+
+},{"./utils/debounce":3}],3:[function(require,module,exports){
+'use strict';
+
+/**
+ * Simple debouncer
+ *
+ * @param {Function} func
+ * @param {int} wait
+ * @returns {Function}
+ */
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = _default;
+function _default(func) {
+  var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  var timeout;
+  return function () {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+    var context = this;
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+      return func.apply(context, args);
+    }, wait);
+  };
+}
 
 },{}]},{},[1])
 
