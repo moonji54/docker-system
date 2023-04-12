@@ -69,7 +69,6 @@
   <h1>PERSON SIDEBAR META:</h1>
   {% include '@nrgi/node-partials/node--metadata.html.twig' %}
 </div>
-
 <article{{ attributes.addClass(classes) }}>
   <div style="background-color: orange">
     {% if content.field_page_builder|field_value %}
@@ -77,4 +76,18 @@
       {{ content.field_page_builder }}
     {% endif %}
   </div>
+
+  {# Person contributions #}
+  {% set listing = drupal_view('contextual_views', 'person_contributions', node.id, node.id) %}
+  {% if listing|length > 0 %}
+    {% if content.field_contributions_title|field_value %}
+      <h2>{{ content.field_contributions_title }}</h2>
+    {% endif %}
+    {% if content.field_contributions_description|field_value %}
+      <h3>{{ content.field_contributions_description }}</h3>
+    {% endif %}
+
+    {{ listing }}
+  {% endif %}
+
 </article>

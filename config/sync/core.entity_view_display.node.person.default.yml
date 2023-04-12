@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.person.field_board_member_type
+    - field.field.node.person.field_contributions_description
+    - field.field.node.person.field_contributions_title
     - field.field.node.person.field_country
     - field.field.node.person.field_email
     - field.field.node.person.field_featured_image
@@ -37,6 +39,22 @@ content:
       link: true
     third_party_settings: {  }
     weight: 118
+    region: content
+  field_contributions_description:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 124
+    region: content
+  field_contributions_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 123
     region: content
   field_country:
     type: entity_reference_label

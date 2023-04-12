@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.person.field_board_member_type
+    - field.field.node.person.field_contributions_description
+    - field.field.node.person.field_contributions_title
     - field.field.node.person.field_country
     - field.field.node.person.field_email
     - field.field.node.person.field_featured_image
@@ -37,6 +39,8 @@ content:
     region: content
 hidden:
   field_board_member_type: true
+  field_contributions_description: true
+  field_contributions_title: true
   field_country: true
   field_email: true
   field_featured_image: true
