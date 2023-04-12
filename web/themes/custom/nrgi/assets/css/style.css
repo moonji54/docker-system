@@ -837,6 +837,9 @@ ul li a:hover {
   background-color: #ED7053;
 }
 .views-exposed-form .c-filter--active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   margin-top: var(--space-l);
 }
 .views-exposed-form .c-filter--active-filters label {
@@ -855,7 +858,11 @@ ul li a:hover {
   transition: background-color 0.3s;
   border-radius: 2.75rem;
   /* stylelint-disable */
-  padding-right: 2rem;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
   position: relative;
 }
 @media (max-width: 64rem) {
@@ -870,6 +877,11 @@ ul li a:hover {
   .views-exposed-form .c-filter--active-filters label {
     padding: 0.25rem 0.875rem;
     height: 2rem;
+  }
+}
+@media (max-width: 48rem) {
+  .views-exposed-form .c-filter--active-filters label {
+    font-size: 0.875rem;
   }
 }
 .views-exposed-form .c-filter--active-filters label:after {
@@ -1216,7 +1228,7 @@ ul li a:hover {
 }
 .c-listing__filters {
   border-top: 1px solid #EDEDEF;
-  grid-column: 1/4;
+  grid-column: 1/5;
   padding-top: var(--space-xs);
 }
 @media (max-width: 48rem) {

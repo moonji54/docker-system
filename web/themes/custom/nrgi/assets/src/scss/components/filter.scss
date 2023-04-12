@@ -79,12 +79,16 @@
 
   .c-filter {
     &--active-filters {
+      display    : flex;
+      flex-wrap  : wrap;
+      gap        : 0.5rem;
       margin-top : var(--space-l);
 
       label {
         @include o-button;
-        padding-right : 2rem;
-        position      : relative;
+        @include ts-tag;
+        padding  : 0.5rem 2rem 0.5rem 0.75rem;
+        position : relative;
 
         &:after {
           content  : url("../img/cross.svg");
