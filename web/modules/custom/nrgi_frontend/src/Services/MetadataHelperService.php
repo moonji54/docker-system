@@ -9,6 +9,7 @@ use Drupal\Core\Entity\Plugin\DataType\EntityReference;
 use Drupal\Core\Field\EntityReferenceFieldItemListInterface;
 use Drupal\Core\Field\FieldItemList;
 use Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem;
+use Drupal\Core\Field\Plugin\Field\FieldType\StringItem;
 use Drupal\Core\Path\PathMatcherInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
