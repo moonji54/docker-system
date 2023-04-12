@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.article.field_country
     - field.field.node.article.field_data_document
     - field.field.node.article.field_disable
+    - field.field.node.article.field_disable_related_content
     - field.field.node.article.field_external_authors
     - field.field.node.article.field_featured_image
     - field.field.node.article.field_keywords
@@ -19,6 +20,7 @@ dependencies:
     - field.field.node.article.field_publication_date
     - field.field.node.article.field_publisher
     - field.field.node.article.field_region
+    - field.field.node.article.field_related_manual_content
     - field.field.node.article.field_resource_type
     - field.field.node.article.field_short_description
     - field.field.node.article.field_slug
@@ -51,6 +53,7 @@ hidden:
   field_country: true
   field_data_document: true
   field_disable: true
+  field_disable_related_content: true
   field_external_authors: true
   field_featured_image: true
   field_keywords: true
@@ -61,6 +64,7 @@ hidden:
   field_publication_date: true
   field_publisher: true
   field_region: true
+  field_related_manual_content: true
   field_resource_type: true
   field_short_description: true
   field_slug: true

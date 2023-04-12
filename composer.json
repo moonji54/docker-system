@@ -308,7 +308,8 @@
             },
             "drupal/field_group": {
                 "Ensure visibility of invalid fields (JS)": "https://www.drupal.org/files/issues/2021-09-03/2787179-highlight-html5-validation-74.patch",
-                "Field groups are added to the scheduled transitions add form": "https://www.drupal.org/files/issues/2023-01-12/3098550-17.patch"
+                "Field groups are added to the scheduled transitions add form": "https://www.drupal.org/files/issues/2023-01-12/3098550-17.patch",
+                "hook_form_alter form state": "https://www.drupal.org/files/issues/2021-10-15/1053174-48-field_group-D8-form-states.patch"
             },
             "drupal/footnotes": {
                 "All footnotes available as block for Paragraph": "https://www.drupal.org/files/issues/2023-03-23/footnotes-3098138-72.patch",

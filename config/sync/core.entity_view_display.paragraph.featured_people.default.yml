@@ -3,29 +3,71 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.featured_people.field_layout
-    - field.field.paragraph.featured_people.field_show_image
-    - field.field.paragraph.featured_people.field_subtitle
+    - field.field.paragraph.featured_people.field_content
+    - field.field.paragraph.featured_people.field_exclusions
+    - field.field.paragraph.featured_people.field_link
+    - field.field.paragraph.featured_people.field_quantity
+    - field.field.paragraph.featured_people.field_role_type
+    - field.field.paragraph.featured_people.field_show_background
+    - field.field.paragraph.featured_people.field_title
+    - field.field.paragraph.featured_people.field_title_size
     - paragraphs.paragraphs_type.featured_people
   module:
-    - text
+    - link
+    - options
 id: paragraph.featured_people.default
 targetEntityType: paragraph
 bundle: featured_people
 mode: default
 content:
-  field_layout:
+  field_content:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_exclusions:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_quantity:
     type: number_integer
-    label: hidden
+    label: above
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 11
+    weight: 15
     region: content
-  field_show_image:
+  field_role_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_show_background:
     type: boolean
-    label: hidden
+    label: above
     settings:
       format: default
       format_custom_false: ''
@@ -33,12 +75,20 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
-  field_subtitle:
-    type: text_default
-    label: hidden
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_title_size:
+    type: list_default
+    label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 7
     region: content
 hidden:
   search_api_excerpt: true

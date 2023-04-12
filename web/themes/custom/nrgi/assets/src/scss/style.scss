@@ -5,6 +5,7 @@
     Author: Soapbox
     Version: 2.1
 */
+
 /*
     ===============================
     1. SETTINGS
@@ -71,5 +72,6 @@
     ===============================
 */
 @import "overrides/utilities";
+@import "overrides/ckeditor/ckeditor";
 @import "overrides/plugins";
 @import "overrides/print";

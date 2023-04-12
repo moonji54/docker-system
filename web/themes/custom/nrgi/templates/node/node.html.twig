@@ -2,13 +2,51 @@
   'c-node',
   'c-node--type-' ~ node.bundle|clean_class,
 ] %}
+<div class="c-node__content-header">
+  <div style="background-color: red">
+    <h1>Header:</h1>
+    {% include "@nrgi/node-partials/node--header.html.twig" %}
+  </div>
+</div>
 <article{{ attributes.addClass(classes) }}>
 
-  <h1 class="c-node__title">{{ label }}</h1>
+  {# FEATURED IMAGE #}
+  {% if content.field_featured_image|field_value %}
+    <div>
+      {{ content.field_featured_image }}
+    </div>
+  {% endif %}
 
-  <div class="c-node__contents">
-    {{ breadcrumbs }}
-    {{ content }}
-    {{ language_switcher }}
+  {#  SIDEBAR #}
+  <div style="background-color: yellow">
+    <h1>SIDEBAR:</h1>
+    {% include '@nrgi/node-partials/node--sidebar.html.twig' %}
   </div>
+
+  <div style="background-color: orange">
+    {% if content.field_page_builder|field_value %}
+      <h1>PAGE BUILDER:</h1>
+      {{ content.field_page_builder }}
+    {% endif %}
+  </div>
+
+  {# AUTHORS SECTION on resources only (publication/article) #}
+  <div style="background-color: blue ">
+    {% if authors %}
+      <h1>{{ "Authors"|t }}:</h1>
+      {% include '@nrgi/node-partials/node--authors-bottom.html.twig' %}
+    {% endif %}
+  </div>
+
+  {#  METADATA #}
+  <div style="background-color: green">
+    <h1>METADATA:</h1>
+    {% include '@nrgi/node-partials/node--metadata.html.twig' %}
+  </div>
+
+  {#  RELATED CONTENT #}
+  {% if related_nodes is not empty %}
+    {% include 'node--related-content-block.html.twig' %}
+  {% endif %}
+
 </article>

@@ -12,7 +12,7 @@ bundle: event
 label: 'Organizing partner'
 description: 'Add the name, title and organization of any instructors not affiliated with NRGI. '
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

@@ -1,0 +1,32 @@
+{% set classes = [
+  'c-featured-people',
+] %}
+
+  {% if title or responsive_image %}
+    <article{{ attributes.addClass(classes) }}>
+      <div class="c-featured-people__content-wrapper">
+        {% if responsive_image %}
+          <div class="c-featured-people__image-wrapper">
+            {% if responsive_image %}
+              {{ responsive_image }}
+            {% else %}
+              <img src="/{{ base_path ~ directory }}/assets/img/fallback-default.svg" alt="{{ 'Fallback image'|t }}"/>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        <h3 class="c-featured-people__title">
+          <a class="c-featured-people__link" href="{{ url }}">
+            {{ title }}
+          </a>
+        </h3>
+
+        {% if content.field_job_title|field_value %}
+          <p class="c-featured-people__job-title">
+            {{ content.field_job_title|field_raw('value') }}
+          </p>
+        {% endif %}
+      </div>
+
+    </article>
+  {% endif %}

@@ -13,7 +13,7 @@ bundle: article
 label: Authors
 description: 'The person(s) who will be credited with writing the content'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
