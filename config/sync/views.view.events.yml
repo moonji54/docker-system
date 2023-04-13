@@ -32,7 +32,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Events
+      title: ''
       fields:
         title:
           id: title
@@ -440,326 +440,9 @@ display:
               reset_button_always_show: false
             filter:
               field_expertise_required_target_id:
-                plugin_id: default
-                advanced:
-                  sort_options: false
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
-      filters:
-        status:
-          id: status
-          table: node_field_data
-          field: status
-          entity_type: node
-          entity_field: status
-          plugin_id: boolean
-          value: '1'
-          group: 1
-          expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          operator: in
-          value:
-            event: event
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        langcode:
-          id: langcode
-          table: node_field_data
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: langcode
-          plugin_id: language
-          operator: in
-          value:
-            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: langcode_op
-            label: 'Translation language'
-            description: ''
-            use_operator: false
-            operator: langcode_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: langcode
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              editor: '0'
-              administrator: '0'
-              site_manager: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        field_event_type_target_id:
-          id: field_event_type_target_id
-          table: node__field_event_type
-          field: field_event_type_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value:
-            184: 184
-            183: 183
-            187: 187
-            188: 188
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: event_type
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
-        field_expertise_required_target_id:
-          id: field_expertise_required_target_id
-          table: node__field_expertise_required
-          field: field_expertise_required_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_expertise_required_target_id_op
-            label: 'Expertise required (field_expertise_required)'
-            description: ''
-            use_operator: false
-            operator: field_expertise_required_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_expertise_required_target_id
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              editor: '0'
-              administrator: '0'
-              site_manager: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: event_expertise_requirement
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      defaults:
-        exposed_form: false
-        filters: false
-        filter_groups: false
-      display_description: ''
-      display_extenders:
-        ajax_history: {  }
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user
-        - 'user.node_grants:view'
-        - user.permissions
-      tags: {  }
-  block_4:
-    id: block_4
-    display_title: 'Events (with filters)'
-    display_plugin: block
-    position: 1
-    display_options:
-      exposed_form:
-        type: bef
-        options:
-          submit_button: Apply
-          reset_button: true
-          reset_button_label: Clear
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-          text_input_required: 'Select any filter and click on Apply to see results'
-          text_input_required_format: wysiwyg
-          bef:
-            general:
-              autosubmit: false
-              autosubmit_exclude_textfield: false
-              autosubmit_textfield_delay: 500
-              autosubmit_hide: false
-              input_required: false
-              allow_secondary: false
-              secondary_label: 'Advanced options'
-              secondary_open: false
-              reset_button_always_show: false
-            filter:
-              field_topic_target_id:
-                plugin_id: bef_soapbox_active_filters
-                advanced:
-                  sort_options: true
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
-                select_all_none: 0
-                select_all_none_nested: 0
-                display_inline: 0
-                show_active_filters: 1
-              field_keywords_target_id:
-                plugin_id: bef_soapbox_autocomplete_active_filters
-                advanced:
-                  placeholder_text: ''
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
-                show_active_filters: 1
-              langcode:
                 plugin_id: bef_soapbox_active_filters
                 advanced:
                   sort_options: false
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
-                select_all_none: 0
-                select_all_none_nested: 0
-                display_inline: 0
-                show_active_filters: 1
-              field_country_target_id:
-                plugin_id: bef_soapbox_active_filters
-                advanced:
-                  sort_options: false
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
-                select_all_none: 0
-                select_all_none_nested: 0
-                display_inline: 0
-                show_active_filters: 1
-              field_region_target_id:
-                plugin_id: bef_soapbox_active_filters
-                advanced:
-                  sort_options: true
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
-                select_all_none: 0
-                select_all_none_nested: 0
-                display_inline: 0
-                show_active_filters: 1
-              field_resource_type_target_id:
-                plugin_id: bef_soapbox_active_filters
-                advanced:
-                  sort_options: true
                   rewrite:
                     filter_rewrite_values: ''
                   collapsible: false
@@ -933,16 +616,16 @@ display:
           exposed: true
           expose:
             operator_id: field_expertise_required_target_id_op
-            label: 'Expertise required (field_expertise_required)'
+            label: 'Expertise required'
             description: ''
             use_operator: false
             operator: field_expertise_required_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_expertise_required_target_id
+            identifier: expertise_required
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
@@ -967,7 +650,271 @@ display:
           type: select
           hierarchy: false
           limit: true
+          error_message: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        exposed_form: false
+        filters: false
+        filter_groups: false
+      display_description: ''
+      display_extenders:
+        ajax_history: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  block_4:
+    id: block_4
+    display_title: 'Events (with filters)'
+    display_plugin: block
+    position: 1
+    display_options:
+      exposed_form:
+        type: bef
+        options:
+          submit_button: Apply
+          reset_button: true
+          reset_button_label: Clear
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+          text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required_format: wysiwyg
+          bef:
+            general:
+              autosubmit: false
+              autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 500
+              autosubmit_hide: false
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              secondary_open: false
+              reset_button_always_show: false
+            filter:
+              field_expertise_required_target_id:
+                plugin_id: bef_soapbox_active_filters
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+                select_all_none: 0
+                select_all_none_nested: false
+                display_inline: 0
+                show_active_filters: 1
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            event: event
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        langcode:
+          id: langcode
+          table: node_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: langcode
+          plugin_id: language
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: langcode_op
+            label: 'Translation language'
+            description: ''
+            use_operator: false
+            operator: langcode_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: langcode
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              editor: '0'
+              administrator: '0'
+              site_manager: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_event_type_target_id:
+          id: field_event_type_target_id
+          table: node__field_event_type
+          field: field_event_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            184: 184
+            183: 183
+            187: 187
+            188: 188
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: event_type
+          type: select
+          hierarchy: false
+          limit: true
           error_message: true
+        field_expertise_required_target_id:
+          id: field_expertise_required_target_id
+          table: node__field_expertise_required
+          field: field_expertise_required_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_expertise_required_target_id_op
+            label: 'Expertise required'
+            description: ''
+            use_operator: false
+            operator: field_expertise_required_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: expertise_required
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              editor: '0'
+              administrator: '0'
+              site_manager: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: event_expertise_requirement
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: false
       filter_groups:
         operator: AND
         groups:
