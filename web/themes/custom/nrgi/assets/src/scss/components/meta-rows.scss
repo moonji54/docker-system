@@ -95,7 +95,7 @@
 
   &__download {
     align-items : center;
-    display     : flex;
+    display     : inline-flex;
     gap         : var(--space-xs);
   }
 

@@ -1253,7 +1253,7 @@ ul li a:hover {
 }
 .c-meta-rows__download {
   align-items: center;
-  display: flex;
+  display: inline-flex;
   gap: var(--space-xs);
 }
 .c-meta-rows__icon {

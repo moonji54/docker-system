@@ -4,14 +4,30 @@
       <dl class="c-meta-rows__inner">
         {% for data in meta_data %}
           {% for section in data %}
-            {% if section.items[0].type %}
-              {% set meta_type = section.items[0].type %}
-            {% elseif section.label %}
-              {% set meta_type = section.label|lower %}
+            {% set meta_type = section.label|render|lower|replace({' ' : '-'}) %}
+
+            {% if meta_type == 'produced-with-financial-support-from' %}
+              {% set meta_type = 'logo' %}
+            {% elseif meta_type == 'additional-downloads' %}
+              {% set meta_type = 'file' %}
+            {% endif %}
+
+            {% set half_width_meta = [
+              'days-of-the-week',
+              'weekly-time-commitment',
+              'country',
+              'region',
+              'topics',
+              'keywords',
+            ] %}
+
+            {% set meta_layout = '' %}
+
+            {% if meta_type in half_width_meta %}
               {% set meta_layout = 'half-width' %}
             {% endif %}
 
-            <div class="c-meta-rows__row{{ meta_type ? ' c-meta-rows__row--' ~ meta_type }}{{ meta_layout ? ' c-meta-rows__row--' ~ meta_layout }}">
+            <div class="c-meta-rows__row{{ meta_type ? ' c-meta-rows__row--' ~ meta_type }}{{ meta_layout ? ' c-meta-rows__row--' ~ meta_layout : '' }}">
               <dt class="c-meta-rows__label">
                 <span>{{ section.label }}</span>
               </dt>
@@ -19,11 +35,13 @@
               <dd class="c-meta-rows__items">
                 {% for item in section.items %}
                   {% if item.type == 'file' %}
-                    <a class="c-meta-rows__download" href="{{ item.url }}">
-                      {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'download', 'extra_class' : 'c-meta-rows__icon' } %}
+                    <div>
+                      <a class="c-meta-rows__download" href="{{ item.url }}">
+                        {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'download', 'extra_class' : 'c-meta-rows__icon' } %}
 
-                      <span>{{ item.title|trim }}</span>
-                    </a>
+                        <span>{{ item.title|trim }}</span>
+                      </a>
+                    </div>
 
                   {% elseif item.type == 'logo' %}
                     {# Footer Oraganisation logos #}
