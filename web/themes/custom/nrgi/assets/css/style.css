@@ -1174,6 +1174,12 @@ ul li a:hover {
   transition: background-color 0.3s;
   border-radius: 2.75rem;
   /* stylelint-disable */
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  height: 2rem;
+  padding: 0.5rem 0.75rem;
 }
 @media (max-width: 64rem) {
   .c-meta-rows__row--topics .c-meta-rows__link, .c-meta-rows__row--keywords .c-meta-rows__link {
@@ -1187,6 +1193,16 @@ ul li a:hover {
   .c-meta-rows__row--topics .c-meta-rows__link, .c-meta-rows__row--keywords .c-meta-rows__link {
     padding: 0.25rem 0.875rem;
     height: 2rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-meta-rows__row--topics .c-meta-rows__link, .c-meta-rows__row--keywords .c-meta-rows__link {
+    font-size: 0.875rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-meta-rows__row--topics .c-meta-rows__link, .c-meta-rows__row--keywords .c-meta-rows__link {
+    height: 1.75rem;
   }
 }
 .c-meta-rows__label span {

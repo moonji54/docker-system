@@ -58,6 +58,13 @@
 
       #{$c}__link {
         @include o-button;
+        @include ts-tag;
+        height  : 2rem;
+        padding : 0.5rem 0.75rem;
+
+        @include media("<=tablet") {
+          height : 1.75rem;
+        }
       }
     }
   }
