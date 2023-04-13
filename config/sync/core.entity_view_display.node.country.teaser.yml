@@ -1,9 +1,10 @@
 uuid: a177bef1-9758-472e-89ac-60541583863d
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.country.field_attached_translated_items
     - field.field.node.country.field_featured_image
     - field.field.node.country.field_overlay_opacity
     - field.field.node.country.field_page_builder
@@ -27,6 +28,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_attached_translated_items: true
   field_featured_image: true
   field_overlay_opacity: true
   field_page_builder: true
