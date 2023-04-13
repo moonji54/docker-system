@@ -47,9 +47,8 @@
       }
 
       &::-webkit-scrollbar-thumb {
-        background    : $primary;
-        border-radius : 1.25rem;
-        height        : 30px;
+        background : $primary;
+        height     : 30px;
       }
 
       label {
@@ -107,10 +106,6 @@
       outline    : none;
       padding    : 0.5rem;
       width      : 100%;
-    }
-
-    &.is-visible {
-
     }
   }
 

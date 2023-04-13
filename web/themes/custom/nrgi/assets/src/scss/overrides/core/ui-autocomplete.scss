@@ -13,9 +13,8 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background    : $primary;
-    border-radius : 1.25rem;
-    height        : 30px;
+    background : $primary;
+    height     : 30px;
   }
 
   .ui-menu-item-wrapper {
