@@ -35,7 +35,7 @@
                        href="{{ author.url }}"
                        title="{{ 'Visit '|t ~ author.firstname ~ ' ' ~ author.surname ~ '\'s profile'|t }}"
                        target="{{ author.is_external ? '_blank' : '' }}">
-                      {{ author.firstname ~ ' ' ~ author.surname }}
+                      {{- author.firstname ~ ' ' ~ author.surname -}}
                     </a>
                   {% else %}
                     <span class="c-single-header__author-name c-single-header__author-name--no-link">{{ author.firstname ~ ' ' ~ author.surname }}<span
@@ -61,6 +61,8 @@
 
             {{ file_label }}
           </a>
+
+          {#          SBTODO: to add button for languages and share on mobile #}
         {% endif %}
       </div>
     </div>

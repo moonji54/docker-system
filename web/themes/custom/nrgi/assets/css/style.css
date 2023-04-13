@@ -716,6 +716,12 @@ ul li a:hover {
   height: 1.25rem;
   width: 1.25rem;
 }
+@media (max-width: 48rem) {
+  .o-svg--download-icon {
+    height: 0.875rem;
+    width: 0.875rem;
+  }
+}
 .o-svg--nrgi-logo-condensed {
   height: 3.5rem;
   width: 11.5625rem;
@@ -1241,28 +1247,36 @@ ul li a:hover {
     font-size: 0.875rem;
   }
 }
-.c-single-header__author-item:not(:last-child) .c-single-header__author-name:after {
-  content: ",";
-  margin: 0 4px 0 -4px;
-}
-.c-single-header__author-name {
+.c-single-header__author-item {
   font-family: "Noto Sans", sans-serif;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5;
 }
 @media (max-width: 64rem) {
-  .c-single-header__author-name {
+  .c-single-header__author-item {
     font-size: 0.875rem;
   }
 }
+.c-single-header__author-item:not(:last-child):after {
+  content: ",";
+  margin: 0 2px 0 -4px;
+}
 .c-single-header__author-name--link {
   text-decoration: underline;
+  -webkit-text-decoration-color: #FFFFFF;
+          text-decoration-color: #FFFFFF;
+  text-underline-offset: 0.125rem;
+  transition: all 0.3s;
+}
+.c-single-header__author-name--link:hover, .c-single-header__author-name--link:focus {
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
 }
 .c-single-header__buttons-wrapper {
-  margin-top: 32px;
   display: flex;
   gap: 32px;
+  margin-top: 32px;
 }
 
 /** @define c-social-links */

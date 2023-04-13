@@ -104,3 +104,15 @@ $z-index : (
     text-decoration-color : $color;
   }
 }
+
+@mixin underlined-off($color: $white, $offset: 0.313rem) {
+  text-decoration       : underline;
+  text-decoration-color : $color;
+  text-underline-offset : $offset;
+  transition            : all 0.3s;
+
+  &:hover,
+  &:focus {
+    text-decoration-color : transparent;
+  }
+}

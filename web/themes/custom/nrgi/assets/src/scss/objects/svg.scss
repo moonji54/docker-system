@@ -26,6 +26,11 @@
   &--download-icon {
     height : 1.25rem;
     width  : 1.25rem;
+
+    @include media("<=tablet") {
+      height : 0.875rem;
+      width  : 0.875rem;
+    }
   }
 
   /* #Logos

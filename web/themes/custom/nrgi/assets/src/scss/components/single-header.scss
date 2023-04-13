@@ -69,25 +69,23 @@
   }
 
   &__author-item {
-    &:not(:last-child) {
-      #{$c}__author-name:after {
-        content : ",";
-        margin  : 0 4px 0 -4px;
-      }
+    @include ts-caption;
+
+    &:not(:last-child):after {
+      content : ",";
+      margin  : 0 2px 0 -4px;
     }
   }
 
   &__author-name {
-    @include ts-caption;
-
     &--link {
-      text-decoration : underline;
+      @include underlined-off($offset : 0.125rem);
     }
   }
 
   &__buttons-wrapper {
-    margin-top : 32px;
     display    : flex;
     gap        : 32px;
+    margin-top : 32px;
   }
 }
