@@ -408,7 +408,9 @@ class MetadataHelperService {
                     'items' => $items,
                   ];
                 }
-                $metadata[] = $items;
+                else {
+                  $metadata[] = $items;
+                }
               }
             }
             break;
