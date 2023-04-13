@@ -59,7 +59,7 @@ class NrgiSearchForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $search_value = $form_state->getValue('text_field');
-    $route = 'view.search_view.page_view';
+    $route = 'view.search_view.search';
     $query = ['query' => $search_value];
 
     $url = Url::fromRoute($route, [], ['query' => $query]);
