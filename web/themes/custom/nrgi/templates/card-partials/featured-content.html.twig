@@ -82,7 +82,7 @@
         {% if responsive_image %}
           {{ responsive_image }}
         {% else %}
-          <img src="/{{ base_path ~ directory }}/assets/img/fallback-default.svg" aria-role="presentation"/>
+          <img src="/{{ base_path ~ directory }}/assets/img/fallback-default.svg" aria-role="presentation" alt=""/>
         {% endif %}
       </div>
     {% endif %}
