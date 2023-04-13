@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.country.field_attached_translated_items
     - field.field.node.country.field_featured_image
     - field.field.node.country.field_overlay_opacity
     - field.field.node.country.field_page_builder
@@ -19,21 +20,6 @@ dependencies:
     - textfield_counter
 third_party_settings:
   field_group:
-    group_region:
-      children:
-        - field_region
-      label: Region
-      region: content
-      parent_name: ''
-      weight: 2
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: true
     group_page_builder:
       children:
         - field_page_builder
@@ -82,6 +68,21 @@ third_party_settings:
         open: false
         description: ''
         required_fields: true
+    group_manual_language_links_swit:
+      children:
+        - field_attached_translated_items
+      label: 'Manual language links switcher'
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
 id: node.country.default
 targetEntityType: node
 bundle: country
@@ -89,13 +90,23 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_attached_translated_items:
+    type: entity_reference_autocomplete
+    weight: 13
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_featured_image:
     type: media_library_widget
-    weight: 44
+    weight: 13
     region: content
     settings:
       media_types: {  }
@@ -104,14 +115,14 @@ content:
         show_edit: '1'
   field_overlay_opacity:
     type: number
-    weight: 45
+    weight: 14
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_page_builder:
     type: paragraphs
-    weight: 14
+    weight: 5
     region: content
     settings:
       title: Paragraph
@@ -130,10 +141,10 @@ content:
     third_party_settings: {  }
   field_short_description:
     type: string_textarea_with_counter
-    weight: 1
+    weight: 5
     region: content
     settings:
-      rows: 5
+      rows: 2
       placeholder: ''
       maxlength: 150
       counter_position: after
@@ -174,14 +185,14 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 8
+    weight: 6
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 4
     region: content
     settings:
       size: 60

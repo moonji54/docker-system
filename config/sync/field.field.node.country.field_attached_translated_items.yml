@@ -1,14 +1,14 @@
-uuid: c5695511-3d19-4a52-b0d2-68b1ff2df8c5
+uuid: 71cd6b8a-fc5f-404d-9b03-109b73a3f745
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_attached_translated_items
-    - node.type.region
-id: node.region.field_attached_translated_items
+    - node.type.country
+id: node.country.field_attached_translated_items
 field_name: field_attached_translated_items
 entity_type: node
-bundle: region
+bundle: country
 label: 'Content items (in other language - asymmetrical translation)'
 description: 'Please manually provide other separate landing existing content items in other languages. The items will be added to the Language swithcer. The language name of the items manually attached will be used as the text for each link.'
 required: false
@@ -19,7 +19,7 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      region: region
+      country: country
     sort:
       field: _none
       direction: ASC
