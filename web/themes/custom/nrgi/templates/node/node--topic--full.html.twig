@@ -79,10 +79,11 @@
   {# Body #}
   {% include '@nrgi/node-partials/node--body.html.twig' %}
 
-  {# Region content #}
-  {% set listing_results = drupal_view_result('contextual_views', 'region_content', node.id)|length %}
+  {# Topic content #}
+  {% set listing_results = drupal_view_result('contextual_views', 'topic_content', node.id)|length %}
+  {{ dpm(listing_results) }}
   {% if listing_results > 0 %}
-    {% set listing = drupal_view('contextual_views', 'region_content', node.id) %}
+    {% set listing = drupal_view('contextual_views', 'topic_content', node.id) %}
     {% if content.field_contributions_title|field_value %}
       <h2>{{ content.field_contributions_title }}</h2>
     {% endif %}
