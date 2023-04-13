@@ -12,48 +12,57 @@
         <div class="c-single-header__subtitle">{{ content.field_subtitle }}</div>
       {% endif %}
 
-      <div class="c-single-header__meta">
+      <ul class="c-single-header__meta">
         {% if subtype %}
-          <p class="c-single-header__subtype">{{ subtype }}</p>
+          <li class="c-single-header__meta-item">
+            <p class="c-single-header__subtype">{{ subtype }}</p>
+          </li>
         {% endif %}
 
         {% if date %}
-          <div class="c-single-header__date">{{ date }}</div>
+          <li class="c-single-header__meta-item">
+            <div class="c-single-header__date">{{ date }}</div>
+          </li>
         {% endif %}
 
         {% if authors %}
-          <div class="c-single-header__authors">
+          <li class="c-single-header__meta-item">
             <ul class="c-single-header__authors-list">
               {% for author in authors %}
-                <li class="c-single-header__authors-item">
+                <li class="c-single-header__author-item">
                   {% if author.url %}
-                    <a class="c-single-header__authors-link"
+                    <a class="c-single-header__author-name c-single-header__author-name--link"
                        href="{{ author.url }}"
                        title="{{ 'Visit '|t ~ author.firstname ~ ' ' ~ author.surname ~ '\'s profile'|t }}"
                        target="{{ author.is_external ? '_blank' : '' }}">
                       {{ author.firstname ~ ' ' ~ author.surname }}
                     </a>
                   {% else %}
-                    {{ author.firstname ~ ' ' ~ author.surname }}
+                    <span class="c-single-header__author-name c-single-header__author-name--no-link">{{ author.firstname ~ ' ' ~ author.surname }}<span
                   {% endif %}
                 </li>
               {% endfor %}
             </ul>
-          </div>
+          </li>
+        {% endif %}
+      </ul>
+
+      <div class="c-single-header__buttons-wrapper">
+        {% if content.field_link|field_value %}
+          {# External item #}
+          {{ content.field_link }}
+        {% endif %}
+
+        {% if report_pdf %}
+          {# Reprot PDF #}
+          {% set file_label =  'Download PDF'|t %}
+          <a class="o-button" href="{{ report_pdf.url }}" title="{{ file_label }}">
+            {% include '@nrgi/svg/svg.html.twig' with {'svg': 'download-icon'} %}
+
+            {{ file_label }}
+          </a>
         {% endif %}
       </div>
-
-      {% if content.field_link|field_value %}
-        {# External item #}
-        {{ content.field_link }}
-      {% endif %}
-
-      {% if report_pdf %}
-        {# Reprot PDF #}
-        {% set file_label =  'Download PDF'|t %}
-        <span class="c-meta-rows__icon-wrapper"></span>
-        <a href="{{ report_pdf.url }}" title="{{ file_label }}">{{ file_label }}</a>
-      {% endif %}
     </div>
   </div>
 </header>

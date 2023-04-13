@@ -1,8 +1,10 @@
 /** @define c-single-header */
 .c-single-header {
+  $c               : &;
   background-color : lightskyblue;
-  padding-top      : 196px;
+  color            : $white;
   padding-bottom   : 160px;
+  padding-top      : 196px;
 
   &__container {
     @include grid;
@@ -18,16 +20,74 @@
   }
 
   &__title {
+    @include ts-heading-2;
     margin-top : 96px;
+  }
+
+  &__subtitle {
+    @include ts-heading-4;
   }
 
   &__meta {
     margin-top : 32px;
-    display    : flex;
-    flex-wrap  : wrap;
+  }
 
-    &:last-child {
-      color : red;
+  &__meta-item,
+  &__subtype,
+  &__date,
+  &__authors-list,
+  &__author-item {
+    display : inline;
+  }
+
+  &__meta-item {
+    &:not(:first-child) {
+      &:before {
+        content  : "•";
+        margin   : 0 12px;
+        position : relative;
+      }
     }
+
+    @include media("<=tablet") {
+      &:nth-child(3) {
+        display : block;
+
+        &:before {
+          content : none;
+        }
+      }
+    }
+  }
+
+  &__subtype {
+    @include ts-caption($bold : true);
+  }
+
+  &__date {
+    @include ts-caption;
+  }
+
+  &__author-item {
+    &:not(:last-child) {
+      #{$c}__author-name:after {
+        content : ",";
+        margin  : 0 4px 0 -4px;
+      }
+    }
+  }
+
+  &__author-name {
+    @include ts-caption;
+
+    &--link {
+      text-decoration : underline;
+    }
+  }
+
+  &__buttons-wrapper {
+    margin-top : 32px;
+    display    : flex;
+    gap        : 32px;
   }
 }
