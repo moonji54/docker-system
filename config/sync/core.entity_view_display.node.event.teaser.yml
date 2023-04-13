@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.event.field_course_training_contact
     - field.field.node.event.field_data_document
     - field.field.node.event.field_days_of_the_week
+    - field.field.node.event.field_disable_related_content
     - field.field.node.event.field_end_date
     - field.field.node.event.field_event_contact
     - field.field.node.event.field_event_location
@@ -29,6 +30,7 @@ dependencies:
     - field.field.node.event.field_publisher
     - field.field.node.event.field_region
     - field.field.node.event.field_registration
+    - field.field.node.event.field_related_manual_content
     - field.field.node.event.field_short_description
     - field.field.node.event.field_start_date
     - field.field.node.event.field_supporting_document
@@ -63,6 +65,7 @@ hidden:
   field_course_training_contact: true
   field_data_document: true
   field_days_of_the_week: true
+  field_disable_related_content: true
   field_end_date: true
   field_event_contact: true
   field_event_location: true
@@ -80,6 +83,7 @@ hidden:
   field_publisher: true
   field_region: true
   field_registration: true
+  field_related_manual_content: true
   field_short_description: true
   field_start_date: true
   field_supporting_document: true

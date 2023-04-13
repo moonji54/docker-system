@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_page_builder
     - node.type.career_opportunity
+    - paragraphs.paragraphs_type.featured_people
+    - paragraphs.paragraphs_type.wysiwyg
   module:
     - entity_reference_revisions
 id: node.career_opportunity.field_page_builder
@@ -20,22 +22,48 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    target_bundles: null
+    target_bundles:
+      wysiwyg: wysiwyg
+      featured_people: featured_people
     negate: 0
     target_bundles_drag_drop:
-      container:
-        weight: 6
+      call_to_action:
+        weight: 14
         enabled: false
-      cta_download:
-        weight: 7
+      embed:
+        weight: 15
+        enabled: false
+      external_author:
+        weight: 16
+        enabled: false
+      featured_content:
+        weight: 17
         enabled: false
       featured_pages:
         weight: 8
         enabled: false
+      featured_people:
+        weight: 19
+        enabled: true
+      file_upload:
+        weight: 20
+        enabled: false
       full_width_media:
         weight: 9
         enabled: false
+      learning_block:
+        weight: 22
+        enabled: false
+      listing:
+        weight: 23
+        enabled: false
+      logo:
+        weight: 24
+        enabled: false
+      quote:
+        weight: 25
+        enabled: false
       wysiwyg:
         weight: 10
-        enabled: false
+        enabled: true
 field_type: entity_reference_revisions

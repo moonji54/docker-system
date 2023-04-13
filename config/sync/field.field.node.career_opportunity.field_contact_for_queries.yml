@@ -13,7 +13,7 @@ bundle: career_opportunity
 label: 'Contact for queries'
 description: 'Add HR contact that will answer any applicant queries for this position.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

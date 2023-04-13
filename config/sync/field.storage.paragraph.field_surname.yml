@@ -1,18 +1,18 @@
-uuid: 6b20a845-6b5c-4c1b-8d2a-bf9ac55c7187
+uuid: 5f3e51f7-6b25-4220-9464-a3cea077a5bc
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-    - views
-    - viewsreference
-id: paragraph.field_listing
-field_name: field_listing
+id: paragraph.field_surname
+field_name: field_surname
 entity_type: paragraph
-type: viewsreference
+type: string
 settings:
-  target_type: view
-module: viewsreference
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

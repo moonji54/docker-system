@@ -1,0 +1,8 @@
+uuid: 0f88df63-1f2c-4f90-8739-e418d5aeeb0d
+langcode: en
+status: true
+dependencies: {  }
+id: resource_header_date
+label: 'NRGI Resource date'
+locked: false
+pattern: 'd F Y'
