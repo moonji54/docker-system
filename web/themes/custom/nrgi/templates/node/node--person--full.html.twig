@@ -67,6 +67,14 @@
 <div>
   {# PERSON SIDEBAR META #}
   <h1>PERSON SIDEBAR META:</h1>
+  {# Language switcher #}
+  {% if language_switcher_links %}
+    {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
+      'text' :  "Other languages"|t,
+      'links' : language_switcher_links
+    } %}
+  {% endif %}
+
   {% include '@nrgi/node-partials/node--metadata.html.twig' %}
 </div>
 <article{{ attributes.addClass(classes) }}>

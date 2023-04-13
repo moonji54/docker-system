@@ -183,11 +183,6 @@ class MetadataHelperService {
           $variables['date'] = $formatted_date;
         }
 
-        // Language switcher.
-        $variables['language_switcher_links'] = $this
-          ->nrgiTranslationHelperService->getLanguageSwitcherLinks(
-            $node, FALSE
-          );
         break;
 
       case 'career_opportunity':
@@ -213,6 +208,12 @@ class MetadataHelperService {
 
     /* All node types meta. */
     $variables['subtype'] = $this->getTermLabels($node, $this->nodeSubtypeFields[$node->bundle()])[0];
+
+    // Language switcher.
+    $variables['language_switcher_links'] = $this
+      ->nrgiTranslationHelperService->getLanguageSwitcherLinks(
+        $node, FALSE
+      );
 
     // Node footer meta.
     $this->preprocessLogos(
