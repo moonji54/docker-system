@@ -1028,13 +1028,19 @@ ul li a:hover {
   padding: var(--space-xs) var(--space-s);
 }
 
-/** @define c-header */ /** @define block-local-tasks-block */
+/** @define c-header */
+.c-header {
+  display: none;
+}
+
+/** @define block-local-tasks-block */
 .block-local-tasks-block {
   background-color: #333333;
   color: #CCCCCC;
   display: block;
   font-family: "Source Sans Pro", "Lucida Grande", Verdana, sans-serif;
   font-size: 12px;
+  height: 30px;
   position: relative;
   width: 100%;
 }
@@ -1090,7 +1096,73 @@ ul li a:hover {
   text-decoration: underline;
 }
 
-/** @define c-main-menu */ /** @define c-share */ /** @define c-social-links */
+/** @define c-main-menu */ /** @define c-share */ /** @define c-single-content */
+.c-single-content__top-container {
+  display: grid;
+  grid-column-gap: var(--gutter);
+  grid-template-columns: repeat(12, 1fr);
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: calc(82rem + var(--gutter) * 2);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  width: 100%;
+}
+@media (max-width: 48rem) {
+  .c-single-content__top-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.c-single-content__image-wrapper {
+  grid-column: 1/9;
+}
+.c-single-content__sidebar {
+  grid-column: 10/-1;
+}
+
+/** @define c-single-header */
+.c-single-header {
+  background-color: lightskyblue;
+  padding-top: 196px;
+  padding-bottom: 160px;
+}
+.c-single-header__container {
+  display: grid;
+  grid-column-gap: var(--gutter);
+  grid-template-columns: repeat(12, 1fr);
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: calc(82rem + var(--gutter) * 2);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  width: 100%;
+}
+@media (max-width: 48rem) {
+  .c-single-header__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.c-single-header__inner {
+  grid-column: 1/-1;
+}
+.c-single-header__breadcrumbs {
+  margin-top: 48px;
+}
+.c-single-header__title {
+  margin-top: 96px;
+}
+.c-single-header__meta {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.c-single-header__meta:last-child {
+  color: red;
+}
+
+/** @define c-social-links */
 .c-social-links {
   display: flex;
   flex-wrap: wrap;

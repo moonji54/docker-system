@@ -1,0 +1,33 @@
+/** @define c-single-header */
+.c-single-header {
+  background-color : lightskyblue;
+  padding-top      : 196px;
+  padding-bottom   : 160px;
+
+  &__container {
+    @include grid;
+    @include o-container;
+  }
+
+  &__inner {
+    grid-column : 1 / -1;
+  }
+
+  &__breadcrumbs {
+    margin-top : 48px;
+  }
+
+  &__title {
+    margin-top : 96px;
+  }
+
+  &__meta {
+    margin-top : 32px;
+    display    : flex;
+    flex-wrap  : wrap;
+
+    &:last-child {
+      color : red;
+    }
+  }
+}

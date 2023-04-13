@@ -1,0 +1,15 @@
+/** @define c-single-content */
+.c-single-content {
+  &__top-container {
+    @include grid;
+    @include o-container;
+  }
+
+  &__image-wrapper {
+    grid-column : 1 / 9;
+  }
+
+  &__sidebar {
+    grid-column : 10 / -1;
+  }
+}

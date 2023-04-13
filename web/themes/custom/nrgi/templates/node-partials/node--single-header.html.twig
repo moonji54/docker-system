@@ -1,0 +1,59 @@
+{% set classes = [
+  'c-single-header',
+  'c-single-header--' ~ node.bundle|clean_class,
+] %}
+
+<header {{ attributes.addClass(classes) }}>
+  <div class="c-single-header__container">
+    <div class="c-single-header__inner">
+      <h1 class="c-single-header__title">{{ label }}</h1>
+
+      {% if content.field_subtitle|field_value %}
+        <div class="c-single-header__subtitle">{{ content.field_subtitle }}</div>
+      {% endif %}
+
+      <div class="c-single-header__meta">
+        {% if subtype %}
+          <p class="c-single-header__subtype">{{ subtype }}</p>
+        {% endif %}
+
+        {% if date %}
+          <div class="c-single-header__date">{{ date }}</div>
+        {% endif %}
+
+        {% if authors %}
+          <div class="c-single-header__authors">
+            <ul class="c-single-header__authors-list">
+              {% for author in authors %}
+                <li class="c-single-header__authors-item">
+                  {% if author.url %}
+                    <a class="c-single-header__authors-link"
+                       href="{{ author.url }}"
+                       title="{{ 'Visit '|t ~ author.firstname ~ ' ' ~ author.surname ~ '\'s profile'|t }}"
+                       target="{{ author.is_external ? '_blank' : '' }}">
+                      {{ author.firstname ~ ' ' ~ author.surname }}
+                    </a>
+                  {% else %}
+                    {{ author.firstname ~ ' ' ~ author.surname }}
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if content.field_link|field_value %}
+        {# External item #}
+        {{ content.field_link }}
+      {% endif %}
+
+      {% if report_pdf %}
+        {# Reprot PDF #}
+        {% set file_label =  'Download PDF'|t %}
+        <span class="c-meta-rows__icon-wrapper"></span>
+        <a href="{{ report_pdf.url }}" title="{{ file_label }}">{{ file_label }}</a>
+      {% endif %}
+    </div>
+  </div>
+</header>
