@@ -1,0 +1,55 @@
+.ui-menu#{&}.ui-widget {
+  @include ts-caption;
+  background-color : $white;
+  border           : none;
+  box-shadow       : 0 0.5rem 1rem rgba($primary, 15%);
+  height           : 8.75rem;
+  overflow         : auto;
+
+  &::-webkit-scrollbar {
+    background-color : $tertiary;
+    height           : 8px;
+    width            : 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background    : $primary;
+    border-radius : 1.25rem;
+    height        : 30px;
+  }
+
+  .ui-menu-item-wrapper {
+    background : none;
+    border     : none;
+    color      : $primary;
+    margin     : 0;
+    padding    : var(--space-xs) 0;
+    transition : color 0.3s;
+
+    &:focus,
+    &:hover {
+      background : none;
+      border     : none;
+      margin     : 0;
+    }
+  }
+
+  .ui-menu-item {
+    background-color : $tertiary;
+    padding          : var(--space-s) var(--space-xs);
+    transition       : background-color 0.3s;
+
+    &:focus,
+    &:hover {
+      background-color : $peach-2;
+    }
+  }
+}
+
+.view {
+  input {
+    &.ui-autocomplete-input {
+      background-image : none;
+    }
+  }
+}

@@ -36,7 +36,21 @@
     }
 
     .c-filter__items {
-      display : none;
+      display    : none;
+      max-height : 12.25rem;
+      overflow-y : auto;
+
+      &::-webkit-scrollbar {
+        background-color : $tertiary;
+        height           : 8px;
+        width            : 8px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background    : $primary;
+        border-radius : 1.25rem;
+        height        : 30px;
+      }
 
       label {
         @include ts-button;
@@ -81,13 +95,18 @@
   }
 
   .autocomplete-content {
+    @include ts-caption;
     background-color : $tertiary;
     display          : none;
     padding          : 1rem;
 
     input {
-      border : 1px solid $primary;
-      width  : 100%;
+      border     : none;
+      box-shadow : 0 0.5rem 1rem rgba($primary, 15%);
+      height     : 2.5rem;
+      outline    : none;
+      padding    : 0.5rem;
+      width      : 100%;
     }
 
     &.is-visible {
