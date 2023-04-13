@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_attached_translated_items
+    - node.type.landing_page
     - node.type.region
 id: node.region.field_attached_translated_items
 field_name: field_attached_translated_items
@@ -19,7 +20,7 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      region: region
+      landing_page: landing_page
     sort:
       field: _none
       direction: ASC
