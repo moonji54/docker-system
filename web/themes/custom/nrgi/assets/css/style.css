@@ -1243,8 +1243,13 @@ ul li a:hover {
   }
 }
 .c-meta-rows__logo img {
+  filter: grayscale(1);
   max-width: 5.75rem;
   mix-blend-mode: multiply;
+  transition: filter 0.3s;
+}
+.c-meta-rows__logo img:hover {
+  filter: none;
 }
 .c-meta-rows__download {
   align-items: center;

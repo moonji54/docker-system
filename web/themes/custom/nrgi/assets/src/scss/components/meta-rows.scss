@@ -82,8 +82,14 @@
 
   &__logo {
     img {
+      filter         : grayscale(1);
       max-width      : 5.75rem;
       mix-blend-mode : multiply;
+      transition     : filter 0.3s;
+
+      &:hover {
+        filter : none;
+      }
     }
   }
 
