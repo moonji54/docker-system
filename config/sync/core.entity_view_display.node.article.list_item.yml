@@ -1,6 +1,6 @@
 uuid: 27af8004-8755-4646-bc43-3dde6f4cd8c0
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.list_item

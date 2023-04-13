@@ -9,6 +9,7 @@ use Drupal\Core\Entity\Plugin\DataType\EntityReference;
 use Drupal\Core\Field\EntityReferenceFieldItemListInterface;
 use Drupal\Core\Field\FieldItemList;
 use Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem;
+use Drupal\Core\Field\Plugin\Field\FieldType\StringItem;
 use Drupal\Core\Path\PathMatcherInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
@@ -43,9 +44,8 @@ class MetadataHelperService {
         'field_topic',
         'field_keywords',
         'field_city',
-        'field_event_type',
-        'field_role_type',
         'field_photo_caption',
+        'field_publisher',
       ],
       'downloads' => [
         'field_data_document',
@@ -61,8 +61,8 @@ class MetadataHelperService {
     ],
     'event' => [
       'event_details' => [
-        'field_contact',
-        'field_course_information',
+        'field_course_host',
+        'field_organizing_partner',
         'field_days_of_the_week',
         'field_time_commitment',
         'field_expertise_required',
@@ -81,6 +81,7 @@ class MetadataHelperService {
     'publication' => 'field_resource_type',
     'event' => 'field_event_type',
     'career_opportunity' => 'field_career_opportunity_type',
+    'person' => 'field_role_type',
   ];
 
   /**
@@ -182,18 +183,15 @@ class MetadataHelperService {
           $variables['date'] = $formatted_date;
         }
 
-        // Language switcher.
-        $variables['language_switcher_links'] = $this
-          ->nrgiTranslationHelperService->getLanguageSwitcherLinks(
-            $node, FALSE
-          );
         break;
 
       case 'career_opportunity':
         // Application deadline.
         if ($date = $node->get('field_offer_deadline')) {
           $date = new DrupalDateTime($date->value);
-          $date->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
+          $date->setTimezone(new \DateTimeZone(
+              DateTimeItemInterface::STORAGE_TIMEZONE)
+          );
           $formatted_date = $this->dateFormatter
             ->format($date->getTimestamp(), 'resource_header_date');
           $variables['deadline'] = $formatted_date;
@@ -203,7 +201,6 @@ class MetadataHelperService {
       case 'event':
         $this->preprocessEventDetails(
           $node,
-          $this->metadataFieldNames['event']['event_details'],
           $variables
         );
         break;
@@ -211,6 +208,12 @@ class MetadataHelperService {
 
     /* All node types meta. */
     $variables['subtype'] = $this->getTermLabels($node, $this->nodeSubtypeFields[$node->bundle()])[0];
+
+    // Language switcher.
+    $variables['language_switcher_links'] = $this
+      ->nrgiTranslationHelperService->getLanguageSwitcherLinks(
+        $node, FALSE
+      );
 
     // Node footer meta.
     $this->preprocessLogos(
@@ -342,7 +345,6 @@ class MetadataHelperService {
    * @param array &$variables
    *   The variables array.
    *
-   * @throws \Drupal\Core\Entity\EntityMalformedException
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   public function preprocessSidebarMetadata(
@@ -378,7 +380,8 @@ class MetadataHelperService {
   ): void {
     $metadata = [];
     foreach ($metadata_field_names as $metadata_field_name) {
-      if ($node->hasField($metadata_field_name) && $field = $node->get($metadata_field_name)) {
+      if ($node->hasField($metadata_field_name)
+          && $field = $node->get($metadata_field_name)) {
         $items = [];
         switch ($field->getFieldDefinition()->getType()) {
           case 'entity_reference':
@@ -405,23 +408,82 @@ class MetadataHelperService {
                     'items' => $items,
                   ];
                 }
-                $metadata[] = $items;
+                else {
+                  $metadata[] = $items;
+                }
               }
             }
             break;
 
           case 'string':
             if ($title_field = $node->get($metadata_field_name)->first()) {
+              if ($title_field instanceof StringItem) {
+                $label = match ($title_field->getFieldDefinition()->getName()) {
+                  'field_photo_caption' => t('Top image'),
+                  'field_publisher' => t('Publisher'),
+                  default => $title_field->getFieldDefinition()->getLabel(),
+                };
+                $metadata[] = [
+                  'label' => $label,
+                  'items' => [
+                    [
+                      'type' => 'text',
+                      'title' => $title_field->value,
+                    ],
+                  ],
+                ];
+              }
+            }
+            break;
+
+          case 'integer':
+            // Time commitment (used for events only)
+            if ($field instanceof FieldItemList) {
+              $label = $field->getFieldDefinition()->getLabel();
               $metadata[] = [
-                'label' => t('Top image'),
+                'label' => $label,
                 'items' => [
                   [
-                    'type' => 'text',
-                    'title' => $title_field->value,
+                    'type' => 'int',
+                    'title' => $field->value . ' ' . t('hours per week'),
                   ],
                 ],
               ];
             }
+
+            break;
+
+          case 'list_string':
+            // List of days (used for events only)
+            if ($field instanceof FieldItemList) {
+              $days_string = '';
+              $values = $field->getValue();
+              $total_days = count($values);
+              $separator = $total_days < 3 ? ' and ' : ', ';
+
+              $label = $field->getFieldDefinition()->getLabel();
+
+              foreach ($values as $i => $value) {
+                if ($i > 0) {
+                  $days_string .= $separator . $value['value'] . 's';
+                }
+                else {
+                  $days_string .= $value['value'] . 's';
+                }
+              }
+              if ($days_string) {
+                $metadata[] = [
+                  'label' => $label,
+                  'items' => [
+                    [
+                      'type' => 'string_list',
+                      'title' => $days_string,
+                    ],
+                  ],
+                ];
+              }
+            }
+
             break;
         }
       }
@@ -458,7 +520,8 @@ class MetadataHelperService {
     $items = [];
 
     foreach ($download_field_names as $download_field_name) {
-      if ($node->hasField($download_field_name) && $field = $node->get($download_field_name)) {
+      if ($node->hasField($download_field_name)
+          && $field = $node->get($download_field_name)) {
         if (!$field instanceof FieldItemList | $field->isEmpty()) {
           continue;
         }
@@ -475,7 +538,9 @@ class MetadataHelperService {
 
                 $media = $entity->get('field_file')->entity;
                 if ($media instanceof MediaInterface) {
-                  $items[] = $this->getFileFromMediaDocument($media, $document_label ?: '');
+                  $items[] = $this->getFileFromMediaDocument(
+                    $media,
+                    $document_label ?: '');
                 }
               }
               elseif ($entity instanceof MediaInterface) {
@@ -532,7 +597,8 @@ class MetadataHelperService {
     $items = [];
 
     foreach ($logo_field_names as $logo_field_name) {
-      if ($node->hasField($logo_field_name) && $field = $node->get($logo_field_name)) {
+      if ($node->hasField($logo_field_name)
+          && $field = $node->get($logo_field_name)) {
         if (!$field instanceof FieldItemList | $field->isEmpty()) {
           continue;
         }
@@ -602,8 +668,6 @@ class MetadataHelperService {
    *
    * @param \Drupal\node\NodeInterface $node
    *   Node.
-   * @param String[] $field_names
-   *   Array of event field names.
    * @param array $variables
    *   The variables array.
    *
@@ -612,52 +676,57 @@ class MetadataHelperService {
    */
   protected function preprocessEventDetails(
     NodeInterface $node,
-    array $field_names,
     array &$variables,
   ): void {
-    foreach ($field_names as $field_name) {
-      if ($node->hasField($field_name) && $field = $node->get($field_name)) {
-        if (!$field instanceof FieldItemList | $field->isEmpty()) {
-          continue;
-        }
-        switch ($field->getFieldDefinition()->getType()) {
-          case 'string':
-            $label = $node->get($field_name)
-              ->getFieldDefinition()
-              ->getLabel();
-            $variables['meta_data'][] = [
-              'label' => $label,
-              'items' => [
-                'type' => 'text',
-                'title' => $node->get($field_name)->first()->value,
-              ],
-            ];
-            break;
+    // Get event specific data (dates, format, recording)
+    $this->preprocessEventCardMetadata($node, $variables);
 
-          case 'entity_reference_revisions':
-            $entity_fields = $field->referencedEntities();
-            foreach ($entity_fields as $paragraph) {
-              if ($paragraph instanceof ParagraphInterface) {
-                $media = $paragraph->get('field_file')->entity;
-                if ($media instanceof MediaInterface) {
-                  $items[] = $this->getFileFromMediaDocument($media);
-                }
-              }
-            }
-            if ($items) {
-              $label = $node->get($field_name)
-                ->getFieldDefinition()
-                ->getLabel();
-              $metadata = [
-                'label' => $label,
-                'items' => $items,
-              ];
-              $variables['meta_data'][] = [$metadata];
-            }
-            break;
+    // Is past event?
+    $past_event = FALSE;
+    if ($node->hasField('field_start_date')
+        && $start_date_field = $node->get('field_start_date')) {
+      $start_date = new DrupalDateTime($start_date_field->value);
+      $now = new DrupalDateTime('now');
+      $now->setTimezone(new \DateTimeZone(
+          DateTimeItemInterface::STORAGE_TIMEZONE)
+      );
+
+      if ($start_date < $now) {
+        $past_event = TRUE;
+        $variables['past_event'] = $past_event;
+      }
+    }
+
+    /*
+    Open registration:
+    If selected, an "open registration" label will be added to the event page.
+    (If not selected, the event will be treated as a past event if its start
+    date has passed and, once the start date has past it will have an
+    "Applications closed" label).
+     */
+    if ($node->hasField('field_open_registration')
+        && $registration_field = $node->get('field_open_registration')) {
+      $now = new DrupalDateTime('now');
+      $now->setTimezone(new \DateTimeZone(
+          DateTimeItemInterface::STORAGE_TIMEZONE)
+      );
+
+      if ($registration_field->value) {
+        if (!$past_event) {
+          $variables['registration'] = t('Open registration');
+          $variables['registration_open'] = TRUE;
+        }
+        else {
+          $variables['registration'] = t('Applications closed');
         }
       }
     }
+
+    $this->preprocessGeneralMetadata(
+      $node,
+      $this->metadataFieldNames['event']['event_details'],
+      $variables
+    );
   }
 
   /**
@@ -675,7 +744,9 @@ class MetadataHelperService {
     array &$variables,
   ): void {
 
-    if ($event_type = $this->getTermLabels($node, 'field_event_type')) {
+    if ($event_type = $this->getTermLabels(
+      $node,
+      'field_event_type')) {
       $variables['subtype'] = $event_type[0];
     }
 
@@ -683,10 +754,19 @@ class MetadataHelperService {
     $date = '';
     if ($node->hasField('field_start_date')
         && $start_date_field = $node->get('field_start_date')) {
+
       $start_date = new DrupalDateTime($start_date_field->value);
       $start_day = $start_date->format('d');
       $start_month = $start_date->format('F');
-      $start_year = $start_date->format(('Y'));
+      $start_year = $start_date->format('Y');
+      $start_hour = $start_date->format('h');
+      $start_minutes = $start_date->format('i');
+      $start_pm_am = $start_date->format('A');
+
+      if ($node->hasField('field_time_zone')
+          && $timezone_field = $node->get('field_time_zone')) {
+        $variables['timezone'] = $timezone_field->value;
+      }
 
       $date .= $start_day . ' ' . $start_month;
 
@@ -696,12 +776,32 @@ class MetadataHelperService {
         $end_day = $end_date->format('d');
         $end_month = $end_date->format('F');
         $end_year = $end_date->format(('Y'));
+        $end_hour = $end_date->format('h');
+        $end_minutes = $end_date->format('i');
+        $end_pm_am = $end_date->format('A');
+
+        $variables['start_time'] = t('Starting') . ' ' . $start_hour
+                                   . ':' . $start_minutes . $start_pm_am . ' ';
+        $variables['end_time'] = t('Ending') . ' ' . $end_hour . ':'
+                                 . $end_minutes . $end_pm_am;
 
         if ($end_year > $start_year) {
-          $date .= ' ' . $start_year . '-' . $end_day . ' ' . $end_month . ' ' . $end_year;
+          $date .= ' ' . $start_year . '-' . $end_day . ' ' . $end_month
+                   . ' ' . $end_year;
         }
         else {
           $date .= '-' . $end_day . ' ' . $end_month . ' ' . $end_year;
+
+        }
+
+        if ($start_date->format('d-m-y') ==
+            $end_date->format('d-m-y')) {
+          $date = $start_day . ' ' . $start_month . ' ' . $start_year;
+          $variables['header_start_time'] = $start_hour . ':' . $start_minutes
+                                            . $start_pm_am;
+          $variables['end_time'] = t('Ending') . ' ' . $end_hour . ':'
+                                   . $end_minutes . $end_pm_am;
+
         }
 
         $variables['date'] = $date;
@@ -721,7 +821,9 @@ class MetadataHelperService {
         && $recording_field = $node->get('field_event_recording')) {
       $has_recording = $recording_field->value;
       $now = new DrupalDateTime('now');
-      $now->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
+      $now->setTimezone(new \DateTimeZone(
+          DateTimeItemInterface::STORAGE_TIMEZONE)
+      );
       if ($has_recording && $end_date < $now) {
         $variables['recording'] = TRUE;
       }
@@ -810,7 +912,8 @@ class MetadataHelperService {
             if ($person_reference = $person_reference_item->get('entity')) {
               if ($person_reference instanceof EntityReference) {
                 if ($person_reference->getTarget()) {
-                  $person_entity = $person_reference->getTarget()->getValue();
+                  $person_entity = $person_reference->getTarget()
+                    ->getValue();
                   if ($person_entity instanceof NodeInterface
                       && $person_entity->bundle() == 'person') {
                     // Link to person.
@@ -956,7 +1059,10 @@ class MetadataHelperService {
    *
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
-  protected function getFileFromMediaDocument(MediaInterface $media, string $document_label = ''): ?array {
+  protected function getFileFromMediaDocument(
+    MediaInterface $media,
+    string $document_label = ''
+  ): ?array {
 
     /** @var \Drupal\file\Entity\File $file */
     $file = $media->hasField('field_media_document')
@@ -972,7 +1078,8 @@ class MetadataHelperService {
           $media->hasField('field_media_label')
           && !$media->get('field_media_label')->isEmpty()
           && ($media->get('field_media_label')
-              && $file_label = $media->get('field_media_label')->first()->value)
+              && $file_label = $media->get('field_media_label')
+                ->first()->value)
             ? $file_label
             : $file->getFilename();
       }

@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.event.field_country
     - field.field.node.event.field_course_host
     - field.field.node.event.field_course_syllabus
-    - field.field.node.event.field_course_training_contact
     - field.field.node.event.field_data_document
     - field.field.node.event.field_days_of_the_week
     - field.field.node.event.field_disable_related_content
@@ -95,14 +94,6 @@ content:
       link: false
     third_party_settings: {  }
     weight: 52
-    region: content
-  field_course_training_contact:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 15
     region: content
   field_data_document:
     type: entity_reference_revisions_entity_view
