@@ -12,7 +12,7 @@ bundle: region
 label: 'Short Description'
 description: "One-sentence highlight/overview of the item. For use in link descriptions, search results, or other places where a blurb might be needed.\r\n<em>150 characters, max.</em>"
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }

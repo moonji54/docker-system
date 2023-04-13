@@ -5,10 +5,15 @@ dependencies:
   config:
     - field.storage.node.field_page_builder
     - node.type.country
+    - paragraphs.paragraphs_type.call_to_action
+    - paragraphs.paragraphs_type.embed
     - paragraphs.paragraphs_type.featured_content
     - paragraphs.paragraphs_type.featured_pages
     - paragraphs.paragraphs_type.featured_people
+    - paragraphs.paragraphs_type.full_width_media
+    - paragraphs.paragraphs_type.learning_block
     - paragraphs.paragraphs_type.listing
+    - paragraphs.paragraphs_type.quote
     - paragraphs.paragraphs_type.wysiwyg
   module:
     - entity_reference_revisions
@@ -19,7 +24,7 @@ bundle: country
 label: 'Page builder'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -28,16 +33,25 @@ settings:
     target_bundles:
       featured_content: featured_content
       featured_pages: featured_pages
+      call_to_action: call_to_action
       featured_people: featured_people
+      embed: embed
+      full_width_media: full_width_media
       listing: listing
       wysiwyg: wysiwyg
+      learning_block: learning_block
+      quote: quote
     negate: 0
     target_bundles_drag_drop:
-      container:
-        weight: 10
-      cta_download:
-        weight: 11
+      call_to_action:
+        weight: 14
         enabled: true
+      embed:
+        weight: 15
+        enabled: true
+      external_author:
+        weight: 16
+        enabled: false
       featured_content:
         weight: 12
         enabled: true
@@ -47,14 +61,23 @@ settings:
       featured_people:
         weight: 14
         enabled: true
+      file_upload:
+        weight: 20
+        enabled: false
       full_width_media:
         weight: 15
         enabled: true
-      limited_list:
-        weight: 16
+      learning_block:
+        weight: 22
         enabled: true
       listing:
         weight: 17
+        enabled: true
+      logo:
+        weight: 24
+        enabled: false
+      quote:
+        weight: 25
         enabled: true
       wysiwyg:
         weight: 18
