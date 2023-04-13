@@ -4,6 +4,9 @@ status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.topic.field_attached_translated_items
+    - field.field.node.topic.field_contributions_description
+    - field.field.node.topic.field_contributions_title
     - field.field.node.topic.field_featured_image
     - field.field.node.topic.field_overlay_opacity
     - field.field.node.topic.field_page_builder
@@ -27,6 +30,9 @@ content:
     weight: 100
     region: content
 hidden:
+  field_attached_translated_items: true
+  field_contributions_description: true
+  field_contributions_title: true
   field_featured_image: true
   field_overlay_opacity: true
   field_page_builder: true
