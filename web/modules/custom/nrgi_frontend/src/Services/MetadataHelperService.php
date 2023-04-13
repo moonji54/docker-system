@@ -42,7 +42,6 @@ class MetadataHelperService {
         'field_region',
         'field_topic',
         'field_keywords',
-        'field_career_opportunity_type',
         'field_city',
         'field_event_type',
         'field_role_type',
@@ -81,6 +80,7 @@ class MetadataHelperService {
     'article' => 'field_resource_type',
     'publication' => 'field_resource_type',
     'event' => 'field_event_type',
+    'career_opportunity' => 'field_career_opportunity_type',
   ];
 
   /**
@@ -177,9 +177,9 @@ class MetadataHelperService {
 
         // Header date.
         if ($date = $node->get('unified_date')) {
-          $card_date = $this->dateFormatter
+          $formatted_date = $this->dateFormatter
             ->format($date->value, 'resource_header_date');
-          $variables['date'] = $card_date;
+          $variables['date'] = $formatted_date;
         }
 
         // Language switcher.
@@ -187,6 +187,17 @@ class MetadataHelperService {
           ->nrgiTranslationHelperService->getLanguageSwitcherLinks(
             $node, FALSE
           );
+        break;
+
+      case 'career_opportunity':
+        // Application deadline.
+        if ($date = $node->get('field_offer_deadline')) {
+          $date = new DrupalDateTime($date->value);
+          $date->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
+          $formatted_date = $this->dateFormatter
+            ->format($date->getTimestamp(), 'resource_header_date');
+          $variables['deadline'] = $formatted_date;
+        }
         break;
 
       case 'event':
@@ -280,6 +291,50 @@ class MetadataHelperService {
   }
 
   /**
+   * Preprocess list item metadata.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   Node.
+   * @param array &$variables
+   *   The variables array.
+   *
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+   */
+  public function preprocessListItemMetadata(
+    NodeInterface $node,
+    array &$variables
+  ): void {
+    // Content type.
+    $variables['content_type'] = $node->bundle();
+    $variables['content_type_label'] = $node->type->entity->label();
+
+    // Date.
+    if ($date = $node->get('unified_date')) {
+      $card_date = $this->dateFormatter->format($date->value, 'card_date');
+      $variables['date'] = $card_date;
+    }
+
+    // Content type specific list item meta.
+    switch ($node->bundle()) {
+      case 'event':
+        $this->preprocessEventCardMetadata($node, $variables);
+        break;
+
+      case 'article':
+      case 'publication':
+        // Resource type.
+        if ($resource_type = $this->getTermLabels(
+          $node,
+          'field_resource_type')
+        ) {
+          $variables['subtype'] = $resource_type[0];
+        }
+        break;
+    }
+
+  }
+
+  /**
    * Preprocess metadata.
    *
    * @param \Drupal\node\NodeInterface $node
@@ -344,10 +399,13 @@ class MetadataHelperService {
                 }
               }
               if ($items) {
-                $metadata[] = [
-                  'label' => $label,
-                  'items' => $items,
-                ];
+                if ($node->bundle() !== 'career_opportunity') {
+                  $metadata[] = [
+                    'label' => $label,
+                    'items' => $items,
+                  ];
+                }
+                $metadata[] = $items;
               }
             }
             break;
@@ -368,7 +426,12 @@ class MetadataHelperService {
         }
       }
     }
-    $variables['meta_data'][] = $metadata;
+    if ($node->bundle() !== 'career_opportunity') {
+      $variables['meta_data'][] = $metadata;
+    }
+    else {
+      $variables['meta_data']['career_opportunity']['header'] = $metadata;
+    }
   }
 
   /**
@@ -424,15 +487,21 @@ class MetadataHelperService {
       }
     }
     if ($items) {
-      if (!$items_only) {
+      if (!$items_only && $node->bundle() !== 'career_opportunity') {
         $metadata = [
           'label' => t('Additional downloads'),
           'items' => $items,
         ];
         $variables['meta_data'][] = [$metadata];
       }
-      else {
+      elseif ($node->bundle() !== 'career_opportunity') {
         $variables['files'] = $items;
+      }
+      else {
+        $variables['meta_data']['career_opportunity']['files'] = [
+          'label' => t('Supporting documents'),
+          'items' => $items,
+        ];
       }
     }
   }
@@ -598,6 +667,8 @@ class MetadataHelperService {
    *   Node.
    * @param array $variables
    *   The variables array.
+   *
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   protected function preprocessEventCardMetadata(
     NodeInterface $node,
@@ -762,9 +833,9 @@ class MetadataHelperService {
                     }
 
                     // Headshot.
-                    if ($node->hasField('field_featured_image')
-                        && $node->get('field_featured_image')
-                        && $media = $node->get('field_featured_image')->entity) {
+                    if ($person_entity->hasField('field_featured_image')
+                        && $person_entity->get('field_featured_image')
+                        && $media = $person_entity->get('field_featured_image')->entity) {
                       if ($media instanceof MediaInterface) {
                         /** @var  \Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService $responsive_image_style_service */
                         $responsive_image_style_service = \Drupal::service('nrgi_frontend.responsive_image_helper');

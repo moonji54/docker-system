@@ -36,6 +36,7 @@ function nrgi_frontend_preprocess_node(&$variables): void {
         break;
 
       case 'landing_page':
+      case 'listing page':
         $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
           $node, TRUE, 'field_attached_translated_items'
         );
@@ -47,6 +48,7 @@ function nrgi_frontend_preprocess_node(&$variables): void {
 
       case 'article':
       case 'publication':
+      case 'career_opportunity':
       case 'event':
         if (in_array($variables['view_mode'], ['full', 'default'])) {
           $metadata_helper_service->preprocessMetadata($node, $variables);
@@ -77,10 +79,6 @@ function nrgi_frontend_preprocess_node(&$variables): void {
       case 'featured_content_with_image_2_per_row':
       case 'featured_content_with_image_3_per_row':
       case 'featured_content_with_image_4_per_row':
-      case 'featured_content_1_per_row':
-      case 'featured_content_2_per_row':
-      case 'featured_content_3_per_row':
-      case 'featured_content_4_per_row':
       case 'featured_page_with_image_1_per_row':
       case 'featured_page_with_image_2_per_row':
       case 'featured_page_with_image_3_per_row':
@@ -116,6 +114,43 @@ function nrgi_frontend_preprocess_node(&$variables): void {
         }
         break;
 
+      case 'featured_content_1_per_row':
+      case 'featured_content_2_per_row':
+      case 'featured_content_3_per_row':
+      case 'featured_content_4_per_row':
+        $content_types_to_preprocess = [
+          'article',
+          'career_opportunity',
+          'event',
+          'publication',
+        ];
+
+        // Preprocess card metadata.
+        if (in_array($node->bundle(), $content_types_to_preprocess)) {
+          $metadata_helper_service->preprocessCardMetadata($node, $variables);
+        }
+        break;
+
+      case 'list_item_with_image':
+        if ($node->hasField('field_featured_image')
+            && $node->get('field_featured_image')
+            && $media = $node->get('field_featured_image')->entity) {
+          if ($media instanceof MediaInterface) {
+            /** @var  \Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService $responsive_image_style_service */
+            $responsive_image_style_service = \Drupal::service('nrgi_frontend.responsive_image_helper');
+            $responsive_image_style_service->preprocessResponsiveImage(
+              $media,
+              'small_card',
+              $variables
+            );
+          }
+        }
+        $metadata_helper_service->preprocessListItemMetadata($node, $variables);
+        break;
+
+      case 'list_item':
+        $metadata_helper_service->preprocessListItemMetadata($node, $variables);
+        break;
     }
   }
 }
