@@ -78,4 +78,18 @@
 
   {# Body #}
   {% include '@nrgi/node-partials/node--body.html.twig' %}
+
+  {# Person contributions #}
+  {% set listing = drupal_view('contextual_views', 'region_content', node.id) %}
+  {% if listing|length > 0 %}
+    {% if content.field_contributions_title|field_value %}
+      <h2>{{ content.field_contributions_title }}</h2>
+    {% endif %}
+    {% if content.field_contributions_description|field_value %}
+      <h3>{{ content.field_contributions_description }}</h3>
+    {% endif %}
+
+    {{ listing }}
+  {% endif %}
+
 </article>
