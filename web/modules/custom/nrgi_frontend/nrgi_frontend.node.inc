@@ -9,6 +9,7 @@ use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\link\LinkItemInterface;
 use Drupal\media\MediaInterface;
+use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -35,9 +36,20 @@ function nrgi_frontend_preprocess_node(&$variables): void {
         );
         break;
 
+      case 'page':
+        // Add sub-navigation.
+        _nrgi_frontend_preprocess_subnavigation($variables);
+        break;
+
       case 'landing_page':
       case 'listing page':
-      case 'country':
+        // Add sub-navigation.
+        _nrgi_frontend_preprocess_subnavigation($variables);
+        $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
+          $node, TRUE, 'field_attached_translated_items'
+        );
+        break;
+
       case 'region':
       case 'topic':
         $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
@@ -273,4 +285,47 @@ function _nrgi_frontend_preprocess_related_content(array &$variables): void {
     // Run preprocess.
     $related_content_helper->preprocessNode($variables);
   }
+}
+
+/**
+ * Preprocess sub navigation.
+ *
+ * @param array $variables
+ *   The variables array.
+ *
+ * @throws \Drupal\Core\Entity\EntityMalformedException
+ */
+function _nrgi_frontend_preprocess_subnavigation(array &$variables): void {
+  /** @var \Drupal\soapbox_nodes\SubPagesHelperService $sub_pages_helper */
+  $sub_pages_helper = \Drupal::service('soapbox_nodes.sub_pages');
+  $sub_page_ids = $sub_pages_helper->getSubPages($variables['node'], 'main');
+
+  if ($sub_page_ids) {
+    foreach ($sub_page_ids as $page_node_id) {
+      $sub_node = Node::load($page_node_id);
+
+      if ($sub_node instanceof NodeInterface) {
+        $sub_page_url = $sub_node->toUrl()->toString();
+        $variables['sub_pages'][] = [
+          'title' => $sub_node->label(),
+          'url' => $sub_page_url,
+        ];
+      }
+    }
+
+    // Add menu cache tag.
+    $variables = array_merge_recursive($variables, [
+      '#cache' => [
+        'tags' => ['config:system.menu.main'],
+      ],
+    ]);
+  }
+}
+
+/**
+ * Implements hook_soapbox_nodes_subpages_alter().
+ */
+function nrgi_frontend_soapbox_nodes_subpages_alter(&$show_sub_pages, &$show_sibling_pages) {
+  $show_sub_pages = TRUE;
+  $show_sibling_pages = FALSE;
 }
