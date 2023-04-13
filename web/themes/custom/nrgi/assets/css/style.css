@@ -757,11 +757,12 @@ ul li a:hover {
 .c-card {
   display: flex;
   position: relative;
+  /* Event dates */
 }
-.c-card:focus .c-card__tag, .c-card:hover .c-card__tag {
+.c-card:hover .c-card__tag {
   background-color: #FF7D5F;
 }
-.c-card:focus .c-card__image-wrapper img, .c-card:hover .c-card__image-wrapper img {
+.c-card:hover .c-card__image-wrapper img {
   filter: brightness(1.1);
 }
 .c-card__tag {

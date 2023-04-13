@@ -4,7 +4,6 @@
   display  : flex;
   position : relative;
 
-  &:focus,
   &:hover {
     #{$c}__tag {
       background-color : $tertiary;
@@ -72,7 +71,7 @@
     @include ts-card($medium : true);
   }
 
-  // Event dates
+  /* Event dates */
   &__title + &__meta-item {
     margin-bottom : 0;
     margin-top    : var(--space-m);

@@ -18,14 +18,14 @@
           {% if format == 'online' %}
             {# On events only #}
             <span class="c-card__meta-item">
-                {{- 'Online' -}}
+                {{- 'Online'|t -}}
               </span>
           {% endif %}
 
           {% if recording %}
             {# On events only - will show on past event & with available recording #}
             <span class="c-card__meta-item">
-                {{- 'Recording available' -}}
+                {{- 'Recording available'|t -}}
               </span>
           {% endif %}
 
@@ -82,7 +82,7 @@
         {% if responsive_image %}
           {{ responsive_image }}
         {% else %}
-          <img src="/{{ base_path ~ directory }}/assets/img/fallback-default.svg" alt="{{ 'Fallback image'|t }}"/>
+          <img src="/{{ base_path ~ directory }}/assets/img/fallback-default.svg" aria-role="presentation"/>
         {% endif %}
       </div>
     {% endif %}

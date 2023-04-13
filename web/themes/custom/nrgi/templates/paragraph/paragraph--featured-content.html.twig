@@ -24,7 +24,7 @@
           {% if content.field_title_size|field_raw('value') != 'small' %}
             <h2 class="o-section__heading">{{ content.field_title }}</h2>
           {% else %}
-            <h5 class="o-section__heading o-section__heading--small">{{ content.field_title }}</h5>
+            <h2 class="o-section__heading o-section__heading--small">{{ content.field_title }}</h2>
           {% endif %}
 
           {% if content.field_description|field_value %}
