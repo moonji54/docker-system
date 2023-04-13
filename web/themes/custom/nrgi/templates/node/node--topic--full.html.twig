@@ -81,7 +81,6 @@
 
   {# Topic content #}
   {% set listing_results = drupal_view_result('contextual_views', 'topic_content', node.id)|length %}
-  {{ dpm(listing_results) }}
   {% if listing_results > 0 %}
     {% set listing = drupal_view('contextual_views', 'topic_content', node.id) %}
     {% if content.field_contributions_title|field_value %}
