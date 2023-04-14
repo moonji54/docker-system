@@ -1,26 +1,22 @@
 /** @define o-section */
 .o-section {
-  $c         : &;
-  margin-top : var(--space-3xl);
+  $c      : &;
+  padding : var(--space-3xl) 0;
 
-  @include media("<=tablet") {
-    margin-top : var(--space-l);
+  & + & {
+    padding-top : 0;
   }
 
   &__header {
     @include grid;
     border-top    : 1px solid $grey-light;
-    margin-bottom : var(--space-xl);
+    margin-bottom : var(--space-2xl);
     padding-top   : var(--space-xs);
   }
 
   &__heading {
     @include ts-heading-2;
     grid-column : 1 / -1;
-
-    &--small {
-      @include ts-heading-3;
-    }
   }
 
   &__description {
@@ -41,11 +37,15 @@
   ================================================== */
   &--has-background {
     background-color : $grey-light;
-    padding          : var(--space-3xl) 0;
 
     #{$c}__header {
       border-color : $white;
     }
+  }
+
+  &--has-background + &,
+  & + &--has-background {
+    padding-top : var(--space-3xl);
   }
 
   /* stylelint-disable-next-line */

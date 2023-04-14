@@ -1,10 +1,12 @@
 uuid: 6fc9e8c9-2a0a-4024-9e9b-7d771509a4ec
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.person.field_board_member_type
+    - field.field.node.person.field_contributions_description
+    - field.field.node.person.field_contributions_title
     - field.field.node.person.field_country
     - field.field.node.person.field_email
     - field.field.node.person.field_featured_image
@@ -16,7 +18,7 @@ dependencies:
     - field.field.node.person.field_short_bio
     - field.field.node.person.field_surname
     - field.field.node.person.field_topic
-    - field.field.node.person.field_twitter
+    - field.field.node.person.field_twitter_handle
     - node.type.person
   module:
     - user
@@ -37,6 +39,8 @@ content:
     region: content
 hidden:
   field_board_member_type: true
+  field_contributions_description: true
+  field_contributions_title: true
   field_country: true
   field_email: true
   field_featured_image: true
@@ -48,6 +52,6 @@ hidden:
   field_short_bio: true
   field_surname: true
   field_topic: true
-  field_twitter: true
+  field_twitter_handle: true
   langcode: true
   search_api_excerpt: true

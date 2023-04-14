@@ -19,11 +19,14 @@
                     {# Footer Oraganisation logos #}
                     {% include '@nrgi/node-partials/node--logos.html.twig' with {'item': item} %}
 
-                  {% elseif item.type == 'text' %}
-                    {{ item.title }}
-
                   {% else %}
+
+                    {%  if item.url %}
                     <a href="{{ item.url }}">{{ item.title|trim }}</a>
+                      {% else %}
+                        {{ item.title }}
+                    {% endif %}
+
                   {% endif %}
                 {% endfor %}
               </dd>
