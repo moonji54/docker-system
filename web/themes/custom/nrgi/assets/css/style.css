@@ -1676,6 +1676,12 @@ ul li a:hover {
     grid-column: 1/-1;
   }
 }
+.c-listing__items .views-row {
+  margin-top: var(--space-xl);
+}
+.c-listing__items .views-row:first-child {
+  margin-top: 0;
+}
 .c-listing__pagination {
   grid-column: 5/-1;
   margin-top: var(--space-xl);
