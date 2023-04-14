@@ -1,111 +1,85 @@
+{% if exposed is empty %}
+  {% set no_filters = TRUE %}
+{% endif %}
+
+{% if id|clean_class == 'search' %}
+  {% set is_search = TRUE %}
+{% endif %}
+
 {% set classes = [
+  'c-listing',
+  no_filters ? 'c-listing--no-filters',
+  is_search ? 'c-listing--search',
   'view',
   'view-' ~ id|clean_class,
   'view-id-' ~ id,
   'view-display-id-' ~ display_id,
   dom_id ? 'js-view-dom-id-' ~ dom_id,
 ] %}
-<div{{ attributes.addClass(classes) }}>
-  {% if id|clean_class == 'search' %}
-    <div class="c-listing__search">
-      <div class="o-container c-listing__search-container">
-        <form class="c-listing__search-form" action="/search" method="get" role="search" aria-label="Sitewide search">
-          <input class="c-listing__search-input" title="Enter the terms you wish to search for." type="search"
-                 id="header-search-input" placeholder="Type Here..." name="search_term"
-                 value="{{ exposed.search_term['#value'] }}" size="15" maxlength="128">
-          <button class="c-listing__search-submit" type="submit">
-            <span>Search</span>
-          </button>
-        </form>
-      </div>
+
+{% if is_search %}
+  <section class="c-page-header c-page-header--search">
+    <div class="o-container">
+      <h2 class="c-page-header__heading">{{ 'Search'|t }}</h2>
     </div>
-  {% endif %}
+  </section>
+{% endif %}
 
-  <div class="c-listing__inner">
-    {{ title_prefix }}
-
-    {% if title %}
-      {{ title }}
-    {% endif %}
-
-    {{ title_suffix }}
-
+<div{{ attributes.addClass(classes) }}>
+  <div class="c-listing__container o-container">
     {% if attachment_before %}
       <div class="c-listing__attachment c-listing__attachment-before">
         {{ attachment_before }}
       </div>
     {% endif %}
 
-    {{ id|clean_class }}
-    {% if id|clean_class == 'search-view' %}
-      <div class="c-listing__top">
-        <form class="c-listing__form" action="/search" method="get" role="search" aria-label="Sitewide search">
-          <input class="c-listing__input" title="Enter the terms you wish to search for." type="search"
-                 id="header-search-input" placeholder="Type Here..." name="keyword_name"
-                 value="{{ exposed.search_term['#value'] }}" size="15" maxlength="128">
-          <button class="c-listing__submit" type="submit">
-            <span>Search</span>
-          </button>
-        </form>
+    {% if no_filters == FALSE %}
+      <div class="c-listing__filters js-filters">
+        <button class="c-listing__filters-button o-button js-toggle-filters-button" aria-expanded="true">
+          <span class="js-toggle-filters-button-text">Hide filters</span>
+        </button>
+        {{ exposed }}
       </div>
     {% endif %}
-
-    <div class="c-listing__filters js-filters">
-      {% if header is not empty %}
-        <div class="c-listing__header">
-          <span class="c-listing__results-count">{{ header }}</span>
-
-          {% if exposed['#sorters'] %}
-            <span class="c-listing__sorted-title">• Sorted</span>
-          {% endif %}
-        </div>
-      {% endif %}
-
-      {{ exposed }}
-    </div>
 
     <div class="c-listing__content">
+      {% if header is not empty and no_filters != TRUE %}
+        <div class="c-listing__results-count">
+          {{ header }}
+        </div>
+      {% endif %}
+
+      {% set card_classes = [
+        'c-listing__items',
+      ] %}
+
       {% if rows %}
-        <div class="c-listing__items">
-          {{ rows }}
+        <div{{ attributes.addClass(card_classes).removeClass(classes) }}>
+          {{ rows[0]['#rows'] }}
         </div>
       {% elseif empty %}
-        <div class="c-listing__empty o-content-from-editor">
-          {% if site_settings.listings.listing_no_results.field_text is not empty %}
-            <h2 class="c-listing__empty-title">{{ site_settings.listings.listing_no_results.field_text }}</h2>
-          {% endif %}
-
-          {% if site_settings.listings.listing_no_results.field_summary is not empty %}
-            <p class="c-listing__empty-body">{{ site_settings.listings.listing_no_results.field_summary|nl2br }}</p>
-          {% endif %}
+        <div class="c-listing__empty">
+          <h2 class="c-listing__empty-title">No results found.</h2>
         </div>
       {% endif %}
     </div>
-
-    {% if pager %}
-      {{ pager }}
-    {% endif %}
-
-    {% if attachment_after %}
-      <div class="c-listing__attachment c-listing__attachment-after">
-        {{ attachment_after }}
-      </div>
-    {% endif %}
-
-    {% if more %}
-      {{ more }}
-    {% endif %}
-
-    {% if footer %}
-      <div class="c-listing__footer">
-        {{ footer }}
-      </div>
-    {% endif %}
-
-    {% if feed_icons %}
-      <div class="c-listing__feed-icons">
-        {{ feed_icons }}
-      </div>
-    {% endif %}
   </div>
+
+  {% if pager %}
+    {{ pager }}
+  {% endif %}
+
+  {% if attachment_after %}
+    <div class="c-listing__attachment c-listing__attachment-after">
+      {{ attachment_after }}
+    </div>
+  {% endif %}
+  {% if more %}
+    {{ more }}
+  {% endif %}
+  {% if footer %}
+    <div class="c-listing__footer">
+      {{ footer }}
+    </div>
+  {% endif %}
 </div>

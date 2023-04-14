@@ -1,7 +1,11 @@
 /** @define o-section */
 .o-section {
-  $c         : &;
-  margin-top : var(--space-3xl);
+  $c      : &;
+  padding : var(--space-3xl) 0;
+
+  & + & {
+    padding-top : 0;
+  }
 
   &__header {
     @include grid;
@@ -33,11 +37,15 @@
   ================================================== */
   &--has-background {
     background-color : $grey-light;
-    padding          : var(--space-3xl) 0;
 
     #{$c}__header {
       border-color : $white;
     }
+  }
+
+  &--has-background + &,
+  & + &--has-background {
+    padding-top : var(--space-3xl);
   }
 
   /* stylelint-disable-next-line */
