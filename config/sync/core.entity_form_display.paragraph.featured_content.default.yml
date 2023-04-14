@@ -3,24 +3,92 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.featured_content.field_content
+    - field.field.paragraph.featured_content.field_country
+    - field.field.paragraph.featured_content.field_description
+    - field.field.paragraph.featured_content.field_exclusions
     - field.field.paragraph.featured_content.field_layout
+    - field.field.paragraph.featured_content.field_link
+    - field.field.paragraph.featured_content.field_quantity
+    - field.field.paragraph.featured_content.field_region
+    - field.field.paragraph.featured_content.field_show_background
     - field.field.paragraph.featured_content.field_show_image
+    - field.field.paragraph.featured_content.field_title
+    - field.field.paragraph.featured_content.field_title_size
+    - field.field.paragraph.featured_content.field_topic
+    - field.field.paragraph.featured_content.field_types
+    - field.field.paragraph.featured_content.field_upcoming
     - paragraphs.paragraphs_type.featured_content
   module:
     - field_group
+    - link
 third_party_settings:
   field_group:
-    group_content_cards:
+    group_featured_content_tabs:
       children:
-        - field_show_image
-        - field_layout
-        - field_items_selection
-        - field_content_cards
-        - field_dynamic_listing
-      label: 'Content Cards'
+        - group_basic_information
+        - group_content_types
+        - group_categories
+        - group_exclusions
+        - group_manual_selection
+        - group_cta
+      label: 'Featured content tabs'
       region: content
-      parent_name: group_featured_content
-      weight: 3
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: horizontal
+        width_breakpoint: 640
+    group_basic_information:
+      children:
+        - field_title
+        - field_title_size
+        - field_description
+        - field_quantity
+        - field_upcoming
+        - field_layout
+        - field_show_image
+        - field_show_background
+      label: 'Basic information'
+      region: content
+      parent_name: group_featured_content_tabs
+      weight: 11
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_categories:
+      children:
+        - group_topic
+        - group_country
+        - group_region
+      label: Categories
+      region: content
+      parent_name: group_featured_content_tabs
+      weight: 13
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_topic:
+      children:
+        - field_topic
+      label: Topic
+      region: content
+      parent_name: group_categories
+      weight: 12
       format_type: details
       format_settings:
         classes: ''
@@ -29,23 +97,94 @@ third_party_settings:
         open: false
         description: ''
         required_fields: true
-        formatter: closed
-    group_featured_content:
+    group_country:
       children:
-        - field_title
-        - field_description
-        - group_content_cards
-        - field_button_text_and_link
-      label: 'Featured Content'
+        - field_country
+      label: Country
       region: content
-      parent_name: ''
-      weight: 0
+      parent_name: group_categories
+      weight: 13
       format_type: details
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         open: false
+        description: ''
+        required_fields: true
+    group_region:
+      children:
+        - field_region
+      label: Region
+      region: content
+      parent_name: group_categories
+      weight: 14
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_exclusions:
+      children:
+        - field_exclusions
+      label: Exclusions
+      region: content
+      parent_name: group_featured_content_tabs
+      weight: 14
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_manual_selection:
+      children:
+        - field_content
+      label: 'Manual selection'
+      region: content
+      parent_name: group_featured_content_tabs
+      weight: 15
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_cta:
+      children:
+        - field_link
+      label: CTA
+      region: content
+      parent_name: group_featured_content_tabs
+      weight: 16
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_content_types:
+      children:
+        - field_types
+      label: 'Content types'
+      region: content
+      parent_name: group_featured_content_tabs
+      weight: 12
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
         description: ''
         required_fields: true
 id: paragraph.featured_content.default
@@ -53,16 +192,123 @@ targetEntityType: paragraph
 bundle: featured_content
 mode: default
 content:
+  field_content:
+    type: entity_reference_autocomplete
+    weight: 7
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_country:
+    type: entity_reference_autocomplete
+    weight: 12
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_description:
+    type: string_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_exclusions:
+    type: entity_reference_autocomplete
+    weight: 8
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_layout:
     type: number
-    weight: 9
+    weight: 6
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-  field_show_image:
+  field_link:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_quantity:
+    type: number
+    weight: 4
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_region:
+    type: entity_reference_autocomplete
+    weight: 13
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_show_background:
     type: boolean_checkbox
     weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_show_image:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_title_size:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_topic:
+    type: entity_reference_autocomplete
+    weight: 14
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_types:
+    type: options_buttons
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_upcoming:
+    type: boolean_checkbox
+    weight: 5
     region: content
     settings:
       display_label: true

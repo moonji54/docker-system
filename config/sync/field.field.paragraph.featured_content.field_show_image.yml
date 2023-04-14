@@ -1,4 +1,4 @@
-uuid: b332f716-252c-4fbb-9fbd-39811a9f3b2a
+uuid: a0b40f7b-a6ef-4c0a-9043-5f72e8c1d8a6
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ field_name: field_show_image
 entity_type: paragraph
 bundle: featured_content
 label: 'Show Image'
-description: ''
+description: 'Whether to show images on content cards.'
 required: false
 translatable: false
 default_value:

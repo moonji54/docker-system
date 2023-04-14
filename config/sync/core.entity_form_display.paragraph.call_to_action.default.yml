@@ -103,10 +103,10 @@ content:
     settings:
       rows: 5
       placeholder: ''
-      maxlength: 300
+      maxlength: 150
       counter_position: after
       js_prevent_submit: true
-      count_html_characters: true
+      count_html_characters: false
       textcount_status_message: 'Remaining characters: <span class="remaining_count">@remaining_count</span> / <span class="maxlength_count">@maxlength</span>'
     third_party_settings: {  }
   field_download_button_label:

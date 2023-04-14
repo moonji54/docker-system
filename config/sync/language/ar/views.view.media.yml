@@ -1,0 +1,18 @@
+label: ميديا
+display:
+  default:
+    display_title: Default
+    display_options:
+      pager:
+        options:
+          expose:
+            offset_label: Offset
+      fields:
+        thumbnail__target_id:
+          label: Thumbnail
+      title: ميديا
+  media_page_list:
+    display_title: ميديا
+    display_options:
+      menu:
+        title: ميديا

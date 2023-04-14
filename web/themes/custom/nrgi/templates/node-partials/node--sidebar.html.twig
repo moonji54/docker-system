@@ -1,0 +1,40 @@
+<section class="c-meta-rows o-section">
+
+  {# Language switcher #}
+  {% if language_switcher_links %}
+    {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
+      'text' :  "Other languages"|t,
+      'links' : language_switcher_links
+    } %}
+  {% endif %}
+
+  {# Share buttons #}
+  {% include '@nrgi/node-partials/node--share-links.html.twig' %}
+
+  {% if sidebar_data %}
+    {# SIDEBAR META (logos)  #}
+    <div class="c-meta-rows__container o-container">
+      <dl class="c-meta-rows__inner">
+        {% for data in sidebar_data %}
+          {% for section in data %}
+            <div class="c-meta-rows__row">
+              <dt class="c-meta-rows__label">
+                <h3>{{ section.label }}</h3>
+              </dt>
+              <dd class="c-meta-rows__items">
+                {% for item in section.items %}
+                  {% if item.type == 'logo' %}
+                    {# Organisation logos #}
+                    {% include '@nrgi/node-partials/node--logos.html.twig' with {'item': item} %}
+
+                  {% endif %}
+                {% endfor %}
+              </dd>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </dl>
+    </div>
+  {% endif %}
+
+</section>

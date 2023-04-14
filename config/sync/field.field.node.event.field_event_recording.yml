@@ -12,7 +12,7 @@ bundle: event
 label: 'Event recording'
 description: 'Select if event has or will have event recording available'
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: 0

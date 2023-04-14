@@ -1,0 +1,43 @@
+uuid: 306cdc19-82fd-4861-af76-13621f2bea72
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.external_author.field_external_author_link
+    - field.field.paragraph.external_author.field_given_name
+    - field.field.paragraph.external_author.field_surname
+    - paragraphs.paragraphs_type.external_author
+  module:
+    - link
+id: paragraph.external_author.default
+targetEntityType: paragraph
+bundle: external_author
+mode: default
+content:
+  field_external_author_link:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_given_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_surname:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

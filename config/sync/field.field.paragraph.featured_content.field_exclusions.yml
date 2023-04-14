@@ -1,0 +1,35 @@
+uuid: b7af1219-25d2-4857-abd1-b4a9c753971e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_exclusions
+    - node.type.article
+    - node.type.career_opportunity
+    - node.type.event
+    - node.type.publication
+    - paragraphs.paragraphs_type.featured_content
+id: paragraph.featured_content.field_exclusions
+field_name: field_exclusions
+entity_type: paragraph
+bundle: featured_content
+label: Exclusions
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      article: article
+      career_opportunity: career_opportunity
+      event: event
+      publication: publication
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: article
+field_type: entity_reference

@@ -1,0 +1,32 @@
+.o-card-container {
+  display : grid;
+  gap     : var(--space-2xl) var(--gutter);
+
+  &--two-per-row {
+    grid-template-columns : repeat(2, 1fr);
+
+    @include media("<=tablet") {
+      grid-template-columns : 1fr;
+    }
+  }
+
+  &--three-per-row {
+    grid-template-columns : repeat(3, 1fr);
+
+    @include media("<=tablet") {
+      grid-template-columns : 1fr;
+    }
+  }
+
+  &--four-per-row {
+    grid-template-columns : repeat(4, 1fr);
+
+    @include media("<=desktop") {
+      grid-template-columns : repeat(3, 1fr);
+    }
+
+    @include media("<=tablet") {
+      grid-template-columns : 1fr;
+    }
+  }
+}

@@ -1,8 +1,0 @@
-uuid: 54ca94f9-4dee-4130-bcea-cc8af457b34f
-langcode: en
-status: true
-dependencies: {  }
-name: 'Event Role Label'
-vid: event_role_label
-description: ''
-weight: 0
