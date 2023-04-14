@@ -1,0 +1,31 @@
+uuid: c126d5a5-6e51-4ae2-a46e-4696ab271f98
+langcode: en
+status: true
+dependencies:
+  module:
+    - context_active_trail
+    - node
+label: 'Region and Country'
+name: region_and_country
+group: Breadcrumbs
+description: ''
+requireAllConditions: false
+disabled: false
+conditions:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: cedd9fab-b171-4b0c-a6e5-9a959dacb09f
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      country: country
+      region: region
+reactions:
+  active_trail:
+    id: active_trail
+    trail: 'main:menu_link_content:cfeece8a-449d-4642-8c62-c51debd63bb0'
+    breadcrumbs: 1
+    breadcrumb_title: 0
+    uuid: 8eb3a10c-e9d4-4fb6-872b-d71283fa372a
+weight: 0

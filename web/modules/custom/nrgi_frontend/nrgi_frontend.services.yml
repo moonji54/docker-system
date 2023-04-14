@@ -26,3 +26,9 @@ services:
   nrgi_frontend.translation_helper:
     class: Drupal\nrgi_frontend\Services\NrgiTranslationHelperService
     arguments: [ '@entity_type.manager' ]
+
+  nrgi_frontend.breadcrumb.default:
+    class: Drupal\nrgi_frontend\Services\SubtypeContextBreadcrumbBuilder
+    arguments: [ '@router.admin_context', '@plugin.manager.menu.link', '@path.current' ]
+    tags:
+      - { name: breadcrumb_builder, priority: 100 }
