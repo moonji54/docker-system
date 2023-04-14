@@ -17,15 +17,20 @@
     }
   }
 
+  &__inner:has(> &__row:nth-child(3)) {
+    #{$c}__row {
+      margin-top : var(--space-xl);
+
+      &:first-child {
+        margin-top : 0;
+      }
+    }
+  }
+
   &__row {
     border-top  : 1px solid $white;
     grid-column : 1 / -1;
-    margin-top  : var(--space-xl);
     padding-top : var(--space-xs);
-
-    &:first-child {
-      margin-top : 0;
-    }
 
     &--half-width {
       grid-column : auto;

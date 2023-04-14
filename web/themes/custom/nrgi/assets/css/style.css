@@ -1448,14 +1448,16 @@ ul li a:hover {
     grid-template-columns: 1fr;
   }
 }
+.c-meta-rows__inner:has(.c-meta-rows__row:nth-child(3)) .c-meta-rows__row {
+  margin-top: var(--space-xl);
+}
+.c-meta-rows__inner:has(.c-meta-rows__row:nth-child(3)) .c-meta-rows__row:first-child {
+  margin-top: 0;
+}
 .c-meta-rows__row {
   border-top: 1px solid #FFFFFF;
   grid-column: 1/-1;
-  margin-top: var(--space-xl);
   padding-top: var(--space-xs);
-}
-.c-meta-rows__row:first-child {
-  margin-top: 0;
 }
 .c-meta-rows__row--half-width {
   grid-column: auto;
