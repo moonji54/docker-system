@@ -1,0 +1,8 @@
+uuid: f394d034-50e1-4212-b6b1-e5e770834295
+langcode: en
+status: true
+dependencies: {  }
+name: 'Board member type'
+vid: board_member_type
+description: ''
+weight: 0

@@ -8,10 +8,10 @@ id: node.listing_page.title
 field_name: title
 entity_type: node
 bundle: listing_page
-label: 'Listing Page'
+label: TItle
 description: ''
 required: true
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }

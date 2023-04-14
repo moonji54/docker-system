@@ -17,6 +17,9 @@ settings:
     -
       value: online
       label: Online
+    -
+      value: hybrid
+      label: Hybrid
   allowed_values_function: ''
 module: options
 locked: false

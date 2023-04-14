@@ -1,0 +1,18 @@
+label: Multimedia
+display:
+  default:
+    display_title: Default
+    display_options:
+      pager:
+        options:
+          expose:
+            offset_label: Offset
+      fields:
+        thumbnail__target_id:
+          label: Thumbnail
+      title: Multimedia
+  media_page_list:
+    display_title: Multimedia
+    display_options:
+      menu:
+        title: Multimedia

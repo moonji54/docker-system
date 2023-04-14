@@ -1,0 +1,47 @@
+uuid: 4da0662b-4068-49f2-bdd7-2b4ef03f5a6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.16_9_deskt
+    - image.style.16_9_desktop_2x
+    - image.style.16_9_mobile
+    - image.style.16_9_small_mobile
+    - image.style.16_9_tablet
+  theme:
+    - nrgi
+id: '16_9'
+label: '16:9'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: 16_9_small_mobile
+    breakpoint_id: nrgi.smallmobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 16_9_mobile
+    breakpoint_id: nrgi.mobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 16_9_tablet
+    breakpoint_id: nrgi.tablet
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 16_9_deskt
+    breakpoint_id: nrgi.smalldesktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 16_9_deskt
+    breakpoint_id: nrgi.desktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 16_9_desktop_2x
+    breakpoint_id: nrgi.desktop
+    multiplier: 2x
+breakpoint_group: nrgi
+fallback_image_style: 16_9_deskt

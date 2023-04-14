@@ -10,24 +10,45 @@
     <div>{{ content.field_subtitle }}</div>
   {% endif %}
 
-  {% if content.field_resource_type|field_value %}
-    <h5>CONTENT TYPE</h5>
-    <div>{{ content.field_resource_type }}</div>
+  {% if subtype %}
+    <h5>SUBTYPE</h5>
+    <p>{{ subtype }}</p>
   {% endif %}
 
-  {% if content.field_publication_date|field_value %}
-    <div>{{ content.field_publication_date }}</div>
+  {% if date %}
+    <div>{{ date }}</div>
   {% endif %}
 
-  {% if content.field_author|field_value %}
-    {{ content.field_author }}
+  {% if authors %}
+    <div>
+      <ul>
+        {% for author in authors %}
+          <li>
+            {% if author.url %}
+              <a href="{{ author.url }}"
+                 title="{{ 'Visit '|t ~ author.firstname ~ ' ' ~ author.surname ~ '\'s profile'|t }}"
+                 target="{{ author.is_external ? '_blank' : '' }}">
+                {{ author.firstname ~ ' ' ~ author.surname }}
+              </a>
+            {% else %}
+              {{ author.firstname ~ ' ' ~ author.surname }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   {% endif %}
 
   {% if content.field_link|field_value %}
+    {# External item #}
     {{ content.field_link }}
   {% endif %}
 
-  {% if content.field_upload|field_value %}
-    <div>{{ content.field_upload }}</div>
+  {% if report_pdf %}
+    {# Reprot PDF #}
+    {% set file_label =  'Download PDF'|t %}
+    <span class="c-meta-rows__icon-wrapper"></span>
+    <a href="{{ report_pdf.url }}" title="{{ file_label }}">{{ file_label }}</a>
   {% endif %}
+
 </header>

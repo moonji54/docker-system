@@ -4,7 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.topic.field_featured_image
+    - field.field.node.topic.field_overlay_opacity
     - field.field.node.topic.field_page_builder
+    - field.field.node.topic.field_short_description
     - node.type.topic
   module:
     - entity_reference_revisions
@@ -20,12 +22,22 @@ content:
     weight: -20
     region: content
   field_featured_image:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     label: above
     settings:
-      link: true
+      view_mode: full_width
+      link: false
     third_party_settings: {  }
-    weight: 103
+    weight: 111
+    region: content
+  field_overlay_opacity:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 112
     region: content
   field_page_builder:
     type: entity_reference_revisions_entity_view
@@ -34,7 +46,14 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 102
+    weight: 107
+    region: content
+  field_short_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 113
     region: content
   links:
     settings: {  }

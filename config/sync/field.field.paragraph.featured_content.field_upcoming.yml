@@ -1,0 +1,23 @@
+uuid: 8cdd6358-8bf6-4f14-9e96-aa639fb0dc99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_upcoming
+    - paragraphs.paragraphs_type.featured_content
+id: paragraph.featured_content.field_upcoming
+field_name: field_upcoming
+entity_type: paragraph
+bundle: featured_content
+label: 'Show upcoming events only'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
