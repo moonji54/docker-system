@@ -1,0 +1,30 @@
+uuid: a3dfa688-275a-47f4-9b25-9ad673a82d9c
+langcode: en
+status: true
+dependencies:
+  module:
+    - context_active_trail
+    - node
+label: Person
+name: person
+group: Breadcrumbs
+description: ''
+requireAllConditions: false
+disabled: false
+conditions:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: c410749a-c966-428a-aec8-e137dfbc8867
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      person: person
+reactions:
+  active_trail:
+    id: active_trail
+    trail: 'main:menu_link_content:3593f16b-367a-47f0-8288-8770e9cd1bb6'
+    breadcrumbs: 1
+    breadcrumb_title: 0
+    uuid: 73f57f88-14a5-41fd-b313-d0c8d74945e5
+weight: 0

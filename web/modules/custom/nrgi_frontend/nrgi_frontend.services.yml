@@ -19,10 +19,6 @@ services:
     class: Drupal\nrgi_frontend\Services\NrgiFeaturedPeopleHelperService
     arguments: [ '@entity_type.manager', '@renderer', '@nrgi_frontend.paragraph_button_link_helper' ]
 
-  nrgi_frontend.person_featured_work:
-    class: Drupal\nrgi_frontend\PersonFeaturedWorkHelperService
-    arguments: [ '@entity_type.manager', '@renderer' ]
-
   nrgi_frontend.responsive_image_helper:
     class: Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService
     arguments: [ '@entity_type.manager', '@renderer' ]
