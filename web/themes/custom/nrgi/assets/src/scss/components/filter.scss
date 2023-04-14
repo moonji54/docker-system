@@ -100,12 +100,13 @@
     padding          : 1rem;
 
     input {
-      border     : none;
-      box-shadow : 0 0.5rem 1rem rgba($primary, 15%);
-      height     : 2.5rem;
-      outline    : none;
-      padding    : 0.5rem;
-      width      : 100%;
+      background-image : none;
+      border           : none;
+      box-shadow       : 0 0.5rem 1rem rgba($primary, 15%);
+      height           : 2.5rem;
+      outline          : none;
+      padding          : 0.5rem;
+      width            : 100%;
     }
   }
 

@@ -919,6 +919,7 @@ ul li a:hover {
   }
 }
 .views-exposed-form .autocomplete-content input {
+  background-image: none;
   border: none;
   box-shadow: 0 0.5rem 1rem rgba(45, 45, 50, 0.15);
   height: 2.5rem;
@@ -1956,8 +1957,4 @@ ul li a:hover {
 }
 .ui-menu.ui-widget .ui-menu-item:focus, .ui-menu.ui-widget .ui-menu-item:hover {
   background-color: #ED7053;
-}
-
-.view input.ui-autocomplete-input {
-  background-image: none;
 }
