@@ -9,7 +9,31 @@
       <h1 class="c-single-header__title">{{ label }}</h1>
 
       {% if content.field_subtitle|field_value %}
-        <div class="c-single-header__subtitle">{{ content.field_subtitle }}</div>
+        <h2 class="c-single-header__subtitle">{{ content.field_subtitle }}</h2>
+      {% endif %}
+
+      {% if header_start_time or date or content.field_event_location|field_value and node.bundle == 'event' %}
+        <h2 class="c-single-header__subtitle">
+          {# If one day event #}
+          {% if header_start_time and date %}
+            <span class="c-single-header__subtitle-item">
+              {{ date }}
+              {{ header_start_time }}
+              {% if timezone %}
+                {{ timezone }}
+              {% endif %}
+            </span>
+          {% elseif date %}
+            <span class="c-single-header__subtitle-item">
+            {{- date -}}
+           </span>
+          {% endif %}
+
+          {# Location #}
+          {% if content.field_event_location|field_value %}
+            <span class="c-single-header__subtitle-item">{{ content.field_event_location }}</span>
+          {% endif %}
+        </h2>
       {% endif %}
 
       <ul class="c-single-header__meta">
@@ -19,9 +43,9 @@
           </li>
         {% endif %}
 
-        {% if date %}
+        {% if date and node.bundle != 'event' %}
           <li class="c-single-header__meta-item">
-            <div class="c-single-header__date">{{ date }}</div>
+            <p class="c-single-header__date">{{ date }}</p>
           </li>
         {% endif %}
 

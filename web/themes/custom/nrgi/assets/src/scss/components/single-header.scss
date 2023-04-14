@@ -28,6 +28,23 @@
     @include ts-heading-4;
   }
 
+  &__subtitle-item {
+    @include media("<=tablet") {
+      display : block;
+    }
+
+    &:not(:first-child) {
+      &:before {
+        content : "•";
+        margin  : 0 4px;
+
+        @include media("<=tablet") {
+          content : none;
+        }
+      }
+    }
+  }
+
   &__meta {
     margin-top : 32px;
   }

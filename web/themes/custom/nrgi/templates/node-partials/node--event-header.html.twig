@@ -4,29 +4,29 @@
 ] %}
 
 <header {{ attributes.addClass(classes) }}>
-  <h1 class="c-node__title">{{ label }}</h1>
+  {#  <h1 class="c-node__title">{{ label }}</h1> #}
 
-  {# If one day event #}
-  {% if header_start_time and date %}
-    {{ date }}
-    {{ header_start_time }}
-    {% if timezone %}
-      {{ timezone }}
-    {% endif %}
-  {% elseif date %}
-    {{ date }}
-  {% endif %}
+  {#  #}{# If one day event #}
+  {#  {% if header_start_time and date %} #}
+  {#    {{ date }} #}
+  {#    {{ header_start_time }} #}
+  {#    {% if timezone %} #}
+  {#      {{ timezone }} #}
+  {#    {% endif %} #}
+  {#  {% elseif date %} #}
+  {#    {{ date }} #}
+  {#  {% endif %} #}
 
-  {# Location #}
-  {% if content.field_event_location|field_value %}
-    {{ content.field_event_location }}
-  {% endif %}
+  {#  #}{# Location #}
+  {#  {% if content.field_event_location|field_value %} #}
+  {#    {{ content.field_event_location }} #}
+  {#  {% endif %} #}
 
   <div>
-    {% if subtype %}
-      <h5>SUBTYPE</h5>
-      <p>{{ subtype }}</p>
-    {% endif %}
+    {#    {% if subtype %} #}
+    {#      <h5>SUBTYPE</h5> #}
+    {#      <p>{{ subtype }}</p> #}
+    {#    {% endif %} #}
 
     {% if header_start_time %}
       {# If daily event #}
@@ -77,36 +77,36 @@
     {% endif %}
   </div>
 
-  {% if authors %}
-    <div>
-      <ul>
-        {% for author in authors %}
-          <li>
-            {% if author.url %}
-              <a href="{{ author.url }}"
-                 title="{{ 'Visit '|t ~ author.firstname ~ ' ' ~ author.surname ~ '\'s profile'|t }}"
-                 target="{{ author.is_external ? '_blank' : '' }}">
-                {{ author.firstname ~ ' ' ~ author.surname }}
-              </a>
-            {% else %}
-              {{ author.firstname ~ ' ' ~ author.surname }}
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
+  {#  {% if authors %} #}
+  {#    <div> #}
+  {#      <ul> #}
+  {#        {% for author in authors %} #}
+  {#          <li> #}
+  {#            {% if author.url %} #}
+  {#              <a href="{{ author.url }}" #}
+  {#                 title="{{ 'Visit '|t ~ author.firstname ~ ' ' ~ author.surname ~ '\'s profile'|t }}" #}
+  {#                 target="{{ author.is_external ? '_blank' : '' }}"> #}
+  {#                {{ author.firstname ~ ' ' ~ author.surname }} #}
+  {#              </a> #}
+  {#            {% else %} #}
+  {#              {{ author.firstname ~ ' ' ~ author.surname }} #}
+  {#            {% endif %} #}
+  {#          </li> #}
+  {#        {% endfor %} #}
+  {#      </ul> #}
+  {#    </div> #}
+  {#  {% endif %} #}
 
-  {% if content.field_link|field_value %}
-    {# External item #}
-    {{ content.field_link }}
-  {% endif %}
+  {#  {% if content.field_link|field_value %} #}
+  {#    #}{# External item #}
+  {#    {{ content.field_link }} #}
+  {#  {% endif %} #}
 
-  {% if report_pdf %}
-    {# Reprot PDF #}
-    {% set file_label =  'Download PDF'|t %}
-    <span class="c-meta-rows__icon-wrapper"></span>
-    <a href="{{ report_pdf.url }}" title="{{ file_label }}">{{ file_label }}</a>
-  {% endif %}
+  {#  {% if report_pdf %} #}
+  {#    #}{# Reprot PDF #}
+  {#    {% set file_label =  'Download PDF'|t %} #}
+  {#    <span class="c-meta-rows__icon-wrapper"></span> #}
+  {#    <a href="{{ report_pdf.url }}" title="{{ file_label }}">{{ file_label }}</a> #}
+  {#  {% endif %} #}
 
 </header>
