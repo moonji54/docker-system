@@ -49,7 +49,9 @@
     }
 
     &--topics,
-    &--keywords {
+    &--keywords,
+    &--regions,
+    &--countries {
       #{$c}__items {
         display   : flex;
         flex-wrap : wrap;
