@@ -942,11 +942,10 @@ ul li a:hover {
   /* stylelint-disable-next-line */
 }
 .c-card__image-wrapper img {
-  font-family: "object-fit: cover;";
-  -o-object-fit: cover;
-     object-fit: cover;
   height: 100%;
   left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
   position: absolute;
   top: 0;
   transition: filter 0.3s;
@@ -1334,13 +1333,11 @@ ul li a:hover {
     aspect-ratio: 16/9;
   }
 }
-.c-full-width-media__media-wrapper img,
-.c-full-width-media__media-wrapper iframe {
-  font-family: "object-fit: cover;";
-  -o-object-fit: cover;
-     object-fit: cover;
+.c-full-width-media__media-wrapper img {
   height: 100%;
   left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
   position: absolute;
   top: 0;
   width: 100%;
