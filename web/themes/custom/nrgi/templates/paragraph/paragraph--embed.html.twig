@@ -5,13 +5,15 @@
         {{ content.field_embed_media }}
       </div>
 
-      {% if content.field_caption|field_value %}
+      {% if content.field_caption|field_value or content.field_credit|field_value %}
         <figcaption class="c-embed__caption">
           {% if content.field_caption|field_value %}
             <span>{{ content.field_caption }}</span>
           {% endif %}
 
-          <span>•</span>
+          {% if content.field_caption|field_value and content.field_credit|field_value %}
+            <span>•</span>
+          {% endif %}
 
           {% if content.field_credit|field_value %}
             <span>{{ content.field_credit }}</span>
