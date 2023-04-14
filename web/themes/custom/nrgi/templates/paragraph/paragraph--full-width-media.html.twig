@@ -5,13 +5,13 @@
         {{ content.field_media }}
       </div>
 
-      {% if content.field_caption|field_value or content.field_credit %}
+      {% if content.field_caption|field_value or content.field_credit|field_value %}
         <figcaption class="c-full-width-media__caption">
           {% if content.field_caption|field_value %}
             <span>{{ content.field_caption }}</span>
           {% endif %}
 
-          {% if content.field_caption|field_value and content.field_credit %}
+          {% if content.field_caption|field_value and content.field_credit|field_value %}
             <span>•</span>
           {% endif %}
 
