@@ -1039,6 +1039,199 @@ ul li a:hover {
   }
 }
 
+/** @define c-call-to-action */
+.c-call-to-action {
+  min-height: 42rem;
+  position: relative;
+  /* stylelint-disable-next-line */
+  /* stylelint-disable */
+}
+.c-call-to-action + .c-call-to-action {
+  margin-top: 0;
+}
+@media (max-width: 48rem) {
+  .c-call-to-action {
+    min-height: auto;
+  }
+}
+.c-call-to-action__image-wrapper {
+  aspect-ratio: 1.97;
+  height: 100%;
+  min-height: 42rem;
+  position: relative;
+  width: 100%;
+}
+@media (max-width: 48rem) {
+  .c-call-to-action__image-wrapper {
+    aspect-ratio: 1.39;
+    min-height: auto;
+  }
+}
+.c-call-to-action img {
+  height: 100%;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+.c-call-to-action__block {
+  height: 100%;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+@media (max-width: 48rem) {
+  .c-call-to-action__block {
+    position: relative;
+    top: 0;
+  }
+}
+.c-call-to-action__container {
+  height: 100%;
+}
+.c-call-to-action__inner {
+  display: grid;
+  grid-column-gap: var(--gutter);
+  grid-template-columns: repeat(12, 1fr);
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+@media (max-width: 48rem) {
+  .c-call-to-action__inner {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.c-call-to-action__inner:before {
+  content: "";
+  height: 100%;
+  left: calc(var(--gutter) * -1);
+  position: absolute;
+  width: 63%;
+  z-index: -1;
+}
+@media (max-width: 94.5rem) {
+  .c-call-to-action__inner:before {
+    left: -100vw;
+    width: calc(100vw + 63%);
+  }
+}
+@media (max-width: 48rem) {
+  .c-call-to-action__inner:before {
+    left: calc(var(--gutter) * -1);
+    width: calc(100% + var(--gutter) * 2);
+  }
+}
+.c-call-to-action__content-wrapper {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1/8;
+  justify-content: center;
+  padding: var(--space-2xl) 0;
+}
+@media (max-width: 48rem) {
+  .c-call-to-action__content-wrapper {
+    grid-column: 1/-1;
+    padding: 8.375rem 0;
+  }
+}
+.c-call-to-action__title {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 5rem;
+  line-height: 1.15;
+  font-weight: 500;
+}
+@media (max-width: 94.5rem) {
+  .c-call-to-action__title {
+    font-size: 4.5rem;
+  }
+}
+@media (max-width: 64rem) {
+  .c-call-to-action__title {
+    font-size: 3.75rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-call-to-action__title {
+    font-size: 2rem;
+  }
+}
+.c-call-to-action__description {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 2.25rem;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-top: var(--space-s);
+}
+@media (max-width: 94.5rem) {
+  .c-call-to-action__description {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 64rem) {
+  .c-call-to-action__description {
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-call-to-action__description {
+    font-size: 1.375rem;
+  }
+}
+.c-call-to-action__link {
+  margin-top: var(--space-m);
+}
+.c-call-to-action--ocean {
+  color: #FFFFFF;
+  --theme-color: #00545A;
+}
+.c-call-to-action--ocean .c-call-to-action__inner:before {
+  background-color: var(--theme-color);
+}
+.c-call-to-action--core {
+  --theme-color: #FF7D5F;
+}
+.c-call-to-action--core .c-call-to-action__inner:before {
+  background-color: var(--theme-color);
+}
+.c-call-to-action--light-hydro {
+  --theme-color: #B3EFEF;
+}
+.c-call-to-action--light-hydro .c-call-to-action__inner:before {
+  background-color: var(--theme-color);
+}
+.c-call-to-action:not(.c-call-to-action--ocean) .c-call-to-action__link:focus, .c-call-to-action:not(.c-call-to-action--ocean) .c-call-to-action__link:hover {
+  background-color: rgba(45, 45, 50, 0.1);
+  mix-blend-mode: multiply;
+}
+.c-call-to-action--no-image {
+  background-color: var(--theme-color);
+  min-height: auto;
+}
+.c-call-to-action--no-image .c-call-to-action__block {
+  position: static;
+}
+.c-call-to-action--no-image .c-call-to-action__inner:before {
+  display: none;
+}
+.c-call-to-action--no-image .c-call-to-action__content-wrapper {
+  grid-column: 1/9;
+  padding: var(--space-4xl) 0;
+}
+.c-call-to-action--with-image .c-call-to-action__block {
+  --scroll: translateY(80%);
+}
+@media (max-width: 48rem) {
+  .c-call-to-action--with-image .c-call-to-action__block {
+    --scroll: translateY(0);
+  }
+}
+
 /** @define c-footer */
 .c-footer {
   background: no-repeat center/cover url("../img/footer-bg.png");
