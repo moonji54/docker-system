@@ -86,8 +86,9 @@
   </div>
 
   {# Person contributions #}
-  {% set listing = drupal_view('contextual_views', 'person_contributions', node.id, node.id) %}
-  {% if listing|length > 0 %}
+  {% set listing_results = drupal_view_result('contextual_views', 'person_contributions', node.id)|length %}
+  {% if listing_results > 0 %}
+    {% set listing = drupal_view('contextual_views', 'person_contributions', node.id) %}
     {% if content.field_contributions_title|field_value %}
       <h2>{{ content.field_contributions_title }}</h2>
     {% endif %}
