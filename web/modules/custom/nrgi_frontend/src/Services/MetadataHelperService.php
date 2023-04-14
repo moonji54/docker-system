@@ -393,7 +393,19 @@ class MetadataHelperService {
                 ->getLabel();
               foreach ($entities as $entity) {
                 if ($entity instanceof EntityInterface) {
-                  $url = $entity->toUrl()->toString();
+                  $bundle = $entity->bundle();
+
+                  $node_tags = ['node', 'topic', 'region', 'country'];
+
+                  if (in_array($bundle, $node_tags)) {
+                    $url = $entity->toUrl()->toString();
+                  }
+                  else {
+                    $url = match ($bundle) {
+                      'keyword' => "/search/?" . $bundle . '=' . $entity->label() . '%20(' . $entity->id() . ')',
+                      default => "/search/?" . $bundle . '[' . $entity->id() . ']=' . $entity->id(),
+                    };
+                  }
 
                   $items[] = [
                     'title' => $entity->label(),
