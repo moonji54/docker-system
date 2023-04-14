@@ -12,14 +12,15 @@
   is_search ? 'c-listing--search',
 ] %}
 
-{% if is_search %}
-  <section class="c-page-header c-page-header--search">
-    <div class="o-container">
-      <h2 class="c-page-header__heading">{{ 'Search'|t }}</h2>
-    </div>
-  </section>
-{% endif %}
-
+<div{{ attributes.addClass(classes) }}>
+  {% if is_search %}
+    <section class="c-page-header c-page-header--search">
+      <div class="o-container">
+        <h2 class="c-page-header__heading">{{ 'Search'|t }}</h2>
+      </div>
+    </section>
+  {% endif %}
+  
   <div class="c-listing__container">
     {{ title_prefix }}
 
@@ -58,41 +59,41 @@
     </div>
   </div>
 
-    {% if attachment_before %}
-      <div class="c-listing__attachment c-listing__attachment-before">
-        {{ attachment_before }}
-      </div>
-    {% endif %}
-
-    {% if id|clean_class == 'search-view' %}
-      <div class="c-listing__top">
-        <form class="c-listing__form" action="/search" method="get" role="search" aria-label="Sitewide search">
-          <input class="c-listing__input" title="Enter the terms you wish to search for." type="search"
-                 id="header-search-input" placeholder="Type Here..." name="keyword_name"
-                 value="{{ exposed.search_term['#value'] }}" size="15" maxlength="128">
-          <button class="c-listing__submit" type="submit">
-            <span>Search</span>
-          </button>
-        </form>
-      </div>
-    {% endif %}
-
-    {% if attachment_after %}
-      <div class="c-listing__attachment c-listing__attachment-after">
-        {{ attachment_after }}
-      </div>
-    {% endif %}
-
-    <div class="c-listing__pagination">
-      {% if pager %}
-        {{ pager }}
-      {% endif %}
+  {% if attachment_before %}
+    <div class="c-listing__attachment c-listing__attachment-before">
+      {{ attachment_before }}
     </div>
-  </div>
-
-  {% if more %}
-    {{ more }}
   {% endif %}
+
+  {% if id|clean_class == 'search-view' %}
+    <div class="c-listing__top">
+      <form class="c-listing__form" action="/search" method="get" role="search" aria-label="Sitewide search">
+        <input class="c-listing__input" title="Enter the terms you wish to search for." type="search"
+               id="header-search-input" placeholder="Type Here..." name="keyword_name"
+               value="{{ exposed.search_term['#value'] }}" size="15" maxlength="128">
+        <button class="c-listing__submit" type="submit">
+          <span>Search</span>
+        </button>
+      </form>
+    </div>
+  {% endif %}
+
+  {% if attachment_after %}
+    <div class="c-listing__attachment c-listing__attachment-after">
+      {{ attachment_after }}
+    </div>
+  {% endif %}
+
+  <div class="c-listing__pagination">
+    {% if pager %}
+      {{ pager }}
+    {% endif %}
+  </div>
+</div>
+
+{% if more %}
+  {{ more }}
+{% endif %}
 
   {% if footer %}
     <div class="c-listing__footer">
