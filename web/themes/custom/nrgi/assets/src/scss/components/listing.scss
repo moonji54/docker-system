@@ -66,16 +66,6 @@
     }
   }
 
-  &__items {
-    .views-row {
-      margin-top : var(--space-xl);
-
-      &:first-child {
-        margin-top : 0;
-      }
-    }
-  }
-
   &__pagination {
     grid-column : 5 / -1;
     margin-top  : var(--space-xl);
@@ -92,11 +82,6 @@
 
     #{$c}__pagination {
       grid-column : 1 / -1;
-    }
-
-    /* stylelint-disable-next-line */
-    .views-row {
-      margin-top : 0;
     }
   }
 }

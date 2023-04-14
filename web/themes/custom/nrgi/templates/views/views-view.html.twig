@@ -20,7 +20,7 @@
       </div>
     </section>
   {% endif %}
-  
+
   <div class="c-listing__container">
     {{ title_prefix }}
 
@@ -49,7 +49,7 @@
 
       {% if rows %}
         <div class="c-listing__items{{ no_filters ? ' o-card-container o-card-container--three-per-row' }}">
-          {{ rows }}
+          {{ rows[0]['#rows'] }}
         </div>
       {% elseif empty %}
         <div class="c-listing__empty">
