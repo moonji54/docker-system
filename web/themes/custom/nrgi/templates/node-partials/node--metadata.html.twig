@@ -42,18 +42,17 @@
                         <span>{{ item.title|trim }}</span>
                       </a>
                     </div>
-
                   {% elseif item.type == 'logo' %}
                     {# Footer Oraganisation logos #}
                     {% include '@nrgi/node-partials/node--logos.html.twig' with {'item': item} %}
-
-                  {% elseif item.type == 'text' %}
-                    {{ item.title }}
-
                   {% else %}
-                    <a class="c-meta-rows__link" href="{{ item.url }}">
-                      {{ item.title|trim }}
-                    </a>
+                    {% if item.url %}
+                      <a class="c-meta-rows__link" href="{{ item.url }}">
+                        {{ item.title|trim }}
+                      </a>
+                    {% else %}
+                      <span>{{ item.title|trim }}</span>
+                    {% endif %}
                   {% endif %}
                 {% endfor %}
               </dd>

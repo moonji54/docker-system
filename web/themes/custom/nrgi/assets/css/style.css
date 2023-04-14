@@ -1456,6 +1456,7 @@ ul li a:hover {
   line-height: 1;
   height: 2rem;
   padding: 0.5rem 0.75rem;
+  text-decoration: none;
 }
 @media (max-width: 64rem) {
   .c-meta-rows__row--topics .c-meta-rows__link, .c-meta-rows__row--keywords .c-meta-rows__link, .c-meta-rows__row--regions .c-meta-rows__link, .c-meta-rows__row--countries .c-meta-rows__link {
@@ -1518,6 +1519,15 @@ ul li a:hover {
     font-size: 1rem;
   }
 }
+.c-meta-rows__link {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.313rem;
+  transition: all 0.3s;
+}
+.c-meta-rows__link:hover, .c-meta-rows__link:focus {
+  text-decoration-color: currentColor;
+}
 .c-meta-rows__logo img {
   filter: grayscale(1);
   max-width: 5.75rem;
@@ -1528,9 +1538,19 @@ ul li a:hover {
   filter: none;
 }
 .c-meta-rows__download {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.313rem;
+  transition: all 0.3s;
   align-items: center;
   display: inline-flex;
   gap: var(--space-xs);
+}
+.c-meta-rows__download:hover, .c-meta-rows__download:focus {
+  text-decoration-color: currentColor;
+}
+.c-meta-rows__download:focus .c-meta-rows__icon, .c-meta-rows__download:hover .c-meta-rows__icon {
+  color: #ED7053;
 }
 .c-meta-rows__icon {
   color: #FF7D5F;
