@@ -1691,6 +1691,9 @@ ul li a:hover {
     grid-column: 1/-1;
   }
 }
+.c-listing--no-filters .c-listing__content {
+  grid-column: 1/-1;
+}
 
 /** @define block-local-tasks-block */
 .block-local-tasks-block {

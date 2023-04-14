@@ -1,9 +1,10 @@
+{% if exposed is empty %}
+  {% set no_filters = TRUE %}
+{% endif %}
+
 {% set classes = [
-  'view',
-  'view-' ~ id|clean_class,
-  'view-id-' ~ id,
-  'view-display-id-' ~ display_id,
-  dom_id ? 'js-view-dom-id-' ~ dom_id,
+  'c-listing',
+  no_filters ? 'c-listing--no-filters',
 ] %}
 <div{{ attributes.addClass(classes) }}>
   {% if id|clean_class == 'search' %}
@@ -30,23 +31,25 @@
 
     {{ title_suffix }}
 
-    <div class="c-listing__filters js-filters">
-      <h5 class="c-listing__caption">{{ 'Filter  by'|t }}</h5>
+    {% if no_filters == false %}
+      <div class="c-listing__filters js-filters">
+        <h5 class="c-listing__caption">{{ 'Filter  by'|t }}</h5>
 
-      <div class="c-listing__filters-button js-toggle-filters-button" aria-expanded="true">
-        <h5>{{ 'Filter content'|t }}</h5>
+        <div class="c-listing__filters-button js-toggle-filters-button" aria-expanded="true">
+          <h5>{{ 'Filter content'|t }}</h5>
 
-        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'chevron-down', 'extra_class' : 'c-listing__filters-button-icon'} %}
+          {% include '@nrgi/svg/svg.html.twig' with {'svg': 'chevron-down', 'extra_class' : 'c-listing__filters-button-icon'} %}
+        </div>
+
+        {{ exposed }}
       </div>
-
-      {{ exposed }}
-    </div>
+    {% endif %}
 
     <div class="c-listing__content">
       <span class="c-listing__caption">{{ header }}</span>
 
       {% if rows %}
-        <div class="c-listing__items">
+        <div class="c-listing__items{{ no_filters ? ' o-card-container o-card-container--three' }}">
           {{ rows }}
         </div>
       {% elseif empty %}

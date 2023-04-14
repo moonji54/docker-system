@@ -83,4 +83,10 @@
       grid-column : 1 / -1;
     }
   }
+
+  &--no-filters {
+    #{$c}__content {
+      grid-column : 1 / -1;
+    }
+  }
 }
