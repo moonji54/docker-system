@@ -4,12 +4,15 @@ global-styling:
   css:
     theme:
       assets/css/style.min.css: { minified: true }
+      assets/css/colorbox_style_example.css: { }
 
 # Scripts that may be needed on any page.
 global-scripts:
   version: 1.0
   js:
     https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js: { type: external, minified: true }
+    assets/js/example.js: { }
+    assets/js/colorbox_style_example.js: { }
     assets/js/parallax-scroll.js: { }
   dependencies:
     - core/jquery

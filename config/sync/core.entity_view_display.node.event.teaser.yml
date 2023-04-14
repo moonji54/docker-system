@@ -1,6 +1,6 @@
 uuid: 9cdd23b1-4b94-400f-91c9-36f8c567a1f3
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
@@ -8,21 +8,18 @@ dependencies:
     - field.field.node.event.field_address
     - field.field.node.event.field_country
     - field.field.node.event.field_course_host
-    - field.field.node.event.field_course_syilabus
-    - field.field.node.event.field_course_training_contact
+    - field.field.node.event.field_course_syllabus
     - field.field.node.event.field_data_document
+    - field.field.node.event.field_days_of_the_week
+    - field.field.node.event.field_disable_related_content
     - field.field.node.event.field_end_date
     - field.field.node.event.field_event_contact
     - field.field.node.event.field_event_location
     - field.field.node.event.field_event_recording
-    - field.field.node.event.field_event_role_type
     - field.field.node.event.field_event_type
     - field.field.node.event.field_expertise_required
-    - field.field.node.event.field_expiration_date
     - field.field.node.event.field_featured_image
     - field.field.node.event.field_format
-    - field.field.node.event.field_instructors
-    - field.field.node.event.field_instructors_external
     - field.field.node.event.field_keywords
     - field.field.node.event.field_open_registration
     - field.field.node.event.field_organizing_partner
@@ -32,9 +29,8 @@ dependencies:
     - field.field.node.event.field_publisher
     - field.field.node.event.field_region
     - field.field.node.event.field_registration
+    - field.field.node.event.field_related_manual_content
     - field.field.node.event.field_short_description
-    - field.field.node.event.field_speakers
-    - field.field.node.event.field_speakers_external
     - field.field.node.event.field_start_date
     - field.field.node.event.field_supporting_document
     - field.field.node.event.field_time_commitment
@@ -64,21 +60,18 @@ hidden:
   field_address: true
   field_country: true
   field_course_host: true
-  field_course_syilabus: true
-  field_course_training_contact: true
+  field_course_syllabus: true
   field_data_document: true
+  field_days_of_the_week: true
+  field_disable_related_content: true
   field_end_date: true
   field_event_contact: true
   field_event_location: true
   field_event_recording: true
-  field_event_role_type: true
   field_event_type: true
   field_expertise_required: true
-  field_expiration_date: true
   field_featured_image: true
   field_format: true
-  field_instructors: true
-  field_instructors_external: true
   field_keywords: true
   field_open_registration: true
   field_organizing_partner: true
@@ -88,9 +81,8 @@ hidden:
   field_publisher: true
   field_region: true
   field_registration: true
+  field_related_manual_content: true
   field_short_description: true
-  field_speakers: true
-  field_speakers_external: true
   field_start_date: true
   field_supporting_document: true
   field_time_commitment: true

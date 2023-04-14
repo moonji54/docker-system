@@ -5,59 +5,42 @@
  * Provides additional variables for the views templates.
  */
 
-use Drupal\views\Plugin\views\query\QueryPluginBase;
-use Drupal\views\ViewExecutable;
+use Drupal\Core\Form\FormState;
 
 /**
- * Implements hook_views_data_alter().
+ * Implements hook_form_views_exposed_form_alter().
  */
-function nrgi_frontend_views_data_alter(array &$data) {
-
-  // On the 'node_field_data' add a new custom filter for unified_date_year.
-  $data['node_field_data']['unified_date_year'] = [
-    'title' => t('Unified Date Year'),
-    'filter' => [
-      'title' => t('Unified Date Year'),
-      'help' => t('Provide a list of years to filter by.'),
-      'field' => 'unified_date',
-      'id' => 'unified_date_year',
-    ],
-  ];
-
-  // Auto make unified date year available in search_api_*.
-  foreach ($data as $source => $settings) {
-    if (strpos($source, 'search_api') === 0) {
-      $data[$source]['unified_date_year'] = $data['node_field_data']['unified_date_year'];
-    }
+function nrgi_frontend_form_views_exposed_form_alter(&$form, &$form_state) {
+  if (!empty($form['keyword']['#type']) && $form['keyword']['#type'] == 'entity_autocomplete') {
+    array_unshift($form['#validate'], '_nrgi_frontend_delete_keyword_errors');
   }
 }
 
 /**
- * Implements hook_views_query_alter().
+ * Remove keyword autocomplete field errors from form errors.
+ *
+ * @param array $form
+ *   The form.
+ * @param \Drupal\Core\Form\FormState $form_state
+ *   The form state.
  */
-function nrgi_frontend_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
-  // Exclude 404, 404 and homepage from search result.
-  $page_config = \Drupal::config('system.site')->get('page');
-  $pages_to_exclude = ['403', '404', 'front'];
+function _nrgi_frontend_delete_keyword_errors(array $form, FormState &$form_state) {
+  $form_elements = $form_state->getValues();
 
-  if ($view->id() === 'search') {
-    foreach ($pages_to_exclude as $page) {
-      if (!empty($page_config[$page])) {
-        $exploded = explode('/', $page_config[$page]);
+  if ($form_elements['keyword'] == NULL) {
+    // Temporarily store all form errors.
+    $form_errors = $form_state->getErrors();
 
-        if (!empty($exploded)) {
-          $excluded_nids[] = $exploded[2];
-        }
-      }
+    // Clear the form errors.
+    $form_state->clearErrors();
+
+    // Remove the keyword form error.
+    unset($form_errors['keyword']);
+
+    // Now loop through and re-apply the remaining form error messages.
+    foreach ($form_errors as $name => $error_message) {
+      $form_state->setErrorByName($name, $error_message);
     }
 
-    if (!empty($excluded_nids)) {
-      // Remove the node ids from the search index query.
-      $fields = $query->getIndex()->getFields();
-
-      if (!empty($fields['nid'])) {
-        $query->addCondition('nid', $excluded_nids, 'NOT IN');
-      }
-    }
   }
 }

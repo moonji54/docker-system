@@ -1,0 +1,8 @@
+uuid: 4b62d4a1-f40a-4fef-b8db-9ed6c9375e40
+langcode: en
+status: true
+dependencies: {  }
+id: card_date
+label: 'NRGI card date '
+locked: false
+pattern: 'd M Y'

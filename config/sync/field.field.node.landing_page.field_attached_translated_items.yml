@@ -1,0 +1,34 @@
+uuid: 2dd69563-b0e9-4d60-b8b8-63f493ba03e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_attached_translated_items
+    - node.type.country
+    - node.type.landing_page
+    - node.type.region
+    - node.type.topic
+id: node.landing_page.field_attached_translated_items
+field_name: field_attached_translated_items
+entity_type: node
+bundle: landing_page
+label: 'Content items (in other language - asymmetrical translation)'
+description: 'Please manually provide other separate landing existing content items in other languages. The items will be added to the Language swithcer. The language name of the items manually attached will be used as the text for each link.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      country: country
+      landing_page: landing_page
+      region: region
+      topic: topic
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: landing_page
+field_type: entity_reference

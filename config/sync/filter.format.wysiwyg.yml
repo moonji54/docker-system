@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.wysiwyg_full_width
   module:
+    - editor
     - footnotes
     - linkit
     - media
@@ -17,42 +18,35 @@ filters:
     id: filter_url
     provider: filter
     status: true
-    weight: 0
+    weight: -48
     settings:
       filter_url_length: 72
   filter_html:
     id: filter_html
     provider: filter
     status: true
-    weight: -10
+    weight: -50
     settings:
-      allowed_html: '<br> <p> <h1> <h2> <h3> <h4> <h5> <h6> <strong> <em> <u> <code> <blockquote> <a href title data-entity-type data-entity-uuid data-entity-substitution> <ul> <ol start> <li> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption> <drupal-media data-entity-type data-entity-uuid alt data-caption data-align data-entity-type data-entity-uuid data-view-mode data-align data-caption alt title> <div> <fn>'
-      filter_html_help: true
+      allowed_html: '<br> <h2> <h3> <h4> <h5> <h6> <strong> <em> <u> <code> <blockquote> <a href title target name data-entity-type data-entity-uuid data-entity-substitution> <ul> <ol start> <li> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption> <drupal-media data-entity-type data-entity-uuid alt data-caption data-align data-view-mode title> <fn> <img src alt height width data-entity-type data-entity-uuid data-align data-caption> <hr> <p><div id title class>'
+      filter_html_help: false
       filter_html_nofollow: false
-  filter_align:
-    id: filter_align
-    provider: filter
-    status: true
-    weight: 0
-    settings: {  }
   linkit:
     id: linkit
     provider: linkit
     status: true
-    weight: 0
+    weight: -46
     settings:
       title: true
   media_embed:
     id: media_embed
     provider: media
     status: true
-    weight: 100
+    weight: -41
     settings:
       default_view_mode: wysiwyg_full_width
       allowed_view_modes:
         wysiwyg_full_width: wysiwyg_full_width
       allowed_media_types:
-        audio: audio
         data_visualisation: data_visualisation
         document: document
         image: image
@@ -62,26 +56,56 @@ filters:
     id: filter_tables
     provider: nrgi_backend
     status: true
-    weight: 0
+    weight: -45
     settings: {  }
   filter_caption:
     id: filter_caption
     provider: filter
     status: true
-    weight: 0
+    weight: -49
     settings: {  }
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
     status: true
-    weight: 10
+    weight: -43
     settings: {  }
   filter_footnotes:
     id: filter_footnotes
     provider: footnotes
-    status: false
-    weight: 0
+    status: true
+    weight: -47
     settings:
       footnotes_collapse: '0'
-      footnotes_html: '0'
-      footnotes_footer_disable: '0'
+      footnotes_html: '1'
+      footnotes_footer_disable: '1'
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: true
+    weight: -44
+    settings: {  }
+  editor_file_reference:
+    id: editor_file_reference
+    provider: editor
+    status: true
+    weight: -42
+    settings: {  }
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: false
+    weight: -38
+    settings: {  }
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: false
+    weight: -39
+    settings: {  }
+  filter_html_escape:
+    id: filter_html_escape
+    provider: filter
+    status: false
+    weight: -40
+    settings: {  }

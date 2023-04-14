@@ -12,7 +12,7 @@ bundle: featured_pages
 label: 'Show images'
 description: 'Whether to show images on Page cards.'
 required: false
-translatable: true
+translatable: false
 default_value:
   -
     value: 0

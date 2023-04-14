@@ -1,4 +1,5 @@
 body {
+  color     : $primary;
   font-size : 16px;
 }
 
@@ -7,6 +8,7 @@ a {
   text-decoration : none;
 }
 
+/* stylelint-disable */
 a,
 p a,
 ol li a,
@@ -16,7 +18,6 @@ ul li a {
 
   &:focus,
   &:hover {
-    outline         : 0;
-    text-decoration : none;
+    outline : 0;
   }
 }

@@ -1,5 +1,5 @@
 # Custom module library for general purposes.
-nrgi-backend-styling:
+nrgi-backend-style:
   css:
     theme:
       assets/css/nrgi-backend.css: { }

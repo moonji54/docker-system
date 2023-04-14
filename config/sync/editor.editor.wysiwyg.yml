@@ -28,7 +28,6 @@ settings:
           name: Heading
           items:
             - Format
-            - Styles
         -
           name: Formatting
           items:
@@ -58,9 +57,14 @@ settings:
           name: Tables
           items:
             - Table
+        -
+          name: 'Styled containers'
+          items:
+            - CreateDiv
+            - Styles
   plugins:
     stylescombo:
-      styles: 'div.boxed-text|Boxed text'
+      styles: "div.standfirst|Standfirst & Key messages\r\ndiv.boxed-text|Boxed text"
     drupallink:
       linkit_enabled: true
       linkit_profile: default
