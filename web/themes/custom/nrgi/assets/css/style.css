@@ -627,10 +627,13 @@ ul li a:hover {
 
 /** @define o-section */
 .o-section {
-  margin-top: var(--space-3xl);
+  padding: var(--space-3xl) 0;
   /* Modifiers
   ================================================== */
   /* stylelint-disable-next-line */
+}
+.o-section + .o-section {
+  padding-top: 0;
 }
 .o-section__header {
   display: grid;
@@ -701,10 +704,12 @@ ul li a:hover {
 }
 .o-section--has-background {
   background-color: #EDEDEF;
-  padding: var(--space-3xl) 0;
 }
 .o-section--has-background .o-section__header {
   border-color: #FFFFFF;
+}
+.o-section--has-background + .o-section, .o-section + .o-section--has-background {
+  padding-top: var(--space-3xl);
 }
 .o-section--has-background + .o-section--has-background {
   margin-top: 0;
