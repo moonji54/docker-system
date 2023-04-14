@@ -130,7 +130,6 @@ class Toc {
     </li>`;
     }
 
-
     documentClick (e) {
         const $elem = this.$(e.target);
 
@@ -162,7 +161,6 @@ class Toc {
     destroyScrollbars () {
         this.scrollbars.forEach((ps) => ps.destroy());
     }
-
 }
 
 export default Toc;
