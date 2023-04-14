@@ -25,9 +25,5 @@
 
   &__button {
     margin-top : var(--space-m);
-
-    @include media("<=tablet") {
-      margin-top : var(--space-s);
-    }
   }
 }
