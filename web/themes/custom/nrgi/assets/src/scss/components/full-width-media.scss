@@ -9,14 +9,13 @@
       aspect-ratio : 16 / 9;
     }
 
-    img,
-    iframe {
-      @include object-fit(cover);
-      height   : 100%;
-      left     : 0;
-      position : absolute;
-      top      : 0;
-      width    : 100%;
+    img {
+      height     : 100%;
+      left       : 0;
+      object-fit : cover;
+      position   : absolute;
+      top        : 0;
+      width      : 100%;
     }
   }
 

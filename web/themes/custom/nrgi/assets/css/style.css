@@ -1322,6 +1322,45 @@ ul li a:hover {
   padding: var(--space-xs) var(--space-s);
 }
 
+.c-full-width-media {
+  margin: var(--space-3xl) 0;
+}
+.c-full-width-media__media-wrapper {
+  aspect-ratio: 1.96;
+  position: relative;
+}
+@media (max-width: 48rem) {
+  .c-full-width-media__media-wrapper {
+    aspect-ratio: 16/9;
+  }
+}
+.c-full-width-media__media-wrapper img,
+.c-full-width-media__media-wrapper iframe {
+  font-family: "object-fit: cover;";
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.c-full-width-media__caption {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: var(--space-m);
+}
+@media (max-width: 64rem) {
+  .c-full-width-media__caption {
+    font-size: 0.875rem;
+  }
+}
+.c-full-width-media__caption span:last-child {
+  font-style: italic;
+}
+
 /** @define c-header */ /** @define block-local-tasks-block */
 .block-local-tasks-block {
   background-color: #333333;
