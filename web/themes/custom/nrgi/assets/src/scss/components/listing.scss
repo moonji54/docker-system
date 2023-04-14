@@ -3,6 +3,7 @@
 
   &__container {
     @include grid;
+    grid-row-gap : var(--space-2xl);
   }
 
   &__caption {
@@ -87,6 +88,15 @@
   &--no-filters {
     #{$c}__content {
       grid-column : 1 / -1;
+    }
+
+    #{$c}__pagination {
+      grid-column : 1 / -1;
+    }
+
+    /* stylelint-disable-next-line */
+    .views-row {
+      margin-top : 0;
     }
   }
 }

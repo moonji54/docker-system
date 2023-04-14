@@ -182,6 +182,16 @@
     }
   }
 
+  &--fc-listing {
+    height : 100%; /* to accommodate drupal views row wrapper on each card */
+  }
+
+  &--listing-no-image {
+    #{$c}__content-wrapper {
+      grid-column : 1 / -1;
+    }
+  }
+
   &--one-col {
     > * {
       @include media(">=tablet") {

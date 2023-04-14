@@ -1,9 +1,24 @@
-{% include '@nrgi/card-partials/listing-card.html.twig' with {
-  content_type: content_type,
-  url : url,
-  slug: slug,
-  external_link: external_link,
-  subtype: subtype ?: content_type_label,
-  date: date|upper,
-  title : label,
-} %}
+{% if view.exposed_data %}
+  {% include '@nrgi/card-partials/listing-card.html.twig' with {
+    content_type: content_type,
+    url : url,
+    slug: slug,
+    external_link: external_link,
+    subtype: subtype ?: content_type_label,
+    date: date|upper,
+    title : label,
+    no_image : true
+  } %}
+{% else %}
+  {% include '@nrgi/card-partials/featured-content.html.twig' with {
+    content_type: content_type,
+    url : url,
+    slug: slug,
+    external_link: external_link,
+    subtype: subtype ?: content_type_label,
+    date: date|upper,
+    title : label,
+    layout : 'three-col',
+    listing_card : true
+  } %}
+{% endif %}

@@ -2,6 +2,7 @@
   'c-card',
   'c-card--listing',
   'c-card--' ~ content_type,
+  no_image ? 'c-card--listing-no-image'
 ] %}
 
 <article{{ attributes.addClass(classes) }}>
@@ -31,7 +32,7 @@
     </div>
 
     <h3 class="c-card__title">
-      <a class="c-card__link" href={{ url }}>{{ label }}</a>
+      <a class="c-card__link" href={{ url }}>{{ label|field_value }}</a>
     </h3>
   </div>
 </article>
