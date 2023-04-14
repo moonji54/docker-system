@@ -229,7 +229,6 @@
         "drupal/taxonomy_import": "^2.0",
         "drupal/textarea_widget_for_text": "^1.2",
         "drupal/textfield_counter": "^2.0",
-        "drupal/token_default": "^1.0@beta|^1.0@RC|^1.0",
         "drupal/twig_field_value": "^2.0",
         "drupal/twig_tweak": "^2.1",
         "drupal/views_ajax_history": "^1.0",

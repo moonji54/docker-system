@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eac3281092ea1ffea9c6f33b37db2d46",
+    "content-hash": "23b460ba223b4526a2a7655a7c1db32e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6530,54 +6530,6 @@
             "homepage": "https://www.drupal.org/project/token",
             "support": {
                 "source": "https://git.drupalcode.org/project/token"
-            }
-        },
-        {
-            "name": "drupal/token_default",
-            "version": "1.0.0-beta4",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/token_default.git",
-                "reference": "8.x-1.0-beta4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/token_default-8.x-1.0-beta4.zip",
-                "reference": "8.x-1.0-beta4",
-                "shasum": "0a5d7065362eb22a05ba628bce71255e21b27f78"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9 || ^10",
-                "drupal/token": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.0-beta4",
-                    "datestamp": "1662377626",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "andy_w",
-                    "homepage": "https://www.drupal.org/user/2581622"
-                }
-            ],
-            "description": "Setup rewrites for tokens not found",
-            "homepage": "https://www.drupal.org/project/token_default",
-            "keywords": [
-                "Drupal"
-            ],
-            "support": {
-                "source": "https://git.drupalcode.org/project/token_default"
             }
         },
         {
@@ -16291,7 +16243,6 @@
         "drupal/linkit": 10,
         "drupal/sitemap": 10,
         "drupal/symfony_mailer": 10,
-        "drupal/token_default": 10,
         "drupal/viewsreference": 10,
         "drupal/webp": 20,
         "sb-dev-team/drupal_modules": 20

@@ -110,9 +110,9 @@
 
     /* stylelint-disable-next-line */
     img {
-      @include object-fit(cover);
       height     : 100%;
       left       : 0;
+      object-fit : cover;
       position   : absolute;
       top        : 0;
       transition : filter 0.3s;

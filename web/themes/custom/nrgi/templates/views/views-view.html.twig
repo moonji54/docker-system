@@ -2,25 +2,23 @@
   {% set no_filters = TRUE %}
 {% endif %}
 
+{% if id|clean_class == 'search' %}
+  {% set is_search = TRUE %}
+{% endif %}
+
 {% set classes = [
   'c-listing',
   no_filters ? 'c-listing--no-filters',
+  is_search ? 'c-listing--search',
 ] %}
-<div{{ attributes.addClass(classes) }}>
-  {% if id|clean_class == 'search' %}
-    <div class="c-listing__search">
-      <div class="o-container c-listing__search-container">
-        <form class="c-listing__search-form" action="/search" method="get" role="search" aria-label="Sitewide search">
-          <input class="c-listing__search-input" title="Enter the terms you wish to search for." type="search"
-                 id="header-search-input" placeholder="Type Here..." name="search_term"
-                 value="{{ exposed.search_term['#value'] }}" size="15" maxlength="128">
-          <button class="c-listing__search-submit" type="submit">
-            <span>Search</span>
-          </button>
-        </form>
-      </div>
+
+{% if is_search %}
+  <section class="c-page-header c-page-header--search">
+    <div class="o-container">
+      <h2 class="c-page-header__heading">{{ 'Search'|t }}</h2>
     </div>
-  {% endif %}
+  </section>
+{% endif %}
 
   <div class="c-listing__container">
     {{ title_prefix }}
@@ -53,17 +51,12 @@
           {{ rows }}
         </div>
       {% elseif empty %}
-        <div class="c-listing__empty o-content-from-editor">
-          {% if site_settings.listings.listing_no_results.field_text is not empty %}
-            <h2 class="c-listing__empty-title">{{ site_settings.listings.listing_no_results.field_text }}</h2>
-          {% endif %}
-
-          {% if site_settings.listings.listing_no_results.field_summary is not empty %}
-            <p class="c-listing__empty-body">{{ site_settings.listings.listing_no_results.field_summary|nl2br }}</p>
-          {% endif %}
+        <div class="c-listing__empty">
+          <h2 class="c-listing__empty-title">No results found.</h2>
         </div>
       {% endif %}
     </div>
+  </div>
 
     {% if attachment_before %}
       <div class="c-listing__attachment c-listing__attachment-before">

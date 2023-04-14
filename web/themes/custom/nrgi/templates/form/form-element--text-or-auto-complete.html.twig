@@ -44,11 +44,6 @@
 
   {% if is_search %}
     {{ children }}
-
-    <button class="c-filter__search-submit-button o-button" type="submit" title="Search all content"
-            aria-label="Search">
-      {{ 'Refine search'|trans }}
-    </button>
   {% else %}
     <div class="c-filter__item-content autocomplete-content">
       {{ children }}

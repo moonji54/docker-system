@@ -3,9 +3,11 @@
 {# Filters, submit, reset, and other action buttons #}
 {% if form['#filters'] is not empty %}
 
-  {% if attribute(form, 'keywords') is defined %}
-    {{ attribute(form, 'keywords') }}
-  {% endif %}
+  <div class="c-listing__search">
+    {% if attribute(form, 'search-term') is defined %}
+      {{ attribute(form, 'search-term') }}
+    {% endif %}
+  </div>
 
   <div class="c-listing__filters-dropdowns js-filter-dropdowns">
     {% for key in form['#filters'] %}

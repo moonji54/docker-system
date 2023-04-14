@@ -1,6 +1,6 @@
-name: NRGI frontend
+name: NRGI Frontend
 type: module
-description: Provides general frontend modifications for Bruegel
+description: Provides general frontend modifications
 package: NRGI
 core_version_requirement: ^9
 dependencies:
