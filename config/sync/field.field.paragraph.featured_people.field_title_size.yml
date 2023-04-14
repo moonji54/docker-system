@@ -1,0 +1,23 @@
+uuid: 36ac99be-597e-4aed-bfb9-6889c8902405
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_size
+    - paragraphs.paragraphs_type.featured_people
+  module:
+    - options
+id: paragraph.featured_people.field_title_size
+field_name: field_title_size
+entity_type: paragraph
+bundle: featured_people
+label: 'Title size'
+description: 'Select the size of this section''s title.'
+required: true
+translatable: false
+default_value:
+  -
+    value: big
+default_value_callback: ''
+settings: {  }
+field_type: list_string

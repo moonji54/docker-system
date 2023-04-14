@@ -1,0 +1,19 @@
+uuid: 2e612715-2991-4572-a5c6-85abfc264f47
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_slug
+    - node.type.career_opportunity
+id: node.career_opportunity.field_slug
+field_name: field_slug
+entity_type: node
+bundle: career_opportunity
+label: Slug
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

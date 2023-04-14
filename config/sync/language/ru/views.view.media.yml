@@ -1,0 +1,18 @@
+label: Мультимедиа
+display:
+  default:
+    display_title: Default
+    display_options:
+      pager:
+        options:
+          expose:
+            offset_label: Offset
+      fields:
+        thumbnail__target_id:
+          label: Thumbnail
+      title: Мультимедиа
+  media_page_list:
+    display_title: Мультимедиа
+    display_options:
+      menu:
+        title: Мультимедиа

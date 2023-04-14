@@ -10,10 +10,10 @@ id: node.career_opportunity.field_city
 field_name: field_city
 entity_type: node
 bundle: career_opportunity
-label: City
+label: Cities
 description: 'Select the cities discussed in this item. Leave blank if the work is applicable everywhere.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

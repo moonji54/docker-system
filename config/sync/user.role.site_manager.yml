@@ -15,7 +15,6 @@ dependencies:
     - node.type.career_opportunity
     - node.type.country
     - node.type.event
-    - node.type.glossary_term
     - node.type.homepage
     - node.type.landing_page
     - node.type.listing_page
@@ -26,11 +25,9 @@ dependencies:
     - taxonomy.vocabulary.career_opportunity_type
     - taxonomy.vocabulary.cities
     - taxonomy.vocabulary.event_expertise_requirement
-    - taxonomy.vocabulary.event_role_label
     - taxonomy.vocabulary.event_type
     - taxonomy.vocabulary.keyword
     - taxonomy.vocabulary.person_type
-    - taxonomy.vocabulary.regions
     - taxonomy.vocabulary.resource_type
     - taxonomy.vocabulary.series
     - workflows.workflow.editorial
@@ -39,6 +36,7 @@ dependencies:
     - block_content
     - content_moderation
     - content_translation
+    - eu_cookie_compliance
     - file
     - file_delete
     - filter
@@ -72,6 +70,18 @@ permissions:
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'access user profiles'
+  - 'add scheduled transitions node article'
+  - 'add scheduled transitions node career_opportunity'
+  - 'add scheduled transitions node country'
+  - 'add scheduled transitions node event'
+  - 'add scheduled transitions node glossary_term'
+  - 'add scheduled transitions node homepage'
+  - 'add scheduled transitions node landing_page'
+  - 'add scheduled transitions node listing_page'
+  - 'add scheduled transitions node page'
+  - 'add scheduled transitions node person'
+  - 'add scheduled transitions node publication'
+  - 'add scheduled transitions node topic'
   - 'add site setting entities'
   - 'administer image styles'
   - 'administer languages'
@@ -93,7 +103,6 @@ permissions:
   - 'create document media'
   - 'create event content'
   - 'create footer_logo site setting'
-  - 'create glossary_term content'
   - 'create homepage content'
   - 'create image media'
   - 'create landing_page content'
@@ -108,11 +117,9 @@ permissions:
   - 'create terms in career_opportunity_type'
   - 'create terms in cities'
   - 'create terms in event_expertise_requirement'
-  - 'create terms in event_role_label'
   - 'create terms in event_type'
   - 'create terms in keyword'
   - 'create terms in person_type'
-  - 'create terms in regions'
   - 'create terms in resource_type'
   - 'create terms in series'
   - 'create topic content'
@@ -127,7 +134,6 @@ permissions:
   - 'delete any country content'
   - 'delete any document media'
   - 'delete any event content'
-  - 'delete any glossary_term content'
   - 'delete any homepage content'
   - 'delete any image media'
   - 'delete any landing_page content'
@@ -147,7 +153,6 @@ permissions:
   - 'delete event revisions'
   - 'delete files'
   - 'delete footer_logo site setting'
-  - 'delete glossary_term revisions'
   - 'delete homepage revisions'
   - 'delete landing_page revisions'
   - 'delete listing_page revisions'
@@ -159,7 +164,6 @@ permissions:
   - 'delete own country content'
   - 'delete own document media'
   - 'delete own event content'
-  - 'delete own glossary_term content'
   - 'delete own homepage content'
   - 'delete own image media'
   - 'delete own landing_page content'
@@ -178,21 +182,19 @@ permissions:
   - 'delete terms in career_opportunity_type'
   - 'delete terms in cities'
   - 'delete terms in event_expertise_requirement'
-  - 'delete terms in event_role_label'
   - 'delete terms in event_type'
   - 'delete terms in keyword'
   - 'delete terms in person_type'
-  - 'delete terms in regions'
   - 'delete terms in resource_type'
   - 'delete terms in series'
   - 'delete topic revisions'
+  - 'display eu cookie compliance popup'
   - 'edit any article content'
   - 'edit any audio media'
   - 'edit any career_opportunity content'
   - 'edit any country content'
   - 'edit any document media'
   - 'edit any event content'
-  - 'edit any glossary_term content'
   - 'edit any homepage content'
   - 'edit any image media'
   - 'edit any landing_page content'
@@ -212,7 +214,6 @@ permissions:
   - 'edit own country content'
   - 'edit own document media'
   - 'edit own event content'
-  - 'edit own glossary_term content'
   - 'edit own homepage content'
   - 'edit own image media'
   - 'edit own landing_page content'
@@ -228,11 +229,9 @@ permissions:
   - 'edit terms in career_opportunity_type'
   - 'edit terms in cities'
   - 'edit terms in event_expertise_requirement'
-  - 'edit terms in event_role_label'
   - 'edit terms in event_type'
   - 'edit terms in keyword'
   - 'edit terms in person_type'
-  - 'edit terms in regions'
   - 'edit terms in resource_type'
   - 'edit terms in series'
   - 'enter all revision log entry'
@@ -292,12 +291,23 @@ permissions:
   - 'override topic authored by option'
   - 'override topic authored on option'
   - 'override topic revision option'
+  - 'reschedule scheduled transitions node article'
+  - 'reschedule scheduled transitions node career_opportunity'
+  - 'reschedule scheduled transitions node country'
+  - 'reschedule scheduled transitions node event'
+  - 'reschedule scheduled transitions node glossary_term'
+  - 'reschedule scheduled transitions node homepage'
+  - 'reschedule scheduled transitions node landing_page'
+  - 'reschedule scheduled transitions node listing_page'
+  - 'reschedule scheduled transitions node page'
+  - 'reschedule scheduled transitions node person'
+  - 'reschedule scheduled transitions node publication'
+  - 'reschedule scheduled transitions node topic'
   - 'revert all revisions'
   - 'revert article revisions'
   - 'revert career_opportunity revisions'
   - 'revert country revisions'
   - 'revert event revisions'
-  - 'revert glossary_term revisions'
   - 'revert homepage revisions'
   - 'revert landing_page revisions'
   - 'revert listing_page revisions'
@@ -312,7 +322,6 @@ permissions:
   - 'translate country node'
   - 'translate editable entities'
   - 'translate event node'
-  - 'translate glossary_term node'
   - 'translate homepage node'
   - 'translate landing_page node'
   - 'translate listing_page node'
@@ -342,7 +351,6 @@ permissions:
   - 'view career_opportunity revisions'
   - 'view country revisions'
   - 'view event revisions'
-  - 'view glossary_term revisions'
   - 'view homepage revisions'
   - 'view landing_page revisions'
   - 'view latest version'
@@ -357,6 +365,18 @@ permissions:
   - 'view published newsletter site setting entities'
   - 'view published site setting entities'
   - 'view published social_media_links site setting entities'
+  - 'view scheduled transitions node article'
+  - 'view scheduled transitions node career_opportunity'
+  - 'view scheduled transitions node country'
+  - 'view scheduled transitions node event'
+  - 'view scheduled transitions node glossary_term'
+  - 'view scheduled transitions node homepage'
+  - 'view scheduled transitions node landing_page'
+  - 'view scheduled transitions node listing_page'
+  - 'view scheduled transitions node page'
+  - 'view scheduled transitions node person'
+  - 'view scheduled transitions node publication'
+  - 'view scheduled transitions node topic'
   - 'view topic revisions'
   - 'view unpublished copyright site setting entities'
   - 'view unpublished footer_logo site setting entities'

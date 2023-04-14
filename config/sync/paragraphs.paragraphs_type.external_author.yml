@@ -1,0 +1,10 @@
+uuid: 7b528e63-b924-4d0e-be15-2c2f0bcedd90
+langcode: en
+status: true
+dependencies: {  }
+id: external_author
+label: 'External author'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

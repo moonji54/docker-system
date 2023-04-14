@@ -1,0 +1,32 @@
+uuid: 13eed828-507b-4285-9092-44bb030851b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_manual_content
+    - node.type.article
+    - node.type.event
+    - node.type.publication
+id: node.article.field_related_manual_content
+field_name: field_related_manual_content
+entity_type: node
+bundle: article
+label: 'Related manual content'
+description: 'Replace or override automated related content with manual selections. Manual selections will be shown first. Automated related content will fill up the remaining slots (up to a maximum of 3 automated content) if any.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      article: article
+      event: event
+      publication: publication
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: article
+field_type: entity_reference
