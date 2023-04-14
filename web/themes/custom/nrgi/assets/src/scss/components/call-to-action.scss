@@ -1,7 +1,9 @@
 /** @define c-call-to-action */
 .c-call-to-action {
   $c         : &;
+  margin-top : var(--space-3xl);
   min-height : 42rem;
+  padding    : 0;
   position   : relative;
 
   & + & {

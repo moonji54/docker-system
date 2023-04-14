@@ -39,7 +39,7 @@
 
           {% if button_link.url %}
             <div class="c-call-to-action__link-wrapper">
-              <a class="c-call-to-action__link o-button{{ is_white ? ' o-button--white' }}" href="{{ button_link.url }}"
+              <a class="c-call-to-action__link o-button{{ is_white ? ' o-button--white' : ' o-button--tertiary' }}" href="{{ button_link.url }}"
                  target="{{ button_link.is_external ? '_blank' : '_self' }}">
                 {% if button_link.type == 'link' %}
                   {% include '@nrgi/svg/svg.html.twig' with {'svg' : 'arrow'} %}

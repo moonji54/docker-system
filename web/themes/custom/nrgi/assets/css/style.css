@@ -288,7 +288,7 @@ ul li a:hover {
   background-color: #00B5B4;
 }
 .o-button--tertiary {
-  background-color: #FFFFFF;
+  background-color: transparent;
   border: 0.0625rem solid #2D2D32;
 }
 .o-button--tertiary:focus, .o-button--tertiary:hover {
@@ -1041,7 +1041,9 @@ ul li a:hover {
 
 /** @define c-call-to-action */
 .c-call-to-action {
+  margin-top: var(--space-3xl);
   min-height: 42rem;
+  padding: 0;
   position: relative;
   /* stylelint-disable-next-line */
   /* stylelint-disable */
