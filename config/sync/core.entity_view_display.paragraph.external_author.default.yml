@@ -4,7 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.external_author.field_external_author_link
-    - field.field.paragraph.external_author.field_external_author_name
+    - field.field.paragraph.external_author.field_given_name
+    - field.field.paragraph.external_author.field_surname
     - paragraphs.paragraphs_type.external_author
   module:
     - link
@@ -25,13 +26,21 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_external_author_name:
+  field_given_name:
     type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 1
+    weight: 3
+    region: content
+  field_surname:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
     region: content
 hidden:
   search_api_excerpt: true

@@ -24,8 +24,13 @@ class NrgiFeaturedPeopleHelperService extends NrgiFeaturedCardsBase {
     $this->setTaxonomyFields(['field_role_type']);
 
     $people_nids_manually_excluded = $this->getManualExclusions();
-    $people_nids_excluded = array_merge($people_nids_manually_excluded, $this->getExclusions());
-    $people_nids_automated = $this->getAutomatedSelections($people_nids_excluded);
+    $people_nids_excluded = array_merge(
+      $people_nids_manually_excluded,
+      $this->getExclusions()
+    );
+    $people_nids_automated = $this->getAutomatedSelections(
+      $people_nids_excluded
+    );
     $people_nids_selected = $this->getNodeIds();
 
     if ($people_nids_automated) {
@@ -46,7 +51,7 @@ class NrgiFeaturedPeopleHelperService extends NrgiFeaturedCardsBase {
         'items' => $this->renderFeaturedCards($people_nodes),
         'with_image' => $this->withImage,
         'view_mode' => $this->viewMode,
-        'layout' => $this->paragraph->get($this->itemsPerRowField)->getString(),
+        'layout' => '3_per_row',
         'cta' => $this->paragraph->hasField($this->linkField)
           ? $this->paragraphButtonLinkHelperService->getLinkFieldValues(
             $this->paragraph,
@@ -73,7 +78,10 @@ class NrgiFeaturedPeopleHelperService extends NrgiFeaturedCardsBase {
     $nodes = &drupal_static(__FUNCTION__);
     $previous_exclusions = [];
     if ($nodes) {
-      $previous_exclusions = array_merge($nodes['node_ids'], $nodes['previous_exclusions']);
+      $previous_exclusions = array_merge(
+        $nodes['node_ids'],
+        $nodes['previous_exclusions']
+      );
       $exclusions = array_merge($exclusions, $previous_exclusions);
     }
     $storage = $this->entityTypeManager->getStorage('node');

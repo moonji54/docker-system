@@ -1,0 +1,37 @@
+{% if meta_data %}
+  {{ dpm(meta_data) }}
+  <section class="c-meta-rows o-section">
+    <div class="c-meta-rows__container o-container">
+      <dl class="c-meta-rows__inner">
+        {% for data in meta_data %}
+          {% for section in data %}
+            <div class="c-meta-rows__row">
+              <dt class="c-meta-rows__label">
+                <h3>{{ section.label }}</h3>
+              </dt>
+              <dd class="c-meta-rows__items">
+                {% for item in section.items %}
+
+                  {% if item.type == 'file' %}
+                    <span class="c-meta-rows__icon-wrapper">[FILE DOWNLOAD ICON]</span>
+                    <a href="{{ item.url }}">{{ item.title|trim }}</a>
+
+                  {% elseif item.type == 'logo' %}
+                    {# Footer Oraganisation logos #}
+                    {% include '@nrgi/node-partials/node--logos.html.twig' with {'item': item} %}
+
+                  {% elseif item.type == 'text' %}
+                    {{ item.title }}
+
+                  {% else %}
+                    <a href="{{ item.url }}">{{ item.title|trim }}</a>
+                  {% endif %}
+                {% endfor %}
+              </dd>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </dl>
+    </div>
+  </section>
+{% endif %}

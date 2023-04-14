@@ -1,0 +1,22 @@
+<section class="o-section">
+  {% if content.field_title|field_value %}
+    <div class="o-container">
+      <div class="o-section__header-container">
+        <header class="o-section__header">
+          <h2 class="o-section__heading">{{ content.field_title }}</h2>
+        </header>
+
+        {% if content.field_description|field_value %}
+          <p class="o-section__description">
+            {{ content.field_description }}
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  {{ content.field_listing_view }}
+</section>
+
+
+

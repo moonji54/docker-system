@@ -1,0 +1,19 @@
+uuid: 3ad236bb-fada-4d7f-8cad-b001a901b2a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_surname
+    - paragraphs.paragraphs_type.external_author
+id: paragraph.external_author.field_surname
+field_name: field_surname
+entity_type: paragraph
+bundle: external_author
+label: Surname
+description: "Enter the surname of the person\r\n"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

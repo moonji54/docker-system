@@ -1,11 +1,15 @@
 services:
-  nrgi_frontend.responsive_image_helper:
-    class: Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService
-    arguments: [ '@entity_type.manager', '@renderer' ]
+  nrgi_frontend.metadata_helper:
+    class: Drupal\nrgi_frontend\Services\MetadataHelperService
+    arguments: [ '@path.matcher', '@date.formatter', '@nrgi_frontend.responsive_image_helper', '@nrgi_frontend.translation_helper' ]
 
   nrgi_frontend.paragraph_button_link_helper:
     class: Drupal\nrgi_frontend\Services\NrgiParagraphButtonLinkHelperService
     arguments: [ '@file_url_generator' ]
+
+  nrgi_frontend.paragraph_featured_content_helper:
+    class: Drupal\nrgi_frontend\Services\NrgiFeaturedContentHelperService
+    arguments: [ '@entity_type.manager', '@renderer', '@nrgi_frontend.paragraph_button_link_helper' ]
 
   nrgi_frontend.paragraph_featured_pages_helper:
     class: Drupal\nrgi_frontend\Services\NrgiFeaturedPagesHelperService
@@ -15,10 +19,14 @@ services:
     class: Drupal\nrgi_frontend\Services\NrgiFeaturedPeopleHelperService
     arguments: [ '@entity_type.manager', '@renderer', '@nrgi_frontend.paragraph_button_link_helper' ]
 
-  nrgi_frontend.translation_helper:
-    class: Drupal\nrgi_frontend\Services\NrgiTranslationHelperService
-    arguments: [ '@entity_type.manager' ]
-
   nrgi_frontend.person_featured_work:
     class: Drupal\nrgi_frontend\PersonFeaturedWorkHelperService
     arguments: [ '@entity_type.manager', '@renderer' ]
+
+  nrgi_frontend.responsive_image_helper:
+    class: Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService
+    arguments: [ '@entity_type.manager', '@renderer' ]
+
+  nrgi_frontend.translation_helper:
+    class: Drupal\nrgi_frontend\Services\NrgiTranslationHelperService
+    arguments: [ '@entity_type.manager' ]

@@ -1,0 +1,39 @@
+{% set classes = [
+  'c-card',
+  'c-card--listing',
+  'c-card--' ~ content_type,
+] %}
+
+<article{{ attributes.addClass(classes) }}>
+  <div class="c-card__tag-wrapper">
+    
+    {% if responsive_image %}
+      <div class="c-featured-content__image-wrapper">
+        {% if responsive_image %}
+          {{ responsive_image }}
+        {% else %}
+          <img src="/{{ base_path ~ directory }}/assets/img/fallback-default.svg" alt="{{ 'Fallback image'|t }}"/>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if subtype %}
+      <small class="c-card__tag o-tag">
+        {{ subtype }}
+      </small>
+    {% endif %}
+
+    {% if date %}
+      <small class="c-card__tag o-tag">
+        {{ date|upper }}
+      </small>
+    {% endif %}
+  </div>
+
+  <div class="c-card__content-wrapper">
+    <h3 class="c-card__title">
+      <a class="c-card__link" href={{ url }}>{{ label }}</a>
+    </h3>
+
+  </div>
+</article>

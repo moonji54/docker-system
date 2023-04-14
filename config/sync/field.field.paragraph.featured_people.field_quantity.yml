@@ -10,7 +10,7 @@ field_name: field_quantity
 entity_type: paragraph
 bundle: featured_people
 label: 'Number of automated content to show'
-description: 'Enter the quantity of automated content to load below any manually curated content. Leave the default 0 for no automated content. Maximum limit is 20.'
+description: 'Enter the number of automated content to show (additionally to any manually selected content). Leave the default 0 for no automated content. Maximum limit is 20.'
 required: false
 translatable: false
 default_value: {  }

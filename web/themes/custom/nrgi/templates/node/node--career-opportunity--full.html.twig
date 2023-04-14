@@ -3,137 +3,92 @@
   'c-node--type-' ~ node.bundle|clean_class,
 ] %}
 <div class="c-node__content-header">
-  {% include 'node--content-header.html.twig' %}
+  <div style="background-color: red">
+    <h1>Header:</h1>
+    <header {{ attributes.addClass(classes) }}>
+      <h1 class="c-node__title">{{ label }}</h1>
 
-  {% if content.field_career_opportunity_type|field_value %}
-    {{ content.field_career_opportunity_type }}
-  {% endif %}
+      {% if content.field_subtitle|field_value %}
+        <div>{{ content.field_subtitle }}</div>
+      {% endif %}
 
-  {% if content.field_country|field_value %}
-    {{ content.field_country }}
-  {% endif %}
+      {% if subtype %}
+        <h5>SUBTYPE</h5>
+        <p>{{ subtype }}</p>
+      {% endif %}
 
-  {% if content.field_city|field_value %}
-    {{ content.field_city }}
-  {% endif %}
+      {# Taxonomies #}
+      {% for field in meta_data.career_opportunity.header %}
+        {% for item in field %}
+          <a href="{{ item.url }}">{{ item.title|trim }}</a>
+        {% endfor %}
+      {% endfor %}
 
-  {% if content.field_apply|field_value %}
-    {{ content.field_apply }}
-  {% endif %}
 
-</div>
+      {% if content.field_apply|field_value %}
+        {# Apply #}
+        {{ content.field_apply }}
+      {% endif %}
 
-<div class="c-node__carrer-opportunity-sidebar">
-  <div class="supporting-document">
-    {% if content.field_supporting_document|field_value %}
-      {{ content.field_supporting_document }}
-    {% endif %}
-
-    {% if content.field_supporting_document_label|field_value %}
-      {{ content.field_supporting_document_label }}
-    {% endif %}
-  </div>
-
-  <div class="deadline">
-    {% if content.field_offer_deadline|field_value %}
-      {{ content.field_offer_deadlinevalue|date('U')|format_date('day_month_and_year') }}
-    {% endif %}
-  </div>
-
-  <div class="salary">
-    {% if content.field_salary|field_value %}
-      {{ content.field_salary }}
-    {% endif %}
-  </div>
-
-  <div class="contact">
-    {% if content.field_contact_for_queries|field_value %}
-      {{ content.field_contact_for_queries }}
-    {% endif %}
+    </header>
   </div>
 </div>
+
 <article{{ attributes.addClass(classes) }}>
 
-  {% if content.field_apply|field_value %}
-    {{ content.field_apply }}
+  {# FEATURED IMAGE #}
+  {% if content.field_featured_image|field_value %}
+    <div>
+      {{ content.field_featured_image }}
+    </div>
   {% endif %}
 
-  {% if content.field_body|field_value %}
-    {{ content.field_body }}
-  {% endif %}
 
-  {% if content.field_career_opportunity_type|field_value %}
-    {{ content.field_career_opportunity_type }}
-  {% endif %}
+  {#  SIDEBAR metadata #}
+  <div style="background-color: yellow">
+    <h1>SIDEBAR:</h1>
 
-  {% if content.field_city|field_value %}
-    {{ content.field_city }}
-  {% endif %}
+    {% if  meta_data.career_opportunity.files.label|upper %}
+      <h3>{{ meta_data.career_opportunity.files.label }}</h3>
+    {% endif %}
+    {% for file in meta_data.career_opportunity.files.items %}
+      <span class="c-meta-rows__icon-wrapper">[FILE DOWNLOAD ICON]</span>
+      <a href="{{ file.url }}">{{ file.title|trim }}</a>
+    {% endfor %}
 
-  {% if content.field_country|field_value %}
-    {{ content.field_country }}
-  {% endif %}
+    {% if deadline %}
+      <h3>{{ "Application deadline"|t|upper }}</h3>
+      <p>{{ deadline }}</p>
+    {% endif %}
 
-  {% if content.field_disclaimer|field_value %}
-    {{ content.field_disclaimer }}
-  {% endif %}
+    {% if content.field_salary %}
+      <h3>{{ "Salary"|t|upper }}</h3>
+      {{ content.field_salary }}
+    {% endif %}
 
-  {% if content.field_expiration_date|field_value %}
-    {{ content.field_expiration_date }}
-  {% endif %}
+    {% if content.field_contact_for_queries %}
+      <h3>{{ "Contact for queries"|t|upper }}</h3>
+      {{ content.field_contact_for_queries }}
+    {% endif %}
 
-  {% if content.field_photo_caption|field_value %}
-    {{ content.field_photo_caption }}
-  {% endif %}
+    {# Language switcher #}
+    {% if language_switcher_links %}
+      {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
+        'text' :  "Other languages"|t,
+        'links' : language_switcher_links
+      } %}
+    {% endif %}
 
-  {% if content.field_region|field_value %}
-    {{ content.field_region }}
-  {% endif %}
+    {# Share buttons #}
+    {% include '@nrgi/node-partials/node--share-links.html.twig' %}
 
-  {% if content.field_short_description|field_value %}
-    {{ content.field_short_description }}
-  {% endif %}
+  </div>
 
-  {% if content.field_page_builder|field_value %}
-    {{ content.field_page_builder }}
-  {% endif %}
+  <div style="background-color: orange">
+    {% if content.field_page_builder|field_value %}
+      <h1>PAGE BUILDER:</h1>
+      {{ content.field_page_builder }}
+    {% endif %}
+  </div>
 
-  {% if all_meta is not empty %}
-    this is a test
-    <section class="c-meta o-section o-section--meta {{ meta_classes }}">
-      <dl>
-        {% for meta_row in all_meta %}
-          {% if meta_row.values is not empty %}
-            <div class="c-meta__row o-container">
-              <dt class="c-meta__label">{{ meta_row.label }}</dt>
-
-              <dd class="c-meta__values">
-                {% for value in meta_row.values %}
-                  {% if value.url is not empty %}
-                    {% set link_icon = '' %}
-
-                    {% for ext in ['.pdf','.doc','.docx','.txt','.rtf','.odt','.ppt','.pptx','.odp','.xls','.xlsx','.ods'] %}
-                      {% if value.url ends with ext %}
-                        {% set link_icon = 'download' %}
-                      {% endif %}
-                    {% endfor %}
-
-                    {% if link_icon is empty and value.target == '_blank' %}
-                      {% set link_icon = 'external' %}
-                    {% endif %}
-
-                    <a class="o-meta-link" href="{{ value.url }}" {% if value.url is not empty %}target="{{ value.term_target }}{% endif %}">
-                      <span class="o-meta-link__text">{{ value.text }}</span>
-                    </a>
-                  {% else %}
-                    <span class="c-meta__value"><span class="c-meta__value-text">{{ value.text }}</span></span>
-                  {% endif %}
-                {% endfor %}
-              </dd>
-            </div>
-          {% endif %}
-        {% endfor %}
-      </dl>
-    </section>
-  {% endif %}
 </article>

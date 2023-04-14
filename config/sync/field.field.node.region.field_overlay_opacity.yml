@@ -12,7 +12,7 @@ bundle: region
 label: 'Overlay opacity'
 description: "The opacity of the dark overlay to be applied to the hero image. \r\nThis field allows you to set the opacity of the dark layer as an integer value between 0 and 100. A value of 0 (applied by default) means the layer is completely transparent (invisible), while a value of 100 means it is completely opaque (fully visible)."
 required: false
-translatable: true
+translatable: false
 default_value:
   -
     value: 0
