@@ -1,0 +1,29 @@
+uuid: f5028a61-6831-450e-92fe-f0782a211c51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_country
+    - node.type.country
+    - paragraphs.paragraphs_type.featured_content
+id: paragraph.featured_content.field_country
+field_name: field_country
+entity_type: paragraph
+bundle: featured_content
+label: Country
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      country: country
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

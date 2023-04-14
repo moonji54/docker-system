@@ -1,0 +1,19 @@
+uuid: 5332b9a3-ee79-4b3a-aabd-a2e5fa7ba678
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_short_description
+    - node.type.topic
+id: node.topic.field_short_description
+field_name: field_short_description
+entity_type: node
+bundle: topic
+label: 'Short Description'
+description: "One-sentence highlight/overview of the item. For use in link descriptions, search results, or other places where a blurb might be needed.\r\n<em>150 characters, max.</em>"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

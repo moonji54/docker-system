@@ -5,23 +5,25 @@ dependencies:
   config:
     - field.storage.node.field_topic
     - node.type.event
+    - node.type.topic
 id: node.event.field_topic
 field_name: field_topic
 entity_type: node
 bundle: event
-label: Topic
+label: Topics
 description: 'Select the topic this work falls under'
 required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:node'
   handler_settings:
-    target_bundles: {  }
+    target_bundles:
+      topic: topic
     sort:
-      field: name
-      direction: asc
+      field: _none
+      direction: ASC
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

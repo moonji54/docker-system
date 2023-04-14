@@ -21,6 +21,7 @@ dependencies:
     - media_library_edit
     - paragraphs
     - path
+    - textfield_counter
 third_party_settings:
   field_group:
     group_hero_banner:
@@ -32,7 +33,7 @@ third_party_settings:
       label: 'Hero banner'
       region: content
       parent_name: ''
-      weight: 3
+      weight: 2
       format_type: details
       format_settings:
         classes: ''
@@ -41,6 +42,7 @@ third_party_settings:
         open: false
         description: ''
         required_fields: true
+        formatter: closed
     group_page_builder:
       children:
         - field_page_builder
@@ -94,7 +96,7 @@ third_party_settings:
       label: 'Manual language links bar'
       region: content
       parent_name: ''
-      weight: 2
+      weight: 3
       format_type: details
       format_settings:
         classes: ''
@@ -103,6 +105,7 @@ third_party_settings:
         open: false
         description: ''
         required_fields: true
+        formatter: closed
     group_content_items:
       children:
         - field_attached_translated_items
@@ -149,12 +152,17 @@ content:
       media_library_edit:
         show_edit: '1'
   field_hero_description:
-    type: string_textarea
+    type: string_textarea_with_counter
     weight: 40
     region: content
     settings:
       rows: 5
       placeholder: ''
+      maxlength: 150
+      counter_position: after
+      js_prevent_submit: true
+      count_html_characters: false
+      textcount_status_message: 'Remaining characters: <span class="remaining_count">@remaining_count</span> / <span class="maxlength_count">@maxlength</span>'
     third_party_settings: {  }
   field_hero_link:
     type: link_default

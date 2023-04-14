@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_contact_for_queries
     - node.type.career_opportunity
+    - node.type.person
 id: node.career_opportunity.field_contact_for_queries
 field_name: field_contact_for_queries
 entity_type: node
@@ -12,16 +13,17 @@ bundle: career_opportunity
 label: 'Contact for queries'
 description: 'Add HR contact that will answer any applicant queries for this position.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:node'
   handler_settings:
-    target_bundles: {  }
+    target_bundles:
+      person: person
     sort:
-      field: name
-      direction: asc
+      field: _none
+      direction: ASC
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

@@ -6,7 +6,7 @@
   'js-form-item',
   'js-form-wrapper',
 ] %}
-{# SBTODO: Add the class only to checkboxes#}
+{# SBTODO: Add the class only to checkboxes #}
 <fieldset{{ attributes.addClass(classes) }}>
   {% set legend_span_classes = [
     base_class ~ '__legend',
@@ -22,7 +22,8 @@
       {# Output the chevron if filter is not publication status or sorter #}
       {% if element['#id'] is defined and element['#id'] != 'edit-status' and element['#id'] != 'edit-sort-bef-combine' %}
         <span class="c-filter__chevron js-filter-chevron">
-          {% include '@mignex/svg/svg.html.twig' with {'svg': 'chevron'} %}
+          {# TODO : SBTODO #}
+          {# {% include '@nrgi/svg/svg.html.twig' with {'svg': 'chevron'} %} #}
         </span>
       {% endif %}
     </legend>

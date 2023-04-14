@@ -1,0 +1,23 @@
+uuid: b3f4eda5-3c7b-49e4-860e-89be9b6ddfef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_disable_related_content
+    - node.type.publication
+id: node.publication.field_disable_related_content
+field_name: field_disable_related_content
+entity_type: node
+bundle: publication
+label: 'Disable related content'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

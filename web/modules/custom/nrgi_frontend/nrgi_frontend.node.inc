@@ -5,28 +5,28 @@
  * Contains nrgi_frontend.node.inc.
  */
 
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Field\EntityReferenceFieldItemListInterface;
+use Drupal\link\LinkItemInterface;
 use Drupal\media\MediaInterface;
 use Drupal\node\NodeInterface;
-use Drupal\taxonomy\Entity\Term;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Implements hook_preprocess_node().
+ *
+ * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+ * @throws \Drupal\Core\Entity\EntityMalformedException
  */
 function nrgi_frontend_preprocess_node(&$variables): void {
-  // SBTODO - TODO: review and refactor function.
   /** @var Drupal\node\NodeInterface $node */
   $node = $variables['node'];
 
   if ($node instanceof NodeInterface) {
-
-    // Based on content type (applied to all view modes).
-    _nrgi_frontend_preprocess_node_type_label($variables, $node);
-    // _nrgi_frontend_preprocess_node_date($variables, $node);
-
-    /** @var \Drupal\nrgi_frontend\NrgiTranslationHelperService $translation_helper_service */
+    /** @var \Drupal\nrgi_frontend\Services\NrgiTranslationHelperService $translation_helper_service */
     $translation_helper_service = \Drupal::service('nrgi_frontend.translation_helper');
+    /** @var \Drupal\nrgi_frontend\Services\MetadataHelperService $metadata_helper_service */
+    $metadata_helper_service = \Drupal::service('nrgi_frontend.metadata_helper');
 
     switch ($node->bundle()) {
       case 'homepage':
@@ -36,32 +36,63 @@ function nrgi_frontend_preprocess_node(&$variables): void {
         break;
 
       case 'landing_page':
-        // SBTODO - TODO: asymmetrical on landing pages TBC
-        // $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
-        //          $node, TRUE, 'field_attached_translated_items'
-        //        );
+      case 'listing page':
+      case 'country':
+      case 'region':
+        $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
+          $node, TRUE, 'field_attached_translated_items'
+        );
         break;
 
       case 'person':
-
+        $metadata_helper_service->preprocessMetadata($node, $variables);
         break;
+
+      case 'article':
+      case 'publication':
+      case 'career_opportunity':
+      case 'event':
+        if (in_array($variables['view_mode'], ['full', 'default'])) {
+          $metadata_helper_service->preprocessMetadata($node, $variables);
+          $metadata_helper_service->preprocessSidebarMetadata($node, $variables);
+          _nrgi_frontend_preprocess_related_content($variables);
+          break;
+        }
     }
 
     $view_mode_responsive_image_style = [
+      'featured_content_with_image_1_per_row' => 'large_card',
+      'featured_content_with_image_2_per_row' => 'medium_card',
+      'featured_content_with_image_3_per_row' => 'small_card',
+      'featured_content_with_image_4_per_row' => 'small_card',
       'featured_page_with_image_1_per_row' => 'large_card',
       'featured_page_with_image_2_per_row' => 'medium_card',
       'featured_page_with_image_3_per_row' => 'small_card',
       'featured_page_with_image_4_per_row' => 'small_card',
+      'featured_people_with_image_1_per_row' => 'square_small',
+      'featured_people_with_image_2_per_row' => 'square_small',
+      'featured_people_with_image_3_per_row' => 'square_small',
+      'featured_people_with_image_4_per_row' => 'square_small',
     ];
 
-    // Based on view mode.
+    // Card view modes.
     switch ($variables['view_mode']) {
+      case 'featured_content_with_image_1_per_row':
+      case 'featured_content_with_image_2_per_row':
+      case 'featured_content_with_image_3_per_row':
+      case 'featured_content_with_image_4_per_row':
       case 'featured_page_with_image_1_per_row':
       case 'featured_page_with_image_2_per_row':
       case 'featured_page_with_image_3_per_row':
       case 'featured_page_with_image_4_per_row':
-        if ($node->hasField('field_featured_image') && $node->get('field_featured_image') && $media = $node->get('field_featured_image')->entity) {
-          if ($media instanceof MediaInterface) {
+      case 'featured_people_with_image_1_per_row':
+      case 'featured_people_with_image_2_per_row':
+      case 'featured_people_with_image_3_per_row':
+      case 'featured_people_with_image_4_per_row':
+        if ($node->hasField('field_featured_image')
+            && $node->get('field_featured_image')
+            && $media = $node->get('field_featured_image')->entity) {
+          if ($media instanceof MediaInterface && isset($view_mode_responsive_image_style[$variables['view_mode']])) {
             /** @var  \Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService $responsive_image_style_service */
             $responsive_image_style_service = \Drupal::service('nrgi_frontend.responsive_image_helper');
             $responsive_image_style_service->preprocessResponsiveImage(
@@ -71,159 +102,145 @@ function nrgi_frontend_preprocess_node(&$variables): void {
             );
           }
         }
+
+        $content_types_to_preprocess = [
+          'article',
+          'career_opportunity',
+          'event',
+          'publication',
+        ];
+
+        // Preprocess card metadata.
+        if (in_array($node->bundle(), $content_types_to_preprocess)) {
+          $metadata_helper_service->preprocessCardMetadata($node, $variables);
+        }
         break;
 
-      case
-      'card':
+      case 'featured_content_1_per_row':
+      case 'featured_content_2_per_row':
+      case 'featured_content_3_per_row':
+      case 'featured_content_4_per_row':
+        $content_types_to_preprocess = [
+          'article',
+          'career_opportunity',
+          'event',
+          'publication',
+        ];
+
+        // Preprocess card metadata.
+        if (in_array($node->bundle(), $content_types_to_preprocess)) {
+          $metadata_helper_service->preprocessCardMetadata($node, $variables);
+        }
         break;
 
-      case 'full':
-        // Functions only for full view mode.
-        _nrgi_frontend_preprocess_node_meta($variables, $node);
-        _nrgi_frontend_preprocess_node_person_featured_work($variables, $node);
-        _nrgi_frontend_preprocess_node_related_content($variables);
+      case 'list_item_with_image':
+        if ($node->hasField('field_featured_image')
+            && $node->get('field_featured_image')
+            && $media = $node->get('field_featured_image')->entity) {
+          if ($media instanceof MediaInterface) {
+            /** @var  \Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService $responsive_image_style_service */
+            $responsive_image_style_service = \Drupal::service('nrgi_frontend.responsive_image_helper');
+            $responsive_image_style_service->preprocessResponsiveImage(
+              $media,
+              'small_card',
+              $variables
+            );
+          }
+        }
+        $metadata_helper_service->preprocessListItemMetadata($node, $variables);
         break;
 
-      case 'person_card':
-        // Function for person_card.
+      case 'list_item':
+        $metadata_helper_service->preprocessListItemMetadata($node, $variables);
         break;
     }
   }
 }
 
 /**
- * Prepare the Content Type / Sub Type label to be shown on the frontend.
+ * Implements hook_ENTITY_TYPE_view().
  *
- * @param array $variables
- *   The variables from template_preprocess_node().
- * @param \Drupal\node\NodeInterface $node
- *   Node to preprocess.
- *
- * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
- * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ * @throws \Drupal\Core\TypedData\Exception\MissingDataException
  */
-function _nrgi_frontend_preprocess_node_type_label(array &$variables, NodeInterface $node): void {
-  // Content Type.
-  $variables['type_label'] = $node->type->entity->label();
+function nrgi_frontend_node_view(
+  array &$build,
+  EntityInterface $entity,
+  EntityViewDisplayInterface $display,
+  $view_mode
+) {
+  $resource_types = ['article', 'publication'];
 
-  // Sub Type.
-  if ($node->hasField('field_subtype')) {
-    $tid = $node->get('field_subtype')->getString();
+  if ($entity instanceof NodeInterface
+      && in_array($entity->bundle(), $resource_types)
+      && in_array($view_mode, ['full', 'default'])) {
 
-    if (!empty($tid)) {
-      $term = \Drupal::entityTypeManager()
-        ->getStorage('taxonomy_term')
-        ->load($tid);
+    // External link - node view disabled.
+    if ($entity->hasField('field_link')
+        && $external_link_field = $entity->get('field_link')) {
+      if ($external_link = $external_link_field->first()) {
+        if ($external_link instanceof LinkItemInterface) {
+          $external_link_uri = $external_link->get('uri')->getValue();
 
-      if ($term instanceof Term) {
-        $variables['type_label'] = $term->label();
+          if ($external_link_uri) {
+            if ($entity->hasField('field_disable')
+                && $disable_field = $entity->get('field_disable')) {
+              if ($disable_field->value) {
+                // Redirect to the link.
+                $response = new RedirectResponse($external_link_uri);
+                $response->send();
+              }
+            }
+          }
+        }
       }
     }
   }
 }
 
-// /**
-// * @param array $variables
-// *   The variables from template_preprocess_node().
-// * @param \Drupal\node\NodeInterface $node
-// *   Node to preprocess.
-// */
-// function _nrgi_frontend_preprocess_node_date(array &$variables, NodeInterface $node) {
-//  /** @var \Drupal\Core\Field\FieldItemList $unified_date_field */
-//  $unified_date_field = $node->get('unified_date');
-//  $date_timestamp     = $unified_date_field->getString();
-//  $date_string        = FALSE;
-//
-//  $bundle   = $node->bundle();
-//  $template = $node->get('template')->getString();
-//
-//  if ($template === 'external_item') {
-//    if ($node->hasField('field_date')) {
-//      if (!empty($node->get('field_date')->getString())) {
-//        $date_field = $node->get('field_date');
-//
-//        /** @var DrupalDateTime $date */
-//        $date           = $date_field->date;
-//        $date_timestamp = $date->getTimestamp();
-//      }
-//    }
-//  }
-//
-//  if ($template === 'collection_item' || $bundle === 'event') {
-//    if ($node->hasField('field_start_date')) {
-//      if (!empty($node->get('field_start_date')->getString())) {
-//        $date_field = $node->get('field_start_date');
-//
-//        /** @var DrupalDateTime $date */
-//        $date           = $date_field->date;
-//        $date_timestamp = $date->getTimestamp();
-//      }
-//    }
-//  }
-//
-//  if (!empty($date_timestamp)) {
-//    if (is_string($date_timestamp)) {
-//      $date_timestamp = intval($date_timestamp);
-//    }
-//
-//    $date_string     = \Drupal::service('date.formatter')->format($date_timestamp, 'project_date');
-//    $date_string_ymd = \Drupal::service('date.formatter')->format($date_timestamp, 'html_date');
-//  }
-//
-//  $variables['node_date']      = $date_string;
-//  $variables['node_html_date'] = $date_string_ymd;
-// }
-
 /**
  * Preprocess related content.
  *
  * @param array $variables
- *   The variables from template_preprocess_node().
+ *   The variables array.
+ *
+ * @throws \Drupal\Core\TypedData\Exception\MissingDataException
  */
-function _nrgi_frontend_preprocess_node_related_content(array &$variables): void {
-  /** @var \Drupal\node\Entity\Node $node */
+function _nrgi_frontend_preprocess_related_content(array &$variables): void {
+  /** @var \Drupal\node\NodeInterface $node */
   $node = $variables['node'];
-  $limit = 4;
 
-  if ($node->hasField('field_limit')) {
-    if (!empty($node->get('field_limit')->getValue()[0])) {
-      $limit = (int) $node->get('field_limit')->getValue()['0']['value'];
-    }
+  $disable_related_content = FALSE;
 
-    // SBTODO: Configure the related content types and fields below.
+  if ($node->hasField('field_disable_related_content')
+      && $disable_field = $node->get('field_disable_related_content')) {
+    $disable_related_content = $disable_field->first()
+                               && (bool) $disable_field->first()->value;
+  }
 
-    /** @var Drupal\soapbox_related_content\RelatedContentHelperService $related_content_helper_service */
-    $related_content_helper_service = Drupal::service('soapbox_related_content.related_content');
-    $related_content_helper_service->setAllowedTargetNodeTypes([
+  if (!$disable_related_content) {
+
+    /** @var \Drupal\soapbox_related_content\RelatedContentHelperService $related_content_helper */
+    $related_content_helper = Drupal::service('soapbox_related_content.related_content');
+
+    // Which node types are allowed as related content results?
+    $related_content_helper->setAllowedTargetNodeTypes([
       'article',
-      'report',
-      'external_publication',
       'event',
-      'media_item',
-      'collection',
-      'series',
+      'publication',
     ]);
 
-    $related_content_helper_service->setCrossReferenceFieldsToCheck([
-      'field_collection',
-      'field_author',
-      'field_project',
-      'field_series',
-      'field_speakers',
-    ]);
-
-    $related_content_helper_service->setFieldsToCheck([
-      'field_collection',
-      'field_author',
-      'field_project',
-      'field_series',
-      'field_theme',
-      'field_keyword',
+    // Which fields should be compared?
+    $related_content_helper->setFieldsToCheck([
+      'field_topic',
       'field_country',
+      'field_region',
     ]);
 
-    $manual_selections = [];
+    // Which view mode should be used to render the contents?
+    $related_content_helper->setViewMode('featured_content_3_per_row');
 
+    // Add manual selections.
+    $manual_selections = [];
     if ($node->hasField('field_related_manual_content')) {
       $selections = $node->get('field_related_manual_content');
 
@@ -232,51 +249,27 @@ function _nrgi_frontend_preprocess_node_related_content(array &$variables): void
       }
 
       // Add manual selections.
-      $related_content_helper_service->setManualSelections($manual_selections);
+      $related_content_helper->setManualSelections($manual_selections);
     }
 
-    $related_content_helper_service->setViewMode('card');
-    $related_content_helper_service->setReturnLimit($limit);
-    $related_content_helper_service->preprocessNode($variables);
-  }
-}
+    // Set the return limit.
+    // A maximum of 4 automated related items, no limit for manual.
+    // (flexibility to accommodate migrated manual related content)
+    $return_limit = max(3, count($manual_selections));
 
-/**
- * Preprocess person featured work content.
- *
- * @param array $variables
- *   The variables from the template_preprocess_node().
- * @param \Drupal\node\NodeInterface $node
- *   Node to preprocess.
- */
-function _nrgi_frontend_preprocess_node_person_featured_work(array &$variables, NodeInterface $node): void {
-  if ($node->bundle() == 'person') {
-    $view_mode = 'featured_content_with_image';
-    $allowed_types = [
-      'article',
-      'collection',
-      'event',
-      'external_publication',
-      'media_item',
-      'report',
-      'series',
-    ];
+    // Set the sort order. Unified date descending is default,
+    // so this can be skipped unless you need something specific.
+    $related_content_helper->setSortOrders([
+      [
+        'field' => 'unified_date',
+        'direction' => 'DESC',
+      ],
+    ]);
 
-    $limit = 4;
+    // How many related contents should we find?
+    $related_content_helper->setReturnLimit($return_limit);
 
-    $fields = ['field_author'];
-
-    if ($node->hasField('field_limit') && !empty($node->get('field_limit')
-        ->getValue()[0])) {
-      $limit = (int) $node->get('field_limit')->getValue()['0']['value'];
-    }
-
-    /** @var Drupal\nrgi_frontend\PersonFeaturedWorkHelperService $person_featured_work_helper_service */
-    $person_featured_work_helper_service = \Drupal::service('nrgi_frontend.person_featured_work');
-    $feature_work = $person_featured_work_helper_service->getPersonFeaturedWorkNodes($node, $limit, $allowed_types, $view_mode, $fields);
-    $variables['featured_work'] = [
-      'content' => $feature_work,
-      'count' => count($feature_work),
-    ];
+    // Run preprocess.
+    $related_content_helper->preprocessNode($variables);
   }
 }

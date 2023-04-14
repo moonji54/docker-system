@@ -1,0 +1,18 @@
+uuid: b3c787d3-cb52-4431-adc9-3f2b28ac1d26
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.data_visualisation
+id: media.data_visualisation.changed
+field_name: changed
+entity_type: media
+bundle: data_visualisation
+label: Changed
+description: 'The time the media item was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

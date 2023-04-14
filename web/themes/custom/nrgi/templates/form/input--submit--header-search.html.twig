@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Theme override for an 'input' #type form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * @see template_preprocess_input()
+ */
+#}
+<button {{ attributes }}>
+  <span class="u-accessible-hide">{{ attributes.value }}</span>
+  SEARCH
+  {# SBTODO - TODO: add search icon {% include '@ifs/svg/svg.html.twig' with {'svg': 'search', 'extra_class': 'c-header-search__button-icon'} %} #}
+</button>{{ children }}

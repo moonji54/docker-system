@@ -1,0 +1,70 @@
+uuid: 79b54726-f25f-4476-a7b4-73080cd33fc4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_acknowledgement_logo
+    - node.type.event
+    - paragraphs.paragraphs_type.logo
+  module:
+    - entity_reference_revisions
+id: node.event.field_acknowledgement_logo
+field_name: field_acknowledgement_logo
+entity_type: node
+bundle: event
+label: 'Acknowledgement donors logos'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      logo: logo
+    negate: 0
+    target_bundles_drag_drop:
+      call_to_action:
+        weight: 13
+        enabled: false
+      embed:
+        weight: 14
+        enabled: false
+      external_author:
+        weight: 17
+        enabled: false
+      featured_content:
+        weight: 15
+        enabled: false
+      featured_pages:
+        weight: 16
+        enabled: false
+      featured_people:
+        weight: 17
+        enabled: false
+      file_upload:
+        weight: 18
+        enabled: false
+      full_width_media:
+        weight: 19
+        enabled: false
+      learning_block:
+        weight: 20
+        enabled: false
+      limited_list:
+        weight: 21
+        enabled: false
+      listing:
+        weight: 22
+        enabled: false
+      logo:
+        weight: 23
+        enabled: true
+      quote:
+        weight: 27
+        enabled: false
+      wysiwyg:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions

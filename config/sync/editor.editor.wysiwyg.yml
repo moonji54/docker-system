@@ -13,22 +13,21 @@ settings:
     rows:
       -
         -
+          name: Undo
+          items:
+            - Undo
+            - Redo
+        -
+          name: 'Copy Paste'
+          items:
+            - Copy
+            - Cut
+            - PasteText
+            - PasteFromWord
+        -
           name: Heading
           items:
             - Format
-        -
-          name: Blockquotes
-          items:
-            - Blockquote
-        -
-          name: 'Embeded content'
-          items:
-            - DrupalMediaLibrary
-        -
-          name: Links
-          items:
-            - DrupalLink
-            - DrupalUnlink
         -
           name: Formatting
           items:
@@ -41,13 +40,34 @@ settings:
             - BulletedList
             - NumberedList
         -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+            - footnotes
+        -
+          name: Blockquotes
+          items:
+            - Blockquote
+        -
+          name: 'Embeded content'
+          items:
+            - DrupalMediaLibrary
+        -
           name: Tables
           items:
             - Table
+        -
+          name: 'Styled containers'
+          items:
+            - CreateDiv
+            - Styles
   plugins:
+    stylescombo:
+      styles: "div.standfirst|Standfirst & Key messages\r\ndiv.boxed-text|Boxed text"
     drupallink:
-      linkit_enabled: false
-      linkit_profile: ''
+      linkit_enabled: true
+      linkit_profile: default
 image_upload:
   status: false
   scheme: public

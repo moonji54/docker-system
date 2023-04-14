@@ -1,12 +1,14 @@
 uuid: be0a1fd6-2a03-411a-aa35-6e5488e6241a
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.listing_page.field_components
-    - field.field.node.listing_page.field_intro
-    - field.field.node.listing_page.field_listing_block
+    - field.field.node.listing_page.field_attached_translated_items
+    - field.field.node.listing_page.field_featured_image
+    - field.field.node.listing_page.field_overlay_opacity
+    - field.field.node.listing_page.field_page_builder
+    - field.field.node.listing_page.field_short_description
     - node.type.listing_page
   module:
     - user
@@ -26,8 +28,10 @@ content:
     weight: 100
     region: content
 hidden:
-  field_components: true
-  field_intro: true
-  field_listing_block: true
+  field_attached_translated_items: true
+  field_featured_image: true
+  field_overlay_opacity: true
+  field_page_builder: true
+  field_short_description: true
   langcode: true
   search_api_excerpt: true

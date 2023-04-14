@@ -1,0 +1,20 @@
+uuid: 23b656fa-3665-4e09-98cd-7df4ccc97d4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.remote_audio
+id: media.remote_audio.name
+field_name: name
+entity_type: media
+bundle: remote_audio
+label: Name
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string

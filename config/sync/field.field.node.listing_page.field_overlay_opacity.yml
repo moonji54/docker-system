@@ -1,0 +1,23 @@
+uuid: 9e8d0fc4-7c09-4d85-8f28-18fb222962e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_overlay_opacity
+    - node.type.listing_page
+id: node.listing_page.field_overlay_opacity
+field_name: field_overlay_opacity
+entity_type: node
+bundle: listing_page
+label: 'Overlay opacity'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

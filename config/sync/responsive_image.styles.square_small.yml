@@ -1,0 +1,43 @@
+uuid: 531c41c8-547a-4405-a336-5eb27a039cb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.square_small
+  theme:
+    - nrgi
+id: square_small
+label: 'Square small'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: square_small
+    breakpoint_id: nrgi.smallmobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: square_small
+    breakpoint_id: nrgi.mobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: square_small
+    breakpoint_id: nrgi.tablet
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: square_small
+    breakpoint_id: nrgi.smalldesktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: square_small
+    breakpoint_id: nrgi.desktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: square_small
+    breakpoint_id: nrgi.desktop
+    multiplier: 2x
+breakpoint_group: nrgi
+fallback_image_style: square_small

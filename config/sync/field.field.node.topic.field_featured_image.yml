@@ -1,4 +1,4 @@
-uuid: aa5df633-8c27-440f-93a8-9374cfadfa04
+uuid: 2c0f5c02-94a7-471e-9aea-0836de7855da
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ id: node.topic.field_featured_image
 field_name: field_featured_image
 entity_type: node
 bundle: topic
-label: 'Featured image'
+label: 'Hero banner image'
 description: ''
 required: false
 translatable: true

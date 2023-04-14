@@ -3,46 +3,38 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.event.field_acknowledgement_logo
     - field.field.node.event.field_address
-    - field.field.node.event.field_body
     - field.field.node.event.field_country
     - field.field.node.event.field_course_host
-    - field.field.node.event.field_course_syilabus
-    - field.field.node.event.field_course_training_contact
+    - field.field.node.event.field_course_syllabus
     - field.field.node.event.field_data_document
-    - field.field.node.event.field_data_document_label
+    - field.field.node.event.field_days_of_the_week
+    - field.field.node.event.field_disable_related_content
     - field.field.node.event.field_end_date
     - field.field.node.event.field_event_contact
     - field.field.node.event.field_event_location
     - field.field.node.event.field_event_recording
-    - field.field.node.event.field_event_role_type
     - field.field.node.event.field_event_type
     - field.field.node.event.field_expertise_required
-    - field.field.node.event.field_expiration_date
     - field.field.node.event.field_featured_image
     - field.field.node.event.field_format
-    - field.field.node.event.field_instructors
-    - field.field.node.event.field_instructors_external
     - field.field.node.event.field_keywords
-    - field.field.node.event.field_languages
     - field.field.node.event.field_open_registration
     - field.field.node.event.field_organizing_partner
     - field.field.node.event.field_page_builder
     - field.field.node.event.field_partner_logo
-    - field.field.node.event.field_partner_name
     - field.field.node.event.field_photo_caption
     - field.field.node.event.field_publisher
     - field.field.node.event.field_region
     - field.field.node.event.field_registration
-    - field.field.node.event.field_speakers
-    - field.field.node.event.field_speakers_external
+    - field.field.node.event.field_related_manual_content
+    - field.field.node.event.field_short_description
     - field.field.node.event.field_start_date
     - field.field.node.event.field_supporting_document
-    - field.field.node.event.field_supporting_document_label
     - field.field.node.event.field_time_commitment
     - field.field.node.event.field_time_zone
     - field.field.node.event.field_topic
-    - field.field.node.event.field_transcript
     - field.field.node.event.field_video_conferencing
     - node.type.event
   module:
@@ -50,7 +42,6 @@ dependencies:
     - entity_reference_revisions
     - link
     - options
-    - text
     - user
 id: node.event.default
 targetEntityType: node
@@ -62,6 +53,15 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_acknowledgement_logo:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 31
+    region: content
   field_address:
     type: string
     label: hidden
@@ -70,20 +70,13 @@ content:
     third_party_settings: {  }
     weight: 21
     region: content
-  field_body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 6
-    region: content
   field_country:
     type: entity_reference_label
-    label: hidden
+    label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 35
+    weight: 9
     region: content
   field_course_host:
     type: string
@@ -93,38 +86,40 @@ content:
     third_party_settings: {  }
     weight: 14
     region: content
-  field_course_syilabus:
+  field_course_syllabus:
     type: entity_reference_entity_view
-    label: hidden
+    label: above
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
-    weight: 24
-    region: content
-  field_course_training_contact:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 15
+    weight: 52
     region: content
   field_data_document:
-    type: entity_reference_label
-    label: hidden
+    type: entity_reference_revisions_entity_view
+    label: above
     settings:
-      link: true
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 29
+    weight: 36
     region: content
-  field_data_document_label:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
+  field_days_of_the_week:
+    type: list_default
+    label: above
+    settings: {  }
     third_party_settings: {  }
-    weight: 32
+    weight: 49
+    region: content
+  field_disable_related_content:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 42
     region: content
   field_end_date:
     type: datetime_default
@@ -161,14 +156,6 @@ content:
     third_party_settings: {  }
     weight: 27
     region: content
-  field_event_role_type:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 37
-    region: content
   field_event_type:
     type: entity_reference_label
     label: hidden
@@ -178,29 +165,21 @@ content:
     weight: 36
     region: content
   field_expertise_required:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 25
-    region: content
-  field_expiration_date:
-    type: datetime_default
-    label: hidden
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 5
-    region: content
-  field_featured_image:
     type: entity_reference_label
-    label: hidden
+    label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 28
+    weight: 51
+    region: content
+  field_featured_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: '16'
+      link: false
+    third_party_settings: {  }
+    weight: 12
     region: content
   field_format:
     type: list_default
@@ -209,43 +188,23 @@ content:
     third_party_settings: {  }
     weight: 39
     region: content
-  field_instructors:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 10
-    region: content
-  field_instructors_external:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 11
-    region: content
   field_keywords:
     type: entity_reference_label
-    label: hidden
+    label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 34
-    region: content
-  field_languages:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 17
+    weight: 13
     region: content
   field_open_registration:
-    type: list_default
-    label: hidden
-    settings: {  }
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
-    weight: 26
+    weight: 50
     region: content
   field_organizing_partner:
     type: string
@@ -257,52 +216,45 @@ content:
     region: content
   field_page_builder:
     type: entity_reference_revisions_entity_view
-    label: hidden
+    label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 40
+    weight: 17
     region: content
   field_partner_logo:
-    type: entity_reference_label
-    label: hidden
+    type: entity_reference_revisions_entity_view
+    label: above
     settings:
-      link: true
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 33
-    region: content
-  field_partner_name:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 13
+    weight: 32
     region: content
   field_photo_caption:
     type: string
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 4
+    weight: 20
     region: content
   field_publisher:
     type: string
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 12
+    weight: 22
     region: content
   field_region:
     type: entity_reference_label
-    label: hidden
+    label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 38
+    weight: 23
     region: content
   field_registration:
     type: link
@@ -316,20 +268,20 @@ content:
     third_party_settings: {  }
     weight: 19
     region: content
-  field_speakers:
+  field_related_manual_content:
     type: entity_reference_label
-    label: hidden
+    label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 8
+    weight: 41
     region: content
-  field_speakers_external:
-    type: text_default
-    label: hidden
+  field_short_description:
+    type: basic_string
+    label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 9
+    weight: 35
     region: content
   field_start_date:
     type: datetime_default
@@ -341,20 +293,13 @@ content:
     weight: 41
     region: content
   field_supporting_document:
-    type: entity_reference_label
-    label: hidden
+    type: entity_reference_revisions_entity_view
+    label: above
     settings:
-      link: true
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 30
-    region: content
-  field_supporting_document_label:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 31
+    weight: 37
     region: content
   field_time_commitment:
     type: number_integer
@@ -379,14 +324,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 1
-    region: content
-  field_transcript:
-    type: basic_string
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 7
+    weight: 3
     region: content
   field_video_conferencing:
     type: link
@@ -400,11 +338,19 @@ content:
     third_party_settings: {  }
     weight: 22
     region: content
+  langcode:
+    type: language
+    label: above
+    settings:
+      link_to_entity: false
+      native_language: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 2
     region: content
 hidden:
-  langcode: true
   search_api_excerpt: true

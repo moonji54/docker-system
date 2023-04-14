@@ -1,28 +1,28 @@
 {% set classes = [
-  'c-node',
-  'c-node--type-' ~ node.bundle|clean_class,
+  'c-card',
+  'c-card--listing',
+  'c-card--' ~ content_type,
 ] %}
-<div class="c-node__content-header">
-  {% include 'node--content-header.html.twig' %}
-  {% if content.cta_download %}
-    {{ content.cta_download }}
-  {% endif %}
-</div>
 
 <article{{ attributes.addClass(classes) }}>
-  {% if content.field_created %}
-    {{ content.field_created }}
-  {% endif %}
+  <div class="c-card__tag-wrapper">
+    {% if subtype %}
+      <small class="c-card__tag o-tag">
+        {{ subtype }}
+      </small>
+    {% endif %}
 
-  {% if content.field_featured_image|field_value %}
-    {{ content.field_featured_image }}
-  {% endif %}
+    {% if date %}
+      <small class="c-card__tag o-tag">
+        {{ date|upper }}
+      </small>
+    {% endif %}
+  </div>
 
-  {% if content.field_short_description|field_value %}
-    {{ content.field_short_description }}
-  {% endif %}
+  <div class="c-card__content-wrapper">
+    <h3 class="c-card__title">
+      <a class="c-card__link" href={{ url }}>{{ label }}</a>
+    </h3>
 
-  {% if content.field_subtitle|field_value %}
-    {{ content.field_subtitle }}
-  {% endif %}
+  </div>
 </article>
