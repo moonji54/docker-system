@@ -1,0 +1,22 @@
+{% if sub_pages %}
+  <section class="o-section o-section--background-grey c-sub-nav">
+    <div class="o-container">
+      <h2>Subnav</h2>
+
+      <nav class="c-sub-nav__nav">
+        <ul class="c-sub-nav__grid">
+          {% for nav in sub_pages %}
+            <li class="c-sub-nav__item">
+              <a href="{{ nav.url }}" title="{{ nav.title }}" class="o-icon-button">
+                <span class="o-icon-button__icon-box">
+                  {# {% include '@nrgi/svg/svg.html.twig' with {'svg': 'arrow', 'extra_class': 'o-icon-button__icon'} %} #}
+                </span>
+                {{ nav.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </section>
+{% endif %}

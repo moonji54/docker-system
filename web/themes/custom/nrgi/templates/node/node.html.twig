@@ -5,7 +5,11 @@
 <div class="c-node__content-header">
   <div style="background-color: red">
     <h1>Header:</h1>
-    {% include "@nrgi/node-partials/node--header.html.twig" %}
+    {% if node.bundle !='event' %}
+      {% include "@nrgi/node-partials/node--header.html.twig" %}
+    {% else %}
+      {% include "@nrgi/node-partials/node--event-header.html.twig" %}
+    {% endif %}
   </div>
 </div>
 <article{{ attributes.addClass(classes) }}>
