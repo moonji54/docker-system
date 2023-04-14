@@ -5,8 +5,13 @@ dependencies: {  }
 id: node__career_opportunity
 label: 'Content: Career Opportunity'
 tags:
-  schema_job_posting_base_salary: 'a:3:{s:5:"@type";s:14:"MonetaryAmount";s:8:"currency";s:3:"EUR";s:5:"value";a:2:{s:5:"@type";s:17:"QuantitativeValue";s:5:"value";s:25:"[node:field_salary:value]";}}'
-  schema_job_posting_description: '[node:field_short_description:value]'
-  schema_job_posting_job_location: "a:2:{s:5:\"@type\";s:5:\"Place\";s:4:\"name\";s:58:\"[node:field_country:0:entity], \t[node:field_city:0:entity]\";}"
+  schema_job_posting_base_salary: 'a:3:{s:5:"@type";s:14:"MonetaryAmount";s:8:"currency";s:3:"GBP";s:5:"value";a:2:{s:5:"@type";s:17:"QuantitativeValue";s:5:"value";s:19:"[node:field_salary]";}}'
+  schema_job_posting_date_posted: '[node:created:html_datetime]'
+  schema_job_posting_description: '[node:field_short_description]'
+  schema_job_posting_employment_type: '[node:field_career_opportunity_type]'
+  schema_job_posting_hiring_organization: 'a:3:{s:5:"@type";s:12:"Organization";s:4:"name";s:11:"[site:name]";s:3:"url";s:10:"[site:url]";}'
+  schema_job_posting_identifier: '[node:id]'
+  schema_job_posting_job_location: 'a:3:{s:5:"@type";s:5:"Place";s:5:"pivot";s:1:"1";s:4:"name";s:39:"[node:field_country], [node:field_city]";}'
   schema_job_posting_title: '[node:title]'
   schema_job_posting_type: JobPosting
+  schema_job_posting_valid_through: '[node:field_offer_deadline]'

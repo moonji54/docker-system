@@ -115,7 +115,6 @@ module:
   textarea_widget_for_text: 0
   textfield_counter: 0
   token: 0
-  token_default: 0
   toolbar: 0
   twig_field_value: 0
   twig_tweak: 0
