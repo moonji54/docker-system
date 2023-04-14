@@ -16,6 +16,10 @@
     @include media("<=desktop") {
       border-top   : 1px solid $grey-light;
       padding-left : var(--gutter);
+
+      &:first-child {
+        border-top : none;
+      }
     }
 
     &:hover {
@@ -79,7 +83,7 @@
     @include underlined;
 
     @include media("<desktop") {
-      padding : 0.5rem 0.5rem 0.5rem 0;
+      padding : 0.5rem 1rem 0.5rem 0;
       width   : 100%;
     }
 

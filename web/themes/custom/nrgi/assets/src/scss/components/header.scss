@@ -10,8 +10,8 @@
   width         : 100%;
 
   @include media("<=desktop") {
+    border-bottom : none;
     padding       : 1.25rem 0;
-    border-bottom : 1px solid $grey-light;
   }
 
   &__container {
@@ -31,6 +31,17 @@
 
     @include media("<=desktop") {
       grid-column : 1 / -1;
+      position    : relative;
+
+      &:after {
+        background : $grey-light;
+        bottom     : -1.25rem;
+        content    : "";
+        height     : 0.0625rem;
+        left       : calc((var(--gutter)) * -1);
+        position   : absolute;
+        width      : calc(100% + (var(--gutter)) * 2);
+      }
     }
   }
 
@@ -89,7 +100,6 @@
 
     @include media("<=desktop") {
       border-bottom : 1px solid $grey-light;
-      border-top    : 1px solid $grey-light;
       grid-column   : 1 / -1;
       margin-left   : calc((var(--gutter)) * -1);
       margin-top    : 1.25rem;
@@ -188,13 +198,14 @@
   /* stylelint-disable-next-line */
   &.has-menu-overlay,
   &.has-search-overlay {
-    background      : $secondary;
-    display         : flex;
-    flex-direction  : column;
-    height          : 100vh;
-    justify-content : space-between;
-    overflow-y      : scroll;
-    padding-bottom  : 3.125rem;
+    background-color : $secondary;
+    display          : flex;
+    flex-direction   : column;
+    height           : 100vh;
+    justify-content  : space-between;
+    overflow-y       : scroll;
+    padding-bottom   : 3.125rem;
+    transition       : background-color 0.3s;
   }
 
   /* stylelint-disable-next-line */

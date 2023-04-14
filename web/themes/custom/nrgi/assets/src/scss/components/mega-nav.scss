@@ -14,12 +14,13 @@
   width            : 100%;
 
   @include media("<=desktop") {
-    box-shadow  : none;
-    margin-left : calc((var(--gutter)) * -1);
-    padding     : 1rem 0 2rem;
-    position    : relative;
-    top         : 0;
-    width       : 100vw;
+    background-color : transparent;
+    box-shadow       : none;
+    margin-left      : calc((var(--gutter)) * -1);
+    padding          : 1rem 0 2rem;
+    position         : relative;
+    top              : 0;
+    width            : 100vw;
   }
 
   &__container {

@@ -2,12 +2,14 @@ import Ps from 'perfect-scrollbar';
 import debounce from './utils/debounce';
 
 class Header {
-    constructor (context, settings, $, Drupal) {
+    constructor (context, settings, $, Drupal, element) {
         // Values from Drupal
         this.context = context;
         this.settings = settings;
         this.$ = $;
         this.Drupal = Drupal;
+        this.element = element;
+
         this.$document = this.$(document);
         this.$window = this.$(window);
         this.$body = this.$('body', this.context).once();
@@ -89,14 +91,17 @@ class Header {
     }
 
     closeBurgerMenu () {
-        this.$burgerButton.removeClass('is-open').attr('aria-expanded', 'false');
-        this.$header.removeClass('has-menu-overlay');
-        this.$body.removeClass('is-scroll-locked');
+        if (this.$burgerButton.hasClass('is-open')) {
+            this.$burgerButton.removeClass('is-open').attr('aria-expanded', 'false');
+            this.$header.removeClass('has-menu-overlay');
+            this.$body.removeClass('is-scroll-locked');
+        }
     }
 
     toggleSubMenu (e) {
         const $elem = this.$(e.currentTarget);
         const $elemToToggle = $elem.parent().next(this.$subMenu);
+
         if (!$elem.hasClass('is-clicked')) {
             this.closeSubMenu();
             $elem.toggleClass('is-clicked')
@@ -125,15 +130,19 @@ class Header {
     }
 
     closeSearch () {
-        this.$searchButton.removeClass('is-open').attr('aria-expanded', 'false');
-        this.$header.removeClass('has-search-overlay');
-        this.$body.removeClass('is-scroll-locked');
+        if (this.$searchButton.hasClass('is-open')) {
+            this.$searchButton.removeClass('is-open').attr('aria-expanded', 'false');
+            this.$header.removeClass('has-search-overlay');
+            this.$body.removeClass('is-scroll-locked');
+        }
     }
 
     closeSubMenu () {
-        this.$subMenuButton.removeClass('is-clicked')
-            .attr('aria-expanded', 'false');
-        this.$subMenu.slideUp(this.speed);
+        if (this.$subMenuButton.hasClass('is-clicked')) {
+            this.$subMenuButton.removeClass('is-clicked')
+                .attr('aria-expanded', 'false');
+            this.$subMenu.slideUp(this.speed);
+        }
     }
 
     resetHeader () {

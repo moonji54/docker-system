@@ -73,7 +73,7 @@
     --space-2xl: 2.5rem;
     --space-3xl: 4rem;
     --space-4xl: 6rem;
-    --gutter: 2rem;
+    --gutter: 1rem;
   }
 }
 @media (max-width: 48rem) {
@@ -84,7 +84,6 @@
     --space-2xl: 2.25rem;
     --space-3xl: 3.5rem;
     --space-4xl: 4.5rem;
-    --gutter: 1rem;
   }
 }
 
@@ -1026,8 +1025,8 @@ ul li a:hover {
 }
 @media (max-width: 64rem) {
   .c-header {
+    border-bottom: none;
     padding: 1.25rem 0;
-    border-bottom: 1px solid #EDEDEF;
   }
 }
 .c-header__container {
@@ -1053,6 +1052,16 @@ ul li a:hover {
 @media (max-width: 64rem) {
   .c-header__logo-wrapper {
     grid-column: 1/-1;
+    position: relative;
+  }
+  .c-header__logo-wrapper:after {
+    background: #EDEDEF;
+    bottom: -1.25rem;
+    content: "";
+    height: 0.0625rem;
+    left: calc((var(--gutter)) * -1);
+    position: absolute;
+    width: calc(100% + (var(--gutter)) * 2);
   }
 }
 .c-header__logo-link {
@@ -1098,7 +1107,6 @@ ul li a:hover {
 @media (max-width: 64rem) {
   .c-header__search {
     border-bottom: 1px solid #EDEDEF;
-    border-top: 1px solid #EDEDEF;
     grid-column: 1/-1;
     margin-left: calc((var(--gutter)) * -1);
     margin-top: 1.25rem;
@@ -1178,13 +1186,14 @@ ul li a:hover {
   display: none;
 }
 .c-header.has-menu-overlay, .c-header.has-search-overlay {
-  background: #00545A;
+  background-color: #00545A;
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: space-between;
   overflow-y: scroll;
   padding-bottom: 3.125rem;
+  transition: background-color 0.3s;
 }
 .c-header.has-menu-overlay {
   /* stylelint-disable-next-line */
@@ -1271,6 +1280,7 @@ ul li a:hover {
   display: block;
   font-family: "Source Sans Pro", "Lucida Grande", Verdana, sans-serif;
   font-size: 12px;
+  height: 30px;
   position: relative;
   width: 100%;
 }
@@ -1346,6 +1356,9 @@ ul li a:hover {
     border-top: 1px solid #EDEDEF;
     padding-left: var(--gutter);
   }
+  .c-main-menu__item:first-child {
+    border-top: none;
+  }
 }
 @media (min-width: 64.1rem) {
   .c-main-menu__item:hover .c-mega-nav {
@@ -1410,7 +1423,7 @@ ul li a:hover {
 }
 @media (max-width: 63.9rem) {
   .c-main-menu__item-link {
-    padding: 0.5rem 0.5rem 0.5rem 0;
+    padding: 0.5rem 1rem 0.5rem 0;
     width: 100%;
   }
 }
@@ -1477,6 +1490,7 @@ ul li a:hover {
 }
 @media (max-width: 64rem) {
   .c-mega-nav {
+    background-color: transparent;
     box-shadow: none;
     margin-left: calc((var(--gutter)) * -1);
     padding: 1rem 0 2rem;

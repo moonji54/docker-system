@@ -3,9 +3,11 @@ import Header from './modules/header';
 
 (function ($, Drupal, once) {
     // eslint-disable-next-line no-param-reassign
-    Drupal.behaviors.Header = {
+    Drupal.behaviors.nrgiHeader = {
         attach: function (context, settings) {
-            new Header(context, settings, $, Drupal);
+            once('nrgiHeader', 'html', context).forEach(function (element) {
+                new Header(context, settings, $, Drupal, element);
+            })
         }
     }
-}(jQuery, Drupal));
+}(jQuery, Drupal, once));

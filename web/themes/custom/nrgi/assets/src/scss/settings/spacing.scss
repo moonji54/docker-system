@@ -20,7 +20,7 @@
     --space-2xl : 2.5rem;
     --space-3xl : 4rem;
     --space-4xl : 6rem;
-    --gutter    : 2rem;
+    --gutter    : 1rem;
   }
 
   @include media("<=tablet") {
@@ -30,6 +30,5 @@
     --space-2xl : 2.25rem;
     --space-3xl : 3.5rem;
     --space-4xl : 4.5rem;
-    --gutter    : 1rem;
   }
 }

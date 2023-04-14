@@ -7,12 +7,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 (function ($, Drupal, once) {
   // eslint-disable-next-line no-param-reassign
-  Drupal.behaviors.Header = {
+  Drupal.behaviors.nrgiHeader = {
     attach: function attach(context, settings) {
-      new _header["default"](context, settings, $, Drupal);
+      once('nrgiHeader', 'html', context).forEach(function (element) {
+        new _header["default"](context, settings, $, Drupal, element);
+      });
     }
   };
-})(jQuery, Drupal);
+})(jQuery, Drupal, once);
 
 },{"./modules/header":2}],2:[function(require,module,exports){
 "use strict";
@@ -31,7 +33,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var Header = /*#__PURE__*/function () {
-  function Header(context, settings, $, Drupal) {
+  function Header(context, settings, $, Drupal, element) {
     var _this = this;
     _classCallCheck(this, Header);
     // Values from Drupal
@@ -39,6 +41,7 @@ var Header = /*#__PURE__*/function () {
     this.settings = settings;
     this.$ = $;
     this.Drupal = Drupal;
+    this.element = element;
     this.$document = this.$(document);
     this.$window = this.$(window);
     this.$body = this.$('body', this.context).once();
@@ -124,9 +127,11 @@ var Header = /*#__PURE__*/function () {
   }, {
     key: "closeBurgerMenu",
     value: function closeBurgerMenu() {
-      this.$burgerButton.removeClass('is-open').attr('aria-expanded', 'false');
-      this.$header.removeClass('has-menu-overlay');
-      this.$body.removeClass('is-scroll-locked');
+      if (this.$burgerButton.hasClass('is-open')) {
+        this.$burgerButton.removeClass('is-open').attr('aria-expanded', 'false');
+        this.$header.removeClass('has-menu-overlay');
+        this.$body.removeClass('is-scroll-locked');
+      }
     }
   }, {
     key: "toggleSubMenu",
@@ -160,15 +165,19 @@ var Header = /*#__PURE__*/function () {
   }, {
     key: "closeSearch",
     value: function closeSearch() {
-      this.$searchButton.removeClass('is-open').attr('aria-expanded', 'false');
-      this.$header.removeClass('has-search-overlay');
-      this.$body.removeClass('is-scroll-locked');
+      if (this.$searchButton.hasClass('is-open')) {
+        this.$searchButton.removeClass('is-open').attr('aria-expanded', 'false');
+        this.$header.removeClass('has-search-overlay');
+        this.$body.removeClass('is-scroll-locked');
+      }
     }
   }, {
     key: "closeSubMenu",
     value: function closeSubMenu() {
-      this.$subMenuButton.removeClass('is-clicked').attr('aria-expanded', 'false');
-      this.$subMenu.slideUp(this.speed);
+      if (this.$subMenuButton.hasClass('is-clicked')) {
+        this.$subMenuButton.removeClass('is-clicked').attr('aria-expanded', 'false');
+        this.$subMenu.slideUp(this.speed);
+      }
     }
   }, {
     key: "resetHeader",
