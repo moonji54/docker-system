@@ -1076,7 +1076,6 @@ ul li a:hover {
      object-fit: cover;
   position: absolute;
   width: 100%;
-  z-index: -1;
 }
 .c-call-to-action__block {
   height: 100%;
