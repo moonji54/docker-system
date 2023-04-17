@@ -11,6 +11,7 @@ dependencies:
     - field.field.paragraph.featured_content.field_link
     - field.field.paragraph.featured_content.field_quantity
     - field.field.paragraph.featured_content.field_region
+    - field.field.paragraph.featured_content.field_series
     - field.field.paragraph.featured_content.field_show_background
     - field.field.paragraph.featured_content.field_show_image
     - field.field.paragraph.featured_content.field_title
@@ -95,6 +96,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 19
+    region: content
+  field_series:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 22
     region: content
   field_show_background:
     type: boolean

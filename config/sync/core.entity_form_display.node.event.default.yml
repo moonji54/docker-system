@@ -29,6 +29,7 @@ dependencies:
     - field.field.node.event.field_region
     - field.field.node.event.field_registration
     - field.field.node.event.field_related_manual_content
+    - field.field.node.event.field_series
     - field.field.node.event.field_short_description
     - field.field.node.event.field_start_date
     - field.field.node.event.field_supporting_document
@@ -102,7 +103,7 @@ third_party_settings:
       label: Taxonomies
       region: content
       parent_name: ''
-      weight: 6
+      weight: 7
       format_type: details
       format_settings:
         classes: ''
@@ -267,6 +268,7 @@ third_party_settings:
       children:
         - group_topic
         - group_keywords
+        - group_series
         - group_country
         - group_region
       label: 'Taxonomies Tabs'
@@ -316,7 +318,7 @@ third_party_settings:
       label: Country
       region: content
       parent_name: group_taxonomies_tabs
-      weight: 22
+      weight: 23
       format_type: tab
       format_settings:
         classes: ''
@@ -331,7 +333,7 @@ third_party_settings:
       label: Region
       region: content
       parent_name: group_taxonomies_tabs
-      weight: 23
+      weight: 24
       format_type: tab
       format_settings:
         classes: ''
@@ -387,8 +389,7 @@ third_party_settings:
         description: ''
         required_fields: true
     group_contacts_external_:
-      children:
-        - field_course_training_contact
+      children: {  }
       label: 'Contacts (external)'
       region: content
       parent_name: group_item_information
@@ -443,13 +444,28 @@ third_party_settings:
       label: 'Related content'
       region: content
       parent_name: ''
-      weight: 7
+      weight: 8
       format_type: details
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         open: false
+        description: ''
+        required_fields: true
+    group_series:
+      children:
+        - field_series
+      label: Series
+      region: hidden
+      parent_name: group_taxonomies_tabs
+      weight: 22
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
         description: ''
         required_fields: true
 id: node.event.default
@@ -734,6 +750,16 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_series:
+    type: entity_reference_autocomplete
+    weight: 15
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_short_description:
     type: string_textarea_with_counter
     weight: 35
@@ -820,7 +846,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -879,7 +905,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }

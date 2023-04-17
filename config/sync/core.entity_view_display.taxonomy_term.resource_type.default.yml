@@ -1,35 +1,32 @@
-uuid: dfc3d275-da8c-46a9-b144-1815f79324b1
+uuid: 8dff1df1-adec-4d47-860a-82c5e07dd382
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.taxonomy_term.resource_type.field_parent_node
     - taxonomy.vocabulary.resource_type
+  module:
+    - text
 id: taxonomy_term.resource_type.default
 targetEntityType: taxonomy_term
 bundle: resource_type
 mode: default
 content:
-  field_parent_node:
-    type: entity_reference_autocomplete
-    weight: 1
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
-  name:
-    type: string_textfield
     weight: 0
     region: content
+  field_parent_node:
+    type: entity_reference_label
+    label: above
     settings:
-      size: 60
-      placeholder: ''
+      link: true
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
-  description: true
   langcode: true
-  path: true
-  status: true
+  search_api_excerpt: true

@@ -29,6 +29,7 @@ dependencies:
     - field.field.node.event.field_region
     - field.field.node.event.field_registration
     - field.field.node.event.field_related_manual_content
+    - field.field.node.event.field_series
     - field.field.node.event.field_short_description
     - field.field.node.event.field_start_date
     - field.field.node.event.field_supporting_document
@@ -275,6 +276,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 41
+    region: content
+  field_series:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 53
     region: content
   field_short_description:
     type: basic_string
