@@ -2,7 +2,6 @@
 
 {# Filters, submit, reset, and other action buttons #}
 {% if form['#filters'] is not empty %}
-
   <div class="c-listing__search">
     {% if attribute(form, 'search-term') is defined %}
       {{ attribute(form, 'search-term') }}
