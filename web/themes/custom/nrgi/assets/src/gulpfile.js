@@ -17,9 +17,7 @@ const cleanCss = require('dc-gulp-clean-css');
 // const isProduction = !!(argv.production);
 
 // Browsers to target when prefixing CSS.
-const autoprefixerCompatibility = [
-    'last 2 versions',
-];
+const autoprefixerCompatibility = ['last 2 versions',];
 
 // Livereload over SSL
 const livereloadSettings = {};
@@ -52,25 +50,18 @@ function css (file) {
         .pipe(touch())
 
         // Run livereload
-        .pipe($.filter([
-            path.join(dir, '/**/*.css'),
-            '../**/*.css',
-        ]))
+        .pipe($.filter([path.join(dir, '/**/*.css'), '../**/*.css',]))
         .pipe($.livereload());
 }
 
 function js (filename, inputfile, outputLocation) {
     const dir = path.resolve(`${__dirname}/../js`);
     const bundler = browserify({
-        entries: inputfile,
-        debug: true,
+        entries: inputfile, debug: true,
     });
 
     bundler.transform(babelify, {
-        presets: [
-            '@babel/preset-env',
-        ],
-        sourceMaps: true,
+        presets: ['@babel/preset-env',], sourceMaps: true,
     });
 
     return bundler.bundle()
@@ -94,10 +85,7 @@ function js (filename, inputfile, outputLocation) {
         // .pipe(gulp.dest('../js'))
         // .pipe(touch())
 
-        .pipe($.filter([
-            path.join(dir, '/**/*.js'),
-            '../**/*.js',
-        ]))
+        .pipe($.filter([path.join(dir, '/**/*.js'), '../**/*.js',]))
         // Run livereload
         .pipe($.livereload());
 }
@@ -111,6 +99,8 @@ gulp.task('build-js', gulp.series((done) => {
     // Add your js files here (we're doing them separately so they can be loaded
     // via libraries.yml)
     themejs('header');
+    themejs('languages-overlay');
+    themejs('share-links');
 
     done();
 }));
@@ -125,10 +115,8 @@ gulp.task('build-ckeditor-css', gulp.series(() => css('scss/ckeditor-style.scss'
 gulp.task('build-svg-sprite', gulp.series(() => {
     const config = {
         svg: {
-            xmlDeclaration: false,
-            namespaceClassnames: false,
-        },
-        mode: {
+            xmlDeclaration: false, namespaceClassnames: false,
+        }, mode: {
             // Activate the «symbol» mode
             symbol: {
                 bust: false,
@@ -148,14 +136,9 @@ gulp.task('build-svg-sprite', gulp.series(() => {
         .pipe($.livereload());
 }));
 
-gulp.task('build-all', gulp.series([
-    'build-css',
-    'build-ckeditor-css',
-]));
+gulp.task('build-all', gulp.series(['build-css', 'build-ckeditor-css',]));
 
-gulp.task('build', gulp.series([
-    'build-css',
-]));
+gulp.task('build', gulp.series(['build-css',]));
 
 // Reload the browser!
 gulp.task('reload', gulp.series(() => {
@@ -163,9 +146,7 @@ gulp.task('reload', gulp.series(() => {
 }));
 
 // Watcher
-gulp.task('watch', gulp.series([
-    'build-css',
-], () => {
+gulp.task('watch', gulp.series(['build-css',], () => {
     // Start livereload
     $.livereload.listen(livereloadSettings);
 
@@ -182,12 +163,6 @@ gulp.task('watch', gulp.series([
         .on('change', gulp.series('reload'));
 
     // Watch .php files
-    gulp.watch([
-        '../../../**/*.php',
-        '!../node_modules/',
-        '!../node_modules/**/*',
-        '!node_modules/',
-        '!node_modules/**/*',
-    ])
+    gulp.watch(['../../../**/*.php', '!../node_modules/', '!../node_modules/**/*', '!node_modules/', '!node_modules/**/*',])
         .on('change', gulp.series('reload'));
 }));
