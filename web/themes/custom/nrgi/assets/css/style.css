@@ -1388,12 +1388,6 @@ ul li a:hover {
   }
 }
 .c-homepage-banner .c-media {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 1;
   /* stylelint-disable-next-line */
 }
 .c-homepage-banner .c-media img {
@@ -1404,6 +1398,7 @@ ul li a:hover {
   position: absolute;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 .c-homepage-banner__overlay {
   /* stylelint-disable-next-line */
@@ -1417,6 +1412,7 @@ ul li a:hover {
   z-index: 1;
 }
 .c-homepage-banner__image-placeholder {
+  z-index: 1;
   height: 100%;
   left: 0;
   -o-object-fit: cover;
@@ -1436,6 +1432,7 @@ ul li a:hover {
   }
 }
 .c-homepage-banner__text-wrapper {
+  z-index: 2;
   align-self: flex-end;
   border-top: 1px solid #EDEDEF;
   color: #FFFFFF;

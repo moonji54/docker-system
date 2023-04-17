@@ -14,22 +14,16 @@
 
   /* stylelint-disable-next-line */
   .c-media {
-    @include z-index(homepage-image);
-    height   : 100%;
-    left     : 0;
-    position : absolute;
-    top      : 0;
-    width    : 100%;
-    z-index  : 1;
-
     /* stylelint-disable-next-line */
     img {
+      @include z-index(homepage-image);
       height     : 100%;
       left       : 0;
       object-fit : cover;
       position   : absolute;
       top        : 0;
       width      : 100%;
+      z-index    : 1;
     }
   }
 
@@ -46,7 +40,7 @@
   }
 
   &__image-placeholder {
-    @include z-index(homepage-image);
+    @include z-index(hero-image);
     height     : 100%;
     left       : 0;
     object-fit : cover;
@@ -60,7 +54,7 @@
   }
 
   &__text-wrapper {
-    @include z-index(homepage-image-inner);
+    @include z-index(hero-text-wrapper);
     align-self     : flex-end;
     border-top     : 1px solid $grey-light;
     color          : $white;
