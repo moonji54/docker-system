@@ -11,6 +11,7 @@ dependencies:
     - field.field.paragraph.featured_content.field_link
     - field.field.paragraph.featured_content.field_quantity
     - field.field.paragraph.featured_content.field_region
+    - field.field.paragraph.featured_content.field_series
     - field.field.paragraph.featured_content.field_show_background
     - field.field.paragraph.featured_content.field_show_image
     - field.field.paragraph.featured_content.field_title
@@ -68,6 +69,7 @@ third_party_settings:
     group_categories:
       children:
         - group_topic
+        - group_ser
         - group_country
         - group_region
       label: Categories
@@ -103,7 +105,7 @@ third_party_settings:
       label: Country
       region: content
       parent_name: group_categories
-      weight: 13
+      weight: 14
       format_type: details
       format_settings:
         classes: ''
@@ -118,7 +120,7 @@ third_party_settings:
       label: Region
       region: content
       parent_name: group_categories
-      weight: 14
+      weight: 15
       format_type: details
       format_settings:
         classes: ''
@@ -179,6 +181,21 @@ third_party_settings:
       region: content
       parent_name: group_featured_content_tabs
       weight: 12
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_ser:
+      children:
+        - field_series
+      label: Series
+      region: content
+      parent_name: group_categories
+      weight: 13
       format_type: tab
       format_settings:
         classes: ''
@@ -255,6 +272,16 @@ content:
   field_region:
     type: entity_reference_autocomplete
     weight: 13
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_series:
+    type: entity_reference_autocomplete
+    weight: 17
     region: content
     settings:
       match_operator: CONTAINS

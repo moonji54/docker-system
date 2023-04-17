@@ -27,6 +27,7 @@ class NrgiFeaturedContentHelperService extends NrgiFeaturedCardsBase {
       'field_country',
       'field_region',
       'field_topic',
+      'field_series',
     ]);
 
     $this->setAllowedTypes([

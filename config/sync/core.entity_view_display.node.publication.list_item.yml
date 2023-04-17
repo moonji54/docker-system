@@ -22,6 +22,7 @@ dependencies:
     - field.field.node.publication.field_region
     - field.field.node.publication.field_related_manual_content
     - field.field.node.publication.field_resource_type
+    - field.field.node.publication.field_series
     - field.field.node.publication.field_short_description
     - field.field.node.publication.field_slug
     - field.field.node.publication.field_subtitle
@@ -75,6 +76,7 @@ hidden:
   field_publisher: true
   field_region: true
   field_related_manual_content: true
+  field_series: true
   field_short_description: true
   field_slug: true
   field_subtitle: true
