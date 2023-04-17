@@ -1,0 +1,72 @@
+/** @define c-language-links */
+.c-language-links {
+  $c               : &;
+  background-color : $yellow-light;
+  color            : $primary;
+
+  &__container {
+    @include o-container;
+  }
+
+  &__inner {
+    align-items : center;
+    display     : flex;
+    gap         : 1.5rem;
+    padding     : 0.875rem 0;
+
+    @include media("<=desktop") {
+      flex-wrap : wrap;
+    }
+
+    @include media("<=tablet") {
+      align-items    : flex-start;
+      flex-direction : column;
+      gap            : 0.25rem;
+      padding        : 0.5rem 0 1rem;
+    }
+  }
+
+  &__title {
+    @include ts-section-header;
+    flex-shrink : 0;
+  }
+
+  &__links-list {
+    display   : flex;
+    flex-wrap : wrap;
+    gap       : 1.5rem;
+
+    @include media("<=tablet") {
+      gap     : 2rem;
+      row-gap : 1rem;
+    }
+  }
+
+  &__link {
+    @include ts-sub-menu;
+    align-items : center;
+    color       : $primary;
+    display     : flex;
+    gap         : 0.5rem;
+
+    &:hover,
+    &:focus {
+      #{$c}__link-label {
+        text-decoration-color : $primary;
+      }
+    }
+  }
+
+  &__link-svg {
+    @include media("<=tablet") {
+      display : none;
+    }
+  }
+
+  &__link-label {
+    text-decoration       : underline;
+    text-decoration-color : transparent;
+    text-underline-offset : 0.313rem;
+    transition            : text-decoration-color 0.3s;
+  }
+}
