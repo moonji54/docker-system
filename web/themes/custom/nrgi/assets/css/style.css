@@ -1742,10 +1742,11 @@ ul li a:hover {
 }
 .c-homepage-banner__overlay {
   /* stylelint-disable-next-line */
-  background: linear-gradient(0deg, rgba(45, 45, 50, calc(var(--hero-opacity) * 0.01)), rgba(45, 45, 50, calc(var(--hero-opacity) * 0.01)));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));
   background-blend-mode: multiply, normal;
   height: 100%;
   left: 0;
+  opacity: calc(var(--hero-opacity) * 0.01);
   position: absolute;
   top: 0;
   width: 100%;
