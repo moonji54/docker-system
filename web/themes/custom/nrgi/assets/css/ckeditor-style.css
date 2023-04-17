@@ -68,7 +68,8 @@
     --space-2xl: 2.5rem;
     --space-3xl: 4rem;
     --space-4xl: 6rem;
-    --gutter: 2rem;
+    --gutter: 1rem;
+    --header-height: 4rem;
   }
 }
 @media (max-width: 48rem) {
@@ -79,8 +80,6 @@
     --space-2xl: 2.25rem;
     --space-3xl: 3.5rem;
     --space-4xl: 4.5rem;
-    --gutter: 1rem;
-    --header-height: 4rem;
   }
 }
 
@@ -166,6 +165,24 @@
     height: 2rem;
   }
 }
+.o-button--small {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  height: 2rem;
+  padding: 0.5rem 0.75rem;
+}
+@media (max-width: 48rem) {
+  .o-button--small {
+    font-size: 0.875rem;
+  }
+}
+@media (max-width: 48rem) {
+  .o-button--small {
+    height: 1.75rem;
+  }
+}
 .o-button--white {
   background-color: transparent;
   border: 0.0625rem solid #FFFFFF;
@@ -181,7 +198,7 @@
   background-color: #00B5B4;
 }
 .o-button--tertiary {
-  background-color: #FFFFFF;
+  background-color: transparent;
   border: 0.0625rem solid #2D2D32;
 }
 .o-button--tertiary:focus, .o-button--tertiary:hover {
@@ -493,8 +510,15 @@
   /* #Social
   ================================================== */
 }
-.o-svg--search {
-  background-color: tomato;
+.o-svg--burger-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+.o-svg--chevron-down {
+  height: 0.625rem;
+  width: 1.125rem;
+}
+.o-svg--close-icon {
   height: 1.25rem;
   width: 1.25rem;
 }
@@ -506,9 +530,43 @@
   height: 1.25rem;
   width: 1.25rem;
 }
+.o-svg--share-icon {
+  height: 1.25rem;
+  width: 1.1875rem;
+}
+.o-svg--languages-icon {
+  height: 1.1875rem;
+  width: 1.1875rem;
+}
 .o-svg--arrow {
   height: 0.6875rem;
   width: 1.3125rem;
+}
+.o-svg--arrow-right {
+  height: 0.8125rem;
+  width: 1.375rem;
+}
+.o-svg--search-icon {
+  height: 1.125rem;
+  width: 1.125rem;
+}
+.o-svg--external {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+.o-svg--arrow-right {
+  height: 0.8125rem;
+  width: 1.375rem;
+}
+.o-svg--header-logo {
+  height: 3.5rem;
+  width: 23.813rem;
+}
+@media (max-width: 64rem) {
+  .o-svg--header-logo {
+    height: 1.5rem;
+    width: 10.25rem;
+  }
 }
 .o-svg--nrgi-logo-condensed {
   height: 3.5rem;
@@ -529,6 +587,10 @@
 .o-svg--twitter {
   height: 1.125rem;
   width: 1.5rem;
+}
+.o-svg--whatsapp {
+  height: 1.4375rem;
+  width: 1.4375rem;
 }
 .o-svg--youtube {
   height: 1.0313rem;
@@ -567,15 +629,4 @@
   margin-top: -8.75rem;
   position: absolute;
   visibility: hidden;
-}
-
-.cke_editable .standfirst {
-  color: #00545a;
-  padding: 12px;
-  font-size: 1.5rem;
-}
-
-.cke_editable .boxed-text {
-  background-color: #b3efef;
-  padding: 12px;
 }
