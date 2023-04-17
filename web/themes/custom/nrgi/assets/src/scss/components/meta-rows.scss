@@ -70,7 +70,7 @@
       #{$c}__link {
         @include o-button;
         @include ts-tag;
-        height          : 2rem;
+        height          : auto;
         padding         : 0.5rem 0.75rem;
         text-decoration : none;
 
