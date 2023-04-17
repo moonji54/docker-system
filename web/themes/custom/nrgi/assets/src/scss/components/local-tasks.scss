@@ -1,12 +1,14 @@
-/** @define block-local-tasks-block */
+/* stylelint-disable */
 .block-local-tasks-block {
   background-color : #333333;
   color            : #CCCCCC;
   display          : block;
   font-family      : "Source Sans Pro", "Lucida Grande", Verdana, sans-serif;
   font-size        : 12px;
+  height           : 30px;
   position         : relative;
   width            : 100%;
+  z-index          : 20;
 
   .tabs {
     display : block;
