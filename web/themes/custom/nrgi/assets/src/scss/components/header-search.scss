@@ -1,0 +1,35 @@
+/** @define c-header-search */
+.c-header-search {
+  &__form-inner {
+    align-items : center;
+    display     : flex;
+    position    : relative;
+  }
+
+  &__input {
+    @include placeholder($white);
+    @include ts-sub-menu;
+    background    : transparent;
+    border        : 0;
+    color         : $white;
+    padding-right : 2rem;
+    position      : relative;
+    width         : 100%;
+
+    &:focus {
+      outline : none;
+    }
+  }
+
+  &__submit {
+    cursor     : pointer;
+    position   : absolute;
+    right      : 0;
+    transition : opacity 0.3s;
+
+    &:hover,
+    &:focus {
+      opacity : 0.5;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{% set classes = [
+  'c-node',
+  'c-node--type-' ~ node.bundle|clean_class,
+] %}
+
+<header {{ attributes.addClass(classes) }}>
+
+  {{ drupal_block('system_breadcrumb_block', {label: 'c-single-header__breadcrumbs'}) }}
+
+  <h1 class="c-node__title">{{ label }}</h1>
+
+  {% if content.field_subtitle|field_value %}
+    <div>{{ content.field_subtitle }}</div>
+  {% endif %}
+
+  {% if subtype %}
+    <h5>SUBTYPE</h5>
+    <p>{{ subtype }}</p>
+  {% endif %}
+
+  {% if date %}
+    <div>{{ date }}</div>
+  {% endif %}
+
+  {% if authors %}
+    <div>
+      <ul>
+        {% for author in authors %}
+          <li>
+            {% if author.url %}
+              <a href="{{ author.url }}"
+                 title="{{ 'Visit '|t ~ author.firstname ~ ' ' ~ author.surname ~ '\'s profile'|t }}"
+                 target="{{ author.is_external ? '_blank' : '' }}">
+                {{ author.firstname ~ ' ' ~ author.surname }}
+              </a>
+            {% else %}
+              {{ author.firstname ~ ' ' ~ author.surname }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  {% if content.field_link|field_value %}
+    {# External item #}
+    {{ content.field_link }}
+  {% endif %}
+
+  {% if report_pdf %}
+    {# Reprot PDF #}
+    {% set file_label =  'Download PDF'|t %}
+    <span class="c-meta-rows__icon-wrapper"></span>
+    <a href="{{ report_pdf.url }}" title="{{ file_label }}">{{ file_label }}</a>
+  {% endif %}
+
+</header>

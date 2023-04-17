@@ -1,0 +1,24 @@
+uuid: be961c7f-7f5c-4e84-b8db-b0666d664b7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.series
+id: taxonomy_term.series.default
+targetEntityType: taxonomy_term
+bundle: series
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true
+  status: true

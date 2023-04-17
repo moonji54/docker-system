@@ -12,6 +12,5 @@
 #}
 <button {{ attributes }}>
   <span class="u-accessible-hide">{{ attributes.value }}</span>
-  SEARCH
-  {# SBTODO - TODO: add search icon {% include '@ifs/svg/svg.html.twig' with {'svg': 'search', 'extra_class': 'c-header-search__button-icon'} %} #}
+  {% include '@nrgi/svg/svg.html.twig' with {'svg': 'search-icon', 'extra_class': 'c-header-search__svg'} %}
 </button>{{ children }}

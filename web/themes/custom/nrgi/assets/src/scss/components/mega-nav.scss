@@ -1,0 +1,80 @@
+/** @define c-mega-nav */
+.c-mega-nav {
+  $class           : &;
+  /* stylelint-disable-next-line */
+  @include z-index(mega-nav);
+  background-color : $secondary;
+  box-shadow       : 0 0.5rem 1rem rgba($black, 15%);
+  box-sizing       : border-box;
+  display          : none;
+  left             : 0;
+  padding          : var(--space-m) 0;
+  position         : absolute;
+  top              : calc(100% + 1px);
+  width            : 100%;
+
+  @include media("<=desktop") {
+    background-color : transparent;
+    box-shadow       : none;
+    margin-left      : calc((var(--gutter)) * -1);
+    padding          : 1rem 0 2rem;
+    position         : relative;
+    top              : 0;
+    width            : 100vw;
+  }
+
+  &__container {
+    @include o-container;
+  }
+
+  &__groups {
+    display        : flex;
+    flex-direction : column;
+    gap            : 1.5rem;
+
+    @include media("<=desktop") {
+      gap : 2rem;
+    }
+  }
+
+  &__group-inner {
+    @include o-container;
+  }
+
+  &__heading {
+    @include ts-section-header;
+    margin-bottom : 0.5rem;
+
+    @include media("<=desktop") {
+      margin-bottom : 2rem;
+    }
+  }
+
+  &__list {
+    column-gap : 1.5rem;
+    display    : flex;
+    flex-wrap  : wrap;
+    row-gap    : 1rem;
+
+    @include media("<=desktop") {
+      flex-direction : column;
+      row-gap        : 2rem;
+    }
+
+    // Don't show any accidental grandchildren lists.
+    & & {
+      display : none;
+    }
+  }
+
+  &__link {
+    @include ts-sub-menu;
+    @include underlined($color : $blue-light);
+    display : block;
+
+    &:hover,
+    &:focus {
+      color : $blue-light;
+    }
+  }
+}
