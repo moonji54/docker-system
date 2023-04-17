@@ -63,12 +63,15 @@
 @import "components/form";
 @import "components/full-width-media";
 @import "components/header";
+@import "components/header-search";
+@import "components/homepage-banner";
 @import "components/language-links";
 @import "components/local-tasks";
 @import "components/login";
 @import "components/main-menu";
+@import "components/mega-nav";
+@import "components/secondary-menu";
 @import "components/quote";
-@import "components/share";
 @import "components/page-header";
 @import "components/social-links";
 
@@ -77,7 +80,8 @@
     7. TRUMPS
     ===============================
 */
-@import "overrides/utilities";
 @import "overrides/ckeditor/ckeditor";
 @import "overrides/plugins";
+@import "overrides/plugins/perfect-scrollbar";
 @import "overrides/print";
+@import "overrides/utilities";

@@ -11,7 +11,7 @@ global-scripts:
   version: 1.0
   js:
     https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js: { type: external, minified: true }
-    assets/js/example.js: { }
+    assets/js/header.js: { }
     assets/js/languages-overlay.js: { }
     assets/js/colorbox_style_example.js: { }
 
