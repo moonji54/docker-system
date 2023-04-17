@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.article.field_country
     - field.field.node.article.field_data_document
     - field.field.node.article.field_disable
+    - field.field.node.article.field_disable_related_content
     - field.field.node.article.field_external_authors
     - field.field.node.article.field_featured_image
     - field.field.node.article.field_keywords
@@ -18,7 +19,9 @@ dependencies:
     - field.field.node.article.field_publication_date
     - field.field.node.article.field_publisher
     - field.field.node.article.field_region
+    - field.field.node.article.field_related_manual_content
     - field.field.node.article.field_resource_type
+    - field.field.node.article.field_series
     - field.field.node.article.field_short_description
     - field.field.node.article.field_slug
     - field.field.node.article.field_subtitle
@@ -87,6 +90,16 @@ content:
     third_party_settings: {  }
     weight: 39
     region: content
+  field_disable_related_content:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 42
+    region: content
   field_external_authors:
     type: entity_reference_revisions_entity_view
     label: above
@@ -97,10 +110,11 @@ content:
     weight: 40
     region: content
   field_featured_image:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     label: above
     settings:
-      link: true
+      view_mode: '16'
+      link: false
     third_party_settings: {  }
     weight: 12
     region: content
@@ -175,6 +189,14 @@ content:
     third_party_settings: {  }
     weight: 23
     region: content
+  field_related_manual_content:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 41
+    region: content
   field_resource_type:
     type: entity_reference_label
     label: above
@@ -182,6 +204,14 @@ content:
       link: false
     third_party_settings: {  }
     weight: 24
+    region: content
+  field_series:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 43
     region: content
   field_short_description:
     type: basic_string

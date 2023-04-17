@@ -1,0 +1,12 @@
+<section class="o-section o-section--has-gradient o-section--has-background">
+  <div class="o-container">
+    <header class="o-section__header">
+      <h2 class="o-section__heading">{{ 'Related content'|trans }}</h2>
+    </header>
+    <div class="o-card-container o-card-container--three-per-row">
+      {% for related_node in related_nodes %}
+        {{ related_node }}
+      {% endfor %}
+    </div>
+  </div>
+</section>

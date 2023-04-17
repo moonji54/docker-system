@@ -1,0 +1,51 @@
+uuid: 86dd03a0-a334-4d63-9dc7-b10e4da8340c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_parent_node
+    - node.type.article
+    - node.type.career_opportunity
+    - node.type.country
+    - node.type.event
+    - node.type.homepage
+    - node.type.landing_page
+    - node.type.listing_page
+    - node.type.page
+    - node.type.person
+    - node.type.publication
+    - node.type.region
+    - node.type.topic
+    - taxonomy.vocabulary.resource_type
+id: taxonomy_term.resource_type.field_parent_node
+field_name: field_parent_node
+entity_type: taxonomy_term
+bundle: resource_type
+label: 'Parent for breadcrumb'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      article: article
+      career_opportunity: career_opportunity
+      country: country
+      event: event
+      homepage: homepage
+      landing_page: landing_page
+      listing_page: listing_page
+      page: page
+      person: person
+      publication: publication
+      region: region
+      topic: topic
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: region
+field_type: entity_reference

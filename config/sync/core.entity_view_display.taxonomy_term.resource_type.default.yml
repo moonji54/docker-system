@@ -1,0 +1,32 @@
+uuid: 8dff1df1-adec-4d47-860a-82c5e07dd382
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.resource_type.field_parent_node
+    - taxonomy.vocabulary.resource_type
+  module:
+    - text
+id: taxonomy_term.resource_type.default
+targetEntityType: taxonomy_term
+bundle: resource_type
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_parent_node:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,19 @@
+uuid: 9c56705a-dc3e-4ca8-9b6e-bcd0eafb296e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contributions_description
+    - node.type.region
+id: node.region.field_contributions_description
+field_name: field_contributions_description
+entity_type: node
+bundle: region
+label: 'Region content section description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,4 +1,4 @@
-{% include '@nrgi/card-partials/featured-page.html.twig' with {
+{% include '@nrgi/card-partials/featured-content.html.twig' with {
   content_type: content_type,
   url : url,
   slug: slug,
@@ -9,6 +9,8 @@
   topics: topics,
   title : label,
   format: format,
+  publisher: content.field_publisher|field_raw['value'],
   recording: recording,
-  layout : '3-per-row',
+  layout : 'three-col',
+  show_image : true
 } %}

@@ -1,0 +1,31 @@
+/** @define c-secondary-menu */
+.c-secondary-menu {
+  display         : flex;
+  flex-wrap       : wrap;
+  gap             : var(--space-m);
+  justify-content : flex-end;
+
+  @include media("<=desktop") {
+    flex-direction  : column;
+    gap             : 0;
+    justify-content : flex-start;
+  }
+
+  &__item {
+    @include media("<desktop") {
+      border-top   : 1px solid $grey-light;
+      padding-left : var(--gutter);
+    }
+  }
+
+  &__item-link {
+    @include ts-sub-menu;
+    @include underlined;
+
+    @include media("<=desktop") {
+      @include ts-main-menu;
+      display : block;
+      padding : 0.5rem 0;
+    }
+  }
+}

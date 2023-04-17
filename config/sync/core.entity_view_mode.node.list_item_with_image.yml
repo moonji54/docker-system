@@ -1,0 +1,10 @@
+uuid: d76dd844-2cc2-4010-b943-3bcd553eda44
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.list_item_with_image
+label: 'List item with image'
+targetEntityType: node
+cache: true

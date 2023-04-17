@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.person.field_board_member_type
+    - field.field.node.person.field_contributions_description
+    - field.field.node.person.field_contributions_title
     - field.field.node.person.field_country
     - field.field.node.person.field_email
     - field.field.node.person.field_featured_image
@@ -15,11 +17,10 @@ dependencies:
     - field.field.node.person.field_short_bio
     - field.field.node.person.field_surname
     - field.field.node.person.field_topic
-    - field.field.node.person.field_twitter
+    - field.field.node.person.field_twitter_handle
     - node.type.person
   module:
     - entity_reference_revisions
-    - link
     - user
 id: node.person.default
 targetEntityType: node
@@ -39,6 +40,22 @@ content:
     third_party_settings: {  }
     weight: 118
     region: content
+  field_contributions_description:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 124
+    region: content
+  field_contributions_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 123
+    region: content
   field_country:
     type: entity_reference_label
     label: hidden
@@ -48,18 +65,18 @@ content:
     weight: 113
     region: content
   field_email:
-    type: string
+    type: email_mailto
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 119
+    weight: 122
     region: content
   field_featured_image:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     label: above
     settings:
-      link: true
+      view_mode: square_large
+      link: false
     third_party_settings: {  }
     weight: 120
     region: content
@@ -128,17 +145,13 @@ content:
     third_party_settings: {  }
     weight: 117
     region: content
-  field_twitter:
-    type: link
-    label: hidden
+  field_twitter_handle:
+    type: string
+    label: above
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      link_to_entity: false
     third_party_settings: {  }
-    weight: 108
+    weight: 121
     region: content
   links:
     settings: {  }

@@ -58,7 +58,6 @@ content:
     weight: 113
     region: content
 hidden:
-  content_moderation_control: true
   field_body: true
   langcode: true
   links: true

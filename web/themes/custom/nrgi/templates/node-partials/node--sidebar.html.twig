@@ -1,52 +1,40 @@
-{% if sidebar_data %}
-  <section class="c-meta-rows{{ content_type == 'collection' ? ' c-meta-rows--full-width' }} o-section">
+<section class="c-meta-rows o-section">
+
+  {# Language switcher #}
+  {% if language_switcher_links %}
+    {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
+      'text' :  "Other languages"|t,
+      'links' : language_switcher_links
+    } %}
+  {% endif %}
+
+  {# Share buttons #}
+  {% include '@nrgi/node-partials/node--share-links.html.twig' %}
+
+  {% if sidebar_data %}
+    {# SIDEBAR META (logos)  #}
     <div class="c-meta-rows__container o-container">
       <dl class="c-meta-rows__inner">
         {% for data in sidebar_data %}
-          {% if data.type == 'text' %}
+          {% for section in data %}
             <div class="c-meta-rows__row">
               <dt class="c-meta-rows__label">
-                {{ data.label }}
+                <h3>{{ section.label }}</h3>
               </dt>
-
               <dd class="c-meta-rows__items">
-                {{ data.items.title }}
+                {% for item in section.items %}
+                  {% if item.type == 'logo' %}
+                    {# Organisation logos #}
+                    {% include '@nrgi/node-partials/node--logos.html.twig' with {'item': item} %}
+
+                  {% endif %}
+                {% endfor %}
               </dd>
             </div>
-          {% elseif data.type == 'logo' %}
-              <div class="c-meta-rows__row">
-                <dt class="c-meta-rows__label">
-                  {{ data.label }}
-                </dt>
-                {% for section in data.sections %}
-                  <dd class="c-meta-rows__row">
-                    <a href="{{ section.link }}">{{ section.view }}</a>
-                  </dd>
-                {% endfor %}
-              </div>
-          {% else %}
-            {% for section in data %}
-              <div class="c-meta-rows__row">
-                <dt class="c-meta-rows__label">
-                  {{ section.label }}
-                </dt>
-                <dd class="c-meta-rows__items{{ section.items[0]['type'] == 'file' ? ' c-meta-rows__items--downloads' }}">
-                  {% for item in section.items %}
-                    <a href="{{ item.url }}">{{ item.title|trim }}
-                      {% if item.type == 'file' %}
-                        <span class="c-meta-rows__icon-wrapper">
-                      </span>
-                      {% endif %}
-                    </a>
-                  {% endfor %}
-                </dd>
-              </div>
-            {% endfor %}
-          {% endif %}
+          {% endfor %}
         {% endfor %}
       </dl>
     </div>
-  </section>
-{% endif %}
+  {% endif %}
 
-
+</section>

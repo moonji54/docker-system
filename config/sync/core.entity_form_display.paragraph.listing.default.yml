@@ -3,7 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.listing.field_listing
+    - field.field.paragraph.listing.field_listing_view
+    - field.field.paragraph.listing.field_title
     - paragraphs.paragraphs_type.listing
   module:
     - viewsreference
@@ -12,11 +13,19 @@ targetEntityType: paragraph
 bundle: listing
 mode: default
 content:
-  field_listing:
+  field_listing_view:
     type: viewsreference_select
     weight: 1
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true

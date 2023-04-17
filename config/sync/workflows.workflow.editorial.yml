@@ -13,6 +13,7 @@ dependencies:
     - node.type.page
     - node.type.person
     - node.type.publication
+    - node.type.region
     - node.type.topic
   module:
     - content_moderation
@@ -100,5 +101,6 @@ type_settings:
       - page
       - person
       - publication
+      - region
       - topic
   default_moderation_state: draft

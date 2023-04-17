@@ -1,0 +1,114 @@
+$rail-color     : transparent;
+$scroller-color : $primary;
+/*
+ * Container style
+ */
+.ps {
+  overflow           : hidden !important;
+  overflow-anchor    : none;
+  -ms-overflow-style : none;
+  touch-action       : auto;
+  -ms-touch-action   : auto;
+}
+
+/*
+ * Scrollbar rail styles
+ */
+.ps__rail-x {
+  //display            : none;
+  bottom             : 0;
+  height             : 15px;
+  opacity            : 1;
+  position           : absolute;
+  /* there must be 'bottom' or 'top' for ps__rail-x */
+  -webkit-transition : background-color .2s linear, opacity .2s linear;
+  /* please don't change 'position' */
+  transition         : background-color .2s linear, opacity .2s linear;
+}
+
+.ps__rail-y {
+  //display            : none;
+  opacity            : 1;
+  position           : absolute;
+  right              : 0;
+  -webkit-transition : background-color .2s linear, opacity .2s linear;
+  /* there must be 'right' or 'left' for ps__rail-y */
+  transition         : background-color .2s linear, opacity .2s linear;
+  /* please don't change 'position' */
+  width              : 10px;
+}
+
+.ps--active-x > .ps__rail-x,
+.ps--active-y > .ps__rail-y {
+  background-color : $rail-color;
+  display          : block;
+}
+
+.ps:hover > .ps__rail-x,
+.ps:hover > .ps__rail-y,
+.ps--focus > .ps__rail-x,
+.ps--focus > .ps__rail-y,
+.ps--scrolling-x > .ps__rail-x,
+.ps--scrolling-y > .ps__rail-y {
+  opacity : 0.9;
+}
+
+.ps .ps__rail-x:hover,
+.ps .ps__rail-y:hover,
+.ps .ps__rail-x:focus,
+.ps .ps__rail-y:focus,
+.ps .ps__rail-x.ps--clicking,
+.ps .ps__rail-y.ps--clicking {
+  background-color : $rail-color;
+  opacity          : 1;
+}
+
+/*
+ * Scrollbar thumb styles
+ */
+.ps__thumb-x {
+  background-color : $scroller-color;
+  bottom           : 2px;
+  /* there must be 'bottom' for ps__thumb-x */
+  height           : 6px;
+  /* please don't change 'position' */
+  position         : absolute;
+}
+
+.ps__thumb-y {
+  background-color : $scroller-color;
+  border-radius    : 0.25rem;
+  opacity          : 0.9;
+  /* there must be 'right' for ps__thumb-y */
+  position         : absolute;
+  /* please don't change 'position' */
+  right            : 0;
+  width            : 8px;
+}
+
+.ps__rail-x:hover > .ps__thumb-x,
+.ps__rail-x:focus > .ps__thumb-x,
+.ps__rail-x.ps--clicking .ps__thumb-x {
+  background-color : darken($scroller-color, 0.1);
+  height           : 10px;
+}
+
+.ps__rail-y:hover > .ps__thumb-y,
+.ps__rail-y:focus > .ps__thumb-y,
+.ps__rail-y.ps--clicking .ps__thumb-y {
+  opacity : 1;
+  width   : 8px;
+}
+
+/* MS supports */
+@supports (-ms-overflow-style: none) {
+  .ps {
+    overflow : auto !important;
+  }
+}
+
+@media screen and (-ms-high-contrast : active), (-ms-high-contrast : none) {
+  .ps {
+    overflow : auto !important;
+  }
+}

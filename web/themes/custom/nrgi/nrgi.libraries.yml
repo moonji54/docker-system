@@ -11,10 +11,34 @@ global-scripts:
   version: 1.0
   js:
     https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js: { type: external, minified: true }
+    assets/js/colorbox_style_example.js: { }
+    assets/js/header.js: { }
+    assets/js/languages-overlay.js: { }
     assets/js/lightbox.js: { }
+    assets/js/parallax-scroll.js: { }
   dependencies:
     - core/jquery
     - core/drupal
     - core/drupalSettings
     - core/once
+
+# Share links
+share-links:
+  version: 1.0
+  js:
+    assets/js/share-links.js: { minified: false }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - core/drupalSetting
+parallax-scroll:
+  version: 1.0
+  js:
+    assets/js/parallax-scroll.js: { minified: false }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - core/drupalSetting
 
