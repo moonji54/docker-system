@@ -60,6 +60,11 @@
       flex-direction : column;
       row-gap        : 2rem;
     }
+
+    // Don't show any accidental grandchildren lists.
+    & & {
+      display : none;
+    }
   }
 
   &__link {

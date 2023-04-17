@@ -983,14 +983,12 @@ ul li a:hover {
 }
 .c-card__link {
   text-decoration: underline;
-  -webkit-text-decoration-color: transparent;
-          text-decoration-color: transparent;
+  text-decoration-color: transparent;
   text-underline-offset: 0.4375rem;
   transition: all 0.3s;
 }
 .c-card__link:hover, .c-card__link:focus {
-  -webkit-text-decoration-color: #FF7D5F;
-          text-decoration-color: #FF7D5F;
+  text-decoration-color: #FF7D5F;
 }
 .c-card__link:before {
   bottom: 0;
@@ -1436,6 +1434,7 @@ ul li a:hover {
 
 /** @define c-header */
 .c-header {
+  z-index: 15;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 93.27%);
   border-bottom: 1px solid rgba(237, 237, 239, 0.5);
   box-sizing: border-box;
@@ -1443,19 +1442,19 @@ ul li a:hover {
   padding: 3.75rem 0 1rem;
   position: absolute;
   width: 100%;
-  /* #Logo
+  /* Logo
   ================================================== */
-  /* #Secondary-menu
+  /* Secondary-menu
   ================================================== */
-  /* #Main menu
+  /* Main menu
   ================================================== */
-  /* #Secondary-menu and main menu shared styles
+  /* Secondary-menu and main menu shared styles
   ================================================== */
-  /* #Search
+  /* Search
   ================================================== */
-  /* #Burger button
+  /* Burger button
   ================================================== */
-  /* #Mobile menu
+  /* Mobile menu
   ================================================== */
   /* stylelint-disable-next-line */
   /* stylelint-disable-next-line */
@@ -1916,8 +1915,7 @@ ul li a:hover {
   }
 }
 .c-language-links__link:hover .c-language-links__link-label, .c-language-links__link:focus .c-language-links__link-label {
-  -webkit-text-decoration-color: #2D2D32;
-          text-decoration-color: #2D2D32;
+  text-decoration-color: #2D2D32;
 }
 @media (max-width: 48rem) {
   .c-language-links__link-svg {
@@ -1926,12 +1924,9 @@ ul li a:hover {
 }
 .c-language-links__link-label {
   text-decoration: underline;
-  -webkit-text-decoration-color: transparent;
-          text-decoration-color: transparent;
+  text-decoration-color: transparent;
   text-underline-offset: 0.313rem;
-  transition: -webkit-text-decoration-color 0.3s;
   transition: text-decoration-color 0.3s;
-  transition: text-decoration-color 0.3s, -webkit-text-decoration-color 0.3s;
 }
 
 /** @define block-local-tasks-block */
@@ -2037,8 +2032,7 @@ ul li a:hover {
 }
 @media (min-width: 64.1rem) {
   .c-main-menu__item:hover > .c-main-menu__item-link-wrapper > .c-main-menu__item-link, .c-main-menu__item:focus > .c-main-menu__item-link-wrapper > .c-main-menu__item-link {
-    -webkit-text-decoration-color: #FFFFFF;
-            text-decoration-color: #FFFFFF;
+    text-decoration-color: #FFFFFF;
   }
 }
 .c-main-menu__item--expanded .c-main-menu__item-link {
@@ -2058,8 +2052,7 @@ ul li a:hover {
   }
 }
 .c-main-menu__item--active-trail .c-main-menu__item-link {
-  -webkit-text-decoration-color: #FFFFFF;
-          text-decoration-color: #FFFFFF;
+  text-decoration-color: #FFFFFF;
 }
 @media (max-width: 64rem) {
   .c-main-menu__item-link-wrapper {
@@ -2073,8 +2066,7 @@ ul li a:hover {
   font-size: 1.25rem;
   line-height: 1.75;
   text-decoration: underline;
-  -webkit-text-decoration-color: transparent;
-          text-decoration-color: transparent;
+  text-decoration-color: transparent;
   text-underline-offset: 0.313rem;
   transition: all 0.3s;
   /* stylelint-disable-next-line */
@@ -2085,8 +2077,7 @@ ul li a:hover {
   }
 }
 .c-main-menu__item-link:hover, .c-main-menu__item-link:focus {
-  -webkit-text-decoration-color: #FFFFFF;
-          text-decoration-color: #FFFFFF;
+  text-decoration-color: #FFFFFF;
 }
 @media (max-width: 63.9rem) {
   .c-main-menu__item-link {
@@ -2095,8 +2086,7 @@ ul li a:hover {
   }
 }
 .c-main-menu__item-link.is-active {
-  -webkit-text-decoration-color: #FFFFFF;
-          text-decoration-color: #FFFFFF;
+  text-decoration-color: #FFFFFF;
 }
 .c-main-menu__sub-menu-button {
   display: none;
@@ -2226,14 +2216,16 @@ ul li a:hover {
     row-gap: 2rem;
   }
 }
+.c-mega-nav__list .c-mega-nav__list {
+  display: none;
+}
 .c-mega-nav__link {
   font-family: "Noto Sans", sans-serif;
   font-weight: 400;
   font-size: 1.125rem;
   line-height: 1;
   text-decoration: underline;
-  -webkit-text-decoration-color: transparent;
-          text-decoration-color: transparent;
+  text-decoration-color: transparent;
   text-underline-offset: 0.313rem;
   transition: all 0.3s;
   display: block;
@@ -2244,8 +2236,7 @@ ul li a:hover {
   }
 }
 .c-mega-nav__link:hover, .c-mega-nav__link:focus {
-  -webkit-text-decoration-color: #B3EFEF;
-          text-decoration-color: #B3EFEF;
+  text-decoration-color: #B3EFEF;
 }
 .c-mega-nav__link:hover, .c-mega-nav__link:focus {
   color: #B3EFEF;
@@ -2277,8 +2268,7 @@ ul li a:hover {
   font-size: 1.125rem;
   line-height: 1;
   text-decoration: underline;
-  -webkit-text-decoration-color: transparent;
-          text-decoration-color: transparent;
+  text-decoration-color: transparent;
   text-underline-offset: 0.313rem;
   transition: all 0.3s;
 }
@@ -2288,8 +2278,7 @@ ul li a:hover {
   }
 }
 .c-secondary-menu__item-link:hover, .c-secondary-menu__item-link:focus {
-  -webkit-text-decoration-color: #FFFFFF;
-          text-decoration-color: #FFFFFF;
+  text-decoration-color: #FFFFFF;
 }
 @media (max-width: 64rem) {
   .c-secondary-menu__item-link {
