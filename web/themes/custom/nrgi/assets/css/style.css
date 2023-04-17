@@ -332,7 +332,7 @@ ul li a:hover {
   background-color: #00B5B4;
 }
 .o-button--tertiary {
-  background-color: #FFFFFF;
+  background-color: transparent;
   border: 0.0625rem solid #2D2D32;
 }
 .o-button--tertiary:focus, .o-button--tertiary:hover {
@@ -2421,6 +2421,189 @@ ul li a:hover {
 .cke_editable .boxed-text {
   background-color: #B3EFEF;
   padding: 12px;
+}
+
+/* stylelint-disable */
+#sliding-popup.sliding-popup-bottom {
+  background-color: #FF7D5F;
+}
+
+#sliding-popup.sliding-popup-bottom .eu-cookie-compliance-message > * {
+  color: #2D2D32;
+}
+
+.eu-cookie-compliance-banner {
+  display: grid;
+  grid-column-gap: var(--gutter);
+  grid-template-columns: repeat(12, 1fr);
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: calc(82rem + var(--gutter) * 2);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  width: 100%;
+}
+@media (max-width: 48rem) {
+  .eu-cookie-compliance-banner {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.eu-cookie-compliance-content {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gutter);
+  grid-column: 1/-1;
+  justify-content: space-between;
+  max-width: none;
+  padding: 1rem 0;
+}
+@media (max-width: 48rem) {
+  .eu-cookie-compliance-content {
+    align-items: start;
+    flex-direction: column;
+    grid-column: 1/-1;
+    justify-content: start;
+  }
+}
+
+.eu-cookie-compliance-content > * {
+  max-width: none;
+}
+
+.eu-cookie-compliance-message {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  float: none;
+  margin: 0;
+}
+@media (max-width: 64rem) {
+  .eu-cookie-compliance-message {
+    font-size: 0.875rem;
+  }
+}
+
+.eu-cookie-compliance-message h2 {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  float: none;
+  margin: 0;
+}
+@media (max-width: 48rem) {
+  .eu-cookie-compliance-message h2 {
+    font-size: 1.125rem;
+  }
+}
+
+.eu-cookie-compliance-message p {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: inline;
+  font-weight: normal;
+  line-height: 1.6;
+}
+@media (max-width: 64rem) {
+  .eu-cookie-compliance-message p {
+    font-size: 0.875rem;
+  }
+}
+
+.eu-cookie-compliance-banner .eu-cookie-compliance-default-button, .eu-cookie-compliance-secondary-button {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1;
+  align-items: center;
+  color: #2D2D32;
+  height: 2.5rem;
+  display: inline-flex;
+  gap: var(--space-xs);
+  background-color: #FF7D5F;
+  padding: 0.625rem 1.125rem;
+  transition: background-color 0.3s;
+  border-radius: 2.75rem;
+  /* stylelint-disable */
+  background-color: transparent;
+  background-image: none;
+  border: 0.0625rem solid #2D2D32;
+  margin: 0 0 0 var(--space-xs);
+}
+@media (max-width: 64rem) {
+  .eu-cookie-compliance-banner .eu-cookie-compliance-default-button, .eu-cookie-compliance-secondary-button {
+    font-size: 1rem;
+  }
+}
+.eu-cookie-compliance-banner .eu-cookie-compliance-default-button:focus, .eu-cookie-compliance-banner .eu-cookie-compliance-default-button:hover, .eu-cookie-compliance-secondary-button:focus, .eu-cookie-compliance-secondary-button:hover {
+  background-color: #ED7053;
+}
+@media (max-width: 48rem) {
+  .eu-cookie-compliance-banner .eu-cookie-compliance-default-button, .eu-cookie-compliance-secondary-button {
+    padding: 0.25rem 0.875rem;
+    height: 2rem;
+  }
+}
+.eu-cookie-compliance-banner .eu-cookie-compliance-default-button:focus, .eu-cookie-compliance-banner .eu-cookie-compliance-default-button:hover, .eu-cookie-compliance-secondary-button:focus, .eu-cookie-compliance-secondary-button:hover {
+  background-color: #ED7053;
+}
+
+.eu-cookie-compliance-banner .eu-cookie-compliance-more-button {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.313rem;
+  transition: all 0.3s;
+  display: inline;
+  margin-top: 0;
+  text-decoration-color: #2D2D32;
+}
+@media (max-width: 64rem) {
+  .eu-cookie-compliance-banner .eu-cookie-compliance-more-button {
+    font-size: 0.875rem;
+  }
+}
+.eu-cookie-compliance-banner .eu-cookie-compliance-more-button:hover, .eu-cookie-compliance-banner .eu-cookie-compliance-more-button:focus {
+  text-decoration-color: currentColor;
+}
+
+.eu-cookie-compliance-buttons {
+  float: none;
+  margin: 0;
+  max-width: none;
+}
+.eu-cookie-compliance-buttons .button {
+  vertical-align: middle;
+}
+.eu-cookie-compliance-buttons .button:first-child {
+  margin-left: 0;
+}
+@media (max-width: 48rem) {
+  .eu-cookie-compliance-buttons {
+    max-width: none;
+  }
+}
+
+.disagree-button.eu-cookie-compliance-more-button,
+.eu-cookie-compliance-agree-button,
+.eu-cookie-compliance-default-button,
+.eu-cookie-compliance-hide-button,
+.eu-cookie-compliance-more-button-thank-you,
+.eu-cookie-withdraw-button,
+.eu-cookie-compliance-save-preferences-button {
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
 }
 
 /*
