@@ -8,25 +8,32 @@
   height           : 30px;
   position         : relative;
   width            : 100%;
+  z-index          : 20;
 
+  /* stylelint-disable-next-line */
   .tabs {
     display : block;
     margin  : 0;
 
+    /* stylelint-disable-next-line */
     li {
       display      : block;
       float        : left;
       margin-right : 0;
 
+      /* stylelint-disable-next-line */
       a {
         display : block;
         padding : var(--space-xs) var(--space-m);
 
+        /* stylelint-disable-next-line */
         &.is-active {
           background-color : $primary;
         }
 
-        &:hover, &:focus {
+        /* stylelint-disable-next-line */
+        &:hover,
+        &:focus {
           background-color : $primary;
         }
       }
