@@ -1,0 +1,19 @@
+uuid: 3b59e5f2-f683-4a52-9ab6-5ef24c3662a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_slug
+    - node.type.publication
+id: node.publication.field_slug
+field_name: field_slug
+entity_type: node
+bundle: publication
+label: Slug
+description: 'Enter a short slug to appear on the homepage card.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,30 @@
+{% set classes = [
+  'c-card',
+  'c-card--person'
+] %}
+
+  {% if title %}
+    <article{{ attributes.addClass(classes) }}>
+      <div class="c-card__image-wrapper">
+        {% if responsive_image %}
+          {{ responsive_image }}
+        {% else %}
+          <img src="/{{ base_path ~ directory }}/assets/img/fallback-person.svg" aria-role="presentation" alt=""/>
+        {% endif %}
+      </div>
+
+      <div class="c-card__content-wrapper">
+        <h3 class="c-card__title">
+          <a class="c-card__link" href="{{ url }}">
+            {{ title|field_value }}
+          </a>
+        </h3>
+
+        {% if content.field_job_title|field_value %}
+          <p class="c-card__job-title">
+            {{ content.field_job_title|field_raw('value') }}
+          </p>
+        {% endif %}
+      </div>
+    </article>
+  {% endif %}

@@ -1,21 +1,17 @@
 {% set classes = [
   'c-quote',
   'o-section',
-  'paragraph',
-  'paragraph--type--' ~ paragraph.bundle|clean_class,
-  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  not paragraph.isPublished() ? 'paragraph--unpublished'
+  'o-section--has-background'
 ] %}
 
-<section{{ attributes.addClass(classes) }}>
-  <div style="padding: 20px; border:1px indianred dotted; background-color: coral">
-    [quote]
-    {% if content.field_quotation|field_value %}
-      <blockquote style="font-size: 48px">{{ "“#{content.field_quotation|field_raw('value')}”" }}</blockquote>
-    {% endif %}
+{% if content.field_quotation|field_value %}
+  <figure{{ attributes.addClass(classes) }}>
+    <div class="o-container">
+      <blockquote class="c-quote__text">{{ content.field_quotation|field_raw('value') }}</blockquote>
 
-    {% if content.field_quote_author|field_value %}
-      <p>{{ content.field_quote_author }}</p>
-    {% endif %}
-  </div>
-</section>
+      {% if content.field_quote_author|field_value %}
+        <figcaption class="c-quote__caption">{{ content.field_quote_author }}</figcaption>
+      {% endif %}
+    </div>
+  </figure>
+{% endif %}

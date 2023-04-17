@@ -26,6 +26,16 @@
 .o-button {
   @include o-button;
 
+  &--small {
+    @include ts-tag;
+    height  : 2rem;
+    padding : 0.5rem 0.75rem;
+
+    @include media("<=tablet") {
+      height : 1.75rem;
+    }
+  }
+
   &--white {
     background-color : transparent;
     border           : 0.0625rem solid $white;

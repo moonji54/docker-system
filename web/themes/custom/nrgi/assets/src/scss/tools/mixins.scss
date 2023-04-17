@@ -83,16 +83,23 @@ $z-index : (
   }
 }
 
-@mixin object-fit($size) {
-  font-family : "object-fit: #{$size};";
-  object-fit  : $size;
-}
-
 @mixin selection-background($color) {
   &::selection {
     background : $color;
   }
   &::-moz-selection {
     background : $color;
+  }
+}
+
+@mixin underlined($color: $white, $offset: 0.313rem) {
+  text-decoration       : underline;
+  text-decoration-color : transparent;
+  text-underline-offset : $offset;
+  transition            : all 0.3s;
+
+  &:hover,
+  &:focus {
+    text-decoration-color : $color;
   }
 }

@@ -4,7 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.external_author.field_external_author_link
-    - field.field.paragraph.external_author.field_external_author_name
+    - field.field.paragraph.external_author.field_given_name
+    - field.field.paragraph.external_author.field_surname
     - paragraphs.paragraphs_type.external_author
   module:
     - link
@@ -15,13 +16,21 @@ mode: default
 content:
   field_external_author_link:
     type: link_default
-    weight: 0
+    weight: 2
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-  field_external_author_name:
+  field_given_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_surname:
     type: string_textfield
     weight: 1
     region: content

@@ -1,4 +1,4 @@
-uuid: dc56b0d8-fb9a-4613-b865-c12c133c576e
+uuid: a6d794f2-4bc3-4f1c-86c4-1f2c90686171
 langcode: en
 status: true
 dependencies:
@@ -9,11 +9,11 @@ id: node.country.field_short_description
 field_name: field_short_description
 entity_type: node
 bundle: country
-label: 'Short description'
-description: "One-sentence highlight/overview of the item. For use in link descriptions, search results, or other places where a blurb might be needed.\r\n<em>255 characters, max.</em>"
+label: 'Short Description'
+description: "One-sentence highlight/overview of the item. For use in link descriptions, search results, or other places where a blurb might be needed.\r\n<em>150 characters, max.</em>"
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: string_long

@@ -1,0 +1,10 @@
+uuid: 253d5474-b9ef-4827-bf4e-5feaaface04f
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.square_large
+label: 'Square large'
+targetEntityType: media
+cache: true

@@ -1,24 +1,24 @@
 uuid: 6fc9e8c9-2a0a-4024-9e9b-7d771509a4ec
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.person.field_additional_profiles
     - field.field.node.person.field_board_member_type
+    - field.field.node.person.field_contributions_description
+    - field.field.node.person.field_contributions_title
     - field.field.node.person.field_country
-    - field.field.node.person.field_focus_areas
-    - field.field.node.person.field_full_bio
-    - field.field.node.person.field_full_name
+    - field.field.node.person.field_email
+    - field.field.node.person.field_featured_image
     - field.field.node.person.field_given_name
-    - field.field.node.person.field_headshot
     - field.field.node.person.field_job_title
     - field.field.node.person.field_page_builder
     - field.field.node.person.field_region
     - field.field.node.person.field_role_type
     - field.field.node.person.field_short_bio
     - field.field.node.person.field_surname
-    - field.field.node.person.field_twitter
+    - field.field.node.person.field_topic
+    - field.field.node.person.field_twitter_handle
     - node.type.person
   module:
     - user
@@ -38,20 +38,20 @@ content:
     weight: 100
     region: content
 hidden:
-  field_additional_profiles: true
   field_board_member_type: true
+  field_contributions_description: true
+  field_contributions_title: true
   field_country: true
-  field_focus_areas: true
-  field_full_bio: true
-  field_full_name: true
+  field_email: true
+  field_featured_image: true
   field_given_name: true
-  field_headshot: true
   field_job_title: true
   field_page_builder: true
   field_region: true
   field_role_type: true
   field_short_bio: true
   field_surname: true
-  field_twitter: true
+  field_topic: true
+  field_twitter_handle: true
   langcode: true
   search_api_excerpt: true

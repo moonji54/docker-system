@@ -8,4 +8,18 @@ id: global
 label: Global
 tags:
   canonical_url: '[current-page:url]'
+  og_image: /themes/custom/nrgi/assets/img/fallback-default.png
+  og_image_height: '576'
+  og_image_width: ' 1024'
+  og_site_name: '[site:name]'
+  og_title: '[current-page:title] | [site:name]'
+  og_url: '[current-page:url]'
+  shortlink: '[current-page:url]'
   title: '[current-page:title] | [site:name]'
+  twitter_cards_image: /themes/custom/nrgi/assets/img/fallback-default.png
+  twitter_cards_image_height: '576'
+  twitter_cards_image_width: '1024'
+  twitter_cards_page_url: '[current-page:url]'
+  twitter_cards_site: '@NRGInstitute'
+  twitter_cards_title: '[current-page:title] | [site:name]'
+  twitter_cards_type: summary_large_image

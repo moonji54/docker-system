@@ -10,7 +10,7 @@ id: node.event.field_region
 field_name: field_region
 entity_type: node
 bundle: event
-label: Region
+label: Regions
 description: 'Select the region(s) discussed in this item. Leave blank if the work is applicable everywhere.'
 required: false
 translatable: true

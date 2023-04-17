@@ -4,7 +4,10 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_attached_translated_items
+    - node.type.country
     - node.type.landing_page
+    - node.type.region
+    - node.type.topic
 id: node.landing_page.field_attached_translated_items
 field_name: field_attached_translated_items
 entity_type: node
@@ -19,10 +22,13 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
+      country: country
       landing_page: landing_page
+      region: region
+      topic: topic
     sort:
       field: _none
       direction: ASC
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: landing_page
 field_type: entity_reference

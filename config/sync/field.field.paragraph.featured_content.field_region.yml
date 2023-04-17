@@ -1,0 +1,29 @@
+uuid: b791f591-87fc-4a61-b544-e4a24e5966bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_region
+    - node.type.region
+    - paragraphs.paragraphs_type.featured_content
+id: paragraph.featured_content.field_region
+field_name: field_region
+entity_type: paragraph
+bundle: featured_content
+label: Region
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      region: region
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
