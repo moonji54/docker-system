@@ -43,12 +43,11 @@
                       </a>
                     </div>
                   {% elseif item.type == 'logo' %}
-                    {# Footer Oraganisation logos #}
                     {% include '@nrgi/node-partials/node--logos.html.twig' with {'item': item} %}
                   {% else %}
                     {% if item.url %}
                       <a class="c-meta-rows__link" href="{{ item.url }}">
-                        {{ item.title|trim }}
+                        {{- item.title|trim -}}
                       </a>
                     {% else %}
                       <span>{{ item.title|trim }}</span>

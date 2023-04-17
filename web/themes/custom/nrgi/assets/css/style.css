@@ -1473,6 +1473,11 @@ ul li a:hover {
   grid-gap: var(--space-s) var(--gutter);
   grid-template-columns: 1fr 1fr;
 }
+@media (max-width: 48rem) {
+  .c-meta-rows__row--file .c-meta-rows__items {
+    grid-template-columns: 1fr;
+  }
+}
 .c-meta-rows__row--topics .c-meta-rows__items, .c-meta-rows__row--keywords .c-meta-rows__items, .c-meta-rows__row--regions .c-meta-rows__items, .c-meta-rows__row--countries .c-meta-rows__items {
   display: flex;
   flex-wrap: wrap;
@@ -1524,6 +1529,12 @@ ul li a:hover {
   .c-meta-rows__row--topics .c-meta-rows__link, .c-meta-rows__row--keywords .c-meta-rows__link, .c-meta-rows__row--regions .c-meta-rows__link, .c-meta-rows__row--countries .c-meta-rows__link {
     height: 1.75rem;
   }
+}
+.c-meta-rows__row--expertise-required .c-meta-rows__link:after {
+  content: ",";
+}
+.c-meta-rows__row--expertise-required .c-meta-rows__link:last-child:after, .c-meta-rows__row--expertise-required .c-meta-rows__link:only-child:after {
+  content: none;
 }
 .c-meta-rows__label span {
   font-family: "Noto Sans", sans-serif;
@@ -1597,6 +1608,61 @@ ul li a:hover {
 }
 .c-meta-rows__icon {
   color: #FF7D5F;
+}
+
+.c-quote {
+  background-color: #FF7D5F;
+}
+.c-quote__text {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 1.2;
+  position: relative;
+}
+@media (max-width: 94.5rem) {
+  .c-quote__text {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 64rem) {
+  .c-quote__text {
+    font-size: 2.25rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-quote__text {
+    font-size: 1.75rem;
+  }
+}
+.c-quote__text:after, .c-quote__text:before {
+  position: absolute;
+}
+.c-quote__text:before {
+  content: "“";
+  left: 0;
+  transform: translateX(-100%);
+}
+.c-quote__text:after {
+  content: "”";
+}
+.c-quote__caption {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.75;
+  font-weight: 400;
+  font-weight: 500;
+  margin-top: var(--space-s);
+}
+@media (max-width: 64rem) {
+  .c-quote__caption {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-quote__caption {
+    font-size: 1rem;
+  }
 }
 
 /** @define c-share */ /** @define c-social-links */
