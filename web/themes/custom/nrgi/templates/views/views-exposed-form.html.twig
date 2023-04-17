@@ -1,28 +1,33 @@
 {# Filters, submit, reset, and other action buttons #}
 {% if form['#filters'] is not empty %}
 
-  {% if attribute(form, 'keywords') is defined %}
-    {{ attribute(form, 'keywords') }}
-  {% endif %}
-
-  <h5 class="c-listing__filters-title ts-filter-item">{{ 'Filter  by:'|t }}</h5>
-  {% for key in form['#filters'] %}
-    {% if attribute(form, key) is defined and key != 'keywords' %}
-      {{ attribute(form, key) }}
+  <div class="c-listing__search">
+    {% if attribute(form, 'search-term') is defined %}
+      {{ attribute(form, 'search-term') }}
     {% endif %}
-  {% endfor %}
+  </div>
 
-  {% for key in form['#submit_buttons'] %}
-    {% if attribute(form, key) is defined %}
-      {{ attribute(form, key) }}
+  <div class="c-listing__filters-dropdowns js-filter-dropdowns">
+    <span class="c-listing__filters-title">{{ 'Filter:'|t }}</span>
+
+    {% for key in form['#filters'] %}
+      {% if attribute(form, key) is defined and key not in ['active_filters', 'search-term'] %}
+        {{ attribute(form, key) }}
+      {% endif %}
+    {% endfor %}
+
+    {% for key in form['#submit_buttons'] %}
+      {% if attribute(form, key) is defined %}
+        {{ attribute(form, key) }}
+      {% endif %}
+    {% endfor %}
+
+    {# Active filters are configured using BEF #}
+    {% if form.active_filters is not empty %}
+      {{ attribute(form, 'active_filters') }}
+      {{ attach_library('soapbox_filters/active-filters') }}
     {% endif %}
-  {% endfor %}
-
-  {# Active filters are configured using BEF #}
-  {% if form.active_filters is not empty %}
-    {{ attribute(form, 'active_filters') }}
-  {% endif %}
-
+  </div>
 {% endif %}
 
 {# Sorters #}

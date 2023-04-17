@@ -1,0 +1,12 @@
+article: field_publication_date
+career_opportunity: 'base-field:created'
+country: 'base-field:created'
+event: field_start_date
+homepage: 'base-field:created'
+landing_page: 'base-field:created'
+listing_page: 'base-field:created'
+page: 'base-field:created'
+person: 'base-field:created'
+publication: 'base-field:created'
+region: 'base-field:created'
+topic: 'base-field:created'

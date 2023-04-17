@@ -9,7 +9,7 @@ id: node.career_opportunity.field_photo_caption
 field_name: field_photo_caption
 entity_type: node
 bundle: career_opportunity
-label: 'Photo caption'
+label: 'Featured image caption'
 description: 'Add caption for photo/image '
 required: false
 translatable: true

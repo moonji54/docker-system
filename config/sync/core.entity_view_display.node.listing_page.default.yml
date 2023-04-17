@@ -3,12 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.listing_page.field_attached_translated_items
     - field.field.node.listing_page.field_featured_image
-    - field.field.node.listing_page.field_hero_description
-    - field.field.node.listing_page.field_hero_title
-    - field.field.node.listing_page.field_listing_block
     - field.field.node.listing_page.field_overlay_opacity
     - field.field.node.listing_page.field_page_builder
+    - field.field.node.listing_page.field_short_description
     - node.type.listing_page
   module:
     - entity_reference_revisions
@@ -23,37 +22,22 @@ content:
     third_party_settings: {  }
     weight: -20
     region: content
-  field_featured_image:
+  field_attached_translated_items:
     type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 109
+    weight: 114
     region: content
-  field_hero_description:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 108
-    region: content
-  field_hero_title:
-    type: string
+  field_featured_image:
+    type: entity_reference_entity_view
     label: above
     settings:
-      link_to_entity: false
+      view_mode: full_width
+      link: false
     third_party_settings: {  }
-    weight: 107
-    region: content
-  field_listing_block:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 105
+    weight: 111
     region: content
   field_overlay_opacity:
     type: number_integer
@@ -62,7 +46,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 110
+    weight: 112
     region: content
   field_page_builder:
     type: entity_reference_revisions_entity_view
@@ -71,7 +55,14 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 106
+    weight: 107
+    region: content
+  field_short_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 113
     region: content
   links:
     settings: {  }

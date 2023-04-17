@@ -1,0 +1,17 @@
+uuid: c7300e2c-6f05-42ea-8e35-74981021ce2f
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 16_9_desktop_2x
+label: '16:9 Desktop 2x'
+effects:
+  f4aa93e7-da3a-4769-b68f-c118bbfba088:
+    uuid: f4aa93e7-da3a-4769-b68f-c118bbfba088
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 2088
+      height: 1176
+      crop_type: focal_point

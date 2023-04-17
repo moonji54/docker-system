@@ -1,0 +1,30 @@
+uuid: bf123991-c681-456f-b4b2-a79e4ea4cab2
+langcode: en
+status: true
+dependencies:
+  module:
+    - context_active_trail
+    - node
+label: 'Career opportunity'
+name: career_opportunity
+group: Breadcrumbs
+description: ''
+requireAllConditions: false
+disabled: false
+conditions:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: d2c354e0-0a72-4643-968d-1b356ad651c2
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      career_opportunity: career_opportunity
+reactions:
+  active_trail:
+    id: active_trail
+    trail: 'main:menu_link_content:19807fd3-e07b-40b3-96ad-4352b51a7306'
+    breadcrumbs: 1
+    breadcrumb_title: 0
+    uuid: 34ae32b9-02a9-4074-9637-7a6ea1ee695f
+weight: 0

@@ -12,7 +12,7 @@ id: node.article.field_partner_logo
 field_name: field_partner_logo
 entity_type: node
 bundle: article
-label: 'Partner logo'
+label: 'Partners logos'
 description: ''
 required: false
 translatable: false
@@ -40,6 +40,9 @@ settings:
       featured_people:
         weight: 16
         enabled: false
+      file_upload:
+        weight: 19
+        enabled: false
       full_width_media:
         weight: 17
         enabled: false
@@ -55,6 +58,9 @@ settings:
       logo:
         weight: 21
         enabled: true
+      quote:
+        weight: 25
+        enabled: false
       wysiwyg:
         weight: 22
         enabled: false

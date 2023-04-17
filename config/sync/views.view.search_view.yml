@@ -1,12 +1,14 @@
 uuid: 28898892-1c6f-457f-8122-895f32892e10
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - search_api.index.node_search_index
     - taxonomy.vocabulary.event_type
+    - taxonomy.vocabulary.keyword
     - taxonomy.vocabulary.person_type
     - taxonomy.vocabulary.resource_type
+    - taxonomy.vocabulary.series
   module:
     - better_exposed_filters
     - search_api
@@ -25,10 +27,10 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Search view'
+      title: Search
       fields: {  }
       pager:
-        type: mini
+        type: full
         options:
           offset: 0
           items_per_page: 10
@@ -37,6 +39,8 @@ display:
           tags:
             next: ››
             previous: ‹‹
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -45,12 +49,13 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+          quantity: 3
       exposed_form:
         type: bef
         options:
           submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
+          reset_button: true
+          reset_button_label: Clear
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
@@ -69,123 +74,247 @@ display:
               secondary_open: false
               reset_button_always_show: false
             filter:
-              field_city:
-                plugin_id: default
-                advanced:
-                  sort_options: false
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
-              field_country:
-                plugin_id: default
-                advanced:
-                  sort_options: false
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
-              field_keywords:
-                plugin_id: default
-                advanced:
-                  sort_options: false
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
-              field_event_type:
-                plugin_id: default
-                advanced:
-                  sort_options: false
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
-              langcode:
+              search_api_fulltext:
                 plugin_id: default
                 advanced:
                   placeholder_text: ''
-                  collapsible: false
-                  is_secondary: false
-              field_region_1:
-                plugin_id: default
-                advanced:
-                  sort_options: false
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
-              field_resource_type:
-                plugin_id: default
-                advanced:
-                  sort_options: false
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
-              field_role_type:
-                plugin_id: default
-                advanced:
-                  sort_options: false
                   rewrite:
                     filter_rewrite_values: ''
                   collapsible: false
                   is_secondary: false
               field_topic:
-                plugin_id: default
+                plugin_id: bef_soapbox_active_filters
                 advanced:
                   sort_options: false
                   rewrite:
                     filter_rewrite_values: ''
                   collapsible: false
                   is_secondary: false
-              keyword_name:
-                plugin_id: default
+                select_all_none: 0
+                select_all_none_nested: 0
+                display_inline: 0
+                show_active_filters: 1
+              field_keywords:
+                plugin_id: bef_soapbox_autocomplete_active_filters
                 advanced:
                   placeholder_text: ''
+                  rewrite:
+                    filter_rewrite_values: ''
                   collapsible: false
                   is_secondary: false
+                show_active_filters: 1
+              search_api_language:
+                plugin_id: bef_soapbox_active_filters
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+                select_all_none: 0
+                select_all_none_nested: 0
+                display_inline: 0
+                show_active_filters: 1
+              field_country:
+                plugin_id: bef_soapbox_active_filters
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+                select_all_none: 0
+                select_all_none_nested: 0
+                display_inline: 0
+                show_active_filters: 1
+              field_region:
+                plugin_id: bef_soapbox_active_filters
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+                select_all_none: 0
+                select_all_none_nested: 0
+                display_inline: 0
+                show_active_filters: 1
+              field_resource_type:
+                plugin_id: bef_soapbox_active_filters
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+                select_all_none: 0
+                select_all_none_nested: false
+                display_inline: 0
+                show_active_filters: 1
+              field_event_type:
+                plugin_id: bef_soapbox_active_filters
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+                select_all_none: 0
+                select_all_none_nested: false
+                display_inline: 0
+                show_active_filters: 1
+              field_role_type:
+                plugin_id: bef_soapbox_active_filters
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+                select_all_none: 0
+                select_all_none_nested: false
+                display_inline: 0
+                show_active_filters: 1
+              field_series:
+                plugin_id: bef_soapbox_active_filters
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+                select_all_none: 0
+                select_all_none_nested: false
+                display_inline: 0
+                show_active_filters: 1
       access:
         type: none
         options: {  }
       cache:
         type: none
         options: {  }
-      empty: {  }
-      sorts: {  }
-      arguments: {  }
-      filters:
-        type:
-          id: type
-          table: search_api_index_node_search_index
-          field: type
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: search_api_options
-          operator: or
-          value:
-            event: event
-            article: article
-            person: person
-            publication: publication
-          group: 1
-          exposed: false
+          plugin_id: text
+          empty: true
+          content:
+            value: 'No results found'
+            format: text
+          tokenize: false
+      sorts:
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_node_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
           expose:
-            operator_id: type_op
-            label: 'Content type'
-            description: null
+            label: ''
+            field_identifier: ''
+          exposed: false
+        unified_date:
+          id: unified_date
+          table: search_api_index_node_search_index
+          field: unified_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+      arguments: {  }
+      filters:
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_node_search_index
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_fulltext
+          operator: or
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: 'Search term'
+            description: ''
             use_operator: false
-            operator: type_op
+            operator: search_api_fulltext_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: type
+            identifier: query
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            reduce: false
+              anonymous: '0'
+              editor: '0'
+              administrator: '0'
+              site_manager: '0'
+            expose_fields: false
+            placeholder: 'Search term'
+            searched_fields_id: search_api_fulltext_searched_fields
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields: {  }
+        field_topic:
+          id: field_topic
+          table: search_api_index_node_search_index
+          field: field_topic
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: entityreference_search_api_filter
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_topic_op
+            label: Topic
+            description: ''
+            use_operator: false
+            operator: field_topic_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: topic
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              editor: '0'
+              administrator: '0'
+              site_manager: '0'
+            reduce: 0
           is_grouped: false
           group_info:
             label: ''
@@ -199,10 +328,20 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-        field_event_type:
-          id: field_event_type
+          handler: 'default:node'
+          handler_settings:
+            target_bundles:
+              topic: topic
+            sort:
+              field: _none
+              direction: ASC
+            auto_create: false
+            auto_create_bundle: ''
+          widget: select
+        field_keywords:
+          id: field_keywords
           table: search_api_index_node_search_index
-          field: field_event_type
+          field: field_keywords
           relationship: none
           group_type: group
           admin_label: ''
@@ -212,17 +351,17 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_event_type_op
-            label: 'Event type'
+            operator_id: field_keywords_op
+            label: Keyword
             description: ''
             use_operator: false
-            operator: field_event_type_op
+            operator: field_keywords_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_event_type
+            identifier: keyword
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
@@ -243,47 +382,100 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          vid: event_type
-          type: select
+          vid: keyword
+          type: textfield
           hierarchy: false
           limit: true
-          error_message: true
-        langcode:
-          id: langcode
+          error_message: false
+        field_series:
+          id: field_series
           table: search_api_index_node_search_index
-          field: langcode
+          field: field_series
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: search_api_string
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
           group: 1
           exposed: true
           expose:
-            operator_id: langcode_op
+            operator_id: field_series_op
+            label: Series
+            description: ''
+            use_operator: false
+            operator: field_series_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: series
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              editor: '0'
+              administrator: '0'
+              site_manager: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: series
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: false
+        search_api_language:
+          id: search_api_language
+          table: search_api_index_node_search_index
+          field: search_api_language
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_language
+          operator: in
+          value:
+            en: en
+            fr: fr
+            id: id
+            es: es
+            mn: mn
+            ru: ru
+            ar: ar
+            zh-hans: zh-hans
+            my: my
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_language_op
             label: Language
             description: ''
             use_operator: false
-            operator: langcode_op
+            operator: search_api_language_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: langcode
+            identifier: search_api_language
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
               editor: '0'
               administrator: '0'
               site_manager: '0'
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
@@ -296,37 +488,37 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        field_region_1:
-          id: field_region_1
+        field_country:
+          id: field_country
           table: search_api_index_node_search_index
-          field: field_region_1
+          field: field_country
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: search_api_term
+          plugin_id: entityreference_search_api_filter
           operator: or
           value: {  }
           group: 1
           exposed: true
           expose:
-            operator_id: field_region_1_op
-            label: Region
+            operator_id: field_country_op
+            label: Country
             description: ''
             use_operator: false
-            operator: field_region_1_op
+            operator: field_country_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_region_1
+            identifier: country
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
               editor: '0'
               administrator: '0'
               site_manager: '0'
-            reduce: false
+            reduce: 0
           is_grouped: false
           group_info:
             label: ''
@@ -340,11 +532,70 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          vid: regions
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
+          handler: 'default:node'
+          handler_settings:
+            target_bundles:
+              country: country
+            sort:
+              field: _none
+              direction: ASC
+            auto_create: false
+            auto_create_bundle: ''
+          widget: select
+        field_region:
+          id: field_region
+          table: search_api_index_node_search_index
+          field: field_region
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: entityreference_search_api_filter
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_region_op
+            label: Region
+            description: ''
+            use_operator: false
+            operator: field_region_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: region
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              editor: '0'
+              administrator: '0'
+              site_manager: '0'
+            reduce: 0
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          handler: 'default:node'
+          handler_settings:
+            target_bundles:
+              region: region
+            sort:
+              field: _none
+              direction: ASC
+            auto_create: false
+            auto_create_bundle: ''
+          widget: select
         field_resource_type:
           id: field_resource_type
           table: search_api_index_node_search_index
@@ -365,10 +616,10 @@ display:
             operator: field_resource_type_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_resource_type
+            identifier: resource_type
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
@@ -393,7 +644,56 @@ display:
           type: select
           hierarchy: false
           limit: true
-          error_message: true
+          error_message: false
+        field_event_type:
+          id: field_event_type
+          table: search_api_index_node_search_index
+          field: field_event_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_event_type_op
+            label: 'Event type'
+            description: ''
+            use_operator: false
+            operator: field_event_type_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: event_type
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              editor: '0'
+              administrator: '0'
+              site_manager: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: event_type
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: false
         field_role_type:
           id: field_role_type
           table: search_api_index_node_search_index
@@ -408,16 +708,16 @@ display:
           exposed: true
           expose:
             operator_id: field_role_type_op
-            label: 'Role type'
+            label: 'Person type'
             description: ''
             use_operator: false
             operator: field_role_type_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_role_type
+            identifier: role_type
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
@@ -442,7 +742,11 @@ display:
           type: select
           hierarchy: false
           limit: true
-          error_message: true
+          error_message: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       style:
         type: default
       row:
@@ -452,17 +756,14 @@ display:
             'entity:node':
               article: list_item
               career_opportunity: list_item
-              collection: list_item
               country: list_item
               event: list_item
-              external_publication: list_item
-              glossary_term: list_item
-              homepage: list_item
               landing_page: list_item
               listing_page: list_item
               page: list_item
               person: list_item
               publication: list_item
+              region: list_item
               topic: list_item
       query:
         type: search_api_query
@@ -472,7 +773,17 @@ display:
           preserve_facet_query_args: false
           query_tags: {  }
       relationships: {  }
-      header: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: false
+          content: 'Displaying @start - @end of @total'
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -485,8 +796,9 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:search_api.index.node_search_index'
-  page_view:
-    id: page_view
+        - 'search_api_list:node_search_index'
+  search:
+    id: search
     display_title: Search
     display_plugin: page
     position: 1
@@ -505,3 +817,4 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:search_api.index.node_search_index'
+        - 'search_api_list:node_search_index'

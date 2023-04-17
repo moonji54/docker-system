@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Logic for backend paragraph.
+ * Paragraphs form modifications.
  */
 
 use Drupal\Core\Form\FormStateInterface;
@@ -22,7 +22,7 @@ function nrgi_backend_field_widget_single_element_paragraphs_form_alter(
 
   // Conditional fields for call_to_action paragraph.
   if (in_array($element['#paragraph_type'], $file_or_link_button_paragraphs)) {
-    // field_link  visible if field_type value is 'link'.
+    // field_link visible if field_type value is 'link'.
     $element['subform']['field_link']['#states'] = [
       'visible' => [
         [

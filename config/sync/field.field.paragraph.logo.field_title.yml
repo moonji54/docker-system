@@ -9,7 +9,7 @@ id: paragraph.logo.field_title
 field_name: field_title
 entity_type: paragraph
 bundle: logo
-label: Label
+label: 'Organisation name'
 description: ''
 required: false
 translatable: false

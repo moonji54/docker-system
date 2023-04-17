@@ -80,11 +80,6 @@ $z-index : (
   }
 }
 
-@mixin object-fit($size) {
-  font-family : "object-fit: #{$size};";
-  object-fit  : $size;
-}
-
 @mixin selection-background($color) {
   &::selection {
     background : $color;

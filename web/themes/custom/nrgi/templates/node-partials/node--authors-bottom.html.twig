@@ -1,0 +1,34 @@
+{# Authors section: includes internal and external authors #}
+{# added on resources (article/publication content types) #}
+
+{% if authors %}
+  <div>
+    <ul>
+      {% for author in authors %}
+        <div>
+          {% if author.responsive_image %}
+            {{ author.responsive_image }}
+          {% endif %}
+
+          {% if author.url %}
+            <h3>
+              <a href="{{ author.url }}"
+                 title="{{ 'Visit '|t ~ author.firstname ~ ' ' ~ author.surname ~ '\'s profile'|t }}"
+                 target="{{ author.is_external ? '_blank' : '' }}">
+                {{ author.firstname ~ ' ' ~ author.surname }}
+              </a>
+            </h3>
+
+          {% else %}
+            <h3>{{ author.firstname ~ ' ' ~ author.surname }}</h3>
+          {% endif %}
+
+          {% if author.job_title %}
+            <p>{{ author.job_title }}</p>
+          {% endif %}
+
+        </div>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

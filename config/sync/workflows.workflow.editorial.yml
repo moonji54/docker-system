@@ -7,13 +7,13 @@ dependencies:
     - node.type.career_opportunity
     - node.type.country
     - node.type.event
-    - node.type.glossary_term
     - node.type.homepage
     - node.type.landing_page
     - node.type.listing_page
     - node.type.page
     - node.type.person
     - node.type.publication
+    - node.type.region
     - node.type.topic
   module:
     - content_moderation
@@ -95,12 +95,12 @@ type_settings:
       - career_opportunity
       - country
       - event
-      - glossary_term
       - homepage
       - landing_page
       - listing_page
       - page
       - person
       - publication
+      - region
       - topic
   default_moderation_state: draft

@@ -1,0 +1,96 @@
+uuid: 180eec5a-ac7d-495e-8bfb-c8e0b1633a61
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.list_item_with_image
+    - field.field.node.publication.field_acknowledgement_logo
+    - field.field.node.publication.field_author
+    - field.field.node.publication.field_country
+    - field.field.node.publication.field_data_document
+    - field.field.node.publication.field_disable
+    - field.field.node.publication.field_disable_related_content
+    - field.field.node.publication.field_external_authors
+    - field.field.node.publication.field_featured_image
+    - field.field.node.publication.field_keywords
+    - field.field.node.publication.field_link
+    - field.field.node.publication.field_page_builder
+    - field.field.node.publication.field_partner_logo
+    - field.field.node.publication.field_photo_caption
+    - field.field.node.publication.field_publication_date
+    - field.field.node.publication.field_publisher
+    - field.field.node.publication.field_region
+    - field.field.node.publication.field_related_manual_content
+    - field.field.node.publication.field_resource_type
+    - field.field.node.publication.field_series
+    - field.field.node.publication.field_short_description
+    - field.field.node.publication.field_slug
+    - field.field.node.publication.field_subtitle
+    - field.field.node.publication.field_supporting_document
+    - field.field.node.publication.field_topic
+    - field.field.node.publication.field_upload
+    - node.type.publication
+  module:
+    - link
+    - user
+id: node.publication.list_item_with_image
+targetEntityType: node
+bundle: publication
+mode: list_item_with_image
+content:
+  field_featured_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: '16'
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_resource_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  content_moderation_control: true
+  field_acknowledgement_logo: true
+  field_author: true
+  field_country: true
+  field_data_document: true
+  field_disable: true
+  field_disable_related_content: true
+  field_external_authors: true
+  field_keywords: true
+  field_page_builder: true
+  field_partner_logo: true
+  field_photo_caption: true
+  field_publication_date: true
+  field_publisher: true
+  field_region: true
+  field_related_manual_content: true
+  field_series: true
+  field_short_description: true
+  field_slug: true
+  field_subtitle: true
+  field_supporting_document: true
+  field_topic: true
+  field_upload: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

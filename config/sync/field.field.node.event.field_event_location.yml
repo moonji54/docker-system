@@ -12,7 +12,7 @@ bundle: event
 label: 'Event location'
 description: 'Enter the name of the organisation or building where the event will be held'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

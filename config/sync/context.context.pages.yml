@@ -1,0 +1,32 @@
+uuid: d4ae9b92-1653-4108-bd31-e1bcf798f1f4
+langcode: en
+status: true
+dependencies:
+  module:
+    - context_active_trail
+    - node
+label: Pages
+name: pages
+group: Breadcrumbs
+description: ''
+requireAllConditions: false
+disabled: false
+conditions:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: b1f88e50-c18c-4461-ad86-31b16c71f159
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      landing_page: landing_page
+      listing_page: listing_page
+      page: page
+reactions:
+  active_trail:
+    id: active_trail
+    trail: 'main:'
+    breadcrumbs: 1
+    breadcrumb_title: 0
+    uuid: 655e3be6-fdf8-4b8b-a4b6-9f7e44c4ebda
+weight: 0
