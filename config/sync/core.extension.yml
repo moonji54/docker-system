@@ -19,7 +19,6 @@ module:
   ckeditor_div_manager: 0
   colorbox: 0
   config: 0
-  config_translation: 0
   content_moderation: 0
   context: 0
   context_active_trail: 0
@@ -54,12 +53,12 @@ module:
   language: 0
   link: 0
   linkit: 0
-  locale: 0
   media: 0
   media_file_delete: 0
   media_library: 0
   media_library_edit: 0
   menu_block: 0
+  menu_breadcrumb: 0
   menu_link_content: 0
   menu_ui: 0
   metatag: 0
@@ -115,7 +114,6 @@ module:
   textarea_widget_for_text: 0
   textfield_counter: 0
   token: 0
-  token_default: 0
   toolbar: 0
   twig_field_value: 0
   twig_tweak: 0
@@ -123,6 +121,7 @@ module:
   update: 0
   user: 0
   views_ajax_history: 0
+  views_contextual_filters_or: 0
   views_ui: 0
   viewsreference: 0
   webp: 0

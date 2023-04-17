@@ -10,9 +10,9 @@ third_party_settings:
   content_translation:
     enabled: false
     bundle_settings:
-      untranslatable_fields_hide: '0'
+      untranslatable_fields_hide: '1'
 id: node.region
 target_entity_type_id: node
 target_bundle: region
 default_langcode: site_default
-language_alterable: false
+language_alterable: true

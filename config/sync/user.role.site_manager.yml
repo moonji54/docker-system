@@ -15,7 +15,6 @@ dependencies:
     - node.type.career_opportunity
     - node.type.country
     - node.type.event
-    - node.type.glossary_term
     - node.type.homepage
     - node.type.landing_page
     - node.type.listing_page
@@ -26,11 +25,9 @@ dependencies:
     - taxonomy.vocabulary.career_opportunity_type
     - taxonomy.vocabulary.cities
     - taxonomy.vocabulary.event_expertise_requirement
-    - taxonomy.vocabulary.event_role_label
     - taxonomy.vocabulary.event_type
     - taxonomy.vocabulary.keyword
     - taxonomy.vocabulary.person_type
-    - taxonomy.vocabulary.regions
     - taxonomy.vocabulary.resource_type
     - taxonomy.vocabulary.series
     - workflows.workflow.editorial
@@ -106,7 +103,6 @@ permissions:
   - 'create document media'
   - 'create event content'
   - 'create footer_logo site setting'
-  - 'create glossary_term content'
   - 'create homepage content'
   - 'create image media'
   - 'create landing_page content'
@@ -121,11 +117,9 @@ permissions:
   - 'create terms in career_opportunity_type'
   - 'create terms in cities'
   - 'create terms in event_expertise_requirement'
-  - 'create terms in event_role_label'
   - 'create terms in event_type'
   - 'create terms in keyword'
   - 'create terms in person_type'
-  - 'create terms in regions'
   - 'create terms in resource_type'
   - 'create terms in series'
   - 'create topic content'
@@ -140,7 +134,6 @@ permissions:
   - 'delete any country content'
   - 'delete any document media'
   - 'delete any event content'
-  - 'delete any glossary_term content'
   - 'delete any homepage content'
   - 'delete any image media'
   - 'delete any landing_page content'
@@ -160,7 +153,6 @@ permissions:
   - 'delete event revisions'
   - 'delete files'
   - 'delete footer_logo site setting'
-  - 'delete glossary_term revisions'
   - 'delete homepage revisions'
   - 'delete landing_page revisions'
   - 'delete listing_page revisions'
@@ -172,7 +164,6 @@ permissions:
   - 'delete own country content'
   - 'delete own document media'
   - 'delete own event content'
-  - 'delete own glossary_term content'
   - 'delete own homepage content'
   - 'delete own image media'
   - 'delete own landing_page content'
@@ -191,11 +182,9 @@ permissions:
   - 'delete terms in career_opportunity_type'
   - 'delete terms in cities'
   - 'delete terms in event_expertise_requirement'
-  - 'delete terms in event_role_label'
   - 'delete terms in event_type'
   - 'delete terms in keyword'
   - 'delete terms in person_type'
-  - 'delete terms in regions'
   - 'delete terms in resource_type'
   - 'delete terms in series'
   - 'delete topic revisions'
@@ -206,7 +195,6 @@ permissions:
   - 'edit any country content'
   - 'edit any document media'
   - 'edit any event content'
-  - 'edit any glossary_term content'
   - 'edit any homepage content'
   - 'edit any image media'
   - 'edit any landing_page content'
@@ -226,7 +214,6 @@ permissions:
   - 'edit own country content'
   - 'edit own document media'
   - 'edit own event content'
-  - 'edit own glossary_term content'
   - 'edit own homepage content'
   - 'edit own image media'
   - 'edit own landing_page content'
@@ -242,11 +229,9 @@ permissions:
   - 'edit terms in career_opportunity_type'
   - 'edit terms in cities'
   - 'edit terms in event_expertise_requirement'
-  - 'edit terms in event_role_label'
   - 'edit terms in event_type'
   - 'edit terms in keyword'
   - 'edit terms in person_type'
-  - 'edit terms in regions'
   - 'edit terms in resource_type'
   - 'edit terms in series'
   - 'enter all revision log entry'
@@ -323,7 +308,6 @@ permissions:
   - 'revert career_opportunity revisions'
   - 'revert country revisions'
   - 'revert event revisions'
-  - 'revert glossary_term revisions'
   - 'revert homepage revisions'
   - 'revert landing_page revisions'
   - 'revert listing_page revisions'
@@ -338,7 +322,6 @@ permissions:
   - 'translate country node'
   - 'translate editable entities'
   - 'translate event node'
-  - 'translate glossary_term node'
   - 'translate homepage node'
   - 'translate landing_page node'
   - 'translate listing_page node'
@@ -368,7 +351,6 @@ permissions:
   - 'view career_opportunity revisions'
   - 'view country revisions'
   - 'view event revisions'
-  - 'view glossary_term revisions'
   - 'view homepage revisions'
   - 'view landing_page revisions'
   - 'view latest version'

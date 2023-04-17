@@ -1,0 +1,17 @@
+uuid: 2e3bfff0-edb0-495d-9c14-a053f8c49b39
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 16_9_tablet
+label: '16:9 Tablet'
+effects:
+  0d0b6f3f-ca74-4987-8f1a-f0616279b1b4:
+    uuid: 0d0b6f3f-ca74-4987-8f1a-f0616279b1b4
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 874
+      height: 491
+      crop_type: focal_point

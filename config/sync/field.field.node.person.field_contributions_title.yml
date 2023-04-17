@@ -1,0 +1,19 @@
+uuid: 41538e0a-e43e-4c4d-b3cf-746570f223df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contributions_title
+    - node.type.person
+id: node.person.field_contributions_title
+field_name: field_contributions_title
+entity_type: node
+bundle: person
+label: 'Person contributions section title'
+description: 'The section title used for the automatically attached listing of person contributions.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

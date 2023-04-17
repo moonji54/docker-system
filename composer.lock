@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9337423825860c5136dc48d4a8be41d",
+    "content-hash": "23b460ba223b4526a2a7655a7c1db32e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6533,54 +6533,6 @@
             }
         },
         {
-            "name": "drupal/token_default",
-            "version": "1.0.0-beta4",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/token_default.git",
-                "reference": "8.x-1.0-beta4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/token_default-8.x-1.0-beta4.zip",
-                "reference": "8.x-1.0-beta4",
-                "shasum": "0a5d7065362eb22a05ba628bce71255e21b27f78"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9 || ^10",
-                "drupal/token": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.0-beta4",
-                    "datestamp": "1662377626",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "andy_w",
-                    "homepage": "https://www.drupal.org/user/2581622"
-                }
-            ],
-            "description": "Setup rewrites for tokens not found",
-            "homepage": "https://www.drupal.org/project/token_default",
-            "keywords": [
-                "Drupal"
-            ],
-            "support": {
-                "source": "https://git.drupalcode.org/project/token_default"
-            }
-        },
-        {
             "name": "drupal/twig_field_value",
             "version": "2.0.2",
             "source": {
@@ -6739,6 +6691,50 @@
             "homepage": "https://www.drupal.org/project/views_ajax_history",
             "support": {
                 "source": "https://git.drupalcode.org/project/views_ajax_history"
+            }
+        },
+        {
+            "name": "drupal/views_contextual_filters_or",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_contextual_filters_or.git",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_contextual_filters_or-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "826c6ca2a6a305d72fc3d3f750d81240a96b1640"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1671734083",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "m.lebedev",
+                    "homepage": "https://www.drupal.org/user/2566550"
+                }
+            ],
+            "description": "Modify views query to support OR conditions for contextual filters.",
+            "homepage": "https://www.drupal.org/project/views_contextual_filters_or",
+            "support": {
+                "source": "https://git.drupalcode.org/project/views_contextual_filters_or"
             }
         },
         {
@@ -16247,7 +16243,6 @@
         "drupal/linkit": 10,
         "drupal/sitemap": 10,
         "drupal/symfony_mailer": 10,
-        "drupal/token_default": 10,
         "drupal/viewsreference": 10,
         "drupal/webp": 20,
         "sb-dev-team/drupal_modules": 20

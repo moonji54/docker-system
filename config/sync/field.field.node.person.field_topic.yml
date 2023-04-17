@@ -1,0 +1,29 @@
+uuid: 585c672c-17a2-4a25-840d-5e21cf52a5b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_topic
+    - node.type.person
+    - node.type.topic
+id: node.person.field_topic
+field_name: field_topic
+entity_type: node
+bundle: person
+label: 'Focus areas'
+description: 'Add person''s topics of expertise '
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      topic: topic
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

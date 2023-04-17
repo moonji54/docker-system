@@ -1,0 +1,52 @@
+{% set has_grey_background = (content.field_show_background|field_raw('value') == '1') %}
+
+{% set classes = [
+  'c-featured-content',
+  'o-section',
+  has_grey_background ? 'o-section--has-background'
+] %}
+
+{% if featured_content.layout == '1' %}
+  {% set layout = 'one-per-row' %}
+{% elseif featured_content.layout == '2' %}
+  {% set layout = 'two-per-row' %}
+{% elseif featured_content.layout == '3' %}
+  {% set layout = 'three-per-row' %}
+{% elseif featured_content.layout == '4' %}
+  {% set layout = 'four-per-row' %}
+{% endif %}
+
+{% if featured_content %}
+  <section{{ attributes.addClass(classes) }}>
+    <div class="o-container">
+      {% if content.field_title|field_value %}
+        <header class="o-section__header">
+          {% if content.field_title_size|field_raw('value') != 'small' %}
+            <h2 class="o-section__heading">{{ content.field_title }}</h2>
+          {% else %}
+            <h2 class="o-section__heading o-section__heading--small">{{ content.field_title }}</h2>
+          {% endif %}
+
+          {% if content.field_description|field_value %}
+            <p class="o-section__description">{{ content.field_description }}</p>
+          {% endif %}
+        </header>
+      {% endif %}
+
+      <div class="c-featured-pages__container o-card-container o-card-container--{{ layout }}">
+        {% for featured_item in featured_content.items %}
+          {{ featured_item }}
+        {% endfor %}
+      </div>
+
+      {% if featured_content.cta %}
+        <a class="o-section__button o-button" href="{{ featured_content.cta.url }}"
+           target="{{ featured_content.cta.is_external ? '_blank' : '_self' }}">
+          {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'arrow'} %}
+
+          <span>{{ featured_content.cta.title }}</span>
+        </a>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

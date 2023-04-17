@@ -1,0 +1,23 @@
+uuid: 48ea51b0-30e4-4d12-abc6-e37b7fb5e7ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_disable_related_content
+    - node.type.event
+id: node.event.field_disable_related_content
+field_name: field_disable_related_content
+entity_type: node
+bundle: event
+label: 'Disable related content'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
