@@ -3,13 +3,16 @@
 
   &__container {
     @include grid;
-    grid-row-gap : var(--space-2xl);
   }
 
   &__caption {
     @include ts-card-tag;
     display       : block;
     margin-bottom : var(--space-xl);
+  }
+
+  &__empty {
+    @include ts-body($small : true);
   }
 
   &__filters {
@@ -31,6 +34,7 @@
   &__filters-button {
     @include ts-tab;
     align-items     : center;
+    cursor          : pointer;
     display         : none;
     justify-content : space-between;
     margin-bottom   : var(--space-xl);

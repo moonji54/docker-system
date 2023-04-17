@@ -786,6 +786,11 @@ ul li a:hover {
     ===============================
 */
 /** @define c-breadcrumbs */ /* stylelint-disable */
+@media (max-width: 48rem) {
+  .views-exposed-form {
+    margin-bottom: var(--space-xl);
+  }
+}
 .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) legend, .views-exposed-form .fieldgroup:not(.c-filter--field-active-filters) .autocomplete-button,
 .views-exposed-form .form-type-entity-autocomplete legend,
 .views-exposed-form .form-type-entity-autocomplete .autocomplete-button {
@@ -1652,7 +1657,6 @@ ul li a:hover {
   display: grid;
   grid-column-gap: var(--gutter);
   grid-template-columns: repeat(12, 1fr);
-  grid-row-gap: var(--space-2xl);
 }
 @media (max-width: 48rem) {
   .c-listing__container {
@@ -1673,6 +1677,28 @@ ul li a:hover {
   .c-listing__caption {
     font-size: 0.625rem;
     letter-spacing: 0.0625rem;
+  }
+}
+.c-listing__empty {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.75;
+  font-weight: 400;
+  font-size: 1.125rem;
+}
+@media (max-width: 64rem) {
+  .c-listing__empty {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-listing__empty {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 64rem) {
+  .c-listing__empty {
+    font-size: 1rem;
   }
 }
 .c-listing__filters {
@@ -1698,6 +1724,7 @@ ul li a:hover {
   text-transform: uppercase;
   letter-spacing: 0.1563rem;
   align-items: center;
+  cursor: pointer;
   display: none;
   justify-content: space-between;
   margin-bottom: var(--space-xl);
@@ -1847,7 +1874,63 @@ ul li a:hover {
   transform: rotate(180deg);
 }
 
-/** @define c-main-menu */ /** @define c-share */ /** @define c-social-links */
+/** @define c-main-menu */
+.c-quote {
+  background-color: #FF7D5F;
+}
+.c-quote__text {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 1.2;
+  position: relative;
+}
+@media (max-width: 94.5rem) {
+  .c-quote__text {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 64rem) {
+  .c-quote__text {
+    font-size: 2.25rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-quote__text {
+    font-size: 1.75rem;
+  }
+}
+.c-quote__text:after, .c-quote__text:before {
+  position: absolute;
+}
+.c-quote__text:before {
+  content: "“";
+  left: 0;
+  transform: translateX(-100%);
+}
+.c-quote__text:after {
+  content: "”";
+}
+.c-quote__caption {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.75;
+  font-weight: 400;
+  font-weight: 500;
+  margin-top: var(--space-s);
+}
+@media (max-width: 64rem) {
+  .c-quote__caption {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-quote__caption {
+    font-size: 1rem;
+  }
+}
+
+/** @define c-share */ /** @define c-social-links */
 .c-social-links {
   display: flex;
   flex-wrap: wrap;

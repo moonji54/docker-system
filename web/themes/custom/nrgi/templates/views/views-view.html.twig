@@ -45,9 +45,9 @@
     {% endif %}
 
     <div class="c-listing__content">
-      <span class="c-listing__caption">{{ header }}</span>
-
       {% if rows %}
+        <span class="c-listing__caption">{{ header }}</span>
+
         <div class="c-listing__items{{ no_filters ? ' o-card-container o-card-container--three-per-row' }}">
           {{ rows[0]['#rows'] }}
         </div>
@@ -84,11 +84,11 @@
     </div>
   {% endif %}
 
-  <div class="c-listing__pagination">
-    {% if pager %}
+  {% if pager %}
+    <div class="c-listing__pagination">
       {{ pager }}
-    {% endif %}
-  </div>
+    </div>
+  {% endif %}
 </div>
 
 {% if more %}
@@ -106,4 +106,3 @@
       {{ feed_icons }}
     </div>
   {% endif %}
-</div>

@@ -1,5 +1,9 @@
 /* stylelint-disable */
 .views-exposed-form {
+  @include media("<=tablet") {
+    margin-bottom : var(--space-xl);
+  }
+
   .fieldgroup:not(.c-filter--field-active-filters),
   .form-type-entity-autocomplete {
     legend, .autocomplete-button {
