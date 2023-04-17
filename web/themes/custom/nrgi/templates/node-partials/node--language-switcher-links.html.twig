@@ -1,14 +1,21 @@
-<div style="border: 1px dotted red; padding: 20px;">
-  <h3>
-    {{ text|upper }}
-  </h3>
-  {% for link in links %}
-    <button style="background-color: yellow">
-      <a href="{{ link.url }}" title="{{ text ~ " " ~ link.title }}">
-        {# SBTODO: arrow icon #}
-        ->
-        {{ link.title }}
-      </a>
-    </button>
-  {% endfor %}
-</div>
+<section class="c-language-links {{ layout_modifier }}">
+  <div class="c-language-links__container">
+    <div class="c-language-links__inner">
+      <h3 class="c-language-links__title">
+        {{ text|upper }}
+      </h3>
+
+      <ul class="c-language-links__links-list">
+        {% for link in links %}
+          <li class="c-language-links__links-item">
+            <a class="c-language-links__link {{ link_modifier }}" href="{{ link.url }}" title="{{ text ~ " " ~ link.title }}">
+              {% include '@nrgi/svg/svg.html.twig' with {'svg': 'arrow-right', 'extra_class': 'c-language-links__link-svg' } %}
+
+              <span class="c-language-links__link-label">{{ link.title }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>

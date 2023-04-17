@@ -1,0 +1,97 @@
+/** @define c-homepage-banner */
+.c-homepage-banner {
+  box-sizing  : border-box;
+  display     : flex;
+  min-height  : calc(100vh - 3.5rem); // 3.5rem = language bar height
+  padding-top : var(--header-height);
+  position    : relative;
+  width       : 100%;
+
+  @include media("<=tablet") {
+    min-height  : 100%;
+    padding-top : 10.25rem;
+  }
+
+  /* stylelint-disable-next-line */
+  .c-media {
+    /* stylelint-disable-next-line */
+    img {
+      @include z-index(homepage-image);
+      height     : 100%;
+      left       : 0;
+      object-fit : cover;
+      position   : absolute;
+      top        : 0;
+      width      : 100%;
+      z-index    : 1;
+    }
+  }
+
+  &__overlay {
+    /* stylelint-disable-next-line */
+    background            : linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));
+    background-blend-mode : multiply, normal;
+    height                : 100%;
+    left                  : 0;
+    opacity               : calc(var(--hero-opacity) * 0.01);
+    position              : absolute;
+    top                   : 0;
+    width                 : 100%;
+    z-index               : 1;
+  }
+
+  &__image-placeholder {
+    @include z-index(hero-image);
+    height     : 100%;
+    left       : 0;
+    object-fit : cover;
+    position   : absolute;
+    top        : 0;
+    width      : 100%;
+  }
+
+  &__container {
+    @include grid;
+  }
+
+  &__text-wrapper {
+    @include z-index(hero-text-wrapper);
+    align-self     : flex-end;
+    border-top     : 1px solid $grey-light;
+    color          : $white;
+    grid-column    : 1 / 9;
+    padding-bottom : var(--space-3xl);
+    padding-top    : var(--space-xs);
+    position       : relative;
+
+    @include media("<=desktop") {
+      grid-column : 1 / 10;
+    }
+
+    @include media("<=tablet") {
+      grid-column : 1 / -1;
+    }
+  }
+
+  &__title {
+    @include ts-heading-1;
+  }
+
+  &__description {
+    @include ts-body;
+    margin-top : var(--space-s);
+  }
+
+  &__button-wrapper {
+    margin-top : var(--space-m);
+  }
+
+  /* stylelint-disable-next-line */
+  .user-logged-in & {
+    min-height : calc(100vh - (var(--admin-height) + 3.5rem));
+
+    @include media("<=tablet") {
+      min-height : 100%;
+    }
+  }
+}

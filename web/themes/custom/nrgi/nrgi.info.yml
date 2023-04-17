@@ -18,4 +18,5 @@ regions:
 
 stylesheets-remove:
   - '@classy/css/components/form.css'
+  - '@classy/css/components/button.css'
   - '@stable/css/core/assets/vendor/normalize-css/normalize.css'

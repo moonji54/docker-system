@@ -7,12 +7,12 @@
  */
 export default function (func, wait = 0) {
 
-  let timeout;
+    let timeout;
 
-  return function (...args) {
-    const context = this;
+    return function (...args) {
+        const context = this;
 
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(context, args), wait);
-  };
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+    };
 }
