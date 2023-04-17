@@ -4,6 +4,9 @@
 ] %}
 
 <header {{ attributes.addClass(classes) }}>
+
+  {{ drupal_block('system_breadcrumb_block', {label: 'c-single-header__breadcrumbs'}) }}
+
   <h1 class="c-node__title">{{ label }}</h1>
 
   {% if content.field_subtitle|field_value %}
