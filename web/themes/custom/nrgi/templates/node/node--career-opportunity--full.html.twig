@@ -2,40 +2,41 @@
   'c-node',
   'c-node--type-' ~ node.bundle|clean_class,
 ] %}
-<div class="c-node__content-header">
-  <div style="background-color: red">
-    <h1>Header:</h1>
-    <header {{ attributes.addClass(classes) }}>
-      <h1 class="c-node__title">{{ label }}</h1>
+{# <div class="c-node__content-header"> #}
+{#  <div style="background-color: red"> #}
+{#    <h1>Header:</h1> #}
+{#    {{ node.bundle|clean_class }} #}
+{#    <header {{ attributes.addClass(classes) }}> #}
+{#      <h1 class="c-node__title">{{ label }}</h1> #}
 
-      {% if content.field_subtitle|field_value %}
-        <div>{{ content.field_subtitle }}</div>
-      {% endif %}
+{#      {% if content.field_subtitle|field_value %} #}
+{#        <div>{{ content.field_subtitle }}</div> #}
+{#      {% endif %} #}
 
-      {% if subtype %}
-        <h5>SUBTYPE</h5>
-        <p>{{ subtype }}</p>
-      {% endif %}
+{#      {% if subtype %} #}
+{#        <h5>SUBTYPE</h5> #}
+{#        <p>{{ subtype }}</p> #}
+{#      {% endif %} #}
 
-      {# Taxonomies #}
-      {% for field in meta_data.career_opportunity.header %}
-        {% for item in field %}
-          <a href="{{ item.url }}">{{ item.title|trim }}</a>
-        {% endfor %}
-      {% endfor %}
+{#      #}{# Taxonomies #}
+{#      {% for field in meta_data.career_opportunity.header %} #}
+{#        {% for item in field %} #}
+{#          <a href="{{ item.url }}">{{ item.title|trim }}</a> #}
+{#        {% endfor %} #}
+{#      {% endfor %} #}
 
 
-      {% if content.field_apply|field_value %}
-        {# Apply #}
-        {{ content.field_apply }}
-      {% endif %}
+{#      {% if content.field_apply|field_value %} #}
+{#        #}{# Apply #}
+{#        {{ content.field_apply }} #}
+{#      {% endif %} #}
 
-    </header>
-  </div>
-</div>
+{#    </header> #}
+{#  </div> #}
+{# </div> #}
 
 <article{{ attributes.addClass(classes) }}>
-
+  {% include "@nrgi/node-partials/node--single-header.html.twig" %}
   {# FEATURED IMAGE #}
   {% if content.field_featured_image|field_value %}
     <div>

@@ -3,6 +3,8 @@
      href="{{ item.content['#url'] }}"
      title="{{ item.content['#title'] }}"
       {{ item.content['#options'].external ? 'target="_blank"' }}>
+    {% include '@nrgi/svg/svg.html.twig' with {'svg': 'arrow-right', 'extra_class': 'c-homepage-banner__link-svg' } %}
+    
     {{ item.content['#title'] }}
   </a>
 {% endfor %}

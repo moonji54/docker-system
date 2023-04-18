@@ -1,6 +1,27 @@
 /** @define c-breadcrumbs */
 .c-breadcrumbs {
-  &__inner {
+  $c : &;
 
+  &__list {
+    display   : flex;
+    flex-wrap : wrap;
+  }
+
+  &__item {
+    @include ts-breadcrumbs;
+    color    : $white;
+    display  : flex;
+    position : relative;
+  }
+
+  &__item:has(+ #{$c}__item):after {
+    content  : url("../img/right-arrow.svg");
+    margin   : 0 0.5rem;
+    position : relative;
+    top      : 0.0625rem;
+  }
+
+  &__link {
+    @include underlined;
   }
 }

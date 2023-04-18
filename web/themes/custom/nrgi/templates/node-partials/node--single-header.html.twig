@@ -4,14 +4,46 @@
 ] %}
 
 <header {{ attributes.addClass(classes) }}>
-  <div class="c-single-header__container">
-    <div class="c-single-header__inner">
-      {{ drupal_block('system_breadcrumb_block', {label: 'c-single-header__breadcrumbs'}) }}
+  <img class="c-single-header__image-placeholder" src="/{{ base_path ~ directory }}/assets/img/hero-banner-placeholder.svg"
+       alt="Image placeholder"/>
 
-      <h1 class="c-single-header__title">{{ label }}</h1>
+  <div class="c-single-header__container">
+    {{ drupal_block('system_breadcrumb_block', {label: 'c-single-header__breadcrumbs'}) }}
+
+    {% if node.bundle == 'person' %}
+      {# Headshot #}
+      <div class="c-single-header__image-wrapper">
+        {% if content.field_featured_image|field_value %}
+          {{ content.field_featured_image }}
+        {% else %}
+          <img class="c-single-header__person-placeholder" src="/{{ base_path ~ directory }}/assets/img/fallback-person.svg"
+               alt="Image placeholder"/>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="c-single-header__inner">
+      {# Firstname and lastname #}
+      {% if (content.field_given_name|field_value or content.field_surname|field_value) and node.bundle == 'person' %}
+        <h1 class="c-single-header__title">
+          {% if content.field_given_name|field_value %}
+            {{ content.field_given_name }}
+          {% endif %}
+          {% if content.field_surname|field_value %}
+            {{ content.field_surname }}
+          {% endif %}
+        </h1>
+      {% else %}
+        <h1 class="c-single-header__title">{{ label }}</h1>
+      {% endif %}
 
       {% if content.field_subtitle|field_value %}
         <h2 class="c-single-header__subtitle">{{ content.field_subtitle }}</h2>
+      {% endif %}
+
+      {# Job title #}
+      {% if content.field_job_title|field_value and node.bundle == 'person' %}
+        <h2 class="c-single-header__subtitle"> {{ content.field_job_title }}</h2>
       {% endif %}
 
       {% if (header_start_time or date or content.field_event_location|field_value) and node.bundle == 'event' %}
@@ -45,58 +77,93 @@
           </li>
         {% endif %}
 
+        {% if node.bundle == 'person' %}
+          {# Board member is available only if role is 'Board member' #}
+          {% if content.field_board_member_type|field_value %}
+            <li class="c-single-header__meta-item">
+              {{ content.field_board_member_type|field_value.0['#title'] }}
+            </li>
+          {% endif %}
+
+          {% if content.field_twitter_handle|field_value %}
+            <li class="c-single-header__meta-item">
+              {% set twitter_handle = content.field_twitter_handle|field_raw('value') %}
+              <a class="c-single-header__meta-link"
+                 href='{{ "https://twitter.com/#{twitter_handle}" }}'
+                 title='{{ "Visit #{content.field_given_name|field_raw('value')} #{content.field_surname|field_raw('value')} twitter profile"|t }}'
+                 target='_blank'>
+                {{- twitter_handle -}}
+              </a>
+            </li>
+          {% endif %}
+
+          {% if content.field_email|field_value %}
+            <li class="c-single-header__meta-item">
+              {{ content.field_email }}
+            </li>
+          {% endif %}
+        {% endif %}
+
+        {% if node.bundle == 'career_opportunity' %}
+          {# Taxonomies #}
+          {% for field in meta_data.career_opportunity.header %}
+            {% for item in field %}
+              <li class="c-single-header__meta-item"><a href="{{ item.url }}">{{ item.title|trim }}</a></li>
+            {% endfor %}
+          {% endfor %}
+        {% endif %}
+
         {% if node.bundle == 'event' %}
           {% if header_start_time %}
             <li class="c-single-header__meta-item">
-            {# If daily event #}
-            <span>
-              {% if end_time %}
-                {{ end_time }}
-              {% endif %}
-              {% if timezone %}
-                {{ timezone }}
-              {% endif %}
-            </span>
+              {# If daily event #}
+              <p class="c-single-header__date">
+                {% if end_time %}
+                  {{ end_time }}
+                {% endif %}
+                {% if timezone %}
+                  {{ timezone }}
+                {% endif %}
+              </p>
+            </li>
           {% else %}
             {# Not daily event #}
-            <span>
-              {% if start_time %}
-                {{ start_time }} -
-              {% endif %}
-              {% if end_time %}
-                {{ end_time }}
-              {% endif %}
-              {% if timezone %}
-                {{ timezone }}
-              {% endif %}
-            </span>
+            <li class="c-single-header__meta-item">
+              <p class="c-single-header__date">
+                {% if start_time %}
+                  {{ start_time }} -
+                {% endif %}
+                {% if end_time %}
+                  {{ end_time }}
+                {% endif %}
+                {% if timezone %}
+                  {{ timezone }}
+                {% endif %}
+              </p>
+            </li>
 
             {# Event format #}
             {% if content.field_format %}
-              {{ content.field_format }}
+              <li class="c-single-header__meta-item">
+                <p class="c-single-header__date">
+                  {{ content.field_format }}
+                </p>
+              </li>
             {% endif %}
 
             {# open registration: if set will show 'Open registration' or
       'Application cloed' if event is in the past #}
             {% if registration %}
-              {{ registration }}
+              <li class="c-single-header__meta-item">
+                <p class="c-single-header__date">
+                  {{ registration }}
+                </p>
+              </li>
             {% endif %}
-
-
-            {# Registration link: available only when registration is open #}
-            {% if content.field_registration|field_value and registration_open %}
-              {{ content.field_registration }}
-            {% endif %}
-
-            {# View recording or Video conference link #}
-            {% if content.field_video_conferencing %}
-              {{ content.field_video_conferencing }}
-            {% endif %}
-            </li>
           {% endif %}
         {% endif %}
 
-        {% if date and node.bundle != 'event' %}
+        {% if date and node.bundle not in ['event', 'career_opportunity', 'person'] %}
           <li class="c-single-header__meta-item">
             <p class="c-single-header__date">{{ date }}</p>
           </li>
@@ -124,24 +191,45 @@
         {% endif %}
       </ul>
 
-      <div class="c-single-header__buttons-wrapper">
-        {% if content.field_link|field_value %}
-          {# External item #}
-          {{ content.field_link }}
-        {% endif %}
+      {% if (content.field_registration|field_value and registration_open) or content.field_video_conferencing or content.field_apply|field_value or content.field_link|field_value or report_pdf %}
+        <div class="c-single-header__buttons-wrapper">
+          {% if (content.field_registration|field_value and registration_open or content.field_video_conferencing) and node.bundle == 'event' %}
+            {# Registration link: available only when registration is open #}
+            {% if content.field_registration|field_value and registration_open %}
+              {{ content.field_registration }}
+            {% endif %}
 
-        {% if report_pdf %}
-          {# Reprot PDF #}
-          {% set file_label =  'Download PDF'|t %}
-          <a class="o-button" href="{{ report_pdf.url }}" title="{{ file_label }}">
-            {% include '@nrgi/svg/svg.html.twig' with {'svg': 'download-icon'} %}
+            {# View recording or Video conference link #}
+            {% if content.field_video_conferencing %}
+              {{ content.field_video_conferencing }}
+            {% endif %}
+          {% endif %}
 
-            {{ file_label }}
-          </a>
+          {% if content.field_apply|field_value and node.bundle == 'career_opportunity' %}
+            {% if content.field_apply|field_value %}
+              {# Apply #}
+              {{ content.field_apply }}
+            {% endif %}
+          {% endif %}
 
-          {#          SBTODO: to add button for languages and share on mobile #}
-        {% endif %}
-      </div>
+          {% if content.field_link|field_value %}
+            {# External item #}
+            {{ content.field_link }}
+          {% endif %}
+
+          {% if report_pdf %}
+            {# Reprot PDF #}
+            {% set file_label =  'Download PDF'|t %}
+            <a class="o-button" href="{{ report_pdf.url }}" title="{{ file_label }}">
+              {% include '@nrgi/svg/svg.html.twig' with {'svg': 'download-icon'} %}
+
+              {{ file_label }}
+            </a>
+
+            {#          SBTODO: to add button for languages and share on mobile #}
+          {% endif %}
+        </div>
+      {% endif %}
     </div>
   </div>
 </header>
