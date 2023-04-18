@@ -108,6 +108,11 @@
         width        : 100%;
       }
     }
+
+    &--document img {
+      height : 50px;
+      width  : auto;
+    }
   }
 
   figure {
@@ -138,7 +143,7 @@
   /* Block Quotes
   ================================================== */
   blockquote {
-    margin : var(--space-2xl) 0 0 var(--space-s);
+    margin : var(--space-2xl) 0 0 var(--space-m);
 
     @include media("<=tablet") {
       margin-left : var(--space-m);

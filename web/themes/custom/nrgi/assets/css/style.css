@@ -232,12 +232,17 @@ button:focus {
     4. BASE
     ===============================
 */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: #2D2D32;
   font-size: 16px;
 }
 body.is-scroll-locked {
   overflow: hidden;
+  position: relative;
 }
 
 a {
@@ -383,257 +388,461 @@ ul li a:hover {
   width: 100%;
 }
 
-:where(.o-content-from-editor) {
-  /* Block Quotes
-  ================================================== */
-  /* Aligned Images
-  ================================================== */
-  /* Lists
-  ================================================== */
-  /* Miscellaneous
-  ================================================== */
-}
-:where(.o-content-from-editor) p {
+.o-content-from-editor {
   font-family: "Noto Sans", sans-serif;
   font-size: 1.375rem;
   line-height: 1.75;
   font-weight: 400;
+  color: #2D2D32;
+  position: relative;
+  /* Media
+  ================================================== */
+  /* Block Quotes
+  ================================================== */
+  /* Lists
+  ================================================== */
+  /* stylelint-disable-next-line */
+  /* stylelint-disable-next-line */
+  /* Tables
+  ================================================== */
+  /* Footnotes
+  ================================================== */
+  /* Standfirst/key messages
+  ================================================== */
+  /* Boxed content
+  ================================================== */
+  /* Spacing rules
+  ================================================== */
+  /* stylelint-disable-next-line */
+  /* Miscellaneous
+  ================================================== */
 }
 @media (max-width: 64rem) {
-  :where(.o-content-from-editor) p {
+  .o-content-from-editor {
     font-size: 1.125rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) p {
+  .o-content-from-editor {
     font-size: 1rem;
   }
 }
-:where(.o-content-from-editor) h1 {
-  font-family: "Cabinet Grotesk", sans-serif;
-  font-size: 5rem;
-  line-height: 1.15;
-  font-weight: 500;
-}
-@media (max-width: 94.5rem) {
-  :where(.o-content-from-editor) h1 {
-    font-size: 4.5rem;
-  }
+.o-content-from-editor p {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.75;
+  font-weight: 400;
+  margin-top: var(--space-m);
 }
 @media (max-width: 64rem) {
-  :where(.o-content-from-editor) h1 {
-    font-size: 3.75rem;
+  .o-content-from-editor p {
+    font-size: 1.125rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) h1 {
-    font-size: 2rem;
+  .o-content-from-editor p {
+    font-size: 1rem;
   }
 }
-:where(.o-content-from-editor) h2 {
-  font-family: "Cabinet Grotesk", sans-serif;
-  font-weight: 500;
-  font-size: 4rem;
-  line-height: 1.2;
-}
-@media (max-width: 94.5rem) {
-  :where(.o-content-from-editor) h2 {
-    font-size: 3.5rem;
-  }
-}
-@media (max-width: 64rem) {
-  :where(.o-content-from-editor) h2 {
-    font-size: 3rem;
-  }
-}
-@media (max-width: 48rem) {
-  :where(.o-content-from-editor) h2 {
-    font-size: 1.875rem;
-  }
-}
-:where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
+.o-content-from-editor h2 {
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 500;
   font-size: 3rem;
   line-height: 1.2;
+  margin-top: var(--space-3xl);
 }
 @media (max-width: 94.5rem) {
-  :where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
+  .o-content-from-editor h2 {
     font-size: 2.5rem;
   }
 }
 @media (max-width: 64rem) {
-  :where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
+  .o-content-from-editor h2 {
     font-size: 2.25rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) h3, :where(.o-content-from-editor) h4, :where(.o-content-from-editor) h5, :where(.o-content-from-editor) h6 {
+  .o-content-from-editor h2 {
     font-size: 1.75rem;
   }
 }
-:where(.o-content-from-editor) a {
-  text-decoration: underline;
-}
-:where(.o-content-from-editor) a:hover, :where(.o-content-from-editor) a:focus {
-  color: #ED7053;
-  text-decoration: underline;
-}
-:where(.o-content-from-editor) > :last-child {
-  margin-bottom: 0;
-}
-:where(.o-content-from-editor) img {
-  display: block;
-  height: auto;
-  max-width: 100%;
-  width: auto;
-}
-:where(.o-content-from-editor) img.size-large {
-  margin-left: 0;
-  margin-right: 0;
-  width: 100%;
-}
-:where(.o-content-from-editor) figure {
-  margin-top: var(--space-s);
-}
-:where(.o-content-from-editor) figure figcaption {
-  box-sizing: border-box;
-  display: inline-block;
-  padding: var(--space-xs) var(--space-s);
-  width: 100%;
-}
-:where(.o-content-from-editor) h1 + p,
-:where(.o-content-from-editor) h2 + p,
-:where(.o-content-from-editor) h3 + p,
-:where(.o-content-from-editor) h4 + p,
-:where(.o-content-from-editor) h5 + p,
-:where(.o-content-from-editor) h6 + p,
-:where(.o-content-from-editor) p + p {
-  margin-top: var(--space-m);
-}
-:where(.o-content-from-editor) blockquote {
-  border-left: 3px solid #2D2D32;
-  margin: var(--space-l) 0 var(--space-l) var(--space-m);
-  padding: var(--space-xs) 0 var(--space-xs) var(--space-m);
-}
-:where(.o-content-from-editor) blockquote p {
+.o-content-from-editor h3 {
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 500;
-  font-size: 2rem;
+  font-size: 2.5rem;
   line-height: 1.5;
-  font-style: italic;
-  font-weight: 400;
-  margin-bottom: 0;
 }
 @media (max-width: 94.5rem) {
-  :where(.o-content-from-editor) blockquote p {
-    font-size: 1.75rem;
+  .o-content-from-editor h3 {
+    font-size: 2.25rem;
   }
 }
 @media (max-width: 64rem) {
-  :where(.o-content-from-editor) blockquote p {
+  .o-content-from-editor h3 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 48rem) {
+  .o-content-from-editor h3 {
+    font-size: 1.5rem;
+  }
+}
+.o-content-from-editor h4,
+.o-content-from-editor h5 {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 2.25rem;
+  line-height: 1.5;
+  font-weight: 500;
+  font-weight: 700;
+}
+@media (max-width: 94.5rem) {
+  .o-content-from-editor h4,
+  .o-content-from-editor h5 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 64rem) {
+  .o-content-from-editor h4,
+  .o-content-from-editor h5 {
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 48rem) {
+  .o-content-from-editor h4,
+  .o-content-from-editor h5 {
+    font-size: 1.375rem;
+  }
+}
+.o-content-from-editor h6 {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.5;
+  font-weight: 700;
+}
+@media (max-width: 94.5rem) {
+  .o-content-from-editor h6 {
     font-size: 1.5rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) blockquote p {
+  .o-content-from-editor h6 {
     font-size: 1.125rem;
   }
 }
-:where(.o-content-from-editor) blockquote footer {
+.o-content-from-editor h3,
+.o-content-from-editor h4,
+.o-content-from-editor h5,
+.o-content-from-editor h6 {
+  margin-top: var(--space-2xl);
+}
+.o-content-from-editor h2 + p {
+  margin-top: var(--space-xl);
+}
+.o-content-from-editor h3 + p {
+  margin-top: var(--space-l);
+}
+.o-content-from-editor h4 + p {
+  margin-top: var(--space-m);
+}
+.o-content-from-editor h5 + p,
+.o-content-from-editor h6 + p {
+  margin-top: var(--space-s);
+}
+.o-content-from-editor h2,
+.o-content-from-editor h3 {
+  scroll-margin-top: 5rem;
+}
+@media (max-width: 48rem) {
+  .o-content-from-editor h2,
+  .o-content-from-editor h3 {
+    scroll-margin-top: 4rem;
+  }
+}
+.o-content-from-editor a {
+  color: #007078;
+  text-decoration: underline;
+  transition: color 0.3s;
+  overflow-wrap: break-word;
+}
+.o-content-from-editor a:focus, .o-content-from-editor a:hover {
+  color: #2D2D32;
+  text-decoration: underline;
+}
+.o-content-from-editor > :last-child {
+  margin-bottom: 0;
+}
+.o-content-from-editor h1 + p,
+.o-content-from-editor h2 + p,
+.o-content-from-editor h3 + p,
+.o-content-from-editor h4 + p,
+.o-content-from-editor h5 + p,
+.o-content-from-editor h6 + p,
+.o-content-from-editor p + p {
+  margin-top: var(--space-m);
+}
+.o-content-from-editor iframe,
+.o-content-from-editor img {
+  display: block;
+  width: 100%;
+}
+.o-content-from-editor .c-media {
+  margin-top: var(--space-2xl);
+}
+.o-content-from-editor .c-media--remote-video iframe {
+  aspect-ratio: 16/9;
+  height: 100%;
+  width: 100%;
+}
+.o-content-from-editor .c-media--document img {
+  height: 50px;
+  width: auto;
+}
+.o-content-from-editor figure {
+  margin-top: var(--space-2xl);
+}
+.o-content-from-editor figure figcaption {
   font-family: "Noto Sans", sans-serif;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5;
-  margin-top: var(--space-s);
+  box-sizing: border-box;
+  display: inline-block;
+  margin-top: var(--space-m);
+  width: 100%;
 }
 @media (max-width: 64rem) {
-  :where(.o-content-from-editor) blockquote footer {
+  .o-content-from-editor figure figcaption {
     font-size: 0.875rem;
   }
 }
-:where(.o-content-from-editor) .alignleft, :where(.o-content-from-editor) .align-left {
-  float: left;
-  margin: var(--space-s) var(--space-m) var(--space-s) 0;
+.o-content-from-editor figure > .c-media {
+  margin: 0;
 }
-:where(.o-content-from-editor) .aligncenter, :where(.o-content-from-editor) .align-center {
+.o-content-from-editor figure > .c-media + figcaption {
+  margin-top: var(--space-m);
+}
+.o-content-from-editor .caption {
   display: block;
-  margin: var(--space-m) auto;
 }
-:where(.o-content-from-editor) .alignright, :where(.o-content-from-editor) .align-right {
-  float: right;
-  margin: var(--space-s) 0 var(--space-m) var(--space-s);
-}
-:where(.o-content-from-editor) .alignnone {
-  display: block;
-  height: auto;
-  margin: var(--space-l) 0;
-  max-width: 100%;
+.o-content-from-editor blockquote {
+  margin: var(--space-2xl) 0 0 var(--space-m);
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) .alignnone {
-    margin-top: var(--space-m);
+  .o-content-from-editor blockquote {
+    margin-left: var(--space-m);
+  }
+}
+.o-content-from-editor blockquote p {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.5;
+  color: #00545A;
+  margin-bottom: 0;
+}
+@media (max-width: 94.5rem) {
+  .o-content-from-editor blockquote p {
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 64rem) {
+  .o-content-from-editor blockquote p {
+    font-size: 1.5rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) .alignleft,
-  :where(.o-content-from-editor) .alignright,
-  :where(.o-content-from-editor) .alignnone {
-    display: block;
-    float: none;
-    margin-bottom: var(--space-s);
-    margin-left: 0;
+  .o-content-from-editor blockquote p {
+    font-size: 1.125rem;
   }
 }
-:where(.o-content-from-editor) ol {
+.o-content-from-editor ol {
   list-style: decimal;
 }
-:where(.o-content-from-editor) ol ul {
+.o-content-from-editor ol ul {
   list-style: disc;
 }
-:where(.o-content-from-editor) ol ol {
+.o-content-from-editor ol ol {
   list-style: lower-latin;
 }
-:where(.o-content-from-editor) ul {
+.o-content-from-editor ul {
   list-style: disc;
 }
-:where(.o-content-from-editor) ul ul {
-  list-style: circle;
-}
-:where(.o-content-from-editor) ul ol {
+.o-content-from-editor ul ol {
   list-style: decimal;
 }
-:where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
+.o-content-from-editor ul,
+.o-content-from-editor ol {
   font-family: "Noto Sans", sans-serif;
   font-size: 1.375rem;
   line-height: 1.75;
   font-weight: 400;
-  margin: var(--space-s) 0 var(--space-m) var(--space-m);
+  margin: var(--space-s) 0 var(--space-s) var(--space-xl);
 }
 @media (max-width: 64rem) {
-  :where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
+  .o-content-from-editor ul,
+  .o-content-from-editor ol {
     font-size: 1.125rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
+  .o-content-from-editor ul,
+  .o-content-from-editor ol {
     font-size: 1rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) ol, :where(.o-content-from-editor) ul {
-    margin-bottom: var(--space-s);
-    margin-top: var(--space-s);
+  .o-content-from-editor ul,
+  .o-content-from-editor ol {
+    margin-left: var(--space-l);
   }
 }
-:where(.o-content-from-editor) ol ul, :where(.o-content-from-editor) ol ol, :where(.o-content-from-editor) ul ul, :where(.o-content-from-editor) ul ol {
-  margin: 0.25rem 0 0.375rem var(--space-s);
+.o-content-from-editor ul ul,
+.o-content-from-editor ul ol,
+.o-content-from-editor ol ul,
+.o-content-from-editor ol ol {
+  margin: var(--space-s) 0 var(--space-s) var(--space-xl);
 }
-:where(.o-content-from-editor) ol li, :where(.o-content-from-editor) ul li {
-  margin-bottom: var(--space-xs);
-  padding-left: var(--space-xs);
+@media (max-width: 48rem) {
+  .o-content-from-editor ul ul,
+  .o-content-from-editor ul ol,
+  .o-content-from-editor ol ul,
+  .o-content-from-editor ol ol {
+    margin-left: var(--space-l);
+  }
 }
-:where(.o-content-from-editor) address {
+.o-content-from-editor ul li,
+.o-content-from-editor ol li {
+  margin-bottom: var(--space-s);
+}
+.o-content-from-editor ul li::marker,
+.o-content-from-editor ol li::marker {
+  color: #00C9C8;
+}
+.o-content-from-editor .responsive-table {
+  margin-top: var(--space-2xl);
+  overflow-x: auto;
+}
+.o-content-from-editor table {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: left;
+  width: 100%;
+  /* stylelint-disable-next-line */
+}
+@media (max-width: 64rem) {
+  .o-content-from-editor table {
+    font-size: 0.875rem;
+  }
+}
+.o-content-from-editor table caption {
+  caption-side: bottom;
+  display: table-caption;
+  margin-top: var(--space-m);
+  text-align: left;
+}
+.o-content-from-editor table td,
+.o-content-from-editor table th {
+  box-sizing: border-box;
+}
+.o-content-from-editor table th {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 600;
+  padding: 0 var(--space-s) var(--space-s) 0;
+}
+@media (max-width: 64rem) {
+  .o-content-from-editor table th {
+    font-size: 0.875rem;
+  }
+}
+.o-content-from-editor table td {
+  min-width: 5rem;
+  padding: var(--space-s) var(--space-s) var(--space-m) 0;
+}
+.o-content-from-editor table td *:first-child {
+  margin-top: 0;
+}
+.o-content-from-editor table td ul li,
+.o-content-from-editor table td ol li {
+  margin-top: 0.75rem;
+}
+.o-content-from-editor table tbody tr {
+  border-top: 1px solid #EDEDEF;
+}
+.o-content-from-editor table tbody tr:last-child {
+  border-bottom: 1px solid #EDEDEF;
+}
+.o-content-from-editor table a {
+  overflow-wrap: break-word;
+}
+.o-content-from-editor .see-footnote {
+  font-size: 70%;
+  font-weight: 700;
+  text-decoration: none;
+  top: 0;
+  vertical-align: top;
+}
+.o-content-from-editor .standfirst {
+  color: #00545A;
+  margin-top: var(--space-3xl);
+  /* stylelint-disable-next-line */
+}
+.o-content-from-editor .standfirst > * {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.5;
+}
+@media (max-width: 94.5rem) {
+  .o-content-from-editor .standfirst > * {
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 64rem) {
+  .o-content-from-editor .standfirst > * {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 48rem) {
+  .o-content-from-editor .standfirst > * {
+    font-size: 1.125rem;
+  }
+}
+.o-content-from-editor .standfirst li::marker {
+  color: #00545A;
+}
+.o-content-from-editor .boxed-text {
+  background-color: #B3EFEF;
+  padding: var(--space-xl) var(--space-m);
+  /* stylelint-disable-next-line */
+}
+.o-content-from-editor .boxed-text > *:first-child {
+  margin-top: 0;
+}
+.o-content-from-editor .boxed-text h2,
+.o-content-from-editor .boxed-text h3,
+.o-content-from-editor .boxed-text h4,
+.o-content-from-editor .boxed-text h5,
+.o-content-from-editor .boxed-text h6 {
+  margin-top: var(--space-l);
+}
+.o-content-from-editor > :first-child {
+  margin-top: 0;
+}
+.o-content-from-editor :is(.responsive-table, figure, blockquote, .c-media, .standfirst) + * {
+  margin-top: var(--space-2xl);
+}
+.o-content-from-editor * :last-child {
+  margin-bottom: 0;
+}
+.o-content-from-editor address {
   font-family: "Noto Sans", sans-serif;
   font-size: 1.375rem;
   line-height: 1.75;
@@ -641,32 +850,33 @@ ul li a:hover {
   font-style: italic;
 }
 @media (max-width: 64rem) {
-  :where(.o-content-from-editor) address {
+  .o-content-from-editor address {
     font-size: 1.125rem;
   }
 }
 @media (max-width: 48rem) {
-  :where(.o-content-from-editor) address {
+  .o-content-from-editor address {
     font-size: 1rem;
   }
 }
-:where(.o-content-from-editor) big {
+.o-content-from-editor big {
   font-size: 120%;
 }
-:where(.o-content-from-editor) small {
+.o-content-from-editor small {
   font-size: 80%;
 }
-:where(.o-content-from-editor) cite {
+.o-content-from-editor cite {
   font-weight: 700;
 }
-:where(.o-content-from-editor) q {
+.o-content-from-editor q {
   font-style: italic;
 }
-:where(.o-content-from-editor) code, :where(.o-content-from-editor) var {
+.o-content-from-editor code,
+.o-content-from-editor var {
   font-family: Consolas, monospace;
 }
-:where(.o-content-from-editor) div {
-  margin-top: var(--space-m);
+.o-content-from-editor div {
+  margin-top: var(--space-2xl);
 }
 
 /** @define o-section */
@@ -1511,6 +1721,39 @@ ul li a:hover {
 }
 .c-footer__credit a:focus, .c-footer__credit a:hover {
   text-decoration: underline;
+}
+
+.c-footnotes__list {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  -moz-columns: 2;
+       columns: 2;
+  -moz-column-gap: var(--space-l);
+       column-gap: var(--space-l);
+}
+@media (max-width: 64rem) {
+  .c-footnotes__list {
+    font-size: 0.875rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-footnotes__list {
+    -moz-columns: 1;
+         columns: 1;
+  }
+}
+.c-footnotes__list-item {
+  display: flex;
+  gap: var(--space-s);
+  margin-bottom: var(--space-s);
+}
+.c-footnotes__list-item:last-child {
+  margin-bottom: 0;
+}
+.c-footnotes__list-content a {
+  word-break: break-all;
 }
 
 /** @define c.form */
@@ -2938,6 +3181,25 @@ ul li a:hover {
   transform: translateX(-0.0625rem);
 }
 
+.c-text-block__container {
+  display: grid;
+  grid-column-gap: var(--gutter);
+  grid-template-columns: repeat(12, 1fr);
+}
+@media (max-width: 48rem) {
+  .c-text-block__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.c-text-block__inner {
+  grid-column: 1/9;
+}
+@media (max-width: 48rem) {
+  .c-text-block__inner {
+    grid-column: 1/-1;
+  }
+}
+
 /*
     ===============================
     7. TRUMPS
@@ -2953,6 +3215,75 @@ ul li a:hover {
 .cke_editable .boxed-text {
   background-color: #B3EFEF;
   padding: 12px;
+}
+
+/* stylelint-disable */
+#cboxOverlay {
+  background-color: #00545A !important;
+}
+
+.cboxCaption {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #FFFFFF;
+  padding: 0;
+  position: absolute;
+  top: calc(var(--space-m) * -1);
+  transform: translateY(-100%);
+}
+@media (max-width: 64rem) {
+  .cboxCaption {
+    font-size: 0.875rem;
+  }
+}
+
+#colorbox {
+  overflow: visible !important;
+}
+#colorbox #cboxWrapper {
+  overflow: visible;
+}
+#colorbox #cboxContent {
+  border-radius: 0;
+  overflow: visible;
+}
+#colorbox #cboxLoadedContent {
+  overflow: visible;
+}
+#colorbox .cboxPhoto {
+  border-radius: 0;
+}
+#colorbox #cboxTitle {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  background: none;
+  bottom: unset;
+  color: #FFFFFF;
+  padding: 0;
+  top: calc(var(--space-m) * -1);
+  transform: translateY(-100%);
+}
+@media (max-width: 64rem) {
+  #colorbox #cboxTitle {
+    font-size: 0.875rem;
+  }
+}
+#colorbox #cboxClose {
+  background: none;
+  border-radius: 0;
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  height: auto;
+  line-height: 1;
+  padding: 0;
+  right: 0;
+  top: calc(var(--space-m) * -1);
+  transform: translateY(-100%);
+  width: auto;
 }
 
 /* stylelint-disable */

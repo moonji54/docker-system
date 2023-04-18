@@ -42,7 +42,7 @@ class Lightbox {
         this.$('#cboxClose').html('\u00d7').addClass('cbox-close-plain');
         // Hide empty title.
         this.$('#cboxTitle').hide();
-        
+
         this.$('body').addClass('is-scroll-locked');
     }
 

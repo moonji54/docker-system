@@ -83,10 +83,9 @@
     7. TRUMPS
     ===============================
 */
-@import "overrides/colorbox";
 @import "overrides/ckeditor/ckeditor";
-@import "overrides/cookie-banner";
-@import "overrides/plugins";
+@import "overrides/plugins/colorbox";
+@import "overrides/plugins/cookie-banner";
 @import "overrides/plugins/perfect-scrollbar";
 @import "overrides/print";
 @import "overrides/utilities";
