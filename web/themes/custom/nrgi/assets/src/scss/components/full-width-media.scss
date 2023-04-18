@@ -1,0 +1,32 @@
+.c-full-width-media {
+  margin : var(--space-3xl) 0;
+
+  &__media-wrapper {
+    aspect-ratio : 1.96;
+    position     : relative;
+
+    @include media("<=tablet") {
+      aspect-ratio : 16 / 9;
+    }
+
+    img {
+      height     : 100%;
+      left       : 0;
+      object-fit : cover;
+      position   : absolute;
+      top        : 0;
+      width      : 100%;
+    }
+  }
+
+  &__caption {
+    @include ts-caption;
+    margin-top : var(--space-m);
+
+    span {
+      &:last-child {
+        font-style : italic;
+      }
+    }
+  }
+}

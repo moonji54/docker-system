@@ -1,5 +1,4 @@
 {% if meta_data %}
-  {{ dpm(meta_data) }}
   <section class="c-meta-rows o-section">
     <div class="c-meta-rows__container o-container">
       <dl class="c-meta-rows__inner">
@@ -20,11 +19,14 @@
                     {# Footer Oraganisation logos #}
                     {% include '@nrgi/node-partials/node--logos.html.twig' with {'item': item} %}
 
-                  {% elseif item.type == 'text' %}
-                    {{ item.title }}
-
                   {% else %}
+
+                    {%  if item.url %}
                     <a href="{{ item.url }}">{{ item.title|trim }}</a>
+                      {% else %}
+                        {{ item.title }}
+                    {% endif %}
+
                   {% endif %}
                 {% endfor %}
               </dd>

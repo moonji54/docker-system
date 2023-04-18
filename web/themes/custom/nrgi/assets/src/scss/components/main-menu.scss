@@ -1,6 +1,148 @@
 /** @define c-main-menu */
 .c-main-menu {
-  &__inner {
+  $c        : &;
+  display   : flex;
+  flex-wrap : wrap;
+  gap       : var(--space-m);
 
+  @include media("<=desktop") {
+    flex-direction : column;
+    gap            : 0;
+  }
+
+  &__item {
+    font-size : 0;
+
+    @include media("<=desktop") {
+      border-top   : 1px solid $grey-light;
+      padding-left : var(--gutter);
+
+      &:first-child {
+        border-top : none;
+      }
+    }
+
+    &:hover {
+      @include media(">desktop") {
+        .c-mega-nav {
+          display : block;
+        }
+
+        #{$c}__button-svg {
+          transform : rotate(180deg);
+        }
+      }
+    }
+
+    @include media(">desktop") {
+      &:hover,
+      &:focus {
+        > #{$c}__item-link-wrapper > #{$c}__item-link {
+          text-decoration-color : $white;
+        }
+      }
+    }
+
+    &--expanded {
+      #{$c}__item-link {
+        position : relative;
+
+        &:before {
+          background : transparent;
+          content    : "";
+          height     : 100%;
+          position   : absolute;
+          top        : 100%;
+          width      : 100%;
+        }
+
+        @include media("<=desktop") {
+          &:before {
+            content : none;
+          }
+        }
+      }
+    }
+
+    &--active-trail {
+      #{$c}__item-link {
+        text-decoration-color : $white;
+      }
+    }
+  }
+
+  &__item-link-wrapper {
+    @include media("<=desktop") {
+      display         : flex;
+      justify-content : space-between;
+    }
+  }
+
+  &__item-link {
+    @include ts-main-menu;
+    @include underlined;
+
+    @include media("<desktop") {
+      padding : 0.5rem 1rem 0.5rem 0;
+      width   : 100%;
+    }
+
+    /* stylelint-disable-next-line */
+    &.is-active {
+      text-decoration-color : $white;
+    }
+  }
+
+  &__sub-menu-button {
+    display : none;
+
+    @include media("<=desktop") {
+      align-items : center;
+      cursor      : pointer;
+      display     : flex;
+      flex-shrink : 0;
+      padding     : 1.125rem var(--gutter);
+      position    : relative;
+      transition  : all 0.3s;
+
+      &:not(.is-clicked) {
+        #{$c}__sub-menu-svg {
+          transform : rotate(0);
+        }
+      }
+
+      &:hover,
+      &:focus {
+        #{$c}__sub-menu-svg {
+          opacity : 0.7;
+        }
+      }
+
+      &:before {
+        background : $grey-light;
+        content    : "";
+        height     : calc(100% - 0.5rem);
+        left       : -0.063rem;
+        position   : absolute;
+        top        : 0.25rem;
+        width      : 0.063rem;
+      }
+    }
+
+    &.is-clicked {
+      /* stylelint-disable-next-line */
+      #{$c}__sub-menu-svg {
+        transform : rotate(180deg);
+      }
+
+      /* stylelint-disable-next-line */
+      &:before {
+        content : none;
+      }
+    }
+  }
+
+  &__sub-menu-svg {
+    transition : all 0.3s;
   }
 }

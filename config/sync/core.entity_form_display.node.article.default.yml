@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.article.field_region
     - field.field.node.article.field_related_manual_content
     - field.field.node.article.field_resource_type
+    - field.field.node.article.field_series
     - field.field.node.article.field_short_description
     - field.field.node.article.field_slug
     - field.field.node.article.field_subtitle
@@ -234,6 +235,7 @@ third_party_settings:
       children:
         - group_topic
         - group_keywords
+        - group_series
         - group_country
         - group_region
       label: 'Taxonomies tabs'
@@ -283,7 +285,7 @@ third_party_settings:
       label: Country
       region: content
       parent_name: group_taxonomies_tabs
-      weight: 22
+      weight: 23
       format_type: tab
       format_settings:
         classes: ''
@@ -298,7 +300,7 @@ third_party_settings:
       label: Region
       region: content
       parent_name: group_taxonomies_tabs
-      weight: 23
+      weight: 24
       format_type: tab
       format_settings:
         classes: ''
@@ -370,6 +372,21 @@ third_party_settings:
         show_empty_fields: false
         id: ''
         open: false
+        description: ''
+        required_fields: true
+    group_series:
+      children:
+        - field_series
+      label: Series
+      region: hidden
+      parent_name: group_taxonomies_tabs
+      weight: 22
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
         description: ''
         required_fields: true
 _core:
@@ -587,6 +604,16 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_series:
+    type: entity_reference_autocomplete
+    weight: 14
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_short_description:
     type: string_textarea_with_counter
     weight: 35
@@ -726,7 +753,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }

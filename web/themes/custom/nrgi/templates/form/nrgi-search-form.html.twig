@@ -1,13 +1,11 @@
-<section class="c-header-search js-header-search">
-  <div class="o-container">
-    <form class="c-header-search__form" id="nrgi-search-form" method="{{ search_form['#form']['#method'] }}">
-      <div class="c-header-search__form-inner">
-        {{ search_form['#form']['text_field'] }}
-        {{ search_form['#form']['actions']['submit'] }}
-        {{ search_form['#form']['form_build_id'] }}
-        {{ search_form['#form']['form_token'] }}
-        {{ search_form['#form']['form_id'] }}
-      </div>
-    </form>
-  </div>
-</section>
+<div class="c-header-search js-header-search">
+  <form class="c-header-search__form" id="nrgi-search-form" method="{{ search_form['#form']['#method'] }}">
+    <div class="c-header-search__form-inner">
+      {{ search_form['#form']['text_field'] }}
+      {{ search_form['#form']['actions']['submit'] }}
+      {{ search_form['#form']['form_build_id'] }}
+      {{ search_form['#form']['form_token'] }}
+      {{ search_form['#form']['form_id'] }}
+    </div>
+  </form>
+</div>

@@ -1,0 +1,30 @@
+uuid: e2144f0c-7687-4606-b9d6-e607864d3b23
+langcode: en
+status: true
+dependencies:
+  module:
+    - context_active_trail
+    - node
+label: Event
+name: event
+group: Breadcrumbs
+description: ''
+requireAllConditions: false
+disabled: false
+conditions:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: df78fc69-4232-4b9f-bf46-8cbd07edce45
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      event: event
+reactions:
+  active_trail:
+    id: active_trail
+    trail: 'main:menu_link_content:4626dfe7-f845-4a88-9a36-ffe497ee30b0'
+    breadcrumbs: 1
+    breadcrumb_title: 0
+    uuid: 9b746fe4-098d-4dfc-8a27-1364a039cf74
+weight: 0

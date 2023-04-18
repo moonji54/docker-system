@@ -1,0 +1,19 @@
+uuid: 263465d8-fb33-4f35-b1f4-6a0ca1583d2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contributions_description
+    - node.type.topic
+id: node.topic.field_contributions_description
+field_name: field_contributions_description
+entity_type: node
+bundle: topic
+label: 'Topic content section description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

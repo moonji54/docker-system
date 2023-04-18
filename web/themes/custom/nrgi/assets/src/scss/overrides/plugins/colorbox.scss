@@ -1,0 +1,58 @@
+/* stylelint-disable */
+#cboxOverlay {
+  background-color : $secondary !important;
+}
+
+.cboxCaption {
+  @include ts-caption;
+  color     : $white;
+  padding   : 0;
+  position  : absolute;
+  top       : calc(var(--space-m) * -1);
+  transform : translateY(-100%);
+}
+
+#colorbox {
+  overflow : visible !important;
+
+  #cboxWrapper {
+    overflow : visible;
+  }
+
+  #cboxContent {
+    border-radius : 0;
+    overflow      : visible;
+  }
+
+  #cboxLoadedContent {
+    overflow : visible;
+  }
+
+  .cboxPhoto {
+    border-radius : 0;
+  }
+
+  #cboxTitle {
+    @include ts-caption;
+    background : none;
+    bottom     : unset;
+    color      : $white;
+    padding    : 0;
+    top        : calc(var(--space-m) * -1);
+    transform  : translateY(-100%);
+  }
+
+  #cboxClose {
+    background    : none;
+    border-radius : 0;
+    color         : $white;
+    font-size     : 1.5rem;
+    height        : auto;
+    line-height   : 1;
+    padding       : 0;
+    right         : 0;
+    top           : calc(var(--space-m) * -1);
+    transform     : translateY(-100%);
+    width         : auto;
+  }
+}
