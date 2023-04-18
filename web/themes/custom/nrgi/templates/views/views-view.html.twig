@@ -2,7 +2,7 @@
   {% set no_filters = TRUE %}
 {% endif %}
 
-{% if id|clean_class == 'search' %}
+{% if id|clean_class == 'search-view' %}
   {% set is_search = TRUE %}
 {% endif %}
 
@@ -17,15 +17,32 @@
   dom_id ? 'js-view-dom-id-' ~ dom_id,
 ] %}
 
-{% if is_search %}
-  <section class="c-page-header c-page-header--search">
-    <div class="o-container">
-      <h2 class="c-page-header__heading">{{ 'Search'|t }}</h2>
-    </div>
-  </section>
-{% endif %}
-
 <div{{ attributes.addClass(classes) }}>
+  {% if is_search %}
+    <section class="c-page-header c-page-header--search">
+      <div class="o-container">
+        <h2 class="c-page-header__heading">{{ 'Search'|t }}</h2>
+        <div class="c-listing__search">
+          <div class="o-container o-container--grid">
+            <div class="c-search-overlay__inner">
+              <form class="c-search-overlay__form" action="/search" method="get" role="search"
+                    aria-label="Sitewide search">
+                <input class="c-search-overlay__input js-search-input"
+                       title="{{ 'Enter the terms you wish to search for.'|t }}"
+                       type="search" placeholder="{{ 'Search term'|t }}" name="query"
+                       value="{{ query }}">
+
+                <input data-drupal-selector="edit-submit"
+                       class="c-page-header__search-submit c-form-element c-form-element--field-submit c-form-element--type-submit button js-form-submit form-submit"
+                       type="submit" id="edit-submit" value="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
   <div class="c-listing__container o-container">
     {% if attachment_before %}
       <div class="c-listing__attachment c-listing__attachment-before">
