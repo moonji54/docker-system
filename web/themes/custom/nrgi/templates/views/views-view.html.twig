@@ -2,7 +2,7 @@
   {% set no_filters = TRUE %}
 {% endif %}
 
-{% if id|clean_class == 'search' %}
+{% if id == 'search_view' %}
   {% set is_search = TRUE %}
 {% endif %}
 
@@ -16,13 +16,36 @@
   {# SBTODO: Search #}
   {% if is_search %}
     <section class="c-page-header c-page-header--search">
-      <div class="o-container">
-        <h2 class="c-page-header__heading">{{ 'Search'|t }}</h2>
+      <img class="c-page-header__image-placeholder" src="/{{ base_path ~ directory }}/assets/img/search-banner.svg"
+           alt="Image placeholder"/>
+
+      <div class="c-page-header__container o-container">
+        {#      SBTODO: to be added once backend is done #}
+        <div class="c-page-header__breadcrumbs c-breadcrumbs">
+          <div class="c-breadcrumbs__list">
+            breadcrumb / breadcrumb
+          </div>
+        </div>
+
+        <div class="c-page-header__text-wrapper">
+          {# Title #}
+          <h1 class="c-page-header__title">{{ 'Search results'|t }}</h1>
+
+          <form class="c-page-header__search-form" action="/search" method="get" role="search" aria-label="Sitewide search">
+            <input class="c-page-header__search-input" title="Enter the terms you wish to search for." type="search"
+                   id="header-search-input" placeholder="Type Here..." name="keyword_name"
+                   value="{{ exposed.query['#value'] }}" size="15" maxlength="128">
+
+            <button class="c-page-header__submit" type="submit">
+              {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'search-icon', 'extra_class' : 'c-page-header__search-icon' } %}
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   {% endif %}
 
-  <div class="c-listing__container">
+  <div class="c-listing__container o-container">
     {{ title_prefix }}
 
     {% if title %}
@@ -58,24 +81,17 @@
         </div>
       {% endif %}
     </div>
+
+    {% if pager %}
+      <div class="c-listing__pagination">
+        {{ pager }}
+      </div>
+    {% endif %}
   </div>
 
   {% if attachment_before %}
     <div class="c-listing__attachment c-listing__attachment-before">
       {{ attachment_before }}
-    </div>
-  {% endif %}
-
-  {% if id|clean_class == 'search-view' %}
-    <div class="c-listing__top">
-      <form class="c-listing__form" action="/search" method="get" role="search" aria-label="Sitewide search">
-        <input class="c-listing__input" title="Enter the terms you wish to search for." type="search"
-               id="header-search-input" placeholder="Type Here..." name="keyword_name"
-               value="{{ exposed.search_term['#value'] }}" size="15" maxlength="128">
-        <button class="c-listing__submit" type="submit">
-          <span>Search</span>
-        </button>
-      </form>
     </div>
   {% endif %}
 
@@ -85,11 +101,6 @@
     </div>
   {% endif %}
 
-  {% if pager %}
-    <div class="c-listing__pagination">
-      {{ pager }}
-    </div>
-  {% endif %}
   {% if more %}
     {{ more }}
   {% endif %}

@@ -22,33 +22,22 @@
   {% if label_display in ['before', 'invisible'] and type == 'entity_autocomplete' %}
     <div class="c-filter__button-toggle autocomplete-button js-filter-button" role="button">
       {{ label }}
-
-      <span class="c-filter__chevron js-filter-chevron">
-        {# TODO : SBTODO #}
-        {# {% include '@nrgi/svg/svg.html.twig' with {'svg': 'chevron', 'extra_class' : 'c-filter__chevron-icon'} %} #}
-        </span>
     </div>
-  {% else %}
-    {{ label }}
   {% endif %}
-
 
   {% if prefix is not empty %}
     <span class="field-prefix">{{ prefix }}</span>
   {% endif %}
+
   {% if description_display == 'before' and description.content %}
     <div{{ description.attributes }}>
       {{ description.content }}
     </div>
   {% endif %}
 
-  {% if is_search %}
+  <div class="c-filter__item-content autocomplete-content">
     {{ children }}
-  {% else %}
-    <div class="c-filter__item-content autocomplete-content">
-      {{ children }}
-    </div>
-  {% endif %}
+  </div>
 
   {% if suffix is not empty %}
     <span class="field-suffix">{{ suffix }}</span>
