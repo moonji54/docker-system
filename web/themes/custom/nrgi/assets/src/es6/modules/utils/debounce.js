@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Simple debouncer
  *
@@ -16,5 +14,5 @@ export default function (func, wait = 0) {
 
         clearTimeout(timeout);
         timeout = setTimeout(() => func.apply(context, args), wait);
-    }
+    };
 }

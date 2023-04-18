@@ -1,0 +1,27 @@
+.c-footnotes {
+  &__list {
+    @include ts-caption;
+    columns    : 2;
+    column-gap : var(--space-l);
+
+    @include media("<=tablet") {
+      columns : 1;
+    }
+  }
+
+  &__list-item {
+    display       : flex;
+    gap           : var(--space-s);
+    margin-bottom : var(--space-s);
+
+    &:last-child {
+      margin-bottom : 0;
+    }
+  }
+
+  &__list-content {
+    a {
+      word-break : break-all;
+    }
+  }
+}

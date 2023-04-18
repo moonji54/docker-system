@@ -119,8 +119,12 @@ var _default = Filters;
 exports["default"] = _default;
 
 },{"./utils/debounce":3}],3:[function(require,module,exports){
-'use strict';
+"use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = _default;
 /**
  * Simple debouncer
  *
@@ -128,10 +132,6 @@ exports["default"] = _default;
  * @param {int} wait
  * @returns {Function}
  */
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = _default;
 function _default(func) {
   var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
   var timeout;

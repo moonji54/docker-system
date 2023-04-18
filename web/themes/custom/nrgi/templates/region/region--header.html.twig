@@ -1,28 +1,37 @@
-<header class="c-header" id="js-header">
+<header class="c-header js-header">
+  <div class="c-header__container o-container">
+    <div class="c-header__logo-wrapper">
+      <a href="/" class="c-header__logo-link" title="{{ 'Return to the homepage'|t }}">
+        {% include '@nrgi/svg/svg.html.twig' with {'svg': 'header-logo'} %}
+      </a>
+    </div>
 
-  <section style="display: flex">
-    <a href="/" class="c-header__logo" title="{{ 'Return to the homepage'|t }}">
-      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'logo'} %}
-    </a>
-
-    <div style="background:salmon">
+    <div class="c-header__secondary-menu">
       {{ elements.topnavigation }}
     </div>
-  </section>
 
-  <div class="c-header__inner">
 
-    <div class="c-header__menu">
+    <div class="c-header__main-menu js-main-menu-content">
       {{ elements.mainnavigation }}
     </div>
 
-    <button class="c-header__burger js-header-burger">
-      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'burger', 'extra_class': 'c-header__burger-menu'} %}
-      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'menu-close','extra_class': 'c-header__burger-close'} %}
-      <span class="c-header__burger-text js-burger-text">{{ 'Menu'|trans }}</span>
+    <button class="c-header__burger-button js-burger-button"
+            aria-label="{{ 'Toggle mobile menu'|t }}"
+            aria-expanded="false"
+            type="button">
+      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'burger-icon', 'extra_class': 'c-header__burger-svg c-header__burger-svg--open'} %}
+      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'close-icon','extra_class': 'c-header__burger-svg c-header__burger-svg--close'} %}
     </button>
 
-    <div style="background: rosybrown">
+    <button class="c-header__search-button js-search-button"
+            aria-label="{{ 'Toggle mobile search'|t }}"
+            aria-expanded="false"
+            type="button">
+      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'search-icon', 'extra_class': 'c-header__search-svg c-header__search-svg--open'} %}
+      {% include '@nrgi/svg/svg.html.twig' with {'svg': 'close-icon','extra_class': 'c-header__search-svg c-header__search-svg--close'} %}
+    </button>
+
+    <div class="c-header__search js-header-search">
       {{ elements.nrgi_search_form }}
     </div>
   </div>

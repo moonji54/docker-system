@@ -1,4 +1,242 @@
 /** @define c-header */
 .c-header {
+  $c            : &;
 
+  @include z-index(header);
+  background    : linear-gradient(180deg, rgba($black, 30%) 0%, rgba($black, 0%) 93.27%);
+  border-bottom : 1px solid rgba($grey-light, 0.5);
+  box-sizing    : border-box;
+  color         : $white;
+  padding       : 3.75rem 0 1rem;
+  position      : absolute;
+  width         : 100%;
+
+  @include media("<=desktop") {
+    border-bottom : none;
+    padding       : 1.25rem 0;
+  }
+
+  &__container {
+    @include grid;
+    grid-row-gap : 2.25rem; // 36px
+
+    @include media("<=desktop") {
+      grid-row-gap : 0;
+    }
+  }
+
+  /* Logo
+  ================================================== */
+  &__logo-wrapper {
+    font-size   : 0;
+    grid-column : 1 / 7;
+
+    @include media("<=desktop") {
+      grid-column : 1 / -1;
+      position    : relative;
+
+      &:after {
+        background : $grey-light;
+        bottom     : -1.25rem;
+        content    : "";
+        height     : 0.0625rem;
+        left       : calc((var(--gutter)) * -1);
+        position   : absolute;
+        width      : calc(100% + (var(--gutter)) * 2);
+      }
+    }
+  }
+
+  &__logo-link {
+    display    : inline-flex;
+    transition : opacity 0.3s;
+
+    &:hover,
+    &:focus {
+      opacity : 0.7;
+    }
+  }
+
+  /* Secondary-menu
+  ================================================== */
+  &__secondary-menu {
+    grid-column : 7 / -1;
+
+    @include media("<=desktop") {
+      order : 3;
+    }
+  }
+
+  /* Main menu
+  ================================================== */
+  &__main-menu {
+    grid-column : 1 / 10;
+
+    @include media("<=desktop") {
+      order : 2;
+    }
+  }
+
+  /* Secondary-menu and main menu shared styles
+  ================================================== */
+  &__secondary-menu,
+  &__main-menu {
+    @include media("<=desktop") {
+      grid-column : 1 / -1;
+      margin-left : calc((var(--gutter)) * -1);
+      opacity     : 0;
+      position    : absolute;
+      transform   : translateY(6.25rem);
+      transition  : none;
+      visibility  : hidden;
+      width       : 100vw;
+    }
+  }
+
+  /* Search
+  ================================================== */
+  &__search {
+    align-self  : center;
+    grid-column : 10 / -1;
+    transform   : translateY(-0.063rem);
+
+    @include media("<=desktop") {
+      border-bottom : 1px solid $grey-light;
+      grid-column   : 1 / -1;
+      margin-left   : calc((var(--gutter)) * -1);
+      margin-top    : 1.25rem;
+      opacity       : 0;
+      order         : 2;
+      padding       : 2rem var(--gutter) 1rem;
+      position      : absolute;
+      transform     : translateY(6.25rem);
+      transition    : none;
+      visibility    : hidden;
+      width         : 100vw;
+    }
+  }
+
+  &__search-button {
+    cursor     : pointer;
+    display    : none;
+    transition : opacity 0.3s;
+
+    &:hover,
+    &:focus {
+      opacity : 0.7;
+    }
+
+    @include media("<=desktop") {
+      display  : flex;
+      position : absolute;
+      right    : var(--gutter);
+      top      : 1.313rem;
+    }
+
+    &.is-open {
+      display : flex;
+
+      #{$c}__search-svg--open {
+        display : none;
+      }
+
+      #{$c}__search-svg--close {
+        display : block;
+      }
+    }
+  }
+
+  &__search-svg {
+    height : 1.313rem;
+    width  : 1.313rem;
+  }
+
+  &__search-svg--close {
+    display : none;
+  }
+
+  /* Burger button
+  ================================================== */
+  &__burger-button {
+    cursor     : pointer;
+    display    : none;
+    transition : opacity 0.3s;
+
+    &:hover,
+    &:focus {
+      opacity : 0.7;
+    }
+
+    @include media("<=desktop") {
+      display  : flex;
+      position : absolute;
+      right    : 4.25rem;
+      top      : 1.375rem;
+    }
+
+    @include media("<=tablet") {
+      right : 3.25rem;
+    }
+
+    &.is-open {
+      display : flex;
+
+      #{$c}__burger-svg--open {
+        display : none;
+      }
+
+      #{$c}__burger-svg--close {
+        display : block;
+      }
+    }
+  }
+
+  &__burger-svg--close {
+    display : none;
+  }
+
+  /* Mobile menu
+  ================================================== */
+  /* stylelint-disable-next-line */
+  &.has-menu-overlay,
+  &.has-search-overlay {
+    background-color : $secondary;
+    display          : flex;
+    flex-direction   : column;
+    height           : 100vh;
+    justify-content  : space-between;
+    overflow-y       : scroll;
+    padding-bottom   : 3.125rem;
+    transition       : background-color 0.3s;
+  }
+
+  /* stylelint-disable-next-line */
+  &.has-menu-overlay {
+    /* stylelint-disable-next-line */
+    #{$c}__main-menu,
+    #{$c}__secondary-menu {
+      opacity    : 1;
+      position   : relative;
+      transform  : translateY(0);
+      transition : opacity 0.3s, transform 0.3s, visibility 0.3s;
+      visibility : visible;
+    }
+
+    /* stylelint-disable-next-line */
+    #{$c}__main-menu {
+      margin-top : 1.25rem;
+    }
+  }
+
+  /* stylelint-disable-next-line */
+  &.has-search-overlay {
+    /* stylelint-disable-next-line */
+    #{$c}__search {
+      opacity    : 1;
+      position   : relative;
+      transform  : translateY(0);
+      transition : opacity 0.3s, transform 0.3s, visibility 0.3s;
+      visibility : visible;
+    }
+  }
 }
