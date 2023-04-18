@@ -1222,12 +1222,14 @@ ul li a:hover {
 }
 .c-card__link {
   text-decoration: underline;
-  text-decoration-color: transparent;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
   text-underline-offset: 0.4375rem;
   transition: all 0.3s;
 }
 .c-card__link:hover, .c-card__link:focus {
-  text-decoration-color: #FF7D5F;
+  -webkit-text-decoration-color: #FF7D5F;
+          text-decoration-color: #FF7D5F;
 }
 .c-card__link:before {
   bottom: 0;
@@ -2427,7 +2429,8 @@ ul li a:hover {
   }
 }
 .c-language-links__link:hover .c-language-links__link-label, .c-language-links__link:focus .c-language-links__link-label {
-  text-decoration-color: #2D2D32;
+  -webkit-text-decoration-color: #2D2D32;
+          text-decoration-color: #2D2D32;
 }
 @media (max-width: 48rem) {
   .c-language-links__link-svg {
@@ -2436,9 +2439,12 @@ ul li a:hover {
 }
 .c-language-links__link-label {
   text-decoration: underline;
-  text-decoration-color: transparent;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
   text-underline-offset: 0.313rem;
+  transition: -webkit-text-decoration-color 0.3s;
   transition: text-decoration-color 0.3s;
+  transition: text-decoration-color 0.3s, -webkit-text-decoration-color 0.3s;
 }
 .c-language-links--aside {
   background: none;
@@ -2683,7 +2689,8 @@ ul li a:hover {
 }
 @media (min-width: 64.1rem) {
   .c-main-menu__item:hover > .c-main-menu__item-link-wrapper > .c-main-menu__item-link, .c-main-menu__item:focus > .c-main-menu__item-link-wrapper > .c-main-menu__item-link {
-    text-decoration-color: #FFFFFF;
+    -webkit-text-decoration-color: #FFFFFF;
+            text-decoration-color: #FFFFFF;
   }
 }
 .c-main-menu__item--expanded .c-main-menu__item-link {
@@ -2703,7 +2710,8 @@ ul li a:hover {
   }
 }
 .c-main-menu__item--active-trail .c-main-menu__item-link {
-  text-decoration-color: #FFFFFF;
+  -webkit-text-decoration-color: #FFFFFF;
+          text-decoration-color: #FFFFFF;
 }
 @media (max-width: 64rem) {
   .c-main-menu__item-link-wrapper {
@@ -2717,7 +2725,8 @@ ul li a:hover {
   font-size: 1.25rem;
   line-height: 1.75;
   text-decoration: underline;
-  text-decoration-color: transparent;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
   text-underline-offset: 0.313rem;
   transition: all 0.3s;
   /* stylelint-disable-next-line */
@@ -2728,7 +2737,8 @@ ul li a:hover {
   }
 }
 .c-main-menu__item-link:hover, .c-main-menu__item-link:focus {
-  text-decoration-color: #FFFFFF;
+  -webkit-text-decoration-color: #FFFFFF;
+          text-decoration-color: #FFFFFF;
 }
 @media (max-width: 63.9rem) {
   .c-main-menu__item-link {
@@ -2737,7 +2747,8 @@ ul li a:hover {
   }
 }
 .c-main-menu__item-link.is-active {
-  text-decoration-color: #FFFFFF;
+  -webkit-text-decoration-color: #FFFFFF;
+          text-decoration-color: #FFFFFF;
 }
 .c-main-menu__sub-menu-button {
   display: none;
@@ -2876,7 +2887,8 @@ ul li a:hover {
   font-size: 1.125rem;
   line-height: 1;
   text-decoration: underline;
-  text-decoration-color: transparent;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
   text-underline-offset: 0.313rem;
   transition: all 0.3s;
   display: block;
@@ -2887,7 +2899,8 @@ ul li a:hover {
   }
 }
 .c-mega-nav__link:hover, .c-mega-nav__link:focus {
-  text-decoration-color: #B3EFEF;
+  -webkit-text-decoration-color: #B3EFEF;
+          text-decoration-color: #B3EFEF;
 }
 .c-mega-nav__link:hover, .c-mega-nav__link:focus {
   color: #B3EFEF;
@@ -2919,7 +2932,8 @@ ul li a:hover {
   font-size: 1.125rem;
   line-height: 1;
   text-decoration: underline;
-  text-decoration-color: transparent;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
   text-underline-offset: 0.313rem;
   transition: all 0.3s;
 }
@@ -2929,7 +2943,8 @@ ul li a:hover {
   }
 }
 .c-secondary-menu__item-link:hover, .c-secondary-menu__item-link:focus {
-  text-decoration-color: #FFFFFF;
+  -webkit-text-decoration-color: #FFFFFF;
+          text-decoration-color: #FFFFFF;
 }
 @media (max-width: 64rem) {
   .c-secondary-menu__item-link {
@@ -3545,12 +3560,14 @@ ul li a:hover {
   font-size: 1rem;
   line-height: 1.5;
   text-decoration: underline;
-  text-decoration-color: transparent;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
   text-underline-offset: 0.313rem;
   transition: all 0.3s;
   display: inline;
   margin-top: 0;
-  text-decoration-color: #2D2D32;
+  -webkit-text-decoration-color: #2D2D32;
+          text-decoration-color: #2D2D32;
 }
 @media (max-width: 64rem) {
   .eu-cookie-compliance-banner .eu-cookie-compliance-more-button {
@@ -3558,7 +3575,8 @@ ul li a:hover {
   }
 }
 .eu-cookie-compliance-banner .eu-cookie-compliance-more-button:hover, .eu-cookie-compliance-banner .eu-cookie-compliance-more-button:focus {
-  text-decoration-color: currentColor;
+  -webkit-text-decoration-color: currentColor;
+          text-decoration-color: currentColor;
 }
 
 .eu-cookie-compliance-buttons {
