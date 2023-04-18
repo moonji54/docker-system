@@ -209,17 +209,16 @@
 
   /* Tables
   ================================================== */
-  .responsive-table {
-    margin-top : var(--space-2xl);
-    overflow-x : auto;
-  }
-
   table {
     @include ts-caption;
     border-collapse : collapse;
     border-spacing  : 0;
     text-align      : left;
-    width           : 100%;
+
+    // Style tables with no width attribute to be 100% width;
+    &:not([width]) {
+      width : 100%;
+    }
 
     caption {
       caption-side : bottom;
@@ -270,6 +269,26 @@
     }
   }
 
+  .responsive-table {
+    margin-top : var(--space-2xl);
+    overflow-x : auto;
+
+    // Direct descendent tables.
+    // - Style tables with no width attribute to be 100% width;
+    /* stylelint-disable-next-line */
+    & > table:not([width]) {
+      @include media("<=tablet") {
+        min-width : 600px;
+      }
+    }
+
+    /* <table> elements with a width ending "%" */
+    /* stylelint-disable-next-line */
+    & > table[width$="%"] {
+      min-width : 600px;
+    }
+  }
+
   /* Footnotes
   ================================================== */
   .see-footnote {
@@ -282,7 +301,6 @@
 
   /* Standfirst/key messages
   ================================================== */
-
   .standfirst {
     color      : $secondary;
     margin-top : var(--space-3xl);
@@ -321,7 +339,6 @@
 
   /* Spacing rules
   ================================================== */
-
   > :first-child {
     margin-top : 0;
   }
