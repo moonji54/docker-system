@@ -1542,6 +1542,50 @@ ul li a:hover {
   }
 }
 
+.c-embed {
+  margin: var(--space-3xl) 0;
+  /* stylelint-disable */
+  /* stylelint-enable */
+}
+.c-embed .c-media--data-visualisation iframe,
+.c-embed .c-media--remote-audio iframe {
+  width: 100%;
+}
+@media (max-width: 48rem) {
+  .c-embed .c-media--data-visualisation iframe,
+  .c-embed .c-media--remote-audio iframe {
+    max-height: 28.75rem;
+  }
+}
+.c-embed__media-wrapper:has(> .c-media--remote-video) {
+  aspect-ratio: 16/9;
+  position: relative;
+}
+.c-embed__media-wrapper:has(> .c-media--remote-video) iframe {
+  height: 100%;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.c-embed__caption {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: var(--space-m);
+}
+@media (max-width: 64rem) {
+  .c-embed__caption {
+    font-size: 0.875rem;
+  }
+}
+.c-embed__caption span:last-child {
+  font-style: italic;
+}
+
 /** @define c-footer */
 .c-footer {
   background: no-repeat center/cover url("../img/footer-bg.png");
