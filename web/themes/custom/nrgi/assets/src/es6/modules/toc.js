@@ -63,17 +63,22 @@ class Toc {
     }
 
     showToc () {
+        // Delay slightly once the header is no longer intersecting
+        const options = {
+            rootMargin: '100px 0px 0px 0px'
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-                if (entry.isIntersecting) {
+                if (entry.intersectionRatio === 0) {
                     this.$tocWrapper.addClass('is-fixed');
                 } else {
                     this.$tocWrapper.removeClass('is-fixed');
                 }
             });
-        });
+        }, options);
 
-        this.$('.js-text-block').each((index, container) => {
+        this.$('.js-header').each((index, container) => {
             observer.observe(container);
         });
     }

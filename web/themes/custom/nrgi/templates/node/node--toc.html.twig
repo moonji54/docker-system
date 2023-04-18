@@ -1,0 +1,21 @@
+{{ attach_library('nrgi/toc') }}
+
+<nav class="c-table-of-contents js-table-of-contents-wrapper" aria-label="Navigate by headings">
+  <div class="c-table-of-contents__button-wrapper o-container js-toggle-button" aria-controls="table-of-contents"
+       aria-label="{{ 'Toggle the table of contents'|t }}">
+    <h2 class="c-table-of-contents__heading">
+      {{ 'Table of Contents'|t }}
+    </h2>
+
+    {% include '@nrgi/svg/svg.html.twig' with {'svg' : 'chevron-down', 'extra_class' : 'c-table-of-contents__icon' } %}
+  </div>
+
+  <div class="c-table-of-contents__expanded-content js-toggle-content"
+       id="table-of-contents"
+       aria-label="{{ 'Table of contents'|t }}">
+    <div class="c-table-of-contents__list-wrapper js-scroll-wrapper">
+      <ul class="c-table-of-contents__list o-container js-toc-list">
+      </ul>
+    </div>
+  </div>
+</nav>
