@@ -3,18 +3,18 @@ _core:
 dompurify_hide_warning: false
 custom:
   style: none
-  activate: 0
-  transition_type: elastic
+  activate: 1
+  transition_type: none
   transition_speed: 350
-  opacity: 0.85
-  text_current: '{current} of {total}'
-  text_previous: '« Prev'
-  text_next: 'Next »'
-  text_close: Close
-  maxwidth: 98%
-  maxheight: 98%
-  initialwidth: '300'
-  initialheight: '250'
+  opacity: 0.9
+  text_current: ''
+  text_previous: ''
+  text_next: ''
+  text_close: ''
+  maxwidth: 80%
+  maxheight: 80%
+  initialwidth: 80%
+  initialheight: 80%
   overlayclose: true
   returnfocus: true
   fixed: true

@@ -1,0 +1,29 @@
+.c-quote {
+  background-color : $tertiary;
+
+  &__text {
+    @include ts-heading-3;
+    position : relative;
+
+    &:after,
+    &:before {
+      position : absolute;
+    }
+
+    &:before {
+      content   : "“";
+      left      : 0;
+      transform : translateX(-100%);
+    }
+
+    &:after {
+      content : "”";
+    }
+  }
+
+  &__caption {
+    @include ts-body;
+    font-weight : 500;
+    margin-top  : var(--space-s);
+  }
+}
