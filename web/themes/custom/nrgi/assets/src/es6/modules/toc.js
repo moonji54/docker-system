@@ -94,7 +94,7 @@ class Toc {
                 const headingText = this.$(element).text();
 
                 // Create an ID for use on each heading
-                const headingID = headingText.toLowerCase().replace(/\s/g, '-');
+                const headingID = `${headingText.toLowerCase().replace(/\s/g, '-')}-${index}`;
 
                 this.$(element).attr('id', headingID);
 
@@ -103,10 +103,8 @@ class Toc {
 
                     // Create a list item with the correct URL and ID
                     this.$toc.append(this.buildListItem(headingID, headingText, index, isTopLevel));
-                }
-
-                // if h3
-                else {
+                } else {
+                    // if h3
                     // Find the previous heading (i.e the 'parent').
                     const parentListItem = this.$toc.find('> li').last();
 

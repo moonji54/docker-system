@@ -104,17 +104,15 @@ var Toc = /*#__PURE__*/function () {
           var headingText = _this2.$(element).text();
 
           // Create an ID for use on each heading
-          var headingID = headingText.toLowerCase().replace(/\s/g, '-');
+          var headingID = "".concat(headingText.toLowerCase().replace(/\s/g, '-'), "-").concat(index);
           _this2.$(element).attr('id', headingID);
           if (_this2.$(element).is('h2')) {
             var isTopLevel = true;
 
             // Create a list item with the correct URL and ID
             _this2.$toc.append(_this2.buildListItem(headingID, headingText, index, isTopLevel));
-          }
-
-          // if h3
-          else {
+          } else {
+            // if h3
             // Find the previous heading (i.e the 'parent').
             var parentListItem = _this2.$toc.find('> li').last();
 

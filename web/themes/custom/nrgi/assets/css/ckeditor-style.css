@@ -546,10 +546,6 @@
 .o-content-from-editor ol li::marker {
   color: #00C9C8;
 }
-.o-content-from-editor .responsive-table {
-  margin-top: var(--space-2xl);
-  overflow-x: auto;
-}
 .o-content-from-editor table {
   font-family: "Noto Sans", sans-serif;
   font-weight: 400;
@@ -558,13 +554,15 @@
   border-collapse: collapse;
   border-spacing: 0;
   text-align: left;
-  width: 100%;
   /* stylelint-disable-next-line */
 }
 @media (max-width: 64rem) {
   .o-content-from-editor table {
     font-size: 0.875rem;
   }
+}
+.o-content-from-editor table:not([width]) {
+  width: 100%;
 }
 .o-content-from-editor table caption {
   caption-side: bottom;
@@ -608,6 +606,21 @@
 }
 .o-content-from-editor table a {
   overflow-wrap: break-word;
+}
+.o-content-from-editor .responsive-table {
+  margin-top: var(--space-2xl);
+  overflow-x: auto;
+  /* stylelint-disable-next-line */
+  /* <table> elements with a width ending "%" */
+  /* stylelint-disable-next-line */
+}
+@media (max-width: 48rem) {
+  .o-content-from-editor .responsive-table > table:not([width]) {
+    min-width: 600px;
+  }
+}
+.o-content-from-editor .responsive-table > table[width$="%"] {
+  min-width: 600px;
 }
 .o-content-from-editor .see-footnote {
   font-size: 70%;
@@ -719,10 +732,6 @@
   height: 1.25rem;
   width: 1.25rem;
 }
-.o-svg--chevron-down {
-  height: 0.625rem;
-  width: 1.125rem;
-}
 .o-svg--close-icon {
   height: 1.25rem;
   width: 1.25rem;
@@ -759,9 +768,9 @@
   height: 0.75rem;
   width: 0.75rem;
 }
-.o-svg--arrow-right {
-  height: 0.8125rem;
-  width: 1.375rem;
+.o-svg--chevron-down {
+  height: 0.5rem;
+  width: 1rem;
 }
 .o-svg--header-logo {
   height: 3.5rem;

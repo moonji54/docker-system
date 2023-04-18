@@ -1,7 +1,7 @@
 .c-table-of-contents {
-  @include z-index(toc);
-  /* stylelint-disable-next-line */
   $c               : &;
+
+  @include z-index(toc);
   background-color : $secondary;
   color            : $white;
   display          : none;
