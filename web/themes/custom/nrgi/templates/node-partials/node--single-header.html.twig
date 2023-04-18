@@ -3,7 +3,7 @@
   'c-single-header--' ~ node.bundle|clean_class,
 ] %}
 
-<header {{ attributes.addClass(classes) }}>
+<header{{ attributes.addClass(classes) }}>
   <img class="c-single-header__image-placeholder" src="/{{ base_path ~ directory }}/assets/img/hero-banner-placeholder.svg"
        alt="Image placeholder"/>
 
@@ -108,7 +108,9 @@
           {# Taxonomies #}
           {% for field in meta_data.career_opportunity.header %}
             {% for item in field %}
-              <li class="c-single-header__meta-item"><a href="{{ item.url }}">{{ item.title|trim }}</a></li>
+              {% if item.url %}
+                <li class="c-single-header__meta-item"><a href="{{ item.url }}">{{ item.title|trim }}</a></li>
+              {% endif %}
             {% endfor %}
           {% endfor %}
         {% endif %}
