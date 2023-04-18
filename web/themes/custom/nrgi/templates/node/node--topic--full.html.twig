@@ -67,30 +67,33 @@
  *
  */
 #}
-{% set classes = [
-  'c-node',
-  'c-node--type-' ~ node.bundle|clean_class,
-] %}
 <article{{ attributes.addClass(classes) }}>
-
   {# Landing/listing banner #}
   {% include '@nrgi/node-partials/node--landing-page-banner.html.twig' %}
 
   {# Body #}
   {% include '@nrgi/node-partials/node--body.html.twig' %}
 
-  {# Topic content #}
   {% set listing_results = drupal_view_result('contextual_views', 'topic_content', node.id)|length %}
+
   {% if listing_results > 0 %}
     {% set listing = drupal_view('contextual_views', 'topic_content', node.id) %}
-    {% if content.field_contributions_title|field_value %}
-      <h2>{{ content.field_contributions_title }}</h2>
-    {% endif %}
-    {% if content.field_contributions_description|field_value %}
-      <h3>{{ content.field_contributions_description }}</h3>
-    {% endif %}
+    <section class="o-section">
+      <div class="o-container">
+        {% if content.field_title|field_value %}
+          <header class="o-section__header">
+            {% if content.field_contributions_title|field_value %}
+              <h2 class="o-section__heading">{{ content.field_contributions_title }}</h2>
+            {% endif %}
 
-    {{ listing }}
+            {% if content.field_contributions_description|field_value %}
+              <p class="o-section__description">{{ content.field_contributions_description }}</p>
+            {% endif %}
+          </header>
+        {% endif %}
+
+        {{ listing }}
+      </div>
+    </section>
   {% endif %}
-
 </article>
