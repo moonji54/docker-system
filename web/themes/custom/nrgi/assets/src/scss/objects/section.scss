@@ -36,11 +36,13 @@
   /* Modifiers
   ================================================== */
   &--has-background {
-    background-color : $grey-light;
-
     #{$c}__header {
       border-color : $white;
     }
+  }
+
+  &--grey-background {
+    background-color : $grey-light;
   }
 
   &--has-background + &,
@@ -49,7 +51,7 @@
   }
 
   /* stylelint-disable-next-line */
-  &--has-background + &--has-background {
+  &--grey-background + &--grey-background {
     margin-top  : 0;
     padding-top : 0;
   }

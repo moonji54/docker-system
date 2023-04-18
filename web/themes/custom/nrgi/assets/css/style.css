@@ -969,16 +969,16 @@ ul li a:hover {
 .o-section__button {
   margin-top: var(--space-2xl);
 }
-.o-section--has-background {
-  background-color: #EDEDEF;
-}
 .o-section--has-background .o-section__header {
   border-color: #FFFFFF;
+}
+.o-section--grey-background {
+  background-color: #EDEDEF;
 }
 .o-section--has-background + .o-section, .o-section + .o-section--has-background {
   padding-top: var(--space-3xl);
 }
-.o-section--has-background + .o-section--has-background {
+.o-section--grey-background + .o-section--grey-background {
   margin-top: 0;
   padding-top: 0;
 }
@@ -1349,7 +1349,6 @@ ul li a:hover {
 
 /** @define c-call-to-action */
 .c-call-to-action {
-  margin-top: var(--space-3xl);
   min-height: 42rem;
   overflow: hidden;
   padding: 0;
@@ -1543,7 +1542,6 @@ ul li a:hover {
 }
 
 .c-embed {
-  margin: var(--space-3xl) 0;
   /* stylelint-disable */
   /* stylelint-enable */
 }
@@ -1906,9 +1904,6 @@ ul li a:hover {
   padding: var(--space-xs) var(--space-s);
 }
 
-.c-full-width-media {
-  margin: var(--space-3xl) 0;
-}
 .c-full-width-media__media-wrapper {
   aspect-ratio: 1.96;
   position: relative;
