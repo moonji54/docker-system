@@ -1,0 +1,24 @@
+uuid: 3bd56290-af14-4ecf-a708-e25230933eb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.career_opportunity_type
+id: taxonomy_term.career_opportunity_type.default
+targetEntityType: taxonomy_term
+bundle: career_opportunity_type
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true
+  status: true

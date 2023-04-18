@@ -30,19 +30,19 @@ We call a macro which calls itself to render the full tree.
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-<ul{{ attributes.addClass('menu') }}>
+<ul{{ attributes.addClass('c-secondary-menu') }}>
   {% else %}
-  <ul class="menu">
+  <ul class="c-secondary-menu">
     {% endif %}
     {% for item in items %}
       {% set classes = [
-        'menu-item',
-        item.is_expanded ? 'menu-item--expanded',
-        item.is_collapsed ? 'menu-item--collapsed',
-        item.in_active_trail ? 'menu-item--active-trail',
+        'c-secondary-menu__item',
+        item.is_expanded ? 'c-secondary-menu__item--expanded',
+        item.is_collapsed ? 'c-secondary-menu__item--collapsed',
+        item.in_active_trail ? 'c-secondary-menu__item--active-trail',
       ] %}
       <li{{ item.attributes.addClass(classes) }}>
-        {{ link(item.title, item.url) }}
+        {{ link(item.title, item.url, { 'class':['c-secondary-menu__item-link']}) }}
         {% if item.below %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}

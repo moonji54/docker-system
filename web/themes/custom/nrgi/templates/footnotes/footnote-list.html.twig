@@ -1,0 +1,38 @@
+{# footnotes/footnote-list.html.twig #}
+<ul class="c-footnotes__list">
+  {% for fn in footnotes %}
+    {% if fn.ref_id is iterable %}
+      {#
+      // Output footnote that has more than one reference to it in the body.
+      // The only difference is to insert backlinks to all references.
+      // Helper: we need to enumerate a, b, c...
+      #}
+      {% set abc = "abcdefghijklmnopqrstuvwxyz"|split('') %}
+      {% set i = 0 %}
+      <li class="c-footnotes__list-item" id="{{ fn.fn_id }}">
+        <a href="#{{ fn.ref_id.0 }}" class="c-footnotes__list-label">
+          {{ fn.value }}
+        </a>
+        {% for ref in fn.ref_id %}
+          <a class="c-footnotes__list-multi" href="#{{ ref }}">{{ attribute(abc, i) }}</a>
+          {% set i = i + 1 %}
+        {% endfor %}
+
+        <div class="c-footnotes__list-content">
+          {{ fn.text|raw }}
+        </div>
+      </li>
+    {% else %}
+      {# Output normal footnote. #}
+      <li class="c-footnotes__list-item" id="{{ fn.fn_id }}">
+        <a class="c-footnotes__list-label" href="#{{ fn.ref_id }}">
+          {{ fn.value }}
+        </a>
+
+        <div class="c-footnotes__list-content">
+          {{ fn.text|raw }}
+        </div>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

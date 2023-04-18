@@ -1,9 +1,13 @@
 /** @define o-svg */
 .o-svg {
-  &--search {
-    background-color : tomato;
-    height           : 1.25rem;
-    width            : 1.25rem;
+  &--burger-icon {
+    height : 1.25rem;
+    width  : 1.25rem;
+  }
+
+  &--close-icon {
+    height : 1.25rem;
+    width  : 1.25rem;
   }
 
   &--email {
@@ -16,11 +20,31 @@
     width  : 1.25rem;
   }
 
+  &--share-icon {
+    height : 1.25rem;
+    width  : 1.1875rem;
+  }
+
+  &--languages-icon {
+    height : 1.1875rem;
+    width  : 1.1875rem;
+  }
+
   /* #Arrows
-================================================== */
+  ================================================== */
   &--arrow {
     height : 0.6875rem;
     width  : 1.3125rem;
+  }
+
+  &--arrow-right {
+    height : 0.8125rem;
+    width  : 1.375rem;
+  }
+
+  &--search-icon {
+    height : 1.125rem;
+    width  : 1.125rem;
   }
 
   &--external {
@@ -35,6 +59,15 @@
 
   /* #Logos
   ================================================== */
+  &--header-logo {
+    height : 3.5rem;
+    width  : 23.813rem;
+
+    @include media("<=desktop") {
+      height : 1.5rem;
+      width  : 10.25rem;
+    }
+  }
 
   &--nrgi-logo-condensed {
     height : 3.5rem;
@@ -61,6 +94,11 @@
   &--twitter {
     height : 1.125rem;
     width  : 1.5rem;
+  }
+
+  &--whatsapp {
+    height : 1.4375rem;
+    width  : 1.4375rem;
   }
 
   &--youtube {
