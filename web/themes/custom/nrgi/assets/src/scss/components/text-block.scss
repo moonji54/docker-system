@@ -1,0 +1,13 @@
+.c-text-block {
+  &__container {
+    @include grid;
+  }
+
+  &__inner {
+    grid-column : 1 / 9;
+
+    @include media("<=tablet") {
+      grid-column : 1 / -1;
+    }
+  }
+}

@@ -1,0 +1,140 @@
+/** @define c-language-links */
+.c-language-links {
+  $c               : &;
+  background-color : $yellow-light;
+  color            : $primary;
+
+  &__container {
+    @include o-container;
+  }
+
+  &__inner {
+    align-items : center;
+    display     : flex;
+    gap         : 1.5rem;
+    padding     : 0.875rem 0;
+
+    @include media("<=desktop") {
+      flex-wrap : wrap;
+    }
+
+    @include media("<=tablet") {
+      align-items    : flex-start;
+      flex-direction : column;
+      gap            : 0.25rem;
+      padding        : 0.5rem 0 1rem;
+    }
+  }
+
+  &__title {
+    @include ts-section-header;
+    flex-shrink : 0;
+  }
+
+  &__links-list {
+    display   : flex;
+    flex-wrap : wrap;
+    gap       : 1.5rem;
+
+    @include media("<=tablet") {
+      gap     : 2rem;
+      row-gap : 1rem;
+    }
+  }
+
+  &__link {
+    @include ts-sub-menu;
+    align-items : center;
+    color       : $primary;
+    display     : flex;
+    gap         : 0.5rem;
+
+    &:hover,
+    &:focus {
+      #{$c}__link-label {
+        text-decoration-color : $primary;
+      }
+    }
+  }
+
+  &__link-svg {
+    @include media("<=tablet") {
+      display : none;
+    }
+  }
+
+  &__link-label {
+    text-decoration       : underline;
+    text-decoration-color : transparent;
+    text-underline-offset : 0.313rem;
+    transition            : text-decoration-color 0.3s;
+  }
+
+  &--aside {
+    background : none;
+    color      : $white;
+
+    #{$c}__container {
+      padding   : 0;
+      margin    : 0;
+      max-width : 100%;
+    }
+
+    #{$c}__inner {
+      align-items    : flex-start;
+      border-top     : 1px solid $white;
+      flex-direction : column;
+      gap            : 0.5rem;
+      padding        : 0.5rem 0 0;
+
+      @include media("<=tablet") {
+        border-top : none;
+        padding    : 0;
+      }
+    }
+
+    #{$c}__title {
+      @include ts-card-tag;
+
+      @include media("<=tablet") {
+        display : none;
+      }
+    }
+
+    #{$c}__links-list {
+      gap : 0.5rem;
+
+      @include media("<=tablet") {
+        gap   : 0;
+        width : 100%;
+      }
+    }
+
+    #{$c}__links-item {
+      @include media("<=tablet") {
+        width : 100%;
+      }
+    }
+
+    #{$c}__link {
+      font-weight : 500;
+
+      @include media("<=tablet") {
+        border-radius : 0;
+        padding       : 1.25rem var(--gutter);
+      }
+    }
+
+    #{$c}__link-svg {
+      display : none;
+
+      @include media("<=tablet") {
+        display : block;
+      }
+    }
+
+    #{$c}__link-label {
+      text-decoration : none;
+    }
+  }
+}

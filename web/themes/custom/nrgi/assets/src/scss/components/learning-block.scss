@@ -1,0 +1,29 @@
+.c-learning-block {
+  background-color : $secondary;
+  color            : $white;
+
+  &__container {
+    @include grid;
+  }
+
+  &__inner {
+    grid-column : 1 / 9;
+
+    @include media("<=tablet") {
+      grid-column : 1 / -1;
+    }
+  }
+
+  &__title {
+    @include ts-heading-3;
+  }
+
+  &__description {
+    @include ts-body;
+    margin-top : var(--space-s);
+  }
+
+  &__button {
+    margin-top : var(--space-m);
+  }
+}

@@ -1,22 +1,25 @@
 {% if content.field_embed_media|field_value %}
-  <div{{ attributes.addClass(classes) }}
-      style="background-color: indianred; padding:20px; width: 100%; border: #0a7bc1 1px dotted;">
-    <div class="c-embed__inner o-content-from-editor">
-      {% if content.field_title|field_value %}
-        <h2>{{ content.field_title }}</h2>
-      {% endif %}
+  <figure class="c-embed">
+    <div class="c-embed__container o-container">
+      <div class="c-embed__media-wrapper">
+        {{ content.field_embed_media }}
+      </div>
 
-      {% if content.field_embed_media|field_value %}
-        <div>{{ content.field_embed_media }}</div>
-      {% endif %}
+      {% if content.field_caption|field_value or content.field_credit|field_value %}
+        <figcaption class="c-embed__caption">
+          {% if content.field_caption|field_value %}
+            <span>{{ content.field_caption }}</span>
+          {% endif %}
 
-      {% if content.field_caption|field_value %}
-        <spam>{{ content.field_caption }}</spam>
-      {% endif %}
+          {% if content.field_caption|field_value and content.field_credit|field_value %}
+            <span>•</span>
+          {% endif %}
 
-      {% if content.field_credit|field_value %}
-        <span>{{ content.field_credit }}</span>
+          {% if content.field_credit|field_value %}
+            <span>{{ content.field_credit }}</span>
+          {% endif %}
+        </figcaption>
       {% endif %}
     </div>
-  </div>
+  </figure>
 {% endif %}

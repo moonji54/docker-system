@@ -1,49 +1,58 @@
+{{ attach_library('nrgi/share-links') }}
+
 {% set title = node.label %}
 {% set full_url = url('<current>')|render|render %}
 {% set share_label = 'Share'|t %}
 
 {% set networks = {
   twitter: {
+    icon: "twitter",
     name: "Twitter"|t,
     url: "https://twitter.com/intent/tweet?text=" ~ title ~ "&via=NRGInstitute" ~ "&url=" ~ full_url
   },
   linkedin: {
+    icon: "linkedin",
     name: "Linkedin"|t,
     url: "https://www.linkedin.com/sharing/share-offsite/?url=" ~ full_url
   },
   facebook: {
+    icon: "facebook",
     name: "Facebook"|t,
     url: "https://www.facebook.com/sharer/sharer.php?u=" ~ full_url
   },
   whatsapp: {
+    icon: "whatsapp",
     name: "WhatsApp"|t,
     url: "https://api.whatsapp.com/send?text=" ~ full_url
   },
 } %}
 
-{% if extra_class is not defined %}
-  {% set extra_class = '' %}
-{% endif %}
-
-<div class="c-share-links{{ extra_class }}" style="border: 1px dotted red; padding: 20px;">
-  <div class="c-share-links__links-wrapper js-share-links">
+<div class="c-social-links c-social-links--share">
+  <div class="c-social-links__links-wrapper js-share-links">
     {% if share_label is not empty %}
-      <span class="c-share-links__heading">{{ share_label }}</span>
+      <span class="c-social-links__heading">{{ share_label }}</span>
     {% endif %}
 
-    <ul class="c-share-links__list">
+    <ul class="c-social-links__list">
       {% for network in networks %}
-        <li class="c-share-links__list-item">
-          <a class="c-share-links__link"
+        <li class="c-social-links__list-item">
+          <a class="c-social-links__link"
              href="{{ network.url }}"
              target="_blank"
              data-mainlink="{{ full_url }}"
-             title="Share via {{ network.name }}">{{ network.name }}
-            {#  SBTODO: add social icons #}
-            {# {% include '@nrgi/svg/svg.html.twig' with { 'svg' : network.icon } %} #}
+             title="Share via {{ network.name }}">
+            {% include '@nrgi/svg/svg.html.twig' with { 'svg' : network.icon } %}
           </a>
         </li>
       {% endfor %}
     </ul>
   </div>
+
+  <button class="c-social-links__share-button c-social-links__link js-share-button"
+          type="button"
+          title="{{ 'Share this page'|t }}"
+          data-share-title="{{ title }}"
+          data-share-url="{{ full_url }}">
+    {% include '@nrgi/svg/svg.html.twig' with {'svg': 'share-icon', 'extra_class': 'c-social-links__share-svg' } %}
+  </button>
 </div>

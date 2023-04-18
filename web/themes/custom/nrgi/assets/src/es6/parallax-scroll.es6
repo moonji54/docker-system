@@ -1,10 +1,10 @@
 /* global jQuery, Drupal, drupalSettings, once */
-import Example from './modules/example';
+import ParallaxScroll from './modules/parallax-scroll';
 
 // Example using once() to select the `element` and init a class from that element.
 (function ($, Drupal, once) {
     // eslint-disable-next-line no-param-reassign
-    Drupal.behaviors.example_behavior_name = {
+    Drupal.behaviors.ParallaxScroll = {
         /**
          * Behaviour attach
          * @param context
@@ -22,13 +22,13 @@ import Example from './modules/example';
              * @param context
              *   The context from the Drupal behaviour, don't remove this.
              */
-            once('once_identifier_name', '.js-selector-of-the-thing', context)
+            once('ParallaxScroll', 'html', context)
                 // Loop through the found elements (the things that match the selector in Param 2).
                 .forEach((element) => {
                     // Trigger our class for each element
                     // - Param 1 - Pass jQuery to the class
                     // - Param 2 - The single element from our for each loop.
-                    new Example($, element);
+                    new ParallaxScroll(context, settings, $, Drupal, element);
                 });
         }
     };
@@ -44,4 +44,4 @@ import Example from './modules/example';
      * - jQuery
      *     - The jQuery instance from Drupal. (Pass this around your classes, don't import jQuery multiple times!).
      */
-}(jQuery, Drupal));
+}(jQuery, Drupal, once));

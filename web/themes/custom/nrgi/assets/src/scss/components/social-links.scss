@@ -1,5 +1,6 @@
 /** @define c-social-links */
 .c-social-links {
+  $c        : &;
   display   : flex;
   flex-wrap : wrap;
   gap       : var(--space-xs);
@@ -41,6 +42,60 @@
     &:focus,
     &:hover {
       background-color : rgba($primary, 0.4);
+    }
+  }
+
+  &--share {
+    border-top  : 1px solid $white;
+    color       : $white;
+    padding-top : 0.5rem;
+
+    @include media("<=tablet") {
+      border-top  : none;
+      padding-top : 0;
+    }
+
+    #{$c}__heading {
+      @include ts-card-tag;
+
+      @include media("<=tablet") {
+        display : none;
+      }
+    }
+
+    #{$c}__links-wrapper {
+      display        : flex;
+      flex-direction : column;
+      gap            : 0.75rem;
+
+      &.is-hidden {
+        display : none;
+      }
+    }
+
+    #{$c}__list {
+      display : flex;
+      gap     : 0.5rem;
+    }
+
+    #{$c}__share-button {
+      background-color : transparent;
+      cursor           : pointer;
+      display          : none;
+      padding          : 0;
+
+      &:focus,
+      &:hover {
+        background-color : rgba($primary, 0.4);
+      }
+
+      &.is-visible {
+        display : flex;
+      }
+    }
+
+    #{$c}__share-svg {
+      transform : translateX(-0.0625rem);
     }
   }
 }
