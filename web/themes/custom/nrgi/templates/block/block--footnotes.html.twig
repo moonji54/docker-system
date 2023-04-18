@@ -1,16 +1,1 @@
-{% set classes = [
-  'c-footnotes',
-  'o-section'
-] %}
-<section{{ attributes.addClass(classes) }}>
-  <div class="o-container">
-    <header class="o-section__header">
-      <h3 class="o-section__heading o-section__heading--small">{{ 'Notes'|t }}</h3>
-    </header>
-    {% block content %}
-      <div class="c-footnotes__container">
-        {{ content }}
-      </div>
-    {% endblock %}
-  </div>
-</section>
+{{ content }}
