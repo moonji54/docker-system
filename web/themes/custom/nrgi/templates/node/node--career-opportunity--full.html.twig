@@ -44,7 +44,6 @@
     </div>
   {% endif %}
 
-
   {#  SIDEBAR metadata #}
   <div style="background-color: yellow">
     <h1>SIDEBAR:</h1>
@@ -82,14 +81,9 @@
 
     {# Share buttons #}
     {% include '@nrgi/node-partials/node--share-links.html.twig' %}
-
   </div>
 
-  <div style="background-color: orange">
-    {% if content.field_page_builder|field_value %}
-      <h1>PAGE BUILDER:</h1>
-      {{ content.field_page_builder }}
-    {% endif %}
-  </div>
-
+  {% if content.field_page_builder|field_value %}
+    {{ content.field_page_builder }}
+  {% endif %}
 </article>

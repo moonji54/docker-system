@@ -1,5 +1,3 @@
-console.log('running here');
-
 class SubNavigation {
     constructor (context, settings, $, Drupal, element) {
         // Values from Drupal

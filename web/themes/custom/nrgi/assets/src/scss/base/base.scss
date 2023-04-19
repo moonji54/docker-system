@@ -1,8 +1,17 @@
+html {
+  scroll-behavior : smooth;
+}
+
 body {
   color     : $primary;
   font-size : 16px;
 
   &.is-scroll-locked {
+    overflow : hidden;
+    position : relative;
+  }
+
+  &.has-overlay {
     overflow : hidden;
   }
 }

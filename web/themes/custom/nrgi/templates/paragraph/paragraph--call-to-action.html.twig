@@ -1,20 +1,18 @@
+{{ attach_library('nrgi/parallax-scroll') }}
+
+{% set background_color = content.field_background_colour|field_raw('value')|replace({'_' : '-'}) %}
+
 {% set classes = [
   'c-call-to-action',
-  content.field_image|field_value ? 'c-call-to-action--with-image',
-  'o-section',
-  'o-section--has-background',
-  'paragraph',
-  'paragraph--type--' ~ paragraph.bundle|clean_class,
-  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  not paragraph.isPublished() ? 'paragraph--unpublished'
+  'c-call-to-action--' ~ background_color,
+  content.field_image|field_value ? 'c-call-to-action--with-image js-parallax-container' : 'c-call-to-action--no-image'
 ] %}
-{% set background_color = content.field_background_colour|field_raw('value') %}
 
-<section{{ attributes.addClass(classes) }} style="border: 3px dotted mediumvioletred; background-color: darkolivegreen">
-  CTA
-  {# Background color #}
-  [background color]: {{ background_color }}
+{% if background_color == 'ocean' %}
+  {% set is_white = true %}
+{% endif %}
 
+<section{{ attributes.addClass(classes) }}>
   {# Image #}
   {% if content.field_image|field_value %}
     <div class="c-call-to-action__image-wrapper">
@@ -22,33 +20,37 @@
     </div>
   {% endif %}
 
-  <div class="c-call-to-action__container o-container">
-    <div class="c-call-to-action__inner">
-      {# Title #}
-      {% if content.field_title|field_value %}
-        <h2 class="c-call-to-action__title">{{ content.field_title|field_value }}</h2>
-      {% endif %}
-
-      {# Description #}
-      {% if content.field_description|field_value %}
-        <p class="c-call-to-action__description">{{ content.field_description|field_value }}</p>
-      {% endif %}
-
-      {# Button link #}
-      {# On this component the editor can create a button link or a download file button link. #}
-      {# Use button_link.type to see type of button to render #}
-      {% if button_link.url %}
-        <div>[Link Type] {{ button_link.type }}</div>
-        <a class="c-call-to-action__link" href="{{ button_link.url }}" style="padding: 20px; border: 1px dotted black"
-           target="{{ button_link.is_external ? '_blank' : '_self' }}">
-          {% if button_link.type == 'link' %}
-            [arrow icon] ->
-          {% elseif button_link.type == 'download' %}
-            [download icon]
+  <div class="c-call-to-action__block js-parallax-block">
+    <div class="c-call-to-action__container o-container">
+      <div class="c-call-to-action__inner">
+        <div class="c-call-to-action__content-wrapper">
+          {# Title #}
+          {% if content.field_title|field_value %}
+            <h2 class="c-call-to-action__title">{{ content.field_title|field_value }}</h2>
           {% endif %}
-          <span class="c-call-to-action__link-title">{{ button_link.title }}</span>
-        </a>
-      {% endif %}
+
+          {# Description #}
+          {% if content.field_description|field_value %}
+            <p class="c-call-to-action__description">{{ content.field_description|field_value }}</p>
+          {% endif %}
+
+          {# Button link #}
+
+          {% if button_link.url %}
+            <div class="c-call-to-action__link-wrapper">
+              <a class="c-call-to-action__link o-button{{ is_white ? ' o-button--white' : ' o-button--tertiary' }}" href="{{ button_link.url }}"
+                 target="{{ button_link.is_external ? '_blank' : '_self' }}">
+                {% if button_link.type == 'link' %}
+                  {% include '@nrgi/svg/svg.html.twig' with {'svg' : 'arrow'} %}
+                {% elseif button_link.type == 'download' %}
+                  {% include '@nrgi/svg/svg.html.twig' with {'svg' : 'download'} %}
+                {% endif %}
+                <span class="c-call-to-action__link-title">{{ button_link.title }}</span>
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
     </div>
   </div>
 </section>

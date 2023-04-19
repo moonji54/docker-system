@@ -9,6 +9,12 @@
   {#  <div class="c-single-content"> #}
   {#  FEATURED IMAGE #}
   {#    <div class="c-single-content__top"> #}
+
+  {% if node.bundle == 'publication' %}
+    {% include 'node--toc.html.twig' %}
+  {% endif %}
+
+  {# FEATURED IMAGE #}
   {% if content.field_featured_image|field_value %}
     <div class="c-single-content__top-image-wrapper">
       <div class="c-single-content__image-wrapper">
@@ -24,26 +30,17 @@
   {#  </div> #}
   {#    </div> #}
 
-  <div style="background-color: orange">
-    {% if content.field_page_builder|field_value %}
-      <h1>PAGE BUILDER:</h1>
-      {{ content.field_page_builder }}
-    {% endif %}
-  </div>
+  {% if content.field_page_builder|field_value %}
+    {{ content.field_page_builder }}
+  {% endif %}
 
   {# AUTHORS SECTION on resources only (publication/article) #}
-  <div style="background-color: blue ">
-    {% if authors %}
-      <h1>{{ "Authors"|t }}:</h1>
-      {% include '@nrgi/node-partials/node--authors-bottom.html.twig' %}
-    {% endif %}
-  </div>
 
-  {#  METADATA #}
-  <div style="background-color: green">
-    <h1>METADATA:</h1>
-    {% include '@nrgi/node-partials/node--metadata.html.twig' %}
-  </div>
+  {% if authors %}
+    {% include '@nrgi/node-partials/node--authors-bottom.html.twig' %}
+  {% endif %}
+
+  {% include '@nrgi/node-partials/node--metadata.html.twig' %}
 
   {#  RELATED CONTENT #}
   {% if related_nodes is not empty %}

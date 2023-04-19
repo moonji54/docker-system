@@ -27,19 +27,44 @@
       {{ content.field_page_builder }}
     {% endif %}
   </div>
+<div>
+  {# PERSON SIDEBAR META #}
+  <h1>PERSON SIDEBAR META:</h1>
+  {# Language switcher #}
+  {% if language_switcher_links %}
+    {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
+      'text' :  "Other languages"|t,
+      'links' : language_switcher_links
+    } %}
+  {% endif %}
+</div>
+<article{{ attributes.addClass(classes) }}>
+  {% if content.field_page_builder|field_value %}
+    {{ content.field_page_builder }}
+  {% endif %}
+
+  {% include '@nrgi/node-partials/node--metadata.html.twig' %}
 
   {# Person contributions #}
   {% set listing_results = drupal_view_result('contextual_views', 'person_contributions', node.id)|length %}
   {% if listing_results > 0 %}
     {% set listing = drupal_view('contextual_views', 'person_contributions', node.id) %}
-    {% if content.field_contributions_title|field_value %}
-      <h2>{{ content.field_contributions_title }}</h2>
-    {% endif %}
-    {% if content.field_contributions_description|field_value %}
-      <h3>{{ content.field_contributions_description }}</h3>
-    {% endif %}
+    <section class="o-section">
+      <div class="o-container">
+        {% if content.field_title|field_value %}
+          <header class="o-section__header">
+            {% if content.field_contributions_title|field_value %}
+              <h2 class="o-section__heading">{{ content.field_contributions_title }}</h2>
+            {% endif %}
 
-    {{ listing }}
+            {% if content.field_contributions_description|field_value %}
+              <p class="o-section__description">{{ content.field_contributions_description }}</p>
+            {% endif %}
+          </header>
+        {% endif %}
+
+        {{ listing }}
+      </div>
+    </section>
   {% endif %}
-
 </article>

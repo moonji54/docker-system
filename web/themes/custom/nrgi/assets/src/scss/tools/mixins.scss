@@ -37,6 +37,7 @@ $z-index : (
     localtasks: 3,
     menu: 2,
     mega-nav: 20,
+    toc: 25,
 );
 
 @function z-index($key) {

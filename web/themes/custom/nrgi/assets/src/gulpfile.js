@@ -110,10 +110,12 @@ function themejs (filename) {
 gulp.task('build-js', gulp.series((done) => {
     // Add your js files here (we're doing them separately so they can be loaded
     // via libraries.yml)
-    themejs('parallax-scroll');
     themejs('header');
     themejs('languages-overlay');
+    themejs('lightbox');
+    themejs('parallax-scroll');
     themejs('share-links');
+    themejs('toc');
     themejs('sub-navigation');
 
     done();

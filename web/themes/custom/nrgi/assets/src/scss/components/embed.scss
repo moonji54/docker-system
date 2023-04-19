@@ -1,0 +1,40 @@
+.c-embed {
+  /* stylelint-disable */
+  .c-media--data-visualisation,
+  .c-media--remote-audio {
+    iframe {
+      width : 100%;
+
+      @include media("<=tablet") {
+        max-height : 28.75rem;
+      }
+    }
+  }
+
+  &__media-wrapper:has(> .c-media--remote-video) {
+    aspect-ratio : 16 / 9;
+    position     : relative;
+
+    iframe {
+      height     : 100%;
+      left       : 0;
+      object-fit : cover;
+      position   : absolute;
+      top        : 0;
+      width      : 100%;
+    }
+  }
+
+  /* stylelint-enable */
+
+  &__caption {
+    @include ts-caption;
+    margin-top : var(--space-m);
+
+    span {
+      &:last-child {
+        font-style : italic;
+      }
+    }
+  }
+}

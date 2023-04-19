@@ -21,7 +21,6 @@
       align-items    : flex-start;
       display        : none;
       flex-direction : column;
-      gap            : 0.25rem;
       padding        : 0.5rem 0 2rem;
     }
   }
@@ -41,10 +40,22 @@
     @include media("<=tablet") {
       display : flex;
     }
+
+    &.is-open {
+      /* stylelint-disable-next-line */
+      #{$c}__button-svg {
+        rotate : 180deg;
+      }
+    }
   }
 
   &__button-label {
     @include ts-section-header;
+  }
+
+  &__button-svg {
+    transition : rotate 0.3s;
+    translate  : 0 1px;
   }
 
   &__list {
