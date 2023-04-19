@@ -10,68 +10,69 @@
   'c-listing',
   no_filters ? 'c-listing--no-filters',
   is_search ? 'c-listing--search',
-  'view',
-  'view-' ~ id|clean_class,
-  'view-id-' ~ id,
-  'view-display-id-' ~ display_id,
-  dom_id ? 'js-view-dom-id-' ~ dom_id,
 ] %}
 
 <div{{ attributes.addClass(classes) }}>
   {% if is_search %}
     <section class="c-page-header c-page-header--search">
-      <div class="o-container">
-        <h2 class="c-page-header__heading">{{ 'Search'|t }}</h2>
-        <div class="c-listing__search">
-          <div class="o-container o-container--grid">
-            <div class="c-search-overlay__inner">
-              <form class="c-search-overlay__form" action="/search" method="get" role="search"
-                    aria-label="Sitewide search">
-                <input class="c-search-overlay__input js-search-input"
-                       title="{{ 'Enter the terms you wish to search for.'|t }}"
-                       type="search" placeholder="{{ 'Search term'|t }}" name="query"
-                       value="{{ query }}">
+      <img class="c-page-header__image-placeholder" src="/{{ base_path ~ directory }}/assets/img/search-banner.svg"
+           alt="Image placeholder"/>
 
-                <input data-drupal-selector="edit-submit"
-                       class="c-page-header__search-submit c-form-element c-form-element--field-submit c-form-element--type-submit button js-form-submit form-submit"
-                       type="submit" id="edit-submit" value="Search">
-              </form>
-            </div>
+      <div class="c-page-header__container o-container">
+        {#      SBTODO: to be added once backend is done #}
+        <div class="c-page-header__breadcrumbs c-breadcrumbs">
+          <div class="c-breadcrumbs__list">
+            breadcrumb / breadcrumb
           </div>
+        </div>
+
+        <div class="c-page-header__text-wrapper">
+          {# Title #}
+          <h1 class="c-page-header__title">{{ 'Search results'|t }}</h1>
+
+          <form class="c-page-header__search-form" action="/search" method="get" role="search" aria-label="Sitewide search">
+            <input class="c-page-header__search-input" title="{{ 'Enter the terms you wish to search for.'|t }}" type="search"
+                   id="header-search-input" placeholder="{{ 'Search term'|t }}" name="query"
+                   value="{{ query }}">
+
+            <button class="c-page-header__search-button" data-drupal-selector="edit-submit"
+                    type="submit" id="edit-submit" value="Search">
+              {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'search-icon', 'extra_class' : 'c-page-header__search-icon' } %}
+            </button>
+          </form>
         </div>
       </div>
     </section>
   {% endif %}
 
   <div class="c-listing__container o-container">
-    {% if attachment_before %}
-      <div class="c-listing__attachment c-listing__attachment-before">
-        {{ attachment_before }}
-      </div>
+    {{ title_prefix }}
+
+    {% if title %}
+      {{ title }}
     {% endif %}
 
-    {% if no_filters == FALSE %}
+    {{ title_suffix }}
+
+    {% if no_filters == false %}
       <div class="c-listing__filters js-filters">
-        <button class="c-listing__filters-button o-button js-toggle-filters-button" aria-expanded="true">
-          <span class="js-toggle-filters-button-text">Hide filters</span>
-        </button>
+        <h5 class="c-listing__caption">{{ 'Filter  by'|t }}</h5>
+
+        <div class="c-listing__filters-button js-toggle-filters-button" aria-expanded="true">
+          <h5>{{ 'Filter content'|t }}</h5>
+
+          {% include '@nrgi/svg/svg.html.twig' with {'svg': 'chevron-down', 'extra_class' : 'c-listing__filters-button-icon'} %}
+        </div>
+
         {{ exposed }}
       </div>
     {% endif %}
 
     <div class="c-listing__content">
-      {% if header is not empty and no_filters != TRUE %}
-        <div class="c-listing__results-count">
-          {{ header }}
-        </div>
-      {% endif %}
-
-      {% set card_classes = [
-        'c-listing__items',
-      ] %}
-
       {% if rows %}
-        <div{{ attributes.addClass(card_classes).removeClass(classes) }}>
+        <span class="c-listing__caption">{{ header }}</span>
+
+        <div class="c-listing__items{{ no_filters ? ' o-card-container o-card-container--three-per-row' }}">
           {{ rows[0]['#rows'] }}
         </div>
       {% elseif empty %}
@@ -80,10 +81,18 @@
         </div>
       {% endif %}
     </div>
+
+    {% if pager %}
+      <div class="c-listing__pagination">
+        {{ pager }}
+      </div>
+    {% endif %}
   </div>
 
-  {% if pager %}
-    {{ pager }}
+  {% if attachment_before %}
+    <div class="c-listing__attachment c-listing__attachment-before">
+      {{ attachment_before }}
+    </div>
   {% endif %}
 
   {% if attachment_after %}
@@ -91,12 +100,20 @@
       {{ attachment_after }}
     </div>
   {% endif %}
+
   {% if more %}
     {{ more }}
   {% endif %}
+
   {% if footer %}
     <div class="c-listing__footer">
       {{ footer }}
+    </div>
+  {% endif %}
+
+  {% if feed_icons %}
+    <div class="c-listing__feed-icons">
+      {{ feed_icons }}
     </div>
   {% endif %}
 </div>
