@@ -1137,7 +1137,8 @@ ul li a:hover {
 }
 .c-card__tag:has(+ *) {
   margin-bottom: var(--space-xs);
-  margin-right: var(--space-xs);
+  -webkit-margin-end: var(--space-xs);
+          margin-inline-end: var(--space-xs);
 }
 .c-card__meta-wrapper {
   margin-bottom: var(--space-m);
@@ -1150,7 +1151,8 @@ ul li a:hover {
   letter-spacing: 0.125rem;
   text-transform: uppercase;
   display: inline-block;
-  margin-right: var(--space-xs);
+  -webkit-margin-end: var(--space-xs);
+          margin-inline-end: var(--space-xs);
 }
 @media (max-width: 48rem) {
   .c-card__meta-item {
@@ -1160,10 +1162,12 @@ ul li a:hover {
 }
 .c-card__meta-item:after {
   content: "•";
-  margin-left: var(--space-xs);
+  -webkit-margin-start: var(--space-xs);
+          margin-inline-start: var(--space-xs);
 }
 .c-card__meta-item:last-child {
-  margin-right: 0;
+  -webkit-margin-end: 0;
+          margin-inline-end: 0;
 }
 .c-card__meta-item:last-child:after {
   content: none;
@@ -1173,7 +1177,8 @@ ul li a:hover {
 }
 .c-card__meta-item--topics:after {
   content: ",";
-  margin-left: 0;
+  -webkit-margin-start: 0;
+          margin-inline-start: 0;
 }
 .c-card__description {
   font-family: "Noto Sans", sans-serif;
@@ -1264,8 +1269,10 @@ ul li a:hover {
 .c-card__external-icon {
   color: #FF7D5F;
   display: inline-block;
-  margin: var(--space-xs) 0 0 0.25rem;
+  margin-top: var(--space-xs);
   vertical-align: top;
+  -webkit-margin-start: 0.25rem;
+          margin-inline-start: 0.25rem;
 }
 .c-card__image-wrapper {
   aspect-ratio: 16/9;
