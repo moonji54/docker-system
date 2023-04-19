@@ -3518,7 +3518,6 @@ ul li a:hover {
 
 .c-table-of-contents {
   z-index: 25;
-  /* stylelint-disable-next-line */
   background-color: #00545A;
   color: #FFFFFF;
   display: none;
