@@ -102,6 +102,7 @@ module:
   soapbox_forms: 0
   soapbox_media: 0
   soapbox_nodes: 0
+  soapbox_pdf: 0
   soapbox_related_content: 0
   soapbox_routes: 0
   soapbox_themes: 0

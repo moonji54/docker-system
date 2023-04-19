@@ -1,0 +1,10 @@
+uuid: d7690eee-bbd6-4b03-ad62-aa8fc54455cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.pdf
+label: PDF
+targetEntityType: paragraph
+cache: true

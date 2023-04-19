@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Soapbox_pdf theme implementation to display a PDF node page.
+ *
+ * Available variables:
+ * - header: (optional) PDF header.
+ * - node_view: Node view builder.
+ * - footer: (optional) PDF header.
+ *
+ */
+#}
+
+{% if header %}
+  <div class="node-pdf-header">
+    {{ header }}
+  </div>
+{% endif %}
+
+{% if footer %}
+  <div class="node-pdf-footer">
+    {{ footer }}
+  </div>
+{% endif %}
+
+{{ node_view }}
+
+

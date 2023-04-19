@@ -1,0 +1,7 @@
+content_types:
+  publication:
+    field_save: field_upload
+    plugin: default
+    view_mode: pdf
+    pagejs: 1
+    submit_label: ''
