@@ -31,3 +31,14 @@ share-links:
     - core/drupal
     - core/jquery.once
     - core/drupalSetting
+
+# Sub-navigation
+sub-navigation:
+  version: 1.0
+  js:
+    assets/js/sub-navigation.js: { minified: false }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - core/drupalSetting

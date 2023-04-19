@@ -32,6 +32,7 @@
   }
 
   &__breadcrumbs {
+    @include z-index(hero-text-wrapper);
     grid-column : 1 / -1;
     margin-top  : 3rem;
   }

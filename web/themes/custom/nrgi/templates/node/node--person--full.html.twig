@@ -4,7 +4,9 @@
 ] %}
 
 <article{{ attributes.addClass(classes) }}>
+
   {% include "@nrgi/node-partials/node--single-header.html.twig" %}
+  {#  {{ drupal_block('system_breadcrumb_block', {label: 'c-single-header__breadcrumbs'}) }} #}
 
   <div>
     {# PERSON SIDEBAR META #}

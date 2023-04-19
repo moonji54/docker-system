@@ -114,6 +114,7 @@ gulp.task('build-js', gulp.series((done) => {
     themejs('header');
     themejs('languages-overlay');
     themejs('share-links');
+    themejs('sub-navigation');
 
     done();
 }));
