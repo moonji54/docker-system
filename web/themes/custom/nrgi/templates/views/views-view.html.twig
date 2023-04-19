@@ -13,7 +13,6 @@
 ] %}
 
 <div{{ attributes.addClass(classes) }}>
-  {# SBTODO: Search #}
   {% if is_search %}
     <section class="c-page-header c-page-header--search">
       <img class="c-page-header__image-placeholder" src="/{{ base_path ~ directory }}/assets/img/search-banner.svg"
@@ -32,25 +31,14 @@
           <h1 class="c-page-header__title">{{ 'Search results'|t }}</h1>
 
           <form class="c-page-header__search-form" action="/search" method="get" role="search" aria-label="Sitewide search">
-            <input class="c-page-header__search-input" title="Enter the terms you wish to search for." type="search"
-                   id="header-search-input" placeholder="Type Here..." name="keyword_name"
-                   value="{{ exposed.query['#value'] }}" size="15" maxlength="128">
-
-            <button class="c-page-header__submit" type="submit">
-              {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'search-icon', 'extra_class' : 'c-page-header__search-icon' } %}
-            </button>
-          </form>
-
-          <form class="c-search-overlay__form" action="/search" method="get" role="search"
-                aria-label="Sitewide search">
-            <input class="c-search-overlay__input js-search-input"
-                   title="{{ 'Enter the terms you wish to search for.'|t }}"
-                   type="search" placeholder="{{ 'Search term'|t }}" name="query"
+            <input class="c-page-header__search-input" title="{{ 'Enter the terms you wish to search for.'|t }}" type="search"
+                   id="header-search-input" placeholder="{{ 'Search term'|t }}" name="query"
                    value="{{ query }}">
 
-            <input data-drupal-selector="edit-submit"
-                   class="c-page-header__search-submit c-form-element c-form-element--field-submit c-form-element--type-submit button js-form-submit form-submit"
-                   type="submit" id="edit-submit" value="Search">
+            <button class="c-page-header__search-button" data-drupal-selector="edit-submit"
+                    type="submit" id="edit-submit" value="Search">
+              {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'search-icon', 'extra_class' : 'c-page-header__search-icon' } %}
+            </button>
           </form>
         </div>
       </div>

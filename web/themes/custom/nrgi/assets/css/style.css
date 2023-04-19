@@ -136,7 +136,9 @@
 /*
   Use a more-intuitive box-sizing model.
 */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -150,7 +152,8 @@
 /*
   Allow percentage-based heights in the application
 */
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -164,7 +167,11 @@ body {
 /*
   Improve media defaults
 */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
@@ -172,18 +179,28 @@ img, picture, video, canvas, svg {
 /*
   Remove built-in form typography styles
 */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
 /*
   Avoid text overflows
 */
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
   padding: 0;
 }
@@ -193,30 +210,29 @@ input {
   margin: 0;
 }
 
+/* stylelint-disable */
 input[type=submit],
 input[type=button],
 input[type=search] {
+  border-radius: 0;
+  cursor: pointer;
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
-  border-radius: 0;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  cursor: pointer;
 }
 
 button {
   background: transparent;
   border: none;
-  margin: 0;
-  padding: 0;
-  width: auto;
-  overflow: visible;
-  /* inherit font & color from ancestor */
   color: inherit;
   font: inherit;
-  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
   line-height: normal;
+  margin: 0;
+  /* inherit font & color from ancestor */
+  overflow: visible;
+  padding: 0;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  width: auto;
   /* Corrects font smoothing for webkit */
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
@@ -243,6 +259,9 @@ body {
 body.is-scroll-locked {
   overflow: hidden;
   position: relative;
+}
+body.has-overlay {
+  overflow: hidden;
 }
 
 a {
@@ -3891,6 +3910,11 @@ ul li a:hover {
 .c-page-header--search .c-page-header__text-wrapper {
   grid-column: 1/-1;
 }
+@media (max-width: 48rem) {
+  .c-page-header--search .c-page-header__text-wrapper {
+    padding-bottom: var(--space-3xl);
+  }
+}
 
 /** @define c-social-links */
 .c-social-links {
@@ -4022,6 +4046,163 @@ ul li a:hover {
   }
 }
 
+.c-table-of-contents {
+  z-index: 25;
+  background-color: #00545A;
+  color: #FFFFFF;
+  display: none;
+  position: fixed;
+  top: 0;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+  width: 100%;
+}
+.c-table-of-contents.is-visible {
+  display: block;
+}
+.c-table-of-contents.is-fixed {
+  transform: translateY(0);
+}
+.c-table-of-contents.is-open .c-table-of-contents__expanded-content:before {
+  border-top: 1px solid #FFFFFF;
+  transform: translateX(0);
+}
+.user-logged-in .c-table-of-contents {
+  top: 4.9375rem;
+}
+@media (max-width: 966px) {
+  .user-logged-in .c-table-of-contents {
+    top: 2.4375rem;
+  }
+}
+.c-table-of-contents__button-wrapper {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.875rem;
+  padding-top: 0.875rem;
+}
+@media (max-width: 48rem) {
+  .c-table-of-contents__button-wrapper {
+    padding-bottom: 0.75rem;
+    padding-top: 0.75rem;
+  }
+}
+.c-table-of-contents__button-wrapper.is-clicked .c-table-of-contents__icon {
+  transform: rotate(180deg);
+}
+.c-table-of-contents__heading {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.75;
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+}
+@media (max-width: 48rem) {
+  .c-table-of-contents__heading {
+    font-size: 0.875rem;
+  }
+}
+.c-table-of-contents__icon {
+  transition: transform 0.3s;
+}
+.c-table-of-contents__expanded-content {
+  background-color: #00545A;
+  box-sizing: border-box;
+  display: none;
+  overflow: hidden;
+  padding-bottom: var(--space-l);
+  padding-top: var(--space-xs);
+  position: relative;
+  width: 100%;
+  /* stylelint-disable-next-line */
+}
+.c-table-of-contents__expanded-content:before {
+  border-top: 1px solid transparent;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateX(100%);
+  transition: transform 0.6s;
+  width: 100%;
+}
+.c-table-of-contents__expanded-content:has(.ps--active-y) {
+  padding-bottom: var(--space-xs);
+}
+.c-table-of-contents__list-wrapper {
+  max-height: 25.3125rem;
+  overflow: hidden;
+  position: relative;
+  /* stylelint-disable-next-line */
+  /* stylelint-disable-next-line */
+}
+.c-table-of-contents__list-wrapper .ps__rail-y {
+  right: 0.5rem;
+  width: 0.375rem;
+}
+.c-table-of-contents__list-wrapper .ps__thumb-y {
+  width: 0.375rem;
+}
+.c-table-of-contents__list {
+  padding-bottom: var(--space-xs);
+}
+.c-table-of-contents__list a {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.4375rem;
+  transition: all 0.3s;
+}
+.c-table-of-contents__list a:hover, .c-table-of-contents__list a:focus {
+  text-decoration-color: #B3EFEF;
+}
+.c-table-of-contents__list a:hover, .c-table-of-contents__list a:focus {
+  color: #B3EFEF;
+}
+.c-table-of-contents__nested-list {
+  margin-left: var(--space-l);
+}
+.c-table-of-contents__item-heading {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.5;
+  margin-top: var(--space-s);
+}
+@media (max-width: 94.5rem) {
+  .c-table-of-contents__item-heading {
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 64rem) {
+  .c-table-of-contents__item-heading {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-table-of-contents__item-heading {
+    font-size: 1.125rem;
+  }
+}
+.c-table-of-contents__item-heading:first-child {
+  margin-top: 0;
+}
+.c-table-of-contents__item-sub-heading {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.25;
+  margin-top: var(--space-s);
+}
+@media (max-width: 64rem) {
+  .c-table-of-contents__item-sub-heading {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
 /*
     ===============================
     7. TRUMPS
@@ -4039,6 +4220,113 @@ ul li a:hover {
   padding: 12px;
 }
 
+/* stylelint-disable */
+/*
+ * Container style
+ */
+.ps {
+  overflow: hidden !important;
+  overflow-anchor: none;
+  -ms-overflow-style: none;
+  touch-action: auto;
+  -ms-touch-action: auto;
+}
+
+/*
+ * Scrollbar rail styles
+ */
+.ps__rail-x {
+  bottom: 0;
+  height: 15px;
+  opacity: 1;
+  position: absolute;
+  /* there must be 'bottom' or 'top' for ps__rail-x */
+  /* please don't change 'position' */
+  transition: background-color 0.2s linear, opacity 0.2s linear;
+}
+
+.ps__rail-y {
+  height: 100%;
+  opacity: 0.5;
+  position: absolute;
+  right: 0;
+  top: 0;
+  /* there must be 'right' or 'left' for ps__rail-y */
+  transition: background-color 0.2s linear, opacity 0.2s linear;
+  /* please don't change 'position' */
+  width: 10px;
+}
+
+.ps--active-x > .ps__rail-x,
+.ps--active-y > .ps__rail-y {
+  background-color: #2D2D32;
+  display: block;
+}
+
+.ps:hover > .ps__rail-x,
+.ps:hover > .ps__rail-y,
+.ps--focus > .ps__rail-x,
+.ps--focus > .ps__rail-y,
+.ps--scrolling-x > .ps__rail-x,
+.ps--scrolling-y > .ps__rail-y {
+  opacity: 0.9;
+}
+
+.ps .ps__rail-x:hover,
+.ps .ps__rail-y:hover,
+.ps .ps__rail-x:focus,
+.ps .ps__rail-y:focus,
+.ps .ps__rail-x.ps--clicking,
+.ps .ps__rail-y.ps--clicking {
+  background-color: #2D2D32;
+}
+
+/*
+ * Scrollbar thumb styles
+ */
+.ps__thumb-x {
+  background-color: #FFFFFF;
+  bottom: 2px;
+  /* there must be 'bottom' for ps__thumb-x */
+  height: 6px;
+  /* please don't change 'position' */
+  position: absolute;
+}
+
+.ps__thumb-y {
+  background-color: #FFFFFF;
+  opacity: 0.9;
+  /* there must be 'right' for ps__thumb-y */
+  position: absolute;
+  /* please don't change 'position' */
+  right: 0;
+  width: 8px;
+}
+
+.ps__rail-x:hover > .ps__thumb-x,
+.ps__rail-x:focus > .ps__thumb-x,
+.ps__rail-x.ps--clicking .ps__thumb-x {
+  background-color: white;
+  height: 10px;
+}
+
+.ps__rail-y:hover > .ps__thumb-y,
+.ps__rail-y:focus > .ps__thumb-y,
+.ps__rail-y.ps--clicking .ps__thumb-y {
+  opacity: 1;
+}
+
+/* MS supports */
+@supports (-ms-overflow-style: none) {
+  .ps {
+    overflow: auto !important;
+  }
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .ps {
+    overflow: auto !important;
+  }
+}
 /* stylelint-disable */
 #cboxOverlay {
   background-color: #00545A !important;
@@ -4292,113 +4580,6 @@ ul li a:hover {
   text-shadow: none;
 }
 
-/*
- * Container style
- */
-.ps {
-  overflow: hidden !important;
-  overflow-anchor: none;
-  -ms-overflow-style: none;
-  touch-action: auto;
-  -ms-touch-action: auto;
-}
-
-/*
- * Scrollbar rail styles
- */
-.ps__rail-x {
-  bottom: 0;
-  height: 15px;
-  opacity: 1;
-  position: absolute;
-  /* there must be 'bottom' or 'top' for ps__rail-x */
-  /* please don't change 'position' */
-  transition: background-color 0.2s linear, opacity 0.2s linear;
-}
-
-.ps__rail-y {
-  opacity: 1;
-  position: absolute;
-  right: 0;
-  /* there must be 'right' or 'left' for ps__rail-y */
-  transition: background-color 0.2s linear, opacity 0.2s linear;
-  /* please don't change 'position' */
-  width: 10px;
-}
-
-.ps--active-x > .ps__rail-x,
-.ps--active-y > .ps__rail-y {
-  background-color: transparent;
-  display: block;
-}
-
-.ps:hover > .ps__rail-x,
-.ps:hover > .ps__rail-y,
-.ps--focus > .ps__rail-x,
-.ps--focus > .ps__rail-y,
-.ps--scrolling-x > .ps__rail-x,
-.ps--scrolling-y > .ps__rail-y {
-  opacity: 0.9;
-}
-
-.ps .ps__rail-x:hover,
-.ps .ps__rail-y:hover,
-.ps .ps__rail-x:focus,
-.ps .ps__rail-y:focus,
-.ps .ps__rail-x.ps--clicking,
-.ps .ps__rail-y.ps--clicking {
-  background-color: transparent;
-  opacity: 1;
-}
-
-/*
- * Scrollbar thumb styles
- */
-.ps__thumb-x {
-  background-color: #2D2D32;
-  bottom: 2px;
-  /* there must be 'bottom' for ps__thumb-x */
-  height: 6px;
-  /* please don't change 'position' */
-  position: absolute;
-}
-
-.ps__thumb-y {
-  background-color: #2D2D32;
-  border-radius: 0.25rem;
-  opacity: 0.9;
-  /* there must be 'right' for ps__thumb-y */
-  position: absolute;
-  /* please don't change 'position' */
-  right: 0;
-  width: 8px;
-}
-
-.ps__rail-x:hover > .ps__thumb-x,
-.ps__rail-x:focus > .ps__thumb-x,
-.ps__rail-x.ps--clicking .ps__thumb-x {
-  background-color: #2d2d32;
-  height: 10px;
-}
-
-.ps__rail-y:hover > .ps__thumb-y,
-.ps__rail-y:focus > .ps__thumb-y,
-.ps__rail-y.ps--clicking .ps__thumb-y {
-  opacity: 1;
-  width: 8px;
-}
-
-/* MS supports */
-@supports (-ms-overflow-style: none) {
-  .ps {
-    overflow: auto !important;
-  }
-}
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .ps {
-    overflow: auto !important;
-  }
-}
 .ui-menu.ui-widget {
   font-family: "Noto Sans", sans-serif;
   font-weight: 400;

@@ -200,6 +200,10 @@
   &--search {
     #{$c}__text-wrapper {
       grid-column : 1 / -1;
+
+      @include media("<=tablet") {
+        padding-bottom : var(--space-3xl);
+      }
     }
   }
 }
