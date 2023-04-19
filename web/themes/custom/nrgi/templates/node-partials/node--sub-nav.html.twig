@@ -2,17 +2,16 @@
 
 {% if sub_pages %}
   <section class="c-sub-navigation">
-    {#    SBTODO: nav title hidden to be added #}
     <div class="c-sub-navigation__container">
       <button class="c-sub-navigation__button js-sub-navigation-button"
-              aria-label="{{ 'Toggle mobile menu'|t }}"
+              aria-label="{{ 'Toggle sub-navigation menu'|t }}"
               aria-expanded="false"
               type="button">
         <span class="c-sub-navigation__button-label">{{ 'in this section'|trans|upper }}</span>
 
         {% include '@nrgi/svg/svg.html.twig' with {'svg': 'chevron-down', 'extra_class': 'c-sub-navigation__button-svg' } %}
       </button>
-      <nav class="c-sub-navigation__inner">
+      <nav class="c-sub-navigation__inner" role="navigation">
         <ul class="c-sub-navigation__list">
           {% for nav in sub_pages %}
             <li class="c-sub-navigation__links-item">
