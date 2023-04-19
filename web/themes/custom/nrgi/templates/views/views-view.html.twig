@@ -2,7 +2,7 @@
   {% set no_filters = TRUE %}
 {% endif %}
 
-{% if id == 'search_view' %}
+{% if id|clean_class == 'search-view' %}
   {% set is_search = TRUE %}
 {% endif %}
 
@@ -39,6 +39,18 @@
             <button class="c-page-header__submit" type="submit">
               {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'search-icon', 'extra_class' : 'c-page-header__search-icon' } %}
             </button>
+          </form>
+
+          <form class="c-search-overlay__form" action="/search" method="get" role="search"
+                aria-label="Sitewide search">
+            <input class="c-search-overlay__input js-search-input"
+                   title="{{ 'Enter the terms you wish to search for.'|t }}"
+                   type="search" placeholder="{{ 'Search term'|t }}" name="query"
+                   value="{{ query }}">
+
+            <input data-drupal-selector="edit-submit"
+                   class="c-page-header__search-submit c-form-element c-form-element--field-submit c-form-element--type-submit button js-form-submit form-submit"
+                   type="submit" id="edit-submit" value="Search">
           </form>
         </div>
       </div>
@@ -117,5 +129,3 @@
     </div>
   {% endif %}
 </div>
-
-

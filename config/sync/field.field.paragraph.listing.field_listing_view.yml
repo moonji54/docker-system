@@ -28,15 +28,18 @@ settings:
     page: 0
     feed: 0
   preselect_views:
+    all_events: all_events
     blog: blog
     events: events
     library: library
     newsroom: newsroom
+    past_events: past_events
     training: training
     where_we_work: where_we_work
     block_content: 0
     content: 0
     content_recent: 0
+    contextual_views: 0
     files: 0
     frontpage: 0
     media: 0
@@ -44,15 +47,16 @@ settings:
     moderated_content: 0
     redirect: 0
     scheduled_transitions: 0
+    search_view: 0
     taxonomy_term: 0
     user_admin_people: 0
     watchdog: 0
     who_s_new: 0
     who_s_online: 0
   enabled_settings:
-    pager: 0
-    limit: 0
-    offset: 0
     title: 0
+    pager: 0
+    offset: 0
+    limit: 0
     argument: 0
 field_type: viewsreference

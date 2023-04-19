@@ -26,6 +26,7 @@
     {# Active filters are configured using BEF #}
     {% if form.active_filters is not empty %}
       {{ attribute(form, 'active_filters') }}
+      {{ attach_library('soapbox_filters/active-filters') }}
     {% endif %}
   </div>
 {% endif %}
@@ -41,6 +42,12 @@
     {% endfor %}
 
   </div>
+{% endif %}
+
+{# Set search keyword as hidden field to show term on input after applying filters. #}
+{% if attribute(form, 'query') is defined %}
+  {% set search_field = attribute(form, 'query') %}
+  <input type="hidden" name="{{ search_field['#name'] }}" value="{{ search_field['#value'] }}"/>
 {% endif %}
 
 {# Output whatever is left unrendered such as hidden fields. #}

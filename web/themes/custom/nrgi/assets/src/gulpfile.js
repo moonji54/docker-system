@@ -115,6 +115,7 @@ gulp.task('build-js', gulp.series((done) => {
     themejs('lightbox');
     themejs('parallax-scroll');
     themejs('share-links');
+    themejs('toc');
     themejs('filters');
 
     done();

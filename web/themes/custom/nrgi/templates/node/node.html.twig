@@ -5,6 +5,10 @@
     {% include "@nrgi/node-partials/node--event-header.html.twig" %}
   {% endif %}
 
+  {% if node.bundle == 'publication' %}
+    {% include 'node--toc.html.twig' %}
+  {% endif %}
+
   {# FEATURED IMAGE #}
   {% if content.field_featured_image|field_value %}
     <div>

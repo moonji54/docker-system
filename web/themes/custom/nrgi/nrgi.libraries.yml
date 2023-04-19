@@ -30,10 +30,21 @@ share-links:
     - core/drupal
     - core/jquery.once
     - core/drupalSetting
+
 parallax-scroll:
   version: 1.0
   js:
     assets/js/parallax-scroll.js: { minified: false }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - core/drupalSetting
+
+toc:
+  version: 1.0
+  js:
+    assets/js/toc.js: { minified: false }
   dependencies:
     - core/jquery
     - core/drupal
