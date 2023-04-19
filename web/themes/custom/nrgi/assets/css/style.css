@@ -2918,6 +2918,7 @@ ul li a:hover {
   grid-column: 1/9;
   grid-column-gap: var(--gutter);
   grid-template-columns: 1fr 1fr;
+  margin-bottom: calc(var(--space-xl) * -1);
 }
 @media (max-width: 48rem) {
   .c-meta-rows__inner {
@@ -2925,15 +2926,10 @@ ul li a:hover {
     grid-template-columns: 1fr;
   }
 }
-.c-meta-rows__inner:has(.c-meta-rows__row:nth-child(3)) .c-meta-rows__row {
-  margin-top: var(--space-xl);
-}
-.c-meta-rows__inner:has(.c-meta-rows__row:nth-child(3)) .c-meta-rows__row:first-child {
-  margin-top: 0;
-}
 .c-meta-rows__row {
   border-top: 1px solid #FFFFFF;
   grid-column: 1/-1;
+  margin-bottom: var(--space-xl);
   padding-top: var(--space-xs);
 }
 .c-meta-rows__row--half-width {
