@@ -1,4 +1,4 @@
-uuid: 83dc046a-18ef-4ba0-9da4-07680511e45c
+uuid: 86387d4b-4ef9-46e0-b721-65429e8644ef
 langcode: en
 status: true
 dependencies:
@@ -15,12 +15,11 @@ dependencies:
     - 'taxonomy_term:event_type:9ca1e640-2764-45aa-8c1e-dbfd4516071e'
   module:
     - better_exposed_filters
-    - datetime
     - node
     - taxonomy
     - user
-id: events
-label: 'Upcoming Events'
+id: all_events
+label: Events
 module: views
 description: ''
 tag: ''
@@ -319,53 +318,6 @@ display:
           hierarchy: false
           limit: true
           error_message: true
-        field_end_date_value:
-          id: field_end_date_value
-          table: node__field_end_date
-          field: field_end_date_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: datetime
-          operator: '>'
-          value:
-            min: ''
-            max: ''
-            value: now
-            type: offset
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-            min_label: Min
-            max_label: Max
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
       style:
         type: default
       row:
@@ -699,53 +651,6 @@ display:
           hierarchy: false
           limit: true
           error_message: false
-        field_end_date_value:
-          id: field_end_date_value
-          table: node__field_end_date
-          field: field_end_date_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: datetime
-          operator: '>'
-          value:
-            min: ''
-            max: ''
-            value: now
-            type: offset
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-            min_label: Min
-            max_label: Max
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -1010,53 +915,6 @@ display:
           hierarchy: false
           limit: true
           error_message: false
-        field_end_date_value:
-          id: field_end_date_value
-          table: node__field_end_date
-          field: field_end_date_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: datetime
-          operator: '>'
-          value:
-            min: ''
-            max: ''
-            value: now
-            type: offset
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-            min_label: Min
-            max_label: Max
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
       filter_groups:
         operator: AND
         groups:

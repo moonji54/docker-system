@@ -1,4 +1,4 @@
-uuid: 83dc046a-18ef-4ba0-9da4-07680511e45c
+uuid: 5dbe88bf-d8c1-4b0c-aacf-542293576b3e
 langcode: en
 status: true
 dependencies:
@@ -19,8 +19,8 @@ dependencies:
     - node
     - taxonomy
     - user
-id: events
-label: 'Upcoming Events'
+id: past_events
+label: 'Past Events'
 module: views
 description: ''
 tag: ''
@@ -327,7 +327,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: datetime
-          operator: '>'
+          operator: '<='
           value:
             min: ''
             max: ''
@@ -707,7 +707,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: datetime
-          operator: '>'
+          operator: '<='
           value:
             min: ''
             max: ''
@@ -1018,7 +1018,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: datetime
-          operator: '>'
+          operator: '<='
           value:
             min: ''
             max: ''

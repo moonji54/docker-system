@@ -42,7 +42,7 @@ function nrgi_frontend_preprocess_node(&$variables): void {
         break;
 
       case 'landing_page':
-      case 'listing page':
+      case 'listing_page':
         // Add sub-navigation.
         _nrgi_frontend_preprocess_subnavigation($variables);
         $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
