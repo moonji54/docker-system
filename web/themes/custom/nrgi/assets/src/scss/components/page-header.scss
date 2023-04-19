@@ -190,6 +190,11 @@
     &:focus {
       color : $blue-light;
     }
+
+    @include media("<=tablet") {
+      height : 1.125rem;
+      width  : 1.125rem;
+    }
   }
 
   &--search {

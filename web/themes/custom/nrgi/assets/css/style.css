@@ -3882,6 +3882,12 @@ ul li a:hover {
 .c-page-header__search-icon:hover, .c-page-header__search-icon:focus {
   color: #B3EFEF;
 }
+@media (max-width: 48rem) {
+  .c-page-header__search-icon {
+    height: 1.125rem;
+    width: 1.125rem;
+  }
+}
 .c-page-header--search .c-page-header__text-wrapper {
   grid-column: 1/-1;
 }
