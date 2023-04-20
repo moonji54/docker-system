@@ -12,7 +12,7 @@ bundle: external_author
 label: 'Given name'
 description: "Enter the person's first name and/or the name by which the person is typically known\r\n"
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

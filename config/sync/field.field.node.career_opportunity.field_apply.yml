@@ -14,7 +14,7 @@ bundle: career_opportunity
 label: Apply
 description: 'Select to add a link to apply for position.'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

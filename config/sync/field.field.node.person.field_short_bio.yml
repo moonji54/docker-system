@@ -12,7 +12,7 @@ bundle: person
 label: 'Short bio'
 description: 'Enter a one-sentence (150-characters, max) description of the person. This will be used on the listing page and as the snippet in search results. It should not simply repeat the person''s job title, as this field will display in conjunction with the job title field.'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

@@ -15,7 +15,7 @@ bundle: embed
 label: 'Embed media'
 description: 'Add new or select from existing remote video (Vimeo or YouTube), remote audio (SoundCloud, Spotify or OmnyStudio) or remote data visualisation (Infogram or Flourish).'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
