@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.topic.field_attached_translated_items
     - field.field.node.topic.field_contributions_description
     - field.field.node.topic.field_contributions_title
     - field.field.node.topic.field_featured_image
@@ -113,16 +112,6 @@ content:
     weight: 4
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_attached_translated_items:
-    type: entity_reference_autocomplete
-    weight: 13
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_contributions_description:
     type: string_textfield

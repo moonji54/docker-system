@@ -10,8 +10,7 @@
     {% include 'node--toc.html.twig' %}
   {% endif %}
 
-  <div class="c-single-content {% if content.field_featured_image|field_value %} c-single-content--has-featured-image {% endif %}
-">
+  <div class="c-single-content{{ content.field_featured_image|field_value ? ' c-single-content--has-featured-image' }}">
     <div class="c-single-content__top">
       {# FEATURED IMAGE #}
       {% if content.field_featured_image|field_value %}
@@ -34,6 +33,9 @@
       {{ content.field_page_builder }}
     {% endif %}
   </div>
+
+  {# Footnotes  #}
+  {{ drupal_block('footnotes_group') }}
 
   {# AUTHORS SECTION on resources only (publication/article) #}
   {% if authors %}

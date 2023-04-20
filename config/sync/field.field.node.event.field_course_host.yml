@@ -12,7 +12,7 @@ bundle: event
 label: 'Course host'
 description: 'Add course host (e.g. a university, academy, etc.)'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

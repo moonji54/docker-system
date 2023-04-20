@@ -13,7 +13,7 @@ bundle: person
 label: 'Focus areas'
 description: 'Add person''s topics of expertise '
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

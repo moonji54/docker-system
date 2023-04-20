@@ -19,7 +19,7 @@ bundle: learning_block
 label: Description
 description: 'Used to add text context to the Learning block. <em>300 characters, max.</em>'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

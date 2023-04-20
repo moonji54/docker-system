@@ -12,7 +12,7 @@ bundle: person
 label: 'Job title'
 description: 'Enter the person''s title at NRGI'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

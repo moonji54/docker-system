@@ -16,7 +16,7 @@ bundle: featured_pages
 label: Pages
 description: 'Manually select pages to feature.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

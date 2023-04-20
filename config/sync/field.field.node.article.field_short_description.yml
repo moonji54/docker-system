@@ -12,7 +12,7 @@ bundle: article
 label: 'Short Description'
 description: 'One-sentence highlight/overview of the item. For use in link descriptions, search results, or other places where a blurb might be needed.150 characters, max.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
