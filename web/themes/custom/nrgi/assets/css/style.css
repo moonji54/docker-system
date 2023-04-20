@@ -3606,9 +3606,13 @@ ul li a:hover {
   color: #FF7D5F;
 }
 .c-meta-rows--sidebar {
+  background: none;
   display: flex;
   flex-direction: column;
   gap: var(--space-xl);
+}
+.c-meta-rows--sidebar + .c-meta-rows--sidebar {
+  padding-top: 32px;
 }
 .c-meta-rows--sidebar .c-meta-rows__container {
   grid-template-columns: repeat(4, 1fr);
@@ -3633,6 +3637,9 @@ ul li a:hover {
     font-size: 0.625rem;
     letter-spacing: 0.0625rem;
   }
+}
+.c-meta-rows--sidebar .c-meta-rows__label + .c-meta-rows__items {
+  margin-top: 0.5rem;
 }
 .c-meta-rows--sidebar .c-meta-rows__items {
   display: flex;

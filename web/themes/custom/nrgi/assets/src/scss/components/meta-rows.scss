@@ -135,9 +135,14 @@
   }
 
   &--sidebar {
+    background     : none;
     display        : flex;
     flex-direction : column;
     gap            : var(--space-xl);
+
+    & + & {
+      padding-top : 32px;
+    }
 
     #{$c}__container {
       grid-template-columns : repeat(4, 1fr);
@@ -156,6 +161,10 @@
       h3 {
         @include ts-card-tag;
       }
+    }
+
+    #{$c}__label + #{$c}__items {
+      margin-top : 0.5rem;
     }
 
     #{$c}__items {

@@ -1,4 +1,30 @@
 <section class="c-meta-rows {{ layout_modifier }}">
+  {% if section.items and node.bundle == 'career_opportunity' %}
+    <dd class="c-meta-rows__items">
+      {% for item in section.items %}
+        {% if item.type == 'file' %}
+          <div>
+            <a class="c-meta-rows__download" href="{{ item.url }}">
+              {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'download', 'extra_class' : 'c-meta-rows__icon' } %}
+
+              <span>{{ item.title|trim }}</span>
+            </a>
+          </div>
+        {% elseif item.type == 'logo' %}
+          {% include '@nrgi/node-partials/node--logos.html.twig' with {'item': item} %}
+        {% else %}
+          {% if item.url %}
+            <a class="c-meta-rows__link" href="{{ item.url }}">
+              {{- item.title|trim -}}
+            </a>
+          {% else %}
+            <span>{{ item.title|trim }}</span>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </dd>
+  {% endif %}
+
   {% if node.bundle == 'career_opportunity' %}
     {% if  meta_data.career_opportunity.files.label|upper %}
       <div class="c-meta-rows__row">
