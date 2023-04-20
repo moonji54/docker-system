@@ -2,6 +2,11 @@
 .c-single-content {
   $c : &;
 
+  /* stylelint-disable-next-line */
+  & + .o-section {
+    padding-top : 0;
+  }
+
   &__top {
     @include o-container;
     @include grid;

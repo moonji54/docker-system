@@ -357,10 +357,10 @@ ul li a:hover {
   background-color: rgba(45, 45, 50, 0.4);
 }
 .o-button--secondary {
-  background-color: #00C9C8;
+  background-color: #FFD66D;
 }
 .o-button--secondary:focus, .o-button--secondary:hover {
-  background-color: #00B5B4;
+  background-color: #E6C162;
 }
 .o-button--tertiary {
   background-color: transparent;
@@ -827,6 +827,7 @@ ul li a:hover {
   text-decoration: none;
   top: 0;
   vertical-align: top;
+  scroll-margin-top: 4rem;
 }
 .o-content-from-editor .standfirst {
   color: #00545A;
@@ -4024,6 +4025,12 @@ ul li a:hover {
 }
 
 /** @define c-single-content */
+.c-single-content {
+  /* stylelint-disable-next-line */
+}
+.c-single-content + .o-section {
+  padding-top: 0;
+}
 .c-single-content__top {
   box-sizing: border-box;
   margin-left: auto;
