@@ -14,7 +14,7 @@ bundle: call_to_action
 label: 'Background colour'
 description: ''
 required: true
-translatable: false
+translatable: true
 default_value:
   -
     value: ocean

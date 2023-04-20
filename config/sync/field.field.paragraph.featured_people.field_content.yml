@@ -13,7 +13,7 @@ bundle: featured_people
 label: People
 description: 'Manually select people to feature.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

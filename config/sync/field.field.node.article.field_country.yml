@@ -13,7 +13,7 @@ bundle: article
 label: Countries
 description: 'Select the country or countries discussed in this item. Leave blank if the work is applicable everywhere.'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

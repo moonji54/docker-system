@@ -792,7 +792,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: 'Translation language'
+            label: Language
             description: ''
             use_operator: false
             operator: langcode_op
@@ -1323,7 +1323,7 @@ display:
             zh-hans: zh-hans
             my: my
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: langcode_op
             label: 'Translation language'

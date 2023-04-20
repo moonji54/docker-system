@@ -1,13 +1,13 @@
-uuid: 2f2c9135-163b-45af-a93c-749dd72ad6ee
-langcode: en
+uuid: 428cb0c2-cde3-4d95-80c6-d85eb930d71a
+langcode: es
 status: true
 dependencies:
   config:
-    - node.type.career_opportunity
-id: node.career_opportunity.metatag
+    - node.type.article
+id: node.article.metatag
 field_name: metatag
 entity_type: node
-bundle: career_opportunity
+bundle: article
 label: 'Metatags (Hidden field for JSON support)'
 description: 'The meta tags for the entity.'
 required: false
