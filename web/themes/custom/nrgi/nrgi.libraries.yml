@@ -13,6 +13,7 @@ global-scripts:
     assets/js/header.js: { }
     assets/js/languages-overlay.js: { }
     assets/js/lightbox.js: { }
+    assets/js/sidebar-height.js: { }
     assets/js/parallax-scroll.js: { }
   dependencies:
     - core/jquery

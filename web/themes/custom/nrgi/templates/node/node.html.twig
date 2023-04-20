@@ -11,7 +11,7 @@
   {% endif %}
 
   <div class="c-single-content{{ content.field_featured_image|field_value ? ' c-single-content--has-featured-image' }}">
-    <div class="c-single-content__top">
+    <div class="c-single-content__top js-single-content-container">
       {# FEATURED IMAGE #}
       {% if content.field_featured_image|field_value %}
         <div class="c-single-content__image-container">
@@ -22,7 +22,7 @@
       {% endif %}
 
       {#  SIDEBAR #}
-      <div class="c-single-content__sidebar">
+      <div class="c-single-content__sidebar js-single-content-sidebar">
         {% include '@nrgi/node-partials/node--sidebar.html.twig' with {
           'layout_modifier': 'c-meta-rows--sidebar'
         } %}
