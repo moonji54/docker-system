@@ -140,6 +140,7 @@
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1;
+  cursor: pointer;
   align-items: center;
   color: #2D2D32;
   height: 2.5rem;
@@ -756,10 +757,6 @@
   height: 0.6875rem;
   width: 1.3125rem;
 }
-.o-svg--arrow-right {
-  height: 0.8125rem;
-  width: 1.375rem;
-}
 .o-svg--search-icon {
   height: 1.125rem;
   width: 1.125rem;
@@ -768,9 +765,17 @@
   height: 0.75rem;
   width: 0.75rem;
 }
+.o-svg--arrow-double {
+  height: 0.5rem;
+  width: 1rem;
+}
 .o-svg--chevron-down {
   height: 0.5rem;
   width: 1rem;
+}
+.o-svg--arrow-right {
+  height: 0.8125rem;
+  width: 1.375rem;
 }
 .o-svg--header-logo {
   height: 3.5rem;
@@ -843,4 +848,16 @@
   margin-top: -8.75rem;
   position: absolute;
   visibility: hidden;
+}
+
+/* stylelint-disable */
+.cke_editable .standfirst {
+  color: #00545A;
+  font-size: 1.5rem;
+  padding: 12px;
+}
+
+.cke_editable .boxed-text {
+  background-color: #B3EFEF;
+  padding: 12px;
 }
