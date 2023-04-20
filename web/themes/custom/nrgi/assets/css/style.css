@@ -4242,8 +4242,9 @@ ul li a:hover {
 }
 .c-single-header__buttons-wrapper {
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: var(--space-l);
 }
 @media (max-width: 48rem) {
   .c-single-header__buttons-wrapper {
