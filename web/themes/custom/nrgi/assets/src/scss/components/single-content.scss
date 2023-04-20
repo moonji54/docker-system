@@ -1,15 +1,38 @@
 /** @define c-single-content */
 .c-single-content {
-  &__top-container {
-    @include grid;
+  $c : &;
+
+  &__top {
     @include o-container;
+    @include grid;
+    position : relative;
   }
 
-  &__image-wrapper {
+  &__image-container {
     grid-column : 1 / 9;
+    position    : relative;
+    z-index     : 4;
   }
 
   &__sidebar {
     grid-column : 10 / -1;
+    max-width   : 17.6875rem;
+    position    : absolute;
+    right       : 0;
+    top         : var(--space-3xl);
+
+    @include media("<=tablet") {
+      display : none;
+    }
+  }
+
+  &--has-featured-image {
+    #{$c}__image-container {
+      margin-top : -4rem;
+
+      @include media("<=tablet") {
+        margin-top : -3.75rem;
+      }
+    }
   }
 }

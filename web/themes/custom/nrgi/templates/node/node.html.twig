@@ -4,38 +4,38 @@
 ] %}
 
 <article{{ attributes.addClass(classes) }}>
-  {% include "@nrgi/node-partials/node--single-header.html.twig" %}
-  {#  {% include "@nrgi/node-partials/node--single-footer.html.twig" %} #}
-  {#  <div class="c-single-content"> #}
-  {#  FEATURED IMAGE #}
-  {#    <div class="c-single-content__top"> #}
+  {% include '@nrgi/node-partials/node--single-header.html.twig' %}
 
   {% if node.bundle == 'publication' %}
     {% include 'node--toc.html.twig' %}
   {% endif %}
 
-  {# FEATURED IMAGE #}
-  {% if content.field_featured_image|field_value %}
-    <div class="c-single-content__top-image-wrapper">
-      <div class="c-single-content__image-wrapper">
-        {{ content.field_featured_image }}
+  <div class="c-single-content {% if content.field_featured_image|field_value %} c-single-content--has-featured-image {% endif %}
+">
+    <div class="c-single-content__top">
+      {# FEATURED IMAGE #}
+      {% if content.field_featured_image|field_value %}
+        <div class="c-single-content__image-container">
+          <div class="c-single-content__image-wrapper">
+            {{ content.field_featured_image }}
+          </div>
+        </div>
+      {% endif %}
+
+      {#  SIDEBAR #}
+      <div class="c-single-content__sidebar">
+        {% include '@nrgi/node-partials/node--sidebar.html.twig' with {
+          'layout_modifier': 'c-meta-rows--sidebar'
+        } %}
       </div>
     </div>
-  {% endif %}
 
-  {#  SIDEBAR #}
-  <div class="c-single-content__sidebar">
-    {% include '@nrgi/node-partials/node--sidebar.html.twig' %}
+    {% if content.field_page_builder|field_value %}
+      {{ content.field_page_builder }}
+    {% endif %}
   </div>
-  {#  </div> #}
-  {#    </div> #}
-
-  {% if content.field_page_builder|field_value %}
-    {{ content.field_page_builder }}
-  {% endif %}
 
   {# AUTHORS SECTION on resources only (publication/article) #}
-
   {% if authors %}
     {% include '@nrgi/node-partials/node--authors-bottom.html.twig' %}
   {% endif %}

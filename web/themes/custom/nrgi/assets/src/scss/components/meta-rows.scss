@@ -141,4 +141,40 @@
   &__icon {
     color : $tertiary;
   }
+
+  &--sidebar {
+    display        : flex;
+    flex-direction : column;
+    gap            : var(--space-xl);
+
+    #{$c}__container {
+      grid-template-columns : repeat(4, 1fr);
+      padding               : 0;
+    }
+
+    #{$c}__inner {
+      grid-column : 1 / -1;
+    }
+
+    #{$c}__row {
+      border-top : 1px solid $grey-light;
+    }
+
+    #{$c}__label {
+      h3 {
+        @include ts-card-tag;
+      }
+    }
+
+    #{$c}__items {
+      display         : flex;
+      justify-content : space-between;
+      margin-top      : 2rem;
+    }
+
+    #{$c}__row-title {
+      @include ts-label;
+      margin-top : 8px;
+    }
+  }
 }

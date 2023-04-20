@@ -120,7 +120,7 @@
       @include z-index(languages-overlay);
       display  : none;
       left     : 0;
-      position : absolute;
+      position : fixed;
       top      : 0;
       width    : 100%;
     }

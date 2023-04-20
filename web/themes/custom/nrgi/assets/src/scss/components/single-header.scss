@@ -2,12 +2,12 @@
 .c-single-header {
   $c             : &;
   color          : $white;
-  padding-bottom : 64px;
+  padding-bottom : 4rem;
   padding-top    : var(--header-height);
   position       : relative;
 
   @include media("<=tablet") {
-    padding-bottom : 16px;
+    padding-bottom : 2.25rem;
   }
 
   &__image-placeholder {
@@ -39,7 +39,7 @@
 
   &__title {
     @include ts-heading-2;
-    margin-top : 96px;
+    margin-top : 6rem;
   }
 
   &__subtitle {
@@ -54,7 +54,7 @@
     &:not(:first-child) {
       &:before {
         content : "•";
-        margin  : 0 4px;
+        margin  : 0 0.25rem;
 
         @include media("<=tablet") {
           content : none;
@@ -79,7 +79,7 @@
     &:not(:first-child) {
       &:before {
         content  : "•";
-        margin   : 0 8px;
+        margin   : 0 0.5rem;
         position : relative;
       }
     }
@@ -98,7 +98,7 @@
 
     &:not(:last-child):after {
       content : ",";
-      margin  : 0 2px 0 -4px;
+      margin  : 0 0.125rem 0 -0.25rem;
     }
   }
 
@@ -110,8 +110,21 @@
 
   &__buttons-wrapper {
     display    : flex;
-    gap        : 32px;
-    margin-top : 32px;
+    gap        : 2rem;
+    margin-top : 2rem;
+
+    @include media("<=tablet") {
+      justify-content : space-between;
+    }
+  }
+
+  &__buttons-left-side {
+    display : flex;
+    gap     : 1rem;
+
+    @include media("<=tablet") {
+      flex-direction : column;
+    }
   }
 
   &__image-wrapper {
@@ -155,5 +168,22 @@
   &__meta-link {
     @include underlined-off;
     text-decoration-thickness : 0.0625rem;
+  }
+
+  &__mobile-buttons {
+    display : none;
+
+    @include media("<=tablet") {
+      display : flex;
+      gap     : 0.5rem;
+    }
+  }
+
+  &--has-featured-image {
+    padding-bottom : 8rem;
+
+    @include media("<=tablet") {
+      padding-bottom : 6rem;
+    }
   }
 }
