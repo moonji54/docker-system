@@ -80,7 +80,7 @@
 
   &__item-link {
     @include ts-main-menu;
-    @include underlined;
+    @include underlined($thickness : 0.125rem);
 
     @include media("<desktop") {
       padding : 0.5rem 1rem 0.5rem 0;

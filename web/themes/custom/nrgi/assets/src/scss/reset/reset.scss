@@ -4,8 +4,8 @@
   Use a more-intuitive box-sizing model.
 */
 *,
-*::before,
-*::after {
+*:before,
+*:after {
   box-sizing : border-box;
 }
 
@@ -77,39 +77,43 @@ input {
   margin : 0;
 }
 
-/* stylelint-disable */
 input[type="submit"],
 input[type="button"],
 input[type="search"] {
-  -moz-border-radius    : 0;
-  -webkit-border-radius : 0;
-  border-radius         : 0;
-  cursor                : pointer;
   appearance            : none;
+  /* stylelint-disable-next-line */
   -moz-appearance       : none;
+  /* stylelint-disable-next-line */
   -webkit-appearance    : none;
+  border-radius         : 0;
+  /* stylelint-disable-next-line */
+  -moz-border-radius    : 0;
+  /* stylelint-disable-next-line */
+  -webkit-border-radius : 0;
+  cursor                : pointer;
 }
 
 button {
   background              : transparent;
   border                  : none;
-  color                   : inherit;
-  font                    : inherit;
-  line-height             : normal;
   margin                  : 0;
+  padding                 : 0;
+  width                   : auto;
+  overflow                : visible;
 
   /* inherit font & color from ancestor */
-  overflow                : visible;
-  padding                 : 0;
+  color                   : inherit;
+  font                    : inherit;
 
   /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
-  width                   : auto;
+  line-height             : normal;
 
   /* Corrects font smoothing for webkit */
   -webkit-font-smoothing  : inherit;
   -moz-osx-font-smoothing : inherit;
 
   /* Corrects inability to style clickable `input` types in iOS */
+  /* stylelint-disable-next-line */
   -webkit-appearance      : none;
 
   &:focus {

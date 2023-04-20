@@ -4,7 +4,7 @@
 
   @include z-index(header);
   background    : linear-gradient(180deg, rgba($black, 30%) 0%, rgba($black, 0%) 93.27%);
-  border-bottom : 1px solid rgba($grey-light, 0.5);
+  border-bottom : 1px solid $grey-light;
   box-sizing    : border-box;
   color         : $white;
   padding       : 3.75rem 0 1rem;

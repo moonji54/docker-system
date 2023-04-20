@@ -16,13 +16,7 @@
   {% endif %}
 
   <div class="c-page-header__container o-container">
-
-    {#      SBTODO: to be added once backend is done #}
-    <div class="c-page-header__breadcrumbs c-breadcrumbs">
-      <div class="c-breadcrumbs__list">
-        breadcrumb / breadcrumb
-      </div>
-    </div>
+    {{ drupal_block('system_breadcrumb_block', {label: 'c-page-header__breadcrumbs'}) }}
 
     <div class="c-page-header__text-wrapper">
 

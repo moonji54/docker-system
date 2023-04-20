@@ -1,83 +1,32 @@
-<div class="c-node__content-header">
-  <div style="background-color: red">
-    <h1>Header:</h1>
-    <header {{ attributes.addClass(classes) }}>
-      <h1 class="c-node__title">{{ label }}</h1>
-
-      {% if content.field_subtitle|field_value %}
-        <div>{{ content.field_subtitle }}</div>
-      {% endif %}
-
-      {% if subtype %}
-        <h5>SUBTYPE</h5>
-        <p>{{ subtype }}</p>
-      {% endif %}
-
-      {# Taxonomies #}
-      {% for field in meta_data.career_opportunity.header %}
-        {% for item in field %}
-          <a href="{{ item.url }}">{{ item.title|trim }}</a>
-        {% endfor %}
-      {% endfor %}
-
-
-      {% if content.field_apply|field_value %}
-        {# Apply #}
-        {{ content.field_apply }}
-      {% endif %}
-
-    </header>
-  </div>
-</div>
+{% set classes = [
+  'c-node',
+  'c-node--type-' ~ node.bundle|clean_class,
+] %}
 
 <article{{ attributes.addClass(classes) }}>
-  {# FEATURED IMAGE #}
-  {% if content.field_featured_image|field_value %}
-    <div>
-      {{ content.field_featured_image }}
+  {% include "@nrgi/node-partials/node--single-header.html.twig" %}
+  <div class="c-single-content {% if content.field_featured_image|field_value %} c-single-content--has-featured-image {% endif %}
+">
+    <div class="c-single-content__top">
+      {# FEATURED IMAGE #}
+      {% if content.field_featured_image|field_value %}
+        <div class="c-single-content__image-container">
+          <div class="c-single-content__image-wrapper">
+            {{ content.field_featured_image }}
+          </div>
+        </div>
+      {% endif %}
+
+      {#  SIDEBAR #}
+      <div class="c-single-content__sidebar">
+        {% include '@nrgi/node-partials/node--sidebar.html.twig' with {
+          'layout_modifier': 'c-meta-rows--sidebar'
+        } %}
+      </div>
     </div>
-  {% endif %}
 
-  {#  SIDEBAR metadata #}
-  <div style="background-color: yellow">
-    <h1>SIDEBAR:</h1>
-
-    {% if  meta_data.career_opportunity.files.label|upper %}
-      <h3>{{ meta_data.career_opportunity.files.label }}</h3>
+    {% if content.field_page_builder|field_value %}
+      {{ content.field_page_builder }}
     {% endif %}
-    {% for file in meta_data.career_opportunity.files.items %}
-      <span class="c-meta-rows__icon-wrapper">[FILE DOWNLOAD ICON]</span>
-      <a href="{{ file.url }}">{{ file.title|trim }}</a>
-    {% endfor %}
-
-    {% if deadline %}
-      <h3>{{ "Application deadline"|t|upper }}</h3>
-      <p>{{ deadline }}</p>
-    {% endif %}
-
-    {% if content.field_salary %}
-      <h3>{{ "Salary"|t|upper }}</h3>
-      {{ content.field_salary }}
-    {% endif %}
-
-    {% if content.field_contact_for_queries %}
-      <h3>{{ "Contact for queries"|t|upper }}</h3>
-      {{ content.field_contact_for_queries }}
-    {% endif %}
-
-    {# Language switcher #}
-    {% if language_switcher_links %}
-      {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
-        'text' :  "Other languages"|t,
-        'links' : language_switcher_links
-      } %}
-    {% endif %}
-
-    {# Share buttons #}
-    {% include '@nrgi/node-partials/node--share-links.html.twig' %}
   </div>
-
-  {% if content.field_page_builder|field_value %}
-    {{ content.field_page_builder }}
-  {% endif %}
 </article>

@@ -137,4 +137,16 @@
       text-decoration : none;
     }
   }
+
+  &--white-background {
+    border-top : 1px solid $grey-light;
+
+    #{$c}__title {
+      color : $primary;
+    }
+
+    #{$c}__link-svg {
+      display : block;
+    }
+  }
 }
