@@ -32,7 +32,7 @@
   }
 
   &__breadcrumbs {
-    @include z-index(hero-text-wrapper);
+    @include z-index(breadcrumbs);
     grid-column : 1 / -1;
     margin-top  : 3rem;
   }
@@ -109,10 +109,9 @@
   }
 
   &__buttons-wrapper {
-    display    : flex;
-    flex-wrap  : wrap;
-    gap        : 2rem;
-    margin-top : var(--space-l);
+    display   : flex;
+    flex-wrap : wrap;
+    gap       : 2rem;
 
     @include media("<=tablet") {
       justify-content : space-between;
@@ -120,8 +119,9 @@
   }
 
   &__buttons-left-side {
-    display : flex;
-    gap     : 1rem;
+    display    : flex;
+    gap        : 1rem;
+    margin-top : var(--space-l);
 
     @include media("<=tablet") {
       flex-direction : column;
@@ -148,7 +148,7 @@
     }
   }
 
-  &:has(&__image-wrapper) {
+  &--person {
     padding-bottom : 4rem;
 
     #{$c}__inner {
@@ -175,8 +175,9 @@
     display : none;
 
     @include media("<=tablet") {
-      display : flex;
-      gap     : 0.5rem;
+      display    : flex;
+      gap        : 0.5rem;
+      margin-top : var(--space-l);
     }
   }
 
