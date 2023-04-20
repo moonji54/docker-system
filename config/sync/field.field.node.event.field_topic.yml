@@ -13,7 +13,7 @@ bundle: event
 label: Topics
 description: 'Select the topic this work falls under'
 required: true
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

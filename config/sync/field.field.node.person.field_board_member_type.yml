@@ -13,7 +13,7 @@ bundle: person
 label: 'Board member type'
 description: 'Select if a board member is a member of one or more of the above.'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

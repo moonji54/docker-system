@@ -12,7 +12,7 @@ bundle: external_author
 label: Surname
 description: "Enter the surname of the person\r\n"
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

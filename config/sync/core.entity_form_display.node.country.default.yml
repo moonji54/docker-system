@@ -70,6 +70,7 @@ third_party_settings:
     group_manual_language_links_swit:
       children:
         - field_attached_translated_items
+        - field_attached_translated_items
       label: 'Manual language links switcher'
       region: content
       parent_name: ''
@@ -89,7 +90,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -141,6 +142,13 @@ content:
       count_html_characters: false
       textcount_status_message: 'Remaining characters: <span class="remaining_count">@remaining_count</span> / <span class="maxlength_count">@maxlength</span>'
     third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 0
+    region: content
+    settings:
+      include_locked: false
+    third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
     weight: 8
@@ -167,7 +175,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 5
+    weight: 6
     region: content
     settings:
       display_label: true
@@ -187,7 +195,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
@@ -213,7 +221,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  langcode: true
   promote: true
   sticky: true
   template: true

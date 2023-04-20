@@ -12,7 +12,7 @@ bundle: topic
 label: 'Topic content section title'
 description: 'The section title used for the automatically attached listing of topic content.'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }

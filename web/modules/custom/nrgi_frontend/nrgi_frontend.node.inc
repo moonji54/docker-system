@@ -31,7 +31,8 @@ function nrgi_frontend_preprocess_node(&$variables): void {
 
     switch ($node->bundle()) {
       case 'homepage':
-        $variables['language_bar_links'] = $translation_helper_service->getLanguageSwitcherLinks(
+      case 'region':
+        $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
           $node, TRUE, 'field_attached_translated_items'
         );
         break;
@@ -50,15 +51,18 @@ function nrgi_frontend_preprocess_node(&$variables): void {
         );
         break;
 
-      case 'region':
-      case 'topic':
+      case 'person':
+        $metadata_helper_service->preprocessMetadata($node, $variables);
         $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
-          $node, TRUE, 'field_attached_translated_items'
+          $node, FALSE, 'field_attached_translated_items'
         );
         break;
 
-      case 'person':
-        $metadata_helper_service->preprocessMetadata($node, $variables);
+      case 'topic':
+      case 'country':
+        $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
+          $node, FALSE, 'field_attached_translated_items'
+        );
         break;
 
       case 'article':

@@ -1,10 +1,8 @@
 <section class="o-section">
   <div class="o-container">
-    {% if content.field_title|field_value %}
-      <header class="o-section__header">
-        <h2 class="o-section__heading">{{ content.field_title }}</h2>
-      </header>
-    {% endif %}
+    <header class="o-section__header">
+      <h2 class="o-section__heading">{{ 'Authors'|t }}</h2>
+    </header>
 
     <div class="o-card-container o-card-container--three-per-row">
       {% if authors %}

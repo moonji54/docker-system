@@ -12,7 +12,7 @@ bundle: call_to_action
 label: 'Download button label'
 description: 'The label for the download button, <em>Download</em> by default.'
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: Download

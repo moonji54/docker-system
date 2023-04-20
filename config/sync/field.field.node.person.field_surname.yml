@@ -12,7 +12,7 @@ bundle: person
 label: Surname
 description: 'Enter the surname of the person'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

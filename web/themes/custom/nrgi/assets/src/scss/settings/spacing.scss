@@ -10,19 +10,19 @@
   --space-3xl     : 6rem; // 96px
   --space-4xl     : 8rem; // 128px
   --gutter        : 2rem;
-  --header-height : 12.25rem; // 196px
+  --header-height : 12.75rem; // 204px
   --admin-height  : 6.75rem; // 108px
 
   @include media("<=desktop") {
-    --space-xs  : 0.5rem;
-    --space-s   : 1rem;
-    --space-m   : 1rem;
-    --space-l   : 1.5rem;
-    --space-xl  : 2rem;
-    --space-2xl : 2.5rem;
-    --space-3xl : 4rem;
-    --space-4xl : 6rem;
-    --gutter    : 1rem;
+    --space-xs      : 0.5rem;
+    --space-s       : 1rem;
+    --space-m       : 1rem;
+    --space-l       : 1.5rem;
+    --space-xl      : 2rem;
+    --space-2xl     : 2.5rem;
+    --space-3xl     : 4rem;
+    --space-4xl     : 6rem;
+    --gutter        : 1rem;
     --header-height : 4rem; // 64px
   }
 

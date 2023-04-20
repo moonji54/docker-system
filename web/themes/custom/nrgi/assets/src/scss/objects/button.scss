@@ -49,11 +49,11 @@
   }
 
   &--secondary {
-    background-color : $turquoise-light;
+    background-color : $yellow-light;
 
     &:focus,
     &:hover {
-      background-color : $turquoise-dark;
+      background-color : $yellow-dark;
     }
   }
 

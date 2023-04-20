@@ -13,7 +13,7 @@ bundle: person
 label: 'Role type'
 description: 'Select the function this piece of content is performing'
 required: true
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
