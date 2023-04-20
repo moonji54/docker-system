@@ -9,10 +9,12 @@
       {{ content.field_featured_image }}
 
       {% if content.field_overlay_opacity|field_value is not empty and content.field_overlay_opacity[0]['#markup'] > 0 %}
-        <div class="c-homepage-banner__overlay" style="--hero-opacity: {{ content.field_overlay_opacity[0]['#markup'] }}"></div>
+        <div class="c-homepage-banner__overlay"
+             style="--hero-opacity: {{ content.field_overlay_opacity[0]['#markup'] }}"></div>
       {% endif %}
     {% else %}
-      <img class="c-homepage-banner__image-placeholder" src="/{{ base_path ~ directory }}/assets/img/hero-banner-placeholder.svg"
+      <img class="c-homepage-banner__image-placeholder"
+           src="/{{ base_path ~ directory }}/assets/img/hero-banner-placeholder.svg"
            alt="Image placeholder"/>
     {% endif %}
 
@@ -38,11 +40,11 @@
   </section>
 
   {# Manual language bar #}
-  {% if language_bar_links %}
+  {% if language_switcher_links %}
     {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
       'text' : content.field_language_bar_text|field_value ?
       content.field_language_bar_text|field_raw('value') : "Explore content in",
-      'links' : language_bar_links
+      'links' : language_switcher_links
     } %}
   {% endif %}
 
