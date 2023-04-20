@@ -49,11 +49,11 @@
 
   &__logo-link {
     display    : inline-flex;
-    transition : opacity 0.3s;
+    transition : color 0.3s;
 
     &:hover,
     &:focus {
-      opacity : 0.7;
+      color : $blue-light;
     }
   }
 
@@ -119,11 +119,11 @@
   &__search-button {
     cursor     : pointer;
     display    : none;
-    transition : opacity 0.3s;
+    transition : color 0.3s;
 
     &:hover,
     &:focus {
-      opacity : 0.7;
+      color : $blue-light;
     }
 
     @include media("<=desktop") {
@@ -160,11 +160,11 @@
   &__burger-button {
     cursor     : pointer;
     display    : none;
-    transition : opacity 0.3s;
+    transition : color 0.3s;
 
     &:hover,
     &:focus {
-      opacity : 0.7;
+      color : $blue-light;
     }
 
     @include media("<=desktop") {

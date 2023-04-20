@@ -27,7 +27,7 @@ var ShareLinks = /*#__PURE__*/function () {
     // Events
     if (this.$window.width() <= this.mobileBreakpoint) {
       if (navigator.share) {
-        this.$shareButton.addClass('is-visible').on('click', this.$.proxy(this.webShare, this));
+        this.$shareButton.on('click', this.$.proxy(this.webShare, this));
         this.$shareLinks.addClass('is-hidden');
       } else {
         this.$shareButton.removeClass('is-visible');

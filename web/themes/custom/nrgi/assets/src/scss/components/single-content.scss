@@ -11,6 +11,11 @@
     @include o-container;
     @include grid;
     position : relative;
+
+    /* stylelint-disable-next-line */
+    & + .o-section--has-background {
+      margin-top : var(--space-3xl);
+    }
   }
 
   &__image-container {
