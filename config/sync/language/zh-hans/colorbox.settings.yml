@@ -1,5 +1,0 @@
-custom:
-  text_current: '{current} /{total}'
-  text_previous: '« 向前'
-  text_next: '往后 »'
-  text_close: 关闭
