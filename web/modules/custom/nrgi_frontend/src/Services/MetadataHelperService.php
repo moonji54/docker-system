@@ -450,7 +450,7 @@ class MetadataHelperService {
 
           case 'integer':
             // Time commitment (used for events only)
-            if ($field instanceof FieldItemList) {
+            if ($field instanceof FieldItemList && !empty($field->value)) {
               $label = $field->getFieldDefinition()->getLabel();
               $metadata[] = [
                 'label' => $label,
