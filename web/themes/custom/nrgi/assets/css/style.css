@@ -2628,6 +2628,9 @@ ul li a:hover {
 .c-listing--no-filters .c-listing__pagination {
   grid-column: 1/-1;
 }
+.c-listing--search {
+  padding-bottom: var(--space-3xl);
+}
 .c-listing--search .c-listing__container {
   margin-top: var(--space-3xl);
 }
