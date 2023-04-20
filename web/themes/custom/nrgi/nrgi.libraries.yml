@@ -4,7 +4,6 @@ global-styling:
   css:
     theme:
       assets/css/style.min.css: { minified: true }
-      assets/css/colorbox_style_example.css: { }
 
 # Scripts that may be needed on any page.
 global-scripts:
@@ -46,6 +45,16 @@ toc:
   version: 1.0
   js:
     assets/js/toc.js: { minified: false }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - core/drupalSetting
+
+filters:
+  version: 1.0
+  js:
+    assets/js/filters.js: { minified: false }
   dependencies:
     - core/jquery
     - core/drupal

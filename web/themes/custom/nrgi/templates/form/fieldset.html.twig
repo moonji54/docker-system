@@ -12,34 +12,30 @@
     base_class ~ '__legend',
     required ? base_class ~ '__legend--required',
     required ? 'js-form-required',
-    'js-filter-header'
+    'js-filter-button'
   ] %}
 
-  {% if legend.title is not empty %}
-    <legend{{ legend.attributes.addClass(legend_span_classes) }}>
+  {% if legend.title is not empty and element['#id'] != 'edit-active-filters' %}
+    <legend{{ legend.attributes.addClass(legend_span_classes) }} tabindex="0" aria-expanded="false">
       {{ legend.title }}
-
-      {# Output the chevron if filter is not publication status or sorter #}
-      {% if element['#id'] is defined and element['#id'] != 'edit-status' and element['#id'] != 'edit-sort-bef-combine' %}
-        <span class="c-filter__chevron js-filter-chevron">
-          {# TODO : SBTODO #}
-          {# {% include '@nrgi/svg/svg.html.twig' with {'svg': 'chevron'} %} #}
-        </span>
-      {% endif %}
     </legend>
   {% endif %}
 
-  <div class="{{ base_class }}__items">
-    {% if errors %}
-      <div class="{{ base_class }}__item-error">
-        <strong>{{ errors }}</strong>
-      </div>
-    {% endif %}
+  {% if element['#id'] != 'edit-active-filters' %}
+    <div class="{{ base_class }}__items">
+      {% if errors %}
+        <div class="{{ base_class }}__item-error">
+          <strong>{{ errors }}</strong>
+        </div>
+      {% endif %}
 
+      {{ children }}
+
+      {% if description.content %}
+        <div{{ description.attributes.addClass(base_class ~ '__item-description') }}>{{ description.content }}</div>
+      {% endif %}
+    </div>
+  {% else %}
     {{ children }}
-
-    {% if description.content %}
-      <div{{ description.attributes.addClass(base_class ~ '__item-description') }}>{{ description.content }}</div>
-    {% endif %}
-  </div>
+  {% endif %}
 </fieldset>

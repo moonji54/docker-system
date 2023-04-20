@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Form\FormState;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_form_views_exposed_form_alter().
@@ -13,6 +14,26 @@ use Drupal\Core\Form\FormState;
 function nrgi_frontend_form_views_exposed_form_alter(&$form, &$form_state) {
   if (!empty($form['keyword']['#type']) && $form['keyword']['#type'] == 'entity_autocomplete') {
     array_unshift($form['#validate'], '_nrgi_frontend_delete_keyword_errors');
+
+  }
+}
+
+/**
+ * Implements template_preprocess_views_view.
+ *
+ * @param array $variables
+ *   Preprocessing variables.
+ */
+function nrgi_frontend_preprocess_views_view(array &$variables) {
+  $view = $variables['view'];
+  if ($view instanceof ViewExecutable && $view->id() == 'search_view') {
+    // Get the exposed filters.
+    $exposed = $view->getExposedInput();
+
+    // Get search keyword.
+    if (!empty($exposed['query'])) {
+      $variables['query'] = $exposed['query'];
+    }
   }
 }
 

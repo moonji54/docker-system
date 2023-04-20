@@ -10,6 +10,7 @@
     grid-column           : 1 / 9;
     grid-column-gap       : var(--gutter);
     grid-template-columns : 1fr 1fr;
+    margin-bottom         : calc(var(--space-xl) * -1);
 
     @include media("<=tablet") {
       grid-column           : 1 / -1;
@@ -17,20 +18,11 @@
     }
   }
 
-  &__inner:has(> &__row:nth-child(3)) {
-    #{$c}__row {
-      margin-top : var(--space-xl);
-
-      &:first-child {
-        margin-top : 0;
-      }
-    }
-  }
-
   &__row {
-    border-top  : 1px solid $white;
-    grid-column : 1 / -1;
-    padding-top : var(--space-xs);
+    border-top    : 1px solid $white;
+    grid-column   : 1 / -1;
+    margin-bottom : var(--space-xl);
+    padding-top   : var(--space-xs);
 
     &--half-width {
       grid-column : auto;

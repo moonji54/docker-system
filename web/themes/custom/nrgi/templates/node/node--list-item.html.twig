@@ -1,28 +1,23 @@
-{% set classes = [
-  'c-card',
-  'c-card--listing',
-  'c-card--' ~ content_type,
-] %}
-
-<article{{ attributes.addClass(classes) }}>
-  <div class="c-card__tag-wrapper">
-    {% if subtype %}
-      <small class="c-card__tag o-tag">
-        {{ subtype }}
-      </small>
-    {% endif %}
-
-    {% if date %}
-      <small class="c-card__tag o-tag">
-        {{ date|upper }}
-      </small>
-    {% endif %}
-  </div>
-
-  <div class="c-card__content-wrapper">
-    <h3 class="c-card__title">
-      <a class="c-card__link" href={{ url }}>{{ label }}</a>
-    </h3>
-
-  </div>
-</article>
+{% if view.exposed_data %}
+  {% include '@nrgi/card-partials/listing-card.html.twig' with {
+    content_type: content_type,
+    url : url,
+    slug: slug,
+    external_link: external_link,
+    subtype: subtype ?: content_type_label,
+    date: date|upper,
+    title : label,
+    no_image : true
+  } %}
+{% else %}
+  {% include '@nrgi/card-partials/featured-card.html.twig' with {
+    content_type: content_type,
+    url : url,
+    slug: slug,
+    external_link: external_link,
+    subtype: subtype ?: content_type_label,
+    date: date|upper,
+    title : label,
+    layout : 'three-col',
+  } %}
+{% endif %}

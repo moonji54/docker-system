@@ -2,7 +2,7 @@
   {% set no_filters = TRUE %}
 {% endif %}
 
-{% if id|clean_class == 'search' %}
+{% if id|clean_class == 'search-view' %}
   {% set is_search = TRUE %}
 {% endif %}
 
@@ -10,51 +10,62 @@
   'c-listing',
   no_filters ? 'c-listing--no-filters',
   is_search ? 'c-listing--search',
-  'view',
-  'view-' ~ id|clean_class,
-  'view-id-' ~ id,
-  'view-display-id-' ~ display_id,
-  dom_id ? 'js-view-dom-id-' ~ dom_id,
 ] %}
 
-{% if is_search %}
-  <section class="c-page-header c-page-header--search">
-    <div class="o-container">
-      <h2 class="c-page-header__heading">{{ 'Search'|t }}</h2>
-    </div>
-  </section>
-{% endif %}
-
 <div{{ attributes.addClass(classes) }}>
-  <div class="c-listing__container o-container">
-    {% if attachment_before %}
-      <div class="c-listing__attachment c-listing__attachment-before">
-        {{ attachment_before }}
+  {% if is_search %}
+    <section class="c-page-header c-page-header--search">
+      <img class="c-page-header__image-placeholder" src="/{{ base_path ~ directory }}/assets/img/search-banner.svg"
+           alt="Image placeholder"/>
+
+      <div class="c-page-header__container o-container">
+        <div class="c-page-header__text-wrapper">
+          {# Title #}
+          <h1 class="c-page-header__title">{{ 'Search results'|t }}</h1>
+
+          <form class="c-page-header__search-form" action="/search" method="get" role="search" aria-label="Sitewide search">
+            <input class="c-page-header__search-input" title="{{ 'Enter the terms you wish to search for.'|t }}" type="search"
+                   id="header-search-input" placeholder="{{ 'Search term'|t }}" name="query"
+                   value="{{ query }}">
+
+            <button class="c-page-header__search-button" data-drupal-selector="edit-submit"
+                    type="submit" id="edit-submit" value="Search">
+              {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'search-icon', 'extra_class' : 'c-page-header__search-icon' } %}
+            </button>
+          </form>
+        </div>
       </div>
+    </section>
+  {% endif %}
+
+  <div class="c-listing__container o-container">
+    {{ title_prefix }}
+
+    {% if title %}
+      {{ title }}
     {% endif %}
 
-    {% if no_filters == FALSE %}
+    {{ title_suffix }}
+
+    {% if no_filters == false %}
       <div class="c-listing__filters js-filters">
-        <button class="c-listing__filters-button o-button js-toggle-filters-button" aria-expanded="true">
-          <span class="js-toggle-filters-button-text">Hide filters</span>
-        </button>
+        <h5 class="c-listing__caption">{{ 'Filter  by'|t }}</h5>
+
+        <div class="c-listing__filters-button js-toggle-filters-button" aria-expanded="true">
+          <h5>{{ 'Filter content'|t }}</h5>
+
+          {% include '@nrgi/svg/svg.html.twig' with {'svg': 'chevron-down', 'extra_class' : 'c-listing__filters-button-icon'} %}
+        </div>
+
         {{ exposed }}
       </div>
     {% endif %}
 
     <div class="c-listing__content">
-      {% if header is not empty and no_filters != TRUE %}
-        <div class="c-listing__results-count">
-          {{ header }}
-        </div>
-      {% endif %}
-
-      {% set card_classes = [
-        'c-listing__items',
-      ] %}
-
       {% if rows %}
-        <div{{ attributes.addClass(card_classes).removeClass(classes) }}>
+        <span class="c-listing__caption">{{ header }}</span>
+
+        <div class="c-listing__items{{ no_filters ? ' o-card-container o-card-container--three-per-row' }}">
           {{ rows[0]['#rows'] }}
         </div>
       {% elseif empty %}
@@ -63,10 +74,18 @@
         </div>
       {% endif %}
     </div>
+
+    {% if pager %}
+      <div class="c-listing__pagination">
+        {{ pager }}
+      </div>
+    {% endif %}
   </div>
 
-  {% if pager %}
-    {{ pager }}
+  {% if attachment_before %}
+    <div class="c-listing__attachment c-listing__attachment-before">
+      {{ attachment_before }}
+    </div>
   {% endif %}
 
   {% if attachment_after %}
@@ -74,12 +93,20 @@
       {{ attachment_after }}
     </div>
   {% endif %}
+
   {% if more %}
     {{ more }}
   {% endif %}
+
   {% if footer %}
     <div class="c-listing__footer">
       {{ footer }}
+    </div>
+  {% endif %}
+
+  {% if feed_icons %}
+    <div class="c-listing__feed-icons">
+      {{ feed_icons }}
     </div>
   {% endif %}
 </div>

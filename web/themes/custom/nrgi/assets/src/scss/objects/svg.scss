@@ -47,11 +47,6 @@
     }
   }
 
-  &--arrow-right {
-    height : 0.8125rem;
-    width  : 1.375rem;
-  }
-
   &--search-icon {
     height : 1.125rem;
     width  : 1.125rem;
@@ -62,9 +57,19 @@
     width  : 0.75rem;
   }
 
+  &--arrow-double {
+    height : 0.5rem;
+    width  : 1rem;
+  }
+
   &--chevron-down {
     height : 0.5rem;
     width  : 1rem;
+  }
+
+  &--arrow-right {
+    height : 0.8125rem;
+    width  : 1.375rem;
   }
 
   /* #Logos

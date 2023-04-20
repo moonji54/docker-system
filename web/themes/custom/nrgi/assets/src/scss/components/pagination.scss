@@ -1,0 +1,44 @@
+.c-pagination {
+  &__items {
+    display   : flex;
+    flex-wrap : wrap;
+    gap       : 0.5rem;
+  }
+
+  &__item {
+    @include ts-button;
+  }
+
+  &__item-link {
+    align-items     : center;
+    border          : 1px solid $primary;
+    border-radius   : 50%;
+    display         : flex;
+    height          : 2rem;
+    justify-content : center;
+    position        : relative;
+    transition      : background-color 0.3s, border-color 0.3s;
+    width           : 2rem;
+
+    &.is-active,
+    &:focus,
+    &:hover {
+      background-color : $secondary;
+      border-color     : $secondary;
+      color            : $white;
+    }
+  }
+
+  &__item-link-number {
+    transform : translateY(-0.0313rem);
+  }
+
+  &__arrow {
+    height : 0.5rem;
+    width  : 1rem;
+  }
+
+  &__flipped-icon {
+    transform : rotate(180deg);
+  }
+}
