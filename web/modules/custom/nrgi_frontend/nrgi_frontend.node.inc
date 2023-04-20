@@ -40,10 +40,14 @@ function nrgi_frontend_preprocess_node(&$variables): void {
       case 'page':
         // Add sub-navigation.
         _nrgi_frontend_preprocess_subnavigation($variables);
+        $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
+          $node, FALSE, 'field_attached_translated_items'
+        );
         break;
 
       case 'landing_page':
       case 'listing_page':
+      case 'page':
         // Add sub-navigation.
         _nrgi_frontend_preprocess_subnavigation($variables);
         $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
