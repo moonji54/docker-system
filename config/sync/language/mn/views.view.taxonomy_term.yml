@@ -1,8 +1,0 @@
-display:
-  default:
-    display_title: Default
-    display_options:
-      arguments:
-        tid:
-          exception:
-            title: All

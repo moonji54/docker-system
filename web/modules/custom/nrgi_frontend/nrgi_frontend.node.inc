@@ -40,10 +40,14 @@ function nrgi_frontend_preprocess_node(&$variables): void {
       case 'page':
         // Add sub-navigation.
         _nrgi_frontend_preprocess_subnavigation($variables);
+        $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
+          $node, FALSE, 'field_attached_translated_items'
+        );
         break;
 
       case 'landing_page':
       case 'listing_page':
+      case 'page':
         // Add sub-navigation.
         _nrgi_frontend_preprocess_subnavigation($variables);
         $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
@@ -79,17 +83,17 @@ function nrgi_frontend_preprocess_node(&$variables): void {
 
     $view_mode_responsive_image_style = [
       'featured_content_with_image_1_per_row' => 'large_card',
-      'featured_content_with_image_2_per_row' => 'medium_card',
-      'featured_content_with_image_3_per_row' => 'small_card',
+      'featured_content_with_image_2_per_row' => 'large_card',
+      'featured_content_with_image_3_per_row' => 'medium_card',
       'featured_content_with_image_4_per_row' => 'small_card',
-      'featured_page_with_image_1_per_row' => 'large_card',
-      'featured_page_with_image_2_per_row' => 'medium_card',
-      'featured_page_with_image_3_per_row' => 'small_card',
-      'featured_page_with_image_4_per_row' => 'small_card',
-      'featured_people_with_image_1_per_row' => 'square_small',
-      'featured_people_with_image_2_per_row' => 'square_small',
-      'featured_people_with_image_3_per_row' => 'square_small',
-      'featured_people_with_image_4_per_row' => 'square_small',
+      'featured_page_with_image_1_per_row'    => 'large_card',
+      'featured_page_with_image_2_per_row'    => 'large_card',
+      'featured_page_with_image_3_per_row'    => 'medium_card',
+      'featured_page_with_image_4_per_row'    => 'small_card',
+      'featured_people_with_image_1_per_row'  => 'square_small',
+      'featured_people_with_image_2_per_row'  => 'square_small',
+      'featured_people_with_image_3_per_row'  => 'square_small',
+      'featured_people_with_image_4_per_row'  => 'square_small',
     ];
 
     // Card view modes.
@@ -107,8 +111,8 @@ function nrgi_frontend_preprocess_node(&$variables): void {
       case 'featured_people_with_image_3_per_row':
       case 'featured_people_with_image_4_per_row':
         if ($node->hasField('field_featured_image')
-            && $node->get('field_featured_image')
-            && $media = $node->get('field_featured_image')->entity) {
+          && $node->get('field_featured_image')
+          && $media = $node->get('field_featured_image')->entity) {
           if ($media instanceof MediaInterface && isset($view_mode_responsive_image_style[$variables['view_mode']])) {
             /** @var  \Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService $responsive_image_style_service */
             $responsive_image_style_service = \Drupal::service('nrgi_frontend.responsive_image_helper');
@@ -152,8 +156,8 @@ function nrgi_frontend_preprocess_node(&$variables): void {
 
       case 'list_item_with_image':
         if ($node->hasField('field_featured_image')
-            && $node->get('field_featured_image')
-            && $media = $node->get('field_featured_image')->entity) {
+          && $node->get('field_featured_image')
+          && $media = $node->get('field_featured_image')->entity) {
           if ($media instanceof MediaInterface) {
             /** @var  \Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService $responsive_image_style_service */
             $responsive_image_style_service = \Drupal::service('nrgi_frontend.responsive_image_helper');
@@ -180,27 +184,27 @@ function nrgi_frontend_preprocess_node(&$variables): void {
  * @throws \Drupal\Core\TypedData\Exception\MissingDataException
  */
 function nrgi_frontend_node_view(
-  array &$build,
-  EntityInterface $entity,
+  array                      &$build,
+  EntityInterface            $entity,
   EntityViewDisplayInterface $display,
-  $view_mode
+                             $view_mode
 ) {
   $resource_types = ['article', 'publication'];
 
   if ($entity instanceof NodeInterface
-      && in_array($entity->bundle(), $resource_types)
-      && in_array($view_mode, ['full', 'default'])) {
+    && in_array($entity->bundle(), $resource_types)
+    && in_array($view_mode, ['full', 'default'])) {
 
     // External link - node view disabled.
     if ($entity->hasField('field_link')
-        && $external_link_field = $entity->get('field_link')) {
+      && $external_link_field = $entity->get('field_link')) {
       if ($external_link = $external_link_field->first()) {
         if ($external_link instanceof LinkItemInterface) {
           $external_link_uri = $external_link->get('uri')->getValue();
 
           if ($external_link_uri) {
             if ($entity->hasField('field_disable')
-                && $disable_field = $entity->get('field_disable')) {
+              && $disable_field = $entity->get('field_disable')) {
               if ($disable_field->value) {
                 // Redirect to the link.
                 $response = new RedirectResponse($external_link_uri);
@@ -229,9 +233,9 @@ function _nrgi_frontend_preprocess_related_content(array &$variables): void {
   $disable_related_content = FALSE;
 
   if ($node->hasField('field_disable_related_content')
-      && $disable_field = $node->get('field_disable_related_content')) {
+    && $disable_field = $node->get('field_disable_related_content')) {
     $disable_related_content = $disable_field->first()
-                               && (bool) $disable_field->first()->value;
+      && (bool) $disable_field->first()->value;
   }
 
   if (!$disable_related_content) {
@@ -278,7 +282,7 @@ function _nrgi_frontend_preprocess_related_content(array &$variables): void {
     // so this can be skipped unless you need something specific.
     $related_content_helper->setSortOrders([
       [
-        'field' => 'unified_date',
+        'field'     => 'unified_date',
         'direction' => 'DESC',
       ],
     ]);
@@ -302,17 +306,17 @@ function _nrgi_frontend_preprocess_related_content(array &$variables): void {
 function _nrgi_frontend_preprocess_subnavigation(array &$variables): void {
   /** @var \Drupal\soapbox_nodes\SubPagesHelperService $sub_pages_helper */
   $sub_pages_helper = \Drupal::service('soapbox_nodes.sub_pages');
-  $sub_page_ids = $sub_pages_helper->getSubPages($variables['node'], 'main');
+  $sub_page_ids     = $sub_pages_helper->getSubPages($variables['node'], 'main');
 
   if ($sub_page_ids) {
     foreach ($sub_page_ids as $page_node_id) {
       $sub_node = Node::load($page_node_id);
 
       if ($sub_node instanceof NodeInterface) {
-        $sub_page_url = $sub_node->toUrl()->toString();
+        $sub_page_url             = $sub_node->toUrl()->toString();
         $variables['sub_pages'][] = [
           'title' => $sub_node->label(),
-          'url' => $sub_page_url,
+          'url'   => $sub_page_url,
         ];
       }
     }
@@ -330,6 +334,6 @@ function _nrgi_frontend_preprocess_subnavigation(array &$variables): void {
  * Implements hook_soapbox_nodes_subpages_alter().
  */
 function nrgi_frontend_soapbox_nodes_subpages_alter(&$show_sub_pages, &$show_sibling_pages) {
-  $show_sub_pages = TRUE;
+  $show_sub_pages     = TRUE;
   $show_sibling_pages = FALSE;
 }
