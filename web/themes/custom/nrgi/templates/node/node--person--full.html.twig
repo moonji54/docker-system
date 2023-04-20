@@ -3,100 +3,50 @@
   'c-node--type-' ~ node.bundle|clean_class,
 ] %}
 
-<header {{ attributes.addClass(classes) }}>
-  <div class="c-node__content-header">
-    <div style="background-color: red">
-      <h1>Header:</h1>
-
-      {# Headshot #}
-      {% if content.field_featured_image|field_value %}
-        {{ content.field_featured_image }}
-      {% endif %}
-
-      {# Firstname and lastname #}
-      <h2>
-        {% if content.field_given_name|field_value %}
-          {{ content.field_given_name }}
-        {% endif %}
-        {% if content.field_surname|field_value %}
-          {{ content.field_surname }}
-        {% endif %}
-      </h2>
-
-      {# Job title #}
-      {% if content.field_job_title|field_value %}
-        <h3>
-          {{ content.field_job_title }}
-        </h3>
-      {% endif %}
-
-      <p>
-        {% if subtype %}
-          <span>
-          {{ subtype }}
-          </span>
-        {% endif %}
-
-        {% if content.field_board_member_type|field_value %}
-          {# Board member is available only if role is 'Board member' #}
-          <span>
-            {{ content.field_board_member_type|field_value.0['#title'] }}
-          </span>
-        {% endif %}
-
-        {% if content.field_twitter_handle|field_value %}
-          <span>
-            {% set twitter_handle = content.field_twitter_handle|field_raw('value') %}
-            <a href='{{ "https://twitter.com/#{twitter_handle}" }}'
-               title='{{ "Visit #{content.field_given_name|field_raw('value')} #{content.field_surname|field_raw('value')} twitter profile"|t }}'
-               target='_blank'>
-              {{ twitter_handle }}
-            </a>
-          </span>
-        {% endif %}
-
-        {% if content.field_email|field_value %}
-          {{ content.field_email }}
-        {% endif %}
-      </p>
-
-    </div>
-  </div>
-</header>
-
-<div>
-  {# PERSON SIDEBAR META #}
-  <h1>PERSON SIDEBAR META:</h1>
-  {# Language switcher #}
-  {% if language_switcher_links %}
-    {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
-      'text' :  "Other languages"|t,
-      'links' : language_switcher_links
-    } %}
-  {% endif %}
-
-  {% include '@nrgi/node-partials/node--metadata.html.twig' %}
-</div>
 <article{{ attributes.addClass(classes) }}>
-  <div style="background-color: orange">
+  {% include "@nrgi/node-partials/node--single-header.html.twig" %}
+
+  <div class="c-single-content single-content--person">
+    <div class="c-single-content__top">
+      {# Sidebar #}
+      <div class="c-single-content__sidebar">
+        {% include '@nrgi/node-partials/node--sidebar.html.twig' with {
+          'layout_modifier': 'c-meta-rows--sidebar'
+        } %}
+
+        {% include '@nrgi/node-partials/node--metadata.html.twig' with {
+          'layout_modifier': 'c-meta-rows--sidebar'
+        } %}
+      </div>
+    </div>
+
     {% if content.field_page_builder|field_value %}
-      <h1>FULL BIO:</h1>
       {{ content.field_page_builder }}
     {% endif %}
   </div>
+
+  {% include '@nrgi/node-partials/node--metadata.html.twig' %}
 
   {# Person contributions #}
   {% set listing_results = drupal_view_result('contextual_views', 'person_contributions', node.id)|length %}
   {% if listing_results > 0 %}
     {% set listing = drupal_view('contextual_views', 'person_contributions', node.id) %}
-    {% if content.field_contributions_title|field_value %}
-      <h2>{{ content.field_contributions_title }}</h2>
-    {% endif %}
-    {% if content.field_contributions_description|field_value %}
-      <h3>{{ content.field_contributions_description }}</h3>
-    {% endif %}
+    <section class="o-section">
+      <div class="o-container">
+        {% if content.field_title|field_value %}
+          <header class="o-section__header">
+            {% if content.field_contributions_title|field_value %}
+              <h2 class="o-section__heading">{{ content.field_contributions_title }}</h2>
+            {% endif %}
 
-    {{ listing }}
+            {% if content.field_contributions_description|field_value %}
+              <p class="o-section__description">{{ content.field_contributions_description }}</p>
+            {% endif %}
+          </header>
+        {% endif %}
+
+        {{ listing }}
+      </div>
+    </section>
   {% endif %}
-
 </article>

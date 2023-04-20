@@ -1,7 +1,17 @@
 uuid: 003f659d-427b-41c1-bd76-e8dfddc23271
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - focal_point
 name: small_card_small_mobile
 label: 'Small card small mobile'
-effects: {  }
+effects:
+  e046677d-55e9-476a-921d-da817888fc23:
+    uuid: e046677d-55e9-476a-921d-da817888fc23
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 724
+      height: 407
+      crop_type: focal_point

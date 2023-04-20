@@ -292,11 +292,12 @@
   /* Footnotes
   ================================================== */
   .see-footnote {
-    font-size       : 70%;
-    font-weight     : 700;
-    text-decoration : none;
-    top             : 0;
-    vertical-align  : top;
+    font-size         : 70%;
+    font-weight       : 700;
+    text-decoration   : none;
+    top               : 0;
+    vertical-align    : top;
+    scroll-margin-top : 4rem;
   }
 
   /* Standfirst/key messages

@@ -1,34 +1,46 @@
-{# Authors section: includes internal and external authors #}
-{# added on resources (article/publication content types) #}
+<section class="o-section">
+  <div class="o-container">
+    <header class="o-section__header">
+      <h2 class="o-section__heading">{{ 'Authors'|t }}</h2>
+    </header>
 
-{% if authors %}
-  <div>
-    <ul>
-      {% for author in authors %}
-        <div>
-          {% if author.responsive_image %}
-            {{ author.responsive_image }}
-          {% endif %}
+    <div class="o-card-container o-card-container--three-per-row">
+      {% if authors %}
+        {% for author in authors %}
+          <article class="c-card c-card--person">
+            <div class="c-card__image-wrapper">
+              {% if author.responsive_image %}
+                {{ author.responsive_image }}
+              {% else %}
+                <img src="/{{ base_path ~ directory }}/assets/img/fallback-person.svg" aria-role="presentation" alt=""/>
+              {% endif %}
+            </div>
 
-          {% if author.url %}
-            <h3>
-              <a href="{{ author.url }}"
-                 title="{{ 'Visit '|t ~ author.firstname ~ ' ' ~ author.surname ~ '\'s profile'|t }}"
-                 target="{{ author.is_external ? '_blank' : '' }}">
-                {{ author.firstname ~ ' ' ~ author.surname }}
-              </a>
-            </h3>
+            <div class="c-card__content-wrapper">
+              <h3 class="c-card__title">
+                {% if author.url %}
+                  <a class="c-card__link" href="{{ author.url }}"
+                     title="{{ 'Visit '|t ~ author.firstname ~ ' ' ~ author.surname ~ '\'s profile'|t }}"
+                     target="{{ author.is_external ? '_blank' : '' }}">
+                    {{ author.firstname ~ ' ' ~ author.surname }}
+                  </a>
+                {% else %}
+                  {{ author.firstname ~ ' ' ~ author.surname }}
+                {% endif %}
+              </h3>
 
-          {% else %}
-            <h3>{{ author.firstname ~ ' ' ~ author.surname }}</h3>
-          {% endif %}
-
-          {% if author.job_title %}
-            <p>{{ author.job_title }}</p>
-          {% endif %}
-
-        </div>
-      {% endfor %}
-    </ul>
+              {% if author.job_title %}
+                <p class="c-card__job-title">
+                  {{ author.job_title }}
+                </p>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      {% endif %}
+    </div>
   </div>
-{% endif %}
+</section>
+
+
+

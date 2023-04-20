@@ -1,0 +1,9 @@
+{% for item in items %}
+  <a class="c-single-header__meta-link"
+     href="mailto:{{ item.content['#url'] }}"
+     title="{{ item.content['#title'] }}">
+    {{ item.content['#title'] }}
+  </a>
+{% endfor %}
+
+

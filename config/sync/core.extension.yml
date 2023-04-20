@@ -19,6 +19,7 @@ module:
   ckeditor_div_manager: 0
   colorbox: 0
   config: 0
+  config_translation: 0
   content_moderation: 0
   context: 0
   context_active_trail: 0
@@ -53,6 +54,7 @@ module:
   language: 0
   link: 0
   linkit: 0
+  locale: 0
   media: 0
   media_file_delete: 0
   media_library: 0

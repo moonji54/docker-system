@@ -1,0 +1,57 @@
+{% set classes = [
+  'c-page-header'
+] %}
+
+<section {{ attributes.addClass(classes) }}>
+  {# Image #}
+  {% if content.field_featured_image|field_value %}
+    {{ content.field_featured_image }}
+
+    {% if content.field_overlay_opacity|field_value is not empty and content.field_overlay_opacity[0]['#markup'] > 0 %}
+      <div class="c-page-header__overlay" style="--hero-opacity: {{ content.field_overlay_opacity[0]['#markup'] }}"></div>
+    {% endif %}
+  {% else %}
+    <img class="c-page-header__image-placeholder" src="/{{ base_path ~ directory }}/assets/img/hero-banner-placeholder.svg"
+         alt="Image placeholder"/>
+  {% endif %}
+
+  <div class="c-page-header__container o-container">
+    {{ drupal_block('system_breadcrumb_block', {label: 'c-page-header__breadcrumbs'}) }}
+
+    <div class="c-page-header__text-wrapper">
+
+      {# Title #}
+      <h1 class="c-page-header__title">{{ label }}</h1>
+
+      {# Description #}
+      {% if content.field_short_description|field_value %}
+        <p class="c-page-header__description">{{ content.field_short_description }}</p>
+      {% endif %}
+    </div>
+
+    <aside class="c-page-header__aside">
+      {# Language switcher #}
+      {% if language_switcher_links %}
+        <div class="c-page-header__language-switcher-links js-languages-overlay">
+          {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
+            'text' :  "Other languages"|t,
+            'links' : language_switcher_links,
+            'layout_modifier': 'c-language-links--aside',
+            'link_modifier': 'o-button o-button--secondary',
+          } %}
+        </div>
+
+        <button class="c-page-header__languages-button js-languages-button"
+                aria-label="{{ 'Toggle language links'|trans }}"
+                aria-expanded="false">
+          {% include '@nrgi/svg/svg.html.twig' with {'svg': 'languages-icon', 'extra_class': 'c-page-header__languages-svg' } %}
+        </button>
+      {% endif %}
+
+      {# Share links #}
+      <div class="c-page-header__share-links">
+        {% include '@nrgi/node-partials/node--share-links.html.twig' %}
+      </div>
+    </aside>
+  </div>
+</section>

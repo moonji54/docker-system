@@ -2,55 +2,50 @@
   'c-node',
   'c-node--type-' ~ node.bundle|clean_class,
 ] %}
-<div class="c-node__content-header">
-  <div style="background-color: red">
-    <h1>Header:</h1>
-    {% if node.bundle !='event' %}
-      {% include "@nrgi/node-partials/node--header.html.twig" %}
-    {% else %}
-      {% include "@nrgi/node-partials/node--event-header.html.twig" %}
-    {% endif %}
-  </div>
-</div>
-<article{{ attributes.addClass(classes) }}>
 
-  {# FEATURED IMAGE #}
-  {% if content.field_featured_image|field_value %}
-    <div>
-      {{ content.field_featured_image }}
-    </div>
+<article{{ attributes.addClass(classes) }}>
+  {% include '@nrgi/node-partials/node--single-header.html.twig' %}
+
+  {% if node.bundle == 'publication' %}
+    {% include 'node--toc.html.twig' %}
   {% endif %}
 
-  {#  SIDEBAR #}
-  <div style="background-color: yellow">
-    <h1>SIDEBAR:</h1>
-    {% include '@nrgi/node-partials/node--sidebar.html.twig' %}
-  </div>
+  <div class="c-single-content{{ content.field_featured_image|field_value ? ' c-single-content--has-featured-image' }}">
+    <div class="c-single-content__top">
+      {# FEATURED IMAGE #}
+      {% if content.field_featured_image|field_value %}
+        <div class="c-single-content__image-container">
+          <div class="c-single-content__image-wrapper">
+            {{ content.field_featured_image }}
+          </div>
+        </div>
+      {% endif %}
 
-  <div style="background-color: orange">
+      {# Sidebar #}
+      <div class="c-single-content__sidebar">
+        {% include '@nrgi/node-partials/node--sidebar.html.twig' with {
+          'layout_modifier': 'c-meta-rows--sidebar'
+        } %}
+      </div>
+    </div>
+
     {% if content.field_page_builder|field_value %}
-      <h1>PAGE BUILDER:</h1>
       {{ content.field_page_builder }}
     {% endif %}
   </div>
 
-  {# AUTHORS SECTION on resources only (publication/article) #}
-  <div style="background-color: blue ">
-    {% if authors %}
-      <h1>{{ "Authors"|t }}:</h1>
-      {% include '@nrgi/node-partials/node--authors-bottom.html.twig' %}
-    {% endif %}
-  </div>
+  {# Footnotes  #}
+  {{ drupal_block('footnotes_group') }}
 
-  {#  METADATA #}
-  <div style="background-color: green">
-    <h1>METADATA:</h1>
-    {% include '@nrgi/node-partials/node--metadata.html.twig' %}
-  </div>
+  {# AUTHORS SECTION on resources only (publication/article) #}
+  {% if authors %}
+    {% include '@nrgi/node-partials/node--authors-bottom.html.twig' %}
+  {% endif %}
+
+  {% include '@nrgi/node-partials/node--metadata.html.twig' %}
 
   {#  RELATED CONTENT #}
   {% if related_nodes is not empty %}
     {% include 'node--related-content-block.html.twig' %}
   {% endif %}
-
 </article>

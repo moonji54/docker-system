@@ -27,15 +27,18 @@
 /* stylelint-disable */
 $z-index : (
     footer: 10,
-    header: 15,
+    header: 2,
     hero-content: 2,
     hero-image: 1,
+    breadcrumbs: 1,
     hero-overlay: 1,
-    hero-text-wrapper: 2,
+    hero-text-wrapper: 1,
+    hero-image-wrapper: 1,
     languages-overlay: 10,
     localtasks: 3,
     menu: 2,
     mega-nav: 20,
+    toc: 25,
 );
 
 @function z-index($key) {
@@ -94,14 +97,28 @@ $z-index : (
   }
 }
 
-@mixin underlined($color: $white, $offset: 0.313rem) {
-  text-decoration       : underline;
-  text-decoration-color : transparent;
-  text-underline-offset : $offset;
-  transition            : all 0.3s;
+@mixin underlined($color: $white, $offset: 0.313rem, $thickness: 0.0625rem) {
+  text-decoration           : underline;
+  text-decoration-color     : transparent;
+  text-decoration-thickness : $thickness;
+  text-underline-offset     : $offset;
+  transition                : all 0.3s;
 
   &:hover,
   &:focus {
     text-decoration-color : $color;
+  }
+}
+
+@mixin underlined-off($color: $white, $offset: 0.313rem, $thickness: 0.0625rem) {
+  text-decoration           : underline;
+  text-decoration-color     : $color;
+  text-decoration-thickness : $thickness;
+  text-underline-offset     : $offset;
+  transition                : all 0.3s;
+
+  &:hover,
+  &:focus {
+    text-decoration-color : transparent;
   }
 }

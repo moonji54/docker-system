@@ -98,4 +98,17 @@
       transform : translateX(-0.0625rem);
     }
   }
+
+  &--white-background {
+    border-top : 1px solid $grey-light;
+
+    #{$c}__heading {
+      color : $primary;
+    }
+
+    #{$c}__link {
+      border : 1px solid $primary;
+      color  : $primary;
+    }
+  }
 }

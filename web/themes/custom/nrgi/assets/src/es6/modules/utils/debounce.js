@@ -6,7 +6,6 @@
  * @returns {Function}
  */
 export default function (func, wait = 0) {
-
     let timeout;
 
     return function (...args) {

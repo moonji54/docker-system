@@ -1,0 +1,90 @@
+{% set classes = [
+  'c-card',
+  'c-card--fc',
+  'c-card--' ~ layout,
+] %}
+
+{% if title %}
+  <article{{ attributes.addClass(classes) }}>
+    <div class="c-card__content-wrapper">
+      <div class="c-card__meta-wrapper">
+        {% if subtype %}
+          <small class="c-card__tag">
+            {{ subtype }}
+          </small>
+        {% endif %}
+
+        {% spaceless %}
+          {% if format == 'online' %}
+            {# On events only #}
+            <span class="c-card__meta-item">
+                {{- 'Online'|t -}}
+              </span>
+          {% endif %}
+
+          {% if recording %}
+            {# On events only - will show on past event & with available recording #}
+            <span class="c-card__meta-item">
+                {{- 'Recording available'|t -}}
+              </span>
+          {% endif %}
+
+          {% if date and content_type != 'event' %}
+            <span class="c-card__meta-item">{{ date }}</span>
+          {% endif %}
+
+          {% if translations %}
+            <span class="c-card__meta-item">{{ translations }}</span>
+          {% endif %}
+
+          {% if topics %}
+            {% for topic in topics %}
+              <span class="c-card__meta-item c-card__meta-item--topics">{{ topic }}</span>
+            {% endfor %}
+          {% endif %}
+        {% endspaceless %}
+      </div>
+
+      <h3 class="c-card__title">
+        {% if external_link %}
+          <a class="c-card__link" href="{{ external_link.uri }}" target="_blank"
+             title="{{ external_link.title }}">
+            {% if slug %}
+              <span class="c-card__link-slug">{{ slug }} /</span>
+            {% endif %}
+
+            <span>{{ title|field_value }}</span>
+
+            {% include '@nrgi/svg/svg.html.twig' with { 'svg' :  'external', 'extra_class' : 'c-card__external-icon' } %}
+          </a>
+        {% else %}
+          <a class="c-card__link" href="{{ url }}">
+            {% if slug %}
+              <span class="c-card__link-slug">{{ slug }} /</span>
+            {% endif %}
+
+            <span>{{ title|field_value }}</span>
+          </a>
+        {% endif %}
+      </h3>
+
+      {% if date and content_type == 'event' %}
+        <span class="c-card__meta-item">{{ date }}</span>
+      {% endif %}
+
+      {% if publisher and content_type == 'article' %}
+        <span class="c-card__meta-item">{{ publisher }}</span>
+      {% endif %}
+    </div>
+
+    {% if show_image %}
+      <div class="c-card__image-wrapper">
+        {% if responsive_image %}
+          {{ responsive_image }}
+        {% else %}
+          <img src="/{{ base_path ~ directory }}/assets/img/fallback-default.svg" aria-role="presentation" alt=""/>
+        {% endif %}
+      </div>
+    {% endif %}
+  </article>
+{% endif %}

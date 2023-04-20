@@ -1,0 +1,97 @@
+.c-listing {
+  $c : &;
+
+  &__container {
+    @include grid;
+  }
+
+  &__caption {
+    @include ts-card-tag;
+    display       : block;
+    margin-bottom : var(--space-xl);
+  }
+
+  &__empty {
+    @include ts-body($small : true);
+  }
+
+  &__filters {
+    border-top  : 1px solid $grey-light;
+    grid-column : 1 / 5;
+    padding-top : var(--space-xs);
+
+    @include media("<=tablet") {
+      grid-column : 1 / -1;
+    }
+
+    > #{$c}__caption {
+      @include media("<=tablet") {
+        display : none;
+      }
+    }
+  }
+
+  &__filters-button {
+    @include ts-tab;
+    align-items     : center;
+    cursor          : pointer;
+    display         : none;
+    justify-content : space-between;
+    margin-bottom   : var(--space-xl);
+
+    @include media("<=tablet") {
+      display : flex;
+    }
+
+    &.is-clicked {
+      svg {
+        transform : rotate(180deg);
+      }
+    }
+  }
+
+  &__filters-button-icon {
+    transition : transform 0.3s;
+  }
+
+  &__filters-dropdowns {
+    > * + * {
+      margin-top : var(--space-s);
+    }
+  }
+
+  &__content {
+    border-top  : 1px solid $grey-light;
+    grid-column : 5 / -1;
+    padding-top : var(--space-xs);
+
+    @include media("<=tablet") {
+      grid-column : 1 / -1;
+    }
+  }
+
+  &__pagination {
+    grid-column : 5 / -1;
+    margin-top  : var(--space-xl);
+
+    @include media("<=tablet") {
+      grid-column : 1 / -1;
+    }
+  }
+
+  &--no-filters {
+    #{$c}__content {
+      grid-column : 1 / -1;
+    }
+
+    #{$c}__pagination {
+      grid-column : 1 / -1;
+    }
+  }
+
+  &--search {
+    #{$c}__container {
+      margin-top : var(--space-3xl);
+    }
+  }
+}

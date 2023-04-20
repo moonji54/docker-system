@@ -792,7 +792,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: 'Translation language'
+            label: Language
             description: ''
             use_operator: false
             operator: langcode_op
@@ -1313,17 +1313,9 @@ display:
           plugin_id: language
           operator: in
           value:
-            en: en
-            fr: fr
-            id: id
-            es: es
-            mn: mn
-            ru: ru
-            ar: ar
-            zh-hans: zh-hans
-            my: my
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: langcode_op
             label: 'Translation language'

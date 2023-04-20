@@ -1,6 +1,7 @@
 /** @define o-button */
 @mixin o-button {
   @include ts-button;
+  cursor           : pointer;
   align-items      : center;
   color            : $primary;
   height           : 2.5rem;
@@ -48,11 +49,11 @@
   }
 
   &--secondary {
-    background-color : $turquoise-light;
+    background-color : $yellow-light;
 
     &:focus,
     &:hover {
-      background-color : $turquoise-dark;
+      background-color : $yellow-dark;
     }
   }
 

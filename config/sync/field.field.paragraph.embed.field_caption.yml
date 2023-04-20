@@ -12,7 +12,7 @@ bundle: embed
 label: Caption
 description: 'Add a cation to the embed.<em>Note that captions may be part of the embed, e.g. YouTube has closed captioning built in to the player.</em>'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

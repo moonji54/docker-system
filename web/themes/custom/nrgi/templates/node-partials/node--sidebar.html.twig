@@ -1,15 +1,88 @@
-<section class="c-meta-rows o-section">
+<section class="c-meta-rows {{ layout_modifier }}">
+  {% if section.items and node.bundle == 'career_opportunity' %}
+    <dd class="c-meta-rows__items">
+      {% for item in section.items %}
+        {% if item.type == 'file' %}
+          <div>
+            <a class="c-meta-rows__download" href="{{ item.url }}">
+              {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'download', 'extra_class' : 'c-meta-rows__icon' } %}
+
+              <span>{{ item.title|trim }}</span>
+            </a>
+          </div>
+        {% elseif item.type == 'logo' %}
+          {% include '@nrgi/node-partials/node--logos.html.twig' with {'item': item} %}
+        {% else %}
+          {% if item.url %}
+            <a class="c-meta-rows__link" href="{{ item.url }}">
+              {{- item.title|trim -}}
+            </a>
+          {% else %}
+            <span>{{ item.title|trim }}</span>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </dd>
+  {% endif %}
+
+  {% if node.bundle == 'career_opportunity' %}
+    {% if  meta_data.career_opportunity.files.label|upper %}
+      <div class="c-meta-rows__row">
+        <div class="c-meta-rows__label">
+          <h3>{{ meta_data.career_opportunity.files.label }}</h3>
+        </div>
+        {% for file in meta_data.career_opportunity.files.items %}
+          <a class="c-meta-rows__download" href="{{ file.url }}">
+            <span class="c-meta-rows__icon-wrapper">{% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'download', 'extra_class' : 'c-meta-rows__icon' } %}</span>
+
+            <span class="c-meta-rows__row-title">{{ file.title|trim }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if deadline %}
+      <div class="c-meta-rows__row">
+        <div class="c-meta-rows__label">
+          <h3>{{ "Application deadline"|t|upper }}</h3>
+        </div>
+        <p class="c-meta-rows__row-title">{{ deadline }}</p>
+      </div>
+    {% endif %}
+
+    {% if content.field_salary %}
+      <div class="c-meta-rows__row">
+        <div class="c-meta-rows__label">
+          <h3>{{ "Salary"|t|upper }}</h3>
+        </div>
+        <p class="c-meta-rows__row-title">{{ content.field_salary }}</p>
+      </div>
+    {% endif %}
+
+    {% if content.field_contact_for_queries %}
+      <div class="c-meta-rows__row">
+        <div class="c-meta-rows__label">
+          <h3>{{ "Contact for queries"|t|upper }}</h3>
+        </div>
+        <p class="c-meta-rows__row-title">{{ content.field_contact_for_queries }}</p>
+      </div>
+    {% endif %}
+  {% endif %}
 
   {# Language switcher #}
   {% if language_switcher_links %}
     {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
       'text' :  "Other languages"|t,
-      'links' : language_switcher_links
+      'links' : language_switcher_links,
+      'layout_modifier': 'c-language-links--aside',
+      'link_modifier': 'o-button o-button--secondary',
+      'colour_modifier': 'c-language-links--white-background'
     } %}
   {% endif %}
 
   {# Share buttons #}
-  {% include '@nrgi/node-partials/node--share-links.html.twig' %}
+  {% include '@nrgi/node-partials/node--share-links.html.twig' with {
+    'colour_modifier': 'c-social-links--white-background' } %}
 
   {% if sidebar_data %}
     {# SIDEBAR META (logos)  #}
@@ -26,7 +99,6 @@
                   {% if item.type == 'logo' %}
                     {# Organisation logos #}
                     {% include '@nrgi/node-partials/node--logos.html.twig' with {'item': item} %}
-
                   {% endif %}
                 {% endfor %}
               </dd>
@@ -36,5 +108,4 @@
       </dl>
     </div>
   {% endif %}
-
 </section>
