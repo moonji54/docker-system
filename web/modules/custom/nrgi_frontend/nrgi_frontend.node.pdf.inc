@@ -13,7 +13,7 @@ function nrgi_frontend_soapbox_pdf_request_alter($url, array &$options, $type) {
   $options['json']['options']['scale'] = 1.224;
   $options['json']['options']['displayHeaderFooter'] = FALSE;
   $options['json']['options']['printBackground'] = TRUE;
-  // $options['json']['userAgent'] = "ngrok nrgi user-agent";
+  $options['json']['userAgent'] = "ngrok nrgi user-agent";
 }
 
 /**

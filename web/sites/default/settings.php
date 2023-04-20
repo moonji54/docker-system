@@ -793,10 +793,11 @@ $settings['config_sync_directory'] = '../config/sync';
  * Exclude modules from the config.
  */
 $settings['config_exclude_modules'] = [
-  'stage_file_proxy',
+  'stage_file_proxy ',
   'field_tools',
   'devel',
 ];
 
 $settings['browserless_api_key'] = '8970cc21-677c-4145-a344-3e93256a5dce';
-$settings['ngrok_url'] = 'https://0d76-87-224-41-135.ngrok-free.app';
+$settings['ngrok_url'] = 'https://7ac1-188-31-224-151.ngrok-free.app';
+

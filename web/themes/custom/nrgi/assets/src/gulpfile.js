@@ -122,6 +122,9 @@ gulp.task('build-js', gulp.series((done) => {
 // Build the theme CSS file
 gulp.task('build-css', gulp.series(() => css('scss/style.scss')));
 
+// Build the theme PDF CSS file
+gulp.task('build-pdf-css', gulp.series(() => css('scss/pdf-style.scss')));
+
 // Build the CKEditor CSS file
 gulp.task('build-ckeditor-css', gulp.series(() => css('scss/ckeditor-style.scss')));
 
@@ -155,6 +158,7 @@ gulp.task('build-svg-sprite', gulp.series(() => {
 gulp.task('build-all', gulp.series([
     'build-css',
     'build-ckeditor-css',
+    'build-pdf-css',
 ]));
 
 gulp.task('build', gulp.series([

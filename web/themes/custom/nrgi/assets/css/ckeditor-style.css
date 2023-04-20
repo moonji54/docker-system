@@ -240,7 +240,6 @@
   ================================================== */
   /* Spacing rules
   ================================================== */
-  /* stylelint-disable-next-line */
   /* Miscellaneous
   ================================================== */
 }
@@ -675,9 +674,6 @@
 }
 .o-content-from-editor > :first-child {
   margin-top: 0;
-}
-.o-content-from-editor :is(.responsive-table, figure, blockquote, .c-media, .standfirst) + * {
-  margin-top: var(--space-2xl);
 }
 .o-content-from-editor * :last-child {
   margin-bottom: 0;

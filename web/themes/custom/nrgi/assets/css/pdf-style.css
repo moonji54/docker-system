@@ -1,0 +1,46 @@
+.c-pdf__header {
+  background-color: lightskyblue;
+  position: running(headerRunning);
+}
+.c-pdf__page-number {
+  content: counter(page);
+}
+.c-pdf__cover {
+  background-color: lightsalmon;
+  page: coverPage;
+}
+.c-pdf__body {
+  counter-reset: page 999;
+  line-height: 2rem;
+  page: bodyPage;
+}
+.c-pdf__footer {
+  background-color: lightcoral;
+  position: running(footerRunning);
+}
+
+@page bodyPage {
+  margin: 60mm 30mm 20mm 30mm;
+  @top-center {
+    content: element(headerRunning);
+  }
+  @top-right {
+    content: counter(page);
+  }
+  @bottom-right {
+    content: element(footerRunning);
+  }
+}
+.pagedjs_first_page .pagedjs_pagebox {
+  grid-template-columns: 0;
+  grid-template-rows: 0;
+  background-color: lightblue;
+}
+
+.pagedjs_bodyPage_page .pagedjs_margin-top-left-corner-holder,
+.pagedjs_bodyPage_page .pagedjs_margin-top-right-corner-holder {
+  background-color: lightsalmon;
+}
+.pagedjs_bodyPage_page .pagedjs_margin-top {
+  background-color: lightsalmon;
+}

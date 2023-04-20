@@ -1,0 +1,89 @@
+.c-pdf {
+
+  &__header {
+    background-color : lightskyblue;
+
+    // Mark the header as having a custom PagedJS position.
+    position         : running(headerRunning);
+  }
+
+  &__page-number {
+    content : counter(page);
+  }
+
+  &__cover {
+    background-color : lightsalmon;
+
+    // Mark the cover div as a specific unique page layout.
+    page             : coverPage;
+  }
+
+  &__body {
+    // Reset the page number when this class is first hit.
+    // Yep, it can be anything!
+    counter-reset : page 999;
+    line-height   : 2rem;
+
+    // Mark the body div as a specific unique page layout.
+    page          : bodyPage;
+  }
+
+  &__footer {
+    background-color : lightcoral;
+    // Mark the footer as having a custom PagedJS position.
+    position         : running(footerRunning);
+  }
+}
+
+// Position the header into top-center and footer into bottom right.
+// Target a named paged specifically to avoid this applying to
+// pages like the cover page, final page, etc.
+// @see https://www.pagedjs.org/documentation/07-generated-content-in-margin-boxes/
+@page bodyPage {
+
+  // Set a custom margin size.
+  // In this case, 60mm header, 20mm footer,
+  // 30mm left and right side.
+  margin : 60mm 30mm 20mm 30mm;
+
+  // Control specific margin areas, adding
+  // named content from above into them.
+  @top-center {
+    content : element(headerRunning);
+  }
+  @top-right {
+    content : counter(page);
+  }
+  @bottom-right {
+    content : element(footerRunning);
+  }
+}
+
+// Customisations to the cover page.
+.pagedjs_first_page {
+  .pagedjs_pagebox {
+
+    // Remove all margin areas by effectively deleting the
+    // grid sizes. Yep, you can do things like this per page.
+    // You can also target :first page, :nth page etc.
+    grid-template-columns : 0;
+    grid-template-rows    : 0;
+
+    // Add a background to make this clear on PDF render.
+    background-color      : lightblue;
+  }
+}
+
+// Customisations to the generated PagedJS content, eg to apply css
+// to the entire header.
+// In this case, to bodyPage only (named page from above).
+.pagedjs_bodyPage_page {
+  .pagedjs_margin-top-left-corner-holder,
+  .pagedjs_margin-top-right-corner-holder {
+    background-color : lightsalmon;
+  }
+
+  .pagedjs_margin-top {
+    background-color : lightsalmon;
+  }
+}
