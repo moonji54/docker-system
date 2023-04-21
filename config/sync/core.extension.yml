@@ -18,6 +18,7 @@ module:
   ckeditor: 0
   ckeditor_div_manager: 0
   colorbox: 0
+  condition_path: 0
   config: 0
   config_translation: 0
   content_moderation: 0
