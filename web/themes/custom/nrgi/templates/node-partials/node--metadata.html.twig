@@ -26,8 +26,6 @@
             {% set meta_layout = 'half-width' %}
           {% endif %}
 
-          {{ kint(section) }}
-
           <div class="c-meta-rows__row{{ meta_type ? ' c-meta-rows__row--' ~ meta_type }}{{ meta_layout ? ' c-meta-rows__row--' ~ meta_layout : '' }}">
             <dt class="c-meta-rows__label">
               <span>{{ section.label }}</span>
@@ -60,43 +58,43 @@
         {% endfor %}
       {% endfor %}
 
-      {#      {% if node.bundle == 'career_opportunity' %} #}
-      {#        {% if deadline %} #}
-      {#          <div class="c-meta-rows__row"> #}
-      {#            <dt class="c-meta-rows__label"> #}
-      {#              <span>{{ "Application deadline"|t }}</span> #}
-      {#            </dt> #}
+      {% if node.bundle == 'career_opportunity' %}
+        {% if deadline %}
+          <div class="c-meta-rows__row">
+            <dt class="c-meta-rows__label">
+              <span>{{ "Application deadline"|t }}</span>
+            </dt>
 
-      {#            <dd class="c-meta-rows__items"> #}
-      {#              <span>{{ deadline }}</span> #}
-      {#            </dd> #}
-      {#          </div> #}
-      {#        {% endif %} #}
+            <dd class="c-meta-rows__items">
+              <span>{{ deadline }}</span>
+            </dd>
+          </div>
+        {% endif %}
 
-      {#        {% if content.field_salary %} #}
-      {#          <div class="c-meta-rows__row"> #}
-      {#            <dt class="c-meta-rows__label"> #}
-      {#              <span>{{ "Salary"|t }}</span> #}
-      {#            </dt> #}
+        {% if content.field_salary|field_value %}
+          <div class="c-meta-rows__row">
+            <dt class="c-meta-rows__label">
+              <span>{{ "Salary"|t }}</span>
+            </dt>
 
-      {#            <dd class="c-meta-rows__items"> #}
-      {#              <span>{{ content.field_salary }}</span> #}
-      {#            </dd> #}
-      {#          </div> #}
-      {#        {% endif %} #}
+            <dd class="c-meta-rows__items">
+              <span>{{ content.field_salary }}</span>
+            </dd>
+          </div>
+        {% endif %}
 
-      {#        {% if content.field_contact_for_queries %} #}
-      {#          <div class="c-meta-rows__row"> #}
-      {#            <dt class="c-meta-rows__label"> #}
-      {#              <span>{{ "Contact for queries"|t }}</span> #}
-      {#            </dt> #}
+        {% if content.field_contact_for_queries|field_value %}
+          <div class="c-meta-rows__row">
+            <dt class="c-meta-rows__label">
+              <span>{{ "Contact for queries"|t }}</span>
+            </dt>
 
-      {#            <dd class="c-meta-rows__items"> #}
-      {#              <span>{{ content.field_contact_for_queries }}</span> #}
-      {#            </dd> #}
-      {#          </div> #}
-      {#        {% endif %} #}
-      {#      {% endif %} #}
+            <dd class="c-meta-rows__items">
+              <span>{{ content.field_contact_for_queries }}</span>
+            </dd>
+          </div>
+        {% endif %}
+      {% endif %}
     </dl>
   </div>
 </section>
