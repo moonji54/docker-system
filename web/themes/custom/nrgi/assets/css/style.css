@@ -4229,6 +4229,17 @@ ul li a:hover {
 .c-single-header__meta-item, .c-single-header__subtype, .c-single-header__date, .c-single-header__authors-list, .c-single-header__author-item {
   display: inline;
 }
+.c-single-header__meta-item {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+@media (max-width: 64rem) {
+  .c-single-header__meta-item {
+    font-size: 0.875rem;
+  }
+}
 .c-single-header__meta-item:not(:first-child):before {
   content: "•";
   margin: 0 0.5rem;

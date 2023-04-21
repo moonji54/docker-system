@@ -29,4 +29,9 @@
       {{ content.field_page_builder }}
     {% endif %}
   </div>
+
+  {# For mobile #}
+  {% include '@nrgi/node-partials/node--metadata.html.twig' with {
+    'layout_modifier': 'c-meta-rows--mobile'
+  } %}
 </article>

@@ -43,7 +43,9 @@
     {% include '@nrgi/node-partials/node--authors-bottom.html.twig' %}
   {% endif %}
 
-  {% include '@nrgi/node-partials/node--metadata.html.twig' %}
+  {% if meta_data %}
+    {% include '@nrgi/node-partials/node--metadata.html.twig' %}
+  {% endif %}
 
   {#  RELATED CONTENT #}
   {% if related_nodes is not empty %}

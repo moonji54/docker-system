@@ -1,64 +1,100 @@
-{% if meta_data %}
-  <section class="c-meta-rows o-section o-section--has-background o-section--grey-background {{ layout_modifier }}">
-    <div class="c-meta-rows__container o-container">
-      <dl class="c-meta-rows__inner">
-        {% for data in meta_data %}
-          {% for section in data %}
-            {% set meta_type = section.label|render|lower|replace({' ' : '-'}) %}
+<section class="c-meta-rows o-section o-section--has-background o-section--grey-background {{ layout_modifier }}">
+  <div class="c-meta-rows__container o-container">
+    <dl class="c-meta-rows__inner">
+      {% for data in meta_data %}
+        {% for section in data %}
+          {% set meta_type = section.label|render|lower|replace({' ' : '-'}) %}
 
-            {% if meta_type == 'produced-with-financial-support-from' %}
-              {% set meta_type = 'logo' %}
-            {% elseif meta_type == 'additional-downloads' %}
-              {% set meta_type = 'file' %}
-            {% endif %}
+          {% if meta_type == 'produced-with-financial-support-from' %}
+            {% set meta_type = 'logo' %}
+          {% elseif meta_type == 'additional-downloads' %}
+            {% set meta_type = 'file' %}
+          {% endif %}
 
-            {% set half_width_meta = [
-              'days-of-the-week',
-              'weekly-time-commitment',
-              'countries',
-              'regions',
-              'topics',
-              'keywords',
-            ] %}
+          {% set half_width_meta = [
+            'days-of-the-week',
+            'weekly-time-commitment',
+            'countries',
+            'regions',
+            'topics',
+            'keywords',
+          ] %}
 
-            {% set meta_layout = '' %}
+          {% set meta_layout = '' %}
 
-            {% if meta_type in half_width_meta %}
-              {% set meta_layout = 'half-width' %}
-            {% endif %}
+          {% if meta_type in half_width_meta %}
+            {% set meta_layout = 'half-width' %}
+          {% endif %}
 
-            <div class="c-meta-rows__row{{ meta_type ? ' c-meta-rows__row--' ~ meta_type }}{{ meta_layout ? ' c-meta-rows__row--' ~ meta_layout : '' }}">
-              <dt class="c-meta-rows__label">
-                <span>{{ section.label }}</span>
-              </dt>
+          <div class="c-meta-rows__row{{ meta_type ? ' c-meta-rows__row--' ~ meta_type }}{{ meta_layout ? ' c-meta-rows__row--' ~ meta_layout : '' }}">
+            <dt class="c-meta-rows__label">
+              <span>{{ section.label }}</span>
+            </dt>
 
-              <dd class="c-meta-rows__items">
-                {% for item in section.items %}
-                  {% if item.type == 'file' %}
-                    <div>
-                      <a class="c-meta-rows__download" href="{{ item.url }}">
-                        {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'download', 'extra_class' : 'c-meta-rows__icon' } %}
+            <dd class="c-meta-rows__items">
+              {% for item in section.items %}
+                {% if item.type == 'file' %}
+                  <div>
+                    <a class="c-meta-rows__download" href="{{ item.url }}">
+                      {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'download', 'extra_class' : 'c-meta-rows__icon' } %}
 
-                        <span>{{ item.title|trim }}</span>
-                      </a>
-                    </div>
-                  {% elseif item.type == 'logo' %}
-                    {% include '@nrgi/node-partials/node--logos.html.twig' with {'item': item} %}
-                  {% else %}
-                    {% if item.url %}
-                      <a class="c-meta-rows__link" href="{{ item.url }}">
-                        {{- item.title|trim -}}
-                      </a>
-                    {% else %}
                       <span>{{ item.title|trim }}</span>
-                    {% endif %}
+                    </a>
+                  </div>
+                {% elseif item.type == 'logo' %}
+                  {% include '@nrgi/node-partials/node--logos.html.twig' with {'item': item} %}
+                {% else %}
+                  {% if item.url %}
+                    <a class="c-meta-rows__link" href="{{ item.url }}">
+                      {{- item.title|trim -}}
+                    </a>
+                  {% else %}
+                    <span>{{ item.title|trim }}</span>
                   {% endif %}
-                {% endfor %}
-              </dd>
-            </div>
-          {% endfor %}
+                {% endif %}
+              {% endfor %}
+            </dd>
+          </div>
         {% endfor %}
-      </dl>
-    </div>
-  </section>
-{% endif %}
+      {% endfor %}
+
+      {% if node.bundle == 'career_opportunity' %}
+        {% if deadline %}
+          <div class="c-meta-rows__row">
+            <dt class="c-meta-rows__label">
+              <span>{{ "Application deadline"|t }}</span>
+            </dt>
+
+            <dd class="c-meta-rows__items">
+              <span>{{ deadline }}</span>
+            </dd>
+          </div>
+        {% endif %}
+
+        {% if content.field_salary %}
+          <div class="c-meta-rows__row">
+            <dt class="c-meta-rows__label">
+              <span>{{ "Salary"|t }}</span>
+            </dt>
+
+            <dd class="c-meta-rows__items">
+              <span>{{ content.field_salary }}</span>
+            </dd>
+          </div>
+        {% endif %}
+
+        {% if content.field_contact_for_queries %}
+          <div class="c-meta-rows__row">
+            <dt class="c-meta-rows__label">
+              <span>{{ "Contact for queries"|t }}</span>
+            </dt>
+
+            <dd class="c-meta-rows__items">
+              <span>{{ content.field_contact_for_queries }}</span>
+            </dd>
+          </div>
+        {% endif %}
+      {% endif %}
+    </dl>
+  </div>
+</section>

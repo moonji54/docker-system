@@ -76,6 +76,8 @@
   }
 
   &__meta-item {
+    @include ts-caption;
+
     &:not(:first-child) {
       &:before {
         content  : "•";
