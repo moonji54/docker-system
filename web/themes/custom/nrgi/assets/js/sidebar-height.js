@@ -13,9 +13,9 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-console.log('running sidebar');
 var SidebarHeight = /*#__PURE__*/function () {
   function SidebarHeight(context, settings, $, Drupal, element) {
+    var _this = this;
     _classCallCheck(this, SidebarHeight);
     // Values from Drupal
     this.context = context;
@@ -24,17 +24,24 @@ var SidebarHeight = /*#__PURE__*/function () {
     this.Drupal = Drupal;
     this.element = element;
     this.$window = this.$(window);
-    this.$topContent = this.$('.js-single-content-container', this.context).once();
-    this.$sidebar = this.$('.c-single-content__image-wrapper', this.context);
-    this.$window.on('load', (0, _debounce["default"])(function () {
-      heightCalculation();
+    this.$topContainer = this.$('.js-sidebar-container', this.context).once();
+    this.$sidebar = this.$('.js-sidebar', this.context);
+    this.$window.on('load resize', (0, _debounce["default"])(function () {
+      _this.heightCalculation();
     }));
   }
   _createClass(SidebarHeight, [{
     key: "heightCalculation",
     value: function heightCalculation() {
-      var height = this.$sidebar.offsetHeight;
-      console.log(height);
+      var sidebarHeight = this.$sidebar.height();
+      var containerHeight = this.$topContainer.height();
+      var $heightDiff = sidebarHeight - containerHeight;
+      var nextSibling = this.$topContainer.next();
+      if (containerHeight === 0 && !nextSibling.hasClass('c-text-block')) {
+        this.$(':root').css({
+          '--sidebar-height': "".concat($heightDiff, "px")
+        });
+      }
     }
   }]);
   return SidebarHeight;

@@ -1,6 +1,4 @@
-import debounce from "./utils/debounce";
-
-console.log('running sidebar');
+import debounce from './utils/debounce';
 
 class SidebarHeight {
     constructor (context, settings, $, Drupal, element) {
@@ -13,17 +11,23 @@ class SidebarHeight {
 
         this.$window = this.$(window);
 
-        this.$topContent = this.$('.js-single-content-container', this.context).once();
-        this.$sidebar = this.$('.c-single-content__image-wrapper', this.context);
+        this.$topContainer = this.$('.js-sidebar-container', this.context).once();
+        this.$sidebar = this.$('.js-sidebar', this.context);
 
-        this.$window.on('load', debounce(() => {
-            heightCalculation();
+        this.$window.on('load resize', debounce(() => {
+            this.heightCalculation();
         }));
     }
 
     heightCalculation () {
-        const height = this.$sidebar.offsetHeight;
-        console.log(height);
+        const sidebarHeight = this.$sidebar.height();
+        const containerHeight = this.$topContainer.height();
+        const $heightDiff = sidebarHeight - containerHeight;
+        const nextSibling = this.$topContainer.next();
+
+        if ((containerHeight === 0) && (!nextSibling.hasClass('c-text-block'))) {
+            this.$(':root').css({'--sidebar-height': `${$heightDiff}px`});
+        }
     }
 }
 
