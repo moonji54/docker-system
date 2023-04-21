@@ -22,11 +22,11 @@
       {% endif %}
 
       {# Sidebar #}
-      <div class="c-single-content__sidebar">
+      <aside class="c-single-content__sidebar">
         {% include '@nrgi/node-partials/node--sidebar.html.twig' with {
           'layout_modifier': 'c-meta-rows--sidebar'
         } %}
-      </div>
+      </aside>
     </div>
 
     {% if content.field_page_builder|field_value %}
