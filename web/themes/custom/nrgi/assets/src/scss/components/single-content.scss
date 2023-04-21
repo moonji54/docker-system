@@ -3,7 +3,7 @@
   $c : &;
 
   /* stylelint-disable-next-line */
-  & + .o-section {
+  & + .o-section:not(.o-section--has-background) {
     padding-top : 0;
   }
 

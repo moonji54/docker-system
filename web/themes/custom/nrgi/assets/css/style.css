@@ -2632,6 +2632,9 @@ ul li a:hover {
 .c-listing--no-filters .c-listing__pagination {
   grid-column: 1/-1;
 }
+.c-listing--search {
+  padding-bottom: var(--space-3xl);
+}
 .c-listing--search .c-listing__container {
   margin-top: var(--space-3xl);
 }
@@ -4064,7 +4067,7 @@ ul li a:hover {
 .c-single-content {
   /* stylelint-disable-next-line */
 }
-.c-single-content + .o-section {
+.c-single-content + .o-section:not(.o-section--has-background) {
   padding-top: 0;
 }
 .c-single-content__top {

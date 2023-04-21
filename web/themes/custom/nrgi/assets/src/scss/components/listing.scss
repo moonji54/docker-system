@@ -90,6 +90,8 @@
   }
 
   &--search {
+    padding-bottom : var(--space-3xl);
+
     #{$c}__container {
       margin-top : var(--space-3xl);
     }
