@@ -1,26 +1,30 @@
-uuid: a2f4bfa8-c121-45df-8389-d58ed6ae5c81
+uuid: 7afda929-cd39-4606-9606-e19d4e0a2d17
 langcode: en
 status: true
 dependencies:
   module:
     - condition_path
     - context
+    - system
+    - user
   theme:
     - nrgi
-id: tabs
+id: messages
 theme: nrgi
 region: pre-header
-weight: -4
+weight: 0
 provider: null
-plugin: local_tasks_block
+plugin: system_messages_block
 settings:
-  id: local_tasks_block
-  label: Tabs
+  id: system_messages_block
+  label: 'Status messages'
   label_display: '0'
-  provider: core
-  primary: true
-  secondary: true
+  provider: system
 visibility:
+  request_path_inclexcl:
+    id: request_path_inclexcl
+    negate: true
+    pages: '/node/*/pdf'
   user_status:
     id: user_status
     negate: false
@@ -40,7 +44,12 @@ visibility:
     id: context
     negate: null
     values: ''
-  request_path_inclexcl:
-    id: request_path_inclexcl
-    negate: true
-    pages: '/node/*/pdf'
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
+      editor: editor
+      administrator: administrator
