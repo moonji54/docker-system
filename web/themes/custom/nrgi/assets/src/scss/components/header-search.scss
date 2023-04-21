@@ -25,11 +25,11 @@
     cursor     : pointer;
     position   : absolute;
     right      : 0;
-    transition : opacity 0.3s;
+    transition : color 0.3s;
 
     &:hover,
     &:focus {
-      opacity : 0.5;
+      color : $blue-light;
     }
   }
 }
