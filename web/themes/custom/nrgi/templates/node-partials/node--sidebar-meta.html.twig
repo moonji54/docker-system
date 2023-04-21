@@ -1,0 +1,45 @@
+{% if meta_data %}
+  <div class="c-meta-rows c-meta-rows--sidebar">
+    {% for data in meta_data %}
+      {% for section in data %}
+        {% set meta_type = section.label|render|lower|replace({' ' : '-'}) %}
+
+        {% if meta_type == 'produced-with-financial-support-from' %}
+          {% set meta_type = 'logo' %}
+        {% elseif meta_type == 'additional-downloads' %}
+          {% set meta_type = 'file' %}
+        {% endif %}
+
+        <div class="c-meta-rows__row{{ meta_type ? ' c-meta-rows__row--' ~ meta_type }}">
+          <div class="c-meta-rows__label">
+            <span>{{ section.label }}</span>
+          </div>
+
+          <div class="c-meta-rows__items">
+            {% for item in section.items %}
+              {% if item.type == 'file' %}
+                <div>
+                  <a class="c-meta-rows__download" href="{{ item.url }}">
+                    {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'download', 'extra_class' : 'c-meta-rows__icon' } %}
+
+                    <span>{{ item.title|trim }}</span>
+                  </a>
+                </div>
+              {% elseif item.type == 'logo' %}
+                {% include '@nrgi/node-partials/node--logos.html.twig' with {'item': item} %}
+              {% else %}
+                {% if item.url %}
+                  <a class="c-meta-rows__link" href="{{ item.url }}">
+                    {{- item.title|trim -}}
+                  </a>
+                {% else %}
+                  <span>{{ item.title|trim }}</span>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+{% endif %}

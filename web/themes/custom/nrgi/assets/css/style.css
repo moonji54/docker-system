@@ -3524,10 +3524,10 @@ ul li a:hover {
     height: 1.75rem;
   }
 }
-.c-meta-rows__row--expertise-required .c-meta-rows__link:after {
+.c-meta-rows__row--expertise-required .c-meta-rows__link:after, .c-meta-rows__row--focus-areas .c-meta-rows__link:after {
   content: ",";
 }
-.c-meta-rows__row--expertise-required .c-meta-rows__link:last-child:after, .c-meta-rows__row--expertise-required .c-meta-rows__link:only-child:after {
+.c-meta-rows__row--expertise-required .c-meta-rows__link:last-child:after, .c-meta-rows__row--expertise-required .c-meta-rows__link:only-child:after, .c-meta-rows__row--focus-areas .c-meta-rows__link:last-child:after, .c-meta-rows__row--focus-areas .c-meta-rows__link:only-child:after {
   content: none;
 }
 .c-meta-rows__label span {
@@ -3615,6 +3615,7 @@ ul li a:hover {
   flex-direction: column;
   gap: var(--space-xl);
   padding-bottom: 0;
+  padding-top: 0;
 }
 .c-meta-rows--sidebar + .c-meta-rows--sidebar {
   padding-top: 32px;
@@ -3624,13 +3625,28 @@ ul li a:hover {
   padding: 0;
 }
 .c-meta-rows--sidebar .c-meta-rows__inner {
+  display: block;
   grid-column: 1/-1;
 }
 .c-meta-rows--sidebar .c-meta-rows__row {
   border-top: 1px solid #EDEDEF;
+  margin-bottom: 0;
 }
 .c-meta-rows--sidebar .c-meta-rows__row--half-width {
   grid-column: 1/-1;
+}
+.c-meta-rows--sidebar .c-meta-rows__download {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.25;
+  margin-top: var(--space-xs);
+}
+@media (max-width: 64rem) {
+  .c-meta-rows--sidebar .c-meta-rows__download {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 }
 .c-meta-rows--sidebar .c-meta-rows__label h3 {
   font-family: "Noto Sans", sans-serif;
@@ -3646,15 +3662,13 @@ ul li a:hover {
     letter-spacing: 0.0625rem;
   }
 }
-.c-meta-rows--sidebar .c-meta-rows__label + .c-meta-rows__items {
-  margin-top: 0.5rem;
-}
-.c-meta-rows--sidebar .c-meta-rows__items {
-  -moz-column-gap: 5.25rem;
-       column-gap: 5.25rem;
+.c-meta-rows--sidebar .c-meta-rows__items--logos {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  justify-content: space-between;
+  margin-top: var(--space-l);
+  -moz-column-gap: 5.25rem;
+       column-gap: 5.25rem;
   row-gap: 2rem;
 }
 .c-meta-rows--sidebar .c-meta-rows__row-title {
@@ -3676,6 +3690,11 @@ ul li a:hover {
 @media (max-width: 64rem) {
   .c-meta-rows--sidebar .c-meta-rows__logo img {
     width: 4rem;
+  }
+}
+@media (min-width: 48rem) {
+  .c-meta-rows--mobile {
+    display: none;
   }
 }
 

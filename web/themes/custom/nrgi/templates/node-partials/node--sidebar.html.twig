@@ -1,4 +1,4 @@
-<section class="c-meta-rows {{ layout_modifier }}">
+<div class="c-meta-rows {{ layout_modifier }}">
   {% if section.items and node.bundle == 'career_opportunity' %}
     <dd class="c-meta-rows__items">
       {% for item in section.items %}
@@ -35,7 +35,7 @@
           <a class="c-meta-rows__download" href="{{ file.url }}">
             <span class="c-meta-rows__icon-wrapper">{% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'download', 'extra_class' : 'c-meta-rows__icon' } %}</span>
 
-            <span class="c-meta-rows__row-title">{{ file.title|trim }}</span>
+            <span>{{ file.title|trim }}</span>
           </a>
         {% endfor %}
       </div>
@@ -94,7 +94,7 @@
               <dt class="c-meta-rows__label">
                 <h3>{{ section.label }}</h3>
               </dt>
-              <dd class="c-meta-rows__items">
+              <dd class="c-meta-rows__items c-meta-rows__items--logos">
                 {% for item in section.items %}
                   {% if item.type == 'logo' %}
                     {# Organisation logos #}
@@ -108,4 +108,4 @@
       </dl>
     </div>
   {% endif %}
-</section>
+</div>
