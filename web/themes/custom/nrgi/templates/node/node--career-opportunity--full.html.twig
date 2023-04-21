@@ -7,18 +7,18 @@
   {% include "@nrgi/node-partials/node--single-header.html.twig" %}
   <div class="c-single-content {% if content.field_featured_image|field_value %} c-single-content--has-featured-image {% endif %}
 ">
-    <div class="c-single-content__top">
+    <div class="c-single-content__top js-sidebar-container">
       {# FEATURED IMAGE #}
       {% if content.field_featured_image|field_value %}
-        <div class="c-single-content__image-container">
+        <div class="c-single-content__image-container js-image-container">
           <div class="c-single-content__image-wrapper">
             {{ content.field_featured_image }}
           </div>
         </div>
       {% endif %}
 
-      {# Sidebar #}
-      <div class="c-single-content__sidebar">
+      {#  SIDEBAR #}
+      <div class="c-single-content__sidebar js-sidebar">
         {% include '@nrgi/node-partials/node--sidebar.html.twig' with {
           'layout_modifier': 'c-meta-rows--sidebar'
         } %}
