@@ -1,7 +1,17 @@
 uuid: 7d4009c9-9d0a-4582-8678-6073df0555df
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - focal_point
 name: medium_card_tablet
 label: 'Medium card tablet'
-effects: {  }
+effects:
+  4eee36f5-da1a-4871-b4b1-753f5f331716:
+    uuid: 4eee36f5-da1a-4871-b4b1-753f5f331716
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 439
+      height: 246
+      crop_type: focal_point

@@ -4,6 +4,8 @@ global-styling:
   css:
     theme:
       assets/css/style.min.css: { minified: true }
+      # SBTODO: Add this colorbox default css properly
+      assets/css/colorbox.css: { }
 
 # Scripts that may be needed on any page.
 global-scripts:
@@ -13,6 +15,7 @@ global-scripts:
     assets/js/header.js: { }
     assets/js/languages-overlay.js: { }
     assets/js/lightbox.js: { }
+    assets/js/sidebar-height.js: { }
     assets/js/parallax-scroll.js: { }
   dependencies:
     - core/jquery

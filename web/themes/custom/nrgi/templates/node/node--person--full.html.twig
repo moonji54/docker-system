@@ -7,17 +7,12 @@
   {% include "@nrgi/node-partials/node--single-header.html.twig" %}
 
   <div class="c-single-content single-content--person">
-    <div class="c-single-content__top">
-      {#  SIDEBAR #}
-      <div class="c-single-content__sidebar">
-        {% include '@nrgi/node-partials/node--sidebar.html.twig' with {
-          'layout_modifier': 'c-meta-rows--sidebar'
-        } %}
-
-        {% include '@nrgi/node-partials/node--metadata.html.twig' with {
-          'layout_modifier': 'c-meta-rows--sidebar'
-        } %}
-      </div>
+    <div class="c-single-content__top js-sidebar-container">
+      {# Sidebar #}
+      <aside class="c-single-content__sidebar js-sidebar">
+        {# Person specific sidebar meta layout #}
+        {% include '@nrgi/node-partials/node--sidebar-meta.html.twig' %}
+      </aside>
     </div>
 
     {% if content.field_page_builder|field_value %}
@@ -25,7 +20,10 @@
     {% endif %}
   </div>
 
-  {% include '@nrgi/node-partials/node--metadata.html.twig' %}
+  {# For mobile #}
+  {% include '@nrgi/node-partials/node--metadata.html.twig' with {
+    'layout_modifier': 'c-meta-rows--mobile'
+  } %}
 
   {# Person contributions #}
   {% set listing_results = drupal_view_result('contextual_views', 'person_contributions', node.id)|length %}

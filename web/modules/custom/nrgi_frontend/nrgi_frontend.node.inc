@@ -29,6 +29,8 @@ function nrgi_frontend_preprocess_node(&$variables): void {
     /** @var \Drupal\nrgi_frontend\Services\MetadataHelperService $metadata_helper_service */
     $metadata_helper_service = \Drupal::service('nrgi_frontend.metadata_helper');
 
+    $variables['language_direction'] = $node->language()->getDirection();
+
     switch ($node->bundle()) {
       case 'homepage':
       case 'region':
@@ -40,10 +42,14 @@ function nrgi_frontend_preprocess_node(&$variables): void {
       case 'page':
         // Add sub-navigation.
         _nrgi_frontend_preprocess_subnavigation($variables);
+        $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
+          $node, FALSE, 'field_attached_translated_items'
+        );
         break;
 
       case 'landing_page':
       case 'listing_page':
+      case 'page':
         // Add sub-navigation.
         _nrgi_frontend_preprocess_subnavigation($variables);
         $variables['language_switcher_links'] = $translation_helper_service->getLanguageSwitcherLinks(
@@ -79,12 +85,12 @@ function nrgi_frontend_preprocess_node(&$variables): void {
 
     $view_mode_responsive_image_style = [
       'featured_content_with_image_1_per_row' => 'large_card',
-      'featured_content_with_image_2_per_row' => 'medium_card',
-      'featured_content_with_image_3_per_row' => 'small_card',
+      'featured_content_with_image_2_per_row' => 'large_card',
+      'featured_content_with_image_3_per_row' => 'medium_card',
       'featured_content_with_image_4_per_row' => 'small_card',
       'featured_page_with_image_1_per_row' => 'large_card',
-      'featured_page_with_image_2_per_row' => 'medium_card',
-      'featured_page_with_image_3_per_row' => 'small_card',
+      'featured_page_with_image_2_per_row' => 'large_card',
+      'featured_page_with_image_3_per_row' => 'medium_card',
       'featured_page_with_image_4_per_row' => 'small_card',
       'featured_people_with_image_1_per_row' => 'square_small',
       'featured_people_with_image_2_per_row' => 'square_small',

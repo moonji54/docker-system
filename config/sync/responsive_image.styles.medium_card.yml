@@ -6,7 +6,6 @@ dependencies:
     - image.style.medium_card_desktop
     - image.style.medium_card_desktop_2x
     - image.style.medium_card_mobile
-    - image.style.medium_card_small_desktop
     - image.style.medium_card_small_mobile
     - image.style.medium_card_tablet
   theme:
@@ -28,11 +27,6 @@ image_style_mappings:
     image_mapping_type: image_style
     image_mapping: medium_card_tablet
     breakpoint_id: nrgi.tablet
-    multiplier: 1x
-  -
-    image_mapping_type: image_style
-    image_mapping: medium_card_small_desktop
-    breakpoint_id: nrgi.smalldesktop
     multiplier: 1x
   -
     image_mapping_type: image_style

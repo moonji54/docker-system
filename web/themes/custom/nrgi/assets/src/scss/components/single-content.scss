@@ -3,14 +3,20 @@
   $c : &;
 
   /* stylelint-disable-next-line */
-  & + .o-section {
+  & + .o-section:not(.o-section--has-background) {
     padding-top : 0;
   }
 
   &__top {
     @include o-container;
     @include grid;
-    position : relative;
+    padding-bottom : calc(var(--sidebar-height) + (6rem * 2));
+    position       : relative;
+
+    /* stylelint-disable-next-line */
+    & + .o-section--has-background {
+      margin-top : var(--space-3xl);
+    }
   }
 
   &__image-container {

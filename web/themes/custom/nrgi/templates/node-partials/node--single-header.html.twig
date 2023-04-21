@@ -4,7 +4,6 @@
   (content.field_featured_image|field_value) ? 'c-single-header--has-featured-image',
 ] %}
 
-
 <header{{ attributes.addClass(classes) }}>
   <img class="c-single-header__image-placeholder" src="/{{ base_path ~ directory }}/assets/img/hero-banner-placeholder.svg"
        alt="Image placeholder"/>
@@ -111,7 +110,7 @@
           {% for field in meta_data.career_opportunity.header %}
             {% for item in field %}
               {% if item.url %}
-                <li class="c-single-header__meta-item"><a href="{{ item.url }}">{{ item.title|trim }}</a></li>
+                <li class="c-single-header__meta-item"><a class="c-single-header__meta-link" href="{{ item.url }}">{{ item.title|trim }}</a></li>
               {% endif %}
             {% endfor %}
           {% endfor %}
@@ -147,7 +146,7 @@
             </li>
 
             {# Event format #}
-            {% if content.field_format %}
+            {% if content.field_format|field_value %}
               <li class="c-single-header__meta-item">
                 <p class="c-single-header__date">
                   {{ content.field_format }}
@@ -195,66 +194,65 @@
         {% endif %}
       </ul>
 
-      {% if (content.field_registration|field_value and registration_open) or content.field_video_conferencing or content.field_apply|field_value or content.field_link|field_value or report_pdf %}
-        <div class="c-single-header__buttons-wrapper">
+      <div class="c-single-header__buttons-wrapper">
+        {% if (content.field_registration|field_value and registration_open) or content.field_video_conferencing|field_value or content.field_apply|field_value or content.field_link|field_value or report_pdf %}
           <div class="c-single-header__buttons-left-side">
             {% if (content.field_registration|field_value and registration_open or content.field_video_conferencing) and node.bundle == 'event' %}
-              {# Registration link: available only when registration is open #}
+              {#              Registration link: available only when registration is open #}
               {% if content.field_registration|field_value and registration_open %}
                 {{ content.field_registration }}
               {% endif %}
 
-              {# View recording or Video conference link #}
-              {% if content.field_video_conferencing %}
+              {#              View recording or Video conference link #}
+              {% if content.field_video_conferencing|field_value %}
                 {{ content.field_video_conferencing }}
               {% endif %}
             {% endif %}
 
             {% if content.field_apply|field_value and node.bundle == 'career_opportunity' %}
               {% if content.field_apply|field_value %}
-                {# Apply #}
+                {#                Apply #}
                 {{ content.field_apply }}
               {% endif %}
             {% endif %}
 
             {% if content.field_link|field_value %}
-              {# External item #}
+              {#              External item #}
               {{ content.field_link }}
             {% endif %}
 
             {% if report_pdf %}
-            {# Reprot PDF #}
-            {% set file_label =  'Download PDF'|t %}
-            <a class="o-button" href="{{ report_pdf.url }}" title="{{ file_label }}">
-              {% include '@nrgi/svg/svg.html.twig' with {'svg': 'download-icon'} %}
+              {#              Report PDF #}
+              {% set file_label =  'Download PDF'|t %}
+              <a class="o-button" href="{{ report_pdf.url }}" title="{{ file_label }}">
+                {% include '@nrgi/svg/svg.html.twig' with {'svg': 'download-icon'} %}
 
-              {{ file_label }}
-            </a>
-          </div>
-
-          <div class="c-single-header__mobile-buttons">
-            {% if language_switcher_links %}
-              <div class="c-page-header__language-switcher-links js-languages-overlay">
-                {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
-                  'text' :  "Other languages"|t,
-                  'links' : language_switcher_links,
-                  'layout_modifier': 'c-language-links--aside',
-                  'link_modifier': 'o-button o-button--secondary',
-                } %}
-              </div>
-
-              <button class="c-page-header__languages-button js-languages-button"
-                      aria-label="{{ 'Toggle language links'|trans }}"
-                      aria-expanded="false">
-                {% include '@nrgi/svg/svg.html.twig' with {'svg': 'languages-icon', 'extra_class': 'c-page-header__languages-svg' } %}
-              </button>
+                {{ file_label }}
+              </a>
             {% endif %}
-
-            {% include '@nrgi/node-partials/node--share-links.html.twig' %}
           </div>
+        {% endif %}
+
+        <div class="c-single-header__mobile-buttons">
+          {% if language_switcher_links %}
+            <div class="c-page-header__language-switcher-links js-languages-overlay">
+              {% include '@nrgi/node-partials/node--language-switcher-links.html.twig' with {
+                'text' :  "Other languages"|t,
+                'links' : language_switcher_links,
+                'layout_modifier': 'c-language-links--aside',
+                'link_modifier': 'o-button o-button--secondary',
+              } %}
+            </div>
+
+            <button class="c-page-header__languages-button js-languages-button"
+                    aria-label="{{ 'Toggle language links'|trans }}"
+                    aria-expanded="false">
+              {% include '@nrgi/svg/svg.html.twig' with {'svg': 'languages-icon', 'extra_class': 'c-page-header__languages-svg' } %}
+            </button>
           {% endif %}
+
+          {% include '@nrgi/node-partials/node--share-links.html.twig' %}
         </div>
-      {% endif %}
+      </div>
     </div>
-  </div>
 </header>
