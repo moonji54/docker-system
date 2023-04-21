@@ -2031,7 +2031,7 @@ ul li a:hover {
 .c-footer__buttons {
   align-items: center;
   display: flex;
-  gap: 0.25rem;
+  gap: 0.5rem;
   grid-column: 1/-1;
   margin-top: var(--space-xl);
 }
@@ -2097,6 +2097,9 @@ ul li a:hover {
     row-gap: var(--space-m);
   }
 }
+.c-footer__menu-item a {
+  /* stylelint-disable-next-line */
+}
 .c-footer__menu-item a:focus, .c-footer__menu-item a:hover {
   text-decoration: underline;
 }
@@ -2122,6 +2125,12 @@ ul li a:hover {
     display: block;
     margin-top: var(--space-4xl);
   }
+}
+.c-footer__credit {
+  /* stylelint-disable-next-line */
+}
+.c-footer__credit a {
+  /* stylelint-disable-next-line */
 }
 .c-footer__credit a:focus, .c-footer__credit a:hover {
   text-decoration: underline;
@@ -5209,7 +5218,7 @@ ul li a:hover {
   background-color: #FFFFFF;
   border: none;
   box-shadow: 0 0.5rem 1rem rgba(45, 45, 50, 0.15);
-  height: 8.75rem;
+  max-height: 8.75rem;
   overflow: auto;
 }
 @media (max-width: 64rem) {
