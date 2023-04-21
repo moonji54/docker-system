@@ -1,0 +1,19 @@
+uuid: 5ac76db4-e8b9-4899-96db-f5181722347d
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.field_pdf_image_fallback
+field_name: field_pdf_image_fallback
+entity_type: media
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

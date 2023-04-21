@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.media.data_visualisation.field_media_oembed_data_vis
+    - field.field.media.data_visualisation.field_pdf_image_fallback
     - media.type.data_visualisation
   module:
     - media
@@ -23,6 +24,7 @@ content:
     region: content
 hidden:
   created: true
+  field_pdf_image_fallback: true
   langcode: true
   name: true
   search_api_excerpt: true
