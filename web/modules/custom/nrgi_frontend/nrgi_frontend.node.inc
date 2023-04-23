@@ -81,6 +81,35 @@ function nrgi_frontend_preprocess_node(&$variables): void {
           _nrgi_frontend_preprocess_related_content($variables);
           break;
         }
+        else {
+          if ($variables['view_mode'] == 'pdf') {
+            /* Page-to-PDF meta. */
+
+            // Authors (internal and external).
+            $metadata_helper_service->preprocessResourcesAuthors(
+              $node,
+              'field_author',
+              'field_external_authors',
+              $variables
+            );
+
+            // Header date.
+            if ($date = $node->get('unified_date')) {
+              $formatted_date = $metadata_helper_service->dateFormatter
+                ->format($date->value, 'nrgi_pdf_date');
+              $variables['date'] = $formatted_date;
+            }
+
+            // Cover logos.
+            $metadata_helper_service->preprocessLogos(
+              $node,
+              $metadata_helper_service->metadataFieldNames['all']['sidebar_logo'],
+              t('Produced in partnership with'),
+              $variables,
+              TRUE,
+            );
+          }
+        }
     }
 
     $view_mode_responsive_image_style = [

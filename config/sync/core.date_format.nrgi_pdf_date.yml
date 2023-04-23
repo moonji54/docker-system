@@ -1,0 +1,8 @@
+uuid: d81d13f0-dc70-42af-86b7-38f3d2d2009a
+langcode: en
+status: true
+dependencies: {  }
+id: nrgi_pdf_date
+label: 'Nrgi PDF date'
+locked: false
+pattern: 'F Y'

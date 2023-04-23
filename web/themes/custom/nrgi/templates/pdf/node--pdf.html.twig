@@ -1,40 +1,19 @@
-{{ attach_library('nrgi/pdf-styling') }}
+{# Page header #}
+{% include 'node--pdf-header.html.twig' %}
 
-<header class="c-pdf__header">
-  <div class="c-pdf__header-inner">
-    Test header • <span class="c-pdf__page-number">Test123</span>
-  </div>
-</header>
+{# Table of contents #}
+{# {% include 'node--pdf-contents.html.twig' %} #}
 
-{% set wysiwyg = content.body|render %}
-<div>
+{# Intro page #}
+{# {% if content.field_short_description|field_value %} #}
+{#  {% include 'node--pdf-intro.html.twig' %} #}
+{# {% endif %} #}
 
-  <div class="c-pdf__cover">
-    <h1>{{ label }}</h1>
-    <p>Nulla facilisi. Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero, non adipiscing dolor urna a
-      orci. Etiam imperdiet imperdiet orci. Etiam vitae tortor.</p>
-  </div>
+{# Body #}
+{# <article class="c-pdf c-pdf--body u-page-break"> #}
+{#  {% include 'node--body.html.twig' %} #}
+{# </article> #}
 
-  <div class="c-pdf__body">
-    {{ wysiwyg }}
-    {{ wysiwyg }}
-    {{ wysiwyg }}
-    {{ wysiwyg }}
-    {{ wysiwyg }}
-    {{ wysiwyg }}
-    {{ wysiwyg }}
-    {{ wysiwyg }}
-    {{ wysiwyg }}
-    {{ wysiwyg }}
-    {{ wysiwyg }}
-    {{ wysiwyg }}
-  </div>
+{# Footer #}
+{# {% include 'node--pdf-footer.html.twig' %} #}
 
-</div>
-
-
-<footer class="c-pdf__footer">
-  <div class="c-pdf__footer-inner">
-    Test footer • <span class="c-pdf__page-number">Test</span>
-  </div>
-</footer>

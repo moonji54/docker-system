@@ -1,0 +1,21 @@
+<script>
+  {#
+  This stops pagedjs from runnint automatically before the content block gets rendered.
+  Pagejs will be then triggered inside natcen/pdf-contents library once pdf-contents have been created.
+  #}
+  window.PagedConfig = {
+    auto: false,
+  };
+</script>
+<article class="c-pdf c-pdf--table-of-contents js-table-of-contents-wrapper">
+  <div class="c-pdf__container">
+    <div class="c-pdf__inner">
+      <h1 class="c-pdf__title">Contents</h1>
+
+      <ul class="c-pdf__contents-list" id="pdf-contents">
+      </ul>
+    </div>
+  </div>
+</article>
+
+{{ attach_library('nrgi/pdf-contents') }}

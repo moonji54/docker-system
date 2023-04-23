@@ -6,7 +6,8 @@
 
 
 <header{{ attributes.addClass(classes) }}>
-  <img class="c-single-header__image-placeholder" src="/{{ base_path ~ directory }}/assets/img/hero-banner-placeholder.svg"
+  <img class="c-single-header__image-placeholder"
+       src="/{{ base_path ~ directory }}/assets/img/hero-banner-placeholder.svg"
        alt="Image placeholder"/>
 
   <div class="c-single-header__container {{ has_featured_image }}">
@@ -18,7 +19,8 @@
         {% if content.field_featured_image|field_value %}
           {{ content.field_featured_image }}
         {% else %}
-          <img class="c-single-header__person-placeholder" src="/{{ base_path ~ directory }}/assets/img/fallback-person.svg"
+          <img class="c-single-header__person-placeholder"
+               src="/{{ base_path ~ directory }}/assets/img/fallback-person.svg"
                alt="Image placeholder"/>
         {% endif %}
       </div>
@@ -186,7 +188,8 @@
                       {{- author.firstname ~ ' ' ~ author.surname -}}
                     </a>
                   {% else %}
-                    <span class="c-single-header__author-name c-single-header__author-name--no-link">{{ author.firstname ~ ' ' ~ author.surname }}<span
+                    <span
+                        class="c-single-header__author-name c-single-header__author-name--no-link">{{ author.firstname ~ ' ' ~ author.surname }}<span
                   {% endif %}
                 </li>
               {% endfor %}
@@ -199,12 +202,12 @@
         {% if (content.field_registration|field_value and registration_open) or content.field_video_conferencing|field_value or content.field_apply|field_value or content.field_link|field_value or report_pdf %}
           <div class="c-single-header__buttons-left-side">
             {% if (content.field_registration|field_value and registration_open or content.field_video_conferencing) and node.bundle == 'event' %}
-              {#              Registration link: available only when registration is open #}
+              {# Registration link: available only when registration is open #}
               {% if content.field_registration|field_value and registration_open %}
                 {{ content.field_registration }}
               {% endif %}
 
-              {#              View recording or Video conference link #}
+              {# View recording or Video conference link #}
               {% if content.field_video_conferencing|field_value %}
                 {{ content.field_video_conferencing }}
               {% endif %}
@@ -212,22 +215,21 @@
 
             {% if content.field_apply|field_value and node.bundle == 'career_opportunity' %}
               {% if content.field_apply|field_value %}
-                {#                Apply #}
+                {# Apply #}
                 {{ content.field_apply }}
               {% endif %}
             {% endif %}
 
             {% if content.field_link|field_value %}
-              {#              External item #}
+              {# External item #}
               {{ content.field_link }}
             {% endif %}
 
             {% if report_pdf %}
-              {#              Report PDF #}
+              {# Report PDF #}
               {% set file_label =  'Download PDF'|t %}
               <a class="o-button" href="{{ report_pdf.url }}" title="{{ file_label }}">
                 {% include '@nrgi/svg/svg.html.twig' with {'svg': 'download-icon'} %}
-
                 {{ file_label }}
               </a>
             {% endif %}
