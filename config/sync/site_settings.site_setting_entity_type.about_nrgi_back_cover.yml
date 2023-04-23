@@ -1,0 +1,8 @@
+uuid: 22b5e0b7-2745-42bf-b385-26d88ce30797
+langcode: en
+status: true
+dependencies: {  }
+id: about_nrgi_back_cover
+label: 'About NRGI - back cover'
+fieldset: Page-to-PDF
+multiple: false

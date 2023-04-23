@@ -1,18 +1,18 @@
-uuid: 025ca1c4-7cec-4f12-804d-1a8be9924d2d
+uuid: b4d74032-5057-468e-8346-671618a2f42f
 langcode: en
 status: true
 dependencies:
   config:
-    - site_settings.site_setting_entity_type.social_media_links
+    - site_settings.site_setting_entity_type.about_nrgi_back_cover
   module:
     - content_translation
 third_party_settings:
   content_translation:
-    enabled: false
+    enabled: true
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: site_setting_entity.social_media_links
+id: site_setting_entity.about_nrgi_back_cover
 target_entity_type_id: site_setting_entity
-target_bundle: social_media_links
+target_bundle: about_nrgi_back_cover
 default_langcode: site_default
 language_alterable: true
