@@ -1,0 +1,26 @@
+uuid: e0e87bec-cedb-4be0-9bd1-dab714d5705b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pdf_additional_information
+    - node.type.publication
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - simple_text_and_links_with_heading
+id: node.publication.field_pdf_additional_information
+field_name: field_pdf_additional_information
+entity_type: node
+bundle: publication
+label: 'PDF Additional information'
+description: "Additional information about the <em>Publication</em>. This will only show on the automatically generated PDF version of this <em>Publication</em>, inside the back cover.\r\n "
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.simple_text_and_links_with_heading
     - filter.format.text
     - filter.format.text_and_links
     - filter.format.wysiwyg
@@ -340,6 +341,7 @@ permissions:
   - 'use editorial transition needs_review'
   - 'use editorial transition publish'
   - 'use save and edit'
+  - 'use text format simple_text_and_links_with_heading'
   - 'use text format text'
   - 'use text format text_and_links'
   - 'use text format wysiwyg'

@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.publication.field_link
     - field.field.node.publication.field_page_builder
     - field.field.node.publication.field_partner_logo
+    - field.field.node.publication.field_pdf_additional_information
     - field.field.node.publication.field_photo_caption
     - field.field.node.publication.field_publication_date
     - field.field.node.publication.field_publisher
@@ -60,6 +61,7 @@ hidden:
   field_link: true
   field_page_builder: true
   field_partner_logo: true
+  field_pdf_additional_information: true
   field_photo_caption: true
   field_publication_date: true
   field_publisher: true

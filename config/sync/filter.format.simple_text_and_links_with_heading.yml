@@ -1,0 +1,49 @@
+uuid: 32014b2d-4910-4649-b62f-f71f284c8a2a
+langcode: en
+status: true
+dependencies:
+  module:
+    - footnotes
+    - linkit
+name: 'Simple text and links - with single heading option'
+format: simple_text_and_links_with_heading
+weight: -8
+filters:
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: 0
+    settings:
+      filter_url_length: 72
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<em> <strong> <cite> <h4 id> <a href hreflang data-entity-substitution data-entity-type data-entity-uuid title> <p>'
+      filter_html_help: true
+      filter_html_nofollow: false
+  filter_footnotes:
+    id: filter_footnotes
+    provider: footnotes
+    status: false
+    weight: 0
+    settings:
+      footnotes_collapse: '0'
+      footnotes_html: '0'
+      footnotes_footer_disable: '0'
+  linkit:
+    id: linkit
+    provider: linkit
+    status: true
+    weight: 0
+    settings:
+      title: true

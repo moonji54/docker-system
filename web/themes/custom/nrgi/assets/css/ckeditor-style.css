@@ -193,10 +193,10 @@
   background-color: rgba(45, 45, 50, 0.4);
 }
 .o-button--secondary {
-  background-color: #00C9C8;
+  background-color: #FFD66D;
 }
 .o-button--secondary:focus, .o-button--secondary:hover {
-  background-color: #00B5B4;
+  background-color: #E6C162;
 }
 .o-button--tertiary {
   background-color: transparent;
@@ -628,6 +628,7 @@
   text-decoration: none;
   top: 0;
   vertical-align: top;
+  scroll-margin-top: 4rem;
 }
 .o-content-from-editor .standfirst {
   color: #00545A;
@@ -854,4 +855,16 @@
   margin-top: -8.75rem;
   position: absolute;
   visibility: hidden;
+}
+
+/* stylelint-disable */
+.cke_editable .standfirst {
+  color: #00545A;
+  font-size: 1.5rem;
+  padding: 12px;
+}
+
+.cke_editable .boxed-text {
+  background-color: #B3EFEF;
+  padding: 12px;
 }
