@@ -136,6 +136,40 @@ function nrgi_backend_form_node_form_alter(
           ':input[name="field_disable[value]"]' => ['checked' => TRUE],
         ],
       ];
+
+      // Hide related content fields.
+      $form['field_disable_related_content']['#states'] = [
+        'invisible' => [
+          ':input[name="field_disable[value]"]' => ['checked' => TRUE],
+        ],
+      ];
+      $form['field_related_manual_content']['#states'] = [
+        'invisible' => [
+          ':input[name="field_disable[value]"]' => ['checked' => TRUE],
+        ],
+      ];
+
+      // Hide related content group.
+      $form['group_related_content']['#states'] = [
+        'invisible' => [
+          ':input[name="field_disable[value]"]' => ['checked' => TRUE],
+        ],
+      ];
+
+      // Hide PDF additional information field.
+      $form['field_pdf_additional_information']['#states'] = [
+        'invisible' => [
+          ':input[name="field_disable[value]"]' => ['checked' => TRUE],
+        ],
+      ];
+
+      // Hide Page to PDF field group.
+      $form['group_page_to_pdf']['#states'] = [
+        'invisible' => [
+          ':input[name="field_disable[value]"]' => ['checked' => TRUE],
+        ],
+      ];
+
       break;
 
     case 'person':
