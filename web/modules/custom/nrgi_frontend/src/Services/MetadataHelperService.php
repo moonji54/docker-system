@@ -800,11 +800,11 @@ class MetadataHelperService {
                                  . $end_minutes . $end_pm_am;
 
         if ($end_year > $start_year) {
-          $date .= ' ' . $start_year . '-' . $end_day . ' ' . $end_month
+          $date .= ' ' . $start_year . '–' . $end_day . ' ' . $end_month
                    . ' ' . $end_year;
         }
         else {
-          $date .= '-' . $end_day . ' ' . $end_month . ' ' . $end_year;
+          $date .= '–' . $end_day . ' ' . $end_month . ' ' . $end_year;
 
         }
 
