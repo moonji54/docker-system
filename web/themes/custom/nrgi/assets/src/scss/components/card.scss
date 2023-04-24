@@ -78,7 +78,7 @@
   }
 
   &__link {
-    @include underlined($tertiary, 0.4375rem);
+    @include underlined($tertiary, $thickness : 2px);
 
     &:before {
       bottom   : 0;

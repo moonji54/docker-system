@@ -19,6 +19,10 @@
     }
   }
 
+  &__list-label {
+    @include underlined(currentColor);
+  }
+
   &__list-content {
     a {
       word-break : break-all;
