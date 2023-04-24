@@ -113,7 +113,7 @@
     padding-bottom : var(--space-xs);
 
     a {
-      @include underlined($blue-light, 0.4375rem);
+      @include underlined($blue-light, 7px);
 
       &:hover,
       &:focus {

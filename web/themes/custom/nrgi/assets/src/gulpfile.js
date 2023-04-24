@@ -118,6 +118,7 @@ gulp.task('build-js', gulp.series((done) => {
     themejs('share-links');
     themejs('toc');
     themejs('sub-navigation');
+    themejs('sidebar-height');
 
     done();
 }));

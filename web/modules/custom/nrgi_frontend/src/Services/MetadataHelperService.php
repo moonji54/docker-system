@@ -228,11 +228,13 @@ class MetadataHelperService {
       $this->metadataFieldNames['all']['downloads'],
       $variables
     );
-    $this->preprocessGeneralMetadata(
-      $node,
-      $this->metadataFieldNames['all']['taxonomies'],
-      $variables
-    );
+    if ($node->bundle() != 'career_opportunity') {
+      $this->preprocessGeneralMetadata(
+        $node,
+        $this->metadataFieldNames['all']['taxonomies'],
+        $variables
+      );
+    }
   }
 
   /**
@@ -429,7 +431,7 @@ class MetadataHelperService {
 
           case 'string':
             if ($title_field = $node->get($metadata_field_name)->first()) {
-              if ($title_field instanceof StringItem) {
+              if ($title_field instanceof StringItem && !empty($title_field->value)) {
                 $label = match ($title_field->getFieldDefinition()->getName()) {
                   'field_photo_caption' => t('Top image'),
                   'field_publisher' => t('Publisher'),

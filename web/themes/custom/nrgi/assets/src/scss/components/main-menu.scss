@@ -80,7 +80,7 @@
 
   &__item-link {
     @include ts-main-menu;
-    @include underlined($thickness : 0.125rem);
+    @include underlined($thickness : 2px);
 
     @include media("<desktop") {
       padding : 0.5rem 1rem 0.5rem 0;
@@ -114,7 +114,7 @@
       &:hover,
       &:focus {
         #{$c}__sub-menu-svg {
-          opacity : 0.7;
+          color : $blue-light;
         }
       }
 

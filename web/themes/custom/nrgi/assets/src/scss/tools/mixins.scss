@@ -27,8 +27,8 @@
 /* stylelint-disable */
 $z-index : (
     footer: 10,
-    header: 2,
-    hero-content: 2,
+    header: 5,
+    hero-content: 1,
     hero-image: 1,
     breadcrumbs: 1,
     hero-overlay: 1,
@@ -97,7 +97,7 @@ $z-index : (
   }
 }
 
-@mixin underlined($color: $white, $offset: 0.313rem, $thickness: 0.0625rem) {
+@mixin underlined($color: $white, $offset: 5px, $thickness: 1px) {
   text-decoration           : underline;
   text-decoration-color     : transparent;
   text-decoration-thickness : $thickness;
@@ -110,7 +110,7 @@ $z-index : (
   }
 }
 
-@mixin underlined-off($color: $white, $offset: 0.313rem, $thickness: 0.0625rem) {
+@mixin underlined-off($color: $white, $offset: 5px, $thickness: 1px) {
   text-decoration           : underline;
   text-decoration-color     : $color;
   text-decoration-thickness : $thickness;

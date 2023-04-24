@@ -76,6 +76,8 @@
   }
 
   &__meta-item {
+    @include ts-caption;
+
     &:not(:first-child) {
       &:before {
         content  : "•";
@@ -104,7 +106,7 @@
 
   &__author-name {
     &--link {
-      @include underlined-off($offset : 0.125rem);
+      @include underlined-off($offset : 2px);
     }
   }
 
@@ -148,27 +150,9 @@
     }
   }
 
-  &--person {
-    padding-bottom : 4rem;
-
-    #{$c}__inner {
-      grid-column : 3 / -1;
-      margin-top  : var(--space-3xl);
-
-      @include media("<=tablet") {
-        grid-column : 1 / -1;
-        margin-top  : 1rem;
-      }
-    }
-
-    #{$c}__title {
-      margin-top : 0;
-    }
-  }
-
   &__meta-link {
+    @include ts-caption;
     @include underlined-off;
-    text-decoration-thickness : 0.0625rem;
   }
 
   &__mobile-buttons {
@@ -186,6 +170,34 @@
 
     @include media("<=tablet") {
       padding-bottom : 6rem;
+    }
+  }
+
+  &--person {
+    padding-bottom : 4rem;
+
+    @include media("<=tablet") {
+      padding-bottom : 2.25rem;
+    }
+
+    #{$c}__inner {
+      grid-column : 3 / -1;
+      margin-top  : var(--space-3xl);
+
+      @include media("<=tablet") {
+        grid-column : 1 / -1;
+        margin-top  : 1rem;
+      }
+    }
+
+    #{$c}__title {
+      margin-top : 0;
+    }
+  }
+
+  &--career-opportunity {
+    #{$c}__meta-link {
+      @include underlined;
     }
   }
 }
