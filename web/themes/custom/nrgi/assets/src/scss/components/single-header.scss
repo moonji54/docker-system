@@ -106,7 +106,7 @@
 
   &__author-name {
     &--link {
-      @include underlined-off($offset : 0.125rem);
+      @include underlined-off($offset : 2px);
     }
   }
 

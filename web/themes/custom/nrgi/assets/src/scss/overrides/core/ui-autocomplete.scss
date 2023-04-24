@@ -3,7 +3,7 @@
   background-color : $white;
   border           : none;
   box-shadow       : 0 0.5rem 1rem rgba($primary, 15%);
-  height           : 8.75rem;
+  max-height       : 8.75rem;
   overflow         : auto;
 
   &::-webkit-scrollbar {
