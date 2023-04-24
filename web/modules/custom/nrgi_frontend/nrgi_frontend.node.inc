@@ -100,13 +100,25 @@ function nrgi_frontend_preprocess_node(&$variables): void {
               $variables['date'] = $formatted_date;
             }
 
-            // Cover logos.
+            // Logos for PDF.
             $metadata_helper_service->preprocessLogos(
               $node,
               $metadata_helper_service->metadataFieldNames['all']['sidebar_logo'],
               t('Produced in partnership with'),
               $variables,
               TRUE,
+            );
+
+            $metadata_helper_service->preprocessLogos(
+              $node,
+              $metadata_helper_service->metadataFieldNames['all']['logo'],
+              t('Produced with financial support from'),
+              $variables
+            );
+
+            $variables['logos'] = array_merge(
+              $variables['sidebar_data'],
+              $variables['meta_data']
             );
           }
         }
