@@ -1,0 +1,29 @@
+uuid: 37a72ef6-4115-47cb-811c-b1db505deb1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_pdf_image_fallback
+    - media.type.image
+    - media.type.remote_video
+id: media.remote_video.field_pdf_image_fallback
+field_name: field_pdf_image_fallback
+entity_type: media
+bundle: remote_video
+label: 'PDF image fallback'
+description: "Add a fallback image to be used on the generated pdfs for Publications using this embed.\r\n"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

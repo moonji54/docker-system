@@ -7,15 +7,20 @@
     auto: false,
   };
 </script>
-<article class="c-pdf c-pdf--table-of-contents js-table-of-contents-wrapper">
+{{ attach_library('nrgi/toc') }}
+<section class="c-pdf c-pdf--table-of-contents js-table-of-contents-wrapper u-page-break">
   <div class="c-pdf__container">
     <div class="c-pdf__inner">
-      <h1 class="c-pdf__title">Contents</h1>
+      <h1 class="c-pdf__title">{{ "Contents"|t }}</h1>
 
       <ul class="c-pdf__contents-list" id="pdf-contents">
       </ul>
+      <div class="c-table-of-contents__list-wrapper js-scroll-wrapper">
+        <ul class="c-table-of-contents__list o-container js-toc-list">
+        </ul>
+      </div>
     </div>
   </div>
-</article>
+</section>
 
-{{ attach_library('nrgi/pdf-contents') }}
+

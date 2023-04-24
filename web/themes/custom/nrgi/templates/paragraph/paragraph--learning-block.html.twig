@@ -16,15 +16,24 @@
       {% endif %}
 
       {% if button_link.url %}
-        <a class="c-learning-block__button o-button o-button--white" href="{{ button_link.url }}"
-           target="{{ button_link.is_external ? '_blank' : '_self' }}">
-          {% if button_link.type == 'link' %}
-            {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'arrow' } %}
-          {% elseif button_link.type == 'download' %}
-            {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'download' } %}
+        {% if is_pdf %}
+          {% if fallback_text_link and fallback_link %}
+            <p>
+              {{ fallback_text_link }}
+              <a href="{{ fallback_link }}">{{ url('<front>')|render|replace({'/':'', 'https:':'', 'http:':''}) ~ fallback_link|render }}</a>
+            </p>
           {% endif %}
-          <span>{{ button_link.title }}</span>
-        </a>
+        {% else %}
+          <a class="c-learning-block__button o-button o-button--white" href="{{ button_link.url }}"
+             target="{{ button_link.is_external ? '_blank' : '_self' }}">
+            {% if button_link.type == 'link' %}
+              {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'arrow' } %}
+            {% elseif button_link.type == 'download' %}
+              {% include '@nrgi/svg/svg.html.twig' with { 'svg' : 'download' } %}
+            {% endif %}
+            <span>{{ button_link.title }}</span>
+          </a>
+        {% endif %}
       {% endif %}
     </div>
   </div>

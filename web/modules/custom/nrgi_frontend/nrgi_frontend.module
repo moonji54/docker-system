@@ -16,7 +16,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
 \Drupal::moduleHandler()
   ->loadInclude('nrgi_frontend', 'inc', 'nrgi_frontend.paragraph');
 \Drupal::moduleHandler()
-  ->loadInclude('nrgi_frontend', 'inc', 'natcen_frontend.node.pdf');
+  ->loadInclude('nrgi_frontend', 'inc', 'nrgi_frontend.node.pdf');
 \Drupal::moduleHandler()
   ->loadInclude('nrgi_frontend', 'inc', 'nrgi_frontend.suggestions');
 \Drupal::moduleHandler()

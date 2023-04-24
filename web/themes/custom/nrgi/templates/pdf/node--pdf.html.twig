@@ -1,19 +1,18 @@
-{# Page header #}
-{% include 'node--pdf-header.html.twig' %}
+<article class="c-pdf c-pdf--cover">
+  <div class="c-pdf__container">
+    {# Page header #}
+    {% include 'node--pdf-cover.html.twig' %}
 
-{# Table of contents #}
-{# {% include 'node--pdf-contents.html.twig' %} #}
+    {# Table of contents #}
+    {% include 'node--pdf-contents.html.twig' %}
 
-{# Intro page #}
-{# {% if content.field_short_description|field_value %} #}
-{#  {% include 'node--pdf-intro.html.twig' %} #}
-{# {% endif %} #}
+    {# Body #}
+    <div class="c-pdf c-pdf--body u-page-break">
+      {% include 'node--body.html.twig' %}
+    </div>
 
-{# Body #}
-{# <article class="c-pdf c-pdf--body u-page-break"> #}
-{#  {% include 'node--body.html.twig' %} #}
-{# </article> #}
-
-{# Footer #}
-{# {% include 'node--pdf-footer.html.twig' %} #}
+    {# Footer #}
+    {# {% include 'node--pdf-footer.html.twig' %} #}
+  </div>
+</article>
 

@@ -4,10 +4,30 @@ status: true
 dependencies:
   config:
     - field.field.media.remote_video.field_media_oembed_video
+    - field.field.media.remote_video.field_pdf_image_fallback
     - media.type.remote_video
   module:
+    - field_group
     - media
+    - media_library
     - path
+third_party_settings:
+  field_group:
+    group_page_to_pdf_image_fallback:
+      children:
+        - field_pdf_image_fallback
+      label: 'Page-to-PDF image fallback'
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
 _core:
   default_config_hash: Guo-mOwJnRPLXulM0uvixi5EUqKBCFLpRFYgIXgF010
 id: media.remote_video.default
@@ -17,7 +37,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -28,6 +48,13 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_pdf_image_fallback:
+    type: media_library_widget
+    weight: 7
+    region: content
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -44,14 +71,14 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 100
+    weight: 6
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
