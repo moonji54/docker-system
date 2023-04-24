@@ -228,11 +228,13 @@ class MetadataHelperService {
       $this->metadataFieldNames['all']['downloads'],
       $variables
     );
-    $this->preprocessGeneralMetadata(
-      $node,
-      $this->metadataFieldNames['all']['taxonomies'],
-      $variables
-    );
+    if ($node->bundle() != 'career_opportunity') {
+      $this->preprocessGeneralMetadata(
+        $node,
+        $this->metadataFieldNames['all']['taxonomies'],
+        $variables
+      );
+    }
   }
 
   /**

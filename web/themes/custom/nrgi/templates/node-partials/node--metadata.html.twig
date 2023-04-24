@@ -3,6 +3,7 @@
     <dl class="c-meta-rows__inner">
       {% for data in meta_data %}
         {% for section in data %}
+          {{ dpm(section) }}
           {% set meta_type = section.label|render|lower|replace({' ' : '-'}) %}
 
           {% if meta_type == 'produced-with-financial-support-from' %}
@@ -26,7 +27,8 @@
             {% set meta_layout = 'half-width' %}
           {% endif %}
 
-          <div class="c-meta-rows__row{{ meta_type ? ' c-meta-rows__row--' ~ meta_type }}{{ meta_layout ? ' c-meta-rows__row--' ~ meta_layout : '' }}">
+          <div
+              class="c-meta-rows__row{{ meta_type ? ' c-meta-rows__row--' ~ meta_type }}{{ meta_layout ? ' c-meta-rows__row--' ~ meta_layout : '' }}">
             <dt class="c-meta-rows__label">
               <span>{{ section.label }}</span>
             </dt>
