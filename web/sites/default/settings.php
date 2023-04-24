@@ -798,6 +798,4 @@ $settings['config_exclude_modules'] = [
   'devel',
 ];
 
-$settings['browserless_api_key'] = '8970cc21-677c-4145-a344-3e93256a5dce';
-$settings['ngrok_url'] = 'https://7ac1-188-31-224-151.ngrok-free.app';
-
+$settings['browserless_api_key'] = 'c0d824c4-1dfc-42c0-b0e0-f554cb2c1384';
