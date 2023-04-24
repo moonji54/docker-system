@@ -1,52 +1,48 @@
-<div class="c-pdf c-pdf--info">
-  <div class="c-text-block__container o-container">
-    {% if site_settings['page-to-pdf'].about_nrgi_back_cover.field_title %}
-      {{ site_settings['page-to-pdf'].about_nrgi_back_cover.field_title }}
-    {% endif %}
+<div class="c-text-block__container o-container">
+  {% if content.field_pdf_additional_information|field_value %}
+    {{ content.field_pdf_additional_information }}
+  {% endif %}
+</div>
 
-    {% if site_settings['page-to-pdf'].about_nrgi_back_cover.field_body %}
-      {{ site_settings['page-to-pdf'].about_nrgi_back_cover.field_body.value|raw }}
-    {% endif %}
-
-    {# All logos #}
-    {% if logos %}
-      <div class="c-meta-rows__container o-container" style="background-color: white; color: black">
-        <dl class="c-meta-rows__inner">
-          {% for data in logos %}
-            {% for section in data %}
-              <div class="c-meta-rows__row">
-                <dt class="c-meta-rows__label">
-                  <h3>{{ section.label }}</h3>
-                </dt>
-                <dd class="c-meta-rows__items">
-                  {% for item in section.items %}
-                    {% if item.type == 'logo' %}
-                      {# Organisation logos #}
-                      {% if item.link %}
-                        <a class="c-meta-rows__logo" href="{{ item.link }}"
-                           title="{{ 'Visit'|t ~ ' ' ~ item.title ?: 'organisation'|t }}"
-                           target="{{ item.is_external ? '_blank' : '' }}">
-                          {% if item.logo %}
-                            {{ item.logo }}
-                          {% else %}
-                            {{ item.title }}
-                          {% endif %}
-                        </a>
-                      {% endif %}
+{# All logos #}
+  {% if logos %}
+    <div class="c-meta-rows__container o-container" style="background-color: white; color: black">
+      <dl class="c-meta-rows__inner">
+        {% for data in logos %}
+          {% for section in data %}
+            <div class="c-meta-rows__row">
+              <dt class="c-meta-rows__label">
+                <h3>{{ section.label }}</h3>
+              </dt>
+              <dd class="c-meta-rows__items">
+                {% for item in section.items %}
+                  {% if item.type == 'logo' %}
+                    {# Organisation logos #}
+                    {% if item.link %}
+                      <a class="c-meta-rows__logo" href="{{ item.link }}"
+                         title="{{ 'Visit'|t ~ ' ' ~ item.title ?: 'organisation'|t }}"
+                         target="{{ item.is_external ? '_blank' : '' }}">
+                        {% if item.logo %}
+                          {{ item.logo }}
+                        {% else %}
+                          {{ item.title }}
+                        {% endif %}
+                      </a>
                     {% endif %}
-                  {% endfor %}
-                </dd>
-              </div>
-            {% endfor %}
+                  {% endif %}
+                {% endfor %}
+              </dd>
+            </div>
           {% endfor %}
-        </dl>
-      </div>
-    {% endif %}
+        {% endfor %}
+      </dl>
+    </div>
+  {% endif %}
 
-    {# Cover image caprion #}
-    {% if content.field_photo_caption|field_value %}
-      <h4>{{ 'Cover image'|t }}</h4>
-      {{ content.field_photo_caption }}
-    {% endif %}
-  </div>
+  {# Cover image caprion #}
+<div>
+  {% if content.field_photo_caption|field_value %}
+    <h4>{{ 'Cover image'|t }}</h4>
+    {{ content.field_photo_caption }}
+  {% endif %}
 </div>

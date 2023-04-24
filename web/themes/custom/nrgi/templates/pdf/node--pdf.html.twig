@@ -17,10 +17,14 @@
     </div>
 
     {# PDF info #}
-    {% include 'node--pdf-info.html.twig' %}
+    <div class="c-pdf c-pdf--info u-page-break">
+      {% include 'node--pdf-info.html.twig' %}
+    </div>
 
     {# Back cover #}
-    {# {% include 'node--pdf-backcover.html.twig' %} #}
+    <div class="c-pdf c-pdf--info u-page-break">
+      {% include 'node--pdf-backcover.html.twig' %}
+    </div>
   </div>
 </article>
 
