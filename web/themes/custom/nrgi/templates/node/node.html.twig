@@ -3,7 +3,7 @@
   'c-node--type-' ~ node.bundle|clean_class,
 ] %}
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes).setAttribute('dir', language_direction) }}>
   {% include '@nrgi/node-partials/node--single-header.html.twig' %}
 
   {% if node.bundle == 'publication' %}

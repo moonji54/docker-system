@@ -29,7 +29,10 @@ function nrgi_frontend_preprocess_node(&$variables): void {
     /** @var \Drupal\nrgi_frontend\Services\MetadataHelperService $metadata_helper_service */
     $metadata_helper_service = \Drupal::service('nrgi_frontend.metadata_helper');
 
-    $variables['language_direction'] = $node->language()->getDirection();
+    // Adding direction manually, instead of language setting. On Drupal
+    // settings, we set Arabic to LTR to avoid 'flipping' all the site.
+    // We need to 'flip' only the node content (not header, footers, etc).
+    $variables['language_direction'] = $node->language()->getId() == 'ar' ? 'rtl' : 'ltr';
 
     switch ($node->bundle()) {
       case 'homepage':
