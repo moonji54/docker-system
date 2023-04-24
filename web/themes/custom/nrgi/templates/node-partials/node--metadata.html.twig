@@ -3,7 +3,6 @@
     <dl class="c-meta-rows__inner">
       {% for data in meta_data %}
         {% for section in data %}
-          {{ dpm(section) }}
           {% set meta_type = section.label|render|lower|replace({' ' : '-'}) %}
 
           {% if meta_type == 'produced-with-financial-support-from' %}
