@@ -629,7 +629,7 @@ class MetadataHelperService {
 
                   $this->responsiveImageService->preprocessResponsiveImage(
                     $media,
-                    'square_small',
+                    'logo',
                     $logo);
 
                   if ($paragraph->hasField('field_link')
