@@ -1,0 +1,11 @@
+<div class="c-pdf c-pdf--info">
+  <div class="c-text-block__container o-container">
+    {% if site_settings['page-to-pdf'].about_nrgi_back_cover.field_title %}
+      {{ site_settings['page-to-pdf'].about_nrgi_back_cover.field_title }}
+    {% endif %}
+
+    {% if site_settings['page-to-pdf'].about_nrgi_back_cover.field_body %}
+      {{ site_settings['page-to-pdf'].about_nrgi_back_cover.field_body.value|raw }}
+    {% endif %}
+  </div>
+</div>
