@@ -1,5 +1,12 @@
-.c-pdf {
+@import "settings/include-media/include-media";
+@import "settings/colours";
+@import "settings/fonts";
+@import "tools/mixins";
+@import "base/base";
+@import "reset/reset";
 
+.c-pdf {
+  /* stylelint-disable */
   &__header {
     background-color : lightskyblue;
 
@@ -11,11 +18,32 @@
     content : counter(page);
   }
 
+  &__logo {
+    img {
+      height : 30pt;
+      width  : 201pt;
+    }
+  }
+
   &__cover {
-    background-color : lightsalmon;
+    background-color : $secondary;
+    color            : $grey-light;
+    height           : var(--pagedjs-pagebox-height);
 
     // Mark the cover div as a specific unique page layout.
     page             : coverPage;
+  }
+
+  &__cover-container {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : space-between;
+    padding         : 56pt 42pt;
+  }
+
+  &__cover-image {
+    height : auto;
+    width  : 100%;
   }
 
   &__body {
@@ -35,16 +63,20 @@
   }
 }
 
+@page {
+  margin : 0;
+  size   : A4 portrait;
+}
+
 // Position the header into top-center and footer into bottom right.
 // Target a named paged specifically to avoid this applying to
 // pages like the cover page, final page, etc.
 // @see https://www.pagedjs.org/documentation/07-generated-content-in-margin-boxes/
 @page bodyPage {
-
   // Set a custom margin size.
   // In this case, 60mm header, 20mm footer,
   // 30mm left and right side.
-  margin : 60mm 30mm 20mm 30mm;
+  margin : 14.8mm 19.7mm 19.7mm;
 
   // Control specific margin areas, adding
   // named content from above into them.
@@ -66,11 +98,11 @@
     // Remove all margin areas by effectively deleting the
     // grid sizes. Yep, you can do things like this per page.
     // You can also target :first page, :nth page etc.
+    background-color      : lightblue;
     grid-template-columns : 0;
-    grid-template-rows    : 0;
 
     // Add a background to make this clear on PDF render.
-    background-color      : lightblue;
+    grid-template-rows    : 0;
   }
 }
 

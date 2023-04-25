@@ -1,30 +1,30 @@
-<article class="c-pdf c-pdf--cover">
-  <div class="c-pdf__container">
-    {# Page header #}
-    {% include 'node--pdf-cover.html.twig' %}
+{{ attach_library('nrgi/pdf-styling') }}
 
-    {# Table of contents #}
-    {% include 'node--pdf-contents.html.twig' %}
+<article class="c-pdf">
+  {# Page header #}
+  {% include 'node--pdf-cover.html.twig' %}
 
-    {# Body #}
-    <div class="c-pdf c-pdf--body u-page-break">
-      {% include 'node--body.html.twig' %}
-    </div>
+  {# Table of contents #}
+  {#    {% include 'node--pdf-contents.html.twig' %} #}
 
-    {# Endnotes #}
-    <div class="c-pdf c-pdf--footnotes u-page-break">
-      {{ drupal_block('footnotes_group') }}
-    </div>
+  {# Body #}
+  <div class="c-pdf__body u-page-break">
+    {% include 'node--body.html.twig' %}
+  </div>
 
-    {# PDF info #}
-    <div class="c-pdf c-pdf--info u-page-break">
-      {% include 'node--pdf-info.html.twig' %}
-    </div>
+  {# Endnotes #}
+  <div class="c-pdf c-pdf--footnotes u-page-break">
+    {{ drupal_block('footnotes_group') }}
+  </div>
 
-    {# Back cover #}
-    <div class="c-pdf c-pdf--info u-page-break">
-      {% include 'node--pdf-backcover.html.twig' %}
-    </div>
+  {# PDF info #}
+  <div class="c-pdf c-pdf--info u-page-break">
+    {% include 'node--pdf-info.html.twig' %}
+  </div>
+
+  {# Back cover #}
+  <div class="c-pdf c-pdf--info u-page-break">
+    {% include 'node--pdf-backcover.html.twig' %}
   </div>
 </article>
 

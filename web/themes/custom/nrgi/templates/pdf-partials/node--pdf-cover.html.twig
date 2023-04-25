@@ -1,78 +1,75 @@
-<header class="c-pdf__cover" style="background-color: #00545a; color: white">
-  <div class="c-pdf__top">
-    {% include '@nrgi/svg/svg.html.twig' with {'svg': 'header-logo'} %}
+<header class="c-pdf__cover">
+  <div class="c-pdf__cover-container">
+    <div class="c-pdf__cover-top">
+      <div class="c-pdf__logo">
+        <img src="/{{ base_path ~ directory }}/assets/img/pdf-cover-logo.svg" alt=""/>
+      </div>
+    </div>
+
+    <div class="c-pdf__cover-content">
+
+      <h1 class="c-pdf__title">
+        {{ label }}
+      </h1>
+
+      {# Subtitle #}
+      {% if content.field_subtitle|field_value %}
+        <h2 class="c-single-header__subtitle">{{ content.field_subtitle }}</h2>
+      {% endif %}
+
+      {# Authors #}
+      {% if authors %}
+        <div class="c-single-header__meta-item">
+          <ul class="c-single-header__authors-list">
+            {% for author in authors %}
+              <li class="c-single-header__author-item">
+                <span>{{ author.firstname ~ ' ' ~ author.surname }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {# Date #}
+      {% if date %}
+        <p>{{ date|upper }}</p>
+      {% endif %}
+    </div>
   </div>
 
-  <h1 class="c-pdf__title">
-    {{ label }}
-  </h1>
-
-  {# Subtitle #}
-  {% if content.field_subtitle|field_value %}
-    <h2 class="c-single-header__subtitle">{{ content.field_subtitle }}</h2>
+  {# FEATURED IMAGE #}
+  {% if content.field_featured_image|field_value %}
+    <div class="c-pdf__cover-image">
+      {{ content.field_featured_image }}
+    </div>
   {% endif %}
 
-  <div class="c-pdf__cover-info">
-    {# Authors #}
-    {% if authors %}
-      <div class="c-single-header__meta-item">
-        <ul class="c-single-header__authors-list">
-          {% for author in authors %}
-            <li class="c-single-header__author-item">
-              <span>{{ author.firstname ~ ' ' ~ author.surname }}</span>
-            </li>
+  {# Cover logos #}
+  {% if sidebar_data %}
+    <div class="c-pdf__cover-bottom">
+      {% for data in sidebar_data %}
+        {% for section in data %}
+          {{ section.label }}
+
+          {% for item in section.items %}
+            {% if item.type == 'logo' %}
+              {# Organisation logos #}
+              {% if item.link %}
+                <a class="c-meta-rows__logo" href="{{ item.link }}"
+                   title="{{ 'Visit'|t ~ ' ' ~ item.title ?: 'organisation'|t }}"
+                   target="{{ item.is_external ? '_blank' : '' }}">
+                  {% if item.logo %}
+                    {{ item.logo }}
+                  {% else %}
+                    {{ item.title }}
+                  {% endif %}
+                </a>
+              {% endif %}
+            {% endif %}
           {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
 
-    {# Date #}
-    {% if date %}
-      <p>{{ date|upper }}</p>
-    {% endif %}
-
-    {# FEATURED IMAGE #}
-    {% if content.field_featured_image|field_value %}
-      <div class="c-single-content__image-container">
-        <div class="c-single-content__image-wrapper">
-          {{ content.field_featured_image }}
-        </div>
-      </div>
-    {% endif %}
-
-    {# Cover logos #}
-    {% if sidebar_data %}
-      <div class="c-meta-rows__container o-container" style="background-color: white; color: black">
-        <dl class="c-meta-rows__inner">
-          {% for data in sidebar_data %}
-            {% for section in data %}
-              <div class="c-meta-rows__row">
-                <dt class="c-meta-rows__label">
-                  <h3>{{ section.label }}</h3>
-                </dt>
-                <dd class="c-meta-rows__items">
-                  {% for item in section.items %}
-                    {% if item.type == 'logo' %}
-                      {# Organisation logos #}
-                      {% if item.link %}
-                        <a class="c-meta-rows__logo" href="{{ item.link }}"
-                           title="{{ 'Visit'|t ~ ' ' ~ item.title ?: 'organisation'|t }}"
-                           target="{{ item.is_external ? '_blank' : '' }}">
-                          {% if item.logo %}
-                            {{ item.logo }}
-                          {% else %}
-                            {{ item.title }}
-                          {% endif %}
-                        </a>
-                      {% endif %}
-                    {% endif %}
-                  {% endfor %}
-                </dd>
-              </div>
-            {% endfor %}
-          {% endfor %}
-        </dl>
-      </div>
-    {% endif %}
-  </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  {% endif %}
 </header>

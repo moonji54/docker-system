@@ -167,6 +167,7 @@ gulp.task('build-all', gulp.series([
 
 gulp.task('build', gulp.series([
     'build-css',
+    'build-pdf-css',
 ]));
 
 // Reload the browser!
@@ -177,13 +178,14 @@ gulp.task('reload', gulp.series(() => {
 // Watcher
 gulp.task('watch', gulp.series([
     'build-css',
+    'build-pdf-css',
 ], () => {
     // Start livereload
     $.livereload.listen(livereloadSettings);
 
     // Watch .scss files
     gulp.watch('scss/**/*.scss')
-        .on('change', gulp.series('build-css'));
+        .on('change', gulp.series('build'));
 
     // Watch .js files
     gulp.watch(['es6/*.es6', 'es6/**/*.js'])
