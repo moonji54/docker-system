@@ -8,7 +8,7 @@
   rtl ? 'rtl'
 ] %}
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes).setAttribute('dir', language_direction) }}>
   {% include "@nrgi/node-partials/node--single-header.html.twig" %}
   <div class="c-single-content {% if content.field_featured_image|field_value %} c-single-content--has-featured-image {% endif %}
 ">

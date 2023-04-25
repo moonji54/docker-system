@@ -8,7 +8,7 @@
   rtl ? 'rtl'
 ] %}
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes).setAttribute('dir', language_direction) }}>
   {# Landing/listing banner #}
   {% include '@nrgi/node-partials/node--page-header.html.twig' %}
 
