@@ -1,6 +1,11 @@
+{% if language_direction == 'rtl' %}
+  {% set rtl = true %}
+{% endif %}
+
 {% set classes = [
   'c-node',
   'c-node--type-' ~ node.bundle|clean_class,
+  rtl ? 'rtl'
 ] %}
 
 <article{{ attributes.addClass(classes) }}>
