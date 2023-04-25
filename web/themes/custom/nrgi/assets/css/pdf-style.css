@@ -210,6 +210,9 @@ button:focus {
   outline: none;
 }
 
+.c-pdf {
+  /* stylelint-disable */
+}
 .c-pdf__header {
   background-color: lightskyblue;
   position: running(headerRunning);
@@ -224,18 +227,73 @@ button:focus {
 .c-pdf__cover {
   background-color: #00545A;
   color: #EDEDEF;
+  display: flex;
+  flex-direction: column;
   height: var(--pagedjs-pagebox-height);
   page: coverPage;
 }
-.c-pdf__cover-container {
+.c-pdf__cover-wrapper {
   display: flex;
   flex-direction: column;
+  height: 100%;
   justify-content: space-between;
-  padding: 56pt 42pt;
+}
+.c-pdf__cover-top {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  margin-left: 42pt;
+  padding: 56pt 0;
+}
+.c-pdf__cover-content {
+  width: calc(100% - 42pt);
 }
 .c-pdf__cover-image {
   height: auto;
   width: 100%;
+}
+.c-pdf__authors-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4pt;
+  margin-top: 20pt;
+}
+.c-pdf__author {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 500;
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 2pt;
+  line-height: 1.3;
+}
+.c-pdf__author:after {
+  content: ", ";
+}
+.c-pdf__author:last-child:after, .c-pdf__author:only-child:after {
+  content: none;
+}
+.c-pdf__date {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 500;
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 2pt;
+  line-height: 1.3;
+  margin-top: 8pt;
+}
+.c-pdf__heading {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 36pt;
+  line-height: 1.2;
+}
+.c-pdf__sub-heading {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 20pt;
+  line-height: 1.3;
+  margin-top: 20pt;
 }
 .c-pdf__body {
   counter-reset: page 999;

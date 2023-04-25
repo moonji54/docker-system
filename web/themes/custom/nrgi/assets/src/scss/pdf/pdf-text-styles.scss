@@ -1,0 +1,22 @@
+@mixin pdf-ts-cover-heading {
+  @include sans-heading;
+  font-weight : 500;
+  font-size   : 36pt;
+  line-height : 1.2;
+}
+
+@mixin pdf-ts-cover-sub-heading {
+  @include sans-heading;
+  font-weight : 500;
+  font-size   : 20pt;
+  line-height : 1.3;
+}
+
+@mixin pdf-ts-cover-meta {
+  @include sans-body ;
+  font-weight    : 500;
+  font-size      : 8pt;
+  text-transform : uppercase;
+  letter-spacing : 2pt;
+  line-height    : 1.3;
+}
