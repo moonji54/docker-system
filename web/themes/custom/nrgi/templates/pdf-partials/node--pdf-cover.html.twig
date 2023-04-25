@@ -46,24 +46,26 @@
         <div class="c-pdf__cover-meta">
           {% for data in sidebar_data %}
             {% for section in data %}
-              {{ section.label }}
+              <span class="c-pdf__cover-meta-text">{{ section.label }}</span>
 
-              {% for item in section.items %}
-                {% if item.type == 'logo' %}
-                  {# Organisation logos #}
-                  {% if item.link %}
-                    <a class="c-meta-rows__logo" href="{{ item.link }}"
-                       title="{{ 'Visit'|t ~ ' ' ~ item.title ?: 'organisation'|t }}"
-                       target="{{ item.is_external ? '_blank' : '' }}">
-                      {% if item.logo %}
-                        {{ item.logo }}
-                      {% else %}
-                        {{ item.title }}
-                      {% endif %}
-                    </a>
+              <div class="c-pdf__cover-meta-logos">
+                {% for item in section.items %}
+                  {% if item.type == 'logo' %}
+                    {# Organisation logos #}
+                    {% if item.link %}
+                      <a class="c-pdf__cover-meta-logo" href="{{ item.link }}"
+                         title="{{ 'Visit'|t ~ ' ' ~ item.title ?: 'organisation'|t }}"
+                         target="{{ item.is_external ? '_blank' : '' }}">
+                        {% if item.logo %}
+                          {{ item.logo }}
+                        {% else %}
+                          {{ item.title }}
+                        {% endif %}
+                      </a>
+                    {% endif %}
                   {% endif %}
-                {% endif %}
-              {% endfor %}
+                {% endfor %}
+              </div>
             {% endfor %}
           {% endfor %}
         </div>

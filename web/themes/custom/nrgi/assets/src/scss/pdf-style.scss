@@ -62,6 +62,30 @@
     width  : 100%;
   }
 
+  &__cover-meta {
+    align-items      : center;
+    background-color : $white;
+    display          : flex;
+    justify-content  : space-between;
+    padding          : 26pt 42pt;
+  }
+
+  &__cover-meta-text {
+    @include pdf-ts-cover-meta;
+    color : $primary;
+  }
+
+  &__cover-meta-logos {
+    display : flex;
+    gap     : 16pt;
+  }
+
+  &__cover-meta-logo {
+    img {
+      max-height : 39pt;
+    }
+  }
+
   &__authors-list {
     display    : flex;
     flex-wrap  : wrap;
