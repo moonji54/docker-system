@@ -116,10 +116,12 @@ function nrgi_frontend_preprocess_node(&$variables): void {
               $variables
             );
 
-            $variables['logos'] = array_merge(
-              $variables['sidebar_data'],
-              $variables['meta_data']
-            );
+            if (isset($variables['sidebar_data']) && isset($variables['meta_data'])) {
+              $variables['logos'] = array_merge(
+                $variables['sidebar_data'],
+                $variables['meta_data']
+              );
+            }
           }
         }
     }
