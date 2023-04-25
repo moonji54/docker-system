@@ -1,14 +1,18 @@
 {{ attach_library('nrgi/pdf-styling') }}
 
+<div class="pdf-running-header">
+  <span>{{ label }}</span>
+</div>
+
 <article class="c-pdf">
   {# Page header #}
   {% include 'node--pdf-cover.html.twig' %}
 
   {# Table of contents #}
-  {#    {% include 'node--pdf-contents.html.twig' %} #}
+  {% include 'node--pdf-contents.html.twig' %}
 
   {# Body #}
-  <div class="c-pdf__body u-page-break">
+  <div class="c-pdf__body">
     {% include 'node--body.html.twig' %}
   </div>
 

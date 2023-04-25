@@ -1,21 +1,21 @@
-<script>
-  {#
-  This stops pagedjs from runnint automatically before the content block gets rendered.
-  Pagejs will be then triggered inside natcen/pdf-contents library once pdf-contents have been created.
-  #}
-  window.PagedConfig = {
-    auto: false,
-  };
-</script>
-{{ attach_library('nrgi/toc') }}
-<section class="c-pdf c-pdf--table-of-contents js-table-of-contents-wrapper u-page-break">
+{# <script> #}
+{#  #}{# #}
+{#  This stops pagedjs from runnint automatically before the content block gets rendered. #}
+{#  Pagejs will be then triggered inside natcen/pdf-contents library once pdf-contents have been created. #}
+{#  #}
+{#  window.PagedConfig = { #}
+{#    auto: false, #}
+{#  }; #}
+{# </script> #}
+{# {{ attach_library('nrgi/toc') }} #}
+<section class="c-pdf__toc js-table-of-contents-wrapper">
   <div class="c-pdf__container">
     <div class="c-pdf__inner">
       <h1 class="c-pdf__title">{{ "Contents"|t }}</h1>
 
       <ul class="c-pdf__contents-list" id="pdf-contents">
       </ul>
-      <div class="c-table-of-contents__list-wrapper js-scroll-wrapper">
+      <div class="c-table-of-contents__list-wrapper">
         <ul class="c-table-of-contents__list o-container js-toc-list">
         </ul>
       </div>

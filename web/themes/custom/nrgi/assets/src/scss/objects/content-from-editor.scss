@@ -308,6 +308,7 @@
     /* stylelint-disable-next-line */
     > * {
       @include ts-heading-6;
+      margin-top : 0;
     }
 
     li {

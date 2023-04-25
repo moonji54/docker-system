@@ -6,13 +6,47 @@
 @import "base/base";
 @import "reset/reset";
 
-.c-pdf {
-  /* stylelint-disable */
-  &__header {
-    background-color : lightskyblue;
+@page {
+  margin : 32.8mm 19.7mm 19.7mm;
+  size   : A4 portrait;
+}
 
-    // Mark the header as having a custom PagedJS position.
-    position         : running(headerRunning);
+@page coverPage {
+  margin : 0;
+}
+
+// Position the header into top-center and footer into bottom right.
+// Target a named paged specifically to avoid this applying to
+// pages like the cover page, final page, etc.
+// @see https://www.pagedjs.org/documentation/07-generated-content-in-margin-boxes/
+@page bodyPage {
+  // Control specific margin areas, adding
+  // named content from above into them.
+  @top-left {
+    content : element(headerRunning);
+    width   : 90%;
+  }
+  @top-right {
+    @include pdf-ts-running-header;
+    content : counter(page);
+  }
+}
+
+@page tocPage {
+
+}
+
+.c-pdf {
+  .o-section {
+    padding-top : 0;
+  }
+
+  .o-container {
+    padding : 0;
+
+    > * {
+      grid-column : 1 / 10;
+    }
   }
 
   &__page-number {
@@ -125,8 +159,10 @@
   &__body {
     // Reset the page number when this class is first hit.
     // Yep, it can be anything!
-    counter-reset : page 999;
+    counter-reset : page 1;
     line-height   : 2rem;
+    // Mark the header as having a custom PagedJS position.
+    position      : running(headerRunning);
 
     // Mark the body div as a specific unique page layout.
     page          : bodyPage;
@@ -137,48 +173,36 @@
     // Mark the footer as having a custom PagedJS position.
     position         : running(footerRunning);
   }
-}
 
-@page {
-  margin : 0;
-  size   : A4 portrait;
-}
-
-// Position the header into top-center and footer into bottom right.
-// Target a named paged specifically to avoid this applying to
-// pages like the cover page, final page, etc.
-// @see https://www.pagedjs.org/documentation/07-generated-content-in-margin-boxes/
-@page bodyPage {
-  // Set a custom margin size.
-  // In this case, 60mm header, 20mm footer,
-  // 30mm left and right side.
-  margin : 14.8mm 19.7mm 19.7mm;
-
-  // Control specific margin areas, adding
-  // named content from above into them.
-  @top-center {
-    content : element(headerRunning);
-  }
-  @top-right {
-    content : counter(page);
-  }
-  @bottom-right {
-    content : element(footerRunning);
+  &__toc {
+    page : tocPage;
   }
 }
 
-// Customisations to the cover page.
+.pdf-running-header {
+  @include pdf-ts-running-header;
+  position : running(headerRunning);
+
+  &:before {
+    border-top : 1pt solid $grey-light;
+    content    : "";
+    display    : block;
+    position   : absolute;
+    width      : 100%;
+  }
+}
+
+//Customisations to the cover page.
 .pagedjs_first_page {
   .pagedjs_pagebox {
-
     // Remove all margin areas by effectively deleting the
     // grid sizes. Yep, you can do things like this per page.
     // You can also target :first page, :nth page etc.
-    background-color      : lightblue;
     grid-template-columns : 0;
+    grid-template-rows    : 0;
 
     // Add a background to make this clear on PDF render.
-    grid-template-rows    : 0;
+    margin                : 0;
   }
 }
 
@@ -186,12 +210,7 @@
 // to the entire header.
 // In this case, to bodyPage only (named page from above).
 .pagedjs_bodyPage_page {
-  .pagedjs_margin-top-left-corner-holder,
-  .pagedjs_margin-top-right-corner-holder {
-    background-color : lightsalmon;
-  }
-
   .pagedjs_margin-top {
-    background-color : lightsalmon;
+    position : relative;
   }
 }

@@ -210,12 +210,37 @@ button:focus {
   outline: none;
 }
 
-.c-pdf {
-  /* stylelint-disable */
+@page {
+  margin: 32.8mm 19.7mm 19.7mm;
+  size: A4 portrait;
 }
-.c-pdf__header {
-  background-color: lightskyblue;
-  position: running(headerRunning);
+@page coverPage {
+  margin: 0;
+}
+@page bodyPage {
+  @top-left {
+    content: element(headerRunning);
+    width: 90%;
+  }
+  @top-right {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 500;
+    font-size: 7pt;
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    line-height: 1.3;
+    content: counter(page);
+  }
+}
+@page tocPage {}
+.c-pdf .o-section {
+  padding-top: 0;
+}
+.c-pdf .o-container {
+  padding: 0;
+}
+.c-pdf .o-container > * {
+  grid-column: 1/10;
 }
 .c-pdf__page-number {
   content: counter(page);
@@ -319,41 +344,42 @@ button:focus {
   margin-top: 20pt;
 }
 .c-pdf__body {
-  counter-reset: page 999;
+  counter-reset: page 1;
   line-height: 2rem;
+  position: running(headerRunning);
   page: bodyPage;
 }
 .c-pdf__footer {
   background-color: lightcoral;
   position: running(footerRunning);
 }
+.c-pdf__toc {
+  page: tocPage;
+}
 
-@page {
-  margin: 0;
-  size: A4 portrait;
+.pdf-running-header {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 500;
+  font-size: 7pt;
+  letter-spacing: 2pt;
+  text-transform: uppercase;
+  line-height: 1.3;
+  position: running(headerRunning);
 }
-@page bodyPage {
-  margin: 14.8mm 19.7mm 19.7mm;
-  @top-center {
-    content: element(headerRunning);
-  }
-  @top-right {
-    content: counter(page);
-  }
-  @bottom-right {
-    content: element(footerRunning);
-  }
+.pdf-running-header:before {
+  border-top: 1pt solid #EDEDEF;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
 }
+
 .pagedjs_first_page .pagedjs_pagebox {
-  background-color: lightblue;
   grid-template-columns: 0;
   grid-template-rows: 0;
+  margin: 0;
 }
 
-.pagedjs_bodyPage_page .pagedjs_margin-top-left-corner-holder,
-.pagedjs_bodyPage_page .pagedjs_margin-top-right-corner-holder {
-  background-color: lightsalmon;
-}
 .pagedjs_bodyPage_page .pagedjs_margin-top {
-  background-color: lightsalmon;
+  position: relative;
 }

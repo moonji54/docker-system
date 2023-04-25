@@ -838,6 +838,7 @@ ul li a:hover {
   font-weight: 500;
   font-size: 2rem;
   line-height: 1.5;
+  margin-top: 0;
 }
 @media (max-width: 94.5rem) {
   .o-content-from-editor .standfirst > * {
