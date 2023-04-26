@@ -7,8 +7,10 @@ dependencies:
     - filter.format.text_and_links
     - filter.format.wysiwyg
     - media.type.audio
+    - media.type.data_visualisation
     - media.type.document
     - media.type.image
+    - media.type.remote_audio
     - media.type.remote_video
     - media.type.video
     - node.type.article
@@ -21,7 +23,17 @@ dependencies:
     - node.type.page
     - node.type.person
     - node.type.publication
+    - node.type.region
     - node.type.topic
+    - taxonomy.vocabulary.board_member_type
+    - taxonomy.vocabulary.career_opportunity_type
+    - taxonomy.vocabulary.cities
+    - taxonomy.vocabulary.event_expertise_requirement
+    - taxonomy.vocabulary.event_type
+    - taxonomy.vocabulary.keyword
+    - taxonomy.vocabulary.person_type
+    - taxonomy.vocabulary.resource_type
+    - taxonomy.vocabulary.series
     - workflows.workflow.editorial
   module:
     - admin_toolbar_search
@@ -33,9 +45,11 @@ dependencies:
     - media
     - node
     - override_node_options
+    - paragraphs
     - save_edit
     - scheduled_transitions
     - system
+    - taxonomy
     - toolbar
 _core:
   default_config_hash: ynT9nh1WETdnbj8jkDnvrpDTHun8boxO9TgXrxSWCTk
@@ -49,30 +63,47 @@ permissions:
   - 'access content overview'
   - 'access media overview'
   - 'access toolbar'
+  - 'add scheduled transitions node article'
+  - 'add scheduled transitions node career_opportunity'
+  - 'add scheduled transitions node country'
+  - 'add scheduled transitions node event'
+  - 'add scheduled transitions node homepage'
+  - 'add scheduled transitions node landing_page'
+  - 'add scheduled transitions node listing_page'
+  - 'add scheduled transitions node page'
+  - 'add scheduled transitions node person'
+  - 'add scheduled transitions node publication'
+  - 'add scheduled transitions node topic'
   - 'create article content'
   - 'create audio media'
   - 'create career_opportunity content'
   - 'create content translations'
   - 'create country content'
+  - 'create data_visualisation media'
   - 'create document media'
   - 'create event content'
   - 'create homepage content'
   - 'create image media'
   - 'create landing_page content'
   - 'create listing_page content'
+  - 'create media'
   - 'create page content'
   - 'create person content'
   - 'create publication content'
+  - 'create region content'
+  - 'create remote_audio media'
   - 'create remote_video media'
+  - 'create terms in cities'
+  - 'create terms in event_expertise_requirement'
+  - 'create terms in series'
   - 'create terms in tags'
   - 'create topic content'
-  - 'create video media'
   - 'delete content translations'
   - 'delete media'
   - 'delete own article content'
-  - 'delete own audio media'
   - 'delete own career_opportunity content'
   - 'delete own country content'
+  - 'delete own data_visualisation media'
   - 'delete own document media'
   - 'delete own event content'
   - 'delete own homepage content'
@@ -82,13 +113,13 @@ permissions:
   - 'delete own page content'
   - 'delete own person content'
   - 'delete own publication content'
+  - 'delete own region content'
+  - 'delete own remote_audio media'
   - 'delete own remote_video media'
   - 'delete own topic content'
-  - 'delete own video media'
   - 'delete terms in tags'
   - 'display eu cookie compliance popup'
   - 'edit any article content'
-  - 'edit any audio media'
   - 'edit any career_opportunity content'
   - 'edit any country content'
   - 'edit any document media'
@@ -100,6 +131,7 @@ permissions:
   - 'edit any page content'
   - 'edit any person content'
   - 'edit any publication content'
+  - 'edit any region content'
   - 'edit any remote_video media'
   - 'edit any topic content'
   - 'edit any video media'
@@ -107,6 +139,7 @@ permissions:
   - 'edit own audio media'
   - 'edit own career_opportunity content'
   - 'edit own country content'
+  - 'edit own data_visualisation media'
   - 'edit own document media'
   - 'edit own event content'
   - 'edit own homepage content'
@@ -116,6 +149,8 @@ permissions:
   - 'edit own page content'
   - 'edit own person content'
   - 'edit own publication content'
+  - 'edit own region content'
+  - 'edit own remote_audio media'
   - 'edit own remote_video media'
   - 'edit own topic content'
   - 'edit own video media'
@@ -146,22 +181,32 @@ permissions:
   - 'revert page revisions'
   - 'revert person revisions'
   - 'revert publication revisions'
+  - 'revert region revisions'
   - 'revert topic revisions'
   - 'translate any entity'
   - 'translate article node'
   - 'translate block_content'
+  - 'translate board_member_type taxonomy_term'
   - 'translate career_opportunity node'
+  - 'translate career_opportunity_type taxonomy_term'
+  - 'translate cities taxonomy_term'
   - 'translate country node'
   - 'translate editable entities'
   - 'translate event node'
+  - 'translate event_expertise_requirement taxonomy_term'
+  - 'translate event_type taxonomy_term'
   - 'translate homepage node'
+  - 'translate keyword taxonomy_term'
   - 'translate landing_page node'
   - 'translate listing_page node'
   - 'translate page node'
+  - 'translate paragraph'
   - 'translate person node'
+  - 'translate person_type taxonomy_term'
   - 'translate publication node'
+  - 'translate resource_type taxonomy_term'
+  - 'translate series taxonomy_term'
   - 'translate topic node'
-  - 'update any media'
   - 'update content translations'
   - 'update media'
   - 'use admin toolbar search'
@@ -194,6 +239,7 @@ permissions:
   - 'view page revisions'
   - 'view person revisions'
   - 'view publication revisions'
+  - 'view region revisions'
   - 'view scheduled transitions node article'
   - 'view scheduled transitions node career_opportunity'
   - 'view scheduled transitions node country'
@@ -208,3 +254,4 @@ permissions:
   - 'view scheduled transitions node topic'
   - 'view the administration theme'
   - 'view topic revisions'
+  - 'view unpublished paragraphs'
