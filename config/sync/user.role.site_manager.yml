@@ -90,7 +90,6 @@ permissions:
   - 'administer footer menu items'
   - 'administer image styles'
   - 'administer main menu items'
-  - 'administer menu'
   - 'administer redirects'
   - 'administer taxonomy'
   - 'administer top-navigation menu items'
