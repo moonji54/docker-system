@@ -5,7 +5,7 @@
 ] %}
 
 {% if title %}
-  <article{{ attributes.addClass(classes) }}>
+  <article{{ attributes.addClass(classes).setAttribute('dir', language_direction) }}>
     <div class="c-card__content-wrapper">
       <div class="c-card__meta-wrapper">
         {% if subtype %}

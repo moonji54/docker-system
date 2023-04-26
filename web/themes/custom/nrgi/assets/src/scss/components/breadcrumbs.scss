@@ -21,6 +21,14 @@
       position : relative;
       top      : 0.0625rem;
     }
+
+    /* stylelint-disable-next-line */
+    .rtl & {
+      /* stylelint-disable-next-line */
+      &:after {
+        transform : rotateY(180deg);
+      }
+    }
   }
 
   &__link {
