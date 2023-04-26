@@ -107,7 +107,7 @@
   &__logo {
     img {
       filter         : grayscale(1);
-      max-width      : 5.75rem;
+      max-width      : 6.25rem;
       mix-blend-mode : multiply;
       transition     : filter 0.3s;
 
@@ -195,10 +195,8 @@
 
     #{$c}__logo {
       img {
-        width : 5.75rem;
-
         @include media("<=desktop") {
-          width : 4rem;
+          max-width : 4rem;
         }
       }
     }

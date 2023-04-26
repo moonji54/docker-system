@@ -3585,7 +3585,7 @@ ul li a:hover {
 }
 .c-meta-rows__logo img {
   filter: grayscale(1);
-  max-width: 5.75rem;
+  max-width: 6.25rem;
   mix-blend-mode: multiply;
   transition: filter 0.3s;
 }
@@ -3686,12 +3686,9 @@ ul li a:hover {
     line-height: 1.5;
   }
 }
-.c-meta-rows--sidebar .c-meta-rows__logo img {
-  width: 5.75rem;
-}
 @media (max-width: 64rem) {
   .c-meta-rows--sidebar .c-meta-rows__logo img {
-    width: 4rem;
+    max-width: 4rem;
   }
 }
 @media (min-width: 48rem) {
