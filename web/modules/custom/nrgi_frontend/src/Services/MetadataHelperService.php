@@ -415,7 +415,7 @@ class MetadataHelperService {
                   ];
                 }
               }
-              if ($items) {
+              if (!empty($items)) {
                 if ($node->bundle() !== 'career_opportunity') {
                   $metadata[] = [
                     'label' => $label,
