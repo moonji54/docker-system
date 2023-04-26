@@ -2700,6 +2700,7 @@ ul li a:hover {
   cursor: pointer;
   position: absolute;
   right: 0;
+  transform: translateY(1px);
   transition: color 0.3s;
 }
 .c-header-search__submit:hover, .c-header-search__submit:focus {
@@ -2739,7 +2740,6 @@ ul li a:hover {
 .c-homepage-banner__overlay {
   /* stylelint-disable-next-line */
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));
-  background-blend-mode: multiply, normal;
   height: 100%;
   left: 0;
   opacity: calc(var(--hero-opacity) * 0.01);
@@ -2747,6 +2747,7 @@ ul li a:hover {
   top: 0;
   width: 100%;
   z-index: 1;
+  background-blend-mode: multiply, normal;
 }
 .c-homepage-banner__image-placeholder {
   z-index: 1;
@@ -2774,6 +2775,7 @@ ul li a:hover {
   border-top: 1px solid #EDEDEF;
   color: #FFFFFF;
   grid-column: 1/9;
+  margin-top: var(--space-3xl);
   padding-bottom: var(--space-3xl);
   padding-top: var(--space-xs);
   position: relative;

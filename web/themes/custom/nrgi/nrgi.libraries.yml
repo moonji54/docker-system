@@ -58,6 +58,7 @@ filters:
   version: 1.0
   js:
     assets/js/filters.js: { minified: false }
+    assets/js/entity-id.js: { minified: false }
   dependencies:
     - core/jquery
     - core/drupal
