@@ -5,7 +5,9 @@
 @import "tools/mixins";
 @import "base/base";
 @import "reset/reset";
+@import "pdf/pdf-content-from-editor";
 
+/* stylelint-disable */
 @page {
   margin : 32.8mm 19.7mm 19.7mm;
   size   : A4 portrait;
@@ -23,12 +25,17 @@
   // Control specific margin areas, adding
   // named content from above into them.
   @top-left {
-    content : element(headerRunning);
-    width   : 90%;
+    content     : element(headerRunning);
+    align-items : start;
+    margin-top  : 42pt;
+    width       : 90%;
   }
+
   @top-right {
     @include pdf-ts-running-header;
-    content : counter(page);
+    align-items : start;
+    content     : counter(page);
+    margin-top  : 42pt;
   }
 }
 
@@ -37,8 +44,13 @@
 }
 
 .c-pdf {
+  .c-embed,
+  .c-full-width-media {
+    break-before : page;
+  }
+
   .o-section {
-    padding-top : 0;
+    padding : 0;
   }
 
   .o-container {
@@ -47,6 +59,10 @@
     > * {
       grid-column : 1 / 10;
     }
+  }
+
+  .o-content-from-editor {
+    @include pdf-content-from-editor;
   }
 
   &__page-number {
@@ -190,6 +206,11 @@
     position   : absolute;
     width      : 100%;
   }
+
+  &__title {
+    display     : block;
+    padding-top : 8pt;
+  }
 }
 
 //Customisations to the cover page.
@@ -212,5 +233,11 @@
 .pagedjs_bodyPage_page {
   .pagedjs_margin-top {
     position : relative;
+  }
+
+  .pagedjs_margin-top-right > .pagedjs_margin-content {
+    &:after {
+      padding-top : 8pt;
+    }
   }
 }
