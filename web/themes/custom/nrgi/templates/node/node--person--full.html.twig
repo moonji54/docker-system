@@ -1,9 +1,14 @@
+{% if language_direction == 'rtl' %}
+  {% set rtl = true %}
+{% endif %}
+
 {% set classes = [
   'c-node',
   'c-node--type-' ~ node.bundle|clean_class,
+  rtl ? 'rtl'
 ] %}
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes).setAttribute('dir', language_direction) }}>
   {% include "@nrgi/node-partials/node--single-header.html.twig" %}
 
   <div class="c-single-content single-content--person">
