@@ -5,10 +5,8 @@
 ] %}
 {% set pdf_fallback_bundle = ['remote_video', 'remote_audio', 'data_visualisation'] %}
 
-<div{{ attributes.addClass(classes) }}>
-  {{ title_suffix.contextual_links }}
-  {# If page is pdf and media item has fallback set #}
-  {% if is_pdf and media.bundle() in pdf_fallback_bundle %}
+{% if is_pdf and media.bundle() in pdf_fallback_bundle %}
+  <div class="c-media--fallback-image">
     {% if content.field_pdf_image_fallback|field_value %}
       {{ content.field_pdf_image_fallback }}
       {% if fallback_text_link and fallback_link %}
@@ -18,13 +16,16 @@
         </p>
       {% endif %}
     {% endif %}
-  {% else %}
-    {% if content %}
-      {% if content.field_pdf_image_fallback is defined %}
-        {# we want to get rid of the field_pdf_image_fallback element #}
-        {% set content = content|filter((v, k) => k != 'field_pdf_image_fallback') %}
-      {% endif %}
-      {{ content }}
+  </div>
+{% else %}
+  {% if content %}
+    {% if content.field_pdf_image_fallback is defined %}
+      {# we want to get rid of the field_pdf_image_fallback element #}
+      {% set content = content|filter((v, k) => k != 'field_pdf_image_fallback') %}
     {% endif %}
+    <div{{ attributes.addClass(classes) }}>
+      {{ title_suffix.contextual_links }}
+      {{ content }}
+    </div>
   {% endif %}
-</div>
+{% endif %}

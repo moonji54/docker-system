@@ -210,6 +210,7 @@ button:focus {
   outline: none;
 }
 
+/* stylelint-disable */
 @page {
   margin: 32.8mm 19.7mm 19.7mm;
   size: A4 portrait;
@@ -365,6 +366,13 @@ button:focus {
   color: #FF7D5F;
 }
 .c-pdf .o-content-from-editor .c-media--data-visualisation, .c-pdf .o-content-from-editor .c-media--remote-audio, .c-pdf .o-content-from-editor .c-media--remote-video {
+  display: none;
+}
+.c-pdf .o-content-from-editor .c-media--fallback-image {
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+}
+.c-pdf .o-content-from-editor .c-media--fallback-image .c-media {
   margin-top: 0;
 }
 .c-pdf__page-number {
@@ -514,4 +522,9 @@ button:focus {
 }
 .pagedjs_bodyPage_page .pagedjs_margin-top-right > .pagedjs_margin-content:after {
   padding-top: 8pt;
+}
+
+.u-page-break {
+  -moz-column-break-before: page;
+       break-before: page;
 }

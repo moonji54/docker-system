@@ -119,7 +119,15 @@
     &--data-visualisation,
     &--remote-audio,
     &--remote-video {
-      margin-top : 0;
+      display : none;
+    }
+
+    &--fallback-image {
+      break-inside : avoid;
+
+      .c-media {
+        margin-top : 0;
+      }
     }
   }
 }
