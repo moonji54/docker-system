@@ -45,8 +45,14 @@
 
 .c-pdf {
   .c-embed,
-  .c-full-width-media {
-    break-before : page;
+  .c-full-width-media,
+  .c-learning-block {
+    width        : calc(var(--pagedjs-pagebox-width) - (var(--pagedjs-margin-right) + var(--pagedjs-margin-right)));
+    break-inside : avoid;
+
+    & + * {
+      margin-top : 36pt;
+    }
   }
 
   .o-section {

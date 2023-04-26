@@ -3070,6 +3070,28 @@ ul li a:hover {
 .c-learning-block__button {
   margin-top: var(--space-m);
 }
+.c-learning-block--pdf {
+  margin-top: 36pt;
+}
+.c-learning-block--pdf .c-learning-block__container {
+  display: block;
+}
+.c-learning-block--pdf .c-learning-block__inner {
+  padding: 20pt 12pt;
+}
+.c-learning-block--pdf .c-learning-block__title {
+  font-size: 16pt;
+  line-height: 1.3;
+}
+.c-learning-block--pdf .c-learning-block__description {
+  font-size: 9pt;
+  line-height: 1.75;
+  margin-top: 4pt;
+}
+.c-learning-block--pdf .c-learning-block__description a {
+  color: #B3EFEF;
+  text-decoration: underline;
+}
 
 /* stylelint-disable */
 .block-local-tasks-block {

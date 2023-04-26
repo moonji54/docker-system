@@ -1,5 +1,6 @@
 {% set classes = [
   'c-learning-block',
+  is_pdf ? ' c-learning-block--pdf',
   'o-section',
   'o-section--has-background',
 ] %}
@@ -12,13 +13,15 @@
       {% endif %}
 
       {% if content.field_formatted_description|field_value %}
-        <div class="c-learning-block__description">{{ content.field_formatted_description|field_value }}</div>
+        <div class="c-learning-block__description">
+          {{ content.field_formatted_description|field_value }}
+        </div>
       {% endif %}
 
       {% if button_link.url %}
         {% if is_pdf %}
           {% if fallback_text_link and fallback_link %}
-            <p>
+            <p class="c-learning-block__description">
               {{ fallback_text_link }}
               <a href="{{ fallback_link }}">{{ url('<front>')|render|replace({'/':'', 'https:':'', 'http:':''}) ~ fallback_link|render }}</a>
             </p>
