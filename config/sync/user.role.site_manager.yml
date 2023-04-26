@@ -44,7 +44,6 @@ dependencies:
     - file
     - file_delete
     - filter
-    - image
     - media
     - menu_admin_per_menu
     - node
@@ -88,7 +87,6 @@ permissions:
   - 'add scheduled transitions node topic'
   - 'add site setting entities'
   - 'administer footer menu items'
-  - 'administer image styles'
   - 'administer main menu items'
   - 'administer redirects'
   - 'administer taxonomy'
