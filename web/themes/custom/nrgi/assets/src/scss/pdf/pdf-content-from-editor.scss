@@ -4,7 +4,7 @@
       margin-top : 0;
     }
   }
-  
+
   p {
     @include pdf-ts-body;
     margin-top : 24pt;
@@ -179,6 +179,34 @@
     h6 {
       color      : $primary;
       margin-top : 12pt;
+    }
+  }
+
+  .responsive-table {
+    margin-top : 24pt;
+  }
+
+  table {
+    tbody {
+      tr {
+        border-top : 1pt solid $tertiary;
+
+        &:last-child {
+          border-bottom : 1pt solid $tertiary;
+        }
+      }
+    }
+
+    th {
+      @include pdf-ts-body;
+      padding     : 0 8pt 8pt 0;
+      font-weight : 700;
+    }
+
+    td {
+      @include pdf-ts-body;
+      min-width : 5rem;
+      padding   : 7pt 10pt 7pt 0;
     }
   }
 }

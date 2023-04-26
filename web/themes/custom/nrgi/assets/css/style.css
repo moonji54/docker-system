@@ -213,31 +213,29 @@ input {
 input[type=submit],
 input[type=button],
 input[type=search] {
+  /* stylelint-disable-next-line */
+  /* stylelint-disable-next-line */
+  border-radius: 0;
+  cursor: pointer;
+  /* stylelint-disable-next-line */
   appearance: none;
   /* stylelint-disable-next-line */
   -moz-appearance: none;
-  /* stylelint-disable-next-line */
   -webkit-appearance: none;
-  border-radius: 0;
-  /* stylelint-disable-next-line */
-  -moz-border-radius: 0;
-  /* stylelint-disable-next-line */
-  -webkit-border-radius: 0;
-  cursor: pointer;
 }
 
 button {
   background: transparent;
   border: none;
-  margin: 0;
-  padding: 0;
-  width: auto;
-  overflow: visible;
-  /* inherit font & color from ancestor */
   color: inherit;
   font: inherit;
-  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
   line-height: normal;
+  margin: 0;
+  /* inherit font & color from ancestor */
+  overflow: visible;
+  padding: 0;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  width: auto;
   /* Corrects font smoothing for webkit */
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
@@ -247,6 +245,12 @@ button {
 }
 button:focus {
   outline: none;
+}
+
+table,
+thead,
+tbody {
+  vertical-align: baseline;
 }
 
 /*
@@ -3069,9 +3073,6 @@ ul li a:hover {
 }
 .c-learning-block__button {
   margin-top: var(--space-m);
-}
-.c-learning-block--pdf {
-  margin-top: 36pt;
 }
 .c-learning-block--pdf .c-learning-block__container {
   display: block;

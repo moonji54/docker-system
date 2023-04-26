@@ -174,31 +174,29 @@ input {
 input[type=submit],
 input[type=button],
 input[type=search] {
+  /* stylelint-disable-next-line */
+  /* stylelint-disable-next-line */
+  border-radius: 0;
+  cursor: pointer;
+  /* stylelint-disable-next-line */
   appearance: none;
   /* stylelint-disable-next-line */
   -moz-appearance: none;
-  /* stylelint-disable-next-line */
   -webkit-appearance: none;
-  border-radius: 0;
-  /* stylelint-disable-next-line */
-  -moz-border-radius: 0;
-  /* stylelint-disable-next-line */
-  -webkit-border-radius: 0;
-  cursor: pointer;
 }
 
 button {
   background: transparent;
   border: none;
-  margin: 0;
-  padding: 0;
-  width: auto;
-  overflow: visible;
-  /* inherit font & color from ancestor */
   color: inherit;
   font: inherit;
-  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
   line-height: normal;
+  margin: 0;
+  /* inherit font & color from ancestor */
+  overflow: visible;
+  padding: 0;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  width: auto;
   /* Corrects font smoothing for webkit */
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
@@ -208,6 +206,12 @@ button {
 }
 button:focus {
   outline: none;
+}
+
+table,
+thead,
+tbody {
+  vertical-align: baseline;
 }
 
 .pdf-content-from-editor {
@@ -374,6 +378,29 @@ button:focus {
   color: #2D2D32;
   margin-top: 12pt;
 }
+.pdf-content-from-editor .responsive-table {
+  margin-top: 24pt;
+}
+.pdf-content-from-editor table tbody tr {
+  border-top: 1pt solid #FF7D5F;
+}
+.pdf-content-from-editor table tbody tr:last-child {
+  border-bottom: 1pt solid #FF7D5F;
+}
+.pdf-content-from-editor table th {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 9pt;
+  line-height: 1.75;
+  padding: 0 8pt 8pt 0;
+  font-weight: 700;
+}
+.pdf-content-from-editor table td {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 9pt;
+  line-height: 1.75;
+  min-width: 5rem;
+  padding: 7pt 10pt 7pt 0;
+}
 
 /* stylelint-disable */
 @page {
@@ -406,6 +433,7 @@ button:focus {
 .c-pdf .c-embed,
 .c-pdf .c-full-width-media,
 .c-pdf .c-learning-block {
+  margin-top: 36pt;
   width: calc(var(--pagedjs-pagebox-width) - (var(--pagedjs-margin-right) + var(--pagedjs-margin-right)));
   -moz-column-break-inside: avoid;
        break-inside: avoid;
@@ -588,6 +616,29 @@ button:focus {
   color: #2D2D32;
   margin-top: 12pt;
 }
+.c-pdf .o-content-from-editor .responsive-table {
+  margin-top: 24pt;
+}
+.c-pdf .o-content-from-editor table tbody tr {
+  border-top: 1pt solid #FF7D5F;
+}
+.c-pdf .o-content-from-editor table tbody tr:last-child {
+  border-bottom: 1pt solid #FF7D5F;
+}
+.c-pdf .o-content-from-editor table th {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 9pt;
+  line-height: 1.75;
+  padding: 0 8pt 8pt 0;
+  font-weight: 700;
+}
+.c-pdf .o-content-from-editor table td {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 9pt;
+  line-height: 1.75;
+  min-width: 5rem;
+  padding: 7pt 10pt 7pt 0;
+}
 .c-pdf__page-number {
   content: counter(page);
 }
@@ -694,6 +745,9 @@ button:focus {
   line-height: 2rem;
   position: running(headerRunning);
   page: bodyPage;
+}
+.c-pdf__body > *:first-child {
+  margin-top: 0;
 }
 .c-pdf__footer {
   background-color: lightcoral;
