@@ -430,6 +430,7 @@ tbody {
   }
 }
 @page tocPage {}
+@page infoPage {}
 .c-pdf .c-embed,
 .c-pdf .c-full-width-media,
 .c-pdf .c-learning-block {
@@ -447,6 +448,7 @@ tbody {
   padding: 0;
 }
 .c-pdf .o-container {
+  grid-column-gap: 21pt;
   padding: 0;
 }
 .c-pdf .o-container > * {
@@ -755,6 +757,32 @@ tbody {
 }
 .c-pdf__toc {
   page: tocPage;
+}
+.c-pdf__info-page {
+  display: flex;
+  flex-direction: column;
+  height: var(--pagedjs-pagebox-height);
+  justify-content: flex-end;
+  page: infoPage;
+}
+.c-pdf__info-page-container {
+  display: grid;
+  grid-column-gap: 21pt;
+  grid-template-columns: repeat(12, 1fr);
+}
+.c-pdf__info-page-inner {
+  grid-column: 1/7;
+}
+.c-pdf__additional-info h4 {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 7pt;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.c-pdf__additional-info p {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 9pt;
+  line-height: 1.75;
 }
 
 .pdf-running-header {

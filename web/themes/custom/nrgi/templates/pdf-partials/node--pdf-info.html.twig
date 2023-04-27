@@ -1,48 +1,44 @@
-<div class="c-text-block__container o-container">
-  {% if content.field_pdf_additional_information|field_value %}
-    {{ content.field_pdf_additional_information }}
-  {% endif %}
-</div>
+<div class="c-pdf__info-page-container">
+  <div class="c-pdf__info-page-inner">
+    <div class="c-pdf__additional-info">
+      {% if content.field_pdf_additional_information|field_value %}
+        {{ content.field_pdf_additional_information }}
+      {% endif %}
+    </div>
 
-{# All logos #}
-  {% if logos %}
-    <div class="c-meta-rows__container o-container" style="background-color: white; color: black">
-      <dl class="c-meta-rows__inner">
+    {# All logos #}
+    {% if logos %}
+      <div>
         {% for data in logos %}
           {% for section in data %}
-            <div class="c-meta-rows__row">
-              <dt class="c-meta-rows__label">
-                <h3>{{ section.label }}</h3>
-              </dt>
-              <dd class="c-meta-rows__items">
-                {% for item in section.items %}
-                  {% if item.type == 'logo' %}
-                    {# Organisation logos #}
-                    {% if item.link %}
-                      <a class="c-meta-rows__logo" href="{{ item.link }}"
-                         title="{{ 'Visit'|t ~ ' ' ~ item.title ?: 'organisation'|t }}"
-                         target="{{ item.is_external ? '_blank' : '' }}">
-                        {% if item.logo %}
-                          {{ item.logo }}
-                        {% else %}
-                          {{ item.title }}
-                        {% endif %}
-                      </a>
+            <h3>{{ section.label }}</h3>
+            {% for item in section.items %}
+              {% if item.type == 'logo' %}
+                {# Organisation logos #}
+                {% if item.link %}
+                  <a href="{{ item.link }}"
+                     title="{{ 'Visit'|t ~ ' ' ~ item.title ?: 'organisation'|t }}"
+                     target="{{ item.is_external ? '_blank' : '' }}">
+                    {% if item.logo %}
+                      {{ item.logo }}
+                    {% else %}
+                      {{ item.title }}
                     {% endif %}
-                  {% endif %}
-                {% endfor %}
-              </dd>
-            </div>
+                  </a>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
           {% endfor %}
         {% endfor %}
-      </dl>
-    </div>
-  {% endif %}
+      </div>
+    {% endif %}
 
-  {# Cover image caprion #}
-<div>
-  {% if content.field_photo_caption|field_value %}
-    <h4>{{ 'Cover image'|t }}</h4>
-    {{ content.field_photo_caption }}
-  {% endif %}
+    {# Cover image caption #}
+    <div>
+      {% if content.field_photo_caption|field_value %}
+        <h4>{{ 'Cover image'|t }}</h4>
+        {{ content.field_photo_caption }}
+      {% endif %}
+    </div>
+  </div>
 </div>

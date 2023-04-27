@@ -43,6 +43,10 @@
 
 }
 
+@page infoPage {
+
+}
+
 .c-pdf {
   .c-embed,
   .c-full-width-media,
@@ -61,7 +65,8 @@
   }
 
   .o-container {
-    padding : 0;
+    grid-column-gap : 21pt;
+    padding         : 0;
 
     > * {
       grid-column : 1 / 10;
@@ -205,6 +210,37 @@
 
   &__toc {
     page : tocPage;
+  }
+
+  &__info-page {
+    display         : flex;
+    flex-direction  : column;
+    height          : var(--pagedjs-pagebox-height);
+    justify-content : flex-end;
+    page            : infoPage;
+  }
+
+  &__info-page-container {
+    display               : grid;
+    grid-column-gap       : 21pt;
+    grid-template-columns : repeat(12, 1fr);
+  }
+
+  &__info-page-inner {
+    grid-column : 1 / 7;
+  }
+
+  &__additional-info {
+    h4 {
+      @include sans-body;
+      font-size   : 7pt;
+      font-weight : 600;
+      line-height : 1.5;
+    }
+
+    p {
+      @include pdf-ts-body;
+    }
   }
 }
 

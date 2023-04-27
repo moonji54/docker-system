@@ -17,17 +17,17 @@
   </div>
 
   {# Endnotes #}
-  <div class="c-pdf c-pdf--footnotes u-page-break">
+  <div class="c-pdf__footnotes u-page-break">
     {{ drupal_block('footnotes_group') }}
   </div>
 
   {# PDF info #}
-  <div class="c-pdf c-pdf--info u-page-break">
-    {% include 'node--pdf-info.html.twig' %}
+  <div class="c-pdf__info-page u-page-break">
+    {#    {% include 'node--pdf-info.html.twig' %} #}
   </div>
 
   {# Back cover #}
-  <div class="c-pdf c-pdf--info u-page-break">
+  <div class="c-pdf__back-cover u-page-break">
     {% include 'node--pdf-backcover.html.twig' %}
   </div>
 </article>
