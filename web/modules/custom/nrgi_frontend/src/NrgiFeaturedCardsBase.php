@@ -213,6 +213,8 @@ class NrgiFeaturedCardsBase {
    */
   public function setAllowedTypes(array $types): void {
 
+    $this->types = [];
+
     if ($this->typesField && $this->paragraph->hasField($this->typesField)
         && $this->paragraph->get($this->typesField)
         && $setting_types = $this->paragraph->get($this->typesField)
