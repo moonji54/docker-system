@@ -68,6 +68,7 @@
  *
  * One example of the simplest connection array is shown below. To use the
  * sample settings, copy and uncomment the code below between the @code and
+ *
  * @endcode lines and paste it after the $databases declaration. You will need
  * to replace the database username and password and possibly the host and port
  * with the appropriate credentials for your database system.
@@ -132,6 +133,7 @@ $databases = [];
  * traditionally referred to as master/slave in database server documentation).
  *
  * The general format for the $databases array is as follows:
+ *
  * @code
  * $databases['default']['default'] = $info_array;
  * $databases['default']['replica'][] = $info_array;
@@ -286,6 +288,7 @@ $databases = [];
  * stored with backups of your database.
  *
  * Example:
+ *
  * @code
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
@@ -383,8 +386,10 @@ $settings['update_free_access'] = FALSE;
  * - \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED
  *
  * Note the default value of
+ *
  * @code
- * \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL | \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED
+ * \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL |
+ *   \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED
  * @endcode
  * is not secure by default. The value should be set to only the specific
  * headers the reverse proxy uses. For example:
@@ -522,7 +527,7 @@ $settings['update_free_access'] = FALSE;
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
  */
-# $settings['file_private_path'] = '';
+$settings['file_private_path'] = '../private/files';
 
 /**
  * Temporary file path:
@@ -684,6 +689,7 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * like to allow.
  *
  * For example:
+ *
  * @code
  * $settings['trusted_host_patterns'] = [
  *   '^www\.example\.com$',
