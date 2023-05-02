@@ -47,6 +47,10 @@
 
 }
 
+@page backCover {
+  margin : 14.8mm 14.8mm 19.7mm 14.8mm;
+}
+
 .c-pdf {
   .c-embed,
   .c-full-width-media,
@@ -284,6 +288,37 @@
   &__info-page-image-caption {
     margin-top : 24pt;
   }
+
+  &__back-cover {
+    color           : $grey-light;
+    display         : flex;
+    flex-direction  : column;
+    height          : calc(var(--pagedjs-pagebox-height) - (var(--pagedjs-margin-top) + var(--pagedjs-margin-bottom)));
+    justify-content : space-between;
+    page            : backCover;
+  }
+
+  &__back-cover-content {
+    border-top  : 1pt solid $grey-light;
+    padding-top : 14pt;
+    width       : 245pt;
+  }
+
+  &__back-cover-heading {
+    @include sans-heading;
+    font-size   : 30pt;
+    font-weight : 500;
+    line-height : 1.2;
+  }
+
+  &__back-cover-body {
+    @include pdf-ts-body;
+    margin-top : 20pt;
+
+    a {
+      color : $blue-light;
+    }
+  }
 }
 
 .pdf-running-header {
@@ -316,6 +351,10 @@
     // Add a background to make this clear on PDF render.
     margin                : 0;
   }
+}
+
+.pagedjs_backCover_page {
+  background-color : $secondary;
 }
 
 // Customisations to the generated PagedJS content, eg to apply css

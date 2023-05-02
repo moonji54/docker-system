@@ -431,6 +431,9 @@ tbody {
 }
 @page tocPage {}
 @page infoPage {}
+@page backCover {
+  margin: 14.8mm 14.8mm 19.7mm 14.8mm;
+}
 .c-pdf .c-embed,
 .c-pdf .c-full-width-media,
 .c-pdf .c-learning-block {
@@ -817,6 +820,34 @@ tbody {
 .c-pdf__info-page-image-caption {
   margin-top: 24pt;
 }
+.c-pdf__back-cover {
+  color: #EDEDEF;
+  display: flex;
+  flex-direction: column;
+  height: calc(var(--pagedjs-pagebox-height) - (var(--pagedjs-margin-top) + var(--pagedjs-margin-bottom)));
+  justify-content: space-between;
+  page: backCover;
+}
+.c-pdf__back-cover-content {
+  border-top: 1pt solid #EDEDEF;
+  padding-top: 14pt;
+  width: 245pt;
+}
+.c-pdf__back-cover-heading {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 30pt;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.c-pdf__back-cover-body {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 9pt;
+  line-height: 1.75;
+  margin-top: 20pt;
+}
+.c-pdf__back-cover-body a {
+  color: #B3EFEF;
+}
 
 .pdf-running-header {
   font-family: "Noto Sans", sans-serif;
@@ -843,6 +874,10 @@ tbody {
   grid-template-columns: 0;
   grid-template-rows: 0;
   margin: 0;
+}
+
+.pagedjs_backCover_page {
+  background-color: #00545A;
 }
 
 .pagedjs_bodyPage_page .pagedjs_margin-top {

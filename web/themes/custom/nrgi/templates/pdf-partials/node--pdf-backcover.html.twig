@@ -1,12 +1,15 @@
-<footer class="c-pdf__backcover" style="background-color: #00545a; color: white">
-  <div class="c-pdf c-pdf--info">
-    <div class="c-text-block__container o-container">
-      {% if site_settings['page-to-pdf'].about_nrgi_back_cover.field_title %}
-        <h2>{{ site_settings['page-to-pdf'].about_nrgi_back_cover.field_title }}</h2>
-      {% endif %}
+<footer class="c-pdf__back-cover">
+  <div class="c-pdf__back-cover-content">
+    {% if site_settings['page-to-pdf'].about_nrgi_back_cover.field_title %}
+      <h2 class="c-pdf__back-cover-heading">{{ site_settings['page-to-pdf'].about_nrgi_back_cover.field_title }}</h2>
+    {% endif %}
 
-      {% if site_settings['page-to-pdf'].about_nrgi_back_cover.field_body %}
-        {{ site_settings['page-to-pdf'].about_nrgi_back_cover.field_body.value|raw }}
-      {% endif %}
-    </div>
+    {% if site_settings['page-to-pdf'].about_nrgi_back_cover.field_body %}
+      <div class="c-pdf__back-cover-body">{{ site_settings['page-to-pdf'].about_nrgi_back_cover.field_body.value|raw }}</div>
+    {% endif %}
+  </div>
+
+  <div class="c-pdf__logo">
+    <img src="/{{ base_path ~ directory }}/assets/img/pdf-cover-logo.svg" alt=""/>
+  </div>
 </footer>
