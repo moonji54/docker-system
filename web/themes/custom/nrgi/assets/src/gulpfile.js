@@ -115,6 +115,7 @@ gulp.task('build-js', gulp.series((done) => {
     themejs('languages-overlay');
     themejs('lightbox');
     themejs('parallax-scroll');
+    themejs('pdf-contents');
     themejs('share-links');
     themejs('toc');
     themejs('sub-navigation');

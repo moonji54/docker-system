@@ -21,6 +21,13 @@
   line-height    : 1.3;
 }
 
+@mixin pdf-ts-heading-main {
+  @include sans-heading;
+  font-size   : 30pt;
+  font-weight : 500;
+  line-height : 1.2;
+}
+
 @mixin pdf-ts-body {
   @include sans-body;
   font-size   : 9pt;

@@ -228,8 +228,8 @@ tbody {
 }
 .pdf-content-from-editor h2 {
   font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 30pt;
   font-weight: 500;
-  font-size: 36pt;
   line-height: 1.2;
   margin-top: 36pt;
 }
@@ -429,7 +429,6 @@ tbody {
     margin-top: 42pt;
   }
 }
-@page tocPage {}
 @page infoPage {}
 @page backCover {
   margin: 14.8mm 14.8mm 19.7mm 14.8mm;
@@ -471,8 +470,8 @@ tbody {
 }
 .c-pdf .o-content-from-editor h2 {
   font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 30pt;
   font-weight: 500;
-  font-size: 36pt;
   line-height: 1.2;
   margin-top: 36pt;
 }
@@ -761,6 +760,33 @@ tbody {
 .c-pdf__toc {
   page: tocPage;
 }
+.c-pdf__toc-wrapper {
+  width: 357pt;
+}
+.c-pdf__toc-title {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 30pt;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #00545A;
+}
+.c-pdf__toc-list {
+  margin-top: 20pt;
+}
+.c-pdf__toc-item-heading {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 14pt;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-top: 20pt;
+}
+.c-pdf__toc-item-heading:first-child {
+  margin-top: 0;
+}
+.c-pdf__toc-item-heading--sub {
+  font-size: 12pt;
+  margin-top: 8pt;
+}
 .c-pdf__info-page {
   display: flex;
   flex-direction: column;
@@ -847,6 +873,10 @@ tbody {
 }
 .c-pdf__back-cover-body a {
   color: #B3EFEF;
+}
+.c-pdf__contents-list li a:after {
+  content: counter(attr(href), page);
+  float: right;
 }
 
 .pdf-running-header {

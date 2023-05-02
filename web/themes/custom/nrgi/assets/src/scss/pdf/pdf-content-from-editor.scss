@@ -11,7 +11,7 @@
   }
 
   h2 {
-    @include pdf-ts-cover-heading;
+    @include pdf-ts-heading-main;
     margin-top : 36pt;
   }
 
