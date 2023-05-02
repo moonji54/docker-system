@@ -39,10 +39,6 @@
   }
 }
 
-@page infoPage {
-
-}
-
 @page backCover {
   margin : 14.8mm 14.8mm 19.7mm 14.8mm;
 }
@@ -87,6 +83,9 @@
       width  : 201pt;
     }
   }
+
+  /* #Cover
+================================================== */
 
   &__cover {
     background-color : $secondary;
@@ -184,6 +183,8 @@
     margin-top : 20pt;
   }
 
+  /* #Body
+================================================== */
   &__body {
     // Reset the page number when this class is first hit.
     // Yep, it can be anything!
@@ -202,16 +203,8 @@
     }
   }
 
-  &__footer {
-    background-color : lightcoral;
-    // Mark the footer as having a custom PagedJS position.
-    position         : running(footerRunning);
-  }
-
-  &__toc {
-    page : tocPage;
-  }
-
+  /* #Toc
+================================================== */
   &__toc-wrapper {
     width : 357pt;
   }
@@ -242,6 +235,8 @@
     }
   }
 
+  /* #Info page
+================================================== */
   &__info-page {
     display         : flex;
     flex-direction  : column;
@@ -315,6 +310,8 @@
     margin-top : 24pt;
   }
 
+  /* #Back cover
+================================================== */
   &__back-cover {
     color           : $grey-light;
     display         : flex;
@@ -342,19 +339,10 @@
       color : $blue-light;
     }
   }
-
-  &__contents-list {
-    li {
-      a {
-        &:after {
-          content : counter(attr(href), page);
-          float   : right;
-        }
-      }
-    }
-  }
 }
 
+/* #Running content
+================================================== */
 .pdf-running-header {
   @include pdf-ts-running-header;
   position : running(headerRunning);
@@ -373,7 +361,8 @@
   }
 }
 
-//Customisations to the cover page.
+/* #First page
+================================================== */
 .pagedjs_first_page {
   .pagedjs_pagebox {
     // Remove all margin areas by effectively deleting the
@@ -381,12 +370,12 @@
     // You can also target :first page, :nth page etc.
     grid-template-columns : 0;
     grid-template-rows    : 0;
-
-    // Add a background to make this clear on PDF render.
     margin                : 0;
   }
 }
 
+/* #Last page
+================================================== */
 .pagedjs_backCover_page {
   background-color : $secondary;
 }

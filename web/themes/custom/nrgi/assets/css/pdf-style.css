@@ -429,9 +429,20 @@ tbody {
     margin-top: 42pt;
   }
 }
-@page infoPage {}
 @page backCover {
   margin: 14.8mm 14.8mm 19.7mm 14.8mm;
+}
+.c-pdf {
+  /* #Cover
+  ================================================== */
+  /* #Body
+  ================================================== */
+  /* #Toc
+  ================================================== */
+  /* #Info page
+  ================================================== */
+  /* #Back cover
+  ================================================== */
 }
 .c-pdf .c-embed,
 .c-pdf .c-full-width-media,
@@ -753,13 +764,6 @@ tbody {
 .c-pdf__body > *:first-child {
   margin-top: 0;
 }
-.c-pdf__footer {
-  background-color: lightcoral;
-  position: running(footerRunning);
-}
-.c-pdf__toc {
-  page: tocPage;
-}
 .c-pdf__toc-wrapper {
   width: 357pt;
 }
@@ -874,11 +878,9 @@ tbody {
 .c-pdf__back-cover-body a {
   color: #B3EFEF;
 }
-.c-pdf__contents-list li a:after {
-  content: counter(attr(href), page);
-  float: right;
-}
 
+/* #Running content
+================================================== */
 .pdf-running-header {
   font-family: "Noto Sans", sans-serif;
   font-weight: 500;
@@ -900,12 +902,16 @@ tbody {
   padding-top: 8pt;
 }
 
+/* #First page
+================================================== */
 .pagedjs_first_page .pagedjs_pagebox {
   grid-template-columns: 0;
   grid-template-rows: 0;
   margin: 0;
 }
 
+/* #Last page
+================================================== */
 .pagedjs_backCover_page {
   background-color: #00545A;
 }
