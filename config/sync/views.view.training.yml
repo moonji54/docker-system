@@ -891,6 +891,30 @@ display:
               secondary_open: false
               reset_button_always_show: false
             filter:
+              langcode:
+                plugin_id: bef_soapbox_active_filters
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: 0
+                show_active_filters: 1
+              field_expertise_required_target_id:
+                plugin_id: bef_soapbox_active_filters
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: 0
+                show_active_filters: 1
               field_topic_target_id:
                 plugin_id: bef_soapbox_active_filters
                 advanced:
@@ -899,8 +923,8 @@ display:
                     filter_rewrite_values: ''
                   collapsible: false
                   is_secondary: false
-                select_all_none: 0
-                select_all_none_nested: 0
+                select_all_none: false
+                select_all_none_nested: false
                 display_inline: 0
                 show_active_filters: 1
               field_keywords_target_id:
@@ -912,46 +936,10 @@ display:
                   collapsible: false
                   is_secondary: false
                 show_active_filters: 1
-              langcode:
+              field_series_target_id:
                 plugin_id: bef_soapbox_active_filters
                 advanced:
                   sort_options: false
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
-                select_all_none: 0
-                select_all_none_nested: 0
-                display_inline: 0
-                show_active_filters: 1
-              field_country_target_id:
-                plugin_id: bef_soapbox_active_filters
-                advanced:
-                  sort_options: false
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
-                select_all_none: 0
-                select_all_none_nested: 0
-                display_inline: 0
-                show_active_filters: 1
-              field_region_target_id:
-                plugin_id: bef_soapbox_active_filters
-                advanced:
-                  sort_options: true
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
-                select_all_none: 0
-                select_all_none_nested: 0
-                display_inline: 0
-                show_active_filters: 1
-              field_resource_type_target_id:
-                plugin_id: bef_soapbox_active_filters
-                advanced:
-                  sort_options: true
                   rewrite:
                     filter_rewrite_values: ''
                   collapsible: false
