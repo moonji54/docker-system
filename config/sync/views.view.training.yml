@@ -571,7 +571,7 @@ display:
             identifier: langcode
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
@@ -1029,7 +1029,7 @@ display:
             identifier: langcode
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
@@ -1119,7 +1119,7 @@ display:
             identifier: field_expertise_required_target_id
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
@@ -1144,7 +1144,7 @@ display:
           type: select
           hierarchy: false
           limit: true
-          error_message: true
+          error_message: false
         field_topic_target_id:
           id: field_topic_target_id
           table: node__field_topic
@@ -1168,7 +1168,7 @@ display:
             identifier: field_topic_target_id
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
