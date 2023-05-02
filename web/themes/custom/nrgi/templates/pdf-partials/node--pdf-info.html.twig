@@ -8,36 +8,40 @@
 
     {# All logos #}
     {% if logos %}
-      <div>
-        {% for data in logos %}
-          {% for section in data %}
-            <h3>{{ section.label }}</h3>
-            {% for item in section.items %}
-              {% if item.type == 'logo' %}
-                {# Organisation logos #}
-                {% if item.link %}
-                  <a href="{{ item.link }}"
-                     title="{{ 'Visit'|t ~ ' ' ~ item.title ?: 'organisation'|t }}"
-                     target="{{ item.is_external ? '_blank' : '' }}">
-                    {% if item.logo %}
-                      {{ item.logo }}
-                    {% else %}
-                      {{ item.title }}
-                    {% endif %}
-                  </a>
+      {% for data in logos %}
+        {% for section in data %}
+          <div class="c-pdf__info-page-logos">
+            <h3 class="c-pdf__info-page-heading">{{ section.label }}</h3>
+
+            <div class="c-pdf__info-page-logos-wrapper">
+              {% for item in section.items %}
+                {% if item.type == 'logo' %}
+                  {# Organisation logos #}
+                  {% if item.link %}
+                    <a class="c-pdf__info-page-logo" href="{{ item.link }}"
+                       title="{{ 'Visit'|t ~ ' ' ~ item.title ?: 'organisation'|t }}"
+                       target="{{ item.is_external ? '_blank' : '' }}">
+                      {% if item.logo %}
+                        {{ item.logo }}
+                      {% else %}
+                        {{ item.title }}
+                      {% endif %}
+                    </a>
+                  {% endif %}
                 {% endif %}
-              {% endif %}
-            {% endfor %}
-          {% endfor %}
+              {% endfor %}
+            </div>
+          </div>
         {% endfor %}
-      </div>
+      {% endfor %}
     {% endif %}
 
     {# Cover image caption #}
-    <div>
+    <div class="c-pdf__info-page-image-caption">
       {% if content.field_photo_caption|field_value %}
-        <h4>{{ 'Cover image'|t }}</h4>
-        {{ content.field_photo_caption }}
+        <h4 class="c-pdf__info-page-heading">{{ 'Cover image'|t }}</h4>
+
+        <p class="c-pdf__info-page-body">{{ content.field_photo_caption }}</p>
       {% endif %}
     </div>
   </div>

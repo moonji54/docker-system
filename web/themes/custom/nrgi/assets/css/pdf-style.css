@@ -761,7 +761,7 @@ tbody {
 .c-pdf__info-page {
   display: flex;
   flex-direction: column;
-  height: var(--pagedjs-pagebox-height);
+  height: calc(var(--pagedjs-pagebox-height) - (var(--pagedjs-margin-top) + var(--pagedjs-margin-bottom)));
   justify-content: flex-end;
   page: infoPage;
 }
@@ -773,16 +773,49 @@ tbody {
 .c-pdf__info-page-inner {
   grid-column: 1/7;
 }
+.c-pdf__additional-info > *:first-child {
+  margin-top: 0;
+}
 .c-pdf__additional-info h4 {
   font-family: "Noto Sans", sans-serif;
+  color: #00545A;
   font-size: 7pt;
   font-weight: 600;
   line-height: 1.5;
+  margin-top: 24pt;
 }
 .c-pdf__additional-info p {
   font-family: "Noto Sans", sans-serif;
   font-size: 9pt;
   line-height: 1.75;
+  margin-top: 4pt;
+}
+.c-pdf__info-page-logos {
+  margin-top: 24pt;
+}
+.c-pdf__info-page-heading {
+  font-family: "Noto Sans", sans-serif;
+  color: #00545A;
+  font-size: 7pt;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.c-pdf__info-page-body {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 9pt;
+  line-height: 1.75;
+}
+.c-pdf__info-page-logos-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16pt;
+  margin-top: 12pt;
+}
+.c-pdf__info-page-logo img {
+  max-height: 33pt;
+}
+.c-pdf__info-page-image-caption {
+  margin-top: 24pt;
 }
 
 .pdf-running-header {
