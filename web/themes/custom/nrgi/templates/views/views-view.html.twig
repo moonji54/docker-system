@@ -10,6 +10,11 @@
   'c-listing',
   no_filters ? 'c-listing--no-filters',
   is_search ? 'c-listing--search',
+  'view',
+  'view-' ~ id|clean_class,
+  'view-id-' ~ id,
+  'view-display-id-' ~ display_id,
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
 ] %}
 
 <div{{ attributes.addClass(classes) }}>

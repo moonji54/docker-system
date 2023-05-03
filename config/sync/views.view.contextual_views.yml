@@ -288,7 +288,7 @@ display:
           query_tags: {  }
           contextual_filters_or: true
       relationships: {  }
-      use_ajax: false
+      use_ajax: true
       header:
         result:
           id: result
@@ -384,7 +384,7 @@ display:
       display_description: ''
       display_extenders:
         ajax_history:
-          enable_history: false
+          enable_history: true
     cache_metadata:
       max-age: -1
       contexts:

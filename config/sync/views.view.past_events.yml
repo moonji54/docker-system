@@ -382,6 +382,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      use_ajax: true
       header:
         result:
           id: result
@@ -416,7 +417,8 @@ display:
         filter_groups: true
       display_description: ''
       display_extenders:
-        ajax_history: {  }
+        ajax_history:
+          enable_history: true
     cache_metadata:
       max-age: -1
       contexts:
