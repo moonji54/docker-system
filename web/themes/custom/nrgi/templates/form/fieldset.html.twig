@@ -15,7 +15,7 @@
     'js-filter-button'
   ] %}
 
-  {% if legend.title is not empty and element['#id'] != 'edit-active-filters' %}
+  {% if legend.title is not empty and element['#attributes']['data-drupal-selector'] != 'edit-active-filters' %}
     <legend{{ legend.attributes.addClass(legend_span_classes) }} tabindex="0" aria-expanded="false">
       {{ legend.title }}
     </legend>

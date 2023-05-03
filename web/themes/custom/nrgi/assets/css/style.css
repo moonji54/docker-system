@@ -1852,13 +1852,13 @@ ul li a:hover {
   padding: 0.5rem;
   width: 100%;
 }
-.views-exposed-form .c-filter--active-filters {
+.views-exposed-form .c-filter--field-active-filters {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: var(--space-l);
 }
-.views-exposed-form .c-filter--active-filters label {
+.views-exposed-form .c-filter--field-active-filters label {
   font-family: "Noto Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 500;
@@ -1883,30 +1883,30 @@ ul li a:hover {
   position: relative;
 }
 @media (max-width: 64rem) {
-  .views-exposed-form .c-filter--active-filters label {
+  .views-exposed-form .c-filter--field-active-filters label {
     font-size: 1rem;
   }
 }
-.views-exposed-form .c-filter--active-filters label:focus, .views-exposed-form .c-filter--active-filters label:hover {
+.views-exposed-form .c-filter--field-active-filters label:focus, .views-exposed-form .c-filter--field-active-filters label:hover {
   background-color: #ED7053;
 }
 @media (max-width: 48rem) {
-  .views-exposed-form .c-filter--active-filters label {
+  .views-exposed-form .c-filter--field-active-filters label {
     padding: 0.25rem 0.875rem;
     height: 2rem;
   }
 }
 @media (max-width: 48rem) {
-  .views-exposed-form .c-filter--active-filters label {
+  .views-exposed-form .c-filter--field-active-filters label {
     font-size: 0.875rem;
   }
 }
 @media (max-width: 48rem) {
-  .views-exposed-form .c-filter--active-filters label {
+  .views-exposed-form .c-filter--field-active-filters label {
     padding: 0.5rem 2rem 0.5rem 0.75rem;
   }
 }
-.views-exposed-form .c-filter--active-filters label:after {
+.views-exposed-form .c-filter--field-active-filters label:after {
   content: url("../img/cross.svg");
   position: absolute;
   right: 0.625rem;
