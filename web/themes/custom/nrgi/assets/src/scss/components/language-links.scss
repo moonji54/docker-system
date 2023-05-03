@@ -134,14 +134,6 @@
       }
     }
 
-    #{$c}__link-svg {
-      display : none;
-
-      @include media("<=tablet") {
-        display : block;
-      }
-    }
-
     #{$c}__link-label {
       text-decoration : none;
     }

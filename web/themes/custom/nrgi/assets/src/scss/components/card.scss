@@ -55,9 +55,27 @@
     &--topics {
       display : inline;
 
+      @include media("<=tablet") {
+        display : none;
+      }
+
       &:after {
         content             : ",";
         margin-inline-start : 0;
+      }
+    }
+
+    &--translations {
+      @include media("<=tablet") {
+        display : none;
+      }
+    }
+
+    &:not(&--event-data) {
+      &:after {
+        @include media("<=tablet") {
+          content : none;
+        }
       }
     }
   }
