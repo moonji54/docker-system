@@ -25,8 +25,8 @@
     transition    : background-color 0.3s;
 
     &:has(+ *) {
-      margin-bottom : var(--space-xs);
-      margin-right  : var(--space-xs);
+      margin-bottom     : var(--space-xs);
+      margin-inline-end : var(--space-xs);
     }
   }
 
@@ -36,16 +36,16 @@
 
   &__meta-item {
     @include ts-card-tag;
-    display      : inline-block;
-    margin-right : var(--space-xs);
+    display           : inline-block;
+    margin-inline-end : var(--space-xs);
 
     &:after {
-      content     : "•";
-      margin-left : var(--space-xs);
+      content             : "•";
+      margin-inline-start : var(--space-xs);
     }
 
     &:last-child {
-      margin-right : 0;
+      margin-inline-end : 0;
 
       &:after {
         content : none;
@@ -55,9 +55,27 @@
     &--topics {
       display : inline;
 
+      @include media("<=tablet") {
+        display : none;
+      }
+
       &:after {
-        content     : ",";
-        margin-left : 0;
+        content             : ",";
+        margin-inline-start : 0;
+      }
+    }
+
+    &--translations {
+      @include media("<=tablet") {
+        display : none;
+      }
+    }
+
+    &:not(&--event-data) {
+      &:after {
+        @include media("<=tablet") {
+          content : none;
+        }
       }
     }
   }
@@ -96,10 +114,11 @@
   }
 
   &__external-icon {
-    color          : $tertiary;
-    display        : inline-block;
-    margin         : var(--space-xs) 0 0 0.25rem;
-    vertical-align : top;
+    color               : $tertiary;
+    display             : inline-block;
+    margin-top          : var(--space-xs);
+    vertical-align      : top;
+    margin-inline-start : 0.25rem;
   }
 
   &__image-wrapper {

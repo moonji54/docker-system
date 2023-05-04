@@ -10,7 +10,7 @@ field_name: field_show_background
 entity_type: paragraph
 bundle: featured_content
 label: 'With background'
-description: 'Whether to apply a grey background to the featured pages section.'
+description: 'Whether to apply a grey background to the featured content section.'
 required: false
 translatable: false
 default_value:

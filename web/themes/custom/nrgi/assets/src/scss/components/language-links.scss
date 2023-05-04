@@ -55,6 +55,15 @@
         text-decoration-color : $primary;
       }
     }
+
+    /* stylelint-disable-next-line */
+    .rtl & {
+      flex-direction : row-reverse;
+      /* stylelint-disable-next-line */
+      #{$c}__link-svg {
+        transform : rotateY(180deg);
+      }
+    }
   }
 
   &__link-svg {
@@ -65,9 +74,9 @@
 
   &__link-label {
     text-decoration       : underline;
-    text-decoration-color : transparent;
     text-underline-offset : 0.313rem;
     transition            : text-decoration-color 0.3s;
+    text-decoration-color : transparent;
   }
 
   &--aside {
@@ -75,9 +84,9 @@
     color      : $white;
 
     #{$c}__container {
-      padding   : 0;
       margin    : 0;
       max-width : 100%;
+      padding   : 0;
     }
 
     #{$c}__inner {
@@ -122,14 +131,6 @@
       @include media("<=tablet") {
         border-radius : 0;
         padding       : 1.25rem var(--gutter);
-      }
-    }
-
-    #{$c}__link-svg {
-      display : none;
-
-      @include media("<=tablet") {
-        display : block;
       }
     }
 

@@ -10,6 +10,11 @@
   'c-listing',
   no_filters ? 'c-listing--no-filters',
   is_search ? 'c-listing--search',
+  'view',
+  'view-' ~ id|clean_class,
+  'view-id-' ~ id,
+  'view-display-id-' ~ display_id,
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
 ] %}
 
 <div{{ attributes.addClass(classes) }}>
@@ -20,11 +25,12 @@
 
       <div class="c-page-header__container o-container">
         <div class="c-page-header__text-wrapper">
-          {# Title #}
           <h1 class="c-page-header__title">{{ 'Search results'|t }}</h1>
 
-          <form class="c-page-header__search-form" action="/search" method="get" role="search" aria-label="Sitewide search">
-            <input class="c-page-header__search-input" title="{{ 'Enter the terms you wish to search for.'|t }}" type="search"
+          <form class="c-page-header__search-form" action="/search" method="get" role="search"
+                aria-label="Sitewide search">
+            <input class="c-page-header__search-input" title="{{ 'Enter the terms you wish to search for.'|t }}"
+                   type="search"
                    id="header-search-input" placeholder="{{ 'Search term'|t }}" name="query"
                    value="{{ query }}">
 

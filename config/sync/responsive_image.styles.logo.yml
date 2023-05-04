@@ -1,0 +1,43 @@
+uuid: ddb4752d-903f-4176-aa48-2d6ade742baa
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.logo
+  theme:
+    - nrgi
+id: logo
+label: Logo
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: logo
+    breakpoint_id: nrgi.smallmobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: logo
+    breakpoint_id: nrgi.mobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: logo
+    breakpoint_id: nrgi.tablet
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: logo
+    breakpoint_id: nrgi.smalldesktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: logo
+    breakpoint_id: nrgi.desktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: logo
+    breakpoint_id: nrgi.desktop
+    multiplier: 2x
+breakpoint_group: nrgi
+fallback_image_style: logo

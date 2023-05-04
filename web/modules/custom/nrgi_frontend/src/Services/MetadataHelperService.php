@@ -228,6 +228,7 @@ class MetadataHelperService {
       $this->metadataFieldNames['all']['downloads'],
       $variables
     );
+
     if ($node->bundle() != 'career_opportunity') {
       $this->preprocessGeneralMetadata(
         $node,
@@ -415,7 +416,7 @@ class MetadataHelperService {
                   ];
                 }
               }
-              if ($items) {
+              if (!empty($items)) {
                 if ($node->bundle() !== 'career_opportunity') {
                   $metadata[] = [
                     'label' => $label,
@@ -502,11 +503,14 @@ class MetadataHelperService {
         }
       }
     }
-    if ($node->bundle() !== 'career_opportunity') {
-      $variables['meta_data'][] = $metadata;
-    }
-    else {
-      $variables['meta_data']['career_opportunity']['header'] = $metadata;
+
+    if (!empty($metadata)) {
+      if ($node->bundle() !== 'career_opportunity') {
+        $variables['meta_data'][] = $metadata;
+      }
+      else {
+        $variables['meta_data']['career_opportunity']['header'] = $metadata;
+      }
     }
   }
 
@@ -565,7 +569,7 @@ class MetadataHelperService {
         }
       }
     }
-    if ($items) {
+    if (!empty($items)) {
       if (!$items_only && $node->bundle() !== 'career_opportunity') {
         $metadata = [
           'label' => t('Additional downloads'),
@@ -647,13 +651,16 @@ class MetadataHelperService {
 
                   }
 
-                  $items[] = [
-                    'type' => 'logo',
-                    'title' => $title ?? NULL,
-                    'link' => $link ?? NULL,
-                    'is_external' => $is_external ?? NULL,
-                    'logo' => $logo['responsive_image'] ?? NULL,
-                  ];
+                  if ($title || $link || !empty($logo)) {
+
+                    $items[] = [
+                      'type' => 'logo',
+                      'title' => $title ?? NULL,
+                      'link' => $link ?? NULL,
+                      'is_external' => $is_external ?? NULL,
+                      'logo' => $logo['responsive_image'] ?? NULL,
+                    ];
+                  }
                 }
               }
             }
@@ -661,7 +668,7 @@ class MetadataHelperService {
         }
       }
     }
-    if ($items) {
+    if (!empty($items)) {
       $metadata = [
         'label' => $section_label,
         'items' => $items,
@@ -800,11 +807,11 @@ class MetadataHelperService {
                                  . $end_minutes . $end_pm_am;
 
         if ($end_year > $start_year) {
-          $date .= ' ' . $start_year . '-' . $end_day . ' ' . $end_month
+          $date .= ' ' . $start_year . '–' . $end_day . ' ' . $end_month
                    . ' ' . $end_year;
         }
         else {
-          $date .= '-' . $end_day . ' ' . $end_month . ' ' . $end_year;
+          $date .= '–' . $end_day . ' ' . $end_month . ' ' . $end_year;
 
         }
 

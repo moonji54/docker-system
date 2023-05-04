@@ -25,6 +25,7 @@
     cursor     : pointer;
     position   : absolute;
     right      : 0;
+    transform  : translateY(1px);
     transition : color 0.3s;
 
     &:hover,

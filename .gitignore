@@ -245,3 +245,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 /.lando.yml
+
+# Ignore drush local environement settings
+/drush/drush.local.yml

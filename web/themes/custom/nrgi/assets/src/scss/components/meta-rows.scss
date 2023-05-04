@@ -107,7 +107,7 @@
   &__logo {
     img {
       filter         : grayscale(1);
-      max-width      : 5.75rem;
+      max-width      : 6.25rem;
       mix-blend-mode : multiply;
       transition     : filter 0.3s;
 
@@ -181,10 +181,9 @@
       &--logos {
         display         : flex;
         flex-wrap       : wrap;
+        gap             : 2rem;
         justify-content : space-between;
         margin-top      : var(--space-l);
-        column-gap      : 5.25rem;
-        row-gap         : 2rem;
       }
     }
 
@@ -195,10 +194,8 @@
 
     #{$c}__logo {
       img {
-        width : 5.75rem;
-
         @include media("<=desktop") {
-          width : 4rem;
+          max-width : 4rem;
         }
       }
     }

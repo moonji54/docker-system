@@ -26,6 +26,15 @@
 
   &__button {
     margin-top : var(--space-m);
+
+    /* stylelint-disable-next-line */
+    .rtl & {
+      flex-direction : row-reverse;
+      /* stylelint-disable-next-line */
+      svg {
+        transform : rotateY(180deg);
+      }
+    }
   }
 
   &--pdf {
