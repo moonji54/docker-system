@@ -17,14 +17,14 @@
         {% spaceless %}
           {% if format == 'online' %}
             {# On events only #}
-            <span class="c-card__meta-item">
+            <span class="c-card__meta-item c-card__meta-item--event-data">
                 {{- 'Online'|t -}}
               </span>
           {% endif %}
 
           {% if recording %}
             {# On events only - will show on past event & with available recording #}
-            <span class="c-card__meta-item">
+            <span class="c-card__meta-item c-card__meta-item--event-data">
                 {{- 'Recording available'|t -}}
               </span>
           {% endif %}
@@ -34,7 +34,7 @@
           {% endif %}
 
           {% if translations %}
-            <span class="c-card__meta-item">{{ translations }}</span>
+            <span class="c-card__meta-item c-card__meta-item--translations">{{ translations }}</span>
           {% endif %}
 
           {% if topics %}
