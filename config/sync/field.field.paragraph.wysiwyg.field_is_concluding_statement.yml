@@ -1,0 +1,23 @@
+uuid: f261fa39-16c0-48bc-b85a-278a918a3ab5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_is_concluding_statement
+    - paragraphs.paragraphs_type.wysiwyg
+id: paragraph.wysiwyg.field_is_concluding_statement
+field_name: field_is_concluding_statement
+entity_type: paragraph
+bundle: wysiwyg
+label: 'Concluding statement'
+description: 'Specify if this <em>WYSIWYG</em> section is a concluding statement. Please note that this section should be used as the last component of the page builder. On generated PDFs, this will add a page break before the concluding statement.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

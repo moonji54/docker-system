@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.wysiwyg.field_is_concluding_statement
     - field.field.paragraph.wysiwyg.field_wysiwyg
     - paragraphs.paragraphs_type.wysiwyg
   module:
@@ -22,4 +23,5 @@ content:
     weight: 0
     region: content
 hidden:
+  field_is_concluding_statement: true
   search_api_excerpt: true
