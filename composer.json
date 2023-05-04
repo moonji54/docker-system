@@ -163,6 +163,7 @@
         }
     },
     "require": {
+        "chrome-php/chrome": "^1.9",
         "ckeditor-plugin/pagebreak": "4.20.0",
         "ckeditor/div": "4.10.1",
         "ckeditor/fakeobjects": "4.16.0",

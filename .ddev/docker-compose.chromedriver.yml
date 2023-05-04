@@ -1,15 +1,3 @@
-# Installation instructions
-
-[See Wiki home](https://gitlab.com/sb-dev-team/white-label-drupal-9/-/wikis/Home)
-
-## NRGI PDF Generation.
-
-## Local setup
-The custom NRGI plugin makes the PDF generation ready to work on your local env without usiong ```ddev share```.
-You just need to create additional service in your DDEV setup.
-
-Please create file "{PROJECT_ROOT}/.ddev/docker-compose.chromedriver.yml" with contents:
-```yaml
 version: '3.6'
 services:
   chromedriver:
@@ -27,6 +15,3 @@ services:
   web:
     links:
       - chromedriver:$DDEV_HOSTNAME
-```
-
-Then run ```ddev restart``` and new service with headless Chrome browser will be launched.
