@@ -208,6 +208,7 @@
     }
 
     #{$c}__title {
+      @include ts-card($medium : true);
       margin-top : calc(var(--space-xs) * -1);
     }
   }

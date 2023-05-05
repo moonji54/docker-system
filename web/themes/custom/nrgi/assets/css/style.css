@@ -806,6 +806,17 @@ ul li a:hover {
 .o-content-from-editor table a {
   overflow-wrap: break-word;
 }
+.o-content-from-editor table p {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+@media (max-width: 64rem) {
+  .o-content-from-editor table p {
+    font-size: 0.875rem;
+  }
+}
 .o-content-from-editor .responsive-table {
   margin-top: var(--space-2xl);
   overflow-x: auto;
@@ -1655,7 +1666,43 @@ ul li a:hover {
   grid-column: 4/-1;
 }
 .c-card--listing .c-card__title {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 1.25;
+  font-size: 2rem;
+  line-height: 1.5;
   margin-top: calc(var(--space-xs) * -1);
+}
+@media (max-width: 94.5rem) {
+  .c-card--listing .c-card__title {
+    font-size: 2.25rem;
+  }
+}
+@media (max-width: 64rem) {
+  .c-card--listing .c-card__title {
+    font-size: 1.875rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-card--listing .c-card__title {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 94.5rem) {
+  .c-card--listing .c-card__title {
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 64rem) {
+  .c-card--listing .c-card__title {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 48rem) {
+  .c-card--listing .c-card__title {
+    line-height: 1.25;
+  }
 }
 .c-card--listing-no-image .c-card__content-wrapper {
   grid-column: 1/-1;
