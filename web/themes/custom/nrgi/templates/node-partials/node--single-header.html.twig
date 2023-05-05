@@ -2,6 +2,7 @@
   'c-single-header',
   'c-single-header--' ~ node.bundle|clean_class,
   (content.field_featured_image|field_value) ? 'c-single-header--has-featured-image',
+  'js-single-header',
 ] %}
 
 <header{{ attributes.addClass(classes) }}>

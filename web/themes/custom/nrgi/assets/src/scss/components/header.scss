@@ -48,13 +48,7 @@
   }
 
   &__logo-link {
-    display    : inline-flex;
-    transition : color 0.3s;
-
-    &:hover,
-    &:focus {
-      color : $blue-light;
-    }
+    display : inline-flex;
   }
 
   /* Secondary-menu

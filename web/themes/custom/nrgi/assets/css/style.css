@@ -2423,10 +2423,6 @@ ul li a:hover {
 }
 .c-header__logo-link {
   display: inline-flex;
-  transition: color 0.3s;
-}
-.c-header__logo-link:hover, .c-header__logo-link:focus {
-  color: #B3EFEF;
 }
 .c-header__secondary-menu {
   grid-column: 7/-1;
@@ -4073,6 +4069,9 @@ ul li a:hover {
 .c-quote__text:after {
   content: "”";
 }
+.rtl .c-quote__text:before, .rtl .c-quote__text:after {
+  display: none;
+}
 .c-quote__caption {
   font-family: "Noto Sans", sans-serif;
   font-size: 1.375rem;
@@ -4250,7 +4249,7 @@ ul li a:hover {
 .c-single-header__breadcrumbs {
   z-index: 1;
   grid-column: 1/-1;
-  margin-top: 3rem;
+  margin-top: var(--space-xl);
 }
 .c-single-header__title {
   font-family: "Cabinet Grotesk", sans-serif;
@@ -4272,6 +4271,11 @@ ul li a:hover {
 @media (max-width: 48rem) {
   .c-single-header__title {
     font-size: 1.875rem;
+  }
+}
+@media (max-width: 64rem) {
+  .c-single-header__title {
+    margin-top: var(--space-2xl);
   }
 }
 .c-single-header__subtitle {
@@ -4387,6 +4391,7 @@ ul li a:hover {
 @media (max-width: 48rem) {
   .c-single-header__buttons-wrapper {
     justify-content: space-between;
+    row-gap: 0.5rem;
   }
 }
 .c-single-header__buttons-wrapper .o-button {
@@ -4636,7 +4641,7 @@ ul li a:hover {
   align-items: center;
   display: flex;
   gap: 1.5rem;
-  padding: 0.875rem 0;
+  padding: 1.1875rem 0;
 }
 @media (max-width: 64rem) {
   .c-sub-navigation__inner {
@@ -4717,16 +4722,11 @@ ul li a:hover {
   }
 }
 .c-sub-navigation__link:hover .c-sub-navigation__link-label, .c-sub-navigation__link:focus .c-sub-navigation__link-label {
-  text-decoration-color: #EDEDEF;
-}
-@media (max-width: 48rem) {
-  .c-sub-navigation__link:hover .c-sub-navigation__link-label, .c-sub-navigation__link:focus .c-sub-navigation__link-label {
-    color: #B3EFEF;
-    text-decoration-color: #B3EFEF;
-  }
+  color: #B3EFEF;
+  text-decoration-color: #B3EFEF;
 }
 .c-sub-navigation__link-svg {
-  color: #EDEDEF;
+  color: #FFFFFF;
 }
 @media (max-width: 48rem) {
   .c-sub-navigation__link-svg {
@@ -4734,12 +4734,12 @@ ul li a:hover {
   }
 }
 .c-sub-navigation__link-label {
-  color: #EDEDEF;
+  color: #FFFFFF;
   text-decoration: underline;
-  text-decoration-color: transparent;
-  text-decoration-thickness: 0.0625rem;
   text-underline-offset: 0.313rem;
   transition: text-decoration-color 0.3s, color 0.3s;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 0.0625rem;
 }
 
 .c-table-of-contents {

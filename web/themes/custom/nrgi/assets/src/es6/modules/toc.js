@@ -63,11 +63,6 @@ class Toc {
     }
 
     showToc () {
-        // Delay slightly once the header is no longer intersecting
-        const options = {
-            rootMargin: '100px 0px 0px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.intersectionRatio === 0) {
@@ -76,9 +71,9 @@ class Toc {
                     this.$tocWrapper.removeClass('is-fixed');
                 }
             });
-        }, options);
+        });
 
-        this.$('.js-header').each((index, container) => {
+        this.$('.js-single-header').each((index, container) => {
             observer.observe(container);
         });
     }

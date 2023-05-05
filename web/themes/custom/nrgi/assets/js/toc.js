@@ -73,10 +73,6 @@ var Toc = /*#__PURE__*/function () {
     key: "showToc",
     value: function showToc() {
       var _this = this;
-      // Delay slightly once the header is no longer intersecting
-      var options = {
-        rootMargin: '100px 0px 0px 0px'
-      };
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.intersectionRatio === 0) {
@@ -85,8 +81,8 @@ var Toc = /*#__PURE__*/function () {
             _this.$tocWrapper.removeClass('is-fixed');
           }
         });
-      }, options);
-      this.$('.js-header').each(function (index, container) {
+      });
+      this.$('.js-single-header').each(function (index, container) {
         observer.observe(container);
       });
     }
