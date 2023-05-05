@@ -3761,9 +3761,16 @@ ul li a:hover {
   /* Search
   ================================================== */
 }
+@media (max-width: 64rem) {
+  .c-page-header {
+    height: 100%;
+    min-height: 29.75rem;
+  }
+}
 @media (max-width: 48rem) {
   .c-page-header {
     height: 100%;
+    min-height: 25rem;
   }
 }
 .c-page-header .c-media {
@@ -3816,6 +3823,13 @@ ul li a:hover {
 @media (max-width: 48rem) {
   .c-page-header__container {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 48rem) {
+  .c-page-header__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 }
 .c-page-header__breadcrumbs {
@@ -3904,6 +3918,7 @@ ul li a:hover {
 }
 @media (max-width: 48rem) {
   .c-page-header__aside {
+    align-self: flex-start;
     flex-direction: row;
     gap: 0.5rem;
     grid-column: 1/-1;

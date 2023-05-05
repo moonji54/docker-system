@@ -20,18 +20,16 @@ var ShareLinks = /*#__PURE__*/function () {
     this.$ = $;
     this.Drupal = Drupal;
     this.$window = this.$(window);
-    this.mobileBreakpoint = 767;
     this.$shareButton = this.$('.js-share-button', this.context);
     this.$shareLinks = this.$('.js-share-links', this.context);
 
     // Events
-    if (this.$window.width() <= this.mobileBreakpoint) {
-      if (navigator.share) {
-        this.$shareButton.on('click', this.$.proxy(this.webShare, this));
-        this.$shareLinks.addClass('is-hidden');
-      } else {
-        this.$shareButton.removeClass('is-visible');
-      }
+    if (navigator.share && this.$window.width() <= 768) {
+      this.$shareButton.on('click', this.$.proxy(this.webShare, this));
+      this.$shareLinks.addClass('is-hidden');
+      this.$shareButton.addClass('is-visible');
+    } else {
+      this.$shareButton.removeClass('is-visible');
     }
   }
   _createClass(ShareLinks, [{
