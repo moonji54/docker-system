@@ -11,7 +11,7 @@
     align-items : center;
     display     : flex;
     gap         : 1.5rem;
-    padding     : 0.875rem 0;
+    padding     : 1.1875rem 0;
 
     @include media("<=desktop") {
       flex-wrap : wrap;
@@ -78,18 +78,14 @@
     &:hover,
     &:focus {
       #{$c}__link-label {
-        text-decoration-color : $grey-light;
-
-        @include media("<=tablet") {
-          color                 : $blue-light;
-          text-decoration-color : $blue-light;
-        }
+        color                 : $blue-light;
+        text-decoration-color : $blue-light;
       }
     }
   }
 
   &__link-svg {
-    color : $grey-light;
+    color : $white;
 
     @include media("<=tablet") {
       display : none;
@@ -97,11 +93,11 @@
   }
 
   &__link-label {
-    color                     : $grey-light;
+    color                     : $white;
     text-decoration           : underline;
-    text-decoration-color     : transparent;
-    text-decoration-thickness : 0.0625rem;
     text-underline-offset     : 0.313rem;
     transition                : text-decoration-color 0.3s, color 0.3s;
+    text-decoration-color     : transparent;
+    text-decoration-thickness : 0.0625rem;
   }
 }

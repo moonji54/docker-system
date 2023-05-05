@@ -34,12 +34,16 @@
   &__breadcrumbs {
     @include z-index(breadcrumbs);
     grid-column : 1 / -1;
-    margin-top  : 3rem;
+    margin-top  : var(--space-xl);
   }
 
   &__title {
     @include ts-heading-2;
     margin-top : 6rem;
+
+    @include media("<=desktop") {
+      margin-top : var(--space-2xl);
+    }
   }
 
   &__subtitle {
@@ -117,6 +121,7 @@
 
     @include media("<=tablet") {
       justify-content : space-between;
+      row-gap         : 0.5rem;
     }
 
     .o-button {
