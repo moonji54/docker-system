@@ -5,6 +5,10 @@
   no_image ? 'c-card--listing-no-image'
 ] %}
 
+{% if subtype in ['Landing Page', 'Listing Page'] %}
+  {% set subtype = 'page' %}
+{% endif %}
+
 <article{{ attributes.addClass(classes) }}>
   {% if show_image %}
     <div class="c-card__image-wrapper">

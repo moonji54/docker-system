@@ -188,6 +188,12 @@
     grid-template-columns : repeat(8, 1fr);
     margin-top            : var(--space-xl);
 
+    @include media("<=tablet") {
+      display        : flex;
+      flex-direction : column-reverse;
+      gap            : 2rem;
+    }
+
     &:first-child {
       margin-top : 0;
     }

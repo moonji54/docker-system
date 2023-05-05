@@ -4,6 +4,10 @@
   'c-card--' ~ layout,
 ] %}
 
+{% if subtype in ['Landing Page', 'Listing Page'] %}
+  {% set subtype = 'page' %}
+{% endif %}
+
 {% if title %}
   <article{{ attributes.addClass(classes).setAttribute('dir', language_direction) }}>
     <div class="c-card__content-wrapper">
