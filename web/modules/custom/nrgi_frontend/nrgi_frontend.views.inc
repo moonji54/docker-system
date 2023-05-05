@@ -35,6 +35,13 @@ function nrgi_frontend_preprocess_views_view(array &$variables) {
       $variables['query'] = $exposed['query'];
     }
   }
+
+  // Add menu cache tag.
+  $variables = array_merge_recursive($variables, [
+    '#cache' => [
+      'tags' => [$view->current_display],
+    ],
+  ]);
 }
 
 /**

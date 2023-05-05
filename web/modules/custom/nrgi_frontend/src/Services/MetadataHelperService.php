@@ -335,6 +335,9 @@ class MetadataHelperService {
         ) {
           $variables['subtype'] = $resource_type[0];
         }
+
+        $this->preprocessResourceCardMetadata($node, $variables);
+
         break;
     }
 
