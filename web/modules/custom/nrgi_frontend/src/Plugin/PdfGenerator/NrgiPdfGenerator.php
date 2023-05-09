@@ -48,7 +48,7 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
   public function getDefaultPdfOptions(): array {
     return [
       'landscape' => FALSE,
-      'scale' => 1.494,
+      'scale' => 1.224,
       'preferCSSPageSize' => TRUE,
       'marginTop' => 0,
       'marginBottom' => 0,

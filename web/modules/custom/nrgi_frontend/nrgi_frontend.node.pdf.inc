@@ -29,3 +29,17 @@ function nrgi_frontend_preprocess_field(&$variables) {
     }
   }
 }
+//
+///**
+// * Implements hook_library_info_alter().
+// */
+//function nrgi_frontend_library_info_alter(&$libraries, $extension) {
+//  if ($extension === 'soapbox_pdf') {
+//    $libraries['pagedjs']['header'] = TRUE;
+//    $libraries['pagedjs']['js'] = [
+//      'https://unpkg.com/pagedjs/dist/paged.polyfill.js' => [
+//        'external' => TRUE,
+//      ],
+//    ];
+//  }
+//}

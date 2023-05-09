@@ -23,63 +23,16 @@
  * @see template_preprocess_html()
  */
 #}
-{% set body_classes = [
-  logged_in ? 'user-logged-in',
-  not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
-  node_type ? 'page-node-type-' ~ node_type|clean_class,
-  db_offline ? 'db-offline',
-] %}
 <!DOCTYPE html>
-<html{{ html_attributes }}>
-{# @formatter:off #}
+<html{{ html_attributes.addClass('no-js') }}>
 <head>
-  <head-placeholder token="{{ placeholder_token }}">
-
-    <link rel="apple-touch-icon" sizes="57x57" href="/{{ base_path ~ directory }}/assets/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/{{ base_path ~ directory }}/assets/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/{{ base_path ~ directory }}/assets/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/{{ base_path ~ directory }}/assets/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114"
-          href="/{{ base_path ~ directory }}/assets/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120"
-          href="/{{ base_path ~ directory }}/assets/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144"
-          href="/{{ base_path ~ directory }}/assets/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152"
-          href="/{{ base_path ~ directory }}/assets/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180"
-          href="/{{ base_path ~ directory }}/assets/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"
-          href="/{{ base_path ~ directory }}/assets/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32"
-          href="/{{ base_path ~ directory }}/assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96"
-          href="/{{ base_path ~ directory }}/assets/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16"
-          href="/{{ base_path ~ directory }}/assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/{{ base_path ~ directory }}/assets/favicon/manifest.json">
-    <meta name="msapplication-TileImage" content="/{{ base_path ~ directory }}/assets/favicon/ms-icon-144x144.png">
-
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#ffffff">
-
-    <css-placeholder token="{{ placeholder_token }}">
-      <js-placeholder token="{{ placeholder_token }}">
-
-        <title>{{ head_title|safe_join(' | ') }}</title>
-
-        <script type="text/javascript">
-          {# Empty script tag Chrome bugfix for: https://lab.laukstein.com/bug/input #}
-
-        </script>
-
-        </head>
-<body{{ attributes.addClass(body_classes) }}>
-
-{{ page_top }}
+  <title>{{ head_title|safe_join(' | ') }}</title>
+  <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
+      <meta name="robots" content="noindex">
+      </head>
+<body>
 {{ page }}
-{{ page_bottom }}
-
 <js-bottom-placeholder token="{{ placeholder_token }}">
 </body>
 </html>
