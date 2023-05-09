@@ -1,0 +1,10 @@
+.c-media {
+  &--fallback-image {
+    p {
+      @include sans-body;
+      font-size   : 7pt;
+      line-height : 1.5;
+      margin-top  : 8pt;
+    }
+  }
+}

@@ -46,7 +46,8 @@
 .c-pdf {
   .c-embed,
   .c-full-width-media,
-  .c-learning-block {
+  .c-learning-block,
+  .c-quote {
     margin-top   : 36pt;
     width        : calc(var(--pagedjs-pagebox-width) - (var(--pagedjs-margin-right) + var(--pagedjs-margin-right)));
     break-inside : avoid;
