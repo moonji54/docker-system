@@ -446,7 +446,8 @@ tbody {
 }
 .c-pdf .c-embed,
 .c-pdf .c-full-width-media,
-.c-pdf .c-learning-block {
+.c-pdf .c-learning-block,
+.c-pdf .c-quote {
   margin-top: 36pt;
   width: calc(var(--pagedjs-pagebox-width) - (var(--pagedjs-margin-right) + var(--pagedjs-margin-right)));
   -moz-column-break-inside: avoid;
@@ -454,7 +455,8 @@ tbody {
 }
 .c-pdf .c-embed + *,
 .c-pdf .c-full-width-media + *,
-.c-pdf .c-learning-block + * {
+.c-pdf .c-learning-block + *,
+.c-pdf .c-quote + * {
   margin-top: 36pt;
 }
 .c-pdf .o-section {

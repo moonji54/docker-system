@@ -1,4 +1,5 @@
 .c-quote {
+  $c               : &;
   background-color : $tertiary;
 
   &__text {
@@ -25,5 +26,22 @@
     @include ts-body;
     font-weight : 500;
     margin-top  : var(--space-s);
+  }
+
+  &--pdf {
+    #{$c}__inner {
+      padding : 20pt 12pt 20pt 24pt;
+    }
+
+    #{$c}__text {
+      font-size   : 16pt;
+      line-height : 1.3;
+    }
+
+    #{$c}__caption {
+      font-size   : 9pt;
+      line-height : 1.75;
+      margin-top  : 4pt;
+    }
   }
 }

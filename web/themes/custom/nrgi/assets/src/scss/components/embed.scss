@@ -1,4 +1,5 @@
 .c-embed {
+  $c : &;
   /* stylelint-disable */
   .c-media--data-visualisation,
   .c-media--remote-audio {
@@ -35,6 +36,18 @@
       &:last-child {
         font-style : italic;
       }
+    }
+  }
+
+  &--pdf {
+    #{$c}__media-wrapper:has(+ #{$c}__caption) {
+      margin-bottom : calc(var(--space-m) * -1);
+    }
+
+    #{$c}__caption {
+      @include sans-body;
+      font-size   : 7pt;
+      line-height : 1.5;
     }
   }
 }

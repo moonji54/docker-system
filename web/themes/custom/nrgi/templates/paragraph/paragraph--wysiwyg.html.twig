@@ -1,9 +1,8 @@
 {% set classes = [
   'c-text-block',
   'o-section',
+  is_concluding ? 'u-page-break',
 ] %}
-
-{# SBTODO (p2pdf): is_concluding boolean variable available #}
 
 {% set rendered = content|render %}
 {% if rendered|striptags|trim is not empty %}

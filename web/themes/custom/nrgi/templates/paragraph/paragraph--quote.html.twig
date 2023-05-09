@@ -1,17 +1,20 @@
 {% set classes = [
   'c-quote',
+  is_pdf ? 'c-quote--pdf',
   'o-section',
   'o-section--has-background'
 ] %}
 
 {% if content.field_quotation|field_value %}
   <figure{{ attributes.addClass(classes) }}>
-    <div class="o-container">
-      <blockquote class="c-quote__text">{{ content.field_quotation|field_raw('value') }}</blockquote>
+    <div class="c-quote__container o-container">
+      <div class="c-quote__inner">
+        <blockquote class="c-quote__text">{{ content.field_quotation|field_raw('value') }}</blockquote>
 
-      {% if content.field_quote_author|field_value %}
-        <figcaption class="c-quote__caption">{{ content.field_quote_author }}</figcaption>
-      {% endif %}
+        {% if content.field_quote_author|field_value %}
+          <figcaption class="c-quote__caption">{{ content.field_quote_author }}</figcaption>
+        {% endif %}
+      </div>
     </div>
   </figure>
 {% endif %}
