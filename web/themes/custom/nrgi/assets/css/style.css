@@ -5328,13 +5328,6 @@ ul li a:hover {
   text-shadow: none;
 }
 
-@media print {
-  html,
-  body {
-    min-height: 297mm;
-    min-width: 270mm;
-  }
-}
 .ui-menu.ui-widget {
   font-family: "Noto Sans", sans-serif;
   font-weight: 400;
