@@ -2232,7 +2232,14 @@ ul li a:hover {
   margin-top: 20pt;
 }
 .c-pdf .c-footnotes .c-footnotes__header {
-  display: none;
+  border: none;
+  margin-bottom: 20pt;
+  padding: 0;
+}
+.c-pdf .c-footnotes .c-footnotes__heading {
+  color: #00545A;
+  font-size: 30pt;
+  line-height: 1.2;
 }
 .c-pdf .c-footnotes .c-footnotes__list {
   font-size: 7pt;

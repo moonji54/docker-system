@@ -21,6 +21,10 @@
   }
 }
 
+@page :first {
+  margin : 0;
+}
+
 // Position the header into top-center and footer into bottom right.
 // Target a named paged specifically to avoid this applying to
 // pages like the cover page, final page, etc.
@@ -347,13 +351,6 @@
     a {
       color : $blue-light;
     }
-  }
-
-  /* #Footnotes
-================================================== */
-  &__footnotes-title {
-    @include pdf-ts-heading-main;
-    color : $secondary;
   }
 }
 

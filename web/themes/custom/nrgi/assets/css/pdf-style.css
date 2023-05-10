@@ -425,6 +425,9 @@ tbody {
     content: none;
   }
 }
+@page :first {
+  margin: 0;
+}
 @page bodyPage {
   @top-left {
     content: element(headerRunning);
@@ -457,8 +460,6 @@ tbody {
   /* #Info page
   ================================================== */
   /* #Back cover
-  ================================================== */
-  /* #Footnotes
   ================================================== */
 }
 .c-pdf .c-embed,
@@ -911,13 +912,6 @@ tbody {
 }
 .c-pdf__back-cover-body a {
   color: #B3EFEF;
-}
-.c-pdf__footnotes-title {
-  font-family: "Cabinet Grotesk", sans-serif;
-  font-size: 30pt;
-  font-weight: 500;
-  line-height: 1.2;
-  color: #00545A;
 }
 
 /* #Running content

@@ -36,7 +36,15 @@
     margin-top : 20pt;
 
     #{$c}__header {
-      display : none;
+      border        : none;
+      margin-bottom : 20pt;
+      padding       : 0;
+    }
+
+    #{$c}__heading {
+      color       : $secondary;
+      font-size   : 30pt;
+      line-height : 1.2;
     }
 
     #{$c}__list {
