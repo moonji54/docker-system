@@ -304,6 +304,8 @@ tbody {
   margin-top: 0;
 }
 .pdf-content-from-editor figure {
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
   margin-top: 24pt;
 }
 .pdf-content-from-editor figure figcaption {
@@ -311,6 +313,7 @@ tbody {
   font-size: 7pt;
   line-height: 1.5;
   margin-top: 8pt;
+  display: block;
 }
 .pdf-content-from-editor figure > .c-media + figcaption {
   margin-top: 24pt;
@@ -351,6 +354,9 @@ tbody {
   color: #00545A;
   text-decoration: underline;
   text-underline-offset: 1pt;
+}
+.pdf-content-from-editor .c-media--fallback-image:has(+ figcaption) {
+  margin-bottom: -8pt;
 }
 .pdf-content-from-editor .boxed-text {
   margin: 36pt 0;
@@ -450,6 +456,15 @@ tbody {
 @page backCover {
   margin: 14.8mm 14.8mm 19.7mm 14.8mm;
 }
+@page contentsPage {
+  @top-left {
+    border-top: 1pt solid #EDEDEF;
+    content: "";
+    display: block;
+    margin-top: 42pt;
+    width: 100%;
+  }
+}
 .c-pdf {
   /* #Cover
   ================================================== */
@@ -479,8 +494,14 @@ tbody {
   margin-top: 24pt;
   width: calc(var(--pagedjs-pagebox-width) - (var(--pagedjs-margin-right) + var(--pagedjs-margin-right)));
 }
+.c-pdf .c-quote + * {
+  margin-top: 24pt;
+}
 .c-pdf .o-section {
   padding: 0;
+}
+.c-pdf .o-section + .o-section {
+  margin-top: 24pt;
 }
 .c-pdf .o-container {
   grid-column-gap: 21pt;
@@ -579,6 +600,8 @@ tbody {
   margin-top: 0;
 }
 .c-pdf .o-content-from-editor figure {
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
   margin-top: 24pt;
 }
 .c-pdf .o-content-from-editor figure figcaption {
@@ -586,6 +609,7 @@ tbody {
   font-size: 7pt;
   line-height: 1.5;
   margin-top: 8pt;
+  display: block;
 }
 .c-pdf .o-content-from-editor figure > .c-media + figcaption {
   margin-top: 24pt;
@@ -626,6 +650,9 @@ tbody {
   color: #00545A;
   text-decoration: underline;
   text-underline-offset: 1pt;
+}
+.c-pdf .o-content-from-editor .c-media--fallback-image:has(+ figcaption) {
+  margin-bottom: -8pt;
 }
 .c-pdf .o-content-from-editor .boxed-text {
   margin: 36pt 0;
@@ -797,6 +824,9 @@ tbody {
 }
 .c-pdf__body > *:first-child {
   margin-top: 0;
+}
+.c-pdf__toc {
+  page: contentsPage;
 }
 .c-pdf__toc-wrapper {
   width: 357pt;

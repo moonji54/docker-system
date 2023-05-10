@@ -51,6 +51,16 @@
   margin : 14.8mm 14.8mm 19.7mm 14.8mm;
 }
 
+@page contentsPage {
+  @top-left {
+    border-top : 1pt solid $grey-light;
+    content    : "";
+    display    : block;
+    margin-top : 42pt;
+    width      : 100%;
+  }
+}
+
 .c-pdf {
   .c-embed,
   .c-full-width-media,
@@ -67,10 +77,18 @@
   .c-quote {
     margin-top : 24pt;
     width      : calc(var(--pagedjs-pagebox-width) - (var(--pagedjs-margin-right) + var(--pagedjs-margin-right)));
+
+    & + * {
+      margin-top : 24pt;
+    }
   }
 
   .o-section {
     padding : 0;
+  }
+
+  .o-section + .o-section {
+    margin-top : 24pt;
   }
 
   .o-container {
@@ -215,6 +233,10 @@
 
   /* #Toc
 ================================================== */
+  &__toc {
+    page : contentsPage;
+  }
+
   &__toc-wrapper {
     width : 357pt;
   }

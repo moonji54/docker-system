@@ -94,11 +94,13 @@
   }
 
   figure {
-    margin-top : 24pt;
+    break-inside : avoid;
+    margin-top   : 24pt;
 
     figcaption {
       @include pdf-ts-media-caption;
       margin-top : 8pt;
+      display    : block;
     }
 
     > .c-media + figcaption {
@@ -148,6 +150,10 @@
         text-decoration       : underline;
         text-underline-offset : 1pt;
       }
+    }
+
+    &--fallback-image:has(+ figcaption) {
+      margin-bottom : -8pt;
     }
   }
 
