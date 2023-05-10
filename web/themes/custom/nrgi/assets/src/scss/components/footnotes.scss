@@ -1,4 +1,6 @@
 .c-footnotes {
+  $c : &;
+
   &__list {
     @include ts-caption;
     columns    : 2;
@@ -11,7 +13,6 @@
 
   &__list-item {
     display       : flex;
-    gap           : var(--space-s);
     margin-bottom : var(--space-s);
 
     &:last-child {
@@ -24,8 +25,35 @@
   }
 
   &__list-content {
+    margin-left : var(--space-s);
+
     a {
       word-break : break-all;
+    }
+  }
+
+  .c-pdf & {
+    margin-top : 20pt;
+
+    #{$c}__header {
+      display : none;
+    }
+
+    #{$c}__list {
+      font-size  : 7pt;
+      column-gap : 21pt;
+    }
+
+    #{$c}__list-item {
+      margin-bottom : 7pt;
+    }
+
+    #{$c}__list-label {
+      color : $secondary;
+    }
+
+    &__list-content {
+      margin-left : 8pt;
     }
   }
 }

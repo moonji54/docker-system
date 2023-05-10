@@ -7,14 +7,12 @@
 
 {% if content.field_quotation|field_value %}
   <figure{{ attributes.addClass(classes) }}>
-    <div class="c-quote__container o-container">
-      <div class="c-quote__inner">
-        <blockquote class="c-quote__text">{{ content.field_quotation|field_raw('value') }}</blockquote>
+    <div class="o-container">
+      <blockquote class="c-quote__text">{{ content.field_quotation|field_raw('value') }}</blockquote>
 
-        {% if content.field_quote_author|field_value %}
-          <figcaption class="c-quote__caption">{{ content.field_quote_author }}</figcaption>
-        {% endif %}
-      </div>
+      {% if content.field_quote_author|field_value %}
+        <figcaption class="c-quote__caption">{{ content.field_quote_author }}</figcaption>
+      {% endif %}
     </div>
   </figure>
 {% endif %}

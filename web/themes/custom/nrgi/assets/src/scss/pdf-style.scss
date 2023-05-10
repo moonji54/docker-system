@@ -50,8 +50,7 @@
 .c-pdf {
   .c-embed,
   .c-full-width-media,
-  .c-learning-block,
-  .c-quote {
+  .c-learning-block {
     margin-top   : 36pt;
     width        : calc(var(--pagedjs-pagebox-width) - (var(--pagedjs-margin-right) + var(--pagedjs-margin-right)));
     break-inside : avoid;
@@ -59,6 +58,11 @@
     & + * {
       margin-top : 36pt;
     }
+  }
+
+  .c-quote {
+    margin-top : 24pt;
+    width      : calc(var(--pagedjs-pagebox-width) - (var(--pagedjs-margin-right) + var(--pagedjs-margin-right)));
   }
 
   .o-section {
@@ -315,7 +319,7 @@
   /* #Back cover
 ================================================== */
   &__back-cover {
-    color           : $grey-light;
+    color           : $white;
     display         : flex;
     flex-direction  : column;
     height          : calc(var(--pagedjs-pagebox-height) - (var(--pagedjs-margin-top) + var(--pagedjs-margin-bottom)));
@@ -334,12 +338,22 @@
   }
 
   &__back-cover-body {
-    @include pdf-ts-body;
-    margin-top : 20pt;
+    @include sans-body;
+    font-size   : 14pt;
+    font-weight : 500;
+    line-height : 1.3;
+    margin-top  : 20pt;
 
     a {
       color : $blue-light;
     }
+  }
+
+  /* #Footnotes
+================================================== */
+  &__footnotes-title {
+    @include pdf-ts-heading-main;
+    color : $secondary;
   }
 }
 

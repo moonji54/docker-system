@@ -336,11 +336,24 @@ tbody {
 .pdf-content-from-editor .c-media--fallback-image {
   -moz-column-break-inside: avoid;
        break-inside: avoid;
+  margin-top: 24pt;
 }
 .pdf-content-from-editor .c-media--fallback-image .c-media {
   margin-top: 0;
 }
+.pdf-content-from-editor .c-media--fallback-image p {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 7pt;
+  line-height: 1.5;
+  margin-top: 8pt;
+}
+.pdf-content-from-editor .c-media--fallback-image a {
+  color: #00545A;
+  text-decoration: underline;
+  text-underline-offset: 1pt;
+}
 .pdf-content-from-editor .boxed-text {
+  margin: 36pt 0;
   padding: 20pt 12pt;
   -moz-column-break-inside: avoid;
        break-inside: avoid;
@@ -445,11 +458,12 @@ tbody {
   ================================================== */
   /* #Back cover
   ================================================== */
+  /* #Footnotes
+  ================================================== */
 }
 .c-pdf .c-embed,
 .c-pdf .c-full-width-media,
-.c-pdf .c-learning-block,
-.c-pdf .c-quote {
+.c-pdf .c-learning-block {
   margin-top: 36pt;
   width: calc(var(--pagedjs-pagebox-width) - (var(--pagedjs-margin-right) + var(--pagedjs-margin-right)));
   -moz-column-break-inside: avoid;
@@ -457,9 +471,12 @@ tbody {
 }
 .c-pdf .c-embed + *,
 .c-pdf .c-full-width-media + *,
-.c-pdf .c-learning-block + *,
-.c-pdf .c-quote + * {
+.c-pdf .c-learning-block + * {
   margin-top: 36pt;
+}
+.c-pdf .c-quote {
+  margin-top: 24pt;
+  width: calc(var(--pagedjs-pagebox-width) - (var(--pagedjs-margin-right) + var(--pagedjs-margin-right)));
 }
 .c-pdf .o-section {
   padding: 0;
@@ -593,11 +610,24 @@ tbody {
 .c-pdf .o-content-from-editor .c-media--fallback-image {
   -moz-column-break-inside: avoid;
        break-inside: avoid;
+  margin-top: 24pt;
 }
 .c-pdf .o-content-from-editor .c-media--fallback-image .c-media {
   margin-top: 0;
 }
+.c-pdf .o-content-from-editor .c-media--fallback-image p {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 7pt;
+  line-height: 1.5;
+  margin-top: 8pt;
+}
+.c-pdf .o-content-from-editor .c-media--fallback-image a {
+  color: #00545A;
+  text-decoration: underline;
+  text-underline-offset: 1pt;
+}
 .c-pdf .o-content-from-editor .boxed-text {
+  margin: 36pt 0;
   padding: 20pt 12pt;
   -moz-column-break-inside: avoid;
        break-inside: avoid;
@@ -854,7 +884,7 @@ tbody {
   margin-top: 24pt;
 }
 .c-pdf__back-cover {
-  color: #EDEDEF;
+  color: #FFFFFF;
   display: flex;
   flex-direction: column;
   height: calc(var(--pagedjs-pagebox-height) - (var(--pagedjs-margin-top) + var(--pagedjs-margin-bottom)));
@@ -874,12 +904,20 @@ tbody {
 }
 .c-pdf__back-cover-body {
   font-family: "Noto Sans", sans-serif;
-  font-size: 9pt;
-  line-height: 1.75;
+  font-size: 14pt;
+  font-weight: 500;
+  line-height: 1.3;
   margin-top: 20pt;
 }
 .c-pdf__back-cover-body a {
   color: #B3EFEF;
+}
+.c-pdf__footnotes-title {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 30pt;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #00545A;
 }
 
 /* #Running content

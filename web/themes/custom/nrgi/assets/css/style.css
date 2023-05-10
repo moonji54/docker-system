@@ -2207,7 +2207,6 @@ ul li a:hover {
 }
 .c-footnotes__list-item {
   display: flex;
-  gap: var(--space-s);
   margin-bottom: var(--space-s);
 }
 .c-footnotes__list-item:last-child {
@@ -2223,8 +2222,31 @@ ul li a:hover {
 .c-footnotes__list-label:hover, .c-footnotes__list-label:focus {
   text-decoration-color: currentColor;
 }
+.c-footnotes__list-content {
+  margin-left: var(--space-s);
+}
 .c-footnotes__list-content a {
   word-break: break-all;
+}
+.c-pdf .c-footnotes {
+  margin-top: 20pt;
+}
+.c-pdf .c-footnotes .c-footnotes__header {
+  display: none;
+}
+.c-pdf .c-footnotes .c-footnotes__list {
+  font-size: 7pt;
+  -moz-column-gap: 21pt;
+       column-gap: 21pt;
+}
+.c-pdf .c-footnotes .c-footnotes__list-item {
+  margin-bottom: 7pt;
+}
+.c-pdf .c-footnotes .c-footnotes__list-label {
+  color: #00545A;
+}
+.c-pdf .c-footnotes__list-content {
+  margin-left: 8pt;
 }
 
 /** @define c.form */
@@ -3403,6 +3425,11 @@ ul li a:hover {
   line-height: 1.5;
   margin-top: 8pt;
 }
+.c-media--fallback-image a {
+  color: #00545A;
+  text-decoration: underline;
+  text-underline-offset: 1pt;
+}
 
 /** @define c-mega-nav */
 .c-mega-nav {
@@ -4110,12 +4137,18 @@ ul li a:hover {
     font-size: 1rem;
   }
 }
-.c-quote--pdf .c-quote__inner {
-  padding: 20pt 12pt 20pt 24pt;
+.c-quote--pdf {
+  background-color: unset;
+  color: #00545A;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
 }
 .c-quote--pdf .c-quote__text {
-  font-size: 16pt;
+  font-size: 20pt;
   line-height: 1.3;
+}
+.c-quote--pdf .c-quote__text:after, .c-quote--pdf .c-quote__text:before {
+  display: none;
 }
 .c-quote--pdf .c-quote__caption {
   font-size: 9pt;

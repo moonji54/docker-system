@@ -130,14 +130,29 @@
 
     &--fallback-image {
       break-inside : avoid;
+      margin-top   : 24pt;
 
       .c-media {
         margin-top : 0;
+      }
+
+      p {
+        @include sans-body;
+        font-size   : 7pt;
+        line-height : 1.5;
+        margin-top  : 8pt;
+      }
+
+      a {
+        color                 : $secondary;
+        text-decoration       : underline;
+        text-underline-offset : 1pt;
       }
     }
   }
 
   .boxed-text {
+    margin       : 36pt 0;
     padding      : 20pt 12pt;
     break-inside : avoid;
     width        : calc(var(--pagedjs-pagebox-width) - (var(--pagedjs-margin-right) + var(--pagedjs-margin-right)));
