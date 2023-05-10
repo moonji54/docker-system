@@ -54,9 +54,9 @@ function createToc (config) {
         let tocNewLi = document.createElement("li");
 
         // Add class for the hierarcy of toc
-        tocNewLi.classList.add("toc-element");
+        tocNewLi.classList.add("c-pdf__toc-item-heading");
         tocNewLi.classList.add(
-            "toc-element-level-" + tocElement.dataset.titleLevel
+            "c-pdf__toc-item-heading--level-" + tocElement.dataset.titleLevel
         );
 
         // Keep class of title elements

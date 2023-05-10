@@ -790,7 +790,7 @@ tbody {
 .c-pdf__toc-item-heading:first-child {
   margin-top: 0;
 }
-.c-pdf__toc-item-heading--sub {
+.c-pdf__toc-item-heading--level-2 {
   font-size: 12pt;
   margin-top: 8pt;
 }
