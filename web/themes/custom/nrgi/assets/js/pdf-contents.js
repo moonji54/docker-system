@@ -22,11 +22,12 @@ function createToc (config) {
     let tocElementDiv = content.querySelector(tocElement);
     let tocUl = document.createElement("ul");
     tocUl.id = "list-toc-generated";
+    tocUl.className = "c-pdf__toc-list";
     tocElementDiv.appendChild(tocUl);
 
     // add class to all title elements
     let tocElementNbr = 0;
-    
+
     if (content.querySelectorAll(titleElements).length >= 1) {
         buildToc();
     } else {

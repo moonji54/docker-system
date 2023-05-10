@@ -83,6 +83,7 @@
   }
 
   .standfirst {
+    margin-top : 20pt;
     /* stylelint-disable-next-line */
     > * {
       @include sans-heading;
@@ -212,10 +213,10 @@
   table {
     tbody {
       tr {
-        border-top : 1pt solid $tertiary;
+        border-top : 1px solid $tertiary;
 
         &:last-child {
-          border-bottom : 1pt solid $tertiary;
+          border-bottom : 1px solid $tertiary;
         }
       }
     }
