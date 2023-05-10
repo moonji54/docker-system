@@ -17,6 +17,7 @@ global-scripts:
     assets/js/lightbox.js: { }
     assets/js/sidebar-height.js: { }
     assets/js/parallax-scroll.js: { }
+    assets/js/pagedjstoc.js: { }
   dependencies:
     - core/jquery
     - core/drupal
@@ -47,12 +48,7 @@ parallax-scroll:
 pdf-contents:
   version: 1.0
   js:
-    assets/js/pdf-contents.js: { minified: false }
-  dependencies:
-    - core/jquery
-    - core/drupal
-    - core/jquery.once
-    - core/drupalSetting
+    assets/js/pagedjstoc.js: { minified: false }
 
 pdf-styling:
   version: 1.0

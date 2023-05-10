@@ -407,8 +407,10 @@ tbody {
   margin: 32.8mm 19.7mm 19.7mm;
   size: A4 portrait;
 }
-@page coverPage {
-  margin: 0;
+@page :blank {
+  @top-left {
+    content: none;
+  }
 }
 @page bodyPage {
   @top-left {
@@ -669,7 +671,6 @@ tbody {
   display: flex;
   flex-direction: column;
   height: var(--pagedjs-pagebox-height);
-  page: coverPage;
 }
 .c-pdf__cover-wrapper {
   display: flex;
