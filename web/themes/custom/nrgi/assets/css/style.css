@@ -2253,7 +2253,8 @@ ul li a:hover {
   color: #00545A;
 }
 .c-pdf .c-footnotes__list-content {
-  margin-left: 8pt;
+  -webkit-margin-start: 8pt;
+          margin-inline-start: 8pt;
 }
 
 /** @define c.form */

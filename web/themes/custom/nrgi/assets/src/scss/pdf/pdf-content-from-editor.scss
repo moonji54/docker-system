@@ -112,7 +112,9 @@
   ul,
   ol {
     @include pdf-ts-body;
-    margin : 4pt 0 4pt 12pt;
+    margin-top          : 4pt;
+    margin-bottom       : 4pt;
+    margin-inline-start : 12pt;
 
     li {
       margin-bottom : 4pt;

@@ -62,6 +62,8 @@
 }
 
 .c-pdf {
+  $c : &;
+
   .c-embed,
   .c-full-width-media,
   .c-learning-block {
@@ -372,6 +374,12 @@
 
     a {
       color : $blue-light;
+    }
+  }
+
+  &--rtl {
+    #{$c}__cover-top {
+      margin-right : 42pt;
     }
   }
 }

@@ -323,7 +323,10 @@ tbody {
   font-family: "Noto Sans", sans-serif;
   font-size: 9pt;
   line-height: 1.75;
-  margin: 4pt 0 4pt 12pt;
+  margin-top: 4pt;
+  margin-bottom: 4pt;
+  -webkit-margin-start: 12pt;
+          margin-inline-start: 12pt;
 }
 .pdf-content-from-editor ul li,
 .pdf-content-from-editor ol li {
@@ -619,7 +622,10 @@ tbody {
   font-family: "Noto Sans", sans-serif;
   font-size: 9pt;
   line-height: 1.75;
-  margin: 4pt 0 4pt 12pt;
+  margin-top: 4pt;
+  margin-bottom: 4pt;
+  -webkit-margin-start: 12pt;
+          margin-inline-start: 12pt;
 }
 .c-pdf .o-content-from-editor ul li,
 .c-pdf .o-content-from-editor ol li {
@@ -942,6 +948,9 @@ tbody {
 }
 .c-pdf__back-cover-body a {
   color: #B3EFEF;
+}
+.c-pdf--rtl .c-pdf__cover-top {
+  margin-right: 42pt;
 }
 
 /* #Running content

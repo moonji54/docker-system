@@ -1,10 +1,19 @@
 {{ attach_library('nrgi/pdf-styling') }}
 
+{% if language_direction == 'rtl' %}
+  {% set rtl = true %}
+{% endif %}
+
+{% set classes = [
+  'c-pdf',
+  rtl ? 'c-pdf--rtl'
+] %}
+
 <div class="pdf-running-header">
   <span class="pdf-running-header__title">{{ label }}</span>
 </div>
 
-<article class="c-pdf">
+<article{{ attributes.addClass(classes).setAttribute(' dir', language_direction) }}>
   {# Page header #}
   {% include 'node--pdf-cover.html.twig' %}
 

@@ -12,7 +12,7 @@ bundle: wysiwyg
 label: 'Concluding statement'
 description: 'Specify if this <em>WYSIWYG</em> section is a concluding statement. Please note that this section should be used as the last component of the page builder. On generated PDFs, this will add a page break before the concluding statement.'
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: 0
