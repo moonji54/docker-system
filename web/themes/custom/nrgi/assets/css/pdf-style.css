@@ -220,6 +220,11 @@ tbody {
 .pdf-content-from-editor > *:first-child {
   margin-top: 0;
 }
+.pdf-content-from-editor a,
+.pdf-content-from-editor u {
+  text-decoration-thickness: 0.5pt;
+  text-underline-offset: 2pt;
+}
 .pdf-content-from-editor p {
   font-family: "Noto Sans", sans-serif;
   font-size: 9pt;
@@ -520,6 +525,11 @@ tbody {
 }
 .c-pdf .o-content-from-editor > *:first-child {
   margin-top: 0;
+}
+.c-pdf .o-content-from-editor a,
+.c-pdf .o-content-from-editor u {
+  text-decoration-thickness: 0.5pt;
+  text-underline-offset: 2pt;
 }
 .c-pdf .o-content-from-editor p {
   font-family: "Noto Sans", sans-serif;
@@ -943,7 +953,7 @@ tbody {
   line-height: 1.2;
 }
 .c-pdf__back-cover-body {
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Cabinet Grotesk", sans-serif;
   font-size: 14pt;
   font-weight: 500;
   line-height: 1.3;

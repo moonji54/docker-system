@@ -1721,6 +1721,9 @@ ul li a:hover {
   font-size: 7pt;
   line-height: 1.5;
 }
+.c-embed--pdf .c-embed__caption span:nth-child(2) {
+  margin-left: 1px;
+}
 
 /* stylelint-disable */
 @media (max-width: 48rem) {
@@ -2245,9 +2248,13 @@ ul li a:hover {
   font-size: 7pt;
   -moz-column-gap: 21pt;
        column-gap: 21pt;
+  -moz-column-fill: auto;
+       column-fill: auto;
 }
 .c-pdf .c-footnotes .c-footnotes__list-item {
   margin-bottom: 7pt;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
 }
 .c-pdf .c-footnotes .c-footnotes__list-label {
   color: #00545A;
@@ -2388,6 +2395,9 @@ ul li a:hover {
   font-size: 7pt;
   line-height: 1.5;
   margin-top: 8pt;
+}
+.c-full-width-media--pdf .c-full-width-media__caption span:nth-child(2) {
+  margin-left: 1px;
 }
 
 /** @define c-header */

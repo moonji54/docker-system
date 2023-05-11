@@ -48,12 +48,14 @@
     }
 
     #{$c}__list {
-      font-size  : 7pt;
-      column-gap : 21pt;
+      font-size   : 7pt;
+      column-gap  : 21pt;
+      column-fill : auto;
     }
 
     #{$c}__list-item {
       margin-bottom : 7pt;
+      break-inside  : avoid;
     }
 
     #{$c}__list-label {

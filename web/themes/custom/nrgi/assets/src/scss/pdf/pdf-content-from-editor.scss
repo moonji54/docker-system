@@ -5,6 +5,12 @@
     }
   }
 
+  a,
+  u {
+    text-decoration-thickness : 0.5pt;
+    text-underline-offset     : 2pt;
+  }
+
   p {
     @include pdf-ts-body;
     margin-top : 24pt;

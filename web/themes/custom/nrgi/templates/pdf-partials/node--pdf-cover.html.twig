@@ -62,6 +62,14 @@
                           {{ item.title }}
                         {% endif %}
                       </a>
+                    {% else %}
+                      <div class="c-pdf__cover-meta-logo">
+                        {% if item.logo %}
+                          {{ item.logo }}
+                        {% else %}
+                          {{ item.title }}
+                        {% endif %}
+                      </div>
                     {% endif %}
                   {% endif %}
                 {% endfor %}

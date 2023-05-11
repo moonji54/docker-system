@@ -9,6 +9,7 @@
 
 /* stylelint-disable */
 @page {
+  // import needed for google fonts to display in the generated pdfs
   @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap");
   margin : 32.8mm 19.7mm 19.7mm;
   size   : A4 portrait;
@@ -367,7 +368,7 @@
   }
 
   &__back-cover-body {
-    @include sans-body;
+    @include sans-heading;
     font-size   : 14pt;
     font-weight : 500;
     line-height : 1.3;
