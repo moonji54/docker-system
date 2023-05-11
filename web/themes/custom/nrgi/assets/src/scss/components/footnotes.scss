@@ -33,7 +33,8 @@
   }
 
   .c-pdf & {
-    margin-top : 20pt;
+    margin-top   : 20pt;
+    break-before : page;
 
     #{$c}__header {
       border        : none;

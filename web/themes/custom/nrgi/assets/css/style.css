@@ -2233,6 +2233,8 @@ ul li a:hover {
 }
 .c-pdf .c-footnotes {
   margin-top: 20pt;
+  -moz-column-break-before: page;
+       break-before: page;
 }
 .c-pdf .c-footnotes .c-footnotes__header {
   border: none;
