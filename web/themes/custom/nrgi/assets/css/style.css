@@ -1193,7 +1193,7 @@ ul li a:hover {
 }
 @media (max-width: 48rem) {
   .c-call-to-action {
-    min-height: auto;
+    min-height: 33.125rem;
   }
 }
 .c-call-to-action__image-wrapper {
@@ -1206,7 +1206,7 @@ ul li a:hover {
 @media (max-width: 48rem) {
   .c-call-to-action__image-wrapper {
     aspect-ratio: 1.39;
-    min-height: auto;
+    min-height: 33.125rem;
   }
 }
 .c-call-to-action img {
@@ -1225,12 +1225,6 @@ ul li a:hover {
   position: absolute;
   top: 0;
   width: 100%;
-}
-@media (max-width: 48rem) {
-  .c-call-to-action__block {
-    position: relative;
-    top: 0;
-  }
 }
 .c-call-to-action__container {
   height: 100%;
@@ -1550,6 +1544,9 @@ ul li a:hover {
 }
 .c-card__link-slug {
   font-weight: 700;
+}
+.c-card__external-link-wrapper {
+  display: inline-block;
 }
 .c-card__external-icon {
   color: #FF7D5F;
@@ -2253,6 +2250,8 @@ ul li a:hover {
   display: flex;
   gap: var(--space-s);
   margin-bottom: var(--space-s);
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
 }
 .c-footnotes__list-item:last-child {
   margin-bottom: 0;
@@ -2609,6 +2608,12 @@ ul li a:hover {
 .c-header.has-menu-overlay .c-header__main-menu {
   margin-top: 1.25rem;
 }
+.c-header.has-menu-overlay .c-header__logo-wrapper {
+  /* stylelint-disable-next-line */
+}
+.c-header.has-menu-overlay .c-header__logo-wrapper:after {
+  width: calc(100% + (var(--gutter)));
+}
 .c-header.has-search-overlay {
   /* stylelint-disable-next-line */
 }
@@ -2700,11 +2705,16 @@ ul li a:hover {
     display: flex;
   }
 }
-.c-listing__filters-button.is-clicked svg {
+.c-listing__filters-button.is-open svg {
   transform: rotate(180deg);
 }
 .c-listing__filters-button-icon {
   transition: transform 0.3s;
+}
+@media (max-width: 48rem) {
+  .c-listing__filters-dropdowns {
+    display: none;
+  }
 }
 .c-listing__filters-dropdowns > * + * {
   margin-top: var(--space-s);
@@ -4857,7 +4867,7 @@ ul li a:hover {
   display: none;
   overflow: hidden;
   padding-bottom: var(--space-l);
-  padding-top: var(--space-xs);
+  padding-top: var(--space-s);
   position: relative;
   width: 100%;
   /* stylelint-disable-next-line */

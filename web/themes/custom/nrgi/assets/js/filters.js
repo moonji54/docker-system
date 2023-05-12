@@ -46,9 +46,12 @@ var Filters = /*#__PURE__*/function () {
     this.$filterDropdowns = this.$('.js-filter-dropdowns', this.context).once();
     this.$filterButton.on('click', this.$.proxy(this.toggleFilterItems, this));
     this.$toggleFiltersButton.on('click', this.$.proxy(this.toggleFilters, this));
-    this.$window.on('resize', (0, _debounce["default"])(function () {
+    this.$window.on('load resize', (0, _debounce["default"])(function () {
       if (_this.$window.width() >= 768) {
         _this.resetFilters();
+      } else {
+        _this.$toggleFiltersButton.attr('aria-expanded', 'false');
+        _this.$toggleFiltersButton.removeClass('is-open');
       }
     }));
     this.$document.keyup(function (e) {
@@ -67,18 +70,20 @@ var Filters = /*#__PURE__*/function () {
       this.$filterDropdowns.removeAttr('style');
       this.$toggleFiltersButton.removeClass('is-hidden');
       this.$toggleFiltersButton.attr('aria-expanded', 'true');
+      this.$toggleFiltersButton.addClass('is-open');
     }
   }, {
     key: "toggleFilters",
     value: function toggleFilters(e) {
       var $elem = this.$(e.currentTarget);
       var $filters = $elem.next(this.$exposedFilters).find(this.$filterDropdowns);
-      $elem.toggleClass('is-clicked');
+      $elem.toggleClass('is-open');
       $filters.slideToggle();
-      if ($elem.hasClass('is-clicked')) {
-        return $elem.removeAttr('aria-expanded');
+      if ($elem.hasClass('is-open')) {
+        $elem.attr('aria-expanded', 'true');
+      } else {
+        $elem.attr('aria-expanded', 'false');
       }
-      return $elem.attr('aria-expanded', 'true');
     }
   }, {
     key: "toggleFilterItems",

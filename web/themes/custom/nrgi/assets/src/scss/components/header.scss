@@ -220,6 +220,13 @@
     #{$c}__main-menu {
       margin-top : 1.25rem;
     }
+
+    #{$c}__logo-wrapper {
+      /* stylelint-disable-next-line */
+      &:after {
+        width : calc(100% + (var(--gutter)));
+      }
+    }
   }
 
   /* stylelint-disable-next-line */

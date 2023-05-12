@@ -113,6 +113,10 @@
     font-weight : 700;
   }
 
+  &__external-link-wrapper {
+    display : inline-block;
+  }
+
   &__external-icon {
     color          : $tertiary;
     display        : inline-block;

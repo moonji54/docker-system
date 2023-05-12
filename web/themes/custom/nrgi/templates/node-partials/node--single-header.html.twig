@@ -136,16 +136,21 @@
             <li class="c-single-header__meta-item">
               <p class="c-single-header__date">
                 {% if start_time %}
-                  {{ start_time }} -
-                {% endif %}
-                {% if end_time %}
-                  {{ end_time }}
-                {% endif %}
-                {% if timezone %}
-                  {{ timezone }}
+                  {{ start_time }}
                 {% endif %}
               </p>
             </li>
+            {% if end_time %}
+              <li class="c-single-header__meta-item">
+                <p class="c-single-header__date">
+                  {{ end_time }}
+
+                  {% if timezone %}
+                    {{ timezone }}
+                  {% endif %}
+                </p>
+              </li>
+            {% endif %}
 
             {# Event format #}
             {% if content.field_format|field_value %}

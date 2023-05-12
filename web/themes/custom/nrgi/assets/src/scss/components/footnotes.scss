@@ -13,6 +13,7 @@
     display       : flex;
     gap           : var(--space-s);
     margin-bottom : var(--space-s);
+    break-inside  : avoid;
 
     &:last-child {
       margin-bottom : 0;
