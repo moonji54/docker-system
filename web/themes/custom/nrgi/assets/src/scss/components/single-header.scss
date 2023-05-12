@@ -97,6 +97,7 @@
 
   &__date {
     @include ts-caption;
+    white-space : nowrap;
   }
 
   &__author-item {
@@ -110,7 +111,13 @@
 
   &__author-name {
     &--link {
-      @include underlined-off($offset : 2px);
+      @include underlined($blue-light, $offset : 2px);
+      text-decoration-color : currentcolor;
+
+      &:focus,
+      &:hover {
+        color : $blue-light;
+      }
     }
   }
 
@@ -168,7 +175,13 @@
 
   &__meta-link {
     @include ts-caption;
-    @include underlined-off;
+    @include underlined($blue-light, $offset : 2px);
+    text-decoration-color : currentcolor;
+
+    &:focus,
+    &:hover {
+      color : $blue-light;
+    }
   }
 
   &__mobile-buttons {

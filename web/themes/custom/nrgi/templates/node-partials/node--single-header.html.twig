@@ -90,6 +90,7 @@
 
           {% if content.field_twitter_handle|field_value %}
             <li class="c-single-header__meta-item">
+              {{ 'Twitter:' }}
               {% set twitter_handle = content.field_twitter_handle|field_raw('value') %}
               <a class="c-single-header__meta-link"
                  href='{{ "https://twitter.com/#{twitter_handle}" }}'
@@ -102,6 +103,7 @@
 
           {% if content.field_email|field_value %}
             <li class="c-single-header__meta-item">
+              {{ 'Email:' }}
               {{ content.field_email }}
             </li>
           {% endif %}

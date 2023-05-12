@@ -26,6 +26,11 @@
       width   : 2rem;
     }
 
+    &:focus,
+    &:hover {
+      background-color : rgba($primary, 0.4);
+    }
+
     &--has-text {
       @include ts-button;
       border-radius : 2.75rem;
@@ -37,11 +42,22 @@
         height  : 2rem;
         padding : 0.5rem;
       }
+
+      #{$c}__link-icon {
+        &--twitter {
+          transform : none;
+        }
+      }
+    }
+  }
+
+  &__link-icon {
+    &--linkedin {
+      transform : translateX(1px);
     }
 
-    &:focus,
-    &:hover {
-      background-color : rgba($primary, 0.4);
+    &--twitter {
+      transform : translate(1px, 1px);
     }
   }
 
