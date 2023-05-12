@@ -1556,8 +1556,6 @@ ul li a:hover {
   display: inline-block;
   margin-top: var(--space-xs);
   vertical-align: top;
-  -webkit-margin-start: 0.25rem;
-          margin-inline-start: 0.25rem;
 }
 .c-card__image-wrapper {
   aspect-ratio: 16/9;
@@ -2157,12 +2155,13 @@ ul li a:hover {
 }
 .c-footer__menu-wrapper {
   grid-area: top-right;
-  max-width: 29.75rem;
+  margin-left: var(--space-3xl);
   justify-self: end;
 }
 @media (max-width: 48rem) {
   .c-footer__menu-wrapper {
     grid-area: first;
+    margin-left: 0;
     max-width: 100%;
     justify-self: start;
   }
@@ -3795,8 +3794,8 @@ ul li a:hover {
 .c-page-header {
   box-sizing: border-box;
   display: flex;
-  height: 75vh;
   max-height: 94rem;
+  min-height: 75vh;
   padding-top: var(--header-height);
   position: relative;
   width: 100%;
@@ -3899,6 +3898,7 @@ ul li a:hover {
 }
 @media (max-width: 48rem) {
   .c-page-header__text-wrapper {
+    align-self: flex-start;
     grid-column: 1/-1;
     padding-bottom: 1rem;
   }

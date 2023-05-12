@@ -3,8 +3,8 @@
   $c          : &;
   box-sizing  : border-box;
   display     : flex;
-  height      : 75vh;
   max-height  : 94rem;
+  min-height  : 75vh;
   padding-top : var(--header-height);
   position    : relative;
   width       : 100%;
@@ -96,6 +96,7 @@
     }
 
     @include media("<=tablet") {
+      align-self     : flex-start;
       grid-column    : 1 / -1;
       padding-bottom : 1rem;
     }

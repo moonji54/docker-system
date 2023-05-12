@@ -96,7 +96,7 @@
   }
 
   &__link {
-    @include underlined($tertiary, $thickness : 2px);
+    @include underlined($tertiary, 5px, $thickness : 2px);
 
     &:before {
       bottom   : 0;
@@ -114,11 +114,10 @@
   }
 
   &__external-icon {
-    color               : $tertiary;
-    display             : inline-block;
-    margin-top          : var(--space-xs);
-    vertical-align      : top;
-    margin-inline-start : 0.25rem;
+    color          : $tertiary;
+    display        : inline-block;
+    margin-top     : var(--space-xs);
+    vertical-align : top;
   }
 
   &__image-wrapper {
