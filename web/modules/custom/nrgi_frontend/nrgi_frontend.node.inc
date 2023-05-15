@@ -399,7 +399,9 @@ function nrgi_frontend_entity_build_defaults_alter(array &$build, EntityInterfac
     // Add cache key to nodes showed in listings.
     // The cache should be invalidated if the view display is different as
     // the node rendering depends on view display (with/without filters/images).
-    $build['#cache']['keys'][] = $entity->view->current_display;
+    if ($entity->view) {
+      $build['#cache']['keys'][] = $entity->view->current_display;
+    }
   }
 
 }
