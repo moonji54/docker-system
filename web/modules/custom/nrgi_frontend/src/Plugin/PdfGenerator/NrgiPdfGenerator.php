@@ -27,7 +27,70 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
    *
    * @var \HeadlessChromium\Browser|null
    */
-  private Browser|null $browser = NULL;
+  private Browser | null $browser = NULL;
+
+  /**
+   * Check if current environment is local.
+   *
+   * @return bool
+   *   True if we are on DDEV, false otherwise.
+   */
+  protected function isDdev(): bool {
+    return getenv('IS_DDEV_PROJECT') == 'true';
+  }
+
+  /**
+   * Get default options for PDF generation.
+   *
+   * @return array
+   *   List of options.
+   */
+  public function getDefaultPdfOptions(): array {
+    return [
+      'landscape' => FALSE,
+      'preferCSSPageSize' => TRUE,
+      'marginTop' => 0,
+      'marginBottom' => 0,
+      'marginLeft' => 0,
+      'marginRight' => 0,
+      'displayHeaderFooter' => FALSE,
+      'printBackground' => TRUE,
+    ];
+  }
+
+  /**
+   * Get websocket uri to remote web browser.
+   *
+   * @return string
+   *   Websocket uri string.
+   */
+  protected function getBrowserSocketUri(): string {
+    if ($this->isDdev()) {
+      // Use local chrome on local environments,
+      // See README.md for details how to set up this.
+      return 'ws://chromedriver:3000/webdriver';
+    }
+    // Use browserless.io cloud browser as fallback.
+    $api_key = $this->settings->get('browserless_api_key');
+    return 'wss://chrome.browserless.io/webdriver?token=' . $api_key;
+  }
+
+  /**
+   * Get browser connection.
+   *
+   * @return \HeadlessChromium\Browser
+   *   Browser instance.
+   *
+   * @throws \HeadlessChromium\Exception\BrowserConnectionFailed
+   */
+  public function getBrowser(): Browser {
+    if (!$this->browser instanceof Browser) {
+      $this->browser = BrowserFactory::connectToBrowser(
+        $this->getBrowserSocketUri()
+      );
+    }
+    return $this->browser;
+  }
 
   /**
    * {@inheritdoc}
@@ -74,7 +137,7 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
       $page->getSession()->on('method:Network.responseReceived',
         function ($params) use (&$status_code, $page_url) {
           if ($params['type'] === 'Document'
-            && $params['response']['url'] === $page_url) {
+              && $params['response']['url'] === $page_url) {
             // We care just of mainly loaded url, not other assets.
             $status_code = $params['response']['status'];
           }
@@ -87,15 +150,15 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
         ->waitForNavigation(Page::NETWORK_IDLE);
 
       // Check if page loaded successfully.
-      if ($status_code !== 200) {
-        throw new \Exception("Failed to GET web page {$page_url} HTTP CODE {$status_code}.");
-      }
+      //      if ($status_code !== 200) {
+      //        throw new \Exception("Failed to GET web page {$page_url} HTTP CODE {$status_code}.");
+      //      }
 
       // Perform request to check if page has paged.js.
       $is_paged_req = $page->evaluate('typeof PagedPolyfill === "object"')
         ->waitForResponse();
-      $is_paged     = $is_paged_req->getReturnType() === 'boolean'
-        && $is_paged_req->getReturnValue();
+      $is_paged = $is_paged_req->getReturnType() === 'boolean'
+                  && $is_paged_req->getReturnValue();
       if ($is_paged) {
         // If page have paged.js, then wait until it fully renders the page.
         $callable = function () use ($page) {
@@ -103,7 +166,7 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
           $delay = 500;
           while (TRUE) {
             // Run JS expression in browser to check renderer status.
-            $response       = $page->evaluate('PagedPolyfill.chunker.rendered')
+            $response = $page->evaluate('PagedPolyfill.chunker.rendered')
               ->waitForResponse();
             $paged_rendered = $response->getReturnValue();
             if ($paged_rendered) {
@@ -121,7 +184,7 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
 
       // Generate a PDF of page.
       $options = array_merge($this->getDefaultPdfOptions(), $options);
-      $pdf     = $page->pdf($options);
+      $pdf = $page->pdf($options);
 
       // Transfer file and save file locally
       // with operation timeout in 5 min (300000 milliseconds).
@@ -141,69 +204,6 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
         // Do nothing with this, as we don"t care a lot about that.
       }
     }
-  }
-
-  /**
-   * Get browser connection.
-   *
-   * @return \HeadlessChromium\Browser
-   *   Browser instance.
-   *
-   * @throws \HeadlessChromium\Exception\BrowserConnectionFailed
-   */
-  public function getBrowser(): Browser {
-    if (!$this->browser instanceof Browser) {
-      $this->browser = BrowserFactory::connectToBrowser(
-        $this->getBrowserSocketUri()
-      );
-    }
-    return $this->browser;
-  }
-
-  /**
-   * Get websocket uri to remote web browser.
-   *
-   * @return string
-   *   Websocket uri string.
-   */
-  protected function getBrowserSocketUri(): string {
-    if ($this->isDdev()) {
-      // Use local chrome on local environments,
-      // See README.md for details how to set up this.
-      return 'ws://chromedriver:3000/webdriver';
-    }
-    // Use browserless.io cloud browser as fallback.
-    $api_key = $this->settings->get('browserless_api_key');
-    return 'wss://chrome.browserless.io/webdriver?token=' . $api_key;
-  }
-
-  /**
-   * Check if current environment is local.
-   *
-   * @return bool
-   *   True if we are on DDEV, false otherwise.
-   */
-  protected function isDdev(): bool {
-    return getenv('IS_DDEV_PROJECT') == 'true';
-  }
-
-  /**
-   * Get default options for PDF generation.
-   *
-   * @return array
-   *   List of options.
-   */
-  public function getDefaultPdfOptions(): array {
-    return [
-      'landscape'           => FALSE,
-      'preferCSSPageSize'   => TRUE,
-      'marginTop'           => 0,
-      'marginBottom'        => 0,
-      'marginLeft'          => 0,
-      'marginRight'         => 0,
-      'displayHeaderFooter' => FALSE,
-      'printBackground'     => TRUE,
-    ];
   }
 
   /**
