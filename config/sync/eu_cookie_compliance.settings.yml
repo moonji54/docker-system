@@ -24,8 +24,8 @@ popup_agreed_enabled: false
 popup_hide_agreed: false
 disagree_button_label: 'No, thanks'
 popup_agreed:
-  value: '<h2>Thank you for accepting cookies</h2><p>You can now hide this message or find out more about cookies.</p>'
-  format: plain_text
+  value: "<h2>Thank you for accepting cookies</h2>\r\n\r\n<p>You can now hide this message or find out more about cookies.</p>\r\n"
+  format: text_and_links
 popup_find_more_button_message: 'More info'
 popup_hide_button_message: Hide
 popup_link: /privacy-policy
@@ -39,7 +39,7 @@ popup_text_hex: ffffff
 domain: ''
 domains_option: 1
 domains_list: ''
-exclude_paths: "/admin\r\n/admin/*\r\n/batch\r\n/node/add*\r\n/node/*/*\r\n/user/*/*"
+exclude_paths: "/admin\r\n/admin/*\r\n/batch\r\n/node/add*\r\n/node/*/*\r\n/user/*/*\r\n/node/*/pdf"
 exclude_admin_theme: false
 cookie_session: 0
 set_cookie_session_zero_on_disagree: 0
@@ -84,5 +84,4 @@ close_button_enabled: false
 dependencies:
   config:
     - filter.format.wysiwyg
-    - filter.format.plain_text
     - filter.format.text_and_links

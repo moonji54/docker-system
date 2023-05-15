@@ -795,7 +795,9 @@ $settings['config_sync_directory'] = '../config/sync';
  * Exclude modules from the config.
  */
 $settings['config_exclude_modules'] = [
-  'stage_file_proxy',
+  'stage_file_proxy ',
   'field_tools',
   'devel',
 ];
+
+$settings['browserless_api_key'] = 'c0d824c4-1dfc-42c0-b0e0-f554cb2c1384';

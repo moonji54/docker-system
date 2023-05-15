@@ -5,10 +5,11 @@ dependencies:
   config:
     - core.entity_view_mode.media.media_library
     - field.field.media.remote_video.field_media_oembed_video
+    - field.field.media.remote_video.field_pdf_image_fallback
     - image.style.medium
     - media.type.remote_video
   module:
-    - image
+    - svg_image
 _core:
   default_config_hash: RmNGTzY5iOI32aGSV5_Irvxk9C2LaOJ-pKVNAcBjCO0
 id: media.remote_video.media_library
@@ -30,6 +31,7 @@ content:
 hidden:
   created: true
   field_media_oembed_video: true
+  field_pdf_image_fallback: true
   langcode: true
   name: true
   search_api_excerpt: true

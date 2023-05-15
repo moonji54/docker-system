@@ -1,5 +1,5 @@
 {% if content.field_embed_media|field_value %}
-  <figure class="c-embed o-section">
+  <figure class="c-embed{{ is_pdf ? ' c-embed--pdf' }} o-section">
     <div class="c-embed__container o-container">
       <div class="c-embed__media-wrapper">
         {{ content.field_embed_media }}

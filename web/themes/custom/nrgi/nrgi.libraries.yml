@@ -44,6 +44,17 @@ parallax-scroll:
     - core/jquery.once
     - core/drupalSetting
 
+pdf-contents:
+  version: 1.0
+  js:
+    assets/js/pdf-contents.js: { minified: false }
+
+pdf-styling:
+  version: 1.0
+  css:
+    theme:
+      assets/css/pdf-style.min.css: { minified: true }
+
 toc:
   version: 1.0
   js:

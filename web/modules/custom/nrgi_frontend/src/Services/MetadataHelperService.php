@@ -36,7 +36,7 @@ class MetadataHelperService {
    *
    * @var array
    */
-  protected array $metadataFieldNames = [
+  public array $metadataFieldNames = [
     'all' => [
       'taxonomies' => [
         'field_country',
@@ -96,7 +96,7 @@ class MetadataHelperService {
    *
    * @var \Drupal\Core\Datetime\DateFormatterInterface
    */
-  protected DateFormatterInterface $dateFormatter;
+  public DateFormatterInterface $dateFormatter;
 
   /**
    * The NRGI responsive image helper service.
@@ -608,7 +608,7 @@ class MetadataHelperService {
    *
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
-  protected function preprocessLogos(
+  public function preprocessLogos(
     NodeInterface $node,
     array $logo_field_names,
     TranslatableMarkup $section_label,
@@ -920,7 +920,7 @@ class MetadataHelperService {
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    * @throws \Drupal\Core\Entity\EntityMalformedException
    */
-  protected function preprocessResourcesAuthors(
+  public function preprocessResourcesAuthors(
     NodeInterface $node,
     string $internal_people_field_name,
     string $external_people_field_name,

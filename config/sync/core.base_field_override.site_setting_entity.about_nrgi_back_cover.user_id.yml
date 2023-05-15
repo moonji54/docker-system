@@ -1,0 +1,20 @@
+uuid: 366a04d0-1b0d-47ad-b550-0246b0efda1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - site_settings.site_setting_entity_type.about_nrgi_back_cover
+id: site_setting_entity.about_nrgi_back_cover.user_id
+field_name: user_id
+entity_type: site_setting_entity
+bundle: about_nrgi_back_cover
+label: 'Authored by'
+description: 'The user ID of author of the Site Setting entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\site_settings\Entity\SiteSettingEntity::getDefaultUserId'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

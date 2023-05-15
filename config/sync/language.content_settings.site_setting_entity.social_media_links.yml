@@ -15,4 +15,4 @@ id: site_setting_entity.social_media_links
 target_entity_type_id: site_setting_entity
 target_bundle: social_media_links
 default_langcode: site_default
-language_alterable: false
+language_alterable: true

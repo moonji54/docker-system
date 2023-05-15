@@ -241,7 +241,6 @@
   ================================================== */
   /* Spacing rules
   ================================================== */
-  /* stylelint-disable-next-line */
   /* Miscellaneous
   ================================================== */
 }
@@ -608,6 +607,17 @@
 .o-content-from-editor table a {
   overflow-wrap: break-word;
 }
+.o-content-from-editor table p {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+@media (max-width: 64rem) {
+  .o-content-from-editor table p {
+    font-size: 0.875rem;
+  }
+}
 .o-content-from-editor .responsive-table {
   margin-top: var(--space-2xl);
   overflow-x: auto;
@@ -641,6 +651,7 @@
   font-weight: 500;
   font-size: 2rem;
   line-height: 1.5;
+  margin-top: 0;
 }
 @media (max-width: 94.5rem) {
   .o-content-from-editor .standfirst > * {
@@ -677,9 +688,6 @@
 }
 .o-content-from-editor > :first-child {
   margin-top: 0;
-}
-.o-content-from-editor :is(.responsive-table, figure, blockquote, .c-media, .standfirst) + * {
-  margin-top: var(--space-2xl);
 }
 .o-content-from-editor * :last-child {
   margin-bottom: 0;
@@ -815,8 +823,8 @@
   width: 1.125rem;
 }
 .o-svg--twitter {
-  height: 1.125rem;
-  width: 1.5rem;
+  height: 1.0625rem;
+  width: 1.4375rem;
 }
 .o-svg--whatsapp {
   height: 1.4375rem;

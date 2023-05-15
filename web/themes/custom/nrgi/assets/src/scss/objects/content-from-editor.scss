@@ -312,6 +312,7 @@
     /* stylelint-disable-next-line */
     > * {
       @include ts-heading-6;
+      margin-top : 0;
     }
 
     li {
@@ -347,11 +348,11 @@
   > :first-child {
     margin-top : 0;
   }
-
-  /* stylelint-disable-next-line */
-  :is(.responsive-table, figure, blockquote, .c-media, .standfirst) + * {
-    margin-top : var(--space-2xl);
-  }
+  //
+  ///* stylelint-disable-next-line */
+  //:is(.responsive-table, figure, blockquote, .c-media, .standfirst) + * {
+  //  margin-top : var(--space-2xl);
+  //}
 
   * :last-child {
     margin-bottom : 0;

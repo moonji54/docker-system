@@ -1,0 +1,50 @@
+<div class="c-pdf__info-page u-page-break">
+  <div class="c-pdf__info-page-container">
+    <div class="c-pdf__info-page-inner">
+      <div class="c-pdf__additional-info">
+        {% if content.field_pdf_additional_information|field_value %}
+          {{ content.field_pdf_additional_information }}
+        {% endif %}
+      </div>
+
+      {# All logos #}
+      {% if logos %}
+        {% for data in logos %}
+          {% for section in data %}
+            <div class="c-pdf__info-page-logos">
+              <h3 class="c-pdf__info-page-heading">{{ section.label }}</h3>
+
+              <div class="c-pdf__info-page-logos-wrapper">
+                {% for item in section.items %}
+                  {% if item.type == 'logo' %}
+                    {# Organisation logos #}
+                    {% if item.link %}
+                      <a class="c-pdf__info-page-logo" href="{{ item.link }}"
+                         title="{{ 'Visit'|t ~ ' ' ~ item.title ?: 'organisation'|t }}"
+                         target="{{ item.is_external ? '_blank' : '' }}">
+                        {% if item.logo %}
+                          {{ item.logo }}
+                        {% else %}
+                          {{ item.title }}
+                        {% endif %}
+                      </a>
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      {% endif %}
+
+      {# Cover image caption #}
+      <div class="c-pdf__info-page-image-caption">
+        {% if content.field_photo_caption|field_value %}
+          <h4 class="c-pdf__info-page-heading">{{ 'Cover image'|t }}</h4>
+
+          <p class="c-pdf__info-page-body">{{ content.field_photo_caption }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

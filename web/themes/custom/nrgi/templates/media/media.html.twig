@@ -3,9 +3,29 @@
   'c-media--' ~ media.bundle()|clean_class,
   view_mode ? 'c-media--' ~ view_mode|clean_class,
 ] %}
-<div{{ attributes.addClass(classes) }}>
-  {{ title_suffix.contextual_links }}
+{% set pdf_fallback_bundle = ['remote_video', 'remote_audio', 'data_visualisation'] %}
+
+{% if is_pdf and media.bundle() in pdf_fallback_bundle %}
+  <div class="c-media--fallback-image">
+    {% if content.field_pdf_image_fallback|field_value %}
+      {{ content.field_pdf_image_fallback }}
+      {% if fallback_text_link and fallback_link %}
+        <p>
+          {{ fallback_text_link }}
+          <a href="{{ fallback_link }}">{{ url('<front>')|render|replace({'/':'', 'https:':'', 'http:':''}) ~ fallback_link|render }}</a>
+        </p>
+      {% endif %}
+    {% endif %}
+  </div>
+{% else %}
   {% if content %}
-    {{ content }}
+    {% if content.field_pdf_image_fallback is defined %}
+      {# we want to get rid of the field_pdf_image_fallback element #}
+      {% set content = content|filter((v, k) => k != 'field_pdf_image_fallback') %}
+    {% endif %}
+    <div{{ attributes.addClass(classes) }}>
+      {{ title_suffix.contextual_links }}
+      {{ content }}
+    </div>
   {% endif %}
-</div>
+{% endif %}

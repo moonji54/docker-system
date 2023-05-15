@@ -1,0 +1,29 @@
+uuid: 9bbd3e88-3b3f-4cd1-9e85-1fe177397164
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_pdf_image_fallback
+    - media.type.data_visualisation
+    - media.type.image
+id: media.data_visualisation.field_pdf_image_fallback
+field_name: field_pdf_image_fallback
+entity_type: media
+bundle: data_visualisation
+label: 'PDF image fallback'
+description: "Add a fallback image to be used on the generated pdfs for Publications using this embed.\r\n"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

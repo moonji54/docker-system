@@ -16,6 +16,14 @@ function nrgi_frontend_preprocess_paragraph(&$variables) {
   // Adding node information as a render variable to paragraphs.
   $variables['node'] = $node;
 
+  // If paragraph rendered on page to PDF.
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if ($route_name == 'soapbox_pdf.node_pdf_page_controller') {
+    $variables['is_pdf'] = TRUE;
+    $variables['fallback_text_link'] = t('To learn more, visit') . ' ';
+    $variables['fallback_link'] = $node->toUrl()->toString();
+  }
+
   // Add details for specific paragraph types.
   switch ($paragraph->getType()) {
     case 'featured_content':
@@ -55,5 +63,13 @@ function nrgi_frontend_preprocess_paragraph(&$variables) {
           'field_download_button_label',
           'field_type'
         );
+      break;
+
+    case 'wysiwyg':
+      if ($paragraph->hasField('field_is_concluding_statement')
+          && $is_concluding = $paragraph->get('field_is_concluding_statement')) {
+        $variables['is_concluding'] = $is_concluding->value;
+      }
+      break;
   }
 }

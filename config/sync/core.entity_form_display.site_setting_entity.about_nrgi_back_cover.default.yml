@@ -1,0 +1,65 @@
+uuid: 7dfc303a-cffe-4b6a-8ab3-378d22435d21
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.about_nrgi_back_cover.field_body
+    - field.field.site_setting_entity.about_nrgi_back_cover.field_title
+    - site_settings.site_setting_entity_type.about_nrgi_back_cover
+  module:
+    - text
+id: site_setting_entity.about_nrgi_back_cover.default
+targetEntityType: site_setting_entity
+bundle: about_nrgi_back_cover
+mode: default
+content:
+  field_body:
+    type: text_textarea
+    weight: 12
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  fieldset:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 10
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

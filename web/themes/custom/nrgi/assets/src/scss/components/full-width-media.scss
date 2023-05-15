@@ -1,4 +1,6 @@
 .c-full-width-media {
+  $c : &;
+
   &__media-wrapper {
     aspect-ratio : 1.96;
     position     : relative;
@@ -24,6 +26,21 @@
     span {
       &:last-child {
         font-style : italic;
+      }
+    }
+  }
+
+  &--pdf {
+    #{$c}__caption {
+      @include sans-body;
+      font-size   : 7pt;
+      line-height : 1.5;
+      margin-top  : 8pt;
+
+      span {
+        &:nth-child(2) {
+          margin-left : 1px;
+        }
       }
     }
   }

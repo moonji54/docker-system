@@ -1,0 +1,19 @@
+uuid: 5bd0e7ac-572c-490f-8b83-2723437fba03
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.site_setting_entity.field_title
+    - site_settings.site_setting_entity_type.about_nrgi_back_cover
+id: site_setting_entity.about_nrgi_back_cover.field_title
+field_name: field_title
+entity_type: site_setting_entity
+bundle: about_nrgi_back_cover
+label: 'Section title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

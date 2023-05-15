@@ -1,5 +1,5 @@
 {% if content.field_media|field_value %}
-  <figure class="c-full-width-media o-section">
+  <figure class="c-full-width-media{{ is_pdf ? ' c-full-width-media--pdf' }} o-section">
     <div class="o-container">
       <div class="c-full-width-media__media-wrapper">
         {{ content.field_media }}

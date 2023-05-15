@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.media.data_visualisation.field_media_oembed_data_vis
+    - field.field.media.data_visualisation.field_pdf_image_fallback
     - media.type.data_visualisation
   module:
     - media
@@ -20,6 +21,15 @@ content:
       max_height: 0
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_pdf_image_fallback:
+    type: entity_reference_entity_view
+    label: visually_hidden
+    settings:
+      view_mode: full_width
+      link: false
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden:
   created: true

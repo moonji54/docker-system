@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_form_mode.media.media_library
     - field.field.media.remote_video.field_media_oembed_video
+    - field.field.media.remote_video.field_pdf_image_fallback
     - media.type.remote_video
 _core:
   default_config_hash: 4wwo5zH8IWhjQTV0fbhOnnS66IATVZIqUW1goZKHWvk
@@ -23,6 +24,7 @@ content:
 hidden:
   created: true
   field_media_oembed_video: true
+  field_pdf_image_fallback: true
   name: true
   path: true
   status: true

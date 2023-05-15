@@ -1,0 +1,83 @@
+<header class="c-pdf__cover">
+  <div class="c-pdf__cover-wrapper">
+    <div class="c-pdf__cover-top">
+      <div class="c-pdf__logo">
+        <img src="/{{ base_path ~ directory }}/assets/img/pdf-cover-logo.svg" alt=""/>
+      </div>
+
+      <div class="c-pdf__cover-content">
+        <h1 class="c-pdf__heading">
+          {{ label }}
+        </h1>
+
+        {# Subtitle #}
+        {% if content.field_subtitle|field_value %}
+          <h2 class="c-pdf__sub-heading">{{ content.field_subtitle }}</h2>
+        {% endif %}
+
+        {# Authors #}
+        {% if authors %}
+          <ul class="c-pdf__authors-list">
+            {% for author in authors %}
+              <li class="c-pdf__author">
+                <span>{{ author.firstname ~ ' ' ~ author.surname }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        {# Date #}
+        {% if date %}
+          <p class="c-pdf__date">{{ date|upper }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="c-pdf__cover-bottom">
+      {# FEATURED IMAGE #}
+      {% if content.field_featured_image|field_value %}
+        <div class="c-pdf__cover-image">
+          {{ content.field_featured_image }}
+        </div>
+      {% endif %}
+
+      {# Cover logos #}
+      {% if sidebar_data %}
+        <div class="c-pdf__cover-meta">
+          {% for data in sidebar_data %}
+            {% for section in data %}
+              <span class="c-pdf__cover-meta-text">{{ section.label }}</span>
+
+              <div class="c-pdf__cover-meta-logos">
+                {% for item in section.items %}
+                  {% if item.type == 'logo' %}
+                    {# Organisation logos #}
+                    {% if item.link %}
+                      <a class="c-pdf__cover-meta-logo" href="{{ item.link }}"
+                         title="{{ 'Visit'|t ~ ' ' ~ item.title ?: 'organisation'|t }}"
+                         target="{{ item.is_external ? '_blank' : '' }}">
+                        {% if item.logo %}
+                          {{ item.logo }}
+                        {% else %}
+                          {{ item.title }}
+                        {% endif %}
+                      </a>
+                    {% else %}
+                      <div class="c-pdf__cover-meta-logo">
+                        {% if item.logo %}
+                          {{ item.logo }}
+                        {% else %}
+                          {{ item.title }}
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endfor %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</header>

@@ -1,0 +1,39 @@
+{{ attach_library('nrgi/pdf-styling') }}
+
+{% if language_direction == 'rtl' %}
+  {% set rtl = true %}
+{% endif %}
+
+{% set classes = [
+  'c-pdf',
+  rtl ? 'c-pdf--rtl'
+] %}
+
+<div class="pdf-running-header">
+  <span class="pdf-running-header__title">{{ label }}</span>
+</div>
+
+<article{{ attributes.addClass(classes).setAttribute(' dir', language_direction) }}>
+  {# Page header #}
+  {% include 'node--pdf-cover.html.twig' %}
+
+  {# Table of contents #}
+  {% include 'node--pdf-contents.html.twig' %}
+
+  {# Body #}
+  <div class="c-pdf__body">
+    {% include 'node--body.html.twig' %}
+
+    {# Endnotes #}
+    <div class="c-pdf__footnotes">
+      {{ drupal_block('footnotes_group') }}
+    </div>
+  </div>
+
+  {# PDF info #}
+  {% include 'node--pdf-info.html.twig' %}
+
+  {# Back cover #}
+  {% include 'node--pdf-backcover.html.twig' %}
+</article>
+

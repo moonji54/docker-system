@@ -1,0 +1,40 @@
+uuid: 1043c32d-1f02-4aa8-bb57-9a25a674ae42
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.simple_text_and_links_with_heading
+  module:
+    - ckeditor
+format: simple_text_and_links_with_heading
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Format
+          items:
+            - Format
+  plugins:
+    drupallink:
+      linkit_enabled: true
+      linkit_profile: default
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

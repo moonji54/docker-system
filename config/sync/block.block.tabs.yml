@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - condition_path
     - context
   theme:
     - nrgi
@@ -39,3 +40,7 @@ visibility:
     id: context
     negate: null
     values: ''
+  request_path_inclexcl:
+    id: request_path_inclexcl
+    negate: true
+    pages: '/node/*/pdf'

@@ -163,6 +163,7 @@
         }
     },
     "require": {
+        "chrome-php/chrome": "^1.9",
         "ckeditor-plugin/pagebreak": "4.20.0",
         "ckeditor/div": "4.10.1",
         "ckeditor/fakeobjects": "4.16.0",
@@ -180,6 +181,7 @@
         "drupal/bugherd": "^1.0@beta",
         "drupal/ckeditor_div_manager": "^2.0",
         "drupal/colorbox": "^2.0",
+        "drupal/condition_path": "^2.0",
         "drupal/context": "^4.0@beta|^4.0@RC|^4.0",
         "drupal/context_active_trail": "^2.0@beta|^2.0@RC|^2.0",
         "drupal/core": "^9.4",

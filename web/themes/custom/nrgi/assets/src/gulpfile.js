@@ -126,6 +126,9 @@ gulp.task('build-js', gulp.series((done) => {
 // Build the theme CSS file
 gulp.task('build-css', gulp.series(() => css('scss/style.scss')));
 
+// Build the theme PDF CSS file
+gulp.task('build-pdf-css', gulp.series(() => css('scss/pdf-style.scss')));
+
 // Build the CKEditor CSS file
 gulp.task('build-ckeditor-css', gulp.series(() => css('scss/ckeditor-style.scss')));
 
@@ -159,10 +162,12 @@ gulp.task('build-svg-sprite', gulp.series(() => {
 gulp.task('build-all', gulp.series([
     'build-css',
     'build-ckeditor-css',
+    'build-pdf-css',
 ]));
 
 gulp.task('build', gulp.series([
     'build-css',
+    'build-pdf-css',
 ]));
 
 // Reload the browser!
@@ -173,13 +178,14 @@ gulp.task('reload', gulp.series(() => {
 // Watcher
 gulp.task('watch', gulp.series([
     'build-css',
+    'build-pdf-css',
 ], () => {
     // Start livereload
     $.livereload.listen(livereloadSettings);
 
     // Watch .scss files
     gulp.watch('scss/**/*.scss')
-        .on('change', gulp.series('build-css'));
+        .on('change', gulp.series('build'));
 
     // Watch .js files
     gulp.watch(['es6/*.es6', 'es6/**/*.js'])

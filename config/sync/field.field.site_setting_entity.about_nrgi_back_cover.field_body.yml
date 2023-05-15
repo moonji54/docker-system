@@ -1,0 +1,26 @@
+uuid: 4911acb4-3115-4526-9642-01bf101c8e56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.site_setting_entity.field_body
+    - site_settings.site_setting_entity_type.about_nrgi_back_cover
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - text_and_links
+id: site_setting_entity.about_nrgi_back_cover.field_body
+field_name: field_body
+entity_type: site_setting_entity
+bundle: about_nrgi_back_cover
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

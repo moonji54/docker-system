@@ -68,6 +68,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#1e1e46">
+
     <script src="/{{ base_path ~ directory }}/assets/js/modernizr.js"></script>
     <css-placeholder token="{{ placeholder_token }}">
       <js-placeholder token="{{ placeholder_token }}">
@@ -84,7 +85,7 @@
           !function (e, r, a) {
             if (!e.__Marker) {
               e.__Marker = {};
-              var t = [], n = { __cs: t };
+              var t = [], n = {__cs: t};
               ['show', 'hide', 'isVisible', 'capture', 'cancelCapture', 'unload', 'reload', 'isExtensionInstalled', 'setReporter', 'setCustomData', 'on', 'off'].forEach(function (e) {
                 n[e] = function () {
                   var r = Array.prototype.slice.call(arguments);
@@ -100,7 +101,7 @@
         </script>
 
 
-        </head>
+</head>
 <body{{ attributes.addClass(body_classes) }}>
 {#
 Keyboard navigation/accessibility link to main content section in

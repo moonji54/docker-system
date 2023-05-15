@@ -18,6 +18,7 @@ module:
   ckeditor: 0
   ckeditor_div_manager: 0
   colorbox: 0
+  condition_path: 0
   config: 0
   config_translation: 0
   content_moderation: 0
@@ -104,6 +105,7 @@ module:
   soapbox_forms: 0
   soapbox_media: 0
   soapbox_nodes: 0
+  soapbox_pdf: 0
   soapbox_related_content: 0
   soapbox_routes: 0
   soapbox_themes: 0
