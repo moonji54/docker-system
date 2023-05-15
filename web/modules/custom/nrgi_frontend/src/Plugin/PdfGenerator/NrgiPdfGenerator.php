@@ -27,7 +27,7 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
    *
    * @var \HeadlessChromium\Browser|null
    */
-  private Browser|null $browser = NULL;
+  private Browser | null $browser = NULL;
 
   /**
    * {@inheritdoc}
@@ -74,7 +74,7 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
       $page->getSession()->on('method:Network.responseReceived',
         function ($params) use (&$status_code, $page_url) {
           if ($params['type'] === 'Document'
-            && $params['response']['url'] === $page_url) {
+              && $params['response']['url'] === $page_url) {
             // We care just of mainly loaded url, not other assets.
             $status_code = $params['response']['status'];
           }
@@ -94,8 +94,8 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
       // Perform request to check if page has paged.js.
       $is_paged_req = $page->evaluate('typeof PagedPolyfill === "object"')
         ->waitForResponse();
-      $is_paged     = $is_paged_req->getReturnType() === 'boolean'
-        && $is_paged_req->getReturnValue();
+      $is_paged = $is_paged_req->getReturnType() === 'boolean'
+                  && $is_paged_req->getReturnValue();
       if ($is_paged) {
         // If page have paged.js, then wait until it fully renders the page.
         $callable = function () use ($page) {
@@ -103,7 +103,7 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
           $delay = 500;
           while (TRUE) {
             // Run JS expression in browser to check renderer status.
-            $response       = $page->evaluate('PagedPolyfill.chunker.rendered')
+            $response = $page->evaluate('PagedPolyfill.chunker.rendered')
               ->waitForResponse();
             $paged_rendered = $response->getReturnValue();
             if ($paged_rendered) {
@@ -121,7 +121,7 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
 
       // Generate a PDF of page.
       $options = array_merge($this->getDefaultPdfOptions(), $options);
-      $pdf     = $page->pdf($options);
+      $pdf = $page->pdf($options);
 
       // Transfer file and save file locally
       // with operation timeout in 5 min (300000 milliseconds).
@@ -195,14 +195,14 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
    */
   public function getDefaultPdfOptions(): array {
     return [
-      'landscape'           => FALSE,
-      'preferCSSPageSize'   => TRUE,
-      'marginTop'           => 0,
-      'marginBottom'        => 0,
-      'marginLeft'          => 0,
-      'marginRight'         => 0,
+      'landscape' => FALSE,
+      'preferCSSPageSize' => TRUE,
+      'marginTop' => 0,
+      'marginBottom' => 0,
+      'marginLeft' => 0,
+      'marginRight' => 0,
       'displayHeaderFooter' => FALSE,
-      'printBackground'     => TRUE,
+      'printBackground' => TRUE,
     ];
   }
 
