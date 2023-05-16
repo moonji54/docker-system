@@ -52,6 +52,11 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   user_id:
     type: entity_reference_autocomplete
     weight: 5
