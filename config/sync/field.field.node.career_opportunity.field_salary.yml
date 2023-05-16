@@ -12,7 +12,7 @@ bundle: career_opportunity
 label: Salary
 description: 'Add salary information.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
