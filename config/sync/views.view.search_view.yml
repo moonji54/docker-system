@@ -103,6 +103,18 @@ display:
                   collapsible: false
                   is_secondary: false
                 show_active_filters: 1
+              field_series:
+                plugin_id: bef_soapbox_active_filters
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+                select_all_none: 0
+                select_all_none_nested: false
+                display_inline: 0
+                show_active_filters: 1
               search_api_language:
                 plugin_id: bef_soapbox_active_filters
                 advanced:
@@ -139,6 +151,18 @@ display:
                 select_all_none_nested: 0
                 display_inline: 0
                 show_active_filters: 1
+              type:
+                plugin_id: bef_soapbox_active_filters
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+                select_all_none: 0
+                select_all_none_nested: 0
+                display_inline: 0
+                show_active_filters: 1
               field_resource_type:
                 plugin_id: bef_soapbox_active_filters
                 advanced:
@@ -164,18 +188,6 @@ display:
                 display_inline: 0
                 show_active_filters: 1
               field_role_type:
-                plugin_id: bef_soapbox_active_filters
-                advanced:
-                  sort_options: false
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
-                select_all_none: 0
-                select_all_none_nested: false
-                display_inline: 0
-                show_active_filters: 1
-              field_series:
                 plugin_id: bef_soapbox_active_filters
                 advanced:
                   sort_options: false
