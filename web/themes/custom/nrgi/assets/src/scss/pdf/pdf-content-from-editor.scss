@@ -106,7 +106,7 @@
 
     figcaption {
       @include pdf-ts-media-caption;
-      margin-top : 8pt;
+      margin-top : 0;
       display    : block;
     }
 
@@ -161,8 +161,9 @@
       }
     }
 
-    &--fallback-image:has(+ figcaption) {
-      margin-bottom : -8pt;
+    &--full-width,
+    &--wysiwyg-full-width {
+      margin-bottom : 8pt;
     }
   }
 

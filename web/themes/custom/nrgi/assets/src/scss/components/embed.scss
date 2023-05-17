@@ -12,17 +12,19 @@
     }
   }
 
-  &__media-wrapper:has(> .c-media--remote-video) {
-    aspect-ratio : 16 / 9;
-    position     : relative;
+  &__media-wrapper {
+    .c-media--remote-video {
+      aspect-ratio : 16 / 9;
+      position     : relative;
 
-    iframe {
-      height     : 100%;
-      left       : 0;
-      object-fit : cover;
-      position   : absolute;
-      top        : 0;
-      width      : 100%;
+      iframe {
+        height     : 100%;
+        left       : 0;
+        object-fit : cover;
+        position   : absolute;
+        top        : 0;
+        width      : 100%;
+      }
     }
   }
 
@@ -40,14 +42,11 @@
   }
 
   &--pdf {
-    #{$c}__media-wrapper:has(+ #{$c}__caption) {
-      margin-bottom : calc(var(--space-m) * -1);
-    }
-
     #{$c}__caption {
       @include sans-body;
       font-size   : 7pt;
       line-height : 1.5;
+      margin-top  : 0;
 
       span {
         &:nth-child(2) {

@@ -318,7 +318,7 @@ tbody {
   font-family: "Noto Sans", sans-serif;
   font-size: 7pt;
   line-height: 1.5;
-  margin-top: 8pt;
+  margin-top: 0;
   display: block;
 }
 .pdf-content-from-editor figure > .c-media + figcaption {
@@ -364,8 +364,8 @@ tbody {
   text-decoration: underline;
   text-underline-offset: 1pt;
 }
-.pdf-content-from-editor .c-media--fallback-image:has(+ figcaption) {
-  margin-bottom: -8pt;
+.pdf-content-from-editor .c-media--full-width, .pdf-content-from-editor .c-media--wysiwyg-full-width {
+  margin-bottom: 8pt;
 }
 .pdf-content-from-editor .boxed-text {
   margin: 36pt 0;
@@ -624,7 +624,7 @@ tbody {
   font-family: "Noto Sans", sans-serif;
   font-size: 7pt;
   line-height: 1.5;
-  margin-top: 8pt;
+  margin-top: 0;
   display: block;
 }
 .c-pdf .o-content-from-editor figure > .c-media + figcaption {
@@ -670,8 +670,8 @@ tbody {
   text-decoration: underline;
   text-underline-offset: 1pt;
 }
-.c-pdf .o-content-from-editor .c-media--fallback-image:has(+ figcaption) {
-  margin-bottom: -8pt;
+.c-pdf .o-content-from-editor .c-media--full-width, .c-pdf .o-content-from-editor .c-media--wysiwyg-full-width {
+  margin-bottom: 8pt;
 }
 .c-pdf .o-content-from-editor .boxed-text {
   margin: 36pt 0;
