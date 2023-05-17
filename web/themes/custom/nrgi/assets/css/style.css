@@ -1685,11 +1685,11 @@ ul li a:hover {
     max-height: 28.75rem;
   }
 }
-.c-embed__media-wrapper:has(> .c-media--remote-video) {
+.c-embed__media-wrapper .c-media--remote-video {
   aspect-ratio: 16/9;
   position: relative;
 }
-.c-embed__media-wrapper:has(> .c-media--remote-video) iframe {
+.c-embed__media-wrapper .c-media--remote-video iframe {
   height: 100%;
   left: 0;
   -o-object-fit: cover;
@@ -1713,13 +1713,11 @@ ul li a:hover {
 .c-embed__caption span:last-child {
   font-style: italic;
 }
-.c-embed--pdf .c-embed__media-wrapper:has(+ .c-embed__caption) {
-  margin-bottom: calc(var(--space-m) * -1);
-}
 .c-embed--pdf .c-embed__caption {
   font-family: "Noto Sans", sans-serif;
   font-size: 7pt;
   line-height: 1.5;
+  margin-top: 0;
 }
 .c-embed--pdf .c-embed__caption span:nth-child(2) {
   margin-left: 1px;
