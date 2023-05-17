@@ -7,6 +7,8 @@
 
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Query\QueryInterface;
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\link\LinkItemInterface;
 use Drupal\media\MediaInterface;
 use Drupal\node\Entity\Node;
@@ -404,4 +406,44 @@ function nrgi_frontend_entity_build_defaults_alter(array &$build, EntityInterfac
     }
   }
 
+}
+
+/**
+ * Implements hook_soapbox_related_content_auto_query_references_alter().
+ */
+function nrgi_frontend_soapbox_related_content_auto_query_references_alter(QueryInterface $query) {
+  $current_language = \Drupal::languageManager()
+    ->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)
+    ->getId();
+  $query->condition('langcode', $current_language, '=');
+}
+
+/**
+ * Implements hook_soapbox_related_content_auto_query_same_type_alter().
+ */
+function nrgi_frontend_soapbox_related_content_auto_query_same_type_alter(QueryInterface $query) {
+  $current_language = \Drupal::languageManager()
+    ->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)
+    ->getId();
+  $query->condition('langcode', $current_language, '=');
+}
+
+/**
+ * Implements hook_soapbox_related_content_auto_query_types_alter().
+ */
+function nrgi_frontend_soapbox_related_content_auto_query_types_alter(QueryInterface $query): void {
+  $current_language = \Drupal::languageManager()
+    ->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)
+    ->getId();
+  $query->condition('langcode', $current_language, '=');
+}
+
+/**
+ * Implements hook_soapbox_related_content_specific_ids_by_field_alter().
+ */
+function nrgi_frontend_soapbox_related_content_specific_ids_by_field_alter(QueryInterface $query) {
+  $current_language = \Drupal::languageManager()
+    ->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)
+    ->getId();
+  $query->condition('langcode', $current_language, '=');
 }
