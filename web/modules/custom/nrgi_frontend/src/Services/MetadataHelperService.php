@@ -335,6 +335,9 @@ class MetadataHelperService {
         ) {
           $variables['subtype'] = $resource_type[0];
         }
+
+        $this->preprocessResourceCardMetadata($node, $variables);
+
         break;
     }
 
@@ -700,7 +703,7 @@ class MetadataHelperService {
     array &$variables,
   ): void {
     // Get event specific data (dates, format, recording)
-    $this->preprocessEventCardMetadata($node, $variables);
+    $this->preprocessEventCardMetadata($node, $variables, 'F');
 
     // Is past event?
     $past_event = FALSE;
@@ -757,12 +760,15 @@ class MetadataHelperService {
    *   Node.
    * @param array $variables
    *   The variables array.
+   * @param string $month_format
+   *   The month php date format to apply, M by default (use F for full node).
    *
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   protected function preprocessEventCardMetadata(
     NodeInterface $node,
     array &$variables,
+    string $month_format = 'M'
   ): void {
 
     if ($event_type = $this->getTermLabels(
@@ -778,7 +784,7 @@ class MetadataHelperService {
 
       $start_date = new DrupalDateTime($start_date_field->value);
       $start_day = $start_date->format('d');
-      $start_month = $start_date->format('F');
+      $start_month = $start_date->format($month_format);
       $start_year = $start_date->format('Y');
       $start_hour = $start_date->format('h');
       $start_minutes = $start_date->format('i');
@@ -795,7 +801,7 @@ class MetadataHelperService {
           && $end_date_field = $node->get('field_end_date')) {
         $end_date = new DrupalDateTime($end_date_field->value);
         $end_day = $end_date->format('d');
-        $end_month = $end_date->format('F');
+        $end_month = $end_date->format($month_format);
         $end_year = $end_date->format(('Y'));
         $end_hour = $end_date->format('h');
         $end_minutes = $end_date->format('i');

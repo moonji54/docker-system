@@ -34,12 +34,16 @@
   &__breadcrumbs {
     @include z-index(breadcrumbs);
     grid-column : 1 / -1;
-    margin-top  : 3rem;
+    margin-top  : var(--space-xl);
   }
 
   &__title {
     @include ts-heading-2;
     margin-top : 6rem;
+
+    @include media("<=desktop") {
+      margin-top : var(--space-2xl);
+    }
   }
 
   &__subtitle {
@@ -93,6 +97,7 @@
 
   &__date {
     @include ts-caption;
+    white-space : nowrap;
   }
 
   &__author-item {
@@ -106,7 +111,13 @@
 
   &__author-name {
     &--link {
-      @include underlined-off($offset : 2px);
+      @include underlined($blue-light, $offset : 2px);
+      text-decoration-color : currentcolor;
+
+      &:focus,
+      &:hover {
+        color : $blue-light;
+      }
     }
   }
 
@@ -117,6 +128,7 @@
 
     @include media("<=tablet") {
       justify-content : space-between;
+      row-gap         : 0.5rem;
     }
 
     .o-button {
@@ -163,7 +175,13 @@
 
   &__meta-link {
     @include ts-caption;
-    @include underlined-off;
+    @include underlined($blue-light, $offset : 2px);
+    text-decoration-color : currentcolor;
+
+    &:focus,
+    &:hover {
+      color : $blue-light;
+    }
   }
 
   &__mobile-buttons {

@@ -14,6 +14,7 @@
   &__list-item {
     display       : flex;
     margin-bottom : var(--space-s);
+    break-inside  : avoid;
 
     &:last-child {
       margin-bottom : 0;

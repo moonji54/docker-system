@@ -41,7 +41,7 @@
              target="_blank"
              data-mainlink="{{ full_url }}"
              title="Share via {{ network.name }}">
-            {% include '@nrgi/svg/svg.html.twig' with { 'svg' : network.icon } %}
+            {% include '@nrgi/svg/svg.html.twig' with { 'svg' : network.icon, 'extra_class' : 'c-social-links__link-icon--' ~ network.icon } %}
           </a>
         </li>
       {% endfor %}

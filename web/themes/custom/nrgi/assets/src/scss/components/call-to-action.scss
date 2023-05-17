@@ -10,7 +10,7 @@
   }
 
   @include media("<=tablet") {
-    min-height : auto;
+    min-height : 33.125rem;
   }
 
   &__image-wrapper {
@@ -22,7 +22,7 @@
 
     @include media("<=tablet") {
       aspect-ratio : 1.39;
-      min-height   : auto;
+      min-height   : 33.125rem;
     }
   }
 
@@ -42,11 +42,6 @@
     position   : absolute;
     top        : 0;
     width      : 100%;
-
-    @include media("<=tablet") {
-      position : relative;
-      top      : 0;
-    }
   }
 
   &__container {

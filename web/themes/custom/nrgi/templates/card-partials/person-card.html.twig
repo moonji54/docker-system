@@ -15,9 +15,18 @@
 
       <div class="c-card__content-wrapper">
         <h3 class="c-card__title">
-          <a class="c-card__link" href="{{ url }}">
-            {{ title|field_value }}
-          </a>
+          {% if external_link %}
+            <a class="c-card__link" href="{{ external_link.uri }}" target="_blank"
+               title="{{ external_link.title }}">
+              <span>{{ title|field_value }}</span>
+
+              {% include '@nrgi/svg/svg.html.twig' with { 'svg' :  'external', 'extra_class' : 'c-card__external-icon' } %}
+            </a>
+          {% else %}
+            <a class="c-card__link" href="{{ url }}">
+              <span>{{ title|field_value }}</span>
+            </a>
+          {% endif %}
         </h3>
 
         {% if content.field_job_title|field_value %}

@@ -267,6 +267,10 @@
     a {
       overflow-wrap : break-word;
     }
+
+    p {
+      @include ts-caption;
+    }
   }
 
   .responsive-table {

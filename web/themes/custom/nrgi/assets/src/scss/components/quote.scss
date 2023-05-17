@@ -20,6 +20,13 @@
     &:after {
       content : "”";
     }
+
+    .rtl & {
+      &:before,
+      &:after {
+        display : none;
+      }
+    }
   }
 
   &__caption {

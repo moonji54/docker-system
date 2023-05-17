@@ -48,13 +48,7 @@
   }
 
   &__logo-link {
-    display    : inline-flex;
-    transition : color 0.3s;
-
-    &:hover,
-    &:focus {
-      color : $blue-light;
-    }
+    display : inline-flex;
   }
 
   /* Secondary-menu
@@ -225,6 +219,13 @@
     /* stylelint-disable-next-line */
     #{$c}__main-menu {
       margin-top : 1.25rem;
+    }
+
+    #{$c}__logo-wrapper {
+      /* stylelint-disable-next-line */
+      &:after {
+        width : calc(100% + (var(--gutter)));
+      }
     }
   }
 

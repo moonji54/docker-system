@@ -36,7 +36,7 @@
 
         <li class="c-social-links__list-item">
           <a class="c-social-links__link{{ has_text ? ' c-social-links__link--has-text' }}" href="{{ social_link.field_social_media_link.uri }}">
-            {% include '@nrgi/svg/svg.html.twig' with {'svg': social_link.field_social_media} %}
+            {% include '@nrgi/svg/svg.html.twig' with {'svg': social_link.field_social_media, 'extra_class' : 'c-social-links__link-icon--' ~ social_link.field_social_media} %}
 
             <span>{{ social_link.field_social_media_link.title|trans }}</span>
           </a>

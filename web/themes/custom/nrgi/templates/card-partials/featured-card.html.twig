@@ -4,6 +4,10 @@
   'c-card--' ~ layout,
 ] %}
 
+{% if subtype in ['Landing Page', 'Listing Page'] %}
+  {% set subtype = 'page' %}
+{% endif %}
+
 {% if title %}
   <article{{ attributes.addClass(classes).setAttribute('dir', language_direction) }}>
     <div class="c-card__content-wrapper">
@@ -53,9 +57,11 @@
               <span class="c-card__link-slug">{{ slug }} /</span>
             {% endif %}
 
-            <span>{{ title|field_value }}</span>
+            <span class="c-card__external-link-wrapper">
+              <span>{{ title|field_value }}</span>
 
-            {% include '@nrgi/svg/svg.html.twig' with { 'svg' :  'external', 'extra_class' : 'c-card__external-icon' } %}
+              {% include '@nrgi/svg/svg.html.twig' with { 'svg' :  'external', 'extra_class' : 'c-card__external-icon' } %}
+            </span>
           </a>
         {% else %}
           <a class="c-card__link" href="{{ url }}">

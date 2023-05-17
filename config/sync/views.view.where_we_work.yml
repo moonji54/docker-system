@@ -11,29 +11,6 @@ dependencies:
     - taxonomy.vocabulary.event_type
     - taxonomy.vocabulary.keyword
     - taxonomy.vocabulary.resource_type
-  content:
-    - 'taxonomy_term:event_type:2cc771ae-5126-4423-9d32-4c8dcdb63f04'
-    - 'taxonomy_term:event_type:3b8ad31d-d49e-4671-8cae-6fc4daf5b9e1'
-    - 'taxonomy_term:event_type:534c42c4-4d48-442a-b976-33b48e0c76b2'
-    - 'taxonomy_term:event_type:92489268-df5e-4349-bed3-bfd832b3901f'
-    - 'taxonomy_term:event_type:9ca1e640-2764-45aa-8c1e-dbfd4516071e'
-    - 'taxonomy_term:event_type:a21d3609-4c0f-45bf-ba31-e3663b848462'
-    - 'taxonomy_term:resource_type:18366ee8-407c-4b32-9c94-27a764bd205b'
-    - 'taxonomy_term:resource_type:515518ce-620c-46d1-9822-8cb5abfb32f9'
-    - 'taxonomy_term:resource_type:58ee9dd5-ae11-44f9-a396-9a4b895aeb16'
-    - 'taxonomy_term:resource_type:5cef0cbd-cc49-4f80-af6a-f9d2aaa69016'
-    - 'taxonomy_term:resource_type:64c940b1-9712-43ac-9599-d699a9bfd651'
-    - 'taxonomy_term:resource_type:6858405c-f415-4956-9fe6-06466f7ec5f9'
-    - 'taxonomy_term:resource_type:744acf2f-0914-45cb-8c83-fafbc75c0589'
-    - 'taxonomy_term:resource_type:89fc894f-e4f2-45ce-be53-e0d8e839e341'
-    - 'taxonomy_term:resource_type:8a9e3ed9-941d-40c1-a478-77bf6b7139b5'
-    - 'taxonomy_term:resource_type:b4cf4bce-8119-43a0-b200-4652d5ba00cc'
-    - 'taxonomy_term:resource_type:bc24aef0-f100-48ac-a438-4d5ad1c5e06f'
-    - 'taxonomy_term:resource_type:bc40d40c-04ac-42a1-831e-b1534fdaff18'
-    - 'taxonomy_term:resource_type:c5d3ed47-7531-4fe4-a2d9-c07c32510448'
-    - 'taxonomy_term:resource_type:d0a113a0-572f-47a8-81eb-f96eb4923d66'
-    - 'taxonomy_term:resource_type:e20b7395-59f0-4fa2-947b-ed7c39090c42'
-    - 'taxonomy_term:resource_type:fdd65c7d-b959-4a04-bbea-24dde760c463'
   module:
     - better_exposed_filters
     - node
@@ -602,23 +579,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value:
-            205: 205
-            204: 204
-            196: 196
-            202: 202
-            200: 200
-            207: 207
-            197: 197
-            203: 203
-            195: 195
-            201: 201
-            209: 209
-            206: 206
-            208: 208
-            199: 199
-            194: 194
-            198: 198
+          value: {  }
           group: 1
           exposed: true
           expose:
@@ -639,7 +600,7 @@ display:
               editor: '0'
               administrator: '0'
               site_manager: '0'
-            reduce: true
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -667,13 +628,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value:
-            184: 184
-            185: 185
-            183: 183
-            187: 187
-            186: 186
-            188: 188
+          value: {  }
           group: 1
           exposed: true
           expose:
@@ -1129,21 +1084,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value:
-            205: 205
-            204: 204
-            196: 196
-            202: 202
-            207: 207
-            197: 197
-            203: 203
-            195: 195
-            201: 201
-            209: 209
-            206: 206
-            199: 199
-            194: 194
-            198: 198
+          value: {  }
           group: 1
           exposed: true
           expose:
@@ -1154,17 +1095,17 @@ display:
             operator: field_resource_type_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: resource_type
+            identifier: field_resource_type_target_id
             required: false
             remember: false
-            multiple: true
+            multiple: false
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
               editor: '0'
               administrator: '0'
               site_manager: '0'
-            reduce: true
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -1192,13 +1133,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value:
-            184: 184
-            185: 185
-            183: 183
-            187: 187
-            186: 186
-            188: 188
+          value: {  }
           group: 1
           exposed: true
           expose:

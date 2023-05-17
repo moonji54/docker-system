@@ -381,7 +381,25 @@ function _nrgi_frontend_preprocess_subnavigation(array &$variables): void {
 /**
  * Implements hook_soapbox_nodes_subpages_alter().
  */
-function nrgi_frontend_soapbox_nodes_subpages_alter(&$show_sub_pages, &$show_sibling_pages) {
+function nrgi_frontend_soapbox_nodes_subpages_alter(&$show_sub_pages, &$show_sibling_pages): void {
   $show_sub_pages = TRUE;
   $show_sibling_pages = FALSE;
+}
+
+/**
+ * Implements hook_entity_build_defaults_alter().
+ */
+function nrgi_frontend_entity_build_defaults_alter(array &$build, EntityInterface $entity, $view_mode): void {
+  $listing_views = [
+    'list_item',
+    'list_item_with_image',
+  ];
+
+  if ($entity instanceof NodeInterface && !isset($entity->in_preview) && in_array($view_mode, $listing_views)) {
+    // Add cache key to nodes showed in listings.
+    // The cache should be invalidated if the view display is different as
+    // the node rendering depends on view display (with/without filters/images).
+    $build['#cache']['keys'][] = $entity->view->current_display;
+  }
+
 }

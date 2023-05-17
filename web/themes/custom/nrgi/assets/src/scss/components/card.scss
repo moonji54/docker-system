@@ -96,7 +96,7 @@
   }
 
   &__link {
-    @include underlined($tertiary, $thickness : 2px);
+    @include underlined($tertiary, 5px, $thickness : 2px);
 
     &:before {
       bottom   : 0;
@@ -113,12 +113,15 @@
     font-weight : 700;
   }
 
+  &__external-link-wrapper {
+    display : inline-block;
+  }
+
   &__external-icon {
-    color               : $tertiary;
-    display             : inline-block;
-    margin-top          : var(--space-xs);
-    vertical-align      : top;
-    margin-inline-start : 0.25rem;
+    color          : $tertiary;
+    display        : inline-block;
+    margin-top     : var(--space-xs);
+    vertical-align : top;
   }
 
   &__image-wrapper {
@@ -171,6 +174,11 @@
       margin-top   : 0;
       width        : 7rem;
 
+      @include media("<=tablet") {
+        height : 3.75rem;
+        width  : 3.75rem;
+      }
+
       /* stylelint-disable-next-line */
       img {
         position : static;
@@ -188,6 +196,12 @@
     grid-template-columns : repeat(8, 1fr);
     margin-top            : var(--space-xl);
 
+    @include media("<=tablet") {
+      display        : flex;
+      flex-direction : column-reverse;
+      gap            : 2rem;
+    }
+
     &:first-child {
       margin-top : 0;
     }
@@ -202,6 +216,7 @@
     }
 
     #{$c}__title {
+      @include ts-card($medium : true);
       margin-top : calc(var(--space-xs) * -1);
     }
   }

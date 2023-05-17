@@ -19,9 +19,12 @@ class Filters {
         this.$filterButton.on('click', this.$.proxy(this.toggleFilterItems, this));
         this.$toggleFiltersButton.on('click', this.$.proxy(this.toggleFilters, this));
 
-        this.$window.on('resize', debounce(() => {
+        this.$window.on('load resize', debounce(() => {
             if (this.$window.width() >= 768) {
                 this.resetFilters();
+            } else {
+                this.$toggleFiltersButton.attr('aria-expanded', 'false');
+                this.$toggleFiltersButton.removeClass('is-open');
             }
         }));
 
@@ -41,20 +44,21 @@ class Filters {
         this.$filterDropdowns.removeAttr('style');
         this.$toggleFiltersButton.removeClass('is-hidden');
         this.$toggleFiltersButton.attr('aria-expanded', 'true');
+        this.$toggleFiltersButton.addClass('is-open');
     }
 
     toggleFilters (e) {
         const $elem = this.$(e.currentTarget);
         const $filters = $elem.next(this.$exposedFilters).find(this.$filterDropdowns);
 
-        $elem.toggleClass('is-clicked');
+        $elem.toggleClass('is-open');
         $filters.slideToggle();
 
-        if ($elem.hasClass('is-clicked')) {
-            return $elem.removeAttr('aria-expanded');
+        if ($elem.hasClass('is-open')) {
+            $elem.attr('aria-expanded', 'true');
+        } else {
+            $elem.attr('aria-expanded', 'false');
         }
-
-        return $elem.attr('aria-expanded', 'true');
     }
 
     toggleFilterItems (e) {

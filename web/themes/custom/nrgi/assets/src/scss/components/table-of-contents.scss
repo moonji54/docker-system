@@ -23,7 +23,7 @@
     #{$c}__expanded-content {
       &:before {
         border-top : 1px solid $white;
-        transform  : translateX(0);
+        opacity    : 1;
       }
     }
   }
@@ -70,7 +70,7 @@
     display          : none;
     overflow         : hidden;
     padding-bottom   : var(--space-l);
-    padding-top      : var(--space-xs);
+    padding-top      : var(--space-s);
     position         : relative;
     width            : 100%;
 
@@ -78,10 +78,10 @@
       border-top : 1px solid transparent;
       content    : "";
       left       : 0;
+      opacity    : 0;
       position   : absolute;
       top        : 0;
-      transform  : translateX(100%);
-      transition : transform 0.6s;
+      transition : transform 0.6s, opacity 0.6s;
       width      : 100%;
     }
 
