@@ -5,6 +5,7 @@
     slug: slug,
     external_link: external_link,
     subtype: subtype ?: content_type_label,
+    publisher: content.field_publisher|field_raw['value'],
     date: date|upper,
     title : label,
     no_image : true
@@ -16,6 +17,7 @@
     slug: slug,
     external_link: external_link,
     subtype: subtype ?: content_type_label,
+    publisher: content.field_publisher|field_raw['value'],
     date: date|upper,
     title : label,
     layout : 'three-col',

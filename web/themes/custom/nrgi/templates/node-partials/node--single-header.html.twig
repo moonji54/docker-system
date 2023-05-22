@@ -106,7 +106,12 @@
           {% if content.field_email|field_value %}
             <li class="c-single-header__meta-item">
               {{ 'Email:' }}
-              {{ content.field_email }}
+              <a class="c-single-header__meta-link"
+                 href='mailto:{{ content.field_email|field_raw('value') }}'
+                 title='{{ "Email #{content.field_email|field_raw('value')}"|t }}'
+                 target='_blank'>
+                {{ content.field_email|field_raw('value') }}
+              </a>
             </li>
           {% endif %}
         {% endif %}
@@ -207,11 +212,11 @@
       </ul>
 
       <div class="c-single-header__buttons-wrapper">
-        {% if (content.field_registration|field_value and registration_open) or content.field_video_conferencing|field_value or content.field_apply|field_value or content.field_link|field_value or report_pdf %}
+        {% if (content.field_registration|field_value and registration) or content.field_video_conferencing|field_value or content.field_apply|field_value or content.field_link|field_value or report_pdf %}
           <div class="c-single-header__buttons-left-side">
-            {% if (content.field_registration|field_value and registration_open or content.field_video_conferencing) and node.bundle == 'event' %}
+            {% if (content.field_registration|field_value and registration or content.field_video_conferencing) and node.bundle == 'event' %}
               {# Registration link: available only when registration is open #}
-              {% if content.field_registration|field_value and registration_open %}
+              {% if content.field_registration|field_value and registration %}
                 {{ content.field_registration }}
               {% endif %}
 

@@ -307,6 +307,7 @@
   /* Standfirst/key messages
   ================================================== */
   .standfirst {
+    @include ts-heading-6;
     color      : $secondary;
     margin-top : var(--space-3xl);
     /* stylelint-disable-next-line */

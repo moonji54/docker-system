@@ -57,5 +57,9 @@
         </a>
       {% endif %}
     </h3>
+
+    {% if publisher and content_type == 'article' %}
+      <span class="c-card__meta-item">{{ publisher }}</span>
+    {% endif %}
   </div>
 </article>
