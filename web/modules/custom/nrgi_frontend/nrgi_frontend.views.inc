@@ -65,3 +65,29 @@ function _nrgi_frontend_delete_keyword_errors(array $form, FormState &$form_stat
 
   }
 }
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function nrgi_frontend_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
+  // Exclude 404, 404 and homepage from search result.
+  $page_config = \Drupal::config('system.site')->get('page');
+  $pages_to_exclude = ['403', '404', 'front'];
+  if ($view->id() === 'search_view') {
+    foreach ($pages_to_exclude as $page) {
+      if (!empty($page_config[$page])) {
+        $exploded = explode('/', $page_config[$page]);
+        if (!empty($exploded)) {
+          $excluded_nids[] = $exploded[2];
+        }
+      }
+    }
+    if (!empty($excluded_nids)) {
+      // Remove the node ids from the search index query.
+      $fields = $query->getIndex()->getFields();
+      if (!empty($fields['nid'])) {
+        $query->addCondition('nid', $excluded_nids, 'NOT IN');
+      }
+    }
+  }
+}
