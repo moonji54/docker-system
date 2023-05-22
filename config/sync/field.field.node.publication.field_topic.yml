@@ -12,9 +12,9 @@ entity_type: node
 bundle: publication
 label: Topics
 description: 'Select the topic this work falls under'
-required: true
+required: false
 translatable: true
-default_value: {  }
+default_value: { }
 default_value_callback: ''
 settings:
   handler: 'default:node'
