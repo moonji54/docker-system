@@ -120,9 +120,9 @@
           {# Taxonomies #}
           {% for field in meta_data.career_opportunity.header %}
             {% for item in field %}
-              {% if item.url %}
-                <li class="c-single-header__meta-item"><a class="c-single-header__meta-link"
-                                                          href="{{ item.url }}">{{ item.title|trim }}</a></li>
+              {% if item.title %}
+                <li class="c-single-header__meta-item">
+                  {{ item.title|trim }}</li>
               {% endif %}
             {% endfor %}
           {% endfor %}

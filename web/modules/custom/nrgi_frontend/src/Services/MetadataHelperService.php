@@ -229,13 +229,11 @@ class MetadataHelperService {
       $variables
     );
 
-    if ($node->bundle() != 'career_opportunity') {
-      $this->preprocessGeneralMetadata(
-        $node,
-        $this->metadataFieldNames['all']['taxonomies'],
-        $variables
-      );
-    }
+    $this->preprocessGeneralMetadata(
+      $node,
+      $this->metadataFieldNames['all']['taxonomies'],
+      $variables
+    );
   }
 
   /**
@@ -827,7 +825,7 @@ class MetadataHelperService {
         }
 
         if (!$hide_times && ($start_date->format('d-m-y') ==
-            $end_date->format('d-m-y'))) {
+                             $end_date->format('d-m-y'))) {
           $date = $start_day . ' ' . $start_month . ' ' . $start_year;
           $variables['header_start_time'] = $start_hour . ':' . $start_minutes
                                             . $start_pm_am;
