@@ -30,6 +30,7 @@ settings:
   preselect_views:
     all_events: all_events
     blog: blog
+    careers: careers
     events: events
     library: library
     newsroom: newsroom
