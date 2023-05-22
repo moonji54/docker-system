@@ -3,6 +3,7 @@
 namespace Drupal\nrgi_frontend\Services;
 
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\nrgi_frontend\NrgiFeaturedCardsBase;
 
@@ -196,6 +197,11 @@ class NrgiFeaturedContentHelperService extends NrgiFeaturedCardsBase {
         $query->condition($taxonomy_field, $term_ids, 'IN');
       }
     }
+
+    // Only content in current language.
+    $current_language = $this->languageManager->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)
+      ->getId();
+    $query->condition('langcode', $current_language, '=');
 
     // Only published nodes.
     $query->condition('status', 1);

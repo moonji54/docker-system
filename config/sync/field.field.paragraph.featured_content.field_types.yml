@@ -14,7 +14,7 @@ bundle: featured_content
 label: 'Content types'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

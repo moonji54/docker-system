@@ -12,7 +12,7 @@ bundle: featured_content
 label: 'Show Image'
 description: 'Whether to show images on content cards.'
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: 0
