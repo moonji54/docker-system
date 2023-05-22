@@ -432,22 +432,43 @@ class MetadataHelperService {
             break;
 
           case 'string':
-            if ($title_field = $node->get($metadata_field_name)->first()) {
-              if ($title_field instanceof StringItem && !empty($title_field->value)) {
-                $label = match ($title_field->getFieldDefinition()->getName()) {
-                  'field_photo_caption' => t('Top image'),
-                  'field_publisher' => t('Publisher'),
-                  default => $title_field->getFieldDefinition()->getLabel(),
-                };
-                $metadata[] = [
-                  'label' => $label,
-                  'items' => [
-                    [
+            if ($title_field = $node->get($metadata_field_name)) {
+              if ($title_field instanceof FieldItemList) {
+                if ($title_field->count() > 1) {
+                  $label = $title_field->getFieldDefinition()->getLabel();
+                  foreach ($title_field as $item) {
+                    $items[] = [
                       'type' => 'text',
-                      'title' => $title_field->value,
-                    ],
-                  ],
-                ];
+                      'title' => $item->value,
+                    ];
+                  }
+                  $metadata[] = [
+                    'label' => $label,
+                    'items' => $items,
+                  ];
+                }
+                else {
+                  if ($title_field = $title_field->first()) {
+                    if ($title_field instanceof StringItem && !empty($title_field->value)) {
+                      $label = match ($title_field->getFieldDefinition()
+                        ->getName()) {
+                        'field_photo_caption' => t('Top image'),
+                        'field_publisher' => t('Publisher'),
+                        default => $title_field->getFieldDefinition()
+                          ->getLabel(),
+                      };
+                      $metadata[] = [
+                        'label' => $label,
+                        'items' => [
+                          [
+                            'type' => 'text',
+                            'title' => $title_field->value,
+                          ],
+                        ],
+                      ];
+                    }
+                  }
+                }
               }
             }
             break;
