@@ -86,7 +86,7 @@ display:
           settings:
             link_to_entity: true
           group_column: value
-          group_columns: {  }
+          group_columns: { }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -132,7 +132,7 @@ display:
           perm: 'access content'
       cache:
         type: tag
-        options: {  }
+        options: { }
       empty:
         area:
           id: area
@@ -164,7 +164,7 @@ display:
             field_identifier: ''
           exposed: false
           granularity: second
-      arguments: {  }
+      arguments: { }
       filters:
         status:
           id: status
@@ -178,7 +178,7 @@ display:
           expose:
             operator: ''
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
         langcode:
           id: langcode
           table: node_field_data
@@ -201,7 +201,7 @@ display:
             use_operator: false
             operator: langcode_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: langcode
             required: false
             remember: false
@@ -223,8 +223,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
         type:
           id: type
           table: node_field_data
@@ -247,7 +247,7 @@ display:
             use_operator: false
             operator: ''
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: ''
             required: false
             remember: false
@@ -265,8 +265,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
         field_resource_type_target_id:
           id: field_resource_type_target_id
           table: node__field_resource_type
@@ -287,7 +287,7 @@ display:
             use_operator: false
             operator: field_resource_type_target_id_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: field_resource_type_target_id
             required: false
             remember: false
@@ -309,8 +309,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
           reduce_duplicates: false
           vid: resource_type
           type: select
@@ -331,8 +331,8 @@ display:
           disable_sql_rewrite: false
           distinct: false
           replica: false
-          query_tags: {  }
-      relationships: {  }
+          query_tags: { }
+      relationships: { }
       use_ajax: true
       header:
         result:
@@ -345,8 +345,8 @@ display:
           plugin_id: result
           empty: false
           content: 'Displaying @start–@end of @total'
-      footer: {  }
-      display_extenders: {  }
+      footer: { }
+      display_extenders: { }
     cache_metadata:
       max-age: -1
       contexts:
@@ -356,7 +356,7 @@ display:
         - user
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags: { }
   block_1:
     id: block_1
     display_title: 'Blog with images (no filters)'
@@ -376,7 +376,7 @@ display:
           expose:
             operator: ''
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
         langcode:
           id: langcode
           table: node_field_data
@@ -399,7 +399,7 @@ display:
             use_operator: false
             operator: langcode_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: langcode
             required: false
             remember: false
@@ -421,8 +421,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
         type:
           id: type
           table: node_field_data
@@ -445,7 +445,7 @@ display:
             use_operator: false
             operator: ''
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: ''
             required: false
             remember: false
@@ -463,8 +463,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
         field_resource_type_target_id:
           id: field_resource_type_target_id
           table: node__field_resource_type
@@ -485,7 +485,7 @@ display:
             use_operator: false
             operator: field_resource_type_target_id_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: field_resource_type_target_id
             required: false
             remember: false
@@ -507,8 +507,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
           reduce_duplicates: false
           vid: resource_type
           type: select
@@ -524,7 +524,7 @@ display:
         filter_groups: false
       display_description: ''
       display_extenders:
-        ajax_history: {  }
+        ajax_history: { }
     cache_metadata:
       max-age: -1
       contexts:
@@ -534,7 +534,7 @@ display:
         - user
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags: { }
   block_2:
     id: block_2
     display_title: 'Blog (no filters)'
@@ -543,7 +543,7 @@ display:
     display_options:
       style:
         type: default
-        options: {  }
+        options: { }
       row:
         type: 'entity:node'
         options:
@@ -554,7 +554,7 @@ display:
         row: false
       display_description: ''
       display_extenders:
-        ajax_history: {  }
+        ajax_history: { }
     cache_metadata:
       max-age: -1
       contexts:
@@ -564,7 +564,7 @@ display:
         - user
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags: { }
   block_3:
     id: block_3
     display_title: 'Blog with images (with filters)'
@@ -665,7 +665,7 @@ display:
           expose:
             operator: ''
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
         langcode:
           id: langcode
           table: node_field_data
@@ -696,7 +696,7 @@ display:
             use_operator: false
             operator: langcode_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: langcode
             required: false
             remember: false
@@ -718,8 +718,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
         type:
           id: type
           table: node_field_data
@@ -742,7 +742,7 @@ display:
             use_operator: false
             operator: ''
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: ''
             required: false
             remember: false
@@ -760,8 +760,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
         field_resource_type_target_id:
           id: field_resource_type_target_id
           table: node__field_resource_type
@@ -782,7 +782,7 @@ display:
             use_operator: false
             operator: field_resource_type_target_id_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: field_resource_type_target_id
             required: false
             remember: false
@@ -804,8 +804,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
           reduce_duplicates: false
           vid: resource_type
           type: select
@@ -821,7 +821,7 @@ display:
           admin_label: ''
           plugin_id: entity_reference
           operator: or
-          value: {  }
+          value: { }
           group: 1
           exposed: true
           expose:
@@ -831,7 +831,7 @@ display:
             use_operator: false
             operator: field_topic_target_id_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: topic
             required: false
             remember: false
@@ -853,8 +853,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
           reduce_duplicates: false
           handler: 'default:node'
           widget: select
@@ -875,7 +875,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: {  }
+          value: { }
           group: 1
           exposed: true
           expose:
@@ -885,7 +885,7 @@ display:
             use_operator: false
             operator: field_keywords_target_id_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: keyword
             required: false
             remember: false
@@ -907,8 +907,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
           reduce_duplicates: false
           vid: keyword
           type: textfield
@@ -924,7 +924,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: {  }
+          value: { }
           group: 1
           exposed: true
           expose:
@@ -934,7 +934,7 @@ display:
             use_operator: false
             operator: field_series_target_id_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: series
             required: false
             remember: false
@@ -956,8 +956,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
           reduce_duplicates: false
           vid: series
           type: select
@@ -973,7 +973,7 @@ display:
           admin_label: ''
           plugin_id: entity_reference
           operator: or
-          value: {  }
+          value: { }
           group: 1
           exposed: true
           expose:
@@ -983,7 +983,7 @@ display:
             use_operator: false
             operator: field_country_target_id_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: country
             required: false
             remember: false
@@ -1005,8 +1005,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
           reduce_duplicates: false
           handler: 'default:node'
           widget: select
@@ -1040,7 +1040,7 @@ display:
         - user
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags: { }
   block_4:
     id: block_4
     display_title: 'Blog (with filters)'
@@ -1158,7 +1158,7 @@ display:
           expose:
             operator: ''
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
         langcode:
           id: langcode
           table: node_field_data
@@ -1189,7 +1189,7 @@ display:
             use_operator: false
             operator: langcode_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: langcode
             required: false
             remember: false
@@ -1211,8 +1211,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
         type:
           id: type
           table: node_field_data
@@ -1235,7 +1235,7 @@ display:
             use_operator: false
             operator: ''
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: ''
             required: false
             remember: false
@@ -1253,8 +1253,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
         field_resource_type_target_id:
           id: field_resource_type_target_id
           table: node__field_resource_type
@@ -1275,7 +1275,7 @@ display:
             use_operator: false
             operator: field_resource_type_target_id_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: field_resource_type_target_id
             required: false
             remember: false
@@ -1297,8 +1297,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
           reduce_duplicates: false
           vid: resource_type
           type: select
@@ -1314,7 +1314,7 @@ display:
           admin_label: ''
           plugin_id: entity_reference
           operator: or
-          value: {  }
+          value: { }
           group: 1
           exposed: true
           expose:
@@ -1324,7 +1324,7 @@ display:
             use_operator: false
             operator: field_topic_target_id_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: topic
             required: false
             remember: false
@@ -1346,8 +1346,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
           reduce_duplicates: false
           handler: 'default:node'
           widget: select
@@ -1368,7 +1368,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: {  }
+          value: { }
           group: 1
           exposed: true
           expose:
@@ -1378,7 +1378,7 @@ display:
             use_operator: false
             operator: field_keywords_target_id_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: keyword
             required: false
             remember: false
@@ -1400,60 +1400,11 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
           reduce_duplicates: false
           vid: keyword
           type: textfield
-          hierarchy: false
-          limit: true
-          error_message: false
-        field_series_target_id:
-          id: field_series_target_id
-          table: node__field_series
-          field: field_series_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_series_target_id_op
-            label: Series
-            description: ''
-            use_operator: false
-            operator: field_series_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: series
-            required: false
-            remember: false
-            multiple: true
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              editor: '0'
-              administrator: '0'
-              site_manager: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: series
-          type: select
           hierarchy: false
           limit: true
           error_message: false
@@ -1466,7 +1417,7 @@ display:
           admin_label: ''
           plugin_id: entity_reference
           operator: or
-          value: {  }
+          value: { }
           group: 1
           exposed: true
           expose:
@@ -1476,7 +1427,7 @@ display:
             use_operator: false
             operator: field_country_target_id_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: { }
             identifier: country
             required: false
             remember: false
@@ -1498,8 +1449,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: { }
+            group_items: { }
           reduce_duplicates: false
           handler: 'default:node'
           widget: select
@@ -1517,7 +1468,7 @@ display:
           1: AND
       style:
         type: default
-        options: {  }
+        options: { }
       row:
         type: 'entity:node'
         options:
@@ -1532,7 +1483,7 @@ display:
         filter_groups: false
       display_description: ''
       display_extenders:
-        ajax_history: {  }
+        ajax_history: { }
     cache_metadata:
       max-age: -1
       contexts:
@@ -1543,4 +1494,4 @@ display:
         - user
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags: { }
