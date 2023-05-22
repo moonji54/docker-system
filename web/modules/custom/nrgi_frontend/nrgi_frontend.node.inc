@@ -34,7 +34,8 @@ function nrgi_frontend_preprocess_node(&$variables): void {
     // Adding direction manually, instead of language setting. On Drupal
     // settings, we set Arabic to LTR to avoid 'flipping' all the site.
     // We need to 'flip' only the node content (not header, footers, etc).
-    $variables['language_direction'] = $node->language()->getId() == 'ar' ? 'rtl' : 'ltr';
+    $variables['language_direction'] = $node->language()
+      ->getId() == 'ar' ? 'rtl' : 'ltr';
 
     switch ($node->bundle()) {
       case 'homepage':
@@ -355,7 +356,7 @@ function _nrgi_frontend_preprocess_related_content(array &$variables): void {
  */
 function _nrgi_frontend_preprocess_subnavigation(array &$variables): void {
   /** @var \Drupal\soapbox_nodes\SubPagesHelperService $sub_pages_helper */
-  $sub_pages_helper = \Drupal::service('soapbox_nodes.sub_pages');
+  $sub_pages_helper = \Drupal::service('nrgi_frontend.sub_pages');
   $sub_page_ids = $sub_pages_helper->getSubPages($variables['node'], 'main');
 
   if ($sub_page_ids) {

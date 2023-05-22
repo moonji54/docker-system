@@ -20,7 +20,7 @@ Host nrgi-staging-cloudelligent
    IdentityAgent ~/.1password/agent.sock
 ```
 
-## Export database
+## Export database and import locally
 
 on application server:
 
@@ -46,7 +46,7 @@ gunzip ~/temp/nrgi/nrgi_staging.sql.gz
 Replace all `utf8mb4_0900_ai_ci` with `utf8mb4_unicode_ci`:
 
 ```bash
-sed -i '' 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_ci/g' nrgi_staging.sql
+sed -i '' 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_ci/g' ~/temp/nrgi/nrgi_staging.sql
 ```
 
 DDEV import as usual on your local container:
@@ -55,7 +55,7 @@ DDEV import as usual on your local container:
 ddev import-db --src ~/temp/nrgi/nrgi_staging.sql
 ```
 
-## Import database
+## Import database on staging environement
 
 Un-archive database:
 
@@ -82,13 +82,15 @@ Login to browserless.io and copy the API key from the dashboard.
 Client's $settings['browserless_api_key'] is already added into settings.php
 Start NGROK to provide a public URL for your local ddev share
 
-Copy the URL to your settings.local.php, eg 
+Copy the URL to your settings.local.php, eg
+
 ```bash
 $settings['ngrok_url'] = 'https://be3c-87-224-41-135.ngrok-free.app';
 ````
 
 If your site has $settings['trusted_host_patterns'] (hosting dependant), add your ngrox URL via settings.local.php,
-eg 
+eg
+
 ```bash
 $settings['trusted_host_patterns'][] = '^be3c\-87\-224\-41\-135\.ngrok\-free\.app$'
 ```
