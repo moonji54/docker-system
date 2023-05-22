@@ -807,10 +807,15 @@ class MetadataHelperService {
         $end_minutes = $end_date->format('i');
         $end_pm_am = $end_date->format('A');
 
-        $variables['start_time'] = t('Starting') . ' ' . $start_hour
-                                   . ':' . $start_minutes . $start_pm_am . ' ';
-        $variables['end_time'] = t('Ending') . ' ' . $end_hour . ':'
-                                 . $end_minutes . $end_pm_am;
+        $hide_times = ($node->hasField('field_hide_times')
+                       && $node->get('field_hide_times')->value);
+
+        if (!$hide_times) {
+          $variables['start_time'] = t('Starting') . ' ' . $start_hour
+                                     . ':' . $start_minutes . $start_pm_am . ' ';
+          $variables['end_time'] = t('Ending') . ' ' . $end_hour . ':'
+                                   . $end_minutes . $end_pm_am;
+        }
 
         if ($end_year > $start_year) {
           $date .= ' ' . $start_year . '–' . $end_day . ' ' . $end_month
@@ -821,8 +826,8 @@ class MetadataHelperService {
 
         }
 
-        if ($start_date->format('d-m-y') ==
-            $end_date->format('d-m-y')) {
+        if (!$hide_times && ($start_date->format('d-m-y') ==
+            $end_date->format('d-m-y'))) {
           $date = $start_day . ' ' . $start_month . ' ' . $start_year;
           $variables['header_start_time'] = $start_hour . ':' . $start_minutes
                                             . $start_pm_am;

@@ -19,6 +19,7 @@ dependencies:
     - field.field.node.event.field_expertise_required
     - field.field.node.event.field_featured_image
     - field.field.node.event.field_format
+    - field.field.node.event.field_hide_times
     - field.field.node.event.field_keywords
     - field.field.node.event.field_open_registration
     - field.field.node.event.field_organizing_partner
@@ -164,6 +165,7 @@ third_party_settings:
         required_fields: true
     group_date:
       children:
+        - field_hide_times
         - field_start_date
         - field_end_date
         - field_time_zone
@@ -268,9 +270,9 @@ third_party_settings:
       children:
         - group_topic
         - group_keywords
-        - group_series
         - group_country
         - group_region
+        - group_series
       label: 'Taxonomies Tabs'
       region: content
       parent_name: group_taxonomies
@@ -552,7 +554,7 @@ content:
     third_party_settings: {  }
   field_days_of_the_week:
     type: options_buttons
-    weight: 120
+    weight: 141
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -565,7 +567,7 @@ content:
     third_party_settings: {  }
   field_end_date:
     type: datetime_default
-    weight: 118
+    weight: 139
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -642,6 +644,13 @@ content:
     weight: 120
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_hide_times:
+    type: boolean_checkbox
+    weight: 137
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_keywords:
     type: entity_reference_autocomplete
@@ -775,7 +784,7 @@ content:
     third_party_settings: {  }
   field_start_date:
     type: datetime_default
-    weight: 117
+    weight: 138
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -807,7 +816,7 @@ content:
     third_party_settings: {  }
   field_time_zone:
     type: string_textfield
-    weight: 119
+    weight: 140
     region: content
     settings:
       size: 5

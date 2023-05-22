@@ -121,7 +121,8 @@
           {% for field in meta_data.career_opportunity.header %}
             {% for item in field %}
               {% if item.url %}
-                <li class="c-single-header__meta-item"><a class="c-single-header__meta-link" href="{{ item.url }}">{{ item.title|trim }}</a></li>
+                <li class="c-single-header__meta-item"><a class="c-single-header__meta-link"
+                                                          href="{{ item.url }}">{{ item.title|trim }}</a></li>
               {% endif %}
             {% endfor %}
           {% endfor %}
@@ -129,26 +130,27 @@
 
         {% if node.bundle == 'event' %}
           {% if header_start_time %}
-            <li class="c-single-header__meta-item">
-              {# If daily event #}
-              <p class="c-single-header__date">
-                {% if end_time %}
+            {% if end_time %}
+              <li class="c-single-header__meta-item">
+                {# If daily event #}
+                <p class="c-single-header__date">
                   {{ end_time }}
-                {% endif %}
-                {% if timezone %}
-                  {{ timezone }}
-                {% endif %}
-              </p>
-            </li>
+                  {% if timezone %}
+                    {{ timezone }}
+                  {% endif %}
+                </p>
+              </li>
+            {% endif %}
           {% else %}
             {# Not daily event #}
-            <li class="c-single-header__meta-item">
-              <p class="c-single-header__date">
-                {% if start_time %}
+            {% if start_time %}
+              <li class="c-single-header__meta-item">
+                <p class="c-single-header__date">
                   {{ start_time }}
-                {% endif %}
-              </p>
-            </li>
+
+                </p>
+              </li>
+            {% endif %}
             {% if end_time %}
               <li class="c-single-header__meta-item">
                 <p class="c-single-header__date">

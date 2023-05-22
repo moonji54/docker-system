@@ -1,0 +1,23 @@
+uuid: fe2f28c9-e338-4f45-a090-4c6bb7c8d80d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hide_times
+    - node.type.event
+id: node.event.field_hide_times
+field_name: field_hide_times
+entity_type: node
+bundle: event
+label: 'Hide times'
+description: 'Hide start and end time from the frontend.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
