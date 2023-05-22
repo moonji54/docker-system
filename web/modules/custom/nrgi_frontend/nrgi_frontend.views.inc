@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Form\FormState;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ViewExecutable;
 
 /**
