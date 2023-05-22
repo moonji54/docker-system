@@ -795,7 +795,7 @@ display:
           exposed: true
           expose:
             operator_id: field_resource_type_target_id_op
-            label: 'Resource type'
+            label: 'News type'
             description: ''
             use_operator: false
             operator: field_resource_type_target_id_op
@@ -1184,7 +1184,7 @@ display:
           exposed: true
           expose:
             operator_id: field_resource_type_target_id_op
-            label: 'Resource type'
+            label: 'News type'
             description: ''
             use_operator: false
             operator: field_resource_type_target_id_op
