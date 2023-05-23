@@ -119,7 +119,7 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
           }
         };
         // How long we will wait for paged.js to finish render (in seconds).
-        $paged_wait = 30;
+        $paged_wait = 60;
         // Run rendering checked function with helper method,
         // to limit max execution time.
         Utils::tryWithTimeout($paged_wait * 1000000, $callable());
