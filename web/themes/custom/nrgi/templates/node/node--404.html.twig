@@ -5,8 +5,39 @@
 <article{{ attributes.addClass(classes) }}>
 
   {# Landing/listing banner #}
-  {% include '@nrgi/node-partials/node--page-header.html.twig' %}
+  {% include '@nrgi/node-partials/node--page-header.html.twig' with {
+    show_share_links : false,
+    label : 'Page not found',
+  } %}
 
   {# Body #}
-  {% include '@nrgi/node-partials/node--body.html.twig' %}
+  <section class="o-section o-content-from-editor">
+    <div class="o-container">
+      <p>This might be because:</p>
+
+      <ul>
+        <li>You have typed the web address incorrectly, or</li>
+
+        <li>the page you were looking for may have been moved, updated or deleted.</li>
+      </ul>
+
+      <p> Please try the following options instead:</p>
+
+      <ul>
+        <li>Use the search box above to see if it's available elsewhere</li>
+
+        <li>Try one of the links at the top of the page</li>
+      </ul>
+    </div>
+  </section>
+
+
+  {#  This might be because: #}
+
+  {#  You have typed the web address incorrectly, or #}
+  {#  the page you were looking for may have been moved, updated or deleted. #}
+  {#  Please try the following options instead: #}
+
+  {#  Use the search box above to see if it's available elsewhere #}
+  {#  Try one of the links at the top of the page #}
 </article>
