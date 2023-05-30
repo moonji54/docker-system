@@ -27,6 +27,10 @@
                 {% else %}
                   {{ author.firstname ~ ' ' ~ author.surname }}
                 {% endif %}
+
+                {% if author.is_external %}
+                  {% include '@nrgi/svg/svg.html.twig' with {'svg': 'external', 'extra_class': 'c-card__external-icon' } %}
+                {% endif %}
               </h3>
 
               {% if author.job_title %}
