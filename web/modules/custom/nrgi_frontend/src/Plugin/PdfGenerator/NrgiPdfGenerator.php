@@ -173,11 +173,6 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
    *   Websocket uri string.
    */
   protected function getBrowserSocketUri(): string {
-    if ($this->isDdev()) {
-      // Use local chrome on local environments,
-      // See README.md for details how to set up this.
-      return 'ws://chromedriver:3000/webdriver';
-    }
     // Use browserless.io cloud browser as fallback.
     $api_key = $this->settings->get('browserless_api_key');
     return 'wss://chrome.browserless.io/webdriver?token=' . $api_key;
