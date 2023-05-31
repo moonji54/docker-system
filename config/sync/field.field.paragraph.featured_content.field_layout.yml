@@ -12,7 +12,7 @@ bundle: featured_content
 label: 'Layout - items per row'
 description: 'Select the number of items per row.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

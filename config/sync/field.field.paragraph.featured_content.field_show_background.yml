@@ -12,7 +12,7 @@ bundle: featured_content
 label: 'With background'
 description: 'Whether to apply a grey background to the featured content section.'
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: 0

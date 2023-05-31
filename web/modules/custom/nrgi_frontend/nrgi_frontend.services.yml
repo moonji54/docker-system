@@ -9,18 +9,22 @@ services:
 
   nrgi_frontend.paragraph_featured_content_helper:
     class: Drupal\nrgi_frontend\Services\NrgiFeaturedContentHelperService
-    arguments: [ '@entity_type.manager', '@renderer', '@nrgi_frontend.paragraph_button_link_helper' ]
+    arguments: [ '@entity_type.manager', '@renderer', '@language_manager', '@nrgi_frontend.paragraph_button_link_helper' ]
 
   nrgi_frontend.paragraph_featured_pages_helper:
     class: Drupal\nrgi_frontend\Services\NrgiFeaturedPagesHelperService
-    arguments: [ '@entity_type.manager', '@renderer', '@nrgi_frontend.paragraph_button_link_helper' ]
+    arguments: [ '@entity_type.manager', '@renderer', '@language_manager', '@nrgi_frontend.paragraph_button_link_helper' ]
 
   nrgi_frontend.paragraph_featured_people_helper:
     class: Drupal\nrgi_frontend\Services\NrgiFeaturedPeopleHelperService
-    arguments: [ '@entity_type.manager', '@renderer', '@nrgi_frontend.paragraph_button_link_helper' ]
+    arguments: [ '@entity_type.manager', '@renderer', '@language_manager', '@nrgi_frontend.paragraph_button_link_helper' ]
 
   nrgi_frontend.responsive_image_helper:
     class: Drupal\nrgi_frontend\Services\NrgiResponsiveImageHelperService
+    arguments: [ '@entity_type.manager', '@renderer' ]
+
+  nrgi_frontend.sub_pages:
+    class: Drupal\nrgi_frontend\Services\NrgiSubPagesHelperService
     arguments: [ '@entity_type.manager', '@renderer' ]
 
   nrgi_frontend.translation_helper:

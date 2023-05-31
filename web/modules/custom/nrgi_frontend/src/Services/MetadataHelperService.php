@@ -229,13 +229,11 @@ class MetadataHelperService {
       $variables
     );
 
-    if ($node->bundle() != 'career_opportunity') {
-      $this->preprocessGeneralMetadata(
-        $node,
-        $this->metadataFieldNames['all']['taxonomies'],
-        $variables
-      );
-    }
+    $this->preprocessGeneralMetadata(
+      $node,
+      $this->metadataFieldNames['all']['taxonomies'],
+      $variables
+    );
   }
 
   /**
@@ -434,22 +432,43 @@ class MetadataHelperService {
             break;
 
           case 'string':
-            if ($title_field = $node->get($metadata_field_name)->first()) {
-              if ($title_field instanceof StringItem && !empty($title_field->value)) {
-                $label = match ($title_field->getFieldDefinition()->getName()) {
-                  'field_photo_caption' => t('Top image'),
-                  'field_publisher' => t('Publisher'),
-                  default => $title_field->getFieldDefinition()->getLabel(),
-                };
-                $metadata[] = [
-                  'label' => $label,
-                  'items' => [
-                    [
+            if ($title_field = $node->get($metadata_field_name)) {
+              if ($title_field instanceof FieldItemList) {
+                if ($title_field->count() > 1) {
+                  $label = $title_field->getFieldDefinition()->getLabel();
+                  foreach ($title_field as $item) {
+                    $items[] = [
                       'type' => 'text',
-                      'title' => $title_field->value,
-                    ],
-                  ],
-                ];
+                      'title' => $item->value,
+                    ];
+                  }
+                  $metadata[] = [
+                    'label' => $label,
+                    'items' => $items,
+                  ];
+                }
+                else {
+                  if ($title_field = $title_field->first()) {
+                    if ($title_field instanceof StringItem && !empty($title_field->value)) {
+                      $label = match ($title_field->getFieldDefinition()
+                        ->getName()) {
+                        'field_photo_caption' => t('Top image'),
+                        'field_publisher' => t('Publisher'),
+                        default => $title_field->getFieldDefinition()
+                          ->getLabel(),
+                      };
+                      $metadata[] = [
+                        'label' => $label,
+                        'items' => [
+                          [
+                            'type' => 'text',
+                            'title' => $title_field->value,
+                          ],
+                        ],
+                      ];
+                    }
+                  }
+                }
               }
             }
             break;
@@ -807,10 +826,15 @@ class MetadataHelperService {
         $end_minutes = $end_date->format('i');
         $end_pm_am = $end_date->format('A');
 
-        $variables['start_time'] = t('Starting') . ' ' . $start_hour
-                                   . ':' . $start_minutes . $start_pm_am . ' ';
-        $variables['end_time'] = t('Ending') . ' ' . $end_hour . ':'
-                                 . $end_minutes . $end_pm_am;
+        $hide_times = ($node->hasField('field_hide_times')
+                       && $node->get('field_hide_times')->value);
+
+        if (!$hide_times) {
+          $variables['start_time'] = t('Starting') . ' ' . $start_hour
+                                     . ':' . $start_minutes . $start_pm_am . ' ';
+          $variables['end_time'] = t('Ending') . ' ' . $end_hour . ':'
+                                   . $end_minutes . $end_pm_am;
+        }
 
         if ($end_year > $start_year) {
           $date .= ' ' . $start_year . '–' . $end_day . ' ' . $end_month
@@ -821,8 +845,8 @@ class MetadataHelperService {
 
         }
 
-        if ($start_date->format('d-m-y') ==
-            $end_date->format('d-m-y')) {
+        if (!$hide_times && ($start_date->format('d-m-y') ==
+                             $end_date->format('d-m-y'))) {
           $date = $start_day . ' ' . $start_month . ' ' . $start_year;
           $variables['header_start_time'] = $start_hour . ':' . $start_minutes
                                             . $start_pm_am;

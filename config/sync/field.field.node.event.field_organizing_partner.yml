@@ -9,7 +9,7 @@ id: node.event.field_organizing_partner
 field_name: field_organizing_partner
 entity_type: node
 bundle: event
-label: 'Organizing partner'
+label: Organizers
 description: 'Add the name, title and organization of any instructors not affiliated with NRGI. '
 required: false
 translatable: true

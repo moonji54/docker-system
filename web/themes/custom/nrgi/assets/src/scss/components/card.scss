@@ -188,6 +188,10 @@
     #{$c}__title {
       @include ts-card($small : true);
     }
+
+    #{$c}__external-icon {
+      margin-top : 0.25rem;
+    }
   }
 
   &--listing {

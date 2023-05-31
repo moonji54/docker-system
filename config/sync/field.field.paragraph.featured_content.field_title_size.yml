@@ -14,7 +14,7 @@ bundle: featured_content
 label: 'Title size'
 description: 'Select the size of this section''s title.'
 required: true
-translatable: false
+translatable: true
 default_value:
   -
     value: big

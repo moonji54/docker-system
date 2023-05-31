@@ -1,0 +1,17 @@
+{% set classes = [
+  'c-node',
+  'c-node--type-' ~ node.bundle|clean_class,
+] %}
+<article{{ attributes.addClass(classes) }}>
+  {#  Heading #}
+  {% include '@nrgi/node-partials/node--page-header.html.twig' with {
+    show_share_links : false,
+    label : '403 error',
+  } %}
+
+  <section class="o-section o-content-from-editor">
+    <div class="o-container">
+      <p>You do not have permission to view this page</p>
+    </div>
+  </section>
+</article>

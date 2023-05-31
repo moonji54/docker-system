@@ -50,14 +50,14 @@ class NrgiTranslationHelperService {
    */
   public function getLanguageSwitcherLinks(
     NodeInterface $node,
-    bool $asymmetrical = FALSE,
-    string $manual_translations_field_name = ''): array {
+    bool          $asymmetrical = FALSE,
+    string        $manual_translations_field_name = ''): array {
 
     $links = [];
 
     if ($asymmetrical) {
       if ($node->hasField($manual_translations_field_name)
-          && $manual_translations_field = $node->get($manual_translations_field_name)) {
+        && $manual_translations_field = $node->get($manual_translations_field_name)) {
         if ($manual_translations_field instanceof EntityReferenceFieldItemListInterface) {
           /** @var \Drupal\Core\Entity\EntityInterface[] $manual_translations_nodes */
           $manual_translations_nodes = $manual_translations_field->referencedEntities();
@@ -66,7 +66,7 @@ class NrgiTranslationHelperService {
             if ($language->getId() !== $node->language()->getId()) {
               $links[] = [
                 'title' => $language->getName(),
-                'url' => $manual_translations_node->toUrl()->toString(),
+                'url'   => $manual_translations_node->toUrl()->toString(),
               ];
             }
           }
@@ -81,7 +81,7 @@ class NrgiTranslationHelperService {
         if ($language->getId() != $node->language()->getId()) {
           $links[] = [
             'title' => $language->getName(),
-            'url' => $node->getTranslation($language->getId())
+            'url'   => $node->getTranslation($language->getId())
               ->toUrl()
               ->toString(),
           ];
@@ -103,14 +103,14 @@ class NrgiTranslationHelperService {
    */
   public function getCardAvailableLanguagesString(NodeInterface $node) {
     $available_translations_string = '';
-    $languages = $node->getTranslationLanguages();
-    $available_langcodes = count(array_keys($languages)) > 1 ? array_keys($languages) : [];
+    $languages                     = $node->getTranslationLanguages();
+    $available_langcodes           = count(array_keys($languages)) > 1 ? array_keys($languages) : [];
 
     if ($available_langcodes) {
       $available_translations_string .= t('Also in');
-      $i = 0;
+      $i                             = 0;
       foreach ($available_langcodes as $available_langcode) {
-        if ($i > 0) {
+        if ($i > 0 && $available_langcode != $node->language()->getId()) {
           $available_translations_string .= ',';
         }
         if ($available_langcode != $node->language()->getId()) {

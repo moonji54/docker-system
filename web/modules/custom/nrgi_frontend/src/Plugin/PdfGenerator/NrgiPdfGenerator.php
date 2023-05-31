@@ -52,17 +52,23 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
   public function generatePdf(string $page_url, string $output_file_uri, array $options = []): void {
     if ($this->isDdev()) {
       $site_host = \Drupal::request()->getSchemeAndHttpHost();
-      if (str_contains($page_url, $site_host)) {
-        // If we are on local env and requesting
-        // to generate internal page, then replace current host
-        // with web container name for proper docker networking.
-        $page_url = str_replace($site_host, 'http://web', $page_url);
+      $settings = \Drupal::service('settings');
+      $ngrok_host = $settings->get('ngrok_url');
+      if ($ngrok_host) {
+        // Use the ngrok URL when using DDEV Local.
+        $page_url = str_replace($site_host, $ngrok_host, $page_url);
+      }
+      else {
+        // Local developer help message.
+        $message = t('Please see project README.md for how to set up ngrok for testing PDF generation locally in DDEV.');
+        \Drupal::messenger()->addWarning($message);
       }
     }
 
     try {
       // Open new tab.
       $page = $this->getBrowser()->createPage();
+      $page->setUserAgent('custom user agent');
 
       /*
        * Rewrite since this will be closed:
@@ -113,7 +119,7 @@ class NrgiPdfGenerator extends DefaultPdfGenerator {
           }
         };
         // How long we will wait for paged.js to finish render (in seconds).
-        $paged_wait = 30;
+        $paged_wait = 60;
         // Run rendering checked function with helper method,
         // to limit max execution time.
         Utils::tryWithTimeout($paged_wait * 1000000, $callable());

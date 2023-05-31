@@ -3,6 +3,7 @@
 namespace Drupal\nrgi_frontend;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Language\LanguageManager;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\node\NodeInterface;
 use Drupal\nrgi_frontend\Services\NrgiParagraphButtonLinkHelperService;
@@ -26,6 +27,13 @@ class NrgiFeaturedCardsBase {
    * @var \Drupal\Core\Render\RendererInterface
    */
   protected RendererInterface $renderer;
+
+  /**
+   * The language manager service.
+   *
+   * @var \Drupal\Core\Language\LanguageManager
+   */
+  protected LanguageManager $languageManager;
 
   /**
    * The paragraph button link helper service.
@@ -167,11 +175,13 @@ class NrgiFeaturedCardsBase {
   public function __construct(
     EntityTypeManagerInterface $entity_type_manager,
     RendererInterface $renderer,
+    LanguageManager $language_manager,
     NrgiParagraphButtonLinkHelperService $paragraph_button_link_helper_service
   ) {
 
     $this->entityTypeManager = $entity_type_manager;
     $this->renderer = $renderer;
+    $this->languageManager = $language_manager;
     $this->paragraphButtonLinkHelperService = $paragraph_button_link_helper_service;
   }
 

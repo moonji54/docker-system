@@ -20,7 +20,7 @@ Host nrgi-staging-cloudelligent
    IdentityAgent ~/.1password/agent.sock
 ```
 
-## Export database
+## Export database and import locally
 
 on application server:
 
@@ -46,7 +46,7 @@ gunzip ~/temp/nrgi/nrgi_staging.sql.gz
 Replace all `utf8mb4_0900_ai_ci` with `utf8mb4_unicode_ci`:
 
 ```bash
-sed -i '' 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_ci/g' nrgi_staging.sql
+sed -i '' 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_ci/g' ~/temp/nrgi/nrgi_staging.sql
 ```
 
 DDEV import as usual on your local container:
@@ -55,7 +55,7 @@ DDEV import as usual on your local container:
 ddev import-db --src ~/temp/nrgi/nrgi_staging.sql
 ```
 
-## Import database
+## Import database on staging environement
 
 Un-archive database:
 
@@ -76,29 +76,23 @@ mysql -h nrgi-website-dev.co1xvf1mjdfa.us-east-1.rds.amazonaws.com -u nrgi_dev -
 
 ## Local setup
 
-The custom NRGI plugin makes the PDF generation ready to work on your local env without usiong ```ddev share```.
-You just need to create additional service in your DDEV setup.
+Local setup for PDF generation in DDEV.
 
-Please create file "{PROJECT_ROOT}/.ddev/docker-compose.chromedriver.yml" with contents:
+Login to browserless.io and copy the API key from the dashboard.
+Client's $settings['browserless_api_key'] is already added into settings.php
+Start NGROK to provide a public URL for your local ddev share
 
-```yaml
-version: '3.6'
-services:
-  chromedriver:
-    container_name: ddev-${DDEV_SITENAME}-chromedriver
-    image: browserless/chrome:latest
-    labels:
-      # These labels ensure this service is discoverable by ddev
-      com.ddev.site-name: ${DDEV_SITENAME}
-      com.ddev.approot: $DDEV_APPROOT
-    external_links:
-      - ddev-router:${DDEV_SITENAME}.${DDEV_TLD}
-  # This links the Chromedriver service to the web service defined
-  # in the main docker-compose.yml, allowing applications running
-  # in the web service to access the driver at `chromedriver`.
-  web:
-    links:
-      - chromedriver:$DDEV_HOSTNAME
+Copy the URL to your settings.local.php, eg
+
+```bash
+$settings['ngrok_url'] = 'https://be3c-87-224-41-135.ngrok-free.app';
+````
+
+If your site has $settings['trusted_host_patterns'] (hosting dependant), add your ngrox URL via settings.local.php,
+eg
+
+```bash
+$settings['trusted_host_patterns'][] = '^be3c\-87\-224\-41\-135\.ngrok\-free\.app$'
 ```
 
-Then run ```ddev restart``` and new service with headless Chrome browser will be launched.
+Run the PDF generation script.

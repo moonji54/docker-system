@@ -19,6 +19,7 @@ dependencies:
     - field.field.node.event.field_expertise_required
     - field.field.node.event.field_featured_image
     - field.field.node.event.field_format
+    - field.field.node.event.field_hide_times
     - field.field.node.event.field_keywords
     - field.field.node.event.field_open_registration
     - field.field.node.event.field_organizing_partner
@@ -188,6 +189,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 39
+    region: content
+  field_hide_times:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 54
     region: content
   field_keywords:
     type: entity_reference_label
