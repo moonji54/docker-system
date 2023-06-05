@@ -642,9 +642,28 @@
   scroll-margin-top: 4rem;
 }
 .o-content-from-editor .standfirst {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.5;
   color: #00545A;
   margin-top: var(--space-3xl);
   /* stylelint-disable-next-line */
+}
+@media (max-width: 94.5rem) {
+  .o-content-from-editor .standfirst {
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 64rem) {
+  .o-content-from-editor .standfirst {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 48rem) {
+  .o-content-from-editor .standfirst {
+    font-size: 1.125rem;
+  }
 }
 .o-content-from-editor .standfirst > * {
   font-family: "Cabinet Grotesk", sans-serif;
@@ -878,5 +897,6 @@
 
 .cke_editable .boxed-text {
   background-color: #B3EFEF;
+  margin-top: 8px;
   padding: 12px;
 }

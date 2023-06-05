@@ -2,6 +2,10 @@
   'c-page-header'
 ] %}
 
+ {% if(show_share_links is null) %}
+   {% set show_share_links = true %}
+ {% endif %}
+
 <section {{ attributes.addClass(classes) }}>
   {# Image #}
   {% if content.field_featured_image|field_value %}
@@ -49,9 +53,11 @@
       {% endif %}
 
       {# Share links #}
-      <div class="c-page-header__share-links">
-        {% include '@nrgi/node-partials/node--share-links.html.twig' %}
-      </div>
+      {% if show_share_links %}
+        <div class="c-page-header__share-links">
+          {% include '@nrgi/node-partials/node--share-links.html.twig' %}
+        </div>
+      {% endif %}
     </aside>
   </div>
 </section>

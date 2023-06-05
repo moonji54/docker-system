@@ -1663,6 +1663,9 @@ ul li a:hover {
     font-size: 1.25rem;
   }
 }
+.c-card--person .c-card__external-icon {
+  margin-top: 0.25rem;
+}
 .c-card--listing {
   display: grid;
   grid-column-gap: var(--gutter);
@@ -5143,6 +5146,7 @@ ul li a:hover {
 
 .cke_editable .boxed-text {
   background-color: #B3EFEF;
+  margin-top: 8px;
   padding: 12px;
 }
 
