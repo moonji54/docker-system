@@ -15,8 +15,8 @@ settings:
       value: article
       label: Article
     -
-      value: carreer_opportunity
-      label: 'Carrer Opportunity'
+      value: career_opportunity
+      label: 'Career Opportunity'
     -
       value: event
       label: Event
