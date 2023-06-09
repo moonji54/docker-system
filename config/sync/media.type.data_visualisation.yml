@@ -12,7 +12,7 @@ third_party_settings:
     image_field: null
 id: data_visualisation
 label: 'Data visualisation'
-description: "A remotely hosted data visualisation item from everviz, Flourish or Infogram.\t\r\n"
+description: "A remotely hosted data visualisation item from everviz, Flourish, Datawrapper or Infogram.\t\r\n"
 source: 'oembed:data_vis'
 queue_thumbnail_downloads: false
 new_revision: false
@@ -20,6 +20,7 @@ source_configuration:
   source_field: field_media_oembed_data_vis
   thumbnails_directory: 'public://oembed_thumbnails/[date:custom:Y-m]'
   providers:
+    - Datawrapper
     - Flourish
     - Infogram
 field_map: {  }
