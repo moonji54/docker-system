@@ -14,4 +14,27 @@
 
   {# Body #}
   {% include '@nrgi/node-partials/node--body.html.twig' %}
+
+  {% set listing_results = drupal_view_result('contextual_views', 'country_content', node.id)|length %}
+
+  {% if listing_results > 0 %}
+    {% set listing = drupal_view('contextual_views', 'country_content', node.id) %}
+    <section class="o-section">
+      <div class="o-container">
+        {% if content.field_title|field_value %}
+          <header class="o-section__header">
+            {% if content.field_contributions_title|field_value %}
+              <h2 class="o-section__heading">{{ content.field_contributions_title }}</h2>
+            {% endif %}
+
+            {% if content.field_contributions_description|field_value %}
+              <p class="o-section__description">{{ content.field_contributions_description }}</p>
+            {% endif %}
+          </header>
+        {% endif %}
+      </div>
+
+      {{ listing }}
+    </section>
+  {% endif %}
 </article>

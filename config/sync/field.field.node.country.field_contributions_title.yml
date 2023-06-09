@@ -1,0 +1,19 @@
+uuid: 2f30eb7b-634c-4c1b-8db6-17d5a9843b47
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contributions_title
+    - node.type.country
+id: node.country.field_contributions_title
+field_name: field_contributions_title
+entity_type: node
+bundle: country
+label: 'Country content title'
+description: 'The section title used for the automatically attached listing of country content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

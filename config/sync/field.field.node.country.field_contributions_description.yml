@@ -1,0 +1,19 @@
+uuid: ca8758bc-b92d-487e-9993-72c6dce75b1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contributions_description
+    - node.type.country
+id: node.country.field_contributions_description
+field_name: field_contributions_description
+entity_type: node
+bundle: country
+label: 'Country content section description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
