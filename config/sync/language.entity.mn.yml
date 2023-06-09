@@ -3,7 +3,7 @@ langcode: mn
 status: true
 dependencies: {  }
 id: mn
-label: 'Монгол Хэл'
+label: 'Монгол хэл'
 direction: ltr
 weight: 4
 locked: false
