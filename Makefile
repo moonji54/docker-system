@@ -5,7 +5,7 @@ setup-production:
 # Enable development modules.
 setup-dev:
 	ddev exec drush pm-enable devel, stage_file_proxy -y
-	ddev exec drush config-set stage_file_proxy.settings origin "https://SBTODO.com" -y
+	ddev exec drush config-set stage_file_proxy.settings origin "https://development.resourcegovernance.org" -y
 
 # Remove git subrepos.
 post-composer-pantheon:
