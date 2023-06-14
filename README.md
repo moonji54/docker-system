@@ -46,7 +46,7 @@ gunzip ~/temp/nrgi/nrgi_staging.sql.gz
 Replace all `utf8mb4_0900_ai_ci` with `utf8mb4_unicode_ci`:
 
 ```bash
-sed -i '' 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_ci/g' ~/temp/nrgi/nrgi_staging.sql
+sed -i 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_ci/g' ~/temp/nrgi/nrgi_staging.sql
 ```
 
 DDEV import as usual on your local container:
